@@ -1,0 +1,1402 @@
+{
+  "common": {
+    "loading": "Ladataan…",
+    "save": "Tallenna",
+    "cancel": "Peruuta",
+    "close": "Sulje",
+    "back": "Takaisin",
+    "open": "Avaa",
+    "search": "Hae",
+    "actions": "Toiminnot",
+    "yes": "Kyllä",
+    "no": "Ei",
+    "all": "Kaikki",
+    "none": "Ei mitään",
+    "language": "Kieli",
+    "submit": "Lähetä",
+    "send": "Lähetä",
+    "confirm": "Vahvista",
+    "delete": "Poista",
+    "edit": "Muokkaa",
+    "view": "Näytä",
+    "download": "Lataa",
+    "upload": "Lähetä",
+    "next": "Seuraava",
+    "previous": "Edellinen",
+    "from": "Lähettäjä",
+    "to": "Vastaanottaja",
+    "amount": "Summa",
+    "date": "Päivä",
+    "status": "Tila",
+    "details": "Tiedot",
+    "optional": "valinnainen",
+    "required": "vaaditaan",
+    "refresh": "Päivitä",
+    "viewAll": "Näytä kaikki",
+    "new": "Uusi",
+    "saving": "Tallennetaan…",
+    "sending": "Lähetetään…",
+    "updating": "Päivitetään…",
+    "loadError": "Latausvirhe",
+    "sessionExpired": "Istunto vanheni",
+    "notFound": "Sivua ei löydy",
+    "notFoundDesc": "Etsimääsi sivua ei ole olemassa.",
+    "backHome": "Takaisin etusivulle"
+  },
+  "header": {
+    "myLoans": "Lainani",
+    "newLoan": "Hae lainaa",
+    "dashboard": "Hallintapaneeli",
+    "admin": "Admin",
+    "settings": "Asetukset",
+    "signOut": "Kirjaudu ulos",
+    "signIn": "Kirjaudu",
+    "contact": "Yhteystiedot",
+    "menu": "Valikko"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No notifications",
+    "markAllRead": "Mark all read",
+    "pageTitle": "All notifications",
+    "noLink": "No link",
+    "allRead": "All caught up",
+    "viewAll": "View all notifications"
+  },
+  "auth": {
+    "title": "Client area",
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Full name",
+    "phone": "Phone",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "No account yet?",
+    "hasAccount": "Already have an account?",
+    "createAccount": "Create my account",
+    "loginSuccess": "Successfully signed in",
+    "signupSuccess": "Account created · check your inbox",
+    "backHome": "Back to home",
+    "brandBadge": "Secure digital bank",
+    "creating": "Creating account…",
+    "decision": "Decision within 24 business hours",
+    "google": "Continue with Google",
+    "googleError": "Unable to sign in with Google",
+    "googleLoading": "Signing in with Google…",
+    "minPasswordHint": "At least 8 characters.",
+    "mobileHint": "Sign in or create your account",
+    "rgpd": "GDPR compliant",
+    "signingIn": "Signing in…",
+    "terms": "By continuing, you accept our Terms and Privacy Policy.",
+    "tls": "TLS 1.3 encryption",
+    "welcomeDesc": "Access your loans, transfers and premium services securely.",
+    "welcomeTitle": "Welcome to",
+    "nameShort": "Name too short",
+    "phoneInvalid": "Invalid phone number",
+    "emailInvalid": "Invalid email",
+    "passwordMin": "Password must be at least 8 characters",
+    "passwordRequired": "Salasana vaaditaan",
+    "invalidCredentials": "Virheelliset tunnistetiedot",
+    "connectedToast": "Kirjautuminen onnistui",
+    "emailAlreadyUsed": "Sähköposti on jo käytössä",
+    "accountCreated": "Tili luotu onnistuneesti",
+    "emailLabel": "Sähköposti",
+    "passwordLabel": "Salasana",
+    "fullNameLabel": "Koko nimi",
+    "phoneLabel": "Puhelin",
+    "tabSignin": "Kirjaudu sisään",
+    "tabSignup": "Luo tili",
+    "forgotLink": "Unohditko salasanasi?",
+    "forgotTitle": "Palauta salasanasi",
+    "forgotDesc": "Anna sähköpostiosoitteesi. Lähetämme sinulle suojatun linkin uuden salasanan asettamiseksi.",
+    "forgotSend": "Lähetä linkki",
+    "forgotSent": "Jos tili on olemassa, sähköposti on lähetetty.",
+    "resetTitle": "Aseta uusi salasana",
+    "resetWaiting": "Palautuslinkkiä vahvistetaan…",
+    "resetSuccess": "Salasana päivitetty onnistuneesti.",
+    "newPassword": "Uusi salasana",
+    "confirmNewPassword": "Vahvista salasana",
+    "updatePassword": "Päivitä salasana"
+  },
+  "dashboard": {
+    "title": "Oma hallintapaneeli",
+    "welcome": "Hei",
+    "balance": "Käytettävissä oleva saldo",
+    "showBalance": "Näytä saldo",
+    "hideBalance": "Piilota saldo",
+    "newLoan": "Uusi laina",
+    "withdraw": "Nosta",
+    "transfer": "Tee siirto",
+    "myLoans": "Omat lainat",
+    "transferHistory": "Siirtohistoria",
+    "noLoans": "Sinulla ei ole vielä lainaa",
+    "startApplication": "Aloita hakemus",
+    "noTransfers": "Ei siirtoja",
+    "viewLoan": "Näytä tiedosto",
+    "needHelp": "Tarvitsetko apua?",
+    "contactSupport": "Ota yhteyttä asiakaspalveluun",
+    "metaTitle": "Oma hallintapaneeli — BNP PARIBAS",
+    "sessionExpired": "Istunto vanhentui toimettomuuden vuoksi",
+    "loadError": "Latausvirhe",
+    "welcomeNamed": "Tervetuloa, {{name}}",
+    "welcomeAnon": "Tervetuloa",
+    "totalAvailable": "Käytettävissä oleva kokonaissaldo",
+    "fundedOutOf": "{{amount}} rahoitetusta",
+    "withdrawnAmount": "{{amount}} nostettu",
+    "newShort": "+ Uusi",
+    "activeLoans": "Aktiiviset lainat",
+    "totalFunded": "Rahoitettu yhteensä",
+    "transfers": "Siirrot",
+    "loading": "Ladataan…",
+    "firstLoanTitle": "Aloita ensimmäinen hakemuksesi",
+    "firstLoanDesc": "Rahoita projektisi minuuteissa: auto, remontti, kassavirta tai mikä tahansa muu tarve.",
+    "apply": "Hae nyt",
+    "loanDurationCreated": "{{months}} kuukautta · Pyydetty {{date}}",
+    "disbursedRemaining": "Maksettu: {{disbursed}} · Jäljellä: {{remaining}}",
+    "recentActivity": "Viimeaikainen toiminta",
+    "viewAll": "Näytä kaikki",
+    "noRecentTransfers": "Ei siirtoja vielä",
+    "status": {
+      "en_traitement": "Käsittelyssä",
+      "envoye": "Lähetetty",
+      "rejete": "Hylätty"
+    },
+    "welcomeShort": "Tervetuloa",
+    "myDashboard": "Oma hallintapaneeli",
+    "newRequest": "Uusi pyyntö",
+    "fundedOf": "{{amount}} rahoitetusta",
+    "makeTransfer": "Tee siirto",
+    "transfersKpi": "Siirrot",
+    "applyCta": "Hae nyt",
+    "monthsSince": "{{months}} kuukautta · Pyydetty {{date}}",
+    "details": "Tiedot",
+    "noTransfersYet": "Ei siirtoja vielä"
+  },
+  "loanForm": {
+    "title": "Uusi lainahakemus",
+    "subtitle": "Täytä lomake ja liitä asiakirjasi.",
+    "fullName": "Koko nimi",
+    "email": "Sähköposti",
+    "amount": "Pyydetty summa (€)",
+    "duration": "Kesto (kuukausia)",
+    "monthlyIncome": "Nettokuukausitulot (€)",
+    "purpose": "Lainatarkoitus (valinnainen)",
+    "purposePlaceholder": "Remontti, auto, henkilökohtainen projekti…",
+    "documents": "Vaaditut asiakirjat (enintään 5, 5 Mt kutakin)",
+    "uploadHint": "Napsauta lisätäksesi (PDF, JPG, PNG)",
+    "submit": "Lähetä hakemus",
+    "submitting": "Lähetetään…",
+    "success": "Hakemus lähetetty!",
+    "requiredDocs": "Tarkistusta varten vaadittavat asiakirjat",
+    "requiredDocsHint": "Lataa luettavat PDF-, JPG- tai PNG-tiedostot nopeuttaaksesi hyväksyntää.",
+    "doc1": "Voimassa oleva henkilöllisyystodistus tai ajokortti (molemmin puolin) — tai passi (vain etupuoli)",
+    "doc2": "Tuore osoitetodistus",
+    "doc3": "Kolme viimeisintä palkkalaskelmaa tai tulotodistus",
+    "doc4": "Viimeisin tiliote tai IBAN hakijan nimissä",
+    "back": "Takaisin",
+    "newRequestShort": "Uusi pyyntö",
+    "newRequestDesc": "Lähetä lainapyyntösi",
+    "amountMin": "Vähintään 500 €",
+    "amountMax": "Enintään 100 000 €",
+    "fileTooLarge": "{{name}} ylittää 5 Mt",
+    "createError": "Virhe pyynnön luomisessa",
+    "uploadFailed": "Lataus epäonnistui: {{name}}",
+    "adminNotifTitle": "Uusi lainapyyntö",
+    "adminNotifMsg": "{{name}} pyytää {{amount}} € {{months}} kuukauden ajalle",
+    "successToast": "Pyyntösi lähetettiin onnistuneesti",
+    "loading": "Ladataan…",
+    "docsRequiredExact": "Sinun on ladattava täsmälleen {{count}} asiakirjaa lähettääksesi pyyntösi.",
+    "uploadHintExact": "Lataa täsmälleen {{count}} asiakirjaa (PDF, JPG, PNG – enintään 5 Mt kutakin)",
+    "address": "Täydellinen postiosoite",
+    "addressPlaceholder": "Aloita osoitteesi syöttäminen…",
+    "addressHint": "Valitse ehdotus tai kirjoita koko osoitteesi manuaalisesti.",
+    "addressRequired": "Anna täydellinen postiosoitteesi"
+  },
+  "transfer": {
+    "title": "Tee siirto",
+    "subtitle": "Valitse tyyppi, anna edunsaajan tiedot ja vahvista.",
+    "kindInstant": "Välitön (SEPA Instant)",
+    "kindInstantHint": "Hyvitetään edunsaajalle välittömästi (24/7).",
+    "kindClassic": "Normaali (SEPA)",
+    "kindClassicHint": "Hyvitetään 1 arkipäivän kuluessa · ajoitus mahdollista.",
+    "sourceLoan": "Lähdelaina",
+    "amount": "Summa (€)",
+    "available": "Käytettävissä oleva saldo",
+    "beneficiary": "Edunsaaja",
+    "beneficiaryPlaceholder": "Etu- ja sukunimi",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "bankName": "Pankki",
+    "bankNamePlaceholder": "Pankin nimi",
+    "reference": "Viite",
+    "referencePlaceholder": "Automaattisesti luotu, jos tyhjä",
+    "schedule": "Aikataulu (valinnainen)",
+    "scheduleHint": "Jätä tyhjäksi seuraavaa arkipäivää varten.",
+    "reason": "Syy (valinnainen)",
+    "reasonPlaceholder": "Vuokra, osto, takaisinmaksu…",
+    "secureInstant": "Salattuja tietoja · välitön toimeenpano",
+    "secureClassic": "Salattuja tietoja · 1 arkipäivä",
+    "executeInstant": "Suorita siirto",
+    "confirmClassic": "Vahvista siirto",
+    "successInstant": "Pikasiirto suoritettu",
+    "successScheduled": "Siirto ajoitettu",
+    "successClassic": "Siirtomääräys kirjattu",
+    "errorEmit": "Virhe siirron suorittamisessa",
+    "noLoanSelected": "Lainaa ei valittu",
+    "amountInvalid": "Virheellinen summa",
+    "ibanInvalid": "Virheellinen IBAN",
+    "bicInvalid": "Virheellinen BIC/SWIFT",
+    "beneficiaryRequired": "Saaja vaaditaan",
+    "bankRequired": "Pankki vaaditaan",
+    "scheduleFuture": "Ajoitetun päivämäärän on oltava tulevaisuudessa"
+  },
+  "contact": {
+    "title": "Ota yhteyttä asiakaspalveluun",
+    "subtitle": "Vastaamme 24 arkityötunnin kuluessa · luottamuksellisuus taattu.",
+    "infoTitle": "Yhteystiedot",
+    "phoneLabel": "Asiakaspalvelu",
+    "phoneHours": "Ma-Pe · klo 8-20",
+    "emailLabel": "Sähköposti",
+    "addressLabel": "Pääkonttori",
+    "secureNote": "Viestisi ovat salattuja ja vaatimustenmukaisuustiimimme käsittelee ne luottamuksellisesti.",
+    "formTitle": "Lähetä viesti",
+    "fullName": "Koko nimi",
+    "email": "Sähköposti",
+    "subject": "Aihe",
+    "message": "Viesti",
+    "messagePlaceholder": "Kuvaile pyyntösi yksityiskohtaisesti…",
+    "send": "Lähetä viesti",
+    "success": "Viesti lähetetty · asiakaspalvelu vastaa 24 tunnin kuluessa",
+    "error": "Lähetys epäonnistui",
+    "subjects": {
+      "account": "Kysymys tilistäni",
+      "loan": "Kysymys lainasta",
+      "transfer": "Siirto-ongelma",
+      "complaint": "Valitus",
+      "appointment": "Ajanvarauspyyntö",
+      "other": "Muu"
+    },
+    "metaTitle": "Ota yhteyttä – BNP PARIBAS -asiakaspalveluun",
+    "metaDesc": "Ota yhteyttä BNP PARIBAS -asiakaspalveluun, jos sinulla on kysyttävää tilistäsi, lainoistasi tai siirroistasi.",
+    "nameRequired": "Nimi on pakollinen",
+    "emailInvalid": "Virheellinen sähköpostiosoite",
+    "messageTooShort": "Viesti on liian lyhyt (vähintään 10 merkkiä)",
+    "defaultNamePlaceholder": "John Smith",
+    "defaultEmailPlaceholder": "sinä@esimerkki.com",
+    "back": "Takaisin",
+    "phoneTitle": "Asiakaspalvelu",
+    "address": "103 avenue des Champs-Élysées",
+    "addressCity": "75008 Pariisi, Ranska",
+    "sending": "Lähetetään…",
+    "successQueued": "Viestisi on tallennettu. Tiimimme vastaa pian."
+  },
+  "admin": {
+    "title": "Järjestelmänvalvojan hallintapaneeli",
+    "subtitle": "Yleiskatsaus pankkitoiminnasta.",
+    "kpis": {
+      "total": "Hakemuksia yhteensä",
+      "pending": "Odottaa",
+      "accepted": "Hyväksytty",
+      "refused": "Hylätty"
+    },
+    "amounts": {
+      "requested": "Pyydetty yhteensä",
+      "accepted": "Hyväksytty yhteensä",
+      "disbursed": "Maksetut varat"
+    },
+    "recent": {
+      "title": "Viimeaikainen toiminta",
+      "empty": "Ei viimeaikaista toimintaa",
+      "open": "Avaa"
+    },
+    "quickActions": {
+      "title": "Pikatoiminnot",
+      "subtitle": "Käsittele odottavat tiedostot ensin.",
+      "toStudy": "Tarkistettavat tiedostot",
+      "signedContracts": "Käsiteltävät allekirjoitetut sopimukset",
+      "manageClients": "Hallitse asiakkaita"
+    },
+    "loansPage": {
+      "title": "Kaikki lainatiedostot",
+      "subtitle": "Yksityiskohtainen ja suodatettava näkymä hakemuksista.",
+      "client": "Asiakas",
+      "amount": "Summa",
+      "status": "Tila",
+      "date": "Päivämäärä",
+      "documents": "Asiakirjat",
+      "duration": "Kesto"
+    },
+    "clientsPage": {
+      "title": "Asiakkaat",
+      "subtitle": "Asiakastilit ja käyttöoikeuksien tila.",
+      "client": "Asiakas",
+      "phone": "Puhelin",
+      "loans": "Lainat",
+      "totalBorrowed": "Lainattu yhteensä",
+      "joined": "Liittynyt",
+      "status": "Tila",
+      "active": "Aktiivinen",
+      "blocked": "Estetty"
+    },
+    "clientDetail": {
+      "title": "Asiakasprofiili",
+      "personalInfo": "Henkilötiedot",
+      "summary": "Yhteenveto",
+      "loans": "Asiakkaan lainat",
+      "withdrawals": "Siirrot",
+      "noLoans": "Tällä asiakkaalla ei ole vielä tiedostoja.",
+      "noWithdrawals": "Ei siirtoja.",
+      "blockBtn": "Estä tili",
+      "unblockBtn": "Poista tilin esto",
+      "blockTitle": "Estä asiakastili",
+      "blockReason": "Eston syy",
+      "blockReasonPlaceholder": "esim. petosepäily, KYC-vaatimusten noudattamatta jättäminen…",
+      "blockedSince": "Estetty alkaen",
+      "blockedReason": "Syy",
+      "confirm": "Vahvista"
+    },
+    "stages": {
+      "title": "Vapautusmaksut ja koodit",
+      "planSaved": "Suunnitelma tallennettu",
+      "planFirst": "Aseta maksut ensin",
+      "codeSent": "Koodi lähetetty vaiheelle {{stage}}%",
+      "unlocked": "Lukitus avattu",
+      "codeSentBadge": "Koodi lähetetty",
+      "fee": "Maksu (€)",
+      "sentAt": "Lähetetty",
+      "genAndSend": "Luo ja lähetä",
+      "regenAndSend": "Luo uudelleen ja lähetä",
+      "savePlan": "Tallenna suunnitelma"
+    },
+    "transfer": {
+      "title": "Tee asiakassiirto",
+      "subtitle": "Luo pikainen tai tavallinen pankkisiirto asiakkaan puolesta.",
+      "kind": "Siirron tyyppi",
+      "instant": "Pikasiirto",
+      "instantHint": "Hyvitetään välittömästi 24/7.",
+      "classic": "Tavallinen",
+      "classicHint": "Hyvitetään 1 arkipäivän kuluessa.",
+      "client": "Asiakas",
+      "selectClient": "Valitse asiakas",
+      "loan": "Lähdelaina",
+      "selectLoan": "Valitse laina",
+      "amount": "Summa (€)",
+      "beneficiary": "Saaja",
+      "bankName": "Saajan pankki",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "reference": "Viite",
+      "submit": "Tee siirto",
+      "success": "Siirto tehty onnistuneesti",
+      "error": "Siirron tekeminen epäonnistui"
+    }
+  },
+  "blocked": {
+    "title": "Tili jäädytetty",
+    "message": "Vaatimustenmukaisuustiimimme on jäädyttänyt tilisi väliaikaisesti.",
+    "reasonLabel": "Syy",
+    "contact": "Ota yhteyttä tukeen saadaksesi lisätietoja.",
+    "signOut": "Kirjaudu ulos"
+  },
+  "status": {
+    "en_attente": "Odottaa",
+    "accepte": "Hyväksytty",
+    "refuse": "Hylätty",
+    "contrat_envoye": "Sopimus lähetetty",
+    "contrat_signe": "Sopimus allekirjoitettu",
+    "en_traitement": "Käsittelyssä",
+    "fonds_disponibles": "Varojen saatavuus",
+    "envoye": "Lähetetty",
+    "rejete": "Hylätty"
+  },
+  "client": {
+    "stages": {
+      "title": "Siirrot käynnissä",
+      "blockedTitle": "Siirto estetty {{stage}}%:ssa",
+      "blockedDesc": "Maksettava maksu: {{fee}}. Saat koodin vahvistuksen jälkeen.",
+      "codePlaceholder": "Vapautuskoodi",
+      "unlock": "Avaa lukitus",
+      "enterCode": "Syötä koodi",
+      "invalidCode": "Virheellinen koodi",
+      "unlocked": "Vaihe avattu",
+      "awaitCode": "Odotetaan järjestelmänvalvojan koodia",
+      "codeReceivedTitle": "Vapautuskoodi {{stage}}%",
+      "codeReceivedMsg": "Koodisi: {{code}} (maksu {{fee}})"
+    }
+  },
+  "adminCodes": {
+    "title": "Avaa koodit",
+    "help": "Hallitse siirron edistymiskoodeja.",
+    "step": "Vaihe",
+    "released": "Julkaistu",
+    "fee": "Maksu (€)",
+    "code": "Koodi",
+    "generate": "Luo",
+    "regenerate": "Luo uudelleen",
+    "send": "Lähetä",
+    "generateAndSend": "Luo ja lähetä",
+    "regenerateAndSend": "Luo uudelleen ja lähetä",
+    "noCode": "Ei koodia",
+    "created": "Koodi luotu",
+    "updated": "Koodi päivitetty",
+    "error": "Virhe",
+    "success": "Onnistui",
+    "sectionTitle": "Siirtovaiheen konfiguraatio",
+    "sectionHelp": "Aseta maksut ja maksun osoite vaiheittain, vahvista kuitti ja lähetä sitten koodi.",
+    "gatedTitle": "Konfiguraatio lukittu",
+    "gatedDesc": "Siirtovaiheen konfiguraatio tulee saataville lainan hyväksymisen jälkeen.",
+    "address": "Maksun osoite",
+    "saved": "Konfiguraatio tallennettu",
+    "invalidFee": "Virheellinen maksu",
+    "codeSent": "Koodi luotu ja lähetetty",
+    "consumed": "Kulutettu",
+    "receiptUploaded": "Kuitti ladattu",
+    "pending": "Odottaa",
+    "approved": "Hyväksytty",
+    "rejected": "Hylätty",
+    "approve": "Hyväksy",
+    "reject": "Hylkää",
+    "receiptApproved": "Kuitti hyväksytty",
+    "receiptRejected": "Kuitti hylätty",
+    "invalidates": "Koodin uudelleenluominen mitätöi automaattisesti edellisen: vain uusin koodi toimii.",
+    "notifTitle": "Avaa koodi {{p}}%",
+    "notifMsg": "Koodisi: {{code}} (maksu {{fee}})",
+    "notifApprovedTitle": "Kuitti hyväksytty – vaihe {{p}}%",
+    "notifApprovedMsg": "Maksusi vahvistettiin. Koodi lähetetään.",
+    "notifRejectedTitle": "Kuitti hylätty – vaihe {{p}}%",
+    "notifRejectedMsg": "Lataa kelvollinen kuitti.",
+    "holder": "Tilinhaltija",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "description": "Viite / Kuvaus"
+  },
+  "transferSteps": {
+    "title": "Turvallinen siirto",
+    "subtitle": "Pankkisiirron edistyminen 3 vaiheessa: 63% · 88% · 100%.",
+    "progress": "Edistyminen",
+    "completed": "Siirto valmis",
+    "completedDesc": "Varat on hyvitetty edunsaajalle.",
+    "blockedTitle": "Siirto estetty {{p}}%:ssa",
+    "blockedDesc": "Pankkisäännösten noudattamisen vuoksi vaiheen {{p}}% avaaminen edellyttää maksun suorittamista ja kuitin vahvistamista.",
+    "awaitingConfig": "Määritys käynnissä",
+    "awaitingConfigDesc": "Tiimimme viimeistelee tätä vaihetta. Sinulle ilmoitetaan.",
+    "feeFor": "Maksun vaihe {{p}}%",
+    "paymentAddress": "Maksun osoite",
+    "paymentHelp": "Suorita maksu tähän osoitteeseen ja lataa sitten kuittisi.",
+    "receipt": "Maksukuitti",
+    "receiptPending": "Odottaa vahvistusta",
+    "receiptApproved": "Hyväksytty",
+    "receiptRejected": "Hylätty – lähetä uudelleen",
+    "uploadReceipt": "Lataa kuitti",
+    "replaceReceipt": "Korvaa kuitti",
+    "receiptSent": "Kuitti lähetetty vahvistettavaksi",
+    "fileTooBig": "Tiedosto liian suuri (enintään 10 Mt)",
+    "enterCode": "Syötä avauskoodisi",
+    "unlock": "Avaa vaihe {{p}}%",
+    "awaitingCode": "Odottaa koodia",
+    "awaitingCodeDesc": "Koodi lähetetään, kun ylläpitäjä on vahvistanut kuittisi.",
+    "invalidCode": "Virheellinen koodi",
+    "advanced": "Vaihe {{p}}% avattu",
+    "successFinal": "Siirto suoritettu onnistuneesti",
+    "notifAdminTitle": "Kuitti vastaanotettu – vaihe {{p}}%",
+    "notifAdminMsg": "Asiakas on ladannut kuitin vahvistettavaksi.",
+    "stepNotReached": "Vaihetta ei ole vielä saavutettu"
+  },
+  "transfersPage": {
+    "metaTitle": "Omat siirrot – BNP PARIBAS",
+    "eyebrow": "Siirrot-alue",
+    "title": "Omat siirrot",
+    "subtitle": "Seuraa SEPA-siirtoja, vaatimustenmukaisuusvaiheita ja kuitteja.",
+    "newTransfer": "Uusi siirto",
+    "beneficiary": "Saaja:",
+    "issuedAt": "Annettu {{date}}",
+    "reference": "viite. {{reference}}",
+    "emptyTitle": "Ei siirtoja",
+    "emptyDesc": "Siirtosi näkyvät täällä, kun ne on luotu.",
+    "filters": {
+      "all": "Kaikki",
+      "active": "Meneillään",
+      "blocked": "Estetty",
+      "done": "Valmis"
+    },
+    "status": {
+      "final": "Vahvistettu",
+      "rejected": "Hylätty",
+      "blocked": "Tarkistus vaaditaan",
+      "processing": "Pankkikäsittely"
+    }
+  },
+  "landing": {
+    "metaTitle": "BNP PARIBAS – Välittömät verkkolainat",
+    "metaDesc": "Rahoita projektisi luottavaisin mielin. Nopeat henkilökohtaiset lainat 1 000 eurosta 50 000 euroon. Päätös 24 tunnissa, varat 72 tunnissa.",
+    "badge": "Päätös alle 24 tunnissa",
+    "heroTitleA": "Rahoita projektisi",
+    "heroTitleB": "luottavaisin mielin.",
+    "heroDesc": "BNP PARIBAS on osa johtavaa eurooppalaisten pankkien sukupolvea, joka tarjoaa nopeita, läpinäkyviä ja turvallisia henkilökohtaisia lainoja.",
+    "ctaPrimary": "Hae lainaa",
+    "ctaSecondary": "Minulla on jo tili",
+    "trust1": "Salattu data",
+    "trust2": "100 % turvallinen",
+    "trust3": "Ei piilokuluja",
+    "values": {
+      "response": {
+        "title": "Vastaus 24 tunnin kuluessa",
+        "desc": "Asiantuntijatiimimme tarkistaa hakemuksesi nopeasti. Ei enää loputtomia viikkoja odottelua."
+      },
+      "secure": {
+        "title": "100 % turvallinen",
+        "desc": "Tietosi on salattu päästä päähän. Noudatamme tiukimpia pankkistandardeja."
+      },
+      "nofees": {
+        "title": "Ei piilokuluja",
+        "desc": "Mainostettu korko on sovellettu korko. Ei yllätyksiä kuukausimaksuissasi."
+      }
+    },
+    "how": {
+      "title": "Miten se toimii?",
+      "s1t": "Simuloi lainasi",
+      "s1d": "Valitse sinulle sopiva summa ja laina-aika. Laskemme heti arvioidun kuukausimaksusi.",
+      "s2t": "Täytä hakemuksesi",
+      "s2d": "Täytä lomake 5 minuutissa ja lataa liiteasiakirjasi (henkilöllisyystodistus, osoitetodistus, palkkalaskelmat).",
+      "s3t": "Allekirjoita sopimuksesi",
+      "s3d": "Kun tiimimme on hyväksynyt sen, allekirjoita sopimuksesi sähköisesti ja turvallisesti.",
+      "s4t": "Vastaanota varasi",
+      "s4d": "Kun lakisääteinen määräaika on kulunut, varat ovat käytettävissä BNP PARIBAS -lompakossasi ja valmiina nostettavaksi."
+    },
+    "partners": {
+      "eyebrow": "Kumppanipankkimme",
+      "title": "Luotettava pankkiverkosto",
+      "desc": "Teemme yhteistyötä Euroopan tärkeimpien rahoituslaitosten kanssa taataksemme nopeat ja turvalliset siirrot."
+    },
+    "finalCta": {
+      "title": "Oletko valmis toteuttamaan projektisi?",
+      "desc": "Luo tili ja lähetä ensimmäinen pyyntösi vain muutamassa minuutissa.",
+      "button": "Aloita hakemukseni"
+    },
+    "footer": {
+      "rights": "Kaikki oikeudet pidätetään.",
+      "legal": "Laina sitoo sinua ja se on maksettava takaisin. Tarkista takaisinmaksukykysi ennen sitoutumista."
+    },
+    "slides": {
+      "s1t": "Pankkipalvelut suunniteltu sinua varten",
+      "s1d": "Avaa tili minuuteissa, ilman paperityötä.",
+      "s2t": "Hallitse talouttasi reaaliaikaisesti",
+      "s2d": "Selkeä hallintapaneeli, analytiikka ja älykkäät hälytykset.",
+      "s3t": "Pankkisi taskussasi",
+      "s3d": "Turvallinen mobiilisovellus saatavilla 24/7.",
+      "s4t": "Pankkitason turvallisuus",
+      "s4d": "Päästä päähän -salaus ja vahva todennus."
+    },
+    "kpis": {
+      "clients": "Aktiiviset asiakkaat",
+      "countries": "Katetut maat",
+      "assets": "Hallinnoidut varat",
+      "uptime": "Käyttöaika"
+    },
+    "security": {
+      "eyebrow": "Turvallisuus ja vaatimustenmukaisuus",
+      "title": "Huippuluokan pankkiturva",
+      "desc": "Järjestelmämme täyttävät tiukimmat eurooppalaiset pankkistandardit.",
+      "f1t": "AES-256-salaus",
+      "f1d": "Tietosi on suojattu sotilastason salauksella.",
+      "f2t": "PSD2- ja GDPR-yhteensopiva",
+      "f2d": "Eurooppalaisia säännöksiä noudatetaan tiukasti.",
+      "f3t": "Vahva todennus",
+      "f3d": "Kaksivaiheinen vahvistus jokaiselle arkaluonteiselle toimenpiteelle.",
+      "f4t": "24/7 tuki",
+      "f4d": "Omistetut neuvonantajat saatavilla kaikkina aikoina."
+    },
+    "testi": {
+      "eyebrow": "Suositukset",
+      "title": "He luottavat meihin",
+      "t1n": "Marie Dubois",
+      "t1r": "Talousjohtaja",
+      "t1q": "Sujuva ja ammattimainen pankkikokemus. Tuki on erinomaista.",
+      "t2n": "Jean Martin",
+      "t2r": "Yrittäjä",
+      "t2q": "Kansainväliset siirrot ovat nopeita ja turvallisuus moitteetonta.",
+      "t3n": "Sophie Laurent",
+      "t3r": "Lakimies",
+      "t3q": "Vihdoinkin digitaalinen pankki, joka yhdistää yksinkertaisuuden ja institutionaalisen vakavuuden."
+    },
+    "mobile": {
+      "eyebrow": "Mobiilisovellus",
+      "title": "Koko pankkisi kämmenelläsi",
+      "desc": "Hallitse tilejä, lähetä siirtoja ja seuraa sijoituksia älypuhelimellasi.",
+      "b1": "Reaaliaikainen tapahtumaseuranta",
+      "b2": "Välittömät kansainväliset siirrot",
+      "b3": "Face ID & sormenjälkibiometriikka"
+    },
+    "faq": {
+      "title": "Usein kysytyt kysymykset",
+      "q1": "Miten avaan tilin?",
+      "a1": "Rekisteröidy verkossa alle 5 minuutissa voimassa olevalla henkilöllisyystodistuksella.",
+      "q2": "Mitkä ovat maksut?",
+      "a2": "Vakiopaketissamme ei ole piilokuluja. Päivittäiset toiminnot ovat ilmaisia.",
+      "q3": "Ovatko varani suojattuja?",
+      "a3": "Talletukset on taattu 100 000 euroon asti talletussuojarahaston toimesta.",
+      "q4": "Miten otan yhteyttä tukeen?",
+      "a4": "Tiimimme on tavoitettavissa 24/7 suojatun chatin, sähköpostin tai puhelimen kautta."
+    }
+  },
+  "transferProcess": {
+    "progress": "Turvallinen edistyminen",
+    "rejectedBadge": "Siirto hylätty",
+    "validatedBadge": "Siirto vahvistettu",
+    "complianceBadge": "Vaatimustenmukaisuustarkastus",
+    "processingBadge": "Pankkikäsittely",
+    "rejectedTitle": "Tämä siirto hylättiin",
+    "rejectedDesc": "Varasi on automaattisesti hyvitetty takaisin tilillesi.",
+    "finalTitle": "Siirto suoritettu onnistuneesti",
+    "finalDesc": "Saaja vastaanottaa varat pankkien välisen vakiintuneen aikataulun mukaisesti.",
+    "animatingTitle": "Pankkireititys käynnissä",
+    "animatingDesc": "Siirtosi etenee turvallisia kanaviamme pitkin. Toimenpiteitä ei tarvita.",
+    "blockedTitle": "Vaatimustenmukaisuuden tarkistus vaaditaan",
+    "blockedDesc": "Suorittaaksesi tämän vaiheen, maksa alla oleva vaatimustenmukaisuusmaksu ja syötä saamasi koodi.",
+    "configTitle": "Määritys käynnissä",
+    "configDesc": "BNP PARIBAS -neuvoja valmistelee vaatimustenmukaisuusmaksua. Saat ohjeet pian.",
+    "fee": "Vaatimustenmukaisuusmaksu erääntyy",
+    "bankOrder": "BNP PARIBAS tiedot",
+    "accountHolder": "Tilinhaltija",
+    "reason": "Siirron syy",
+    "receiptLabel": "Maksutosite",
+    "receiptPending": "Tarkastelussa",
+    "receiptApproved": "Hyväksytty",
+    "receiptRejected": "Hylätty",
+    "replaceReceipt": "Korvaa kuitti",
+    "uploadReceipt": "Lataa kuitti",
+    "unlockCodeReceived": "Lukituksen avauskoodi vastaanotettu",
+    "codePlaceholder": "Syötä koodi (esim. ABC-1234)",
+    "validateAndContinue": "Vahvista ja jatka",
+    "waitingCodeTitle": "Odotetaan lukituksen avauskoodia",
+    "waitingCodeDesc": "Kun kuittisi on vahvistettu, neuvonantajasi lähettää sinulle 6-merkkisen koodin.",
+    "fileTooBig": "Tiedosto ylittää 10 Mt.",
+    "invalidCode": "Virheellinen tai jo käytetty koodi.",
+    "successFinal": "Siirto viimeistelty.",
+    "advanced": "Vaihe vahvistettu.",
+    "copied": "{{label}} kopioitu leikepöydälle.",
+    "receiptSent": "Kuitti lähetetty neuvonantajallesi.",
+    "adminValidationTitle": "Siirto odottaa vahvistusta",
+    "adminValidationMessage": "Asiakas saavutti vaatimustenmukaisuusvaiheen ja odottaa koodin julkaisua.",
+    "adminReceiptTitle": "Uusi kuitti tarkistettavaksi",
+    "adminReceiptMessage": "Asiakas latasi vaatimustenmukaisuusmaksun kuitin."
+  },
+  "transferStepDialog": {
+    "title": "Vaatimustenmukaisuusvaihe",
+    "subtitle": "Seuraa edistymistä ja vahvista turvallisesti jokainen virstanpylväs."
+  },
+  "transferDetail": {
+    "metaTitle": "Siirron tiedot — BNP PARIBAS",
+    "backAll": "Kaikki siirrot",
+    "header": "BNP PARIBAS · Siirtomääräys",
+    "amount": "Summa",
+    "beneficiary": "Saaja",
+    "bank": "Pankki",
+    "reference": "Viite",
+    "iban": "IBAN",
+    "bic": "BIC",
+    "issuedAt": "Annettu",
+    "tracking": "Siirron seuranta",
+    "history": "Historia",
+    "notFound": "Siirtoa ei löytynyt.",
+    "badge": {
+      "validated": "Siirto vahvistettu",
+      "rejected": "Siirto hylätty",
+      "compliance": "Vaatimustenmukaisuustarkastus",
+      "processing": "Pankkikäsittely"
+    },
+    "rejected": {
+      "title": "Tämä siirto hylättiin",
+      "desc": "Varasi on hyvitetty automaattisesti takaisin BNP PARIBAS -tilillesi.",
+      "reason": "Syy"
+    },
+    "timeline": {
+      "issued": "Siirtomääräys annettu",
+      "issuedDesc": "Saajalle {{beneficiary}} ({{amount}})",
+      "compliance": "Vaatimustenmukaisuusvaihe vahvistettu",
+      "complianceDesc": "Lukituksen avauskoodi syötetty onnistuneesti.",
+      "enhanced": "Tehostettu varmennus vahvistettu",
+      "enhancedDesc": "Siirto jatkaa reititystään edunsaajalle.",
+      "executed": "Siirto suoritettu",
+      "executedDesc": "Varojen hyvitys on tehty.",
+      "rejected": "Siirto hylätty",
+      "rejectedDesc": "Saldo on hyvitetty automaattisesti takaisin.",
+      "now": "Juuri nyt"
+    },
+    "receipt": {
+      "title": "Pankkikuitti saatavilla",
+      "desc": "Lataa tämän siirtomääräyksen virallinen BNP PARIBAS -yhteenveto.",
+      "download": "Lataa kuitti"
+    }
+  },
+  "receipt": {
+    "metaTitle": "Siirtokuitti – BNP PARIBAS",
+    "download": "Lataa PDF",
+    "subBrand": "Yhdessä menestymme",
+    "documentLabel": "Virallinen asiakirja",
+    "documentTitle": "Siirtokuitti",
+    "title": "Pankkisiirtokuitti",
+    "subtitle": "Annettu {{date}}",
+    "amount": "Siirretty summa",
+    "statusExecuted": "Siirto suoritettu",
+    "statusPending": "Siirto käsiteltävänä",
+    "beneficiary": "Saaja",
+    "bank": "Saajan pankki",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "reference": "Viite",
+    "issuedAt": "Antopäivä",
+    "footerSecurity": "Asiakirjan on luonut BNP PARIBASin turvalliset järjestelmät.",
+    "footerLegal": "Tämä kuitti todistaa pankkitapahtuman ja sen voi esittää mille tahansa toimivaltaiselle viranomaiselle.",
+    "generating": "Luodaan PDF:ää…",
+    "downloaded": "Kuitti ladattu onnistuneesti",
+    "downloadError": "Kuittia ei voitu ladata",
+    "sessionExpired": "Istunto vanhentunut. Kirjaudu sisään uudelleen.",
+    "serverSessionExpired": "Istunto vanhentunut. Kirjaudu sisään uudelleen.",
+    "serverNotFound": "Siirtoa ei löydy",
+    "serverUnauthorized": "Luvaton pääsy tähän kuittiin",
+    "serverUnavailable": "Kuitti on saatavilla vasta siirron hyväksymisen jälkeen",
+    "serverSubtitle": "Virallinen pankkikuitti",
+    "serverSecure": "Turvallinen asiakirja",
+    "serverTitle": "Siirtokuitti",
+    "serverIssued": "Myönnetty {{date}}",
+    "serverAmount": "Siirretty summa",
+    "serverStatus": "Tila",
+    "serverExecuted": "Siirto suoritettu",
+    "serverBeneficiary": "Saaja",
+    "serverBank": "Saajan pankki",
+    "serverIban": "IBAN",
+    "serverBic": "BIC / SWIFT",
+    "serverReference": "Viite",
+    "serverExecutedAt": "Suorituspäivä",
+    "serverSecurity": "Asiakirjan on luonut BNP PARIBASin turvajärjestelmä.",
+    "serverLegal": "Tämä kuitti on todiste pankkitoiminnosta ja sen voi esittää mille tahansa toimivaltaiselle viranomaiselle."
+  },
+  "notif": {
+    "transfer": {
+      "instantTitle": "Pikasiirto vastaanotettu",
+      "classicTitle": "Siirto käynnissä",
+      "instantMsg": "{{amount}} hyvitetty tilille {{iban4}}…{{ibanLast}} (viite {{ref}})",
+      "classicMsg": "Tavallinen siirto {{amount}} on aloitettu (hyvitys 1 työpäivän kuluessa, viite {{ref}})",
+      "adminInitTitle": "Uusi siirto aloitettu",
+      "adminInitMsg": "{{amount}} → {{beneficiary}} (viite {{ref}})"
+    },
+    "transferProcess": {
+      "adminValidationTitle": "Kuitti vahvistettavaksi",
+      "adminValidationMsg": "Asiakas on ladannut maksukuitin vahvistettavaksi.",
+      "adminReceiptTitle": "Uusi kuitti vastaanotettu",
+      "adminReceiptMsg": "Uusi maksukuitin maksu on ladattu."
+    },
+    "adminCodes": {
+      "codeTitle": "Avauskoodi {{p}}%",
+      "codeMsg": "Koodisi: {{code}} (maksu {{fee}})",
+      "rejectedTitle": "Kuitti hylätty",
+      "rejectedMsg": "Lataa kelvollinen kuitti.",
+      "manualCodeTitle": "Avauskoodi {{p}}%",
+      "manualCodeMsg": "Avauskoodisi on: {{code}}"
+    },
+    "loan": {
+      "newRequestAdminTitle": "Uusi lainapyyntö",
+      "newRequestAdminMsg": "{{name}} pyytää {{amount}} € {{months}} kuukauden ajaksi",
+      "statusTitle": "Hakemuksesi tilaa päivitettiin",
+      "statusMsg": "Hakemuksesi summalle {{amount}} on nyt: $t(status.{{statusKey}})",
+      "signedReceivedTitle": "Allekirjoitettu sopimus vastaanotettu",
+      "signedReceivedMsg": "{{name}} allekirjoitti sopimuksen (hakemus {{id}})"
+    },
+    "withdrawal": {
+      "sentTitle": "Siirto suoritettu",
+      "sentMsg": "{{amount}} on lähetetty tilille {{iban4}}…{{ibanLast}} (viite {{ref}})",
+      "rejectedTitle": "Siirto hylätty · varat palautettu",
+      "rejectedMsg": "Siirtosi {{amount}} hylättiin. Saldo on palautettu automaattisesti."
+    }
+  },
+  "settings": {
+    "metaTitle": "Asetukset – BNP PARIBAS",
+    "title": "Asetukset",
+    "subtitleDesktop": "Hallitse henkilökohtaisia tietojasi ja turvallisuuttasi",
+    "subtitleMobile": "Hallitse tiliäsi ja turvallisuuttasi",
+    "profile": "Profiili",
+    "fullName": "Koko nimi",
+    "phone": "Puhelin",
+    "currentEmail": "Nykyinen sähköpostiosoite",
+    "saveProfile": "Tallenna profiili",
+    "emailSection": "Sähköpostiosoite",
+    "newEmail": "Uusi sähköpostiosoite",
+    "emailHint": "Vahvistussähköposti lähetetään uuteen osoitteeseen.",
+    "updateEmail": "Päivitä sähköpostiosoite",
+    "passwordSection": "Salasana",
+    "currentPassword": "Nykyinen salasana",
+    "newPassword": "Uusi salasana",
+    "confirmPassword": "Vahvista",
+    "changePassword": "Vaihda salasana",
+    "adminAccount": "Järjestelmänvalvojan tili",
+    "adminDesc": "Sinulla on hallintaoikeudet asiakastiedostoihin ja -toimintoihin.",
+    "loadProfileError": "Profiilia ei voitu ladata",
+    "saveError": "Tallennusvirhe",
+    "profileUpdated": "Profiili päivitetty",
+    "emailUpdated": "Sähköpostiosoite päivitetty. Tarkista postilaatikkosi vahvistaaksesi.",
+    "passwordTooShort": "Salasanan on oltava vähintään 8 merkkiä pitkä",
+    "passwordMismatch": "Salasanat eivät täsmää",
+    "currentPasswordWrong": "Nykyinen salasana on virheellinen",
+    "passwordUpdated": "Salasana päivitetty",
+    "back": "Takaisin",
+    "accessAdmin": "Avaa järjestelmänvalvojan hallintapaneeli",
+    "goBack": "Takaisin",
+    "languageSection": "Kieli",
+    "languageDesc": "Valitse käyttöliittymän kieli. Valintasi tallennetaan ja synkronoidaan tilillesi.",
+    "languageSaved": "Kieli päivitetty"
+  },
+  "loanDetail": {
+    "metaTitle": "Lainatiedot – BNP PARIBAS",
+    "downloadImpossible": "Lataus ei saatavilla",
+    "contractGenerating": "Luodaan sopimuksen PDF-tiedostoa…",
+    "sessionExpired": "Istunto vanhentunut. Kirjaudu sisään uudelleen.",
+    "contractDownloaded": "Sopimus ladattu",
+    "generationImpossible": "Luominen epäonnistui: {{message}}",
+    "unknownError": "Tuntematon virhe",
+    "fileTooHeavy": "Tiedosto liian suuri (enintään 10 Mt)",
+    "uploadFailed": "Lähetys epäonnistui",
+    "updateError": "Päivitysvirhe",
+    "signedSent": "Allekirjoitettu sopimus lähetetty!",
+    "signedReceivedTitle": "Allekirjoitettu sopimus vastaanotettu",
+    "signedReceivedMessage": "{{name}} allekirjoitti sopimuksen (hakemus {{id}})",
+    "loading": "Ladataan…",
+    "notFound": "Lainaa ei löydy",
+    "back": "Takaisin lainoihini",
+    "fileNumber": "Tiedosto #{{id}}",
+    "title": "Lainatiedot",
+    "refusedTitle": "Hakemus hylätty",
+    "refusedDesc": "Tiedostosi tarkistamisen jälkeen emme valitettavasti voi hyväksyä tätä rahoituspyyntöä.",
+    "reason": "Syy",
+    "summaryTitle": "Hakemuksen yhteenveto",
+    "amount": "Summa",
+    "duration": "Laina-aika",
+    "durationMonths": "{{count}} kuukautta",
+    "monthlyPayment": "Arvioitu kuukausimaksu",
+    "monthlyIncome": "Kuukausitulot",
+    "purpose": "Tarkoitus",
+    "documentsTitle": "Toimitetut asiakirjat",
+    "addedOn": "Lisätty {{date}}",
+    "availableBalance": "Käytettävissä oleva saldo",
+    "alreadyWithdrawn": "Jo nostettu: {{withdrawn}} / {{total}}",
+    "makeTransfer": "Tee siirto",
+    "contractTitle": "Sopimus",
+    "downloadContract": "Lataa sopimus",
+    "signInstruction": "Allekirjoita sopimus ja lähetä se alle validointia varten.",
+    "sendSignedContract": "Lähetä allekirjoitettu sopimus",
+    "signedContractReceived": "Allekirjoitettu sopimus vastaanotettu",
+    "historyTitle": "Toimintahistoria",
+    "noAction": "Ei toimintoja vielä.",
+    "requestSubmitted": "Hakemus lähetetty",
+    "requestRefused": "Hakemus hylätty",
+    "withdraw": "Nosta",
+    "details": "Tiedot",
+    "loanDescription": {
+      "en_attente": "Hakemustasi käsitellään",
+      "accepte": "Hakemuksesi on hyväksytty",
+      "refuse": "Hakemus epäonnistui",
+      "contrat_envoye": "Sopimus on lähetetty allekirjoitettavaksi",
+      "contrat_signe": "Allekirjoitettu sopimus vastaanotettu, julkaisu valmistelussa",
+      "en_traitement": "Varojen saatavuus 72 tunnin kuluessa",
+      "fonds_disponibles": "Varasi ovat käytettävissä"
+    },
+    "steps": {
+      "en_attente": "Hakemus lähetetty",
+      "accepte": "Hyväksytty",
+      "contrat_envoye": "Sopimus lähetetty",
+      "contrat_signe": "Sopimus allekirjoitettu",
+      "en_traitement": "Käsittelyssä",
+      "fonds_disponibles": "Varojen saatavuus"
+    }
+  },
+  "nav": {
+    "home": "Etusivu",
+    "transfers": "Siirrot",
+    "request": "Pyyntö",
+    "primary": "Päänavigointi",
+    "support": "Tuki"
+  },
+  "mobileHome": {
+    "title": "Tervetuloa BNP PARIBAS -palveluun",
+    "subtitle": "Pankkisi, taskussasi.",
+    "description": "Hallitse lainojasi, siirtojasi ja tilejäsi turvallisesti, missä tahansa oletkin.",
+    "cta": "Aloita",
+    "tagline": "Eurooppalainen pankkiturvallisuus",
+    "feature1": "Turvallinen",
+    "feature2": "Päästä päähän -salaus",
+    "feature3": "Premium-kokemus"
+  },
+  "authPending": {
+    "title": "Tarkista sähköpostisi",
+    "description": "Olemme lähettäneet vahvistuslinkin sähköpostiosoitteeseesi.",
+    "instruction": "Aktivoi tilisi napsauttamalla linkkiä postilaatikossasi.",
+    "loading": "Odotetaan vahvistusta...",
+    "footer": "Turvallisuutesi vuoksi älä koskaan jaa tunnuksiasi. BNP PARIBAS ei koskaan kysy salasanaasi."
+  },
+  "password": {
+    "show": "Näytä salasana",
+    "hide": "Piilota salasana",
+    "veryWeak": "Erittäin heikko",
+    "weak": "Heikko",
+    "fair": "Kohtalainen",
+    "good": "Hyvä",
+    "strong": "Vahva",
+    "excellent": "Erinomainen",
+    "ruleLength": "Vähintään 10 merkkiä",
+    "ruleUpper": "Yksi iso kirjain",
+    "ruleLower": "Yksi pieni kirjain",
+    "ruleDigit": "Yksi numero",
+    "ruleSpecial": "Yksi erikoismerkki",
+    "notStrong": "Salasana ei täytä kaikkia suojaussääntöjä."
+  },
+  "livechat": {
+    "open": "Avaa keskustelu",
+    "close": "Sulje",
+    "title": "BNP PARIBAS neuvonantaja",
+    "online": "Paikalla",
+    "placeholder": "Kirjoita viestisi…",
+    "greeting": "Hei 👋! Miten voin auttaa sinua tänään?",
+    "faq": {
+      "loan": "Hakeaksesi lainaa, siirry \"Uusi laina\" -osioon hallintapaneelissasi. Päätös 24 tunnin sisällä, varat 72 tunnin sisällä.",
+      "password": "Voit nollata salasanasi kirjautumissivulta käyttämällä \"Unohtuiko salasana?\".",
+      "transfer": "Siirtosi on lueteltu hallintapaneelisi \"Siirrot\"-osiossa.",
+      "contact": "Tiimiimme saa yhteyden numerosta +39 350 036 6867 tai Yhteystiedot-sivun kautta.",
+      "thanks": "Eipä kestä! Voit kysyä mitä tahansa muuta.",
+      "default": "BNP PARIBAS -neuvoja ottaa sinuun yhteyttä pian. Voit ottaa meihin yhteyttä myös Yhteystiedot-sivun kautta."
+    }
+  },
+  "legal": {
+    "badge": "Lakitiedot",
+    "lastUpdated": "Viimeksi päivitetty",
+    "home": "Etusivu",
+    "privacy": {
+      "title": "Tietosuojakäytäntö",
+      "subtitle": "Yksityisyytenne on osa pankin luottamustamme.",
+      "sections": [
+        {
+          "h": "1. Kerättävät tiedot",
+          "p": "Henkilöllisyys, yhteystiedot, taloudelliset, tekniset ja käyttäytymistiedot."
+        },
+        {
+          "h": "2. Tarkoitukset",
+          "p": "Tilin hoito, lainan arviointi, petosten ja rahanpesun esto."
+        },
+        {
+          "h": "3. Oikeusperuste (GDPR)",
+          "p": "Sopimus, oikeutettu etu, lakisääteinen velvoite, suostumus."
+        },
+        {
+          "h": "4. Jakaminen",
+          "p": "Vain hyväksytyille käsittelijöille ja viranomaisille."
+        },
+        {
+          "h": "5. Säilytys",
+          "p": "Tilin tiedot: suhde + 10 vuotta. Tietoturvalokit: 24 kk."
+        },
+        {
+          "h": "6. Oikeutenne",
+          "p": "Tutustuminen, oikaisu, poisto, rajoitus, siirrettävyys, vastustaminen."
+        },
+        {
+          "h": "7. Tietoturva",
+          "p": "Salaus, fingerprint, anomaliantunnistus, MFA, 24/7-vastaus."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Käyttöehdot",
+      "subtitle": "Käyttämällä BNP PARIBAS -palvelua hyväksytte nämä ehdot.",
+      "sections": [
+        {
+          "h": "1. Ehdot",
+          "p": "Vähintään 18, asukas hyväksytyssä maassa."
+        },
+        {
+          "h": "2. Tili",
+          "p": "Totuudenmukaiset tiedot ja luottamukselliset tunnukset."
+        },
+        {
+          "h": "3. Hyväksyttävä käyttö",
+          "p": "Ei petoksia, rahanpesua, terrorismin rahoitusta."
+        },
+        {
+          "h": "4. Maksut",
+          "p": "Näytetään ennen jokaista toimea; muutokset 30 päivän etukäteen."
+        },
+        {
+          "h": "5. Vastuu",
+          "p": "Suorat vahingot törkeästä huolimattomuudesta."
+        },
+        {
+          "h": "6. Keskeytys",
+          "p": "Välitön keskeytys petosepäilyssä."
+        },
+        {
+          "h": "7. Sovellettava laki",
+          "p": "Ranskan laki kuluttajansuojan rajoissa."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Evästekäytäntö",
+      "sections": [
+        {
+          "h": "Mitä käytämme",
+          "list": [
+            "<strong>Välttämättömät</strong>",
+            "<strong>Toiminnalliset</strong>",
+            "<strong>Tietoturva</strong>",
+            "<strong>Analytiikka</strong> — vain suostumuksella."
+          ]
+        },
+        {
+          "h": "Hallinta",
+          "p": "Voitte poistaa evästeet selaimesta."
+        }
+      ]
+    },
+    "mentions": {
+      "title": "Lakitiedot",
+      "sections": [
+        {
+          "h": "Julkaisija",
+          "p": "BNP PARIBAS — SAS, pääoma 1 000 000 EUR — kotipaikka: 1 Centenary Square, Birmingham, Yhdistynyt kuningaskunta."
+        },
+        {
+          "h": "Vastaava julkaisija",
+          "p": "Compliance BNP PARIBAS."
+        },
+        {
+          "h": "Isännöinti",
+          "p": "Cloudflare Workers — San Francisco, USA."
+        },
+        {
+          "h": "Yhteys",
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+        },
+        {
+          "h": "Immateriaalioikeudet",
+          "p": "Tavaramerkit ja sisältö kuuluvat BNP PARIBAS:ille."
+        }
+      ]
+    },
+    "amlKyc": {
+      "title": "AML / KYC -käytäntö",
+      "sections": [
+        {
+          "h": "Sitoutuminen",
+          "p": "Nollatoleranssi rahanpesua ja terrorismin rahoitusta vastaan."
+        },
+        {
+          "h": "Asiakkaan tunteminen",
+          "p": "Henkilöllisyyden ja varojen alkuperän tarkistus."
+        },
+        {
+          "h": "Tehostettu",
+          "p": "PEP, korkean riskin maat."
+        },
+        {
+          "h": "Pakotteet",
+          "p": "Reaaliaikainen tarkistus EU, YK, OFAC, UK -listoja vastaan."
+        },
+        {
+          "h": "Ilmoitukset",
+          "p": "Toimivaltaiselle FIU:lle; tipping-off kielletty."
+        },
+        {
+          "h": "Koulutus",
+          "p": "Vuosittainen koulutus; riippumaton MLRO."
+        }
+      ]
+    },
+    "finPriv": {
+      "title": "Taloudellinen yksityisyys ja turvallisuus",
+      "sections": [
+        {
+          "h": "Suojaus",
+          "p": "TLS 1.3, AES-256, HSM, asiakasvarojen erottaminen."
+        },
+        {
+          "h": "Tunnistautuminen",
+          "p": "SCA PSD2: salasana + laite + OTP."
+        },
+        {
+          "h": "Petostorjunta",
+          "p": "Anomaliantunnistus 24/7."
+        },
+        {
+          "h": "Salassapito",
+          "p": "Pankkisalaisuus."
+        },
+        {
+          "h": "Roolinne",
+          "p": "Pitäkää tunnukset salassa, rekisteröikää luotetut laitteet."
+        }
+      ]
+    },
+    "loanTerms": {
+      "title": "Lainaehdot",
+      "subtitle": "Laina sitouttaa; tarkistakaa takaisinmaksukykynne.",
+      "sections": [
+        {
+          "h": "1. Ehdot",
+          "p": "Vahvistettu henkilöllisyys ja vakaat tulot."
+        },
+        {
+          "h": "2. Summat ja kesto",
+          "p": "1 000 EUR – 500 000 EUR, 12–120 kuukautta."
+        },
+        {
+          "h": "3. Korko / TKK",
+          "p": "Kiinteä korko tarjouksessa."
+        },
+        {
+          "h": "4. Maksu",
+          "p": "Allekirjoituksen ja tarkistuksen jälkeen."
+        },
+        {
+          "h": "5. Takaisinmaksu",
+          "p": "Kuukausittainen suoraveloitus."
+        },
+        {
+          "h": "6. Maksuhäiriö",
+          "p": "Korot, palkkiot ja mahdollinen erääntyminen."
+        },
+        {
+          "h": "7. Peruutusoikeus",
+          "p": "14 päivää allekirjoituksesta."
+        }
+      ]
+    },
+    "repayment": {
+      "title": "Takaisinmaksu- ja häiriökäytäntö",
+      "sections": [
+        {
+          "h": "Aikataulu",
+          "p": "Kuukausittaiset erät sovittuna päivänä."
+        },
+        {
+          "h": "Ennenaikainen",
+          "p": "Aina sallittu."
+        },
+        {
+          "h": "Viivästys",
+          "list": [
+            "Päivät 1–7: muistutus.",
+            "Päivät 8–30: palkkiot + viivästyskorko.",
+            "Päivästä 31: virallinen vaatimus."
+          ]
+        },
+        {
+          "h": "Periminen",
+          "p": "Ensisijaisesti sovinnollisesti."
+        },
+        {
+          "h": "Vaikeudet",
+          "p": "Ottakaa yhteyttä; lykkäys mahdollinen."
+        }
+      ]
+    }
+  },
+  "adminSec": {
+    "metaTitle": "Turvallisuus · Admin",
+    "unauthorized": "Ei valtuuksia",
+    "adminLink": "Järjestelmänvalvoja",
+    "center": "Turvakeskus",
+    "ok": "ok",
+    "fail": "virhe",
+    "user": "käyttäjä",
+    "kpi": {
+      "totalEvents": "Tapahtumia yhteensä",
+      "devicesTracked": "Seuratut laitteet",
+      "openAlerts": "Avoimet hälytykset",
+      "highRisk": "Riskikäyttäjät"
+    },
+    "tab": {
+      "logs": "Lokit",
+      "alerts": "Hälytykset",
+      "devices": "Laitteet",
+      "risk": "Riski"
+    },
+    "logs": {
+      "title": "Turvallisuuslokit",
+      "searchPh": "Etsi käyttäjä, IP, maa…",
+      "action": "Toiminto",
+      "allActions": "Kaikki toiminnot",
+      "when": "Milloin",
+      "user": "Käyttäjä",
+      "ipCountry": "IP / Maa",
+      "device": "Laite",
+      "status": "Tila",
+      "empty": "Ei lokeja."
+    },
+    "alerts": {
+      "title": "Turvallisuushälytykset",
+      "empty": "Ei hälytyksiä.",
+      "resolved": "ratkaistu",
+      "resolve": "Ratkaise"
+    },
+    "devices": {
+      "title": "Luotetut laitteet",
+      "label": "Nimike",
+      "country": "Maa",
+      "lastSeen": "Viimeksi nähty",
+      "trusted": "Luottamus",
+      "trustedBadge": "luotettu",
+      "pending": "odottaa",
+      "empty": "Ei laitteita."
+    },
+    "risk": {
+      "title": "Riskipisteet",
+      "risk": "Riski",
+      "sessions": "Istunnot",
+      "sensitive": "Arkaluonteinen",
+      "empty": "Ei tietoja."
+    }
+  },
+  "footer": {
+    "legal": "Oikeudellinen",
+    "privacy": "Yksityisyys",
+    "terms": "Ehdot",
+    "cookies": "Evästeet",
+    "mentions": "Oikeudellinen huomautus",
+    "banking": "Pankkitoiminta",
+    "loanTerms": "Lainan ehdot",
+    "repayment": "Takaisinmaksu ja maksukyvyttömyys",
+    "aml": "AML / KYC",
+    "finPriv": "Taloudellinen yksityisyys",
+    "contact": "Yhteystiedot"
+  },
+  "chat": {
+    "loading": "Ladataan",
+    "notFound": "Sivua ei löydy",
+    "notFoundDesc": "Tätä sivua ei ole.",
+    "backHome": "Takaisin etusivulle",
+    "assistant": "avustaja",
+    "typing": "kirjoittaa",
+    "today": "Tänään",
+    "yesterday": "Eilen",
+    "pageTitle": "Live-tuki",
+    "pageDesc": "Keskustele tiimimme tai virtuaaliavustajamme Annan kanssa.",
+    "closed": "Keskustelu suljettu",
+    "closeTicket": "Sulje keskustelu",
+    "close": "Sulje",
+    "compose": {
+      "placeholder": "Kirjoita viesti…"
+    },
+    "rt": {
+      "bold": "Lihavoitu",
+      "italic": "Kursivoitu",
+      "link": "Linkki",
+      "linkPrompt": "Anna URL (https://...)"
+    },
+    "handoff": {
+      "question": "Haluatko puhua neuvojan kanssa?",
+      "yes": "Kyllä, puhu neuvojalle",
+      "no": "Ei kiitos",
+      "pending": "Pyyntöäsi käsitellään, neuvoja liittyy 1-2 minuutissa…"
+    },
+    "agent": {
+      "joined": "liittyi keskusteluun",
+      "joinedYou": "Liityit keskusteluun",
+      "notAssigned": "Ei nimettyä agenttia",
+      "join": "Liity"
+    },
+    "status": {
+      "online": "Verkossa",
+      "agent": "Neuvoja verkossa",
+      "open": "Avoin",
+      "waiting_agent": "Odottaa agenttia",
+      "assigned": "Käynnissä",
+      "closed": "Suljettu"
+    },
+    "admin": {
+      "empty": "Ei keskusteluja.",
+      "selectHint": "Valitse keskustelu vasemmalta.",
+      "folders": "Asiakastiedostot",
+      "tickets": "Liput",
+      "searchPlaceholder": "Hae asiakas, lippu, sähköposti…",
+      "filter": {
+        "all": "Kaikki",
+        "waiting": "Odotustilassa",
+        "mine": "Minulle määrätty",
+        "closed": "Suljettu",
+        "guests": "Vierailijat"
+      },
+      "info": {
+        "title": "Tiketin tiedot",
+        "none": "Ei tietoja"
+      },
+      "close": "Sulje tiketti",
+      "reopen": "Avaa tiketti uudelleen",
+      "updated": "Tiketti päivitetty"
+    },
+    "banner": {
+      "top": "BNP PARIBAS — Turvallinen asiakaspalvelu",
+      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+    },
+    "loginRequired": {
+      "title": "Kirjaudu keskustellaksesi",
+      "desc": "Sinun on kirjauduttava tukea varten.",
+      "cta": "Kirjaudu"
+    },
+    "nav": "Tuki",
+    "guest": {
+      "subtitle": "Vierailijaapu",
+      "intro": "Täytä tämä lomake, niin BNP PARIBASin neuvonantaja vastaa nopeasti. Saat lipun numeron.",
+      "name": "koko nimi*",
+      "email": "Sähköposti*",
+      "phone": "Puhelin",
+      "whatsapp": "WhatsApp",
+      "country": "Asuinmaa",
+      "subject": "Aihe",
+      "message": "Viestisi *",
+      "submit": "Avaa lippuni",
+      "privacy": "Tietojasi käsitellään luottamuksellisesti (GDPR).",
+      "created": "Lippu #{{ticket}} luotu!",
+      "errors": {
+        "required": "Nimi, sähköposti ja viesti vaaditaan.",
+        "fail": "Lähetys epäonnistui, yritä uudelleen."
+      }
+    },
+    "ticket": "Lippu",
+    "archived": "Arkistot",
+    "open": "Avata",
+    "welcome": {
+      "greeting": "Hei 👋 Olen Anna, BNP PARIBAS -avustajanne.",
+      "help": "Miten voin auttaa teitä tänään?"
+    },
+    "tickets": {
+      "title": "Keskusteluni",
+      "new": "Uusi keskustelu",
+      "open": "Avoimet",
+      "closed": "Suljetut",
+      "empty": "Ei vielä keskusteluja.",
+      "back": "Takaisin",
+      "one": "Keskustelu"
+    }
+  },
+  "adminDash": {
+    "title": "Kojelauta – BNP PARIBAS",
+    "overview": "Yleiskatsaus",
+    "clients": "Asiakkaat",
+    "loans": "Lainat",
+    "transfers": "Siirrot",
+    "chat": "Live Chat",
+    "security": "Turvallisuus",
+    "notifications": "Ilmoitukset",
+    "kpis": {
+      "clients": "Aktiivisia asiakkaita",
+      "loansPending": "Odottavat lainat",
+      "transfersBlocked": "Siirrot estetty",
+      "ticketsOpen": "Avaa liput",
+      "newToday": "Uutta tänään"
+    },
+    "recentActivity": "Viimeaikainen toiminta",
+    "quickActions": "Nopeat toiminnot",
+    "staff": "Team & roles",
+    "roles": "Permissions",
+    "logs": "Activity log"
+  }
+}

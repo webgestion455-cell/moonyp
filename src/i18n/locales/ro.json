@@ -1,0 +1,1402 @@
+{
+  "common": {
+    "loading": "Se încarcă…",
+    "save": "Salvare",
+    "cancel": "Anulare",
+    "close": "Închidere",
+    "back": "Înapoi",
+    "open": "Deschide",
+    "search": "Căutare",
+    "actions": "Acțiuni",
+    "yes": "Da",
+    "no": "Nu",
+    "all": "Toate",
+    "none": "Niciuna",
+    "language": "Limbă",
+    "submit": "Trimite",
+    "send": "Trimite",
+    "confirm": "Confirmă",
+    "delete": "Șterge",
+    "edit": "Editează",
+    "view": "Vezi",
+    "download": "Descarcă",
+    "upload": "Încarcă",
+    "next": "Următor",
+    "previous": "Anterior",
+    "from": "De la",
+    "to": "Către",
+    "amount": "Sumă",
+    "date": "Dată",
+    "status": "Stare",
+    "details": "Detalii",
+    "optional": "opțional",
+    "required": "obligatoriu",
+    "refresh": "Reîmprospătează",
+    "viewAll": "Vezi tot",
+    "new": "Nou",
+    "saving": "Se salvează…",
+    "sending": "Se trimite…",
+    "updating": "Se actualizează…",
+    "loadError": "Eroare la încărcare",
+    "sessionExpired": "Sesiunea a expirat",
+    "notFound": "Pagina nu a fost găsită",
+    "notFoundDesc": "Pagina căutată nu există.",
+    "backHome": "Înapoi la pagina principală"
+  },
+  "header": {
+    "myLoans": "Creditele mele",
+    "newLoan": "Solicită credit",
+    "dashboard": "Panou",
+    "admin": "Admin",
+    "settings": "Setări",
+    "signOut": "Deconectare",
+    "signIn": "Conectare",
+    "contact": "Contact",
+    "menu": "Meniu"
+  },
+  "notifications": {
+    "title": "Notificări",
+    "empty": "Fără notificări",
+    "markAllRead": "Marcați toate citite",
+    "pageTitle": "Toate notificările",
+    "noLink": "Niciun link",
+    "allRead": "Toate prinse din urmă",
+    "viewAll": "Vedeți toate notificările"
+  },
+  "auth": {
+    "title": "Zona client",
+    "signIn": "Conectare",
+    "signUp": "Creează cont",
+    "email": "E-mail",
+    "password": "Parolă",
+    "fullName": "Numele complet",
+    "phone": "Telefon",
+    "forgotPassword": "Aţi uitat parola?",
+    "noAccount": "Nu există încă un cont?",
+    "hasAccount": "Aveți deja un cont?",
+    "createAccount": "Creeaza-mi contul",
+    "loginSuccess": "Conectat cu succes",
+    "signupSuccess": "Cont creat · verificați-vă căsuța de e-mail",
+    "backHome": "Înapoi acasă",
+    "brandBadge": "Banca digitală securizată",
+    "creating": "Se creează cont...",
+    "decision": "Decizie în 24 de ore lucrătoare",
+    "google": "Continuați cu Google",
+    "googleError": "Nu se poate conecta cu Google",
+    "googleLoading": "Se conectează cu Google...",
+    "minPasswordHint": "Cel puțin 8 caractere.",
+    "mobileHint": "Conectați-vă sau creați-vă contul",
+    "rgpd": "Conform GDPR",
+    "signingIn": "Se conectează...",
+    "terms": "Continuând, acceptați Termenii și Politica noastră de confidențialitate.",
+    "tls": "Criptare TLS 1.3",
+    "welcomeDesc": "Accesați în siguranță împrumuturile, transferurile și serviciile premium.",
+    "welcomeTitle": "Bun venit la",
+    "nameShort": "Numele prea scurt",
+    "phoneInvalid": "Număr de telefon nevalid",
+    "emailInvalid": "E-mail nevalid",
+    "passwordMin": "Parola trebuie să aibă cel puțin 8 caractere",
+    "passwordRequired": "Este necesară parola",
+    "invalidCredentials": "Acreditări nevalide",
+    "connectedToast": "Conectat cu succes",
+    "emailAlreadyUsed": "E-mail deja folosit",
+    "accountCreated": "Cont creat cu succes",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Parolă",
+    "fullNameLabel": "Numele complet",
+    "phoneLabel": "Telefon",
+    "tabSignin": "Conectare",
+    "tabSignup": "Creează cont",
+    "forgotLink": "Aţi uitat parola?",
+    "forgotTitle": "Resetați parola",
+    "forgotDesc": "Introdu adresa ta de e-mail. Vă vom trimite un link securizat pentru a seta o nouă parolă.",
+    "forgotSend": "Trimite link",
+    "forgotSent": "Dacă există un cont, a fost trimis un e-mail.",
+    "resetTitle": "Setați o nouă parolă",
+    "resetWaiting": "Se verifică linkul de resetare...",
+    "resetSuccess": "Parola a fost actualizată cu succes.",
+    "newPassword": "Parolă Nouă",
+    "confirmNewPassword": "Confirmați parola",
+    "updatePassword": "Actualizați parola"
+  },
+  "dashboard": {
+    "title": "Tabloul meu de bord",
+    "welcome": "Buna ziua",
+    "balance": "Sold disponibil",
+    "showBalance": "Arată echilibrul",
+    "hideBalance": "Ascunde echilibrul",
+    "newLoan": "Împrumut nou",
+    "withdraw": "Retrage",
+    "transfer": "Faceți un transfer",
+    "myLoans": "Împrumuturile mele",
+    "transferHistory": "Istoricul transferurilor",
+    "noLoans": "Nu ai încă un împrumut",
+    "startApplication": "Porniți o aplicație",
+    "noTransfers": "Fără transferuri",
+    "viewLoan": "Vizualizați fișierul",
+    "needHelp": "Ai nevoie de ajutor?",
+    "contactSupport": "Contactați serviciul pentru clienți",
+    "metaTitle": "Tabloul meu de bord — BNP PARIBAS",
+    "sessionExpired": "Sesiunea a expirat din cauza inactivității",
+    "loadError": "Eroare de încărcare",
+    "welcomeNamed": "Bun venit, {{name}}",
+    "welcomeAnon": "Bun venit",
+    "totalAvailable": "Sold total disponibil",
+    "fundedOutOf": "din {{amount}} finanțat",
+    "withdrawnAmount": "{{amount}} retras",
+    "newShort": "+ Nou",
+    "activeLoans": "Credite active",
+    "totalFunded": "Total finanțat",
+    "transfers": "Transferuri",
+    "loading": "Încărcare…",
+    "firstLoanTitle": "Începeți prima aplicație",
+    "firstLoanDesc": "Finanțați-vă proiectele în câteva minute: mașină, renovare, trezorerie sau orice altă nevoie.",
+    "apply": "Aplica acum",
+    "loanDurationCreated": "{{months}} luni · Solicitat pe {{date}}",
+    "disbursedRemaining": "Debursat: {{disbursed}} · Rămas: {{remaining}}",
+    "recentActivity": "Activitate recentă",
+    "viewAll": "Vezi toate",
+    "noRecentTransfers": "Încă nu există transferuri",
+    "status": {
+      "en_traitement": "Prelucrare",
+      "envoye": "Trimis",
+      "rejete": "Respins"
+    },
+    "welcomeShort": "Bun venit",
+    "myDashboard": "Tabloul meu de bord",
+    "newRequest": "Cerere nouă",
+    "fundedOf": "de {{amount}} finanțat",
+    "makeTransfer": "Faceți un transfer",
+    "transfersKpi": "Transferuri",
+    "applyCta": "Aplica acum",
+    "monthsSince": "{{months}} luni · Solicitat pe {{date}}",
+    "details": "Detalii",
+    "noTransfersYet": "Niciun transfer încă"
+  },
+  "loanForm": {
+    "title": "Noua cerere de imprumut",
+    "subtitle": "Completați formularul și atașați documentele dvs.",
+    "fullName": "Numele complet",
+    "email": "E-mail",
+    "amount": "Suma solicitată (€)",
+    "duration": "Durata (luni)",
+    "monthlyIncome": "Venit lunar net (€)",
+    "purpose": "Scopul împrumutului (opțional)",
+    "purposePlaceholder": "Renovare, mașină, proiect personal...",
+    "documents": "Documente necesare (maxim 5, 5 MB fiecare)",
+    "uploadHint": "Faceți clic pentru a adăuga (PDF, JPG, PNG)",
+    "submit": "Trimiteți cererea",
+    "submitting": "Se trimite…",
+    "success": "Aplicație trimisă!",
+    "requiredDocs": "Documente necesare pentru revizuire",
+    "requiredDocsHint": "Încărcați fișiere PDF, JPG sau PNG care pot fi citite pentru a accelera aprobarea.",
+    "doc1": "Act de identitate sau permis de conducere valabil (ambele părți) — sau pașaport (doar față)",
+    "doc2": "Dovada recentă a adresei",
+    "doc3": "Ultimele trei fișe de plată sau dovada de venit",
+    "doc4": "Ultimul extras de cont bancar sau IBAN pe numele solicitantului",
+    "back": "Spate",
+    "newRequestShort": "Cerere nouă",
+    "newRequestDesc": "Trimiteți cererea dvs. de împrumut",
+    "amountMin": "Minim 500 €",
+    "amountMax": "Maxim 100.000 €",
+    "fileTooLarge": "{{name}} depășește 5 MB",
+    "createError": "Eroare la crearea cererii",
+    "uploadFailed": "Încărcarea eșuată: {{name}}",
+    "adminNotifTitle": "Noua cerere de imprumut",
+    "adminNotifMsg": "{{name}} solicită €{{amount}} pe parcursul a {{months}} luni",
+    "successToast": "Solicitarea dvs. a fost trimisă cu succes",
+    "loading": "Încărcare…",
+    "docsRequiredExact": "Trebuie să încărcați exact documentele {{count}} pentru a vă trimite cererea.",
+    "uploadHintExact": "Încărcați exact documente {{count}} (PDF, JPG, PNG — 5 MB maxim fiecare)",
+    "address": "Adresa poștală completă",
+    "addressPlaceholder": "Începeți să vă introduceți adresa...",
+    "addressHint": "Selectați o sugestie sau introduceți manual adresa dvs. completă.",
+    "addressRequired": "Vă rugăm să furnizați adresa dvs. poștală completă"
+  },
+  "transfer": {
+    "title": "Faceți un transfer",
+    "subtitle": "Alegeți tipul, introduceți detaliile beneficiarului și confirmați.",
+    "kindInstant": "Instant (SEPA Instant)",
+    "kindInstantHint": "Creditat beneficiarului imediat (24/7).",
+    "kindClassic": "Standard (SEPA)",
+    "kindClassicHint": "Creditat în termen de 1 zi lucrătoare · programare disponibilă.",
+    "sourceLoan": "Sursa de imprumut",
+    "amount": "Suma (€)",
+    "available": "Sold disponibil",
+    "beneficiary": "Beneficiar",
+    "beneficiaryPlaceholder": "Numele și prenumele",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "bankName": "Bank",
+    "bankNamePlaceholder": "Numele băncii",
+    "reference": "Referinţă",
+    "referencePlaceholder": "Generat automat dacă este gol",
+    "schedule": "Program (opțional)",
+    "scheduleHint": "Lăsați gol pentru următoarea zi lucrătoare.",
+    "reason": "Motiv (opțional)",
+    "reasonPlaceholder": "Închiriere, cumpărare, rambursare...",
+    "secureInstant": "Detalii criptate · execuție imediată",
+    "secureClassic": "Detalii criptate · 1 zi lucrătoare",
+    "executeInstant": "Executa transferul",
+    "confirmClassic": "Confirmați transferul",
+    "successInstant": "Transfer instantaneu executat",
+    "successScheduled": "Transfer programat",
+    "successClassic": "Ordinul de transfer a fost înregistrat",
+    "errorEmit": "Eroare la emiterea transferului",
+    "noLoanSelected": "Niciun împrumut selectat",
+    "amountInvalid": "Sumă nevalidă",
+    "ibanInvalid": "IBAN nevalid",
+    "bicInvalid": "BIC/SWIFT nevalid",
+    "beneficiaryRequired": "Beneficiar necesar",
+    "bankRequired": "Banca necesară",
+    "scheduleFuture": "Data programată trebuie să fie în viitor"
+  },
+  "contact": {
+    "title": "Contactați serviciul pentru clienți",
+    "subtitle": "Răspundem în 24 de ore lucrătoare · confidențialitate garantată.",
+    "infoTitle": "Date de contact",
+    "phoneLabel": "Serviciu clienți",
+    "phoneHours": "Luni-Vineri · 8:00-20:00",
+    "emailLabel": "E-mail",
+    "addressLabel": "Sediul central",
+    "secureNote": "Mesajele dvs. sunt criptate și tratate în mod confidențial de către echipa noastră de conformitate.",
+    "formTitle": "Trimite un mesaj",
+    "fullName": "Numele complet",
+    "email": "E-mail",
+    "subject": "Subiect",
+    "message": "Mesaj",
+    "messagePlaceholder": "Descrieți solicitarea în detaliu...",
+    "send": "Trimite mesaj",
+    "success": "Mesaj trimis · serviciul pentru clienți va răspunde în 24 de ore",
+    "error": "Trimiterea a eșuat",
+    "subjects": {
+      "account": "Întrebare despre contul meu",
+      "loan": "Întrebare despre un împrumut",
+      "transfer": "Problema transferului",
+      "complaint": "Plângere",
+      "appointment": "Cerere de programare",
+      "other": "Alte"
+    },
+    "metaTitle": "Contact — Serviciu clienți BNP PARIBAS",
+    "metaDesc": "Contactați serviciul clienți BNP PARIBAS pentru întrebări despre contul dvs., împrumuturi sau transferuri.",
+    "nameRequired": "Numele este obligatoriu",
+    "emailInvalid": "E-mail nevalid",
+    "messageTooShort": "Mesaj prea scurt (minimum 10 caractere)",
+    "defaultNamePlaceholder": "John Smith",
+    "defaultEmailPlaceholder": "tu@example.com",
+    "back": "Spate",
+    "phoneTitle": "Serviciu clienți",
+    "address": "103 avenue des Champs-Élysées",
+    "addressCity": "75008 Paris, Franța",
+    "sending": "Se trimite…",
+    "successQueued": "Mesajul dvs. a fost înregistrat. Echipa noastră va răspunde în scurt timp."
+  },
+  "admin": {
+    "title": "Tabloul de bord administrativ",
+    "subtitle": "Prezentare generală a activității bancare.",
+    "kpis": {
+      "total": "Numărul total de aplicații",
+      "pending": "În așteptare",
+      "accepted": "Acceptat",
+      "refused": "A refuzat"
+    },
+    "amounts": {
+      "requested": "Total solicitat",
+      "accepted": "Total acceptat",
+      "disbursed": "Fonduri plătite"
+    },
+    "recent": {
+      "title": "Activitate recentă",
+      "empty": "Nicio activitate recentă",
+      "open": "Deschide"
+    },
+    "quickActions": {
+      "title": "Acțiuni rapide",
+      "subtitle": "Gestionați mai întâi fișierele în așteptare.",
+      "toStudy": "Fișiere de revizuit",
+      "signedContracts": "Contracte semnate de procesat",
+      "manageClients": "Gestionați clienții"
+    },
+    "loansPage": {
+      "title": "Toate dosarele de împrumut",
+      "subtitle": "Vedere detaliată și filtrabilă a aplicațiilor.",
+      "client": "Client",
+      "amount": "Cantitate",
+      "status": "Status",
+      "date": "Data",
+      "documents": "Docs",
+      "duration": "Durată"
+    },
+    "clientsPage": {
+      "title": "Clienții",
+      "subtitle": "Conturi de client și starea accesului.",
+      "client": "Client",
+      "phone": "Telefon",
+      "loans": "Împrumuturi",
+      "totalBorrowed": "Total împrumutat",
+      "joined": "S-a alăturat",
+      "status": "Status",
+      "active": "Activ",
+      "blocked": "Blocat"
+    },
+    "clientDetail": {
+      "title": "Profilul clientului",
+      "personalInfo": "Informații personale",
+      "summary": "Rezumat",
+      "loans": "Creditele clientului",
+      "withdrawals": "Transferuri",
+      "noLoans": "Acest client nu are încă fișiere.",
+      "noWithdrawals": "Fără transferuri.",
+      "blockBtn": "Blocați contul",
+      "unblockBtn": "Deblocați contul",
+      "blockTitle": "Blocați contul de client",
+      "blockReason": "Blocați motivul",
+      "blockReasonPlaceholder": "de ex. suspiciune de fraudă, neconformitate KYC...",
+      "blockedSince": "Blocat de atunci",
+      "blockedReason": "Motiv",
+      "confirm": "Confirma"
+    },
+    "stages": {
+      "title": "Taxe și coduri de eliberare",
+      "planSaved": "Plan salvat",
+      "planFirst": "Stabiliți mai întâi taxele",
+      "codeSent": "Cod trimis pentru etapa {{stage}}%",
+      "unlocked": "Deblocat",
+      "codeSentBadge": "Cod trimis",
+      "fee": "Taxa (€)",
+      "sentAt": "Trimis",
+      "genAndSend": "Generați și trimiteți",
+      "regenAndSend": "Regenerați și trimiteți",
+      "savePlan": "Salvați planul"
+    },
+    "transfer": {
+      "title": "Emite un transfer de client",
+      "subtitle": "Creați un transfer bancar instantaneu sau standard în numele unui client.",
+      "kind": "Tip de transfer",
+      "instant": "instant",
+      "instantHint": "Creditat imediat 24/7.",
+      "classic": "Standard",
+      "classicHint": "Creditat în termen de 1 zi lucrătoare.",
+      "client": "Client",
+      "selectClient": "Selectați un client",
+      "loan": "Sursa de imprumut",
+      "selectLoan": "Selectați un împrumut",
+      "amount": "Suma (€)",
+      "beneficiary": "Beneficiar",
+      "bankName": "Banca beneficiară",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "reference": "Referinţă",
+      "submit": "Emite transferul",
+      "success": "Transferul a fost emis cu succes",
+      "error": "Transferul a eșuat"
+    }
+  },
+  "blocked": {
+    "title": "Cont suspendat",
+    "message": "Contul dvs. a fost suspendat temporar de echipa noastră de conformitate.",
+    "reasonLabel": "Motiv",
+    "contact": "Vă rugăm să contactați asistența pentru mai multe informații.",
+    "signOut": "Sign out"
+  },
+  "status": {
+    "en_attente": "În așteptare",
+    "accepte": "Acceptat",
+    "refuse": "A refuzat",
+    "contrat_envoye": "Contract trimis",
+    "contrat_signe": "Contract semnat",
+    "en_traitement": "Prelucrare",
+    "fonds_disponibles": "Fonduri disponibile",
+    "envoye": "Trimis",
+    "rejete": "Respins"
+  },
+  "client": {
+    "stages": {
+      "title": "Transferuri în curs",
+      "blockedTitle": "Transfer blocat la {{stage}}%",
+      "blockedDesc": "Taxa datorată: {{fee}}. Veți primi un cod după validare.",
+      "codePlaceholder": "Cod de eliberare",
+      "unlock": "Deblocați",
+      "enterCode": "Introdu codul",
+      "invalidCode": "Cod nevalid",
+      "unlocked": "Scena deblocată",
+      "awaitCode": "Se așteaptă codul de administrator",
+      "codeReceivedTitle": "Cod de lansare {{stage}}%",
+      "codeReceivedMsg": "Codul dvs.: {{code}} (taxă {{fee}})"
+    }
+  },
+  "adminCodes": {
+    "title": "Deblocarea codurilor",
+    "help": "Gestionați codurile de progres de transfer.",
+    "step": "Pas",
+    "released": "Eliberat",
+    "fee": "Taxa (€)",
+    "code": "Cod",
+    "generate": "Genera",
+    "regenerate": "Regenera",
+    "send": "Trimite",
+    "generateAndSend": "Generați și trimiteți",
+    "regenerateAndSend": "Regenerați și trimiteți",
+    "noCode": "Fără cod",
+    "created": "Cod creat",
+    "updated": "Cod actualizat",
+    "error": "Eroare",
+    "success": "Succes",
+    "sectionTitle": "Transferați configurația pasului",
+    "sectionHelp": "Setați taxele și adresa de plată pe pas, validați chitanța, apoi trimiteți codul.",
+    "gatedTitle": "Configurație blocată",
+    "gatedDesc": "Configurația pasului de transfer devine disponibilă după acceptarea împrumutului.",
+    "address": "Adresa de plată",
+    "saved": "Configurație salvată",
+    "invalidFee": "Taxă nevalidă",
+    "codeSent": "Cod generat și trimis",
+    "consumed": "Consumat",
+    "receiptUploaded": "Chitanța a fost încărcată",
+    "pending": "În așteptare",
+    "approved": "Aprobat",
+    "rejected": "Respins",
+    "approve": "Aproba",
+    "reject": "Respinge",
+    "receiptApproved": "Chitanța aprobată",
+    "receiptRejected": "Chitanța respinsă",
+    "invalidates": "Regenerarea unui cod îl invalidează automat pe cel anterior: funcționează doar cel mai recent cod.",
+    "notifTitle": "Cod de deblocare {{p}}%",
+    "notifMsg": "Codul dvs.: {{code}} (taxă {{fee}})",
+    "notifApprovedTitle": "Chitanța aprobată — pasul {{p}}%",
+    "notifApprovedMsg": "Plata dvs. a fost validată. Codul va fi trimis.",
+    "notifRejectedTitle": "Chitanța respinsă — pasul {{p}}%",
+    "notifRejectedMsg": "Vă rugăm să încărcați o chitanță validă.",
+    "holder": "Titularul de cont",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "description": "Referință / Descriere"
+  },
+  "transferSteps": {
+    "title": "Transfer sigur",
+    "subtitle": "Progresul bancar în 3 pași: 63% · 88% · 100%.",
+    "progress": "Progres",
+    "completed": "Transfer finalizat",
+    "completedDesc": "Fondurile au fost creditate beneficiarului.",
+    "blockedTitle": "Transfer blocat la {{p}}%",
+    "blockedDesc": "Din motive de conformitate bancară, deblocarea pasului {{p}}% necesită plata taxei și validarea chitanței dvs.",
+    "awaitingConfig": "Configurare în curs",
+    "awaitingConfigDesc": "Echipa noastră finalizează acest pas. Veți fi anunțat.",
+    "feeFor": "Pasul taxei {{p}}%",
+    "paymentAddress": "Adresa de plată",
+    "paymentHelp": "Efectuați plata la această adresă, apoi încărcați chitanța.",
+    "receipt": "Chitanța de plată",
+    "receiptPending": "Se așteaptă validarea",
+    "receiptApproved": "Aprobat",
+    "receiptRejected": "Respins — retrimite",
+    "uploadReceipt": "Încărcați chitanța",
+    "replaceReceipt": "Înlocuiți chitanța",
+    "receiptSent": "Chitanța trimisă pentru validare",
+    "fileTooBig": "Fișier prea mare (maximum 10 MB)",
+    "enterCode": "Introdu codul de deblocare",
+    "unlock": "Pasul de deblocare {{p}}%",
+    "awaitingCode": "Se așteaptă codul",
+    "awaitingCodeDesc": "Codul va fi trimis după ce administratorul vă validează chitanța.",
+    "invalidCode": "Cod nevalid",
+    "advanced": "Pasul {{p}}% deblocat",
+    "successFinal": "Transferul a fost finalizat cu succes",
+    "notifAdminTitle": "Chitanța primită — pasul {{p}}%",
+    "notifAdminMsg": "Un client a încărcat o chitanță pentru validare.",
+    "stepNotReached": "Pasul încă nu a fost atins"
+  },
+  "transfersPage": {
+    "metaTitle": "Transferurile mele — BNP PARIBAS",
+    "eyebrow": "Zona de transferuri",
+    "title": "Transferurile mele",
+    "subtitle": "Urmăriți transferurile SEPA, pașii de conformitate și chitanțele.",
+    "newTransfer": "Transfer nou",
+    "beneficiary": "Beneficiar:",
+    "issuedAt": "Emis pe {{date}}",
+    "reference": "ref. {{reference}}",
+    "emptyTitle": "Fără transferuri",
+    "emptyDesc": "Transferurile dvs. vor apărea aici odată create.",
+    "filters": {
+      "all": "Toate",
+      "active": "În curs",
+      "blocked": "Blocat",
+      "done": "Terminat"
+    },
+    "status": {
+      "final": "Validat",
+      "rejected": "Respins",
+      "blocked": "Este necesară verificarea",
+      "processing": "Prelucrare bancară"
+    }
+  },
+  "landing": {
+    "metaTitle": "BNP PARIBAS — Împrumuturi online instantanee",
+    "metaDesc": "Finanțați-vă proiectele cu încredere. Împrumuturi rapide personale de la 1.000 € la 50.000 €. Decizie în 24h, fonduri în 72h.",
+    "badge": "Decizie în mai puțin de 24 de ore",
+    "heroTitleA": "Finanțați-vă proiectele",
+    "heroTitleB": "cu incredere.",
+    "heroDesc": "BNP PARIBAS face parte din generația lider de bănci europene care oferă împrumuturi personale rapide, transparente și sigure.",
+    "ctaPrimary": "Aplicați pentru un împrumut",
+    "ctaSecondary": "Am deja un cont",
+    "trust1": "Date criptate",
+    "trust2": "100% sigur",
+    "trust3": "Fără taxe ascunse",
+    "values": {
+      "response": {
+        "title": "Raspuns in 24h",
+        "desc": "Echipa noastră de experți vă examinează rapid dosarul. Gata cu săptămâni nesfârșite de așteptare."
+      },
+      "secure": {
+        "title": "100% sigur",
+        "desc": "Datele dvs. sunt criptate cap la cap. Respectăm cele mai stricte standarde bancare."
+      },
+      "nofees": {
+        "title": "Fără taxe ascunse",
+        "desc": "Tariful anunțat este tariful aplicat. Fără surprize la plățile dvs. lunare."
+      }
+    },
+    "how": {
+      "title": "Cum funcționează?",
+      "s1t": "Simulați-vă împrumutul",
+      "s1d": "Alegeți suma și termenul care vi se potrivește. Calculăm imediat plata dvs. lunară estimată.",
+      "s2t": "Completează-ți dosarul",
+      "s2d": "Completați formularul în 5 minute și încărcați documentele justificative (ID, dovada adresei, borderouri).",
+      "s3t": "Semnează-ți contractul",
+      "s3d": "Odată aprobat de echipa noastră, semnați-vă contractul electronic și în siguranță.",
+      "s4t": "Primește-ți fondurile",
+      "s4d": "Odată ce perioada legală a trecut, fondurile sunt disponibile în portofelul tău BNP PARIBAS, gata pentru a fi retrase."
+    },
+    "partners": {
+      "eyebrow": "Băncile noastre partenere",
+      "title": "O rețea bancară de încredere",
+      "desc": "Lucrăm cu principalele instituții financiare europene pentru a garanta transferuri rapide și sigure."
+    },
+    "finalCta": {
+      "title": "Ești gata să dai viață proiectelor tale?",
+      "desc": "Creați-vă contul și trimiteți prima cerere în doar câteva minute.",
+      "button": "Începeți aplicația mea"
+    },
+    "footer": {
+      "rights": "Toate drepturile rezervate.",
+      "legal": "Un împrumut te angajează și trebuie rambursat. Verificați capacitatea de rambursare înainte de a vă angaja."
+    },
+    "slides": {
+      "s1t": "Servicii bancare concepute în jurul tău",
+      "s1d": "Deschideți un cont în câteva minute, fără acte.",
+      "s2t": "Gestionați-vă finanțele în timp real",
+      "s2d": "Tabloul de bord clar, analize și alerte inteligente.",
+      "s3t": "Banca ta în buzunar",
+      "s3d": "Aplicație mobilă securizată disponibilă 24/7.",
+      "s4t": "Securitate la nivel bancar",
+      "s4d": "Criptare end-to-end și autentificare puternică."
+    },
+    "kpis": {
+      "clients": "Clienți activi",
+      "countries": "Țările acoperite",
+      "assets": "Active gestionate",
+      "uptime": "Timp de funcționare"
+    },
+    "security": {
+      "eyebrow": "Securitate și conformitate",
+      "title": "Protecție bancară de top",
+      "desc": "Sistemele noastre îndeplinesc cele mai stricte standarde bancare europene.",
+      "f1t": "Criptare AES-256",
+      "f1d": "Datele dvs. sunt protejate de criptare de nivel militar.",
+      "f2t": "Conform PSD2 și GDPR",
+      "f2d": "Reglementările europene strict aplicate.",
+      "f3t": "Autentificare puternică",
+      "f3d": "Validare în doi factori pentru fiecare operație sensibilă.",
+      "f4t": "Asistență 24/7",
+      "f4d": "Consilieri dedicați disponibili la orice oră."
+    },
+    "testi": {
+      "eyebrow": "Mărturii",
+      "title": "Au încredere în noi",
+      "t1n": "Marie Dubois",
+      "t1r": "CFO",
+      "t1q": "O experiență bancară fluidă și profesională. Suportul este remarcabil.",
+      "t2n": "Jean Martin",
+      "t2r": "Antreprenor",
+      "t2q": "Transferurile internaționale sunt rapide și securitatea este impecabilă.",
+      "t3n": "Sophie Laurent",
+      "t3r": "Avocat",
+      "t3q": "În sfârșit, o bancă digitală care combină simplitatea cu seriozitatea instituțională."
+    },
+    "mobile": {
+      "eyebrow": "Aplicație mobilă",
+      "title": "Întreaga ta bancă, în palmă",
+      "desc": "Gestionați conturile, trimiteți transferuri și urmăriți investițiile de pe smartphone.",
+      "b1": "Urmărirea tranzacțiilor în timp real",
+      "b2": "Transferuri internaționale instantanee",
+      "b3": "Face ID și biometrie a amprentelor"
+    },
+    "faq": {
+      "title": "Întrebări frecvente",
+      "q1": "Cum deschid un cont?",
+      "a1": "Înscrieți-vă online în mai puțin de 5 minute cu un act de identitate valabil.",
+      "q2": "Care sunt taxele?",
+      "a2": "Planul nostru standard nu are taxe ascunse. Operațiunile zilnice sunt gratuite.",
+      "q3": "Sunt fondurile mele protejate?",
+      "a3": "Depozitele sunt garantate până la 100.000 EUR de către Fondul de garantare a depozitelor.",
+      "q4": "Cum pot contacta asistența?",
+      "a4": "Echipa noastră este contactată 24/7 prin chat securizat, e-mail sau telefon."
+    }
+  },
+  "transferProcess": {
+    "progress": "Progresul sigur",
+    "rejectedBadge": "Transfer respins",
+    "validatedBadge": "Transfer validat",
+    "complianceBadge": "Verificarea conformității",
+    "processingBadge": "Prelucrare bancară",
+    "rejectedTitle": "Acest transfer a fost respins",
+    "rejectedDesc": "Fondurile au fost creditate automat înapoi în contul dvs.",
+    "finalTitle": "Transferul a fost executat cu succes",
+    "finalDesc": "Beneficiarul va primi fondurile în termenul interbancar standard.",
+    "animatingTitle": "Rutarea băncii în curs",
+    "animatingDesc": "Transferul dvs. se deplasează prin canalele noastre securizate. Nu este necesară nicio acțiune.",
+    "blockedTitle": "Este necesară verificarea conformității",
+    "blockedDesc": "Pentru a finaliza acest pas, vă rugăm să plătiți taxa de conformitate de mai jos și să introduceți codul primit.",
+    "configTitle": "Configurare în curs",
+    "configDesc": "Un consilier BNP PARIBAS pregătește plata conformității. Veți primi instrucțiuni în scurt timp.",
+    "fee": "Taxa de conformitate datorată",
+    "bankOrder": "Detalii BNP PARIBAS",
+    "accountHolder": "Titularul de cont",
+    "reason": "Motivul transferului",
+    "receiptLabel": "Dovada de plata",
+    "receiptPending": "În curs de revizuire",
+    "receiptApproved": "Aprobat",
+    "receiptRejected": "Respins",
+    "replaceReceipt": "Înlocuiți chitanța",
+    "uploadReceipt": "Încărcați chitanța",
+    "unlockCodeReceived": "Cod de deblocare primit",
+    "codePlaceholder": "Introdu codul (de exemplu, ABC-1234)",
+    "validateAndContinue": "Validați și continuați",
+    "waitingCodeTitle": "Se așteaptă codul de deblocare",
+    "waitingCodeDesc": "Odată ce chitanța dvs. este validată, consilierul vă va trimite un cod de 6 caractere.",
+    "fileTooBig": "Fișierul depășește 10 MB.",
+    "invalidCode": "Cod invalid sau utilizat deja.",
+    "successFinal": "Transferul a fost finalizat.",
+    "advanced": "Pas validat.",
+    "copied": "{{label}} a fost copiat în clipboard.",
+    "receiptSent": "Chitanța trimisă consilierului dumneavoastră.",
+    "adminValidationTitle": "Transferul așteaptă validarea",
+    "adminValidationMessage": "Un client a ajuns la un pas de conformitate și așteaptă lansarea codului.",
+    "adminReceiptTitle": "Chitanță nouă de revizuit",
+    "adminReceiptMessage": "Un client a încărcat o chitanță de plată conformă."
+  },
+  "transferStepDialog": {
+    "title": "Etapa de conformitate",
+    "subtitle": "Urmăriți progresul și validați în siguranță fiecare etapă."
+  },
+  "transferDetail": {
+    "metaTitle": "Detalii transfer — BNP PARIBAS",
+    "backAll": "Toate transferurile",
+    "header": "BNP PARIBAS · Ordin de transfer",
+    "amount": "Cantitate",
+    "beneficiary": "Beneficiar",
+    "bank": "Bank",
+    "reference": "Referinţă",
+    "iban": "IBAN",
+    "bic": "BIC",
+    "issuedAt": "Eliberat pe",
+    "tracking": "Urmărirea transferului",
+    "history": "Istorie",
+    "notFound": "Transferul nu a fost găsit.",
+    "badge": {
+      "validated": "Transfer validat",
+      "rejected": "Transfer respins",
+      "compliance": "Verificarea conformității",
+      "processing": "Prelucrare bancară"
+    },
+    "rejected": {
+      "title": "Acest transfer a fost respins",
+      "desc": "Fondurile au fost creditate automat înapoi în contul dumneavoastră BNP PARIBAS.",
+      "reason": "Motiv"
+    },
+    "timeline": {
+      "issued": "Ordin de transfer emis",
+      "issuedDesc": "Spre {{beneficiary}} ({{amount}})",
+      "compliance": "Etapa de conformitate validată",
+      "complianceDesc": "Codul de deblocare a fost introdus cu succes.",
+      "enhanced": "Verificare îmbunătățită validată",
+      "enhancedDesc": "Transferul își continuă ruta către beneficiar.",
+      "executed": "Transfer executat",
+      "executedDesc": "Fondurile au fost creditate.",
+      "rejected": "Transfer respins",
+      "rejectedDesc": "Soldul a fost creditat automat înapoi.",
+      "now": "Chiar acum"
+    },
+    "receipt": {
+      "title": "chitanta bancara disponibila",
+      "desc": "Descărcați rezumatul oficial BNP PARIBAS al acestui ordin de transfer.",
+      "download": "Descărcați chitanța"
+    }
+  },
+  "receipt": {
+    "metaTitle": "Chitanța de transfer — BNP PARIBAS",
+    "download": "Descărcați PDF",
+    "subBrand": "Împreună prosperăm",
+    "documentLabel": "Document oficial",
+    "documentTitle": "Chitanța de transfer",
+    "title": "Chitanța de transfer bancar",
+    "subtitle": "Emis pe {{date}}",
+    "amount": "Suma transferată",
+    "statusExecuted": "Transfer executat",
+    "statusPending": "Transfer în curs de procesare",
+    "beneficiary": "Beneficiar",
+    "bank": "Banca beneficiară",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "reference": "Referinţă",
+    "issuedAt": "Data emiterii",
+    "footerSecurity": "Document generat de sistemele securizate BNP PARIBAS.",
+    "footerLegal": "Această chitanță atestă operațiunea bancară și poate fi prezentată oricărei autorități competente.",
+    "generating": "Se generează PDF...",
+    "downloaded": "Chitanța a fost descărcată cu succes",
+    "downloadError": "Nu se poate descărca chitanța",
+    "sessionExpired": "Sesiunea a expirat. Vă rugăm să vă conectați din nou.",
+    "serverSessionExpired": "Sesiunea a expirat. Vă rugăm să vă conectați din nou.",
+    "serverNotFound": "Transferul nu a fost găsit",
+    "serverUnauthorized": "Acces neautorizat la această chitanță",
+    "serverUnavailable": "Chitanța este disponibilă numai după ce transferul este aprobat",
+    "serverSubtitle": "chitanță bancară oficială",
+    "serverSecure": "Document securizat",
+    "serverTitle": "Chitanța de transfer",
+    "serverIssued": "Emis pe {{date}}",
+    "serverAmount": "Suma transferată",
+    "serverStatus": "Status",
+    "serverExecuted": "Transfer executat",
+    "serverBeneficiary": "Beneficiar",
+    "serverBank": "Banca beneficiară",
+    "serverIban": "IBAN",
+    "serverBic": "BIC / SWIFT",
+    "serverReference": "Referinţă",
+    "serverExecutedAt": "Data executiei",
+    "serverSecurity": "Document generat de sistemele securizate BNP PARIBAS.",
+    "serverLegal": "Această chitanță este dovada operațiunii bancare și poate fi prezentată oricărei autorități competente."
+  },
+  "notif": {
+    "transfer": {
+      "instantTitle": "Transfer instantaneu primit",
+      "classicTitle": "Transfer în curs",
+      "instantMsg": "{{amount}} creditat în contul {{iban4}}…{{ibanLast}} (ref. {{ref}})",
+      "classicMsg": "A fost inițiat un transfer standard de {{amount}} (credit în termen de 1 zi lucrătoare, ref. {{ref}})",
+      "adminInitTitle": "A fost inițiat un nou transfer",
+      "adminInitMsg": "{{amount}} → {{beneficiary}} (ref. {{ref}})"
+    },
+    "transferProcess": {
+      "adminValidationTitle": "Chitanță de validat",
+      "adminValidationMsg": "Un client a încărcat o chitanță de plată pentru validare.",
+      "adminReceiptTitle": "Noua chitanta primita",
+      "adminReceiptMsg": "A fost încărcată o nouă chitanță de plată a taxei."
+    },
+    "adminCodes": {
+      "codeTitle": "Cod de deblocare {{p}}%",
+      "codeMsg": "Codul dvs.: {{code}} (taxă {{fee}})",
+      "rejectedTitle": "Chitanța respinsă",
+      "rejectedMsg": "Vă rugăm să încărcați o chitanță validă.",
+      "manualCodeTitle": "Cod de deblocare {{p}}%",
+      "manualCodeMsg": "Codul dvs. de deblocare este: {{code}}"
+    },
+    "loan": {
+      "newRequestAdminTitle": "Noua cerere de imprumut",
+      "newRequestAdminMsg": "{{name}} solicită {{amount}} € peste {{months}} luni",
+      "statusTitle": "Starea aplicației dvs. a fost actualizată",
+      "statusMsg": "Aplicația dvs. pentru {{amount}} este acum: $t(status.{{statusKey}})",
+      "signedReceivedTitle": "Contract semnat primit",
+      "signedReceivedMsg": "{{name}} a semnat contractul (aplicația {{id}})"
+    },
+    "withdrawal": {
+      "sentTitle": "Transfer executat",
+      "sentMsg": "{{amount}} a fost trimis către {{iban4}}...{{ibanLast}} (ref. {{ref}})",
+      "rejectedTitle": "Transfer respins · fonduri rambursate",
+      "rejectedMsg": "Transferul dvs. de {{amount}} a fost respins. Soldul a fost rambursat automat."
+    }
+  },
+  "settings": {
+    "metaTitle": "Setări — BNP PARIBAS",
+    "title": "Setări",
+    "subtitleDesktop": "Gestionați-vă informațiile personale și securitatea",
+    "subtitleMobile": "Gestionați-vă contul și securitatea",
+    "profile": "Profil",
+    "fullName": "Numele complet",
+    "phone": "Telefon",
+    "currentEmail": "E-mail curent",
+    "saveProfile": "Salvați profilul",
+    "emailSection": "Adresa de e-mail",
+    "newEmail": "Adresă de e-mail nouă",
+    "emailHint": "Un e-mail de confirmare va fi trimis la noua adresă.",
+    "updateEmail": "Actualizați e-mailul",
+    "passwordSection": "Parolă",
+    "currentPassword": "Parola actuală",
+    "newPassword": "Parolă Nouă",
+    "confirmPassword": "Confirma",
+    "changePassword": "Schimbaţi parola",
+    "adminAccount": "Cont de administrator",
+    "adminDesc": "Aveți drepturi de gestionare pentru fișierele și operațiunile clienților.",
+    "loadProfileError": "Nu se poate încărca profilul",
+    "saveError": "Eroare de salvare",
+    "profileUpdated": "Profil actualizat",
+    "emailUpdated": "E-mail actualizat. Verificați-vă căsuța de e-mail pentru a confirma.",
+    "passwordTooShort": "Parola trebuie să aibă cel puțin 8 caractere",
+    "passwordMismatch": "Parolele nu se potrivesc",
+    "currentPasswordWrong": "Parola curentă este incorectă",
+    "passwordUpdated": "Parola a fost actualizată",
+    "back": "Spate",
+    "accessAdmin": "Deschideți tabloul de bord de administrare",
+    "goBack": "Spate",
+    "languageSection": "Limbă",
+    "languageDesc": "Alegeți limba interfeței. Alegerea este salvată și sincronizată cu contul dvs.",
+    "languageSaved": "Limba a fost actualizată"
+  },
+  "loanDetail": {
+    "metaTitle": "Detalii credit — BNP PARIBAS",
+    "downloadImpossible": "Descărcarea indisponibilă",
+    "contractGenerating": "Se generează contract PDF...",
+    "sessionExpired": "Sesiunea a expirat. Vă rugăm să vă conectați din nou.",
+    "contractDownloaded": "Contract descărcat",
+    "generationImpossible": "Generarea a eșuat: {{message}}",
+    "unknownError": "Eroare necunoscută",
+    "fileTooHeavy": "Fișier prea mare (maximum 10 MB)",
+    "uploadFailed": "Încărcarea nu a reușit",
+    "updateError": "Eroare de actualizare",
+    "signedSent": "Contract semnat trimis!",
+    "signedReceivedTitle": "Contract semnat primit",
+    "signedReceivedMessage": "{{name}} a semnat contractul (aplicația {{id}})",
+    "loading": "Încărcare…",
+    "notFound": "Împrumutul nu a fost găsit",
+    "back": "Înapoi la împrumuturile mele",
+    "fileNumber": "Fișierul #{{id}}",
+    "title": "Detalii despre împrumut",
+    "refusedTitle": "Cerere refuzată",
+    "refusedDesc": "După examinarea dosarului dvs., din păcate nu putem aproba această solicitare de finanțare.",
+    "reason": "Motiv",
+    "summaryTitle": "Rezumatul aplicației",
+    "amount": "Cantitate",
+    "duration": "Termen",
+    "durationMonths": "{{count}} luni",
+    "monthlyPayment": "Plata lunara estimata",
+    "monthlyIncome": "Venitul lunar",
+    "purpose": "Scop",
+    "documentsTitle": "Documente furnizate",
+    "addedOn": "Adăugat pe {{date}}",
+    "availableBalance": "Sold disponibil",
+    "alreadyWithdrawn": "Deja retras: {{withdrawn}} din {{total}}",
+    "makeTransfer": "Faceți un transfer",
+    "contractTitle": "Contracta",
+    "downloadContract": "Descărcați contractul",
+    "signInstruction": "Vă rugăm să semnați contractul și să îl încărcați mai jos pentru validare.",
+    "sendSignedContract": "Trimite contractul semnat",
+    "signedContractReceived": "Contract semnat primit",
+    "historyTitle": "Istoricul acțiunilor",
+    "noAction": "Nicio acțiune încă.",
+    "requestSubmitted": "Cerere depusă",
+    "requestRefused": "Cerere refuzată",
+    "withdraw": "Retrage",
+    "details": "Detalii",
+    "loanDescription": {
+      "en_attente": "Aplicația dvs. este în curs de examinare",
+      "accepte": "Aplicația dvs. a fost acceptată",
+      "refuse": "Aplicație nereușită",
+      "contrat_envoye": "Contractul a fost trimis spre semnare",
+      "contrat_signe": "Contract semnat primit, eliberare în pregătire",
+      "en_traitement": "Disponibilitatea fondurilor în 72 de ore",
+      "fonds_disponibles": "Fondurile dvs. sunt disponibile"
+    },
+    "steps": {
+      "en_attente": "Cerere depusă",
+      "accepte": "Acceptat",
+      "contrat_envoye": "Contract trimis",
+      "contrat_signe": "Contract semnat",
+      "en_traitement": "Prelucrare",
+      "fonds_disponibles": "Fonduri disponibile"
+    }
+  },
+  "nav": {
+    "home": "Acasă",
+    "transfers": "Transferuri",
+    "request": "Cerere",
+    "primary": "Navigație principală",
+    "support": "Suport"
+  },
+  "mobileHome": {
+    "title": "Bine ați venit la BNP PARIBAS",
+    "subtitle": "Banca ta, în buzunar.",
+    "description": "Gestionați-vă împrumuturile, transferurile și conturile în siguranță, oriunde v-ați afla.",
+    "cta": "Începeți",
+    "tagline": "securitate bancară europeană",
+    "feature1": "Asigura",
+    "feature2": "Criptare end-to-end",
+    "feature3": "Experiență premium"
+  },
+  "authPending": {
+    "title": "Verifică-ți e-mailul",
+    "description": "Am trimis un link de confirmare la adresa ta de e-mail.",
+    "instruction": "Faceți clic pe linkul din căsuța de e-mail pentru a vă activa contul.",
+    "loading": "Astept confirmarea...",
+    "footer": "Pentru securitatea dvs., nu vă împărtășiți niciodată acreditările. BNP PARIBAS nu vă va cere niciodată parola."
+  },
+  "password": {
+    "show": "Afișați parola",
+    "hide": "Ascunde parola",
+    "veryWeak": "Foarte slab",
+    "weak": "Slab",
+    "fair": "Corect",
+    "good": "Bun",
+    "strong": "Puternic",
+    "excellent": "Excelent",
+    "ruleLength": "Cel puțin 10 caractere",
+    "ruleUpper": "O literă mare",
+    "ruleLower": "O literă mică",
+    "ruleDigit": "O cifră",
+    "ruleSpecial": "Un personaj special",
+    "notStrong": "Parola nu respectă toate regulile de securitate."
+  },
+  "livechat": {
+    "open": "Deschide chatul",
+    "close": "Aproape",
+    "title": "Consilier BNP PARIBAS",
+    "online": "Online",
+    "placeholder": "Scrie-ți mesajul...",
+    "greeting": "Salut 👋! Cum te pot ajuta azi?",
+    "faq": {
+      "loan": "Pentru a solicita un împrumut, accesați „Împrumut nou” din tabloul de bord. Decizie în 24h, fonduri în 72h.",
+      "password": "Vă puteți reseta parola din pagina de conectare folosind „Ați uitat parola?”.",
+      "transfer": "Transferurile dvs. sunt listate în secțiunea „Transferuri” din tabloul de bord.",
+      "contact": "Echipa noastră este contactată la +39 350 036 6867 sau prin pagina Contact.",
+      "thanks": "Cu plăcere! Simțiți-vă liber să întrebați orice altceva.",
+      "default": "Un consilier BNP PARIBAS vă va contacta în curând. Ne puteți contacta și prin intermediul paginii de contact."
+    }
+  },
+  "legal": {
+    "badge": "Legal",
+    "lastUpdated": "Ultima actualizare",
+    "home": "Acasă",
+    "privacy": {
+      "title": "Politica de confidențialitate",
+      "subtitle": "Confidențialitatea dvs. este esența încrederii bancare.",
+      "sections": [
+        {
+          "h": "1. Date colectate",
+          "p": "Identitate, contact, date financiare, tehnice și comportamentale."
+        },
+        {
+          "h": "2. Scopuri",
+          "p": "Gestionarea contului, evaluarea creditului, prevenirea fraudei și a spălării banilor."
+        },
+        {
+          "h": "3. Temei legal (GDPR)",
+          "p": "Contract, interes legitim, obligație legală, consimțământ."
+        },
+        {
+          "h": "4. Partajare",
+          "p": "Doar către procesatori verificați și autorități."
+        },
+        {
+          "h": "5. Păstrare",
+          "p": "Cont: relație + 10 ani. Jurnale: 24 luni."
+        },
+        {
+          "h": "6. Drepturile dvs.",
+          "p": "Acces, rectificare, ștergere, restricționare, portabilitate, opoziție."
+        },
+        {
+          "h": "7. Securitate",
+          "p": "Criptare, fingerprint, anomalii, MFA, răspuns 24/7."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Termenii serviciului",
+      "subtitle": "Folosind BNP PARIBAS acceptați termenii.",
+      "sections": [
+        {
+          "h": "1. Eligibilitate",
+          "p": "Minimum 18 ani, rezident al unei țări eligibile."
+        },
+        {
+          "h": "2. Cont",
+          "p": "Informații exacte și credențiale confidențiale."
+        },
+        {
+          "h": "3. Utilizare acceptabilă",
+          "p": "Fără fraudă, spălare, finanțarea terorismului."
+        },
+        {
+          "h": "4. Taxe",
+          "p": "Afișate înainte de operațiune; modificări cu 30 zile preaviz."
+        },
+        {
+          "h": "5. Răspundere",
+          "p": "Daune directe în caz de neglijență gravă."
+        },
+        {
+          "h": "6. Suspendare",
+          "p": "Imediată la suspiciune de fraudă sau AML."
+        },
+        {
+          "h": "7. Lege aplicabilă",
+          "p": "Lege franceză, cu protecția consumatorului."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Politica cookies",
+      "sections": [
+        {
+          "h": "Ce utilizăm",
+          "list": [
+            "<strong>Strict necesare</strong>",
+            "<strong>Funcționale</strong>",
+            "<strong>Securitate</strong>",
+            "<strong>Analitice</strong> — doar cu consimțământ."
+          ]
+        },
+        {
+          "h": "Gestionare",
+          "p": "Puteți șterge cookies din browser."
+        }
+      ]
+    },
+    "mentions": {
+      "title": "Mențiuni legale",
+      "sections": [
+        {
+          "h": "Editor",
+          "p": "BNP PARIBAS — SAS cu capital de 1.000.000 EUR — sediu: 1 Centenary Square, Birmingham, Regatul Unit."
+        },
+        {
+          "h": "Director publicare",
+          "p": "Compliance BNP PARIBAS."
+        },
+        {
+          "h": "Hosting",
+          "p": "Cloudflare Workers — San Francisco, SUA."
+        },
+        {
+          "h": "Contact",
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+        },
+        {
+          "h": "Proprietate intelectuală",
+          "p": "Mărcile și conținutul aparțin BNP PARIBAS."
+        }
+      ]
+    },
+    "amlKyc": {
+      "title": "Politica AML / KYC",
+      "sections": [
+        {
+          "h": "Angajament",
+          "p": "Toleranță zero față de spălare și finanțarea terorismului."
+        },
+        {
+          "h": "Diligență",
+          "p": "Verificare identitate, adresă, sursa fondurilor."
+        },
+        {
+          "h": "Sporită",
+          "p": "PEP, jurisdicții cu risc."
+        },
+        {
+          "h": "Sancțiuni",
+          "p": "Verificare împotriva UE, ONU, OFAC, UK."
+        },
+        {
+          "h": "Raportare",
+          "p": "FIU competentă; tipping-off interzis."
+        },
+        {
+          "h": "Instruire",
+          "p": "Anual; MLRO independent."
+        }
+      ]
+    },
+    "finPriv": {
+      "title": "Confidențialitate și securitate financiară",
+      "sections": [
+        {
+          "h": "Protecție",
+          "p": "TLS 1.3, AES-256, HSM, segregarea fondurilor."
+        },
+        {
+          "h": "Autentificare",
+          "p": "SCA PSD2: parolă + dispozitiv + OTP."
+        },
+        {
+          "h": "Monitorizare",
+          "p": "Detectarea anomaliilor 24/7."
+        },
+        {
+          "h": "Confidențialitate",
+          "p": "Secret bancar."
+        },
+        {
+          "h": "Rolul dvs.",
+          "p": "Păstrați credențialele, înregistrați dispozitive de încredere."
+        }
+      ]
+    },
+    "loanTerms": {
+      "title": "Condiții împrumut",
+      "subtitle": "Un credit vă obligă; verificați capacitatea de rambursare.",
+      "sections": [
+        {
+          "h": "1. Eligibilitate",
+          "p": "Identitate verificată și venituri stabile."
+        },
+        {
+          "h": "2. Sume și durată",
+          "p": "De la 1.000 EUR la 500.000 EUR, 12 până la 120 luni."
+        },
+        {
+          "h": "3. Dobândă / DAE",
+          "p": "Dobândă fixă în ofertă."
+        },
+        {
+          "h": "4. Eliberare fonduri",
+          "p": "După semnare și verificare."
+        },
+        {
+          "h": "5. Rambursare",
+          "p": "Debit lunar."
+        },
+        {
+          "h": "6. Întârziere",
+          "p": "Dobânzi, costuri, posibilă scadență anticipată."
+        },
+        {
+          "h": "7. Drept de retragere",
+          "p": "14 zile calendaristice de la semnare."
+        }
+      ]
+    },
+    "repayment": {
+      "title": "Politica de rambursare",
+      "sections": [
+        {
+          "h": "Calendar",
+          "p": "Rate lunare la data convenită."
+        },
+        {
+          "h": "Rambursare anticipată",
+          "p": "Permisă oricând."
+        },
+        {
+          "h": "Întârziere",
+          "list": [
+            "Ziua 1–7: reamintire.",
+            "Ziua 8–30: taxe + dobândă.",
+            "Din ziua 31: notificare formală."
+          ]
+        },
+        {
+          "h": "Recuperare",
+          "p": "Soluție amiabilă preferată."
+        },
+        {
+          "h": "Dificultăți",
+          "p": "Contactați-ne pentru reeșalonare."
+        }
+      ]
+    }
+  },
+  "adminSec": {
+    "metaTitle": "Securitate · Admin",
+    "unauthorized": "Neautorizat",
+    "adminLink": "Admin",
+    "center": "Centru de securitate",
+    "ok": "ok",
+    "fail": "eroare",
+    "user": "utilizator",
+    "kpi": {
+      "totalEvents": "Total evenimente",
+      "devicesTracked": "Dispozitive monitorizate",
+      "openAlerts": "Alerte deschise",
+      "highRisk": "Utilizatori cu risc"
+    },
+    "tab": {
+      "logs": "Jurnale",
+      "alerts": "Alerte",
+      "devices": "Dispozitive",
+      "risk": "Risc"
+    },
+    "logs": {
+      "title": "Jurnale de securitate",
+      "searchPh": "Căutare utilizator, IP, țară…",
+      "action": "Acțiune",
+      "allActions": "Toate",
+      "when": "Când",
+      "user": "Utilizator",
+      "ipCountry": "IP / Țară",
+      "device": "Dispozitiv",
+      "status": "Stare",
+      "empty": "Niciun jurnal."
+    },
+    "alerts": {
+      "title": "Alerte de securitate",
+      "empty": "Nicio alertă.",
+      "resolved": "rezolvată",
+      "resolve": "Rezolvă"
+    },
+    "devices": {
+      "title": "Dispozitive de încredere",
+      "label": "Etichetă",
+      "country": "Țară",
+      "lastSeen": "Văzut ultima dată",
+      "trusted": "Încredere",
+      "trustedBadge": "de încredere",
+      "pending": "în așteptare",
+      "empty": "Niciun dispozitiv."
+    },
+    "risk": {
+      "title": "Scor de risc",
+      "risk": "Risc",
+      "sessions": "Sesiuni",
+      "sensitive": "Sensibil",
+      "empty": "Fără date."
+    }
+  },
+  "footer": {
+    "legal": "Legal",
+    "privacy": "Confidențialitate",
+    "terms": "Termeni",
+    "cookies": "Cookie-uri",
+    "mentions": "Mențiuni legale",
+    "banking": "Servicii bancare",
+    "loanTerms": "Condiții de împrumut",
+    "repayment": "Rambursare și neplată",
+    "aml": "AML / KYC",
+    "finPriv": "Confidențialitate financiară",
+    "contact": "Contact"
+  },
+  "chat": {
+    "loading": "Se încarcă",
+    "notFound": "Pagină negăsită",
+    "notFoundDesc": "Această pagină nu există.",
+    "backHome": "Înapoi la început",
+    "assistant": "asistentă",
+    "typing": "scrie",
+    "today": "Astăzi",
+    "yesterday": "Ieri",
+    "pageTitle": "Suport live",
+    "pageDesc": "Discutați cu echipa noastră sau cu Anna, asistenta virtuală.",
+    "closed": "Conversație închisă",
+    "closeTicket": "Închide conversația",
+    "close": "Închide",
+    "compose": {
+      "placeholder": "Scrieți mesajul…"
+    },
+    "rt": {
+      "bold": "Aldin",
+      "italic": "Cursiv",
+      "link": "Link",
+      "linkPrompt": "Introduceți URL (https://...)"
+    },
+    "handoff": {
+      "question": "Doriți să vorbiți cu un consilier?",
+      "yes": "Da, vorbește cu un consilier",
+      "no": "Nu, mulțumesc",
+      "pending": "Cererea dvs. este în procesare, un consilier vi se alătură în 1-2 minute…"
+    },
+    "agent": {
+      "joined": "s-a alăturat conversației",
+      "joinedYou": "V-ați alăturat conversației",
+      "notAssigned": "Niciun agent atribuit",
+      "join": "Alăturați-vă"
+    },
+    "status": {
+      "online": "Online",
+      "agent": "Consilier online",
+      "open": "Deschis",
+      "waiting_agent": "Așteaptă agent",
+      "assigned": "În curs",
+      "closed": "Închis"
+    },
+    "admin": {
+      "empty": "Nicio conversație.",
+      "selectHint": "Selectați o conversație în stânga.",
+      "folders": "Fișierele clienților",
+      "tickets": "bilete",
+      "searchPlaceholder": "Căutați un client, bilet, e-mail...",
+      "filter": {
+        "all": "Toate",
+        "waiting": "În așteptare",
+        "mine": "Mi-a fost atribuit",
+        "closed": "Închis",
+        "guests": "Vizitatori"
+      },
+      "info": {
+        "title": "Informații despre tichet",
+        "none": "Nicio informație"
+      },
+      "close": "Închide tichetul",
+      "reopen": "Redeschide tichetul",
+      "updated": "Tichet actualizat"
+    },
+    "banner": {
+      "top": "BNP PARIBAS — Serviciu clienți securizat",
+      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+    },
+    "loginRequired": {
+      "title": "Autentificați-vă pentru chat",
+      "desc": "Trebuie să fiți autentificat pentru suport.",
+      "cta": "Autentificare"
+    },
+    "nav": "Suport",
+    "guest": {
+      "subtitle": "Asistență pentru vizitatori",
+      "intro": "Completați acest formular, un consilier BNP PARIBAS vă va răspunde rapid. Veți primi un număr de bilet.",
+      "name": "Numele complet *",
+      "email": "Email *",
+      "phone": "Telefon",
+      "whatsapp": "WhatsApp",
+      "country": "Țara de reședință",
+      "subject": "Subiect",
+      "message": "Mesajul dvs *",
+      "submit": "Deschide-mi biletul",
+      "privacy": "Datele dumneavoastră sunt tratate confidențial (GDPR).",
+      "created": "Biletul #{{ticket}} creat!",
+      "errors": {
+        "required": "Sunt necesare nume, e-mail și mesaj.",
+        "fail": "Trimiterea a eșuat, încercați din nou."
+      }
+    },
+    "ticket": "Bilet",
+    "archived": "Arhive",
+    "open": "Deschide",
+    "welcome": {
+      "greeting": "Bună ziua 👋 Sunt Anna, asistenta dumneavoastră BNP PARIBAS.",
+      "help": "Cu ce vă pot ajuta astăzi?"
+    },
+    "tickets": {
+      "title": "Conversațiile mele",
+      "new": "Conversație nouă",
+      "open": "Deschise",
+      "closed": "Închise",
+      "empty": "Nicio conversație deocamdată.",
+      "back": "Înapoi",
+      "one": "Conversație"
+    }
+  },
+  "adminDash": {
+    "title": "Tabloul de bord — BNP PARIBAS",
+    "overview": "Prezentare generală",
+    "clients": "Clienții",
+    "loans": "Împrumuturi",
+    "transfers": "Transferuri",
+    "chat": "Chat live",
+    "security": "Securitate",
+    "notifications": "Notificări",
+    "kpis": {
+      "clients": "Clienți activi",
+      "loansPending": "Împrumuturi în așteptare",
+      "transfersBlocked": "Transferuri blocate",
+      "ticketsOpen": "Deschideți bilete",
+      "newToday": "Nou azi"
+    },
+    "recentActivity": "Activitate recentă",
+    "quickActions": "Acțiuni rapide",
+    "staff": "Team & roles",
+    "roles": "Permissions",
+    "logs": "Activity log"
+  }
+}

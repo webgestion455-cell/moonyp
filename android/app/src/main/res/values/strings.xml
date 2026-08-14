@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MyHSBC LineLoan</string>
+    <string name="title_activity_main">MyHSBC LineLoan</string>
+    <string name="package_name">com.myhsbclineloan.app</string>
+    <string name="custom_url_scheme">com.myhsbclineloan.app</string>
+</resources>

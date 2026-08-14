@@ -1,0 +1,8 @@
+{
+  "name": "BNP PARIBAS",
+  "short_name": "BNP",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#00915A",
+  "background_color": "#ffffff"
+}

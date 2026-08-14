@@ -1,0 +1,1402 @@
+{
+  "common": {
+    "loading": "Učitavanje…",
+    "save": "Spremi",
+    "cancel": "Odustani",
+    "close": "Zatvori",
+    "back": "Natrag",
+    "open": "Otvori",
+    "search": "Pretraži",
+    "actions": "Radnje",
+    "yes": "Da",
+    "no": "Ne",
+    "all": "Sve",
+    "none": "Ništa",
+    "language": "Jezik",
+    "submit": "Pošalji",
+    "send": "Pošalji",
+    "confirm": "Potvrdi",
+    "delete": "Obriši",
+    "edit": "Uredi",
+    "view": "Prikaz",
+    "download": "Preuzmi",
+    "upload": "Učitaj",
+    "next": "Sljedeće",
+    "previous": "Prethodno",
+    "from": "Od",
+    "to": "Za",
+    "amount": "Iznos",
+    "date": "Datum",
+    "status": "Status",
+    "details": "Detalji",
+    "optional": "neobavezno",
+    "required": "obavezno",
+    "refresh": "Osvježi",
+    "viewAll": "Prikaži sve",
+    "new": "Novo",
+    "saving": "Spremanje…",
+    "sending": "Slanje…",
+    "updating": "Ažuriranje…",
+    "loadError": "Pogreška učitavanja",
+    "sessionExpired": "Sesija je istekla",
+    "notFound": "Stranica nije pronađena",
+    "notFoundDesc": "Tražena stranica ne postoji.",
+    "backHome": "Natrag na početnu"
+  },
+  "header": {
+    "myLoans": "Moji krediti",
+    "newLoan": "Zatraži kredit",
+    "dashboard": "Nadzorna ploča",
+    "admin": "Administrator",
+    "settings": "Postavke",
+    "signOut": "Odjava",
+    "signIn": "Prijava",
+    "contact": "Kontakt",
+    "menu": "Izbornik"
+  },
+  "notifications": {
+    "title": "Obavijesti",
+    "empty": "Nema obavijesti",
+    "markAllRead": "Označi sve pročitano",
+    "pageTitle": "Sve obavijesti",
+    "noLink": "Nema poveznice",
+    "allRead": "Sve je pregledano",
+    "viewAll": "Prikaži sve obavijesti"
+  },
+  "auth": {
+    "title": "Korisničko područje",
+    "signIn": "Prijava",
+    "signUp": "Otvori račun",
+    "email": "E-pošta",
+    "password": "Lozinka",
+    "fullName": "Puno ime",
+    "phone": "Telefon",
+    "forgotPassword": "Zaboravljena lozinka?",
+    "noAccount": "Još nemate račun?",
+    "hasAccount": "Već imate račun?",
+    "createAccount": "Otvori moj račun",
+    "loginSuccess": "Uspješno prijavljen",
+    "signupSuccess": "Račun otvoren · provjerite pristiglu poštu",
+    "backHome": "Natrag na početnu stranicu",
+    "brandBadge": "Sigurna digitalna banka",
+    "creating": "Otvaranje računa…",
+    "decision": "Odluka unutar 24 radna sata",
+    "google": "Nastavi s Googleom",
+    "googleError": "Nije moguće prijaviti se s Googleom",
+    "googleLoading": "Prijavljivanje s Googleom…",
+    "minPasswordHint": "Najmanje 8 znakova.",
+    "mobileHint": "Prijavite se ili otvorite svoj račun",
+    "rgpd": "Sukladno GDPR-u",
+    "signingIn": "Prijavljivanje…",
+    "terms": "Nastavkom prihvaćate naše Uvjete i Pravila privatnosti.",
+    "tls": "TLS 1.3 enkripcija",
+    "welcomeDesc": "Sigurno pristupite svojim kreditima, transferima i premium uslugama.",
+    "welcomeTitle": "Dobrodošli u",
+    "nameShort": "Ime prekratko",
+    "phoneInvalid": "Neispravan telefonski broj",
+    "emailInvalid": "Neispravna e-pošta",
+    "passwordMin": "Lozinka mora imati najmanje 8 znakova",
+    "passwordRequired": "Lozinka je obavezna",
+    "invalidCredentials": "Neispravni podaci za prijavu",
+    "connectedToast": "Uspješno prijavljen",
+    "emailAlreadyUsed": "E-pošta je već u upotrebi",
+    "accountCreated": "Račun uspješno kreiran",
+    "emailLabel": "E-pošta",
+    "passwordLabel": "Lozinka",
+    "fullNameLabel": "Puno ime",
+    "phoneLabel": "Telefon",
+    "tabSignin": "Prijava",
+    "tabSignup": "Kreiraj račun",
+    "forgotLink": "Zaboravili ste lozinku?",
+    "forgotTitle": "Resetirajte svoju lozinku",
+    "forgotDesc": "Unesite svoju adresu e-pošte. Poslat ćemo vam sigurnu vezu za postavljanje nove lozinke.",
+    "forgotSend": "Pošalji vezu",
+    "forgotSent": "Ako račun postoji, poslana je e-pošta.",
+    "resetTitle": "Postavite novu lozinku",
+    "resetWaiting": "Provjera veze za resetiranje…",
+    "resetSuccess": "Lozinka uspješno ažurirana.",
+    "newPassword": "Nova lozinka",
+    "confirmNewPassword": "Potvrdi lozinku",
+    "updatePassword": "Ažuriraj lozinku"
+  },
+  "dashboard": {
+    "title": "Moja nadzorna ploča",
+    "welcome": "Zdravo",
+    "balance": "Dostupan saldo",
+    "showBalance": "Prikaži saldo",
+    "hideBalance": "Sakrij saldo",
+    "newLoan": "Novi zajam",
+    "withdraw": "Podigni novac",
+    "transfer": "Izvrši prijenos",
+    "myLoans": "Moji zajmovi",
+    "transferHistory": "Povijest prijenosa",
+    "noLoans": "Još nemate zajam",
+    "startApplication": "Pokrenite prijavu",
+    "noTransfers": "Nema prijenosa",
+    "viewLoan": "Pregledaj datoteku",
+    "needHelp": "Trebate pomoć?",
+    "contactSupport": "Kontaktirajte korisničku podršku",
+    "metaTitle": "Moja nadzorna ploča — BNP PARIBAS",
+    "sessionExpired": "Sesija je istekla zbog neaktivnosti",
+    "loadError": "Pogreška pri učitavanju",
+    "welcomeNamed": "Dobrodošli, {{name}}",
+    "welcomeAnon": "Dobrodošli",
+    "totalAvailable": "Ukupno raspoloživo stanje",
+    "fundedOutOf": "od {{amount}} financirano",
+    "withdrawnAmount": "{{amount}} povučeno",
+    "newShort": "+ Novo",
+    "activeLoans": "Aktivni krediti",
+    "totalFunded": "Ukupno financirano",
+    "transfers": "Prijenosi",
+    "loading": "Učitavanje…",
+    "firstLoanTitle": "Započnite svoju prvu prijavu",
+    "firstLoanDesc": "Financirajte svoje projekte u nekoliko minuta: automobil, renovacija, riznica ili bilo koja druga potreba.",
+    "apply": "Prijavite se sada",
+    "loanDurationCreated": "{{months}} mjeseci · Zatraženo {{date}}",
+    "disbursedRemaining": "Isplaćeno: {{disbursed}} · Preostalo: {{remaining}}",
+    "recentActivity": "Nedavna aktivnost",
+    "viewAll": "Prikaži sve",
+    "noRecentTransfers": "Još nema prijenosa",
+    "status": {
+      "en_traitement": "Obrada",
+      "envoye": "Poslano",
+      "rejete": "Odbijeno"
+    },
+    "welcomeShort": "Dobrodošli",
+    "myDashboard": "Moja nadzorna ploča",
+    "newRequest": "Novi zahtjev",
+    "fundedOf": "od {{amount}} financirano",
+    "makeTransfer": "Izvršite prijenos",
+    "transfersKpi": "Prijenosi",
+    "applyCta": "Prijavite se sada",
+    "monthsSince": "{{months}} mjeseci · Zatraženo {{date}}",
+    "details": "Detalji",
+    "noTransfersYet": "Još nema prijenosa"
+  },
+  "loanForm": {
+    "title": "Nova prijava za kredit",
+    "subtitle": "Ispunite obrazac i priložite svoje dokumente.",
+    "fullName": "Puno ime",
+    "email": "E-pošta",
+    "amount": "Zatraženi iznos (€)",
+    "duration": "Trajanje (mjeseci)",
+    "monthlyIncome": "Neto mjesečni prihod (€)",
+    "purpose": "Svrha kredita (opcionalno)",
+    "purposePlaceholder": "Renovacija, automobil, osobni projekt…",
+    "documents": "Potrebni dokumenti (maks. 5, svaki do 5 MB)",
+    "uploadHint": "Kliknite za dodavanje (PDF, JPG, PNG)",
+    "submit": "Pošalji zahtjev",
+    "submitting": "Slanje…",
+    "success": "Zahtjev poslan!",
+    "requiredDocs": "Potrebni dokumenti za pregled",
+    "requiredDocsHint": "Učitajte čitljive PDF, JPG ili PNG datoteke kako biste ubrzali odobrenje.",
+    "doc1": "Važeća osobna iskaznica ili vozačka dozvola (obje strane) — ili putovnica (samo prednja strana)",
+    "doc2": "Nedavna potvrda adrese",
+    "doc3": "Zadnje tri platne liste ili dokaz o prihodima",
+    "doc4": "Zadnji bankovni izvod ili IBAN na ime podnositelja zahtjeva",
+    "back": "Natrag",
+    "newRequestShort": "Novi zahtjev",
+    "newRequestDesc": "Pošaljite svoj zahtjev za kredit",
+    "amountMin": "Minimalno 500 €",
+    "amountMax": "Maksimalno 100.000 €",
+    "fileTooLarge": "{{name}} prelazi 5 MB",
+    "createError": "Pogreška pri kreiranju zahtjeva",
+    "uploadFailed": "Učitavanje nije uspjelo: {{name}}",
+    "adminNotifTitle": "Novi zahtjev za kredit",
+    "adminNotifMsg": "{{name}} traži {{amount}} € na {{months}} mjeseci",
+    "successToast": "Vaš zahtjev je uspješno poslan",
+    "loading": "Učitavanje…",
+    "docsRequiredExact": "Morate učitati točno {{count}} dokumenata kako biste poslali svoj zahtjev.",
+    "uploadHintExact": "Učitajte točno {{count}} dokumenata (PDF, JPG, PNG — maks. 5 MB svaki)",
+    "address": "Puna poštanska adresa",
+    "addressPlaceholder": "Počnite unositi svoju adresu…",
+    "addressHint": "Odaberite prijedlog ili ručno unesite punu adresu.",
+    "addressRequired": "Unesite svoju punu poštansku adresu"
+  },
+  "transfer": {
+    "title": "Izvršite prijenos",
+    "subtitle": "Odaberite vrstu, unesite podatke primatelja i potvrdite.",
+    "kindInstant": "Trenutno (SEPA Instant)",
+    "kindInstantHint": "Odmah uplaćeno primatelju (24/7).",
+    "kindClassic": "Standardno (SEPA)",
+    "kindClassicHint": "Uplaćeno unutar 1 radnog dana · dostupno zakazivanje.",
+    "sourceLoan": "Izvor kredita",
+    "amount": "Iznos (€)",
+    "available": "Dostupan saldo",
+    "beneficiary": "Primatelj",
+    "beneficiaryPlaceholder": "Ime i prezime",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "bankName": "Banka",
+    "bankNamePlaceholder": "Naziv banke",
+    "reference": "Referenca",
+    "referencePlaceholder": "Automatski generirano ako je prazno",
+    "schedule": "Raspored (opcionalno)",
+    "scheduleHint": "Ostavite prazno za sljedeći radni dan.",
+    "reason": "Razlog (opcionalno)",
+    "reasonPlaceholder": "Najam, kupnja, otplata…",
+    "secureInstant": "Šifrirani podaci · trenutno izvršenje",
+    "secureClassic": "Šifrirani podaci · 1 radni dan",
+    "executeInstant": "Izvrši prijenos",
+    "confirmClassic": "Potvrdi prijenos",
+    "successInstant": "Trenutni prijenos izvršen",
+    "successScheduled": "Prijenos zakazan",
+    "successClassic": "Nalog za prijenos zabilježen",
+    "errorEmit": "Greška pri izdavanju prijenosa",
+    "noLoanSelected": "Nije odabran zajam",
+    "amountInvalid": "Nevažeći iznos",
+    "ibanInvalid": "Nevažeći IBAN",
+    "bicInvalid": "Nevažeći BIC/SWIFT",
+    "beneficiaryRequired": "Primatelj obavezan",
+    "bankRequired": "Banka obavezna",
+    "scheduleFuture": "Zakazani datum mora biti u budućnosti"
+  },
+  "contact": {
+    "title": "Kontaktirajte korisničku podršku",
+    "subtitle": "Odgovaramo u roku od 24 radna sata · povjerljivost zajamčena.",
+    "infoTitle": "Podaci za kontakt",
+    "phoneLabel": "Korisnička podrška",
+    "phoneHours": "Pon-Pet · 8h-20h",
+    "emailLabel": "E-pošta",
+    "addressLabel": "Glavni ured",
+    "secureNote": "Vaše poruke su šifrirane i povjerljivo ih obrađuje naš tim za usklađenost.",
+    "formTitle": "Pošalji poruku",
+    "fullName": "Puno ime",
+    "email": "E-pošta",
+    "subject": "Predmet",
+    "message": "Poruka",
+    "messagePlaceholder": "Detaljno opišite svoj zahtjev…",
+    "send": "Pošalji poruku",
+    "success": "Poruka poslana · korisnička podrška će odgovoriti u roku od 24 sata",
+    "error": "Slanje nije uspjelo",
+    "subjects": {
+      "account": "Pitanje o mom računu",
+      "loan": "Pitanje o kreditu",
+      "transfer": "Problem s prijenosom",
+      "complaint": "Žalba",
+      "appointment": "Zahtjev za sastanak",
+      "other": "Ostalo"
+    },
+    "metaTitle": "Kontakt — korisnička služba BNP PARIBAS",
+    "metaDesc": "Kontaktirajte korisničku službu BNP PARIBAS za pitanja o vašem računu, kreditima ili prijenosima.",
+    "nameRequired": "Ime je obavezno",
+    "emailInvalid": "Nevažeća e-pošta",
+    "messageTooShort": "Poruka prekratka (najmanje 10 znakova)",
+    "defaultNamePlaceholder": "Ivan Horvat",
+    "defaultEmailPlaceholder": "vi@primjer.com",
+    "back": "Natrag",
+    "phoneTitle": "Korisnička služba",
+    "address": "Avenue des Champs-Élysées 103",
+    "addressCity": "75008 Pariz, Francuska",
+    "sending": "Slanje…",
+    "successQueued": "Vaša poruka je zabilježena. Naš tim će vam uskoro odgovoriti."
+  },
+  "admin": {
+    "title": "Administratorska nadzorna ploča",
+    "subtitle": "Pregled bankovnih aktivnosti.",
+    "kpis": {
+      "total": "Ukupno prijava",
+      "pending": "Na čekanju",
+      "accepted": "Prihvaćeno",
+      "refused": "Odbijeno"
+    },
+    "amounts": {
+      "requested": "Ukupno zatraženo",
+      "accepted": "Ukupno prihvaćeno",
+      "disbursed": "Isplaćena sredstva"
+    },
+    "recent": {
+      "title": "Nedavna aktivnost",
+      "empty": "Nema nedavnih aktivnosti",
+      "open": "Otvori"
+    },
+    "quickActions": {
+      "title": "Brze radnje",
+      "subtitle": "Prvo obradite datoteke na čekanju.",
+      "toStudy": "Datoteke za pregled",
+      "signedContracts": "Potpisani ugovori za obradu",
+      "manageClients": "Upravljanje klijentima"
+    },
+    "loansPage": {
+      "title": "Sve datoteke kredita",
+      "subtitle": "Detaljan prikaz prijava s mogućnošću filtriranja.",
+      "client": "Klijent",
+      "amount": "Iznos",
+      "status": "Status",
+      "date": "Datum",
+      "documents": "Dokumenti",
+      "duration": "Trajanje"
+    },
+    "clientsPage": {
+      "title": "Klijenti",
+      "subtitle": "Korisnički računi i status pristupa.",
+      "client": "Klijent",
+      "phone": "Telefon",
+      "loans": "Pozajmice",
+      "totalBorrowed": "Ukupno pozajmljeno",
+      "joined": "Pridružen",
+      "status": "Status",
+      "active": "Aktivno",
+      "blocked": "Blokirano"
+    },
+    "clientDetail": {
+      "title": "Profil klijenta",
+      "personalInfo": "Osobni podaci",
+      "summary": "Sažetak",
+      "loans": "Pozajmice klijenta",
+      "withdrawals": "Prijenosi",
+      "noLoans": "Ovaj klijent još nema datoteka.",
+      "noWithdrawals": "Nema prijenosa.",
+      "blockBtn": "Blokiraj račun",
+      "unblockBtn": "Deblokiraj račun",
+      "blockTitle": "Blokiraj korisnički račun",
+      "blockReason": "Razlog blokiranja",
+      "blockReasonPlaceholder": "npr. sumnja na prijevaru, neusklađenost s KYC-om…",
+      "blockedSince": "Blokirano od",
+      "blockedReason": "Razlog",
+      "confirm": "Potvrdi"
+    },
+    "stages": {
+      "title": "Otpusti naknade i kodove",
+      "planSaved": "Plan spremljen",
+      "planFirst": "Prvo postavite naknade",
+      "codeSent": "Kod poslan za fazu {{stage}}%",
+      "unlocked": "Otključano",
+      "codeSentBadge": "Kod poslan",
+      "fee": "Naknada (€)",
+      "sentAt": "Poslano",
+      "genAndSend": "Generiraj i pošalji",
+      "regenAndSend": "Ponovno generiraj i pošalji",
+      "savePlan": "Spremi plan"
+    },
+    "transfer": {
+      "title": "Izvršite prijenos klijenta",
+      "subtitle": "Kreirajte instant ili standardni bankovni prijenos u ime klijenta.",
+      "kind": "Vrsta prijenosa",
+      "instant": "Trenutno",
+      "instantHint": "Odmah doznačeno 24/7.",
+      "classic": "Standardno",
+      "classicHint": "Doznačeno u roku od 1 radnog dana.",
+      "client": "Klijent",
+      "selectClient": "Odaberite klijenta",
+      "loan": "Izvor kredita",
+      "selectLoan": "Odaberite kredit",
+      "amount": "Iznos (€)",
+      "beneficiary": "Primatelj",
+      "bankName": "Banka primatelja",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "reference": "Referenca",
+      "submit": "Izvrši prijenos",
+      "success": "Prijenos uspješno izvršen",
+      "error": "Prijenos nije uspio"
+    }
+  },
+  "blocked": {
+    "title": "Račun suspendiran",
+    "message": "Vaš račun je privremeno suspendiran od strane našeg tima za usklađenost.",
+    "reasonLabel": "Razlog",
+    "contact": "Za više informacija obratite se podršci.",
+    "signOut": "Odjava"
+  },
+  "status": {
+    "en_attente": "Na čekanju",
+    "accepte": "Prihvaćeno",
+    "refuse": "Odbijeno",
+    "contrat_envoye": "Ugovor poslan",
+    "contrat_signe": "Ugovor potpisan",
+    "en_traitement": "U obradi",
+    "fonds_disponibles": "Dostupna sredstva",
+    "envoye": "Poslano",
+    "rejete": "Odbijeno"
+  },
+  "client": {
+    "stages": {
+      "title": "Prijenosi u tijeku",
+      "blockedTitle": "Prijenos blokiran na {{stage}}%",
+      "blockedDesc": "Naknada dospijeva: {{fee}}. Primit ćete kod nakon provjere.",
+      "codePlaceholder": "Kod za otključavanje",
+      "unlock": "Otključaj",
+      "enterCode": "Unesite kod",
+      "invalidCode": "Neispravan kod",
+      "unlocked": "Faza otključana",
+      "awaitCode": "Čekanje administratorskog koda",
+      "codeReceivedTitle": "Otpusti kod {{stage}}%",
+      "codeReceivedMsg": "Vaš kod: {{code}} (naknada {{fee}})"
+    }
+  },
+  "adminCodes": {
+    "title": "Otključaj kodove",
+    "help": "Upravljajte kodovima napretka prijenosa.",
+    "step": "Korak",
+    "released": "Objavljeno",
+    "fee": "Naknada (€)",
+    "code": "Kod",
+    "generate": "Generiraj",
+    "regenerate": "Ponovno generiraj",
+    "send": "Pošalji",
+    "generateAndSend": "Generiraj i pošalji",
+    "regenerateAndSend": "Ponovno generiraj i pošalji",
+    "noCode": "Nema koda",
+    "created": "Kod kreiran",
+    "updated": "Kod ažuriran",
+    "error": "Greška",
+    "success": "Uspjeh",
+    "sectionTitle": "Konfiguracija koraka prijenosa",
+    "sectionHelp": "Postavite naknade i adresu plaćanja po koraku, potvrdite račun, zatim pošaljite kod.",
+    "gatedTitle": "Konfiguracija zaključana",
+    "gatedDesc": "Konfiguracija koraka prijenosa postaje dostupna nakon prihvaćanja zajma.",
+    "address": "Adresa plaćanja",
+    "saved": "Konfiguracija spremljena",
+    "invalidFee": "Neispravna naknada",
+    "codeSent": "Kod generiran i poslan",
+    "consumed": "Potrošeno",
+    "receiptUploaded": "Račun učitan",
+    "pending": "Na čekanju",
+    "approved": "Odobreno",
+    "rejected": "Odbijeno",
+    "approve": "Odobri",
+    "reject": "Odbij",
+    "receiptApproved": "Račun odobren",
+    "receiptRejected": "Račun odbijen",
+    "invalidates": "Ponovno generiranje koda automatski poništava prethodni: samo najnoviji kod radi.",
+    "notifTitle": "Otključaj kod {{p}}%",
+    "notifMsg": "Vaš kod: {{code}} (naknada {{fee}})",
+    "notifApprovedTitle": "Potvrda odobrena — korak {{p}}%",
+    "notifApprovedMsg": "Vaša uplata je potvrđena. Kod će biti poslan.",
+    "notifRejectedTitle": "Potvrda odbijena — korak {{p}}%",
+    "notifRejectedMsg": "Molimo prenesite važeću potvrdu.",
+    "holder": "Vlasnik računa",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "description": "Referenca / Opis"
+  },
+  "transferSteps": {
+    "title": "Siguran prijenos",
+    "subtitle": "Napredak bankarstva u 3 koraka: 63% · 88% · 100%.",
+    "progress": "Napredak",
+    "completed": "Prijenos dovršen",
+    "completedDesc": "Sredstva su uplaćena korisniku.",
+    "blockedTitle": "Prijenos blokiran na {{p}}%",
+    "blockedDesc": "Zbog usklađenosti s bankarskim propisima, otključavanje koraka {{p}}% zahtijeva plaćanje naknade i potvrdu vaše potvrde.",
+    "awaitingConfig": "Konfiguracija u tijeku",
+    "awaitingConfigDesc": "Naš tim dovršava ovaj korak. Bit ćete obaviješteni.",
+    "feeFor": "Korak naknade {{p}}%",
+    "paymentAddress": "Adresa za plaćanje",
+    "paymentHelp": "Izvršite uplatu na ovu adresu, zatim prenesite svoju potvrdu.",
+    "receipt": "Potvrda o uplati",
+    "receiptPending": "Čeka se potvrda",
+    "receiptApproved": "Odobreno",
+    "receiptRejected": "Odbijeno — ponovno pošalji",
+    "uploadReceipt": "Prenesi potvrdu",
+    "replaceReceipt": "Zamijeni potvrdu",
+    "receiptSent": "Potvrda poslana na provjeru",
+    "fileTooBig": "Datoteka prevelika (maks. 10 MB)",
+    "enterCode": "Unesite svoj kod za otključavanje",
+    "unlock": "Otključaj korak {{p}}%",
+    "awaitingCode": "Čeka se kod",
+    "awaitingCodeDesc": "Kod će biti poslan nakon što administrator potvrdi vašu potvrdu.",
+    "invalidCode": "Nevažeći kod",
+    "advanced": "Korak {{p}}% otključan",
+    "successFinal": "Prijenos uspješno dovršen",
+    "notifAdminTitle": "Potvrda primljena — korak {{p}}%",
+    "notifAdminMsg": "Klijent je prenio potvrdu na provjeru.",
+    "stepNotReached": "Korak još nije dosegnut"
+  },
+  "transfersPage": {
+    "metaTitle": "Moji prijenosi — BNP PARIBAS",
+    "eyebrow": "Područje prijenosa",
+    "title": "Moji prijenosi",
+    "subtitle": "Pratite SEPA prijenose, korake usklađenosti i potvrde.",
+    "newTransfer": "Novi prijenos",
+    "beneficiary": "Primatelj:",
+    "issuedAt": "Izdano {{date}}",
+    "reference": "ref. {{reference}}",
+    "emptyTitle": "Nema prijenosa",
+    "emptyDesc": "Vaši prijenosi će se pojaviti ovdje nakon što budu kreirani.",
+    "filters": {
+      "all": "Sve",
+      "active": "U tijeku",
+      "blocked": "Blokirano",
+      "done": "Dovršeno"
+    },
+    "status": {
+      "final": "Potvrđeno",
+      "rejected": "Odbijeno",
+      "blocked": "Potrebna provjera",
+      "processing": "Bankovna obrada"
+    }
+  },
+  "landing": {
+    "metaTitle": "BNP PARIBAS — Trenutni online krediti",
+    "metaDesc": "Financirajte svoje projekte s povjerenjem. Brzi osobni krediti od 1.000 € do 50.000 €. Odluka u 24h, sredstva unutar 72h.",
+    "badge": "Odluka u manje od 24 sata",
+    "heroTitleA": "Financirajte svoje projekte",
+    "heroTitleB": "s povjerenjem.",
+    "heroDesc": "BNP PARIBAS je dio vodeće generacije europskih banaka koje nude brze, transparentne i sigurne osobne kredite.",
+    "ctaPrimary": "Podnesite zahtjev za kredit",
+    "ctaSecondary": "Već imam račun",
+    "trust1": "Šifrirani podaci",
+    "trust2": "100% sigurno",
+    "trust3": "Bez skrivenih naknada",
+    "values": {
+      "response": {
+        "title": "Odgovor u roku od 24 sata",
+        "desc": "Naš tim stručnjaka brzo pregledava vašu datoteku. Nema više beskrajnih tjedana čekanja."
+      },
+      "secure": {
+        "title": "100% sigurno",
+        "desc": "Vaši podaci su šifrirani od kraja do kraja. Pridržavamo se najstrožih bankarskih standarda."
+      },
+      "nofees": {
+        "title": "Bez skrivenih naknada",
+        "desc": "Oglašena stopa je primijenjena stopa. Nema iznenađenja na vašim mjesečnim uplatama."
+      }
+    },
+    "how": {
+      "title": "Kako to radi?",
+      "s1t": "Simulirajte svoj kredit",
+      "s1d": "Odaberite iznos i rok koji vam odgovaraju. Odmah izračunavamo vašu procijenjenu mjesečnu ratu.",
+      "s2t": "Ispunite svoju datoteku",
+      "s2d": "Ispunite obrazac u 5 minuta i prenesite svoje popratne dokumente (osobna iskaznica, dokaz o adresi, platne liste).",
+      "s3t": "Potpišite svoj ugovor",
+      "s3d": "Nakon što ga naš tim odobri, elektronički i sigurno potpišite svoj ugovor.",
+      "s4t": "Primite svoja sredstva",
+      "s4d": "Nakon isteka zakonskog roka, sredstva su dostupna u vašem BNP PARIBAS novčaniku, spremna za podizanje."
+    },
+    "partners": {
+      "eyebrow": "Naše partnerske banke",
+      "title": "Pouzdana bankarska mreža",
+      "desc": "Surađujemo s glavnim europskim financijskim institucijama kako bismo zajamčili brze i sigurne transfere."
+    },
+    "finalCta": {
+      "title": "Jeste li spremni oživjeti svoje projekte?",
+      "desc": "Kreirajte svoj račun i podnesite svoj prvi zahtjev u samo nekoliko minuta.",
+      "button": "Započnite moju prijavu"
+    },
+    "footer": {
+      "rights": "Sva prava pridržana.",
+      "legal": "Zajam vas obvezuje i mora se vratiti. Provjerite svoju sposobnost otplate prije nego što se obvežete."
+    },
+    "slides": {
+      "s1t": "Bankarstvo osmišljeno oko vas",
+      "s1d": "Otvorite račun u nekoliko minuta, bez papirologije.",
+      "s2t": "Upravljajte svojim financijama u stvarnom vremenu",
+      "s2d": "Jasna nadzorna ploča, analitika i pametna upozorenja.",
+      "s3t": "Vaša banka u vašem džepu",
+      "s3d": "Sigurna mobilna aplikacija dostupna 24/7.",
+      "s4t": "Sigurnost na razini banke",
+      "s4d": "End-to-end enkripcija i snažna autentifikacija."
+    },
+    "kpis": {
+      "clients": "Aktivni klijenti",
+      "countries": "Pokrivene zemlje",
+      "assets": "Upravljana imovina",
+      "uptime": "Vrijeme rada"
+    },
+    "security": {
+      "eyebrow": "Sigurnost i usklađenost",
+      "title": "Vrhunska bankarska zaštita",
+      "desc": "Naši sustavi zadovoljavaju najstrože europske bankarske standarde.",
+      "f1t": "AES-256 enkripcija",
+      "f1d": "Vaši podaci zaštićeni su enkripcijom vojne razine.",
+      "f2t": "Usklađeno s PSD2 i GDPR",
+      "f2d": "Europski propisi strogo se provode.",
+      "f3t": "Snažna autentifikacija",
+      "f3d": "Dvofaktorska provjera valjanosti za svaku osjetljivu operaciju.",
+      "f4t": "Podrška 24/7",
+      "f4d": "Posvećeni savjetnici dostupni u svako doba."
+    },
+    "testi": {
+      "eyebrow": "Svjedočanstva",
+      "title": "Oni nam vjeruju",
+      "t1n": "Marie Dubois",
+      "t1r": "Financijski direktor",
+      "t1q": "Glatko i profesionalno bankarsko iskustvo. Podrška je izvanredna.",
+      "t2n": "Jean Martin",
+      "t2r": "Poduzetnik",
+      "t2q": "Međunarodni prijenosi su brzi, a sigurnost besprijekorna.",
+      "t3n": "Sophie Laurent",
+      "t3r": "Odvjetnik",
+      "t3q": "Konačno digitalna banka koja spaja jednostavnost s institucionalnom ozbiljnošću."
+    },
+    "mobile": {
+      "eyebrow": "Mobilna aplikacija",
+      "title": "Cijela vaša banka, na dlanu",
+      "desc": "Upravljajte računima, šaljite prijenose i pratite ulaganja sa svog pametnog telefona.",
+      "b1": "Praćenje transakcija u stvarnom vremenu",
+      "b2": "Trenutni međunarodni prijenosi",
+      "b3": "Biometrija Face ID-a i otiska prsta"
+    },
+    "faq": {
+      "title": "Često postavljana pitanja",
+      "q1": "Kako otvoriti račun?",
+      "a1": "Prijavite se online za manje od 5 minuta s važećim identifikacijskim dokumentom.",
+      "q2": "Koje su naknade?",
+      "a2": "Naš standardni plan nema skrivenih naknada. Svakodnevne operacije su besplatne.",
+      "q3": "Jesu li moja sredstva zaštićena?",
+      "a3": "Depoziti su zajamčeni do 100.000 € od strane Fonda za osiguranje depozita.",
+      "q4": "Kako mogu kontaktirati podršku?",
+      "a4": "Naš tim je dostupan 24/7 putem sigurnog chata, e-pošte ili telefona."
+    }
+  },
+  "transferProcess": {
+    "progress": "Siguran napredak",
+    "rejectedBadge": "Prijenos odbijen",
+    "validatedBadge": "Prijenos potvrđen",
+    "complianceBadge": "Provjera usklađenosti",
+    "processingBadge": "Bankovna obrada",
+    "rejectedTitle": "Ovaj prijenos je odbijen",
+    "rejectedDesc": "Sredstva su automatski vraćena na vaš račun.",
+    "finalTitle": "Prijenos uspješno izvršen",
+    "finalDesc": "Primatelj će primiti sredstva unutar standardnog međubankarskog roka.",
+    "animatingTitle": "Bankovno usmjeravanje u tijeku",
+    "animatingDesc": "Vaš prijenos se kreće kroz naše sigurne kanale. Nije potrebna nikakva radnja.",
+    "blockedTitle": "Potrebna provjera usklađenosti",
+    "blockedDesc": "Da biste dovršili ovaj korak, molimo platite naknadu za usklađenost u nastavku i unesite kod koji primite.",
+    "configTitle": "Konfiguracija u tijeku",
+    "configDesc": "Savjetnik BNP PARIBAS-a priprema plaćanje usklađenosti. Uskoro ćete dobiti upute.",
+    "fee": "Naknada za usklađenost dospjela",
+    "bankOrder": "Podaci o BNP PARIBAS-u",
+    "accountHolder": "Vlasnik računa",
+    "reason": "Razlog prijenosa",
+    "receiptLabel": "Dokaz o uplati",
+    "receiptPending": "Na pregledu",
+    "receiptApproved": "Odobreno",
+    "receiptRejected": "Odbijeno",
+    "replaceReceipt": "Zamijenite račun",
+    "uploadReceipt": "Učitajte račun",
+    "unlockCodeReceived": "Kod za otključavanje primljen",
+    "codePlaceholder": "Unesite kod (npr. ABC-1234)",
+    "validateAndContinue": "Potvrdite i nastavite",
+    "waitingCodeTitle": "Čekanje koda za otključavanje",
+    "waitingCodeDesc": "Nakon što vaš račun bude potvrđen, vaš savjetnik će vam poslati šesteroznamenkasti kod.",
+    "fileTooBig": "Datoteka prelazi 10 MB.",
+    "invalidCode": "Neispravan ili već korišten kod.",
+    "successFinal": "Prijenos finaliziran.",
+    "advanced": "Korak potvrđen.",
+    "copied": "{{label}} kopirano u međuspremnik.",
+    "receiptSent": "Račun poslan vašem savjetniku.",
+    "adminValidationTitle": "Prijenos čeka potvrdu",
+    "adminValidationMessage": "Klijent je došao do koraka usklađenosti i čeka puštanje koda.",
+    "adminReceiptTitle": "Novi račun za pregled",
+    "adminReceiptMessage": "Klijent je učitao potvrdu o uplati usklađenosti."
+  },
+  "transferStepDialog": {
+    "title": "Korak usklađenosti",
+    "subtitle": "Pratite napredak i sigurno potvrdite svaku prekretnicu."
+  },
+  "transferDetail": {
+    "metaTitle": "Detalji prijenosa — BNP PARIBAS",
+    "backAll": "Svi prijenosi",
+    "header": "BNP PARIBAS · Nalog za prijenos",
+    "amount": "Iznos",
+    "beneficiary": "Primatelj",
+    "bank": "Banka",
+    "reference": "Referenca",
+    "iban": "IBAN",
+    "bic": "BIC",
+    "issuedAt": "Izdano",
+    "tracking": "Praćenje prijenosa",
+    "history": "Povijest",
+    "notFound": "Prijenos nije pronađen.",
+    "badge": {
+      "validated": "Prijenos potvrđen",
+      "rejected": "Prijenos odbijen",
+      "compliance": "Provjera usklađenosti",
+      "processing": "Bankovna obrada"
+    },
+    "rejected": {
+      "title": "Ovaj prijenos je odbijen",
+      "desc": "Sredstva su automatski vraćena na vaš BNP PARIBAS račun.",
+      "reason": "Razlog"
+    },
+    "timeline": {
+      "issued": "Nalog za prijenos izdan",
+      "issuedDesc": "Za {{beneficiary}} ({{amount}})",
+      "compliance": "Korak usklađenosti potvrđen",
+      "complianceDesc": "Kôd za otključavanje uspješno unesen.",
+      "enhanced": "Poboljšana provjera valjanosti",
+      "enhancedDesc": "Prijenos nastavlja svoje usmjeravanje prema primatelju.",
+      "executed": "Prijenos izvršen",
+      "executedDesc": "Sredstva su uplaćena.",
+      "rejected": "Prijenos odbijen",
+      "rejectedDesc": "Stanje je automatski vraćeno.",
+      "now": "Upravo sada"
+    },
+    "receipt": {
+      "title": "Bankovni račun dostupan",
+      "desc": "Preuzmite službeni sažetak ovog naloga za prijenos od BNP PARIBAS.",
+      "download": "Preuzmi potvrdu"
+    }
+  },
+  "receipt": {
+    "metaTitle": "Potvrda o prijenosu — BNP PARIBAS",
+    "download": "Preuzmi PDF",
+    "subBrand": "Zajedno napredujemo",
+    "documentLabel": "Službeni dokument",
+    "documentTitle": "Potvrda o prijenosu",
+    "title": "Potvrda o bankovnom prijenosu",
+    "subtitle": "Izdano {{date}}",
+    "amount": "Preneseni iznos",
+    "statusExecuted": "Prijenos izvršen",
+    "statusPending": "Prijenos u obradi",
+    "beneficiary": "Primatelj",
+    "bank": "Banka primatelja",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "reference": "Referenca",
+    "issuedAt": "Datum izdavanja",
+    "footerSecurity": "Dokument generiran sigurnim sustavima BNP PARIBAS.",
+    "footerLegal": "Ova potvrda ovjerava bankovnu operaciju i može se predočiti bilo kojem nadležnom tijelu.",
+    "generating": "Generiranje PDF-a…",
+    "downloaded": "Potvrda uspješno preuzeta",
+    "downloadError": "Nije moguće preuzeti potvrdu",
+    "sessionExpired": "Sesija je istekla. Molimo prijavite se ponovno.",
+    "serverSessionExpired": "Sesija je istekla. Molimo prijavite se ponovno.",
+    "serverNotFound": "Prijenos nije pronađen",
+    "serverUnauthorized": "Neovlašten pristup ovom računu",
+    "serverUnavailable": "Račun je dostupan tek nakon odobrenja prijenosa",
+    "serverSubtitle": "Službena bankovna potvrda",
+    "serverSecure": "Siguran dokument",
+    "serverTitle": "Potvrda o prijenosu",
+    "serverIssued": "Izdano dana {{date}}",
+    "serverAmount": "Preneseni iznos",
+    "serverStatus": "Status",
+    "serverExecuted": "Prijenos izvršen",
+    "serverBeneficiary": "Primatelj",
+    "serverBank": "Banka primatelja",
+    "serverIban": "IBAN",
+    "serverBic": "BIC / SWIFT",
+    "serverReference": "Referenca",
+    "serverExecutedAt": "Datum izvršenja",
+    "serverSecurity": "Dokument generiran sigurnim sustavima BNP PARIBAS.",
+    "serverLegal": "Ova potvrda je dokaz bankovne operacije i može se predočiti bilo kojem nadležnom tijelu."
+  },
+  "notif": {
+    "transfer": {
+      "instantTitle": "Trenutni prijenos primljen",
+      "classicTitle": "Prijenos u tijeku",
+      "instantMsg": "{{amount}} uplaćeno na račun {{iban4}}…{{ibanLast}} (ref. {{ref}})",
+      "classicMsg": "Pokrenut je standardni prijenos od {{amount}} (uplata unutar 1 radnog dana, ref. {{ref}})",
+      "adminInitTitle": "Novi prijenos pokrenut",
+      "adminInitMsg": "{{amount}} → {{beneficiary}} (ref. {{ref}})"
+    },
+    "transferProcess": {
+      "adminValidationTitle": "Potvrda za validaciju",
+      "adminValidationMsg": "Klijent je učitao potvrdu o uplati radi validacije.",
+      "adminReceiptTitle": "Nova potvrda primljena",
+      "adminReceiptMsg": "Učitana je nova potvrda o uplati naknade."
+    },
+    "adminCodes": {
+      "codeTitle": "Kod za otključavanje {{p}}%",
+      "codeMsg": "Vaš kod: {{code}} (naknada {{fee}})",
+      "rejectedTitle": "Potvrda odbijena",
+      "rejectedMsg": "Molimo učitajte valjanu potvrdu.",
+      "manualCodeTitle": "Kod za otključavanje {{p}}%",
+      "manualCodeMsg": "Vaš kod za otključavanje je: {{code}}"
+    },
+    "loan": {
+      "newRequestAdminTitle": "Novi zahtjev za kredit",
+      "newRequestAdminMsg": "{{name}} traži {{amount}} € na {{months}} mjeseci",
+      "statusTitle": "Status vaše prijave je ažuriran",
+      "statusMsg": "Vaša prijava za {{amount}} je sada: $t(status.{{statusKey}})",
+      "signedReceivedTitle": "Potpisani ugovor primljen",
+      "signedReceivedMsg": "{{name}} je potpisao ugovor (prijava {{id}})"
+    },
+    "withdrawal": {
+      "sentTitle": "Prijenos izvršen",
+      "sentMsg": "{{amount}} je poslano na {{iban4}}…{{ibanLast}} (ref. {{ref}})",
+      "rejectedTitle": "Prijenos odbijen · sredstva vraćena",
+      "rejectedMsg": "Vaš prijenos od {{amount}} je odbijen. Stanje je automatski vraćeno."
+    }
+  },
+  "settings": {
+    "metaTitle": "Postavke — BNP PARIBAS",
+    "title": "Postavke",
+    "subtitleDesktop": "Upravljajte svojim osobnim podacima i sigurnošću",
+    "subtitleMobile": "Upravljajte svojim računom i sigurnošću",
+    "profile": "Profil",
+    "fullName": "Puno ime",
+    "phone": "Telefon",
+    "currentEmail": "Trenutna e-pošta",
+    "saveProfile": "Spremi profil",
+    "emailSection": "Adresa e-pošte",
+    "newEmail": "Nova adresa e-pošte",
+    "emailHint": "E-pošta za potvrdu bit će poslana na novu adresu.",
+    "updateEmail": "Ažuriraj e-poštu",
+    "passwordSection": "Lozinka",
+    "currentPassword": "Trenutna lozinka",
+    "newPassword": "Nova lozinka",
+    "confirmPassword": "Potvrdi",
+    "changePassword": "Promijeni lozinku",
+    "adminAccount": "Administratorski račun",
+    "adminDesc": "Imate prava upravljanja korisničkim datotekama i operacijama.",
+    "loadProfileError": "Nije moguće učitati profil",
+    "saveError": "Pogreška spremanja",
+    "profileUpdated": "Profil ažuriran",
+    "emailUpdated": "E-pošta ažurirana. Provjerite svoju pristiglu poštu za potvrdu.",
+    "passwordTooShort": "Lozinka mora imati najmanje 8 znakova",
+    "passwordMismatch": "Lozinke se ne podudaraju",
+    "currentPasswordWrong": "Trenutna lozinka je netočna",
+    "passwordUpdated": "Lozinka ažurirana",
+    "back": "Natrag",
+    "accessAdmin": "Otvori administratorsku nadzornu ploču",
+    "goBack": "Natrag",
+    "languageSection": "Jezik",
+    "languageDesc": "Odaberite jezik sučelja. Vaš odabir se sprema i sinkronizira s računom.",
+    "languageSaved": "Jezik je ažuriran"
+  },
+  "loanDetail": {
+    "metaTitle": "Detalji zajma — BNP PARIBAS",
+    "downloadImpossible": "Preuzimanje nedostupno",
+    "contractGenerating": "Generiranje PDF-a ugovora…",
+    "sessionExpired": "Sesija je istekla. Molimo prijavite se ponovno.",
+    "contractDownloaded": "Ugovor preuzet",
+    "generationImpossible": "Generiranje nije uspjelo: {{message}}",
+    "unknownError": "Nepoznata pogreška",
+    "fileTooHeavy": "Datoteka je prevelika (maksimalno 10 MB)",
+    "uploadFailed": "Prijenos nije uspio",
+    "updateError": "Pogreška pri ažuriranju",
+    "signedSent": "Potpisani ugovor poslan!",
+    "signedReceivedTitle": "Potpisani ugovor primljen",
+    "signedReceivedMessage": "{{name}} je potpisao ugovor (zahtjev {{id}})",
+    "loading": "Učitavanje…",
+    "notFound": "Zajam nije pronađen",
+    "back": "Natrag na moje zajmove",
+    "fileNumber": "Datoteka #{{id}}",
+    "title": "Detalji zajma",
+    "refusedTitle": "Zahtjev odbijen",
+    "refusedDesc": "Nakon pregleda vaše datoteke, nažalost ne možemo odobriti ovaj zahtjev za financiranje.",
+    "reason": "Razlog",
+    "summaryTitle": "Sažetak zahtjeva",
+    "amount": "Iznos",
+    "duration": "Rok",
+    "durationMonths": "{{count}} mjeseci",
+    "monthlyPayment": "Procijenjena mjesečna rata",
+    "monthlyIncome": "Mjesečni prihod",
+    "purpose": "Svrha",
+    "documentsTitle": "Dostavljeni dokumenti",
+    "addedOn": "Dodano {{date}}",
+    "availableBalance": "Dostupan saldo",
+    "alreadyWithdrawn": "Već povučeno: {{withdrawn}} od {{total}}",
+    "makeTransfer": "Izvršite prijenos",
+    "contractTitle": "Ugovor",
+    "downloadContract": "Preuzmi ugovor",
+    "signInstruction": "Molimo potpišite ugovor i prenesite ga u nastavku radi provjere valjanosti.",
+    "sendSignedContract": "Pošalji potpisani ugovor",
+    "signedContractReceived": "Potpisani ugovor primljen",
+    "historyTitle": "Povijest radnji",
+    "noAction": "Još nema radnji.",
+    "requestSubmitted": "Zahtjev podnesen",
+    "requestRefused": "Zahtjev odbijen",
+    "withdraw": "Podigni",
+    "details": "Detalji",
+    "loanDescription": {
+      "en_attente": "Vaš zahtjev se pregledava",
+      "accepte": "Vaš zahtjev je prihvaćen",
+      "refuse": "Prijava neuspješna",
+      "contrat_envoye": "Ugovor je poslan na potpisivanje",
+      "contrat_signe": "Potpisani ugovor primljen, priprema za puštanje",
+      "en_traitement": "Dostupnost sredstava unutar 72 sata",
+      "fonds_disponibles": "Vaša sredstva su dostupna"
+    },
+    "steps": {
+      "en_attente": "Prijava poslana",
+      "accepte": "Prihvaćeno",
+      "contrat_envoye": "Ugovor poslan",
+      "contrat_signe": "Ugovor potpisan",
+      "en_traitement": "Obrada",
+      "fonds_disponibles": "Sredstva dostupna"
+    }
+  },
+  "nav": {
+    "home": "Početna",
+    "transfers": "Transferi",
+    "request": "Zahtjev",
+    "primary": "Glavna navigacija",
+    "support": "Podrška"
+  },
+  "mobileHome": {
+    "title": "Dobrodošli u BNP PARIBAS",
+    "subtitle": "Vaša banka, u vašem džepu.",
+    "description": "Upravljajte svojim kreditima, transferima i računima sigurno, gdje god se nalazili.",
+    "cta": "Započnite",
+    "tagline": "Europska bankarska sigurnost",
+    "feature1": "Sigurno",
+    "feature2": "Enkripcija od kraja do kraja",
+    "feature3": "Premium iskustvo"
+  },
+  "authPending": {
+    "title": "Provjerite svoju e-poštu",
+    "description": "Poslali smo poveznicu za potvrdu na vašu e-adresu.",
+    "instruction": "Kliknite na poveznicu u pristigloj pošti kako biste aktivirali svoj račun.",
+    "loading": "Čekanje potvrde...",
+    "footer": "Radi vaše sigurnosti, nikada ne dijelite svoje vjerodajnice. BNP PARIBAS nikada neće tražiti vašu lozinku."
+  },
+  "password": {
+    "show": "Prikaži lozinku",
+    "hide": "Sakrij lozinku",
+    "veryWeak": "Vrlo slaba",
+    "weak": "Slaba",
+    "fair": "Osrednja",
+    "good": "Dobra",
+    "strong": "Jaka",
+    "excellent": "Izvrsna",
+    "ruleLength": "Najmanje 10 znakova",
+    "ruleUpper": "Jedno veliko slovo",
+    "ruleLower": "Jedno malo slovo",
+    "ruleDigit": "Jedna znamenka",
+    "ruleSpecial": "Jedan poseban znak",
+    "notStrong": "Lozinka ne zadovoljava sva sigurnosna pravila."
+  },
+  "livechat": {
+    "open": "Otvori chat",
+    "close": "Zatvori",
+    "title": "BNP PARIBAS savjetnik",
+    "online": "Online",
+    "placeholder": "Napišite svoju poruku…",
+    "greeting": "Pozdrav 👋! Kako vam danas mogu pomoći?",
+    "faq": {
+      "loan": "Zahtjev za kredit podnesite putem opcije \"Novi kredit\" na svojoj nadzornoj ploči. Odluka u roku od 24 sata, sredstva u roku od 72 sata.",
+      "password": "Lozinku možete poništiti na stranici za prijavu koristeći opciju \"Zaboravljena lozinka?\".",
+      "transfer": "Vaši prijenosi navedeni su u odjeljku \"Prijenosi\" na vašoj nadzornoj ploči.",
+      "contact": "Naš tim je dostupan na +39 350 036 6867 ili putem stranice Kontakt.",
+      "thanks": "Nema na čemu! Slobodno pitajte bilo što drugo.",
+      "default": "Savjetnik BNP PARIBAS-a javit će vam se uskoro. Možete nas kontaktirati i putem stranice Kontakt."
+    }
+  },
+  "legal": {
+    "badge": "Pravno",
+    "lastUpdated": "Posljednje ažuriranje",
+    "home": "Početna",
+    "privacy": {
+      "title": "Politika privatnosti",
+      "subtitle": "Vaša privatnost je temelj bankarskog povjerenja.",
+      "sections": [
+        {
+          "h": "1. Prikupljeni podaci",
+          "p": "Identitet, kontakt, financijski, tehnički i ponašajni podaci."
+        },
+        {
+          "h": "2. Svrhe",
+          "p": "Vođenje računa, procjena kredita, sprječavanje prijevara i pranja novca."
+        },
+        {
+          "h": "3. Pravna osnova (GDPR)",
+          "p": "Ugovor, legitimni interes, zakonska obveza, privola."
+        },
+        {
+          "h": "4. Dijeljenje",
+          "p": "Samo provjerenim obrađivačima i nadležnim tijelima."
+        },
+        {
+          "h": "5. Čuvanje",
+          "p": "Račun: odnos + 10 godina. Sigurnosni zapisi: 24 mjeseca."
+        },
+        {
+          "h": "6. Vaša prava",
+          "p": "Pristup, ispravak, brisanje, ograničenje, prenosivost, prigovor."
+        },
+        {
+          "h": "7. Sigurnost",
+          "p": "Enkripcija, fingerprint, detekcija anomalija, MFA, 24/7 odgovor."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Uvjeti korištenja",
+      "subtitle": "Korištenjem BNP PARIBAS prihvaćate uvjete.",
+      "sections": [
+        {
+          "h": "1. Uvjeti",
+          "p": "Najmanje 18 godina, stanovnik prihvatljive zemlje."
+        },
+        {
+          "h": "2. Račun",
+          "p": "Točni podaci i povjerljive vjerodajnice."
+        },
+        {
+          "h": "3. Prihvatljivo korištenje",
+          "p": "Bez prijevara, pranja novca, financiranja terorizma."
+        },
+        {
+          "h": "4. Naknade",
+          "p": "Prikazane prije operacije; izmjene uz 30 dana najave."
+        },
+        {
+          "h": "5. Odgovornost",
+          "p": "Izravne štete kod grube nepažnje."
+        },
+        {
+          "h": "6. Suspenzija",
+          "p": "Trenutna kod sumnje na prijevaru."
+        },
+        {
+          "h": "7. Mjerodavno pravo",
+          "p": "Francusko pravo uz potrošačku zaštitu."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Politika kolačića",
+      "sections": [
+        {
+          "h": "Što koristimo",
+          "list": [
+            "<strong>Nužni</strong>",
+            "<strong>Funkcionalni</strong>",
+            "<strong>Sigurnosni</strong>",
+            "<strong>Analitički</strong> — samo uz privolu."
+          ]
+        },
+        {
+          "h": "Upravljanje",
+          "p": "Kolačiće možete obrisati u pregledniku."
+        }
+      ]
+    },
+    "mentions": {
+      "title": "Pravne informacije",
+      "sections": [
+        {
+          "h": "Izdavač",
+          "p": "BNP PARIBAS — SAS s kapitalom 1.000.000 EUR — sjedište: 1 Centenary Square, Birmingham, Ujedinjeno Kraljevstvo."
+        },
+        {
+          "h": "Glavni urednik",
+          "p": "Compliance BNP PARIBAS."
+        },
+        {
+          "h": "Hosting",
+          "p": "Cloudflare Workers — San Francisco, SAD."
+        },
+        {
+          "h": "Kontakt",
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+        },
+        {
+          "h": "Intelektualno vlasništvo",
+          "p": "Robni znakovi i sadržaj pripadaju BNP PARIBAS."
+        }
+      ]
+    },
+    "amlKyc": {
+      "title": "AML / KYC politika",
+      "sections": [
+        {
+          "h": "Predanost",
+          "p": "Nulta tolerancija prema pranju novca i financiranju terorizma."
+        },
+        {
+          "h": "Dubinska analiza",
+          "p": "Provjera identiteta, adrese, izvora sredstava."
+        },
+        {
+          "h": "Pojačana",
+          "p": "PEP, visokorizične jurisdikcije."
+        },
+        {
+          "h": "Sankcije",
+          "p": "Provjera EU, UN, OFAC, UK lista."
+        },
+        {
+          "h": "Prijavljivanje",
+          "p": "Nadležnoj FIU; tipping-off zabranjen."
+        },
+        {
+          "h": "Obuka",
+          "p": "Godišnje; neovisni MLRO."
+        }
+      ]
+    },
+    "finPriv": {
+      "title": "Financijska privatnost i sigurnost",
+      "sections": [
+        {
+          "h": "Zaštita",
+          "p": "TLS 1.3, AES-256, HSM, odvajanje sredstava klijenata."
+        },
+        {
+          "h": "Autentifikacija",
+          "p": "SCA PSD2: lozinka + uređaj + OTP."
+        },
+        {
+          "h": "Praćenje",
+          "p": "Detekcija anomalija 24/7."
+        },
+        {
+          "h": "Povjerljivost",
+          "p": "Bankovna tajna."
+        },
+        {
+          "h": "Vaša uloga",
+          "p": "Čuvajte vjerodajnice, registrirajte pouzdane uređaje."
+        }
+      ]
+    },
+    "loanTerms": {
+      "title": "Uvjeti kredita",
+      "subtitle": "Kredit vas obvezuje; provjerite sposobnost otplate.",
+      "sections": [
+        {
+          "h": "1. Uvjeti",
+          "p": "Provjeren identitet i stabilni prihodi."
+        },
+        {
+          "h": "2. Iznosi i trajanje",
+          "p": "Od 1.000 EUR do 500.000 EUR, 12 do 120 mjeseci."
+        },
+        {
+          "h": "3. Kamata / EKS",
+          "p": "Fiksna kamata u ponudi."
+        },
+        {
+          "h": "4. Isplata",
+          "p": "Nakon potpisa i provjere."
+        },
+        {
+          "h": "5. Otplata",
+          "p": "Mjesečno terećenje."
+        },
+        {
+          "h": "6. Zakašnjenje",
+          "p": "Kamate, naknade, moguć raskid."
+        },
+        {
+          "h": "7. Odustajanje",
+          "p": "14 kalendarskih dana."
+        }
+      ]
+    },
+    "repayment": {
+      "title": "Politika otplate",
+      "sections": [
+        {
+          "h": "Raspored",
+          "p": "Mjesečne rate na ugovoreni dan."
+        },
+        {
+          "h": "Prijevremena otplata",
+          "p": "Uvijek dopuštena."
+        },
+        {
+          "h": "Kašnjenje",
+          "list": [
+            "Dan 1–7: podsjetnik.",
+            "Dan 8–30: naknade + kamata.",
+            "Od 31. dana: opomena."
+          ]
+        },
+        {
+          "h": "Naplata",
+          "p": "Prvo mirno rješenje."
+        },
+        {
+          "h": "Poteškoće",
+          "p": "Kontaktirajte nas za reprogram."
+        }
+      ]
+    }
+  },
+  "adminSec": {
+    "metaTitle": "Sigurnost · Admin",
+    "unauthorized": "Nije ovlašteno",
+    "adminLink": "Administrator",
+    "center": "Sigurnosni centar",
+    "ok": "ok",
+    "fail": "greška",
+    "user": "korisnik",
+    "kpi": {
+      "totalEvents": "Ukupno događaja",
+      "devicesTracked": "Praćeni uređaji",
+      "openAlerts": "Otvorena upozorenja",
+      "highRisk": "Korisnici visokog rizika"
+    },
+    "tab": {
+      "logs": "Zapisi",
+      "alerts": "Upozorenja",
+      "devices": "Uređaji",
+      "risk": "Rizik"
+    },
+    "logs": {
+      "title": "Sigurnosni zapisi",
+      "searchPh": "Pretraga korisnika, IP, zemlje…",
+      "action": "Radnja",
+      "allActions": "Sve",
+      "when": "Kada",
+      "user": "Korisnik",
+      "ipCountry": "IP / Zemlja",
+      "device": "Uređaj",
+      "status": "Status",
+      "empty": "Nema zapisa."
+    },
+    "alerts": {
+      "title": "Sigurnosna upozorenja",
+      "empty": "Nema upozorenja.",
+      "resolved": "riješeno",
+      "resolve": "Riješi"
+    },
+    "devices": {
+      "title": "Pouzdani uređaji",
+      "label": "Oznaka",
+      "country": "Zemlja",
+      "lastSeen": "Posljednje viđeno",
+      "trusted": "Povjerenje",
+      "trustedBadge": "pouzdano",
+      "pending": "u tijeku",
+      "empty": "Nema uređaja."
+    },
+    "risk": {
+      "title": "Ocjene rizika",
+      "risk": "Rizik",
+      "sessions": "Sesije",
+      "sensitive": "Osjetljivo",
+      "empty": "Nema podataka."
+    }
+  },
+  "footer": {
+    "legal": "Pravno",
+    "privacy": "Privatnost",
+    "terms": "Uvjeti",
+    "cookies": "Kolačići",
+    "mentions": "Pravna napomena",
+    "banking": "Bankarstvo",
+    "loanTerms": "Uvjeti kredita",
+    "repayment": "Otplata i neplaćanje",
+    "aml": "AML / KYC",
+    "finPriv": "Financijska privatnost",
+    "contact": "Kontakt"
+  },
+  "chat": {
+    "loading": "Učitavanje",
+    "notFound": "Stranica nije pronađena",
+    "notFoundDesc": "Ova stranica ne postoji.",
+    "backHome": "Natrag na početnu",
+    "assistant": "asistentica",
+    "typing": "piše",
+    "today": "Danas",
+    "yesterday": "Jučer",
+    "pageTitle": "Podrška uživo",
+    "pageDesc": "Razgovarajte s našim timom ili Annom, našom virtualnom asistenticom.",
+    "closed": "Razgovor zatvoren",
+    "closeTicket": "Zatvori razgovor",
+    "close": "Zatvori",
+    "compose": {
+      "placeholder": "Upišite poruku…"
+    },
+    "rt": {
+      "bold": "Podebljano",
+      "italic": "Kurziv",
+      "link": "Poveznica",
+      "linkPrompt": "Unesite URL (https://...)"
+    },
+    "handoff": {
+      "question": "Želite li razgovarati sa savjetnikom?",
+      "yes": "Da, razgovaraj sa savjetnikom",
+      "no": "Ne, hvala",
+      "pending": "Vaš zahtjev se obrađuje, savjetnik će vam se pridružiti za 1-2 minute…"
+    },
+    "agent": {
+      "joined": "pridružio se razgovoru",
+      "joinedYou": "Pridružili ste se razgovoru",
+      "notAssigned": "Nema dodijeljenog agenta",
+      "join": "Pridruži se"
+    },
+    "status": {
+      "online": "Online",
+      "agent": "Savjetnik online",
+      "open": "Otvoreno",
+      "waiting_agent": "Čeka agenta",
+      "assigned": "U tijeku",
+      "closed": "Zatvoreno"
+    },
+    "admin": {
+      "empty": "Nema razgovora.",
+      "selectHint": "Odaberite razgovor s lijeve strane.",
+      "folders": "Datoteke kupaca",
+      "tickets": "Ulaznice",
+      "searchPlaceholder": "Potražite kupca, kartu, e-mail…",
+      "filter": {
+        "all": "Sve",
+        "waiting": "Na čekanju",
+        "mine": "Dodijeljen meni",
+        "closed": "Zatvoreno",
+        "guests": "Posjetitelji"
+      },
+      "info": {
+        "title": "Podaci o tiketu",
+        "none": "Nema podataka"
+      },
+      "close": "Zatvori tiket",
+      "reopen": "Ponovno otvori tiket",
+      "updated": "Tiket ažuriran"
+    },
+    "banner": {
+      "top": "BNP PARIBAS — Sigurna korisnička služba",
+      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+    },
+    "loginRequired": {
+      "title": "Prijavite se za chat",
+      "desc": "Morate biti prijavljeni za podršku.",
+      "cta": "Prijava"
+    },
+    "nav": "Podrška",
+    "guest": {
+      "subtitle": "Pomoć posjetiteljima",
+      "intro": "Ispunite ovaj obrazac, savjetnik BNP PARIBAS će brzo odgovoriti. Dobit ćete broj karte.",
+      "name": "Puno ime *",
+      "email": "Email *",
+      "phone": "Telefon",
+      "whatsapp": "WhatsApp",
+      "country": "Država prebivališta",
+      "subject": "Predmet",
+      "message": "Vaša poruka *",
+      "submit": "Otvori mi kartu",
+      "privacy": "Vaši se podaci tretiraju povjerljivo (GDPR).",
+      "created": "Ulaznica #{{ticket}} stvorena!",
+      "errors": {
+        "required": "Obavezno ime, email i poruka.",
+        "fail": "Slanje nije uspjelo, pokušajte ponovno."
+      }
+    },
+    "ticket": "Ulaznica",
+    "archived": "Arhiva",
+    "open": "Otvoriti",
+    "welcome": {
+      "greeting": "Dobar dan 👋 Ja sam Anna, vaša BNP PARIBAS asistentica.",
+      "help": "Kako vam danas mogu pomoći?"
+    },
+    "tickets": {
+      "title": "Moji razgovori",
+      "new": "Novi razgovor",
+      "open": "Otvoreni",
+      "closed": "Zatvoreni",
+      "empty": "Još nema razgovora.",
+      "back": "Natrag",
+      "one": "Razgovor"
+    }
+  },
+  "adminDash": {
+    "title": "Nadzorna ploča — BNP PARIBAS",
+    "overview": "Pregled",
+    "clients": "Kupci",
+    "loans": "Krediti",
+    "transfers": "Transferi",
+    "chat": "Razgovor uživo",
+    "security": "Sigurnost",
+    "notifications": "Obavijesti",
+    "kpis": {
+      "clients": "Aktivni kupci",
+      "loansPending": "Zajmovi na čekanju",
+      "transfersBlocked": "Transferi blokirani",
+      "ticketsOpen": "Otvori ulaznice",
+      "newToday": "Novo danas"
+    },
+    "recentActivity": "Nedavna aktivnost",
+    "quickActions": "Brze radnje",
+    "staff": "Team & roles",
+    "roles": "Permissions",
+    "logs": "Activity log"
+  }
+}

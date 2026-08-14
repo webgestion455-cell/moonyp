@@ -1,0 +1,1402 @@
+{
+  "common": {
+    "loading": "Chargement…",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "back": "Retour",
+    "open": "Ouvrir",
+    "search": "Rechercher",
+    "actions": "Actions",
+    "yes": "Oui",
+    "no": "Non",
+    "all": "Tous",
+    "none": "Aucun",
+    "language": "Langue",
+    "submit": "Envoyer",
+    "send": "Envoyer",
+    "confirm": "Confirmer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "download": "Télécharger",
+    "upload": "Téléverser",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "from": "De",
+    "to": "À",
+    "amount": "Montant",
+    "date": "Date",
+    "status": "Statut",
+    "details": "Détails",
+    "optional": "optionnel",
+    "required": "obligatoire",
+    "refresh": "Actualiser",
+    "viewAll": "Voir tout",
+    "new": "Nouveau",
+    "saving": "Sauvegarde…",
+    "sending": "Envoi…",
+    "updating": "Mise à jour…",
+    "loadError": "Erreur de chargement",
+    "sessionExpired": "Session expirée pour inactivité",
+    "notFound": "Page introuvable",
+    "notFoundDesc": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
+  },
+  "header": {
+    "myLoans": "Mes prêts",
+    "newLoan": "Demander un prêt",
+    "dashboard": "Tableau de bord",
+    "admin": "Admin",
+    "settings": "Paramètres",
+    "signOut": "Se déconnecter",
+    "signIn": "Connexion",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "Aucune notification",
+    "markAllRead": "Tout lire",
+    "pageTitle": "Toutes les notifications",
+    "noLink": "Aucun lien",
+    "allRead": "Tout est à jour",
+    "viewAll": "Voir toutes les notifications"
+  },
+  "auth": {
+    "title": "Espace client",
+    "signIn": "Se connecter",
+    "signUp": "Créer un compte",
+    "email": "Email",
+    "password": "Mot de passe",
+    "fullName": "Nom complet",
+    "phone": "Téléphone",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Pas encore de compte ?",
+    "hasAccount": "Déjà un compte ?",
+    "createAccount": "Créer mon compte",
+    "loginSuccess": "Connexion réussie",
+    "signupSuccess": "Compte créé · vérifiez vos emails",
+    "backHome": "Retour à l'accueil",
+    "brandBadge": "Banque digitale sécurisée",
+    "creating": "Création du compte…",
+    "decision": "Décision sous 24h ouvrées",
+    "google": "Continuer avec Google",
+    "googleError": "Connexion Google impossible",
+    "googleLoading": "Connexion Google…",
+    "minPasswordHint": "Au moins 8 caractères.",
+    "mobileHint": "Connectez-vous ou créez votre compte",
+    "rgpd": "Conformité RGPD",
+    "signingIn": "Connexion…",
+    "terms": "En continuant, vous acceptez nos CGU et notre Politique de confidentialité.",
+    "tls": "Chiffrement TLS 1.3",
+    "welcomeDesc": "Accédez à vos prêts, virements et services premium en toute sécurité.",
+    "welcomeTitle": "Bienvenue sur",
+    "nameShort": "Nom trop court",
+    "phoneInvalid": "Numéro de téléphone invalide",
+    "emailInvalid": "Email invalide",
+    "passwordMin": "Le mot de passe doit contenir au moins 8 caractères",
+    "passwordRequired": "Mot de passe requis",
+    "invalidCredentials": "Identifiants invalides",
+    "connectedToast": "Connecté avec succès",
+    "emailAlreadyUsed": "Email déjà utilisé",
+    "accountCreated": "Compte créé avec succès",
+    "emailLabel": "Email",
+    "passwordLabel": "Mot de passe",
+    "fullNameLabel": "Nom complet",
+    "phoneLabel": "Téléphone",
+    "tabSignin": "Connexion",
+    "tabSignup": "Créer un compte",
+    "forgotLink": "Mot de passe oublié ?",
+    "forgotTitle": "Réinitialiser le mot de passe",
+    "forgotDesc": "Saisissez votre adresse e-mail. Nous vous enverrons un lien sécurisé pour définir un nouveau mot de passe.",
+    "forgotSend": "Envoyer le lien",
+    "forgotSent": "Si un compte existe, un e-mail vient d'être envoyé.",
+    "resetTitle": "Définir un nouveau mot de passe",
+    "resetWaiting": "Vérification du lien de réinitialisation…",
+    "resetSuccess": "Mot de passe mis à jour avec succès.",
+    "newPassword": "Nouveau mot de passe",
+    "confirmNewPassword": "Confirmer le mot de passe",
+    "updatePassword": "Mettre à jour le mot de passe"
+  },
+  "dashboard": {
+    "title": "Mon tableau de bord",
+    "welcome": "Bonjour",
+    "balance": "Solde disponible",
+    "showBalance": "Afficher le solde",
+    "hideBalance": "Masquer le solde",
+    "newLoan": "Nouveau prêt",
+    "withdraw": "Retirer",
+    "transfer": "Effectuer un virement",
+    "myLoans": "Mes prêts",
+    "transferHistory": "Historique des virements",
+    "noLoans": "Vous n'avez pas encore de prêt",
+    "startApplication": "Démarrer une demande",
+    "noTransfers": "Aucun virement",
+    "viewLoan": "Voir le dossier",
+    "needHelp": "Besoin d'aide ?",
+    "contactSupport": "Contacter le service client",
+    "metaTitle": "Mon tableau de bord — BNP PARIBAS",
+    "sessionExpired": "Session expirée pour inactivité",
+    "loadError": "Erreur de chargement",
+    "welcomeNamed": "Bienvenue, {{name}}",
+    "welcomeAnon": "Bienvenue",
+    "totalAvailable": "Solde total disponible",
+    "fundedOutOf": "sur {{amount}} financés",
+    "withdrawnAmount": "{{amount}} retirés",
+    "newShort": "+ Nouveau",
+    "activeLoans": "Prêts actifs",
+    "totalFunded": "Total financé",
+    "transfers": "Virements",
+    "loading": "Chargement…",
+    "firstLoanTitle": "Commencez votre première demande",
+    "firstLoanDesc": "Financez vos projets en quelques minutes : auto, travaux, trésorerie ou tout autre besoin.",
+    "apply": "Faire une demande",
+    "loanDurationCreated": "{{months}} mois · Demande du {{date}}",
+    "disbursedRemaining": "Décaissé : {{disbursed}} · Restant : {{remaining}}",
+    "recentActivity": "Activité récente",
+    "viewAll": "Tout voir",
+    "noRecentTransfers": "Aucun virement pour le moment",
+    "status": {
+      "en_traitement": "En traitement",
+      "envoye": "Envoyé",
+      "rejete": "Rejeté"
+    },
+    "welcomeShort": "Bienvenue",
+    "myDashboard": "Mon tableau de bord",
+    "newRequest": "Nouvelle demande",
+    "fundedOf": "sur {{amount}} financés",
+    "makeTransfer": "Effectuer un virement",
+    "transfersKpi": "Virements",
+    "applyCta": "Faire une demande",
+    "monthsSince": "{{months}} mois · Demande du {{date}}",
+    "details": "Détails",
+    "noTransfersYet": "Aucun virement pour le moment"
+  },
+  "loanForm": {
+    "title": "Nouvelle demande de prêt",
+    "subtitle": "Remplissez le formulaire et joignez vos justificatifs.",
+    "fullName": "Nom complet",
+    "email": "Email",
+    "address": "Adresse postale complète",
+    "addressPlaceholder": "Commencez à saisir votre adresse…",
+    "addressHint": "Sélectionnez une suggestion ou saisissez manuellement votre adresse complète.",
+    "addressRequired": "Veuillez indiquer votre adresse postale complète",
+    "amount": "Montant souhaité (€)",
+    "duration": "Durée (mois)",
+    "monthlyIncome": "Revenus mensuels nets (€)",
+    "purpose": "Objet du prêt (optionnel)",
+    "purposePlaceholder": "Travaux, voiture, projet personnel…",
+    "documents": "Justificatifs requis (max 5, 5 Mo chacun)",
+    "uploadHint": "Cliquez pour ajouter (PDF, JPG, PNG)",
+    "submit": "Soumettre la demande",
+    "submitting": "Envoi…",
+    "success": "Demande envoyée !",
+    "requiredDocs": "Pièces requises pour l'étude",
+    "requiredDocsHint": "Déposez des fichiers lisibles au format PDF, JPG ou PNG afin d'accélérer la validation.",
+    "doc1": "Pièce d'identité ou permis de conduire valide (recto-verso), ou passeport (recto seul)",
+    "doc2": "Justificatif de domicile récent",
+    "doc3": "Trois derniers bulletins de salaire ou justificatifs de revenus",
+    "doc4": "Dernier relevé bancaire ou RIB au nom du demandeur",
+    "back": "Retour",
+    "newRequestShort": "Nouvelle demande",
+    "newRequestDesc": "Effectuez votre demande de prêt",
+    "amountMin": "Minimum 500 €",
+    "amountMax": "Maximum 100 000 €",
+    "fileTooLarge": "{{name}} dépasse 5 Mo",
+    "createError": "Erreur lors de la création de la demande",
+    "uploadFailed": "Upload échoué: {{name}}",
+    "adminNotifTitle": "Nouvelle demande de prêt",
+    "adminNotifMsg": "{{name}} demande {{amount}} € sur {{months}} mois",
+    "successToast": "Votre demande a été envoyée avec succès",
+    "loading": "Chargement…",
+    "docsRequiredExact": "Vous devez fournir exactement {{count}} documents pour valider votre demande.",
+    "uploadHintExact": "Téléversez exactement {{count}} documents (PDF, JPG, PNG — 5 Mo max chacun)"
+  },
+  "transfer": {
+    "title": "Effectuer un virement",
+    "subtitle": "Choisissez le type, renseignez les coordonnées du bénéficiaire et confirmez.",
+    "kindInstant": "Instantané (SEPA Instant)",
+    "kindInstantHint": "Crédité immédiatement chez le bénéficiaire (24/7).",
+    "kindClassic": "Classique (SEPA standard)",
+    "kindClassicHint": "Crédité sous 1 jour ouvré · programmation possible.",
+    "sourceLoan": "Prêt source",
+    "amount": "Montant (€)",
+    "available": "Solde disponible",
+    "beneficiary": "Bénéficiaire",
+    "beneficiaryPlaceholder": "Nom et prénom",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "bankName": "Banque",
+    "bankNamePlaceholder": "Nom de la banque",
+    "reference": "Référence",
+    "referencePlaceholder": "Auto-générée si vide",
+    "schedule": "Programmer (optionnel)",
+    "scheduleHint": "Laissez vide pour exécution dès le prochain jour ouvré.",
+    "reason": "Motif (optionnel)",
+    "reasonPlaceholder": "Loyer, achat, remboursement…",
+    "secureInstant": "Coordonnées chiffrées · exécution immédiate",
+    "secureClassic": "Coordonnées chiffrées · délai bancaire 1 jour ouvré",
+    "executeInstant": "Exécuter le virement",
+    "confirmClassic": "Confirmer le virement",
+    "successInstant": "Virement instantané exécuté",
+    "successScheduled": "Virement programmé",
+    "successClassic": "Ordre de virement enregistré",
+    "errorEmit": "Erreur lors de l'émission",
+    "noLoanSelected": "Aucun prêt sélectionné",
+    "amountInvalid": "Montant invalide",
+    "ibanInvalid": "IBAN invalide",
+    "bicInvalid": "BIC/SWIFT invalide",
+    "beneficiaryRequired": "Bénéficiaire requis",
+    "bankRequired": "Banque requise",
+    "scheduleFuture": "La date programmée doit être dans le futur"
+  },
+  "contact": {
+    "title": "Contactez le service client",
+    "subtitle": "Notre équipe vous répond sous 24h ouvrées · confidentialité garantie.",
+    "infoTitle": "Coordonnées",
+    "phoneLabel": "Service client",
+    "phoneHours": "Lun-Ven · 8h-20h",
+    "emailLabel": "Email",
+    "addressLabel": "Siège social",
+    "secureNote": "Vos messages sont chiffrés et traités confidentiellement par notre service conformité.",
+    "formTitle": "Envoyer un message",
+    "fullName": "Nom complet",
+    "email": "Email",
+    "subject": "Sujet",
+    "message": "Message",
+    "messagePlaceholder": "Décrivez votre demande en détail…",
+    "send": "Envoyer le message",
+    "success": "Message envoyé · le service client vous répondra sous 24h",
+    "error": "Échec de l'envoi",
+    "subjects": {
+      "account": "Question sur mon compte",
+      "loan": "Question sur un prêt",
+      "transfer": "Problème de virement",
+      "complaint": "Réclamation",
+      "appointment": "Demande de rendez-vous",
+      "other": "Autre"
+    },
+    "metaTitle": "Contact — Service client BNP PARIBAS",
+    "metaDesc": "Contactez le service client BNP PARIBAS pour toute question sur votre compte, vos prêts ou vos virements.",
+    "nameRequired": "Nom requis",
+    "emailInvalid": "Email invalide",
+    "messageTooShort": "Message trop court (10 caractères min)",
+    "defaultNamePlaceholder": "Jean Dupont",
+    "defaultEmailPlaceholder": "vous@exemple.fr",
+    "back": "Retour",
+    "phoneTitle": "Service client",
+    "address": "103 avenue des Champs-Élysées",
+    "addressCity": "75008 Paris, France",
+    "sending": "Envoi…",
+    "successQueued": "Votre message a bien été enregistré. Notre équipe vous répondra rapidement."
+  },
+  "admin": {
+    "title": "Tableau de bord Admin",
+    "subtitle": "Vue d'ensemble de l'activité bancaire.",
+    "kpis": {
+      "total": "Total des demandes",
+      "pending": "En attente",
+      "accepted": "Acceptées",
+      "refused": "Refusées"
+    },
+    "amounts": {
+      "requested": "Montant total demandé",
+      "accepted": "Montant total accepté",
+      "disbursed": "Fonds débloqués"
+    },
+    "recent": {
+      "title": "Activité récente",
+      "empty": "Aucune activité récente",
+      "open": "Ouvrir"
+    },
+    "quickActions": {
+      "title": "Actions rapides",
+      "subtitle": "Gérez les dossiers en attente en priorité.",
+      "toStudy": "Dossiers à étudier",
+      "signedContracts": "Contrats signés à traiter",
+      "manageClients": "Gérer les clients"
+    },
+    "loansPage": {
+      "title": "Tous les dossiers de prêt",
+      "subtitle": "Vue détaillée et filtrable des demandes.",
+      "client": "Client",
+      "amount": "Montant",
+      "status": "Statut",
+      "date": "Date",
+      "documents": "Docs",
+      "duration": "Durée"
+    },
+    "clientsPage": {
+      "title": "Clients",
+      "subtitle": "Comptes clients et état des accès.",
+      "client": "Client",
+      "phone": "Téléphone",
+      "loans": "Prêts",
+      "totalBorrowed": "Total emprunté",
+      "joined": "Inscrit",
+      "status": "Statut",
+      "active": "Actif",
+      "blocked": "Bloqué"
+    },
+    "clientDetail": {
+      "title": "Fiche client",
+      "personalInfo": "Informations personnelles",
+      "summary": "Récapitulatif",
+      "loans": "Prêts du client",
+      "withdrawals": "Virements",
+      "noLoans": "Ce client n'a encore aucun dossier.",
+      "noWithdrawals": "Aucun virement.",
+      "blockBtn": "Bloquer le compte",
+      "unblockBtn": "Débloquer le compte",
+      "blockTitle": "Bloquer le compte client",
+      "blockReason": "Motif du blocage",
+      "blockReasonPlaceholder": "Ex : suspicion de fraude, KYC non conforme…",
+      "blockedSince": "Bloqué depuis",
+      "blockedReason": "Motif",
+      "confirm": "Confirmer"
+    },
+    "stages": {
+      "title": "Frais et codes de déblocage",
+      "planSaved": "Plan enregistré",
+      "planFirst": "Planifiez d'abord les frais",
+      "codeSent": "Code envoyé pour l'étape {{stage}}%",
+      "unlocked": "Débloqué",
+      "codeSentBadge": "Code envoyé",
+      "fee": "Frais (€)",
+      "sentAt": "Envoyé",
+      "genAndSend": "Générer & envoyer",
+      "regenAndSend": "Régénérer & envoyer",
+      "savePlan": "Enregistrer le plan"
+    },
+    "transfer": {
+      "title": "Émettre un virement client",
+      "subtitle": "Créez un virement bancaire instantané ou classique au nom d'un client.",
+      "kind": "Type de virement",
+      "instant": "Instantané",
+      "instantHint": "Crédit immédiat 24/7.",
+      "classic": "Classique",
+      "classicHint": "Crédit sous 1 jour ouvré.",
+      "client": "Client",
+      "selectClient": "Sélectionner un client",
+      "loan": "Prêt source",
+      "selectLoan": "Sélectionner un prêt",
+      "amount": "Montant (€)",
+      "beneficiary": "Bénéficiaire",
+      "bankName": "Banque du bénéficiaire",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "reference": "Référence",
+      "submit": "Émettre le virement",
+      "success": "Virement émis avec succès",
+      "error": "Échec de l'émission du virement"
+    }
+  },
+  "blocked": {
+    "title": "Compte suspendu",
+    "message": "Votre compte a été temporairement suspendu par notre service de conformité.",
+    "reasonLabel": "Motif",
+    "contact": "Contactez le support pour plus d'informations.",
+    "signOut": "Se déconnecter"
+  },
+  "status": {
+    "en_attente": "En attente",
+    "accepte": "Accepté",
+    "refuse": "Refusé",
+    "contrat_envoye": "Contrat envoyé",
+    "contrat_signe": "Contrat signé",
+    "en_traitement": "En traitement",
+    "fonds_disponibles": "Fonds disponibles",
+    "envoye": "Envoyé",
+    "rejete": "Rejeté"
+  },
+  "client": {
+    "stages": {
+      "title": "Virements en cours",
+      "blockedTitle": "Virement bloqué à {{stage}}%",
+      "blockedDesc": "Frais à régler : {{fee}}. Vous recevrez un code après validation.",
+      "codePlaceholder": "Code de déblocage",
+      "unlock": "Débloquer",
+      "enterCode": "Saisissez le code",
+      "invalidCode": "Code invalide",
+      "unlocked": "Étape débloquée",
+      "awaitCode": "En attente du code de l'administrateur",
+      "codeReceivedTitle": "Code de déblocage {{stage}}%",
+      "codeReceivedMsg": "Votre code : {{code}} (frais {{fee}})"
+    }
+  },
+  "adminCodes": {
+    "title": "Codes de déblocage",
+    "help": "Gérez les codes de progression du virement.",
+    "step": "Étape",
+    "released": "Débloqué",
+    "fee": "Frais (€)",
+    "code": "Code",
+    "generate": "Générer",
+    "regenerate": "Régénérer",
+    "send": "Envoyer",
+    "generateAndSend": "Générer et envoyer",
+    "regenerateAndSend": "Régénérer et envoyer",
+    "noCode": "Aucun code",
+    "created": "Code créé",
+    "updated": "Code mis à jour",
+    "error": "Erreur",
+    "success": "Succès",
+    "sectionTitle": "Configuration des étapes de virement",
+    "sectionHelp": "Définissez les frais et l'adresse de paiement par étape, validez le reçu, puis envoyez le code.",
+    "gatedTitle": "Configuration verrouillée",
+    "gatedDesc": "La configuration des étapes de virement devient disponible après acceptation du prêt.",
+    "address": "Adresse de paiement",
+    "saved": "Configuration enregistrée",
+    "invalidFee": "Frais invalides",
+    "codeSent": "Code généré et envoyé",
+    "consumed": "Consommé",
+    "receiptUploaded": "Reçu téléversé",
+    "pending": "En attente",
+    "approved": "Approuvé",
+    "rejected": "Refusé",
+    "approve": "Approuver",
+    "reject": "Refuser",
+    "receiptApproved": "Reçu approuvé",
+    "receiptRejected": "Reçu refusé",
+    "invalidates": "Régénérer un code invalide automatiquement l'ancien : seul le dernier code émis fonctionne.",
+    "notifTitle": "Code de déblocage {{p}}%",
+    "notifMsg": "Votre code : {{code}} (frais {{fee}})",
+    "notifApprovedTitle": "Reçu approuvé — étape {{p}}%",
+    "notifApprovedMsg": "Votre paiement a été validé. Le code va être envoyé.",
+    "notifRejectedTitle": "Reçu refusé — étape {{p}}%",
+    "notifRejectedMsg": "Veuillez renvoyer un reçu valide.",
+    "holder": "Titulaire du compte",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "description": "Motif / Description"
+  },
+  "transferSteps": {
+    "title": "Virement sécurisé",
+    "subtitle": "Progression bancaire en 3 étapes : 63% · 88% · 100%.",
+    "progress": "Progression",
+    "completed": "Virement terminé",
+    "completedDesc": "Les fonds ont été crédités au bénéficiaire.",
+    "blockedTitle": "Virement bloqué à {{p}}%",
+    "blockedDesc": "Pour des raisons de conformité bancaire, le déblocage de l'étape {{p}}% nécessite le règlement de frais et la validation de votre reçu.",
+    "awaitingConfig": "Configuration en cours",
+    "awaitingConfigDesc": "Notre équipe finalise les paramètres de cette étape. Vous serez notifié.",
+    "feeFor": "Frais étape {{p}}%",
+    "paymentAddress": "Adresse de paiement",
+    "paymentHelp": "Effectuez le règlement sur cette adresse, puis téléversez votre reçu.",
+    "receipt": "Reçu de paiement",
+    "receiptPending": "En attente de validation",
+    "receiptApproved": "Approuvé",
+    "receiptRejected": "Refusé — renvoyez",
+    "uploadReceipt": "Téléverser le reçu",
+    "replaceReceipt": "Remplacer le reçu",
+    "receiptSent": "Reçu envoyé pour validation",
+    "fileTooBig": "Fichier trop volumineux (10 Mo max)",
+    "enterCode": "Saisissez votre code de déblocage",
+    "unlock": "Débloquer l'étape {{p}}%",
+    "awaitingCode": "En attente du code",
+    "awaitingCodeDesc": "Le code sera envoyé après validation de votre reçu par un administrateur.",
+    "invalidCode": "Code invalide",
+    "advanced": "Étape {{p}}% débloquée",
+    "successFinal": "Virement complété avec succès",
+    "notifAdminTitle": "Reçu reçu — étape {{p}}%",
+    "notifAdminMsg": "Un client a téléversé un reçu pour validation.",
+    "stepNotReached": "Étape non encore atteinte"
+  },
+  "transfersPage": {
+    "metaTitle": "Mes virements — BNP PARIBAS",
+    "eyebrow": "Espace virements",
+    "title": "Mes virements",
+    "subtitle": "Suivi des virements SEPA, étapes de conformité et justificatifs.",
+    "newTransfer": "Nouveau virement",
+    "beneficiary": "Bénéficiaire :",
+    "issuedAt": "Émis le {{date}}",
+    "reference": "réf. {{reference}}",
+    "emptyTitle": "Aucun virement",
+    "emptyDesc": "Vos virements apparaîtront ici dès leur création.",
+    "filters": {
+      "all": "Tous",
+      "active": "En cours",
+      "blocked": "Bloqués",
+      "done": "Terminés"
+    },
+    "status": {
+      "final": "Validé",
+      "rejected": "Rejeté",
+      "blocked": "Vérification requise",
+      "processing": "Traitement bancaire"
+    }
+  },
+  "landing": {
+    "metaTitle": "BNP PARIBAS — Prêts en ligne instantanés",
+    "metaDesc": "Financez vos projets avec confiance. Prêts personnels rapides de 1 000 € à 50 000 €. Décision en 24h, fonds sous 72h.",
+    "badge": "Décision en moins de 24 heures",
+    "heroTitleA": "Financer vos projets",
+    "heroTitleB": "avec confiance.",
+    "heroDesc": "BNP PARIBAS fait partie de la meilleure génération des banques européennes offrant des prêts personnels rapides, transparents et sécurisés.",
+    "ctaPrimary": "Demander un prêt",
+    "ctaSecondary": "J'ai déjà un compte",
+    "trust1": "Données chiffrées",
+    "trust2": "100% sécurisé",
+    "trust3": "Sans frais cachés",
+    "values": {
+      "response": {
+        "title": "Réponse en 24h",
+        "desc": "Notre équipe d'experts analyse votre dossier rapidement. Fini les semaines d'attente interminables."
+      },
+      "secure": {
+        "title": "100% Sécurisé",
+        "desc": "Vos données sont chiffrées de bout en bout. Nous respectons les standards bancaires les plus stricts."
+      },
+      "nofees": {
+        "title": "Sans frais cachés",
+        "desc": "Le taux affiché est le taux appliqué. Aucune surprise sur vos mensualités."
+      }
+    },
+    "how": {
+      "title": "Comment ça marche ?",
+      "s1t": "Simulez votre prêt",
+      "s1d": "Choisissez le montant et la durée qui vous conviennent. Nous calculons immédiatement votre mensualité estimée.",
+      "s2t": "Complétez votre dossier",
+      "s2d": "Remplissez le formulaire en 5 minutes et téléchargez vos justificatifs (pièce d'identité, justificatif de domicile, fiches de paie).",
+      "s3t": "Signez votre contrat",
+      "s3d": "Dès acceptation par notre équipe, signez votre contrat électroniquement en toute sécurité.",
+      "s4t": "Recevez vos fonds",
+      "s4d": "Une fois le délai légal passé, les fonds sont disponibles dans votre portefeuille BNP PARIBAS, prêts à être retirés."
+    },
+    "partners": {
+      "eyebrow": "Nos banques partenaires",
+      "title": "Un réseau bancaire de confiance",
+      "desc": "Nous collaborons avec les principales institutions financières européennes pour vous garantir des transferts rapides et sécurisés."
+    },
+    "finalCta": {
+      "title": "Prêt à concrétiser vos projets ?",
+      "desc": "Créez votre compte et déposez votre première demande en quelques minutes.",
+      "button": "Commencer ma demande"
+    },
+    "footer": {
+      "rights": "Tous droits réservés.",
+      "legal": "Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager."
+    },
+    "slides": {
+      "s1t": "Une banque pensée pour vous",
+      "s1d": "Ouvrez un compte en quelques minutes, sans paperasse.",
+      "s2t": "Pilotez vos finances en temps réel",
+      "s2d": "Tableau de bord clair, analyses et alertes intelligentes.",
+      "s3t": "Votre banque dans votre poche",
+      "s3d": "Application mobile sécurisée disponible 24/7.",
+      "s4t": "Sécurité de niveau bancaire",
+      "s4d": "Chiffrement de bout en bout et authentification forte."
+    },
+    "kpis": {
+      "clients": "Clients actifs",
+      "countries": "Pays couverts",
+      "assets": "Actifs gérés",
+      "uptime": "Disponibilité"
+    },
+    "security": {
+      "eyebrow": "Sécurité & Conformité",
+      "title": "Une protection bancaire de premier ordre",
+      "desc": "Nos systèmes respectent les standards les plus stricts du secteur bancaire européen.",
+      "f1t": "Chiffrement AES-256",
+      "f1d": "Vos données sont protégées par le standard militaire.",
+      "f2t": "Conformité PSD2 & RGPD",
+      "f2d": "Réglementations européennes strictement appliquées.",
+      "f3t": "Authentification forte",
+      "f3d": "Double validation pour chaque opération sensible.",
+      "f4t": "Support 24/7",
+      "f4d": "Conseillers dédiés disponibles à toute heure."
+    },
+    "testi": {
+      "eyebrow": "Témoignages",
+      "title": "Ils nous font confiance",
+      "t1n": "Marie Dubois",
+      "t1r": "Directrice Financière",
+      "t1q": "Une expérience bancaire fluide et professionnelle. Le support est exceptionnel.",
+      "t2n": "Jean Martin",
+      "t2r": "Entrepreneur",
+      "t2q": "Les virements internationaux sont rapides et la sécurité est irréprochable.",
+      "t3n": "Sophie Laurent",
+      "t3r": "Avocate",
+      "t3q": "Enfin une banque digitale qui combine simplicité et sérieux institutionnel."
+    },
+    "mobile": {
+      "eyebrow": "Application mobile",
+      "title": "Toute votre banque, dans la paume de votre main",
+      "desc": "Gérez vos comptes, effectuez des virements et suivez vos investissements depuis votre smartphone.",
+      "b1": "Suivi en temps réel de vos transactions",
+      "b2": "Virements internationaux instantanés",
+      "b3": "Biométrie Face ID & empreinte digitale"
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "q1": "Comment ouvrir un compte ?",
+      "a1": "L'inscription se fait en ligne en moins de 5 minutes avec une pièce d'identité valide.",
+      "q2": "Quels sont les frais ?",
+      "a2": "Notre offre standard est sans frais cachés. Les opérations courantes sont gratuites.",
+      "q3": "Mes fonds sont-ils protégés ?",
+      "a3": "Vos dépôts sont garantis jusqu'à 100 000 € par le Fonds de Garantie des Dépôts.",
+      "q4": "Comment contacter le support ?",
+      "a4": "Notre équipe est joignable 24/7 par chat sécurisé, e-mail ou téléphone."
+    }
+  },
+  "transferProcess": {
+    "progress": "Progression sécurisée",
+    "rejectedBadge": "Virement rejeté",
+    "validatedBadge": "Virement validé",
+    "complianceBadge": "Vérification de conformité",
+    "processingBadge": "Traitement bancaire",
+    "rejectedTitle": "Ce virement a été rejeté",
+    "rejectedDesc": "Les fonds ont été automatiquement recrédités sur votre compte.",
+    "finalTitle": "Virement exécuté avec succès",
+    "finalDesc": "Le bénéficiaire recevra les fonds selon les délais interbancaires.",
+    "animatingTitle": "Acheminement bancaire en cours",
+    "animatingDesc": "Votre virement progresse à travers nos canaux sécurisés. Aucune action n'est requise.",
+    "blockedTitle": "Vérification de conformité requise",
+    "blockedDesc": "Pour finaliser cette étape, veuillez régler les frais de conformité ci-dessous puis saisir le code reçu.",
+    "configTitle": "Configuration en cours",
+    "configDesc": "Un conseiller BNP PARIBAS prépare le paiement de conformité. Vous recevrez les instructions sous peu.",
+    "fee": "Frais de conformité à régler",
+    "bankOrder": "Coordonnées bancaires BNP PARIBAS",
+    "accountHolder": "Titulaire",
+    "reason": "Motif du virement",
+    "receiptLabel": "Justificatif de paiement",
+    "receiptPending": "En vérification",
+    "receiptApproved": "Approuvé",
+    "receiptRejected": "Refusé",
+    "replaceReceipt": "Remplacer le justificatif",
+    "uploadReceipt": "Téléverser le justificatif",
+    "unlockCodeReceived": "Code de déblocage reçu",
+    "codePlaceholder": "Saisissez le code (ex. ABC-1234)",
+    "validateAndContinue": "Valider et continuer",
+    "waitingCodeTitle": "En attente du code de déblocage",
+    "waitingCodeDesc": "Après validation de votre justificatif, votre conseiller vous transmettra un code à 6 caractères.",
+    "fileTooBig": "Le fichier dépasse 10 Mo.",
+    "invalidCode": "Code invalide ou déjà utilisé.",
+    "successFinal": "Virement finalisé avec succès.",
+    "advanced": "Étape validée.",
+    "copied": "{{label}} copié dans le presse-papiers.",
+    "receiptSent": "Justificatif transmis à votre conseiller.",
+    "adminValidationTitle": "Virement en attente de validation",
+    "adminValidationMessage": "Un client a atteint un palier de conformité et attend la libération du code.",
+    "adminReceiptTitle": "Nouveau justificatif à vérifier",
+    "adminReceiptMessage": "Un client a téléversé un reçu de paiement de conformité."
+  },
+  "transferStepDialog": {
+    "title": "Étape de conformité",
+    "subtitle": "Suivez la progression et validez chaque palier en toute sécurité."
+  },
+  "transferDetail": {
+    "metaTitle": "Détail du virement — BNP PARIBAS",
+    "backAll": "Tous les virements",
+    "header": "BNP PARIBAS · Ordre de virement",
+    "amount": "Montant",
+    "beneficiary": "Bénéficiaire",
+    "bank": "Banque",
+    "reference": "Référence",
+    "iban": "IBAN",
+    "bic": "BIC",
+    "issuedAt": "Émis le",
+    "tracking": "Suivi du virement",
+    "history": "Historique",
+    "notFound": "Virement introuvable.",
+    "badge": {
+      "validated": "Virement validé",
+      "rejected": "Virement rejeté",
+      "compliance": "Vérification de conformité",
+      "processing": "Traitement bancaire"
+    },
+    "rejected": {
+      "title": "Ce virement a été rejeté",
+      "desc": "Les fonds ont été automatiquement recrédités sur votre compte BNP PARIBAS.",
+      "reason": "Motif"
+    },
+    "timeline": {
+      "issued": "Ordre de virement émis",
+      "issuedDesc": "Vers {{beneficiary}} ({{amount}})",
+      "compliance": "Étape de conformité validée",
+      "complianceDesc": "Code de déblocage saisi avec succès.",
+      "enhanced": "Vérification renforcée validée",
+      "enhancedDesc": "Le virement poursuit son acheminement vers le bénéficiaire.",
+      "executed": "Virement exécuté",
+      "executedDesc": "Les fonds ont été crédités.",
+      "rejected": "Virement rejeté",
+      "rejectedDesc": "Le solde a été automatiquement recrédité.",
+      "now": "À l'instant"
+    },
+    "receipt": {
+      "title": "Justificatif bancaire disponible",
+      "desc": "Téléchargez le récapitulatif officiel BNP PARIBAS de cet ordre de virement.",
+      "download": "Télécharger le justificatif"
+    }
+  },
+  "receipt": {
+    "metaTitle": "Justificatif de virement — BNP PARIBAS",
+    "download": "Télécharger le PDF",
+    "subBrand": "Together we thrive",
+    "documentLabel": "Document officiel",
+    "documentTitle": "Justificatif de virement",
+    "title": "Justificatif de virement bancaire",
+    "subtitle": "Émis le {{date}}",
+    "amount": "Montant transféré",
+    "statusExecuted": "Virement exécuté",
+    "statusPending": "Virement en cours de traitement",
+    "beneficiary": "Bénéficiaire",
+    "bank": "Banque du bénéficiaire",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "reference": "Référence",
+    "issuedAt": "Date d'émission",
+    "footerSecurity": "Document généré par les systèmes sécurisés BNP PARIBAS.",
+    "footerLegal": "Ce justificatif fait foi de l'opération bancaire et peut être présenté à toute autorité compétente.",
+    "generating": "Génération du PDF…",
+    "downloaded": "Justificatif téléchargé avec succès",
+    "downloadError": "Impossible de télécharger le justificatif",
+    "sessionExpired": "Session expirée. Veuillez vous reconnecter.",
+    "serverSessionExpired": "Session expirée. Veuillez vous reconnecter.",
+    "serverNotFound": "Virement introuvable",
+    "serverUnauthorized": "Accès non autorisé à ce reçu",
+    "serverUnavailable": "Le reçu est disponible uniquement après validation du virement",
+    "serverSubtitle": "Justificatif bancaire officiel",
+    "serverSecure": "Document sécurisé",
+    "serverTitle": "Justificatif de virement",
+    "serverIssued": "Émis le {{date}}",
+    "serverAmount": "Montant transféré",
+    "serverStatus": "Statut",
+    "serverExecuted": "Virement exécuté",
+    "serverBeneficiary": "Bénéficiaire",
+    "serverBank": "Banque bénéficiaire",
+    "serverIban": "IBAN",
+    "serverBic": "BIC / SWIFT",
+    "serverReference": "Référence",
+    "serverExecutedAt": "Date d’exécution",
+    "serverSecurity": "Document généré par les systèmes sécurisés BNP PARIBAS.",
+    "serverLegal": "Ce justificatif fait foi de l’opération bancaire et peut être présenté à toute autorité compétente."
+  },
+  "notif": {
+    "transfer": {
+      "instantTitle": "Virement instantané reçu",
+      "classicTitle": "Virement en cours",
+      "instantMsg": "{{amount}} ont été crédités sur le compte {{iban4}}…{{ibanLast}} (réf. {{ref}})",
+      "classicMsg": "Un virement classique de {{amount}} a été initié (crédit sous 1 jour ouvré, réf. {{ref}})",
+      "adminInitTitle": "Nouveau virement initié",
+      "adminInitMsg": "{{amount}} → {{beneficiary}} (réf. {{ref}})"
+    },
+    "transferProcess": {
+      "adminValidationTitle": "Reçu à valider",
+      "adminValidationMsg": "Un client a envoyé un reçu de paiement à valider.",
+      "adminReceiptTitle": "Nouveau reçu reçu",
+      "adminReceiptMsg": "Un nouveau reçu de paiement de frais a été déposé."
+    },
+    "adminCodes": {
+      "codeTitle": "Code de déblocage {{p}}%",
+      "codeMsg": "Votre code : {{code}} (frais {{fee}})",
+      "rejectedTitle": "Reçu refusé",
+      "rejectedMsg": "Veuillez renvoyer un reçu valide.",
+      "manualCodeTitle": "Code de déblocage {{p}}%",
+      "manualCodeMsg": "Votre code de déblocage est : {{code}}"
+    },
+    "loan": {
+      "newRequestAdminTitle": "Nouvelle demande de prêt",
+      "newRequestAdminMsg": "{{name}} demande {{amount}} € sur {{months}} mois",
+      "statusTitle": "Statut de votre demande mis à jour",
+      "statusMsg": "Votre demande de {{amount}} est désormais : $t(status.{{statusKey}})",
+      "signedReceivedTitle": "Contrat signé reçu",
+      "signedReceivedMsg": "{{name}} a signé son contrat (demande {{id}})"
+    },
+    "withdrawal": {
+      "sentTitle": "Virement exécuté",
+      "sentMsg": "{{amount}} ont été envoyés sur {{iban4}}…{{ibanLast}} (réf. {{ref}})",
+      "rejectedTitle": "Virement rejeté · fonds recrédités",
+      "rejectedMsg": "Votre virement de {{amount}} a été rejeté. Le solde a été recrédité automatiquement."
+    }
+  },
+  "settings": {
+    "metaTitle": "Paramètres — BNP PARIBAS",
+    "title": "Paramètres",
+    "subtitleDesktop": "Gérez vos informations personnelles et votre sécurité",
+    "subtitleMobile": "Gérez votre compte et votre sécurité",
+    "profile": "Profil",
+    "fullName": "Nom complet",
+    "phone": "Téléphone",
+    "currentEmail": "Email actuel",
+    "saveProfile": "Enregistrer le profil",
+    "emailSection": "Adresse email",
+    "newEmail": "Nouvelle adresse email",
+    "emailHint": "Un email de confirmation sera envoyé à la nouvelle adresse.",
+    "updateEmail": "Mettre à jour l’email",
+    "passwordSection": "Mot de passe",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer",
+    "changePassword": "Changer le mot de passe",
+    "adminAccount": "Compte administrateur",
+    "adminDesc": "Vous disposez des droits de gestion des dossiers clients et des opérations.",
+    "loadProfileError": "Impossible de charger le profil",
+    "saveError": "Erreur de sauvegarde",
+    "profileUpdated": "Profil mis à jour",
+    "emailUpdated": "Email mis à jour. Vérifiez votre boîte de réception pour confirmer.",
+    "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "currentPasswordWrong": "Mot de passe actuel incorrect",
+    "passwordUpdated": "Mot de passe mis à jour",
+    "back": "Retour",
+    "accessAdmin": "Accéder au tableau de bord admin",
+    "goBack": "Retour",
+    "languageSection": "Langue",
+    "languageDesc": "Choisissez la langue de l'interface. Votre choix est enregistré et synchronisé à votre compte.",
+    "languageSaved": "Langue mise à jour"
+  },
+  "loanDetail": {
+    "metaTitle": "Détails du prêt — BNP PARIBAS",
+    "downloadImpossible": "Téléchargement impossible",
+    "contractGenerating": "Génération du contrat PDF…",
+    "sessionExpired": "Session expirée. Veuillez vous reconnecter.",
+    "contractDownloaded": "Contrat téléchargé",
+    "generationImpossible": "Génération impossible : {{message}}",
+    "unknownError": "Erreur inconnue",
+    "fileTooHeavy": "Fichier trop lourd (max 10 Mo)",
+    "uploadFailed": "Upload échoué",
+    "updateError": "Erreur de mise à jour",
+    "signedSent": "Contrat signé envoyé !",
+    "signedReceivedTitle": "Contrat signé reçu",
+    "signedReceivedMessage": "{{name}} a signé son contrat (demande {{id}})",
+    "loading": "Chargement…",
+    "notFound": "Prêt introuvable",
+    "back": "Retour à mes prêts",
+    "fileNumber": "Dossier #{{id}}",
+    "title": "Détail du prêt",
+    "refusedTitle": "Demande refusée",
+    "refusedDesc": "Après étude de votre dossier, nous ne pouvons malheureusement pas donner une suite favorable à votre demande de financement.",
+    "reason": "Motif",
+    "summaryTitle": "Résumé de la demande",
+    "amount": "Montant",
+    "duration": "Durée",
+    "durationMonths": "{{count}} mois",
+    "monthlyPayment": "Mensualité estimée",
+    "monthlyIncome": "Revenus mensuels",
+    "purpose": "Motif",
+    "documentsTitle": "Documents fournis",
+    "addedOn": "Ajouté le {{date}}",
+    "availableBalance": "Solde disponible",
+    "alreadyWithdrawn": "Déjà retiré : {{withdrawn}} sur {{total}}",
+    "makeTransfer": "Effectuer un virement",
+    "contractTitle": "Contrat",
+    "downloadContract": "Télécharger le contrat",
+    "signInstruction": "Veuillez signer le contrat puis l’envoyer ci-dessous pour validation.",
+    "sendSignedContract": "Envoyer le contrat signé",
+    "signedContractReceived": "Contrat signé reçu",
+    "historyTitle": "Historique des actions",
+    "noAction": "Aucune action encore.",
+    "requestSubmitted": "Demande déposée",
+    "requestRefused": "Demande refusée",
+    "withdraw": "Retirer",
+    "details": "Détails",
+    "loanDescription": {
+      "en_attente": "Votre demande est en cours d’examen",
+      "accepte": "Votre demande a été acceptée",
+      "refuse": "Demande non aboutie",
+      "contrat_envoye": "Le contrat vous a été envoyé pour signature",
+      "contrat_signe": "Contrat signé reçu, déblocage en préparation",
+      "en_traitement": "Mise à disposition des fonds sous 72h",
+      "fonds_disponibles": "Vos fonds sont disponibles"
+    },
+    "steps": {
+      "en_attente": "Demande déposée",
+      "accepte": "Acceptée",
+      "contrat_envoye": "Contrat envoyé",
+      "contrat_signe": "Contrat signé",
+      "en_traitement": "En traitement",
+      "fonds_disponibles": "Fonds disponibles"
+    }
+  },
+  "nav": {
+    "home": "Accueil",
+    "transfers": "Virements",
+    "request": "Demande",
+    "primary": "Navigation principale",
+    "support": "Assistance"
+  },
+  "mobileHome": {
+    "title": "Bienvenue chez BNP PARIBAS",
+    "subtitle": "Votre banque, dans votre poche.",
+    "description": "Gérez vos prêts, virements et comptes en toute sécurité, où que vous soyez.",
+    "cta": "Démarrer",
+    "tagline": "Sécurité bancaire européenne",
+    "feature1": "Sécurisé",
+    "feature2": "Chiffrement de bout en bout",
+    "feature3": "Expérience premium"
+  },
+  "authPending": {
+    "title": "Vérifiez votre email",
+    "description": "Nous avons envoyé un lien de confirmation à votre adresse email.",
+    "instruction": "Cliquez sur le lien dans votre boîte mail pour activer votre compte.",
+    "loading": "En attente de confirmation...",
+    "footer": "Pour votre sécurité, ne partagez jamais vos identifiants. BNP PARIBAS ne vous demandera jamais votre mot de passe."
+  },
+  "password": {
+    "show": "Afficher le mot de passe",
+    "hide": "Masquer le mot de passe",
+    "veryWeak": "Très faible",
+    "weak": "Faible",
+    "fair": "Moyen",
+    "good": "Bon",
+    "strong": "Fort",
+    "excellent": "Excellent",
+    "ruleLength": "Au moins 10 caractères",
+    "ruleUpper": "Une lettre majuscule",
+    "ruleLower": "Une lettre minuscule",
+    "ruleDigit": "Un chiffre",
+    "ruleSpecial": "Un caractère spécial",
+    "notStrong": "Le mot de passe ne respecte pas toutes les règles de sécurité."
+  },
+  "livechat": {
+    "open": "Ouvrir le chat",
+    "close": "Fermer",
+    "title": "Conseiller BNP PARIBAS",
+    "online": "En ligne",
+    "placeholder": "Écrivez votre message…",
+    "greeting": "Bonjour 👋 ! Comment puis-je vous aider aujourd'hui ?",
+    "faq": {
+      "loan": "Pour une demande de prêt, allez dans « Nouveau prêt » depuis votre tableau de bord. Décision sous 24 h, fonds disponibles sous 72 h.",
+      "password": "Vous pouvez réinitialiser votre mot de passe depuis la page de connexion via « Mot de passe oublié ? ».",
+      "transfer": "Vos virements sont visibles dans la section « Virements » de votre tableau de bord.",
+      "contact": "Notre équipe est joignable au +39 350 036 6867 ou via la page Contact.",
+      "thanks": "Avec plaisir ! N'hésitez pas si vous avez d'autres questions.",
+      "default": "Un conseiller BNP PARIBAS reviendra vers vous très rapidement. Vous pouvez aussi nous contacter via la page Contact."
+    }
+  },
+  "legal": {
+    "badge": "Légal",
+    "lastUpdated": "Dernière mise à jour",
+    "home": "Accueil",
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "subtitle": "Votre vie privée est au cœur de notre engagement de confiance bancaire.",
+      "sections": [
+        {
+          "h": "1. Données collectées",
+          "p": "Identité (nom, date de naissance), coordonnées (email, téléphone, adresse), données financières (revenus, IBAN, informations de prêt), données techniques (IP, navigateur, empreinte d'appareil) et données comportementales (sessions, clics, évènements de sécurité)."
+        },
+        {
+          "h": "2. Finalités",
+          "p": "Ouvrir et gérer votre compte, évaluer les demandes de prêt, prévenir la fraude et le blanchiment, respecter nos obligations légales et améliorer nos services."
+        },
+        {
+          "h": "3. Base légale (RGPD)",
+          "p": "Exécution du contrat, intérêt légitime à la prévention de la fraude, obligation légale (LCB-FT) et votre consentement explicite pour le marketing."
+        },
+        {
+          "h": "4. Partage",
+          "p": "Limité à des sous-traitants vérifiés (hébergement cloud, vérification d'identité, réseaux de paiement), aux régulateurs et autorités judiciaires sur réquisition légale."
+        },
+        {
+          "h": "5. Conservation",
+          "p": "Données de compte : durée de la relation + 10 ans (LCB-FT). Journaux de sécurité : 24 mois. Cookies : selon notre politique cookies."
+        },
+        {
+          "h": "6. Vos droits",
+          "p": "Accès, rectification, suppression, limitation, portabilité et opposition. Contact <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@bnpparibas.com</a>. Vous pouvez saisir l'autorité de protection des données de votre pays."
+        },
+        {
+          "h": "7. Sécurité",
+          "p": "Chiffrement en transit (TLS) et au repos, empreinte d'appareil, détection d'anomalies, MFA sur les actions sensibles et réponse aux incidents 24/7."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Conditions générales d'utilisation",
+      "subtitle": "En utilisant BNP PARIBAS, vous acceptez les conditions ci-dessous.",
+      "sections": [
+        {
+          "h": "1. Éligibilité",
+          "p": "Vous devez avoir au moins 18 ans, résider dans un pays éligible et pouvoir conclure des contrats."
+        },
+        {
+          "h": "2. Compte",
+          "p": "Fournissez des informations exactes, conservez vos identifiants confidentiels et signalez toute compromission."
+        },
+        {
+          "h": "3. Usage acceptable",
+          "p": "Pas de fraude, blanchiment, financement du terrorisme, abus de marché, scraping automatisé ou activité interdite par la loi."
+        },
+        {
+          "h": "4. Frais",
+          "p": "Indiqués dans l'application avant chaque opération. Modifiables avec préavis de 30 jours."
+        },
+        {
+          "h": "5. Responsabilité",
+          "p": "Nous sommes responsables des dommages directs causés par notre faute lourde. Les préjudices indirects ou spéculatifs sont exclus."
+        },
+        {
+          "h": "6. Suspension",
+          "p": "Nous pouvons suspendre l'accès immédiatement en cas de suspicion de fraude, risque LCB-FT ou violation des présentes."
+        },
+        {
+          "h": "7. Droit applicable",
+          "p": "Droit français sauf application impérative du droit de la consommation de votre résidence. Tribunaux français compétents sous réserve des protections consommateur."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Politique cookies",
+      "sections": [
+        {
+          "h": "Ce que nous utilisons",
+          "list": [
+            "<strong>Strictement nécessaires</strong> — authentification, session, sécurité (sans consentement).",
+            "<strong>Fonctionnels</strong> — préférence de langue, thème.",
+            "<strong>Sécurité</strong> — empreinte d'appareil pour la détection de fraude (intérêt légitime).",
+            "<strong>Analytiques</strong> — usage agrégé, uniquement avec consentement."
+          ]
+        },
+        {
+          "h": "Gérer vos cookies",
+          "p": "Vous pouvez effacer vos cookies dans votre navigateur à tout moment. Désactiver les cookies strictement nécessaires empêche la connexion."
+        }
+      ]
+    },
+    "mentions": {
+      "title": "Mentions légales",
+      "sections": [
+        {
+          "h": "Éditeur",
+          "p": "BNP PARIBAS — SAS au capital de 1 000 000 EUR — siège social : 1 Centenary Square, Birmingham, B1 1HQ, Royaume-Uni. RCS Birmingham 000 000 000."
+        },
+        {
+          "h": "Directeur de publication",
+          "p": "Service Conformité BNP PARIBAS."
+        },
+        {
+          "h": "Hébergement",
+          "p": "Cloudflare Workers — 101 Townsend St, San Francisco, CA 94107, USA."
+        },
+        {
+          "h": "Contact",
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+        },
+        {
+          "h": "Propriété intellectuelle",
+          "p": "Toutes les marques, logos et contenus restent la propriété de BNP PARIBAS ou de ses concédants. Reproduction interdite sans autorisation écrite."
+        }
+      ]
+    },
+    "amlKyc": {
+      "title": "Politique LCB-FT / KYC",
+      "sections": [
+        {
+          "h": "Engagement",
+          "p": "BNP PARIBAS applique une tolérance zéro contre le blanchiment, le financement du terrorisme et le contournement des sanctions, conformément aux directives UE (AMLD5/6), recommandations GAFI et lois nationales applicables."
+        },
+        {
+          "h": "Vigilance client",
+          "p": "Vérification d'identité (pièce officielle + selfie de vivacité), justificatif de domicile, origine des fonds et surveillance continue des transactions."
+        },
+        {
+          "h": "Vigilance renforcée",
+          "p": "Appliquée aux personnes politiquement exposées (PPE), juridictions à risque élevé et transactions complexes ou inhabituelles."
+        },
+        {
+          "h": "Filtrage sanctions",
+          "p": "Filtrage en temps réel contre les listes consolidées UE, ONU, OFAC et Royaume-Uni."
+        },
+        {
+          "h": "Déclarations",
+          "p": "Déclarations de soupçon adressées à la cellule de renseignement financier compétente. Toute divulgation est strictement interdite."
+        },
+        {
+          "h": "Formation et gouvernance",
+          "p": "Formation annuelle LCB-FT pour tout le personnel. Un MLRO indépendant supervise le dispositif."
+        }
+      ]
+    },
+    "finPriv": {
+      "title": "Confidentialité et sécurité financières",
+      "sections": [
+        {
+          "h": "Protéger votre argent",
+          "p": "Contrôles de niveau bancaire : TLS 1.3 en transit, AES-256 au repos, gestion de clés matérielle, ségrégation des fonds clients chez des dépositaires de premier rang."
+        },
+        {
+          "h": "Authentification",
+          "p": "Authentification forte (SCA) PSD2 : mot de passe + empreinte d'appareil + code unique sur les opérations sensibles."
+        },
+        {
+          "h": "Surveillance anti-fraude",
+          "p": "Détection d'anomalies 24/7 : alertes nouveau dispositif, contrôles géo-vélocité, schémas de virement inhabituels, scoring comportemental."
+        },
+        {
+          "h": "Confidentialité",
+          "p": "Secret bancaire applicable. Vos données financières ne sont partagées qu'avec vous, les régulateurs, ou sur réquisition judiciaire valable."
+        },
+        {
+          "h": "Votre rôle",
+          "p": "Conservez vos identifiants privés, enregistrez vos appareils de confiance, activez les notifications et signalez immédiatement tout incident au support."
+        }
+      ]
+    },
+    "loanTerms": {
+      "title": "Conditions de prêt et de crédit",
+      "subtitle": "Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.",
+      "sections": [
+        {
+          "h": "1. Éligibilité",
+          "p": "Identité vérifiée, revenus stables, pas d'incident en cours. Contrôles crédit et LCB-FT avant accord."
+        },
+        {
+          "h": "2. Montants et durée",
+          "p": "De 1 000 EUR à 500 000 EUR, de 12 à 120 mois. Montants accordés selon dossier et loi applicable."
+        },
+        {
+          "h": "3. Taux et TAEG",
+          "p": "Taux fixe indiqué dans votre offre. Le TAEG inclut les intérêts et frais obligatoires."
+        },
+        {
+          "h": "4. Déblocage",
+          "p": "Fonds libérés après signature du contrat et vérification d'identité. Les déblocages > 50 000 EUR suivent un processus anti-fraude par étapes (63 % / 88 % / 100 %)."
+        },
+        {
+          "h": "5. Remboursement",
+          "p": "Prélèvement mensuel à date fixe. Remboursement anticipé autorisé avec plafond légal des indemnités."
+        },
+        {
+          "h": "6. Défaut",
+          "p": "Les retards entraînent intérêts, frais et peuvent aboutir à la déchéance du terme, inscription aux fichiers d'incidents et recouvrement judiciaire."
+        },
+        {
+          "h": "7. Droit de rétractation",
+          "p": "Vous disposez de 14 jours calendaires à compter de la signature pour vous rétracter sans motif."
+        }
+      ]
+    },
+    "repayment": {
+      "title": "Politique de remboursement et de défaut",
+      "sections": [
+        {
+          "h": "Échéancier",
+          "p": "Les mensualités sont prélevées à la date convenue sur l'IBAN déclaré. L'échéancier est visible depuis votre tableau de bord."
+        },
+        {
+          "h": "Remboursement anticipé",
+          "p": "Autorisé à tout moment. Indemnité plafonnée par la loi (0,5 % à 1 % du capital remboursé selon la durée restante)."
+        },
+        {
+          "h": "Retard de paiement",
+          "list": [
+            "Jour 1–7 : rappel amiable, sans frais.",
+            "Jour 8–30 : frais de retard + intérêts de défaut légaux.",
+            "Jour 31+ : mise en demeure et possible déchéance du terme."
+          ]
+        },
+        {
+          "h": "Recouvrement",
+          "p": "Nous privilégions toujours une solution amiable. Le défaut persistant peut entraîner inscription aux fichiers centraux et recouvrement judiciaire."
+        },
+        {
+          "h": "Difficulté financière",
+          "p": "Contactez-nous sans délai en cas de difficulté avérée. Nous pouvons proposer un report, un rééchelonnement ou une réduction temporaire si vous êtes éligible."
+        }
+      ]
+    }
+  },
+  "adminSec": {
+    "metaTitle": "Sécurité · Admin",
+    "unauthorized": "Non autorisé",
+    "adminLink": "Admin",
+    "center": "Centre de sécurité",
+    "ok": "ok",
+    "fail": "échec",
+    "user": "utilisateur",
+    "kpi": {
+      "totalEvents": "Évènements totaux",
+      "devicesTracked": "Appareils suivis",
+      "openAlerts": "Alertes ouvertes",
+      "highRisk": "Utilisateurs à risque"
+    },
+    "tab": {
+      "logs": "Journaux",
+      "alerts": "Alertes",
+      "devices": "Appareils",
+      "risk": "Risque"
+    },
+    "logs": {
+      "title": "Journaux de sécurité",
+      "searchPh": "Rechercher utilisateur, IP, pays…",
+      "action": "Action",
+      "allActions": "Toutes les actions",
+      "when": "Quand",
+      "user": "Utilisateur",
+      "ipCountry": "IP / Pays",
+      "device": "Appareil",
+      "status": "Statut",
+      "empty": "Aucun journal."
+    },
+    "alerts": {
+      "title": "Alertes de sécurité",
+      "empty": "Aucune alerte.",
+      "resolved": "résolue",
+      "resolve": "Résoudre"
+    },
+    "devices": {
+      "title": "Appareils de confiance",
+      "label": "Libellé",
+      "country": "Pays",
+      "lastSeen": "Vu pour la dernière fois",
+      "trusted": "Confiance",
+      "trustedBadge": "de confiance",
+      "pending": "en attente",
+      "empty": "Aucun appareil."
+    },
+    "risk": {
+      "title": "Scores de risque",
+      "risk": "Risque",
+      "sessions": "Sessions",
+      "sensitive": "Sensibles",
+      "empty": "Aucune donnée."
+    }
+  },
+  "footer": {
+    "legal": "Mentions légales",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "cookies": "Cookies",
+    "mentions": "Mentions légales",
+    "banking": "Bancaire",
+    "loanTerms": "Conditions de prêt",
+    "repayment": "Remboursement & défaut",
+    "aml": "LCB-FT / KYC",
+    "finPriv": "Confidentialité financière",
+    "contact": "Contact"
+  },
+  "chat": {
+    "loading": "Chargement",
+    "notFound": "Page introuvable",
+    "notFoundDesc": "Cette page n'existe pas.",
+    "backHome": "Retour à l'accueil",
+    "assistant": "assistant",
+    "typing": "écrit",
+    "today": "Aujourd'hui",
+    "yesterday": "Hier",
+    "pageTitle": "Assistance en direct",
+    "pageDesc": "Discutez avec notre équipe ou notre assistante virtuelle Anna.",
+    "closed": "Conversation fermée",
+    "closeTicket": "Fermer la conversation",
+    "close": "Fermer",
+    "compose": {
+      "placeholder": "Écrivez votre message…"
+    },
+    "rt": {
+      "bold": "Gras",
+      "italic": "Italique",
+      "link": "Lien",
+      "linkPrompt": "Entrez l'URL (https://...)"
+    },
+    "handoff": {
+      "question": "Souhaitez-vous être mis(e) en relation avec un conseiller ?",
+      "yes": "Oui, parler à un conseiller",
+      "no": "Non, merci",
+      "pending": "Votre demande est en cours de traitement, un conseiller vous rejoint dans 1 à 2 minutes…"
+    },
+    "agent": {
+      "joined": "a rejoint la conversation",
+      "joinedYou": "Vous avez rejoint la conversation",
+      "notAssigned": "Aucun agent assigné",
+      "join": "Rejoindre"
+    },
+    "status": {
+      "online": "En ligne",
+      "agent": "Conseiller en ligne",
+      "open": "Ouvert",
+      "waiting_agent": "En attente d'agent",
+      "assigned": "En cours",
+      "closed": "Fermé"
+    },
+    "admin": {
+      "empty": "Aucune conversation.",
+      "selectHint": "Sélectionnez une conversation à gauche.",
+      "folders": "Dossiers clients",
+      "tickets": "Tickets",
+      "searchPlaceholder": "Rechercher un client, ticket, email…",
+      "filter": {
+        "all": "Tous",
+        "waiting": "En attente",
+        "mine": "Assignés à moi",
+        "closed": "Fermés",
+        "guests": "Visiteurs"
+      },
+      "info": {
+        "title": "Informations du ticket",
+        "none": "Aucune information fournie"
+      },
+      "close": "Fermer le ticket",
+      "reopen": "Rouvrir le ticket",
+      "updated": "Ticket mis à jour"
+    },
+    "banner": {
+      "top": "BNP PARIBAS — Service client sécurisé",
+      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+    },
+    "loginRequired": {
+      "title": "Connectez-vous pour discuter",
+      "desc": "Vous devez être connecté(e) pour accéder à l'assistance.",
+      "cta": "Se connecter"
+    },
+    "nav": "Assistance",
+    "guest": {
+      "subtitle": "Assistance visiteurs",
+      "intro": "Remplissez ce formulaire, un conseiller BNP PARIBAS vous répondra rapidement. Vous obtiendrez un numéro de ticket.",
+      "name": "Nom complet *",
+      "email": "Email *",
+      "phone": "Téléphone",
+      "whatsapp": "WhatsApp",
+      "country": "Pays de résidence",
+      "subject": "Sujet",
+      "message": "Votre message *",
+      "submit": "Ouvrir mon ticket",
+      "privacy": "Vos données sont traitées confidentiellement (RGPD).",
+      "created": "Ticket #{{ticket}} créé !",
+      "errors": {
+        "required": "Nom, email et message obligatoires.",
+        "fail": "Envoi échoué, réessayez."
+      }
+    },
+    "ticket": "Ticket",
+    "archived": "Archivés",
+    "open": "Ouverts",
+    "welcome": {
+      "greeting": "Bonjour 👋 Je suis Anna, votre assistante BNP PARIBAS.",
+      "help": "Comment puis-je vous aider aujourd'hui ?"
+    },
+    "tickets": {
+      "title": "Mes conversations",
+      "new": "Nouvelle conversation",
+      "open": "Ouverts",
+      "closed": "Fermés",
+      "empty": "Aucune conversation pour le moment.",
+      "back": "Retour",
+      "one": "Conversation"
+    }
+  },
+  "adminDash": {
+    "title": "Tableau de bord — BNP PARIBAS",
+    "overview": "Vue d'ensemble",
+    "clients": "Clients",
+    "loans": "Prêts",
+    "transfers": "Virements",
+    "chat": "Live Chat",
+    "security": "Sécurité",
+    "notifications": "Notifications",
+    "kpis": {
+      "clients": "Clients actifs",
+      "loansPending": "Prêts en attente",
+      "transfersBlocked": "Virements bloqués",
+      "ticketsOpen": "Tickets ouverts",
+      "newToday": "Nouveaux aujourd'hui"
+    },
+    "recentActivity": "Activité récente",
+    "quickActions": "Actions rapides",
+    "staff": "Équipe & rôles",
+    "roles": "Permissions",
+    "logs": "Journal d'activité"
+  }
+}

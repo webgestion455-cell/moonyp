@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "495663445646",
+    "project_id": "myhsbclineloan",
+    "storage_bucket": "myhsbclineloan.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495663445646:android:cdc787ef00063399c8fbdf",
+        "android_client_info": {
+          "package_name": "com.myhsbclineloan.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWv_h2wR2oOQERGAiHjB0D-g6QjYHXwFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

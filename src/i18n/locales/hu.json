@@ -1,0 +1,1402 @@
+{
+  "common": {
+    "loading": "Betöltés…",
+    "save": "Mentés",
+    "cancel": "Mégse",
+    "close": "Bezárás",
+    "back": "Vissza",
+    "open": "Megnyitás",
+    "search": "Keresés",
+    "actions": "Műveletek",
+    "yes": "Igen",
+    "no": "Nem",
+    "all": "Mind",
+    "none": "Nincs",
+    "language": "Nyelv",
+    "submit": "Küldés",
+    "send": "Küldés",
+    "confirm": "Megerősítés",
+    "delete": "Törlés",
+    "edit": "Szerkesztés",
+    "view": "Megtekintés",
+    "download": "Letöltés",
+    "upload": "Feltöltés",
+    "next": "Következő",
+    "previous": "Előző",
+    "from": "Feladó",
+    "to": "Címzett",
+    "amount": "Összeg",
+    "date": "Dátum",
+    "status": "Állapot",
+    "details": "Részletek",
+    "optional": "opcionális",
+    "required": "kötelező",
+    "refresh": "Frissítés",
+    "viewAll": "Összes megtekintése",
+    "new": "Új",
+    "saving": "Mentés…",
+    "sending": "Küldés…",
+    "updating": "Frissítés…",
+    "loadError": "Betöltési hiba",
+    "sessionExpired": "A munkamenet lejárt",
+    "notFound": "Az oldal nem található",
+    "notFoundDesc": "A keresett oldal nem létezik.",
+    "backHome": "Vissza a kezdőlapra"
+  },
+  "header": {
+    "myLoans": "Hiteleim",
+    "newLoan": "Hitelkérelem",
+    "dashboard": "Irányítópult",
+    "admin": "Admin",
+    "settings": "Beállítások",
+    "signOut": "Kijelentkezés",
+    "signIn": "Bejelentkezés",
+    "contact": "Kapcsolat",
+    "menu": "Menü"
+  },
+  "notifications": {
+    "title": "Értesítések",
+    "empty": "Nincsenek értesítések",
+    "markAllRead": "Mindet olvasottnak jelöli",
+    "pageTitle": "Összes értesítés",
+    "noLink": "Nincs link",
+    "allRead": "Minden elolvasva",
+    "viewAll": "Összes értesítés megtekintése"
+  },
+  "auth": {
+    "title": "Ügyfélterület",
+    "signIn": "Bejelentkezés",
+    "signUp": "Fiók létrehozása",
+    "email": "E-mail",
+    "password": "Jelszó",
+    "fullName": "Teljes név",
+    "phone": "Telefon",
+    "forgotPassword": "Elfelejtette jelszavát?",
+    "noAccount": "Még nincs fiókja?",
+    "hasAccount": "Már van fiókja?",
+    "createAccount": "Fiók létrehozása",
+    "loginSuccess": "Sikeres bejelentkezés",
+    "signupSuccess": "Fiók létrehozva · ellenőrizze postaládáját",
+    "backHome": "Vissza a főoldalra",
+    "brandBadge": "Biztonságos digitális bank",
+    "creating": "Fiók létrehozása…",
+    "decision": "Döntés 24 munkaórán belül",
+    "google": "Folytatás Google-lal",
+    "googleError": "Nem sikerült bejelentkezni Google-lal",
+    "googleLoading": "Bejelentkezés Google-lal…",
+    "minPasswordHint": "Legalább 8 karakter.",
+    "mobileHint": "Jelentkezzen be vagy hozzon létre fiókot",
+    "rgpd": "GDPR-kompatibilis",
+    "signingIn": "Bejelentkezés…",
+    "terms": "A folytatással elfogadja Általános Szerződési Feltételeinket és Adatvédelmi Irányelveinket.",
+    "tls": "TLS 1.3 titkosítás",
+    "welcomeDesc": "Hozzáférhet hiteléhez, átutalásaihoz és prémium szolgáltatásaihoz biztonságosan.",
+    "welcomeTitle": "Üdvözöljük a",
+    "nameShort": "Túl rövid név",
+    "phoneInvalid": "Érvénytelen telefonszám",
+    "emailInvalid": "Érvénytelen e-mail",
+    "passwordMin": "A jelszónak legalább 8 karakter hosszúnak kell lennie",
+    "passwordRequired": "Jelszó szükséges",
+    "invalidCredentials": "Érvénytelen hitelesítő adatok",
+    "connectedToast": "Sikeres bejelentkezés",
+    "emailAlreadyUsed": "Az e-mail cím már használatban van",
+    "accountCreated": "Fiók sikeresen létrehozva",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Jelszó",
+    "fullNameLabel": "Teljes név",
+    "phoneLabel": "Telefon",
+    "tabSignin": "Bejelentkezés",
+    "tabSignup": "Fiók létrehozása",
+    "forgotLink": "Elfelejtette jelszavát?",
+    "forgotTitle": "Jelszó visszaállítása",
+    "forgotDesc": "Adja meg e-mail címét. Küldünk Önnek egy biztonságos linket az új jelszó beállításához.",
+    "forgotSend": "Link küldése",
+    "forgotSent": "Ha létezik fiók, e-mailt küldtünk.",
+    "resetTitle": "Új jelszó beállítása",
+    "resetWaiting": "A visszaállító link ellenőrzése…",
+    "resetSuccess": "Jelszó sikeresen frissítve.",
+    "newPassword": "Új jelszó",
+    "confirmNewPassword": "Jelszó megerősítése",
+    "updatePassword": "Jelszó frissítése"
+  },
+  "dashboard": {
+    "title": "Irányítópultom",
+    "welcome": "Helló",
+    "balance": "Rendelkezésre álló egyenleg",
+    "showBalance": "Egyenleg megjelenítése",
+    "hideBalance": "Egyenleg elrejtése",
+    "newLoan": "Új kölcsön",
+    "withdraw": "Kifizetés",
+    "transfer": "Átutalás indítása",
+    "myLoans": "Kölcsöneim",
+    "transferHistory": "Átutalási előzmények",
+    "noLoans": "Még nincs kölcsöne",
+    "startApplication": "Jelentkezés indítása",
+    "noTransfers": "Nincs átutalás",
+    "viewLoan": "Fájl megtekintése",
+    "needHelp": "Segítségre van szüksége?",
+    "contactSupport": "Ügyfélszolgálat felkeresése",
+    "metaTitle": "My dashboard — BNP PARIBASAS",
+    "sessionExpired": "A munkamenet inaktivitás miatt lejárt",
+    "loadError": "Betöltési hiba",
+    "welcomeNamed": "Welcome, {{name}}",
+    "welcomeAnon": "Welcome",
+    "totalAvailable": "Total available balance",
+    "fundedOutOf": "out of {{amount}} funded",
+    "withdrawnAmount": "{{amount}} withdrawn",
+    "newShort": "+ New",
+    "activeLoans": "Active loans",
+    "totalFunded": "Total funded",
+    "transfers": "Transfers",
+    "loading": "Loading…",
+    "firstLoanTitle": "Start your first application",
+    "firstLoanDesc": "Finance your projects in minutes: car, renovation, treasury or any other need.",
+    "apply": "Apply now",
+    "loanDurationCreated": "{{months}} months · Requested on {{date}}",
+    "disbursedRemaining": "Disbursed: {{disbursed}} · Remaining: {{remaining}}",
+    "recentActivity": "Recent activity",
+    "viewAll": "View all",
+    "noRecentTransfers": "No transfers yet",
+    "status": {
+      "en_traitement": "Processing",
+      "envoye": "Sent",
+      "rejete": "Rejected"
+    },
+    "welcomeShort": "Welcome",
+    "myDashboard": "My dashboard",
+    "newRequest": "New request",
+    "fundedOf": "of {{amount}} funded",
+    "makeTransfer": "Make a transfer",
+    "transfersKpi": "Transfers",
+    "applyCta": "Apply now",
+    "monthsSince": "{{months}} months · Requested on {{date}}",
+    "details": "Details",
+    "noTransfersYet": "No transfers yet"
+  },
+  "loanForm": {
+    "title": "New loan application",
+    "subtitle": "Fill in the form and attach your documents.",
+    "fullName": "Full name",
+    "email": "Email",
+    "amount": "Requested amount (€)",
+    "duration": "Duration (months)",
+    "monthlyIncome": "Net monthly income (€)",
+    "purpose": "Purpose of the loan (optional)",
+    "purposePlaceholder": "Felújítás, autó, személyes projekt…",
+    "documents": "Szükséges dokumentumok (max. 5, egyenként 5 MB)",
+    "uploadHint": "Kattintson a hozzáadáshoz (PDF, JPG, PNG)",
+    "submit": "Kérelem elküldése",
+    "submitting": "Küldés…",
+    "success": "Kérelem elküldve!",
+    "requiredDocs": "Szükséges dokumentumok az áttekintéshez",
+    "requiredDocsHint": "Töltsön fel olvasható PDF, JPG vagy PNG fájlokat a jóváhagyás felgyorsítása érdekében.",
+    "doc1": "Érvényes személyazonosító okmány vagy vezetői engedély (mindkét oldal) — vagy útlevél (csak elülső oldal)",
+    "doc2": "Friss lakcímigazolás",
+    "doc3": "Utolsó három fizetési szelvény vagy jövedelemigazolás",
+    "doc4": "Legutóbbi bankszámlakivonat vagy IBAN a kérelmező nevére",
+    "back": "Vissza",
+    "newRequestShort": "Új kérelem",
+    "newRequestDesc": "Nyújtsa be hitelkérelmét",
+    "amountMin": "Minimum 500 €",
+    "amountMax": "Maximum 100 000 €",
+    "fileTooLarge": "A {{name}} meghaladja az 5 MB-ot",
+    "createError": "Hiba a kérelem létrehozásakor",
+    "uploadFailed": "Feltöltés sikertelen: {{name}}",
+    "adminNotifTitle": "Új hitelkérelem",
+    "adminNotifMsg": "{{name}} {{amount}} €-t igényel {{months}} hónapra",
+    "successToast": "Kérelmét sikeresen elküldtük",
+    "loading": "Betöltés…",
+    "docsRequiredExact": "Pontosan {{count}} dokumentumot kell feltöltenie a kérelem benyújtásához.",
+    "uploadHintExact": "Töltsön fel pontosan {{count}} dokumentumot (PDF, JPG, PNG – egyenként max. 5 MB)",
+    "address": "Teljes postacím",
+    "addressPlaceholder": "Kezdje el beírni a címét…",
+    "addressHint": "Válasszon ki egy javaslatot, vagy írja be kézzel a teljes címét.",
+    "addressRequired": "Kérjük, adja meg teljes postacímét"
+  },
+  "transfer": {
+    "title": "Átutalás indítása",
+    "subtitle": "Válassza ki a típust, adja meg a kedvezményezett adatait és erősítse meg.",
+    "kindInstant": "Azonnali (SEPA Instant)",
+    "kindInstantHint": "Azonnal jóváírva a kedvezményezettnek (24/7).",
+    "kindClassic": "Standard (SEPA)",
+    "kindClassicHint": "1 munkanapon belül jóváírva · ütemezés elérhető.",
+    "sourceLoan": "Forrás hitel",
+    "amount": "Összeg (€)",
+    "available": "Rendelkezésre álló egyenleg",
+    "beneficiary": "Kedvezményezett",
+    "beneficiaryPlaceholder": "Keresztnév és vezetéknév",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "bankName": "Bank",
+    "bankNamePlaceholder": "Bank neve",
+    "reference": "Referencia",
+    "referencePlaceholder": "Automatikusan generált, ha üres",
+    "schedule": "Ütemezés (opcionális)",
+    "scheduleHint": "Hagyja üresen a következő munkanaphoz.",
+    "reason": "Ok (opcionális)",
+    "reasonPlaceholder": "Bérleti díj, vásárlás, törlesztés…",
+    "secureInstant": "Titkosított adatok · azonnali végrehajtás",
+    "secureClassic": "Titkosított adatok · 1 munkanap",
+    "executeInstant": "Átutalás végrehajtása",
+    "confirmClassic": "Átutalás megerősítése",
+    "successInstant": "Azonnali átutalás végrehajtva",
+    "successScheduled": "Átutalás ütemezve",
+    "successClassic": "Átutalási megbízás rögzítve",
+    "errorEmit": "Hiba az átutalás kiállításakor",
+    "noLoanSelected": "Nincs kiválasztott kölcsön",
+    "amountInvalid": "Érvénytelen összeg",
+    "ibanInvalid": "Érvénytelen IBAN",
+    "bicInvalid": "Érvénytelen BIC/SWIFT",
+    "beneficiaryRequired": "Kedvezményezett szükséges",
+    "bankRequired": "Bank szükséges",
+    "scheduleFuture": "Az ütemezett dátumnak a jövőben kell lennie"
+  },
+  "contact": {
+    "title": "Ügyfélszolgálat felkeresése",
+    "subtitle": "24 munkanapon belül válaszolunk · a titoktartás garantált.",
+    "infoTitle": "Elérhetőségek",
+    "phoneLabel": "Ügyfélszolgálat",
+    "phoneHours": "H-P · 8:00-20:00",
+    "emailLabel": "E-mail",
+    "addressLabel": "Központi iroda",
+    "secureNote": "Üzeneteit titkosítva és bizalmasan kezeli megfelelőségi csapatunk.",
+    "formTitle": "Üzenet küldése",
+    "fullName": "Teljes név",
+    "email": "E-mail",
+    "subject": "Tárgy",
+    "message": "Üzenet",
+    "messagePlaceholder": "Írja le részletesen kérését…",
+    "send": "Üzenet küldése",
+    "success": "Üzenet elküldve · az ügyfélszolgálat 24 órán belül válaszol",
+    "error": "Küldés sikertelen",
+    "subjects": {
+      "account": "Kérdés a számlámmal kapcsolatban",
+      "loan": "Kérdés egy kölcsönnel kapcsolatban",
+      "transfer": "Átutalási probléma",
+      "complaint": "Panasz",
+      "appointment": "Időpontkérés",
+      "other": "Egyéb"
+    },
+    "metaTitle": "Kapcsolatfelvétel – BNP PARIBAS ügyfélszolgálat",
+    "metaDesc": "Lépjen kapcsolatba a BNP PARIBAS ügyfélszolgálatával számlájával, hiteleivel vagy átutalásaival kapcsolatos kérdéseivel.",
+    "nameRequired": "Név megadása kötelező",
+    "emailInvalid": "Érvénytelen e-mail cím",
+    "messageTooShort": "Túl rövid üzenet (minimum 10 karakter)",
+    "defaultNamePlaceholder": "Kovács János",
+    "defaultEmailPlaceholder": "on@pelda.hu",
+    "back": "Vissza",
+    "phoneTitle": "Ügyfélszolgálat",
+    "address": "Champs-Élysées sugárút 103.",
+    "addressCity": "75008 Párizs, Franciaország",
+    "sending": "Küldés…",
+    "successQueued": "Üzenetét rögzítettük. Csapatunk hamarosan válaszol."
+  },
+  "admin": {
+    "title": "Adminisztrációs irányítópult",
+    "subtitle": "Banki tevékenység áttekintése.",
+    "kpis": {
+      "total": "Összes kérelem",
+      "pending": "Függőben",
+      "accepted": "Elfogadva",
+      "refused": "Elutasítva"
+    },
+    "amounts": {
+      "requested": "Összes kért",
+      "accepted": "Összes elfogadott",
+      "disbursed": "Kifizetett összegek"
+    },
+    "recent": {
+      "title": "Legutóbbi tevékenység",
+      "empty": "Nincs legutóbbi tevékenység",
+      "open": "Megnyitás"
+    },
+    "quickActions": {
+      "title": "Gyorsműveletek",
+      "subtitle": "Először a függőben lévő fájlokat kezelje.",
+      "toStudy": "Áttekintendő fájlok",
+      "signedContracts": "Feldolgozandó aláírt szerződések",
+      "manageClients": "Ügyfelek kezelése"
+    },
+    "loansPage": {
+      "title": "Összes hitelfájl",
+      "subtitle": "Részletes és szűrhető nézet a kérelmekről.",
+      "client": "Ügyfél",
+      "amount": "Összeg",
+      "status": "Állapot",
+      "date": "Dátum",
+      "documents": "Dokumentumok",
+      "duration": "Időtartam"
+    },
+    "clientsPage": {
+      "title": "Ügyfelek",
+      "subtitle": "Ügyfélszámlák és hozzáférési állapot.",
+      "client": "Ügyfél",
+      "phone": "Telefon",
+      "loans": "Hitelek",
+      "totalBorrowed": "Összes kölcsönzött összeg",
+      "joined": "Csatlakozott",
+      "status": "Állapot",
+      "active": "Aktív",
+      "blocked": "Blokkolva"
+    },
+    "clientDetail": {
+      "title": "Ügyfélprofil",
+      "personalInfo": "Személyes adatok",
+      "summary": "Összefoglaló",
+      "loans": "Ügyfél hitelei",
+      "withdrawals": "Átutalások",
+      "noLoans": "Ennek az ügyfélnek még nincsenek fájljai.",
+      "noWithdrawals": "Nincsenek átutalások.",
+      "blockBtn": "Fiók blokkolása",
+      "unblockBtn": "Fiók feloldása",
+      "blockTitle": "Ügyfélszámla blokkolása",
+      "blockReason": "Blokkolás oka",
+      "blockReasonPlaceholder": "pl. csalás gyanúja, KYC nem megfelelő…",
+      "blockedSince": "Blokkolva ettől:",
+      "blockedReason": "Ok",
+      "confirm": "Megerősítés"
+    },
+    "stages": {
+      "title": "Díjak és kódok kiadása",
+      "planSaved": "Terv mentve",
+      "planFirst": "Először állítsa be a díjakat",
+      "codeSent": "Kód elküldve a(z) {{stage}}% szakaszhoz",
+      "unlocked": "Feloldva",
+      "codeSentBadge": "Kód elküldve",
+      "fee": "Díj (€)",
+      "sentAt": "Elküldve",
+      "genAndSend": "Generálás és küldés",
+      "regenAndSend": "Újragenerálás és küldés",
+      "savePlan": "Terv mentése"
+    },
+    "transfer": {
+      "title": "Ügyfélátutalás indítása",
+      "subtitle": "Hozzon létre azonnali vagy standard banki átutalást egy ügyfél nevében.",
+      "kind": "Átutalás típusa",
+      "instant": "Azonnali",
+      "instantHint": "Azonnal jóváírva a nap 24 órájában, a hét minden napján.",
+      "classic": "Standard",
+      "classicHint": "1 munkanapon belül jóváírva.",
+      "client": "Ügyfél",
+      "selectClient": "Válasszon ügyfelet",
+      "loan": "Forrás hitel",
+      "selectLoan": "Válasszon hitelt",
+      "amount": "Összeg (€)",
+      "beneficiary": "Kedvezményezett",
+      "bankName": "Kedvezményezett bankja",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "reference": "Hivatkozás",
+      "submit": "Átutalás indítása",
+      "success": "Átutalás sikeresen elindítva",
+      "error": "Nem sikerült elindítani az átutalást"
+    }
+  },
+  "blocked": {
+    "title": "Felfüggesztett fiók",
+    "message": "Fiókját ideiglenesen felfüggesztette a megfelelőségi csapatunk.",
+    "reasonLabel": "Ok",
+    "contact": "További információért vegye fel a kapcsolatot az ügyfélszolgálattal.",
+    "signOut": "Kijelentkezés"
+  },
+  "status": {
+    "en_attente": "Függőben",
+    "accepte": "Elfogadva",
+    "refuse": "Elutasítva",
+    "contrat_envoye": "Szerződés elküldve",
+    "contrat_signe": "Szerződés aláírva",
+    "en_traitement": "Feldolgozás alatt",
+    "fonds_disponibles": "Rendelkezésre álló pénzeszközök",
+    "envoye": "Elküldve",
+    "rejete": "Elutasítva"
+  },
+  "client": {
+    "stages": {
+      "title": "Folyamatban lévő átutalások",
+      "blockedTitle": "Átutalás blokkolva {{stage}}%-nál",
+      "blockedDesc": "Esedékes díj: {{fee}}. Az érvényesítés után kódot fog kapni.",
+      "codePlaceholder": "Kioldó kód",
+      "unlock": "Feloldás",
+      "enterCode": "Adja meg a kódot",
+      "invalidCode": "Érvénytelen kód",
+      "unlocked": "Szakasz feloldva",
+      "awaitCode": "Admin kódra vár",
+      "codeReceivedTitle": "Kód kiadása: {{stage}}%",
+      "codeReceivedMsg": "Az Ön kódja: {{code}} (díj: {{fee}})"
+    }
+  },
+  "adminCodes": {
+    "title": "Feloldó kódok",
+    "help": "Átutalási folyamat kódjainak kezelése.",
+    "step": "Lépés",
+    "released": "Kiadva",
+    "fee": "Díj (€)",
+    "code": "Kód",
+    "generate": "Generálás",
+    "regenerate": "Újragenerálás",
+    "send": "Küldés",
+    "generateAndSend": "Generálás és küldés",
+    "regenerateAndSend": "Újragenerálás és küldés",
+    "noCode": "Nincs kód",
+    "created": "Kód létrehozva",
+    "updated": "Kód frissítve",
+    "error": "Hiba",
+    "success": "Siker",
+    "sectionTitle": "Átutalási lépés konfigurációja",
+    "sectionHelp": "Állítsa be a díjakat és a fizetési címet lépésenként, érvényesítse a nyugtát, majd küldje el a kódot.",
+    "gatedTitle": "Konfiguráció zárolva",
+    "gatedDesc": "Az átutalási lépés konfigurációja a kölcsön elfogadása után válik elérhetővé.",
+    "address": "Fizetési cím",
+    "saved": "Konfiguráció elmentve",
+    "invalidFee": "Érvénytelen díj",
+    "codeSent": "Kód generálva és elküldve",
+    "consumed": "Felhasználva",
+    "receiptUploaded": "Nyugta feltöltve",
+    "pending": "Függőben",
+    "approved": "Jóváhagyva",
+    "rejected": "Elutasítva",
+    "approve": "Jóváhagyás",
+    "reject": "Elutasítás",
+    "receiptApproved": "Nyugta jóváhagyva",
+    "receiptRejected": "Nyugta elutasítva",
+    "invalidates": "Egy kód újragenerálása automatikusan érvényteleníti az előzőt: csak a legújabb kód működik.",
+    "notifTitle": "Feloldó kód {{p}}%",
+    "notifMsg": "Az Ön kódja: {{code}} (díj: {{fee}})",
+    "notifApprovedTitle": "Nyugta jóváhagyva — lépés {{p}}%",
+    "notifApprovedMsg": "A fizetésed érvényesítve lett. A kód elküldésre kerül.",
+    "notifRejectedTitle": "Elutasított nyugta – {{p}}% lépés",
+    "notifRejectedMsg": "Kérjük, tölts fel egy érvényes nyugtát.",
+    "holder": "Számlatulajdonos",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "description": "Hivatkozás / Leírás"
+  },
+  "transferSteps": {
+    "title": "Biztonságos átutalás",
+    "subtitle": "Banki folyamat 3 lépésben: 63% · 88% · 100%.",
+    "progress": "Folyamat",
+    "completed": "Átutalás befejezve",
+    "completedDesc": "Az összeget jóváírtuk a kedvezményezett számláján.",
+    "blockedTitle": "Átutalás blokkolva {{p}}%-nál",
+    "blockedDesc": "Banki megfelelőségi okokból a {{p}}% lépés feloldásához díjfizetés és a nyugta érvényesítése szükséges.",
+    "awaitingConfig": "Konfiguráció folyamatban",
+    "awaitingConfigDesc": "Csapatunk véglegesíti ezt a lépést. Értesítést fogsz kapni.",
+    "feeFor": "Díjlépés {{p}}%",
+    "paymentAddress": "Fizetési cím",
+    "paymentHelp": "Utalja át az összeget erre a címre, majd töltse fel a nyugtáját.",
+    "receipt": "Fizetési nyugta",
+    "receiptPending": "Érvényesítésre vár",
+    "receiptApproved": "Jóváhagyva",
+    "receiptRejected": "Elutasítva – újraküldés",
+    "uploadReceipt": "Nyugta feltöltése",
+    "replaceReceipt": "Nyugta cseréje",
+    "receiptSent": "Nyugta elküldve érvényesítésre",
+    "fileTooBig": "Túl nagy fájl (max. 10 MB)",
+    "enterCode": "Írja be a feloldó kódot",
+    "unlock": "{{p}}% lépés feloldása",
+    "awaitingCode": "Kódra vár",
+    "awaitingCodeDesc": "A kód elküldésre kerül, miután az adminisztrátor érvényesítette a nyugtáját.",
+    "invalidCode": "Érvénytelen kód",
+    "advanced": "A {{p}}% lépés feloldva",
+    "successFinal": "Átutalás sikeresen befejezve",
+    "notifAdminTitle": "Nyugta beérkezett – {{p}}% lépés",
+    "notifAdminMsg": "Egy ügyfél feltöltött egy nyugtát érvényesítésre.",
+    "stepNotReached": "A lépés még nem érte el"
+  },
+  "transfersPage": {
+    "metaTitle": "Átutalásaim – BNP PARIBAS",
+    "eyebrow": "Átutalások területe",
+    "title": "Átutalásaim",
+    "subtitle": "SEPA átutalások, megfelelőségi lépések és bizonylatok nyomon követése.",
+    "newTransfer": "Új átutalás",
+    "beneficiary": "Kedvezményezett:",
+    "issuedAt": "Kiállítva: {{date}}",
+    "reference": "hivatkozás: {{reference}}",
+    "emptyTitle": "Nincsenek átutalások",
+    "emptyDesc": "Az átutalásai itt fognak megjelenni, amint létrejöttek.",
+    "filters": {
+      "all": "Összes",
+      "active": "Folyamatban",
+      "blocked": "Blokkolva",
+      "done": "Befejezett"
+    },
+    "status": {
+      "final": "Érvényesítve",
+      "rejected": "Elutasítva",
+      "blocked": "Ellenőrzés szükséges",
+      "processing": "Banki feldolgozás"
+    }
+  },
+  "landing": {
+    "metaTitle": "BNP PARIBAS — Azonnali online hitelek",
+    "metaDesc": "Finanszírozza projektjeit bizalommal. Gyors személyi kölcsönök 1 000 €-tól 50 000 €-ig. Döntés 24 órán belül, pénz 72 órán belül.",
+    "badge": "Döntés 24 órán belül",
+    "heroTitleA": "Finanszírozza projektjeit",
+    "heroTitleB": "bizalommal.",
+    "heroDesc": "A BNP PARIBAS az európai bankok vezető generációjának része, amely gyors, átlátható és biztonságos személyi kölcsönöket kínál.",
+    "ctaPrimary": "Kérjen kölcsönt",
+    "ctaSecondary": "Már van fiókom",
+    "trust1": "Titkosított adatok",
+    "trust2": "100% biztonságos",
+    "trust3": "Nincsenek rejtett díjak",
+    "values": {
+      "response": {
+        "title": "Válasz 24 órán belül",
+        "desc": "Szakértői csapatunk gyorsan áttekinti az Ön aktáját. Nincs többé végtelen hetekig tartó várakozás."
+      },
+      "secure": {
+        "title": "100% biztonságos",
+        "desc": "Adatai végponttól végpontig titkosítva vannak. Megfelelünk a legszigorúbb banki szabványoknak."
+      },
+      "nofees": {
+        "title": "Nincsenek rejtett díjak",
+        "desc": "A meghirdetett kamat az alkalmazott kamat. Nincsenek meglepetések a havi törlesztőrészletekben."
+      }
+    },
+    "how": {
+      "title": "Hogyan működik?",
+      "s1t": "Szimulálja hitelét",
+      "s1d": "Válassza ki az Önnek megfelelő összeget és futamidőt. Azonnal kiszámítjuk a becsült havi törlesztőrészletét.",
+      "s2t": "Töltse ki az aktáját",
+      "s2d": "Töltse ki az űrlapot 5 perc alatt, és töltse fel az igazoló dokumentumait (személyi igazolvány, lakcímigazolás, fizetési lapok).",
+      "s3t": "Írja alá a szerződését",
+      "s3d": "Miután csapatunk jóváhagyta, írja alá szerződését elektronikusan és biztonságosan.",
+      "s4t": "Fogadja meg a pénzét",
+      "s4d": "A jogi időszak letelte után a pénzeszközök elérhetővé válnak a BNP PARIBAS pénztárcájában, készen a kifizetésre."
+    },
+    "partners": {
+      "eyebrow": "Partnerbankjaink",
+      "title": "Megbízható banki hálózat",
+      "desc": "A főbb európai pénzintézetekkel dolgozunk együtt a gyors és biztonságos átutalások garantálása érdekében."
+    },
+    "finalCta": {
+      "title": "Készen áll, hogy életre keltse projektjeit?",
+      "desc": "Hozza létre fiókját, és küldje be első kérelmét mindössze néhány perc alatt.",
+      "button": "Jelentkezés indítása"
+    },
+    "footer": {
+      "rights": "Minden jog fenntartva.",
+      "legal": "A hitel kötelezettséget jelent, és vissza kell fizetni. Mielőtt elkötelezné magát, ellenőrizze a törlesztési képességét."
+    },
+    "slides": {
+      "s1t": "Az Ön igényeire szabott banki szolgáltatások",
+      "s1d": "Nyisson számlát percek alatt, papírmunka nélkül.",
+      "s2t": "Kezelje pénzügyeit valós időben",
+      "s2d": "Áttekinthető műszerfal, elemzések és intelligens riasztások.",
+      "s3t": "Bankja a zsebében",
+      "s3d": "Biztonságos mobilalkalmazás, 24/7 elérhető.",
+      "s4t": "Banki szintű biztonság",
+      "s4d": "Végpontok közötti titkosítás és erős hitelesítés."
+    },
+    "kpis": {
+      "clients": "Aktív ügyfelek",
+      "countries": "Lefedett országok",
+      "assets": "Kezelt eszközök",
+      "uptime": "Üzemidő"
+    },
+    "security": {
+      "eyebrow": "Biztonság és megfelelőség",
+      "title": "Csúcsminőségű banki védelem",
+      "desc": "Rendszereink megfelelnek a legszigorúbb európai banki szabványoknak.",
+      "f1t": "AES-256 titkosítás",
+      "f1d": "Adatait katonai szintű titkosítás védi.",
+      "f2t": "PSD2 és GDPR kompatibilis",
+      "f2d": "Az európai szabályozások szigorúan érvényesülnek.",
+      "f3t": "Erős hitelesítés",
+      "f3d": "Kétfaktoros hitelesítés minden érzékeny művelethez.",
+      "f4t": "24/7 támogatás",
+      "f4d": "Dedikált tanácsadók a nap minden órájában elérhetők."
+    },
+    "testi": {
+      "eyebrow": "Vélemények",
+      "title": "Megbíznak bennünk",
+      "t1n": "Marie Dubois",
+      "t1r": "Pénzügyi igazgató",
+      "t1q": "Zökkenőmentes és professzionális banki élmény. A támogatás kiemelkedő.",
+      "t2n": "Jean Martin",
+      "t2r": "Vállalkozó",
+      "t2q": "A nemzetközi átutalások gyorsak, és a biztonság kifogástalan.",
+      "t3n": "Sophie Laurent",
+      "t3r": "Ügyvéd",
+      "t3q": "Végre egy digitális bank, amely az egyszerűséget az intézményi komolysággal ötvözi."
+    },
+    "mobile": {
+      "eyebrow": "Mobilalkalmazás",
+      "title": "Az egész bankja a tenyerében",
+      "desc": "Kezelje számláit, küldjön átutalásokat és kövesse nyomon befektetéseit okostelefonjáról.",
+      "b1": "Valós idejű tranzakciókövetés",
+      "b2": "Azonnali nemzetközi átutalások",
+      "b3": "Face ID és ujjlenyomat biometria"
+    },
+    "faq": {
+      "title": "Gyakran ismételt kérdések",
+      "q1": "Hogyan nyithatok számlát?",
+      "a1": "Regisztráljon online kevesebb mint 5 perc alatt érvényes személyazonosító okmánnyal.",
+      "q2": "Mik a díjak?",
+      "a2": "Standard csomagunk rejtett díjakat nem tartalmaz. A mindennapi műveletek ingyenesek.",
+      "q3": "Védettek a pénzeszközeim?",
+      "a3": "A betéteket a Betétbiztosítási Alap 100 000 euróig garantálja.",
+      "q4": "Hogyan léphetek kapcsolatba az ügyfélszolgálattal?",
+      "a4": "Csapatunk a nap 24 órájában, a hét minden napján elérhető biztonságos chaten, e-mailben vagy telefonon."
+    }
+  },
+  "transferProcess": {
+    "progress": "Biztonságos folyamat",
+    "rejectedBadge": "Átutalás elutasítva",
+    "validatedBadge": "Átutalás érvényesítve",
+    "complianceBadge": "Megfelelőségi ellenőrzés",
+    "processingBadge": "Banki feldolgozás",
+    "rejectedTitle": "Ez az átutalás elutasításra került",
+    "rejectedDesc": "Az összeget automatikusan visszautaltuk a számlájára.",
+    "finalTitle": "Átutalás sikeresen végrehajtva",
+    "finalDesc": "A kedvezményezett a szokásos bankközi határidőn belül megkapja az összeget.",
+    "animatingTitle": "Banki útválasztás folyamatban",
+    "animatingDesc": "Az átutalása biztonságos csatornáinkon keresztül halad. Nincs szükség beavatkozásra.",
+    "blockedTitle": "Megfelelőségi ellenőrzés szükséges",
+    "blockedDesc": "A lépés befejezéséhez kérjük, fizesse be az alábbi megfelelőségi díjat, és adja meg a kapott kódot.",
+    "configTitle": "Konfigurálás folyamatban",
+    "configDesc": "An BNP PARIBASPARIBAS advisor is preparing the compliance payment. You will receive instructions shortly.",
+    "fee": "Megfelelőségi díj esedékes",
+    "bankOrder": "BNP PARIBAS adatok",
+    "accountHolder": "Számlatulajdonos",
+    "reason": "Átutalás oka",
+    "receiptLabel": "Fizetési igazolás",
+    "receiptPending": "Felülvizsgálat alatt",
+    "receiptApproved": "Jóváhagyva",
+    "receiptRejected": "Elutasítva",
+    "replaceReceipt": "Bizonylat cseréje",
+    "uploadReceipt": "Bizonylat feltöltése",
+    "unlockCodeReceived": "Feloldókód megérkezett",
+    "codePlaceholder": "Írja be a kódot (pl. ABC-1234)",
+    "validateAndContinue": "Érvényesítés és folytatás",
+    "waitingCodeTitle": "Várakozás a feloldókódra",
+    "waitingCodeDesc": "Miután a bizonylatát érvényesítettük, tanácsadója egy 6 karakterből álló kódot küld Önnek.",
+    "fileTooBig": "A fájl mérete meghaladja a 10 MB-ot.",
+    "invalidCode": "Érvénytelen vagy már felhasznált kód.",
+    "successFinal": "Átutalás véglegesítve.",
+    "advanced": "Lépés érvényesítve.",
+    "copied": "{{label}} a vágólapra másolva.",
+    "receiptSent": "Bizonylat elküldve a tanácsadójának.",
+    "adminValidationTitle": "Átutalás érvényesítésre vár",
+    "adminValidationMessage": "Egy ügyfél elérte a megfelelőségi lépést, és a kód kiadására vár.",
+    "adminReceiptTitle": "Új bizonylat felülvizsgálatra",
+    "adminReceiptMessage": "Egy ügyfél feltöltött egy megfelelőségi fizetési bizonylatot."
+  },
+  "transferStepDialog": {
+    "title": "Megfelelőségi lépés",
+    "subtitle": "Kövesse nyomon a haladást és biztonságosan érvényesítsen minden mérföldkövet."
+  },
+  "transferDetail": {
+    "metaTitle": "Átutalás részletei — BNP PARIBAS",
+    "backAll": "Összes átutalás",
+    "header": "BNP PARIBAS · Átutalási megbízás",
+    "amount": "Összeg",
+    "beneficiary": "Kedvezményezett",
+    "bank": "Bank",
+    "reference": "Hivatkozás",
+    "iban": "IBAN",
+    "bic": "BIC",
+    "issuedAt": "Kiállítás dátuma",
+    "tracking": "Átutalás nyomon követése",
+    "history": "Előzmények",
+    "notFound": "Átutalás nem található.",
+    "badge": {
+      "validated": "Átutalás érvényesítve",
+      "rejected": "Átutalás elutasítva",
+      "compliance": "Megfelelőségi ellenőrzés",
+      "processing": "Banki feldolgozás"
+    },
+    "rejected": {
+      "title": "Ezt az átutalást elutasították",
+      "desc": "The funds have been automatically credited back to your BNP PARIBASPARIBAS account.",
+      "reason": "Ok"
+    },
+    "timeline": {
+      "issued": "Átutalási megbízás kiadva",
+      "issuedDesc": "Címzett: {{beneficiary}} ({{amount}})",
+      "compliance": "Megfelelőségi lépés érvényesítve",
+      "complianceDesc": "Kód sikeresen megadva.",
+      "enhanced": "Fokozott ellenőrzés érvényesítve",
+      "enhancedDesc": "Az átutalás folytatja útját a kedvezményezetthez.",
+      "executed": "Átutalás végrehajtva",
+      "executedDesc": "Az összeget jóváírtuk.",
+      "rejected": "Átutalás elutasítva",
+      "rejectedDesc": "Az egyenleg automatikusan visszakerült a számlára.",
+      "now": "Épp most"
+    },
+    "receipt": {
+      "title": "Banki bizonylat elérhető",
+      "desc": "Töltse le ennek az átutalási megbízásnak a hivatalos BNP PARIBAS összefoglalóját.",
+      "download": "Bizonylat letöltése"
+    }
+  },
+  "receipt": {
+    "metaTitle": "Átutalási bizonylat – BNP PARIBAS",
+    "download": "PDF letöltése",
+    "subBrand": "Együtt boldogulunk",
+    "documentLabel": "Hivatalos dokumentum",
+    "documentTitle": "Átutalási bizonylat",
+    "title": "Banki átutalási bizonylat",
+    "subtitle": "Kiállítás dátuma: {{date}}",
+    "amount": "Átutalt összeg",
+    "statusExecuted": "Átutalás végrehajtva",
+    "statusPending": "Átutalás feldolgozás alatt",
+    "beneficiary": "Kedvezményezett",
+    "bank": "Kedvezményezett bankja",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "reference": "Hivatkozás",
+    "issuedAt": "Kiállítás dátuma",
+    "footerSecurity": "A BNP PARIBAS biztonságos rendszerei által generált dokumentum.",
+    "footerLegal": "Ez a bizonylat igazolja a banki műveletet, és bármely illetékes hatóság részére bemutatható.",
+    "generating": "PDF generálása…",
+    "downloaded": "Bizonylat sikeresen letöltve",
+    "downloadError": "Nem sikerült letölteni a bizonylatot",
+    "sessionExpired": "A munkamenet lejárt. Kérjük, jelentkezzen be újra.",
+    "serverSessionExpired": "A munkamenet lejárt. Kérjük, jelentkezzen be újra.",
+    "serverNotFound": "Átutalás nem található",
+    "serverUnauthorized": "Jogosulatlan hozzáférés ehhez a bizonylathoz",
+    "serverUnavailable": "A bizonylat csak az átutalás jóváhagyása után érhető el",
+    "serverSubtitle": "Hivatalos banki bizonylat",
+    "serverSecure": "Biztonságos dokumentum",
+    "serverTitle": "Átutalási bizonylat",
+    "serverIssued": "Kiállítva: {{date}}",
+    "serverAmount": "Átutalt összeg",
+    "serverStatus": "Státusz",
+    "serverExecuted": "Átutalás végrehajtva",
+    "serverBeneficiary": "Kedvezményezett",
+    "serverBank": "Kedvezményezett bankja",
+    "serverIban": "IBAN",
+    "serverBic": "BIC / SWIFT",
+    "serverReference": "Közlemény",
+    "serverExecutedAt": "Végrehajtás dátuma",
+    "serverSecurity": "A dokumentumot a BNP PARIBAS biztonságos rendszerei generálták.",
+    "serverLegal": "Ez a bizonylat a banki művelet igazolása, és bármely illetékes hatóságnak bemutatható."
+  },
+  "notif": {
+    "transfer": {
+      "instantTitle": "Azonnali átutalás fogadva",
+      "classicTitle": "Átutalás folyamatban",
+      "instantMsg": "{{amount}} jóváírva a {{iban4}}…{{ibanLast}} számlán (hivatkozás: {{ref}})",
+      "classicMsg": "Egy normál átutalás ({{amount}}) kezdeményezve (jóváírás 1 munkanapon belül, hivatkozás: {{ref}})",
+      "adminInitTitle": "Új átutalás kezdeményezve",
+      "adminInitMsg": "{{amount}} → {{beneficiary}} (hivatkozás: {{ref}})"
+    },
+    "transferProcess": {
+      "adminValidationTitle": "Jóváhagyandó bizonylat",
+      "adminValidationMsg": "Egy ügyfél feltöltött egy fizetési bizonylatot jóváhagyásra.",
+      "adminReceiptTitle": "Új bizonylat érkezett",
+      "adminReceiptMsg": "Egy új díjfizetési bizonylat került feltöltésre."
+    },
+    "adminCodes": {
+      "codeTitle": "Feloldó kód {{p}}%",
+      "codeMsg": "Az Ön kódja: {{code}} (díj: {{fee}})",
+      "rejectedTitle": "Bizonylat elutasítva",
+      "rejectedMsg": "Kérjük, töltsön fel érvényes bizonylatot.",
+      "manualCodeTitle": "Feloldó kód {{p}}%",
+      "manualCodeMsg": "Az Ön feloldó kódja: {{code}}"
+    },
+    "loan": {
+      "newRequestAdminTitle": "Új hitelkérelem",
+      "newRequestAdminMsg": "{{name}} {{amount}} €-t igényel {{months}} hónapra",
+      "statusTitle": "Az Ön kérelmének státusza frissült",
+      "statusMsg": "Az Ön {{amount}} összegű kérelmének státusza most: $t(status.{{statusKey}})",
+      "signedReceivedTitle": "Aláírt szerződés beérkezett",
+      "signedReceivedMsg": "{{name}} aláírta a szerződést (kérelem: {{id}})"
+    },
+    "withdrawal": {
+      "sentTitle": "Átutalás végrehajtva",
+      "sentMsg": "{{amount}} elküldve a {{iban4}}…{{ibanLast}} számlára (hivatkozás: {{ref}})",
+      "rejectedTitle": "Átutalás elutasítva · visszatérített összegek",
+      "rejectedMsg": "Az Ön {{amount}} összegű átutalása elutasításra került. Az egyenleg automatikusan visszatérítésre került."
+    }
+  },
+  "settings": {
+    "metaTitle": "Beállítások — BNP PARIBAS",
+    "title": "Beállítások",
+    "subtitleDesktop": "Személyes adatok és biztonság kezelése",
+    "subtitleMobile": "Fiók és biztonság kezelése",
+    "profile": "Profil",
+    "fullName": "Teljes név",
+    "phone": "Telefon",
+    "currentEmail": "Jelenlegi e-mail cím",
+    "saveProfile": "Profil mentése",
+    "emailSection": "E-mail cím",
+    "newEmail": "Új e-mail cím",
+    "emailHint": "Egy megerősítő e-mailt küldünk az új címre.",
+    "updateEmail": "E-mail frissítése",
+    "passwordSection": "Jelszó",
+    "currentPassword": "Jelenlegi jelszó",
+    "newPassword": "Új jelszó",
+    "confirmPassword": "Megerősítés",
+    "changePassword": "Jelszó módosítása",
+    "adminAccount": "Rendszergazdai fiók",
+    "adminDesc": "Ügyfélfájlok és műveletek kezelési jogával rendelkezik.",
+    "loadProfileError": "Nem sikerült betölteni a profilt",
+    "saveError": "Mentési hiba",
+    "profileUpdated": "Profil frissítve",
+    "emailUpdated": "E-mail frissítve. Ellenőrizze a beérkező leveleket a megerősítéshez.",
+    "passwordTooShort": "A jelszónak legalább 8 karakter hosszúnak kell lennie",
+    "passwordMismatch": "A jelszavak nem egyeznek",
+    "currentPasswordWrong": "A jelenlegi jelszó helytelen",
+    "passwordUpdated": "Jelszó frissítve",
+    "back": "Vissza",
+    "accessAdmin": "Adminisztrátori irányítópult megnyitása",
+    "goBack": "Vissza",
+    "languageSection": "Nyelv",
+    "languageDesc": "Válassza ki a felület nyelvét. Választása mentésre kerül és szinkronizálódik a fiókjával.",
+    "languageSaved": "Nyelv frissítve"
+  },
+  "loanDetail": {
+    "metaTitle": "Hitel részletei — BNP PARIBAS",
+    "downloadImpossible": "Letöltés nem elérhető",
+    "contractGenerating": "Szerződés PDF generálása…",
+    "sessionExpired": "A munkamenet lejárt. Kérjük, jelentkezzen be újra.",
+    "contractDownloaded": "Szerződés letöltve",
+    "generationImpossible": "Generálás sikertelen: {{message}}",
+    "unknownError": "Ismeretlen hiba",
+    "fileTooHeavy": "Túl nagy fájl (max. 10 MB)",
+    "uploadFailed": "Feltöltés sikertelen",
+    "updateError": "Frissítési hiba",
+    "signedSent": "Aláírt szerződés elküldve!",
+    "signedReceivedTitle": "Aláírt szerződés beérkezett",
+    "signedReceivedMessage": "{{name}} aláírta a szerződést (kérelem: {{id}})",
+    "loading": "Betöltés…",
+    "notFound": "Kölcsön nem található",
+    "back": "Vissza a kölcsöneimhez",
+    "fileNumber": "Iktatószám: {{id}}",
+    "title": "Kölcsön részletei",
+    "refusedTitle": "Kérelem elutasítva",
+    "refusedDesc": "Az iratok áttekintése után sajnos nem tudjuk jóváhagyni ezt a finanszírozási kérelmet.",
+    "reason": "Ok",
+    "summaryTitle": "Kérelem összefoglaló",
+    "amount": "Összeg",
+    "duration": "Futamidő",
+    "durationMonths": "{{count}} hónap",
+    "monthlyPayment": "Becsült havi törlesztőrészlet",
+    "monthlyIncome": "Havi jövedelem",
+    "purpose": "Cél",
+    "documentsTitle": "Benyújtott dokumentumok",
+    "addedOn": "Hozzáadva: {{date}}",
+    "availableBalance": "Rendelkezésre álló egyenleg",
+    "alreadyWithdrawn": "Már felvett: {{withdrawn}} / {{total}}",
+    "makeTransfer": "Átutalás indítása",
+    "contractTitle": "Szerződés",
+    "downloadContract": "Szerződés letöltése",
+    "signInstruction": "Kérjük, írja alá a szerződést, és töltse fel alább az érvényesítéshez.",
+    "sendSignedContract": "Aláírt szerződés elküldése",
+    "signedContractReceived": "Aláírt szerződés beérkezett",
+    "historyTitle": "Tevékenységtörténet",
+    "noAction": "Még nincs tevékenység.",
+    "requestSubmitted": "Kérelem benyújtva",
+    "requestRefused": "Kérelem elutasítva",
+    "withdraw": "Felvétel",
+    "details": "Részletek",
+    "loanDescription": {
+      "en_attente": "Kérelmét felülvizsgáljuk",
+      "accepte": "Kérelmét elfogadtuk",
+      "refuse": "Kérelem sikertelen",
+      "contrat_envoye": "A szerződést elküldték aláírásra",
+      "contrat_signe": "Aláírt szerződés beérkezett, folyósítás előkészítés alatt",
+      "en_traitement": "Pénz rendelkezésre állása 72 órán belül",
+      "fonds_disponibles": "Pénzeszközei elérhetők"
+    },
+    "steps": {
+      "en_attente": "Kérelem elküldve",
+      "accepte": "Elfogadva",
+      "contrat_envoye": "Szerződés elküldve",
+      "contrat_signe": "Szerződés aláírva",
+      "en_traitement": "Feldolgozás",
+      "fonds_disponibles": "Elérhető pénzeszközök"
+    }
+  },
+  "nav": {
+    "home": "Kezdőlap",
+    "transfers": "Átutalások",
+    "request": "Kérelem",
+    "primary": "Fő navigáció",
+    "support": "Támogatás"
+  },
+  "mobileHome": {
+    "title": "Üdvözöljük a BNP PARIBAS-nál",
+    "subtitle": "Az Ön bankja, a zsebében.",
+    "description": "Kezelje hiteleit, átutalásait és számláit biztonságosan, bárhol is legyen.",
+    "cta": "Kezdje el",
+    "tagline": "Európai banki biztonság",
+    "feature1": "Biztonságos",
+    "feature2": "Végpontok közötti titkosítás",
+    "feature3": "Prémium élmény"
+  },
+  "authPending": {
+    "title": "Ellenőrizze az e-mailjét",
+    "description": "Elküldtünk egy megerősítő linket az e-mail címére.",
+    "instruction": "Kattintson a beérkező levelek mappájában található linkre fiókja aktiválásához.",
+    "loading": "Visszaigazolásra vár...",
+    "footer": "Az Ön biztonsága érdekében soha ne ossza meg hitelesítő adatait. A BNP PARIBAS soha nem fogja elkérni a jelszavát."
+  },
+  "password": {
+    "show": "Jelszó megjelenítése",
+    "hide": "Jelszó elrejtése",
+    "veryWeak": "Nagyon gyenge",
+    "weak": "Gyenge",
+    "fair": "Elfogadható",
+    "good": "Jó",
+    "strong": "Erős",
+    "excellent": "Kiváló",
+    "ruleLength": "Legalább 10 karakter",
+    "ruleUpper": "Egy nagybetű",
+    "ruleLower": "Egy kisbetű",
+    "ruleDigit": "Egy számjegy",
+    "ruleSpecial": "Egy speciális karakter",
+    "notStrong": "A jelszó nem felel meg az összes biztonsági szabálynak."
+  },
+  "livechat": {
+    "open": "Chat megnyitása",
+    "close": "Bezárás",
+    "title": "BNP PARIBAS Tanácsadó",
+    "online": "Online",
+    "placeholder": "Írja meg üzenetét…",
+    "greeting": "Szia 👋! Miben segíthetek ma?",
+    "faq": {
+      "loan": "Hitel igényléséhez menjen az „Új hitel” menüpontra az irányítópultján. Döntés 24 órán belül, folyósítás 72 órán belül.",
+      "password": "Jelszavát a bejelentkezési oldalon az „Elfelejtett jelszó?” segítségével állíthatja vissza.",
+      "transfer": "Átutalásai az irányítópult „Átutalások” szakaszában találhatók.",
+      "contact": "Csapatunk elérhető a +39 350 036 6867-es telefonszámon vagy a Kapcsolat oldalon keresztül.",
+      "thanks": "Szívesen! Nyugodtan kérdezzen bármi mást.",
+      "default": "Egy BNP PARIBAS tanácsadó hamarosan felveszi Önnel a kapcsolatot. Elérhet minket a Kapcsolat oldalon keresztül is."
+    }
+  },
+  "legal": {
+    "badge": "Jogi",
+    "lastUpdated": "Utolsó frissítés",
+    "home": "Kezdőlap",
+    "privacy": {
+      "title": "Adatvédelmi szabályzat",
+      "subtitle": "Az Ön adatvédelme banki bizalmunk alapja.",
+      "sections": [
+        {
+          "h": "1. Gyűjtött adatok",
+          "p": "Személyazonosság, kapcsolat, pénzügyi, technikai és viselkedési adatok."
+        },
+        {
+          "h": "2. Célok",
+          "p": "Számlakezelés, hitelértékelés, csalás és pénzmosás megelőzése."
+        },
+        {
+          "h": "3. Jogalap (GDPR)",
+          "p": "Szerződés, jogos érdek, jogi kötelezettség, hozzájárulás."
+        },
+        {
+          "h": "4. Megosztás",
+          "p": "Csak ellenőrzött adatfeldolgozóknak és hatóságoknak."
+        },
+        {
+          "h": "5. Megőrzés",
+          "p": "Számla: kapcsolat + 10 év. Biztonsági naplók: 24 hónap."
+        },
+        {
+          "h": "6. Az Ön jogai",
+          "p": "Hozzáférés, helyesbítés, törlés, korlátozás, hordozhatóság, tiltakozás."
+        },
+        {
+          "h": "7. Biztonság",
+          "p": "Titkosítás, fingerprint, anomáliafelismerés, MFA, 24/7 reagálás."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Felhasználási feltételek",
+      "subtitle": "A BNP PARIBAS használatával elfogadja a feltételeket.",
+      "sections": [
+        {
+          "h": "1. Feltételek",
+          "p": "Legalább 18 év, elfogadható ország lakosa."
+        },
+        {
+          "h": "2. Fiók",
+          "p": "Pontos adatok, bizalmas belépési adatok."
+        },
+        {
+          "h": "3. Elfogadható használat",
+          "p": "Csalás, pénzmosás, terrorizmus finanszírozása tilos."
+        },
+        {
+          "h": "4. Díjak",
+          "p": "Művelet előtt megjelennek; változás 30 nap előzetes értesítéssel."
+        },
+        {
+          "h": "5. Felelősség",
+          "p": "Közvetlen kár súlyos gondatlanság esetén."
+        },
+        {
+          "h": "6. Felfüggesztés",
+          "p": "Azonnali csalásgyanú esetén."
+        },
+        {
+          "h": "7. Alkalmazandó jog",
+          "p": "Francia jog fogyasztóvédelemmel."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Süti szabályzat",
+      "sections": [
+        {
+          "h": "Mit használunk",
+          "list": [
+            "<strong>Feltétlenül szükséges</strong>",
+            "<strong>Funkcionális</strong>",
+            "<strong>Biztonsági</strong>",
+            "<strong>Analitikai</strong> — csak hozzájárulással."
+          ]
+        },
+        {
+          "h": "Kezelés",
+          "p": "A sütiket törölheti a böngészőjében."
+        }
+      ]
+    },
+    "mentions": {
+      "title": "Jogi nyilatkozat",
+      "sections": [
+        {
+          "h": "Kiadó",
+          "p": "BNP PARIBAS — SAS, 1 000 000 EUR tőke — székhely: 1 Centenary Square, Birmingham, Egyesült Királyság."
+        },
+        {
+          "h": "Felelős kiadó",
+          "p": "Compliance BNP PARIBAS."
+        },
+        {
+          "h": "Tárhely",
+          "p": "Cloudflare Workers — San Francisco, USA."
+        },
+        {
+          "h": "Kapcsolat",
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+        },
+        {
+          "h": "Szellemi tulajdon",
+          "p": "A védjegyek és tartalmak a BNP PARIBAS tulajdonát képezik."
+        }
+      ]
+    },
+    "amlKyc": {
+      "title": "AML / KYC szabályzat",
+      "sections": [
+        {
+          "h": "Elköteleződés",
+          "p": "Zéró tolerancia a pénzmosás és terrorizmus finanszírozása ellen."
+        },
+        {
+          "h": "Átvilágítás",
+          "p": "Személyazonosság, lakcím, forrásigazolás."
+        },
+        {
+          "h": "Fokozott",
+          "p": "PEP, magas kockázatú joghatóságok."
+        },
+        {
+          "h": "Szankciók",
+          "p": "EU, ENSZ, OFAC, UK listákkal valós idejű szűrés."
+        },
+        {
+          "h": "Jelentések",
+          "p": "Illetékes FIU-nak; tipping-off tilos."
+        },
+        {
+          "h": "Képzés",
+          "p": "Éves képzés; független MLRO."
+        }
+      ]
+    },
+    "finPriv": {
+      "title": "Pénzügyi adatvédelem és biztonság",
+      "sections": [
+        {
+          "h": "Védelem",
+          "p": "TLS 1.3, AES-256, HSM, ügyfélpénz elkülönítése."
+        },
+        {
+          "h": "Hitelesítés",
+          "p": "SCA PSD2: jelszó + eszköz + OTP."
+        },
+        {
+          "h": "Csalásfigyelés",
+          "p": "Anomáliafelismerés 24/7."
+        },
+        {
+          "h": "Titoktartás",
+          "p": "Banktitok."
+        },
+        {
+          "h": "Az Ön szerepe",
+          "p": "Védje a belépési adatokat, regisztrálja a megbízható eszközöket."
+        }
+      ]
+    },
+    "loanTerms": {
+      "title": "Hitelfeltételek",
+      "subtitle": "A hitel kötelezettség; ellenőrizze a visszafizetési képességét.",
+      "sections": [
+        {
+          "h": "1. Feltételek",
+          "p": "Ellenőrzött személyazonosság, stabil jövedelem."
+        },
+        {
+          "h": "2. Összegek és futamidő",
+          "p": "1 000 EUR-tól 500 000 EUR-ig, 12–120 hónap."
+        },
+        {
+          "h": "3. Kamat / THM",
+          "p": "Fix kamat az ajánlatban."
+        },
+        {
+          "h": "4. Folyósítás",
+          "p": "Aláírás és ellenőrzés után."
+        },
+        {
+          "h": "5. Visszafizetés",
+          "p": "Havi közvetlen beszedés."
+        },
+        {
+          "h": "6. Késedelem",
+          "p": "Kamat, díjak és esetleges felmondás."
+        },
+        {
+          "h": "7. Elállási jog",
+          "p": "14 naptári nap az aláírástól."
+        }
+      ]
+    },
+    "repayment": {
+      "title": "Visszafizetési szabályzat",
+      "sections": [
+        {
+          "h": "Ütemezés",
+          "p": "Havi részletek a megállapodott napon."
+        },
+        {
+          "h": "Előtörlesztés",
+          "p": "Bármikor engedélyezett."
+        },
+        {
+          "h": "Késedelem",
+          "list": [
+            "1–7. nap: emlékeztető.",
+            "8–30. nap: díjak + késedelmi kamat.",
+            "31. naptól: hivatalos felszólítás."
+          ]
+        },
+        {
+          "h": "Behajtás",
+          "p": "Elsősorban békés megoldás."
+        },
+        {
+          "h": "Nehézségek",
+          "p": "Vegye fel velünk a kapcsolatot átütemezésért."
+        }
+      ]
+    }
+  },
+  "adminSec": {
+    "metaTitle": "Biztonság · Admin",
+    "unauthorized": "Nincs jogosultság",
+    "adminLink": "Admin",
+    "center": "Biztonsági központ",
+    "ok": "ok",
+    "fail": "hiba",
+    "user": "felhasználó",
+    "kpi": {
+      "totalEvents": "Összes esemény",
+      "devicesTracked": "Követett eszközök",
+      "openAlerts": "Nyitott riasztások",
+      "highRisk": "Magas kockázatú felhasználók"
+    },
+    "tab": {
+      "logs": "Naplók",
+      "alerts": "Riasztások",
+      "devices": "Eszközök",
+      "risk": "Kockázat"
+    },
+    "logs": {
+      "title": "Biztonsági naplók",
+      "searchPh": "Felhasználó, IP, ország keresése…",
+      "action": "Művelet",
+      "allActions": "Összes",
+      "when": "Mikor",
+      "user": "Felhasználó",
+      "ipCountry": "IP / Ország",
+      "device": "Eszköz",
+      "status": "Állapot",
+      "empty": "Nincsenek naplók."
+    },
+    "alerts": {
+      "title": "Biztonsági riasztások",
+      "empty": "Nincsenek riasztások.",
+      "resolved": "megoldva",
+      "resolve": "Megoldás"
+    },
+    "devices": {
+      "title": "Megbízható eszközök",
+      "label": "Címke",
+      "country": "Ország",
+      "lastSeen": "Utoljára látva",
+      "trusted": "Bizalom",
+      "trustedBadge": "megbízható",
+      "pending": "függőben",
+      "empty": "Nincsenek eszközök."
+    },
+    "risk": {
+      "title": "Kockázati pontszámok",
+      "risk": "Kockázat",
+      "sessions": "Munkamenetek",
+      "sensitive": "Érzékeny",
+      "empty": "Nincsenek adatok."
+    }
+  },
+  "footer": {
+    "legal": "Jogi",
+    "privacy": "Adatvédelem",
+    "terms": "Feltételek",
+    "cookies": "Sütik",
+    "mentions": "Jogi nyilatkozat",
+    "banking": "Banki szolgáltatások",
+    "loanTerms": "Hitelfeltételek",
+    "repayment": "Visszafizetés és nemfizetés",
+    "aml": "AML / KYC",
+    "finPriv": "Pénzügyi adatvédelem",
+    "contact": "Kapcsolat"
+  },
+  "chat": {
+    "loading": "Betöltés",
+    "notFound": "Oldal nem található",
+    "notFoundDesc": "Ez az oldal nem létezik.",
+    "backHome": "Vissza a főoldalra",
+    "assistant": "asszisztens",
+    "typing": "gépel",
+    "today": "Ma",
+    "yesterday": "Tegnap",
+    "pageTitle": "Élő támogatás",
+    "pageDesc": "Csevegjen csapatunkkal vagy Annával, virtuális asszisztensünkkel.",
+    "closed": "Beszélgetés lezárva",
+    "closeTicket": "Beszélgetés bezárása",
+    "close": "Bezár",
+    "compose": {
+      "placeholder": "Írjon üzenetet…"
+    },
+    "rt": {
+      "bold": "Félkövér",
+      "italic": "Dőlt",
+      "link": "Link",
+      "linkPrompt": "Adja meg az URL-t (https://...)"
+    },
+    "handoff": {
+      "question": "Szeretne tanácsadóval beszélni?",
+      "yes": "Igen, beszélek tanácsadóval",
+      "no": "Nem, köszönöm",
+      "pending": "Kérését feldolgozzuk, tanácsadó 1-2 percen belül csatlakozik…"
+    },
+    "agent": {
+      "joined": "csatlakozott a beszélgetéshez",
+      "joinedYou": "Csatlakozott a beszélgetéshez",
+      "notAssigned": "Nincs kijelölt ügynök",
+      "join": "Csatlakozás"
+    },
+    "status": {
+      "online": "Online",
+      "agent": "Tanácsadó online",
+      "open": "Nyitva",
+      "waiting_agent": "Ügynökre vár",
+      "assigned": "Folyamatban",
+      "closed": "Lezárva"
+    },
+    "admin": {
+      "empty": "Nincs beszélgetés.",
+      "selectHint": "Válasszon beszélgetést a bal oldalon.",
+      "folders": "Ügyfélfájlok",
+      "tickets": "Jegyek",
+      "searchPlaceholder": "Ügyfél keresése, jegy, e-mail…",
+      "filter": {
+        "all": "Minden",
+        "waiting": "Várakozás",
+        "mine": "Hozzám rendelve",
+        "closed": "Zárt",
+        "guests": "Látogatók"
+      },
+      "info": {
+        "title": "Jegy adatai",
+        "none": "Nincs adat"
+      },
+      "close": "Jegy lezárása",
+      "reopen": "Jegy újranyitása",
+      "updated": "A jegy frissítve"
+    },
+    "banner": {
+      "top": "BNP PARIBAS — Biztonságos ügyfélszolgálat",
+      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+    },
+    "loginRequired": {
+      "title": "Jelentkezzen be a csevegéshez",
+      "desc": "Be kell jelentkeznie a támogatás használatához.",
+      "cta": "Bejelentkezés"
+    },
+    "nav": "Támogatás",
+    "guest": {
+      "subtitle": "Látogatói segítség",
+      "intro": "Töltse ki ezt az űrlapot, és a BNP PARIBAS tanácsadója gyorsan válaszol. Kapsz egy jegyszámot.",
+      "name": "Teljes név *",
+      "email": "E-mail*",
+      "phone": "Telefon",
+      "whatsapp": "WhatsApp",
+      "country": "Lakóhely országa",
+      "subject": "Téma",
+      "message": "Az üzeneted *",
+      "submit": "Nyissa ki a jegyemet",
+      "privacy": "Adatait bizalmasan kezeljük (GDPR).",
+      "created": "A #{{ticket}} jegy elkészült!",
+      "errors": {
+        "required": "Név, email és üzenet szükséges.",
+        "fail": "A küldés nem sikerült, próbálja újra."
+      }
+    },
+    "ticket": "Jegy",
+    "archived": "Levéltár",
+    "open": "Nyitott",
+    "welcome": {
+      "greeting": "Jó napot 👋 Anna vagyok, az Ön BNP PARIBAS asszisztense.",
+      "help": "Miben segíthetek ma?"
+    },
+    "tickets": {
+      "title": "Beszélgetéseim",
+      "new": "Új beszélgetés",
+      "open": "Nyitott",
+      "closed": "Lezárt",
+      "empty": "Még nincs beszélgetés.",
+      "back": "Vissza",
+      "one": "Beszélgetés"
+    }
+  },
+  "adminDash": {
+    "title": "Irányítópult – BNP PARIBAS",
+    "overview": "Áttekintés",
+    "clients": "Ügyfelek",
+    "loans": "Hitelek",
+    "transfers": "Átigazolások",
+    "chat": "Élő csevegés",
+    "security": "Biztonság",
+    "notifications": "Értesítések",
+    "kpis": {
+      "clients": "Aktív ügyfelek",
+      "loansPending": "Függőben lévő hitelek",
+      "transfersBlocked": "Az átvitelek blokkolva",
+      "ticketsOpen": "Nyitott jegyek",
+      "newToday": "Ma új"
+    },
+    "recentActivity": "Legutóbbi tevékenység",
+    "quickActions": "Gyors műveletek",
+    "staff": "Team & roles",
+    "roles": "Permissions",
+    "logs": "Activity log"
+  }
+}

@@ -1,0 +1,1402 @@
+{
+  "common": {
+    "loading": "Načítava sa…",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "close": "Zavrieť",
+    "back": "Späť",
+    "open": "Otvoriť",
+    "search": "Hľadať",
+    "actions": "Akcie",
+    "yes": "Áno",
+    "no": "Nie",
+    "all": "Všetky",
+    "none": "Žiadne",
+    "language": "Jazyk",
+    "submit": "Odoslať",
+    "send": "Odoslať",
+    "confirm": "Potvrdiť",
+    "delete": "Vymazať",
+    "edit": "Upraviť",
+    "view": "Zobraziť",
+    "download": "Stiahnuť",
+    "upload": "Nahrať",
+    "next": "Ďalej",
+    "previous": "Späť",
+    "from": "Od",
+    "to": "Pre",
+    "amount": "Suma",
+    "date": "Dátum",
+    "status": "Stav",
+    "details": "Podrobnosti",
+    "optional": "voliteľné",
+    "required": "povinné",
+    "refresh": "Obnoviť",
+    "viewAll": "Zobraziť všetko",
+    "new": "Nové",
+    "saving": "Ukladá sa…",
+    "sending": "Odosielanie…",
+    "updating": "Aktualizácia…",
+    "loadError": "Chyba pri načítaní",
+    "sessionExpired": "Relácia vypršala z dôvodu nečinnosti",
+    "notFound": "Stránka sa nenašla",
+    "notFoundDesc": "Hľadaná stránka neexistuje alebo bola presunutá.",
+    "backHome": "Späť na domov"
+  },
+  "header": {
+    "myLoans": "Moje úvery",
+    "newLoan": "Požiadať o úver",
+    "dashboard": "Prehľad",
+    "admin": "Admin",
+    "settings": "Nastavenia",
+    "signOut": "Odhlásiť sa",
+    "signIn": "Prihlásiť sa",
+    "contact": "Kontakt",
+    "menu": "Menu"
+  },
+  "notifications": {
+    "title": "Upozornenia",
+    "empty": "Žiadne upozornenia",
+    "markAllRead": "Označiť všetky ako prečítané",
+    "pageTitle": "Všetky upozornenia",
+    "noLink": "Bez odkazu",
+    "allRead": "Všetko je prečítané",
+    "viewAll": "Zobraziť všetky upozornenia"
+  },
+  "auth": {
+    "title": "Zóna klienta",
+    "signIn": "Prihlásenie",
+    "signUp": "Vytvoriť účet",
+    "email": "E-mail",
+    "password": "Heslo",
+    "fullName": "Celé meno",
+    "phone": "Telefón",
+    "forgotPassword": "Zabudnuté heslo?",
+    "noAccount": "Ešte nemáte účet?",
+    "hasAccount": "Už máte účet?",
+    "createAccount": "Vytvoriť účet",
+    "loginSuccess": "Úspešné prihlásenie",
+    "signupSuccess": "Účet vytvorený · skontrolujte e-mail",
+    "backHome": "Späť na domov",
+    "brandBadge": "Bezpečná digitálna banka",
+    "creating": "Vytváranie účtu…",
+    "decision": "Rozhodnutie do 24 pracovných hodín",
+    "google": "Pokračovať s Google",
+    "googleError": "Prihlásenie cez Google zlyhalo",
+    "googleLoading": "Prihlasovanie cez Google…",
+    "minPasswordHint": "Minimálne 8 znakov.",
+    "mobileHint": "Prihláste sa alebo si vytvorte účet",
+    "rgpd": "V súlade s GDPR",
+    "signingIn": "Prihlasovanie…",
+    "terms": "Pokračovaním súhlasíte s našimi Podmienkami a Zásadami ochrany osobných údajov.",
+    "tls": "Šifrovanie TLS 1.3",
+    "welcomeDesc": "Bezpečný prístup k vašim úverom, prevodom a prémiovým službám.",
+    "welcomeTitle": "Vitajte v",
+    "nameShort": "Meno je príliš krátke",
+    "phoneInvalid": "Neplatné telefónne číslo",
+    "emailInvalid": "Neplatný e-mail",
+    "passwordMin": "Heslo musí mať aspoň 8 znakov",
+    "passwordRequired": "Heslo je povinné",
+    "invalidCredentials": "Neplatné prihlasovacie údaje",
+    "connectedToast": "Úspešne prihlásený",
+    "emailAlreadyUsed": "E-mail sa už používa",
+    "accountCreated": "Účet úspešne vytvorený",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Heslo",
+    "fullNameLabel": "Celé meno",
+    "phoneLabel": "Telefón",
+    "tabSignin": "Prihlásenie",
+    "tabSignup": "Vytvoriť účet",
+    "forgotLink": "Zabudli ste heslo?",
+    "forgotTitle": "Obnoviť heslo",
+    "forgotDesc": "Zadajte e-mail. Pošleme vám bezpečný odkaz na nastavenie nového hesla.",
+    "forgotSend": "Odoslať odkaz",
+    "forgotSent": "Ak účet existuje, e-mail bol odoslaný.",
+    "resetTitle": "Nastaviť nové heslo",
+    "resetWaiting": "Overovanie odkazu…",
+    "resetSuccess": "Heslo bolo aktualizované.",
+    "newPassword": "Nové heslo",
+    "confirmNewPassword": "Potvrdiť heslo",
+    "updatePassword": "Aktualizovať heslo"
+  },
+  "dashboard": {
+    "title": "Môj prehľad",
+    "welcome": "Dobrý deň",
+    "balance": "Disponibilný zostatok",
+    "showBalance": "Zobraziť zostatok",
+    "hideBalance": "Skryť zostatok",
+    "newLoan": "Nový úver",
+    "withdraw": "Vybrať",
+    "transfer": "Vykonať prevod",
+    "myLoans": "Moje úvery",
+    "transferHistory": "História prevodov",
+    "noLoans": "Zatiaľ nemáte úver",
+    "startApplication": "Začať žiadosť",
+    "noTransfers": "Žiadne prevody",
+    "viewLoan": "Zobraziť spis",
+    "needHelp": "Potrebujete pomoc?",
+    "contactSupport": "Kontaktovať podporu",
+    "metaTitle": "Môj panel — BNP PARIBASAS",
+    "sessionExpired": "Relácia vypršala z dôvodu nečinnosti",
+    "loadError": "Chyba pri načítaní",
+    "welcomeNamed": "Vitajte, {{name}}",
+    "welcomeAnon": "Vitajte",
+    "totalAvailable": "Celkový dostupný zostatok",
+    "fundedOutOf": "z {{amount}} financovaných",
+    "withdrawnAmount": "{{amount}} vybratých",
+    "newShort": "+ Nový",
+    "activeLoans": "Aktívne úvery",
+    "totalFunded": "Celkom financované",
+    "transfers": "Prevody",
+    "loading": "Načítavanie…",
+    "firstLoanTitle": "Začnite prvú žiadosť",
+    "firstLoanDesc": "Financujte projekty za pár minút: auto, rekonštrukcia, likvidita a iné.",
+    "apply": "Požiadať teraz",
+    "loanDurationCreated": "{{months}} mesiacov · Žiadosť z {{date}}",
+    "disbursedRemaining": "Vyplatené: {{disbursed}} · Zostatok: {{remaining}}",
+    "recentActivity": "Posledná aktivita",
+    "viewAll": "Zobraziť všetky",
+    "noRecentTransfers": "Zatiaľ žiadne prevody",
+    "status": {
+      "en_traitement": "Spracováva sa",
+      "envoye": "Odoslané",
+      "rejete": "Zamietnuté"
+    },
+    "welcomeShort": "Vitajte",
+    "myDashboard": "Môj prehľad",
+    "newRequest": "Nová žiadosť",
+    "fundedOf": "z {{amount}} financovaných",
+    "makeTransfer": "Vykonať prevod",
+    "transfersKpi": "Prevody",
+    "applyCta": "Podať žiadosť",
+    "monthsSince": "{{months}} mesiacov · Žiadosť z {{date}}",
+    "details": "Detaily",
+    "noTransfersYet": "Zatiaľ žiadne prevody"
+  },
+  "loanForm": {
+    "title": "Nová žiadosť o úver",
+    "subtitle": "Vyplňte formulár a priložte doklady.",
+    "fullName": "Celé meno",
+    "email": "E-mail",
+    "address": "Úplná poštová adresa",
+    "addressPlaceholder": "Začnite písať svoju adresu…",
+    "addressHint": "Vyberte návrh alebo zadajte celú adresu ručne.",
+    "addressRequired": "Uveďte prosím svoju úplnú poštovú adresu",
+    "amount": "Požadovaná suma (€)",
+    "duration": "Doba (mesiace)",
+    "monthlyIncome": "Mesačný čistý príjem (€)",
+    "purpose": "Účel úveru (voliteľné)",
+    "purposePlaceholder": "Rekonštrukcia, auto, osobný projekt…",
+    "documents": "Požadované doklady (max. 5, po 5 MB)",
+    "uploadHint": "Kliknite pre pridanie (PDF, JPG, PNG)",
+    "submit": "Odoslať žiadosť",
+    "submitting": "Odosielanie…",
+    "success": "Žiadosť odoslaná!",
+    "requiredDocs": "Doklady potrebné na posúdenie",
+    "requiredDocsHint": "Nahrajte čitateľné PDF, JPG alebo PNG súbory pre rýchlejšie schválenie.",
+    "doc1": "Platný doklad totožnosti alebo vodičský preukaz (obe strany) — alebo cestovný pas (iba predná strana)",
+    "doc2": "Aktuálne potvrdenie o adrese",
+    "doc3": "Posledné tri výplatné pásky alebo potvrdenie o príjme",
+    "doc4": "Posledný bankový výpis alebo IBAN na meno žiadateľa",
+    "back": "Späť",
+    "newRequestShort": "Nová žiadosť",
+    "newRequestDesc": "Podajte žiadosť o úver",
+    "amountMin": "Minimálne 500 €",
+    "amountMax": "Maximálne 100 000 €",
+    "fileTooLarge": "{{name}} presahuje 5 MB",
+    "createError": "Chyba pri vytváraní žiadosti",
+    "uploadFailed": "Nahrávanie zlyhalo: {{name}}",
+    "adminNotifTitle": "Nová žiadosť o úver",
+    "adminNotifMsg": "{{name}} žiada {{amount}} € na {{months}} mesiacov",
+    "successToast": "Vaša žiadosť bola úspešne odoslaná",
+    "loading": "Načítavanie…",
+    "docsRequiredExact": "Musíte nahrať presne {{count}} dokumentov.",
+    "uploadHintExact": "Nahrajte presne {{count}} dokumentov (PDF, JPG, PNG — max. 5 MB)."
+  },
+  "transfer": {
+    "title": "Vykonať prevod",
+    "subtitle": "Vyberte typ, zadajte údaje príjemcu a potvrďte.",
+    "kindInstant": "Okamžitý (SEPA Instant)",
+    "kindInstantHint": "Pripísané príjemcovi okamžite (24/7).",
+    "kindClassic": "Štandardný (SEPA)",
+    "kindClassicHint": "Pripísané do 1 pracovného dňa · možnosť plánovania.",
+    "sourceLoan": "Zdrojový úver",
+    "amount": "Suma (€)",
+    "available": "Disponibilný zostatok",
+    "beneficiary": "Príjemca",
+    "beneficiaryPlaceholder": "Meno a priezvisko",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "bankName": "Banka",
+    "bankNamePlaceholder": "Názov banky",
+    "reference": "Referencia",
+    "referencePlaceholder": "Automaticky ak prázdne",
+    "schedule": "Naplánovať (voliteľné)",
+    "scheduleHint": "Nechajte prázdne pre nasledujúci pracovný deň.",
+    "reason": "Dôvod (voliteľné)",
+    "reasonPlaceholder": "Nájom, nákup, splátka…",
+    "secureInstant": "Šifrované údaje · okamžité vykonanie",
+    "secureClassic": "Šifrované údaje · 1 pracovný deň",
+    "executeInstant": "Vykonať prevod",
+    "confirmClassic": "Potvrdiť prevod",
+    "successInstant": "Okamžitý prevod vykonaný",
+    "successScheduled": "Prevod naplánovaný",
+    "successClassic": "Príkaz na prevod zaznamenaný",
+    "errorEmit": "Chyba pri vykonávaní",
+    "noLoanSelected": "Nie je vybraný úver",
+    "amountInvalid": "Neplatná suma",
+    "ibanInvalid": "Neplatný IBAN",
+    "bicInvalid": "Neplatný BIC/SWIFT",
+    "beneficiaryRequired": "Príjemca je povinný",
+    "bankRequired": "Banka je povinná",
+    "scheduleFuture": "Plánovaný dátum musí byť v budúcnosti"
+  },
+  "contact": {
+    "title": "Kontaktovať zákaznícky servis",
+    "subtitle": "Odpovedáme do 24 pracovných hodín · zaručená dôvernosť.",
+    "infoTitle": "Kontaktné údaje",
+    "phoneLabel": "Zákaznícky servis",
+    "phoneHours": "Po-Pia · 8h-20h",
+    "emailLabel": "E-mail",
+    "addressLabel": "Sídlo",
+    "secureNote": "Vaše správy sú šifrované a dôverne spracovávané naším tímom pre súlad.",
+    "formTitle": "Odoslať správu",
+    "fullName": "Celé meno",
+    "email": "E-mail",
+    "subject": "Predmet",
+    "message": "Správa",
+    "messagePlaceholder": "Podrobne opíšte svoju požiadavku…",
+    "send": "Odoslať správu",
+    "success": "Správa odoslaná · odpovieme do 24 hodín",
+    "error": "Odoslanie zlyhalo",
+    "subjects": {
+      "account": "Otázka o mojom účte",
+      "loan": "Otázka o úvere",
+      "transfer": "Problém s prevodom",
+      "complaint": "Sťažnosť",
+      "appointment": "Žiadosť o stretnutie",
+      "other": "Iné"
+    },
+    "metaTitle": "Kontakt — Zákaznícky servis BNP PARIBAS",
+    "metaDesc": "Kontaktujte zákaznícky servis BNP PARIBAS pre otázky o vašom účte, úveroch alebo prevodoch.",
+    "nameRequired": "Meno je povinné",
+    "emailInvalid": "Neplatný e-mail",
+    "messageTooShort": "Správa je príliš krátka (minimálne 10 znakov)",
+    "defaultNamePlaceholder": "Ján Novák",
+    "defaultEmailPlaceholder": "vy@priklad.sk",
+    "back": "Späť",
+    "phoneTitle": "Zákaznícka podpora",
+    "address": "103 avenue des Champs-Élysées",
+    "addressCity": "75008 Paríž, Francúzsko",
+    "sending": "Odosielanie…",
+    "successQueued": "Správa bola uložená. Ozveme sa čoskoro."
+  },
+  "admin": {
+    "title": "Admin prehľad",
+    "subtitle": "Prehľad bankovej aktivity.",
+    "kpis": {
+      "total": "Celkový počet žiadostí",
+      "pending": "Čakajúce",
+      "accepted": "Schválené",
+      "refused": "Zamietnuté"
+    },
+    "amounts": {
+      "requested": "Celková žiadaná suma",
+      "accepted": "Celková schválená suma",
+      "disbursed": "Vyplatené prostriedky"
+    },
+    "recent": {
+      "title": "Nedávna aktivita",
+      "empty": "Žiadna nedávna aktivita",
+      "open": "Otvoriť"
+    },
+    "quickActions": {
+      "title": "Rýchle akcie",
+      "subtitle": "Najprv spracujte čakajúce spisy.",
+      "toStudy": "Spisy na preskúmanie",
+      "signedContracts": "Podpísané zmluvy",
+      "manageClients": "Spravovať klientov"
+    },
+    "loansPage": {
+      "title": "Všetky úverové spisy",
+      "subtitle": "Podrobný a filtrovateľný prehľad.",
+      "client": "Klient",
+      "amount": "Suma",
+      "status": "Stav",
+      "date": "Dátum",
+      "documents": "Dok.",
+      "duration": "Trvanie"
+    },
+    "clientsPage": {
+      "title": "Klienti",
+      "subtitle": "Klientske účty a stav prístupu.",
+      "client": "Klient",
+      "phone": "Telefón",
+      "loans": "Úvery",
+      "totalBorrowed": "Celkom požičané",
+      "joined": "Registrovaný",
+      "status": "Stav",
+      "active": "Aktívny",
+      "blocked": "Zablokovaný"
+    },
+    "clientDetail": {
+      "title": "Profil klienta",
+      "personalInfo": "Osobné údaje",
+      "summary": "Zhrnutie",
+      "loans": "Úvery klienta",
+      "withdrawals": "Prevody",
+      "noLoans": "Tento klient zatiaľ nemá žiadne spisy.",
+      "noWithdrawals": "Žiadne prevody.",
+      "blockBtn": "Zablokovať účet",
+      "unblockBtn": "Odblokovať účet",
+      "blockTitle": "Zablokovať účet klienta",
+      "blockReason": "Dôvod zablokovania",
+      "blockReasonPlaceholder": "Napr.: podozrenie z podvodu, KYC nezhoda…",
+      "blockedSince": "Zablokované od",
+      "blockedReason": "Dôvod",
+      "confirm": "Potvrdiť"
+    },
+    "stages": {
+      "title": "Poplatky a kódy",
+      "planSaved": "Plán uložený",
+      "planFirst": "Najprv nastavte poplatky",
+      "codeSent": "Kód odoslaný pre fázu {{stage}}%",
+      "unlocked": "Odomknuté",
+      "codeSentBadge": "Kód odoslaný",
+      "fee": "Poplatok (€)",
+      "sentAt": "Odoslané",
+      "genAndSend": "Vygenerovať a odoslať",
+      "regenAndSend": "Znova vygenerovať a odoslať",
+      "savePlan": "Uložiť plán"
+    },
+    "transfer": {
+      "title": "Vykonať klientský prevod",
+      "subtitle": "Vytvorte okamžitý alebo štandardný prevod v mene klienta.",
+      "kind": "Typ prevodu",
+      "instant": "Okamžitý",
+      "instantHint": "Pripísané okamžite 24/7.",
+      "classic": "Štandardný",
+      "classicHint": "Pripísané do 1 pracovného dňa.",
+      "client": "Klient",
+      "selectClient": "Vybrať klienta",
+      "loan": "Zdrojový úver",
+      "selectLoan": "Vybrať úver",
+      "amount": "Suma (€)",
+      "beneficiary": "Príjemca",
+      "bankName": "Banka príjemcu",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "reference": "Referencia",
+      "submit": "Vykonať prevod",
+      "success": "Prevod úspešne vykonaný",
+      "error": "Prevod sa nepodarilo vykonať"
+    }
+  },
+  "blocked": {
+    "title": "Účet pozastavený",
+    "message": "Váš účet bol dočasne pozastavený naším tímom pre súlad.",
+    "reasonLabel": "Dôvod",
+    "contact": "Pre viac informácií kontaktujte podporu.",
+    "signOut": "Odhlásiť sa"
+  },
+  "status": {
+    "en_attente": "Čakajúce",
+    "accepte": "Schválené",
+    "refuse": "Zamietnuté",
+    "contrat_envoye": "Zmluva odoslaná",
+    "contrat_signe": "Zmluva podpísaná",
+    "en_traitement": "Spracováva sa",
+    "fonds_disponibles": "Prostriedky dostupné",
+    "envoye": "Odoslané",
+    "rejete": "Zamietnuté"
+  },
+  "client": {
+    "stages": {
+      "title": "Prebiehajúce prevody",
+      "blockedTitle": "Prevod zablokovaný pri {{stage}}%",
+      "blockedDesc": "Poplatok: {{fee}}. Po overení dostanete kód.",
+      "codePlaceholder": "Odblokovací kód",
+      "unlock": "Odomknúť",
+      "enterCode": "Zadajte kód",
+      "invalidCode": "Neplatný kód",
+      "unlocked": "Fáza odomknutá",
+      "awaitCode": "Čaká sa na kód správcu",
+      "codeReceivedTitle": "Kód {{stage}}%",
+      "codeReceivedMsg": "Váš kód: {{code}} (poplatok {{fee}})"
+    }
+  },
+  "adminCodes": {
+    "title": "Odblokovacie kódy",
+    "help": "Spravujte kódy postupu prevodu.",
+    "step": "Krok",
+    "released": "Uvoľnené",
+    "fee": "Poplatok (€)",
+    "code": "Kód",
+    "generate": "Generovať",
+    "regenerate": "Regenerovať",
+    "send": "Odoslať",
+    "generateAndSend": "Generovať a odoslať",
+    "regenerateAndSend": "Regenerovať a odoslať",
+    "noCode": "Žiadny kód",
+    "created": "Kód vytvorený",
+    "updated": "Kód aktualizovaný",
+    "error": "Chyba",
+    "success": "Úspech",
+    "sectionTitle": "Konfigurácia krokov prevodu",
+    "sectionHelp": "Nastavte poplatky a platobnú adresu pre každý krok, overte potvrdenku a odošlite kód.",
+    "gatedTitle": "Konfigurácia je uzamknutá",
+    "gatedDesc": "Konfigurácia bude dostupná po schválení úveru.",
+    "address": "Platobná adresa",
+    "saved": "Konfigurácia uložená",
+    "invalidFee": "Neplatný poplatok",
+    "codeSent": "Kód vygenerovaný a odoslaný",
+    "consumed": "Použité",
+    "receiptUploaded": "Potvrdenka nahraná",
+    "pending": "Čaká",
+    "approved": "Schválené",
+    "rejected": "Zamietnuté",
+    "approve": "Schváliť",
+    "reject": "Zamietnuť",
+    "receiptApproved": "Potvrdenka schválená",
+    "receiptRejected": "Potvrdenka zamietnutá",
+    "invalidates": "Regenerácia automaticky zruší platnosť predchádzajúceho kódu.",
+    "notifTitle": "Odblokovací kód {{p}}%",
+    "notifMsg": "Váš kód: {{code}} (poplatok {{fee}})",
+    "notifApprovedTitle": "Potvrdenka schválená — krok {{p}}%",
+    "notifApprovedMsg": "Vaša platba bola overená. Kód bude odoslaný.",
+    "notifRejectedTitle": "Potvrdenka zamietnutá — krok {{p}}%",
+    "notifRejectedMsg": "Pošlite prosím platnú potvrdenku.",
+    "holder": "Držiteľ účtu",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "description": "Účel / Popis"
+  },
+  "transferSteps": {
+    "title": "Bezpečný prevod",
+    "subtitle": "Bankový postup v 3 krokoch: 63% · 88% · 100%.",
+    "progress": "Postup",
+    "completed": "Prevod dokončený",
+    "completedDesc": "Prostriedky boli pripísané príjemcovi.",
+    "blockedTitle": "Prevod zablokovaný na {{p}}%",
+    "blockedDesc": "Z dôvodu bankovej zhody si odblokovanie kroku {{p}}% vyžaduje úhradu poplatku a overenie potvrdenky.",
+    "awaitingConfig": "Konfigurácia prebieha",
+    "awaitingConfigDesc": "Náš tím dokončuje tento krok. Budete informovaní.",
+    "feeFor": "Poplatok krok {{p}}%",
+    "paymentAddress": "Platobná adresa",
+    "paymentHelp": "Uhraďte na túto adresu a nahrajte potvrdenku.",
+    "receipt": "Platobná potvrdenka",
+    "receiptPending": "Čaká na overenie",
+    "receiptApproved": "Schválené",
+    "receiptRejected": "Zamietnuté — pošlite znova",
+    "uploadReceipt": "Nahrať potvrdenku",
+    "replaceReceipt": "Nahradiť potvrdenku",
+    "receiptSent": "Potvrdenka odoslaná na overenie",
+    "fileTooBig": "Súbor je príliš veľký (max. 10 MB)",
+    "enterCode": "Zadajte odblokovací kód",
+    "unlock": "Odblokovať krok {{p}}%",
+    "awaitingCode": "Čaká sa na kód",
+    "awaitingCodeDesc": "Kód bude odoslaný po overení potvrdenky administrátorom.",
+    "invalidCode": "Neplatný kód",
+    "advanced": "Krok {{p}}% odblokovaný",
+    "successFinal": "Prevod úspešne dokončený",
+    "notifAdminTitle": "Prijatá potvrdenka — krok {{p}}%",
+    "notifAdminMsg": "Klient nahral potvrdenku na overenie.",
+    "stepNotReached": "Etapa ešte nedosiahnutá"
+  },
+  "transfersPage": {
+    "metaTitle": "Moje prevody — BNP PARIBAS",
+    "eyebrow": "Zóna prevodov",
+    "title": "Moje prevody",
+    "subtitle": "Sledovanie SEPA prevodov, krokov súladu a potvrdeniek.",
+    "newTransfer": "Nový prevod",
+    "beneficiary": "Príjemca:",
+    "issuedAt": "Vydané {{date}}",
+    "reference": "ref. {{reference}}",
+    "emptyTitle": "Žiadne prevody",
+    "emptyDesc": "Vaše prevody sa zobrazia po vytvorení.",
+    "filters": {
+      "all": "Všetky",
+      "active": "Prebiehajúce",
+      "blocked": "Blokované",
+      "done": "Dokončené"
+    },
+    "status": {
+      "final": "Potvrdené",
+      "rejected": "Zamietnuté",
+      "blocked": "Vyžaduje overenie",
+      "processing": "Bankové spracovanie"
+    }
+  },
+  "landing": {
+    "metaTitle": "BNP PARIBAS — Okamžité online pôžičky",
+    "metaDesc": "Financujte svoje projekty s dôverou. Rýchle osobné pôžičky od 1 000 € do 50 000 €. Rozhodnutie do 24h, prostriedky do 72h.",
+    "badge": "Rozhodnutie do 24 hodín",
+    "heroTitleA": "Financujte svoje projekty",
+    "heroTitleB": "s dôverou.",
+    "heroDesc": "BNP PARIBAS patrí k najlepšej generácii európskych bánk ponúkajúcich rýchle, transparentné a bezpečné osobné pôžičky.",
+    "ctaPrimary": "Požiadať o pôžičku",
+    "ctaSecondary": "Už mám účet",
+    "trust1": "Šifrované údaje",
+    "trust2": "100% bezpečné",
+    "trust3": "Bez skrytých poplatkov",
+    "values": {
+      "response": {
+        "title": "Odpoveď do 24h",
+        "desc": "Náš tím expertov rýchlo posúdi vašu žiadosť. Žiadne nekonečné čakanie."
+      },
+      "secure": {
+        "title": "100% Bezpečné",
+        "desc": "Vaše údaje sú šifrované od konca po koniec. Dodržiavame najprísnejšie bankové štandardy."
+      },
+      "nofees": {
+        "title": "Bez skrytých poplatkov",
+        "desc": "Uvedená sadzba je aplikovaná sadzba. Žiadne prekvapenia pri splátkach."
+      }
+    },
+    "how": {
+      "title": "Ako to funguje?",
+      "s1t": "Simulujte pôžičku",
+      "s1d": "Vyberte vhodnú sumu a dobu splácania. Okamžite vypočítame odhadovanú mesačnú splátku.",
+      "s2t": "Doplňte žiadosť",
+      "s2d": "Vyplňte formulár za 5 minút a nahrajte doklady (občiansky preukaz, doklad o bydlisku, výplatné pásky).",
+      "s3t": "Podpíšte zmluvu",
+      "s3d": "Po schválení naším tímom podpíšte zmluvu elektronicky a bezpečne.",
+      "s4t": "Prijmite prostriedky",
+      "s4d": "Po uplynutí zákonnej lehoty sú prostriedky dostupné vo vašej peňaženke BNP PARIBAS, pripravené na výber."
+    },
+    "partners": {
+      "eyebrow": "Naše partnerské banky",
+      "title": "Dôveryhodná bankovná sieť",
+      "desc": "Spolupracujeme s hlavnými európskymi finančnými inštitúciami pre rýchle a bezpečné prevody."
+    },
+    "finalCta": {
+      "title": "Pripravení uskutočniť svoje projekty?",
+      "desc": "Vytvorte si účet a podajte prvú žiadosť za pár minút.",
+      "button": "Začať moju žiadosť"
+    },
+    "footer": {
+      "rights": "Všetky práva vyhradené.",
+      "legal": "Úver vás zaväzuje a musí byť splatený. Pred záväzkom si overte schopnosť splácania."
+    },
+    "slides": {
+      "s1t": "Bankovníctvo navrhnuté pre vás",
+      "s1d": "Otvorte si účet za pár minút, bez papierovania.",
+      "s2t": "Spravujte svoje financie v reálnom čase",
+      "s2d": "Prehľadný panel, analýzy a inteligentné upozornenia.",
+      "s3t": "Vaša banka vo vrecku",
+      "s3d": "Bezpečná mobilná aplikácia dostupná 24/7.",
+      "s4t": "Bezpečnosť na bankovej úrovni",
+      "s4d": "Šifrovanie z konca na koniec a silná autentifikácia."
+    },
+    "kpis": {
+      "clients": "Aktívni klienti",
+      "countries": "Krajiny",
+      "assets": "Spravované aktíva",
+      "uptime": "Dostupnosť"
+    },
+    "security": {
+      "eyebrow": "Bezpečnosť a súlad",
+      "title": "Špičková banková ochrana",
+      "desc": "Naše systémy spĺňajú najprísnejšie európske bankové štandardy.",
+      "f1t": "Šifrovanie AES-256",
+      "f1d": "Vaše údaje sú chránené vojenským štandardom.",
+      "f2t": "Súlad s PSD2 a GDPR",
+      "f2d": "Európske predpisy sa prísne uplatňujú.",
+      "f3t": "Silná autentifikácia",
+      "f3d": "Dvojstupňová validácia pre každú citlivú operáciu.",
+      "f4t": "Podpora 24/7",
+      "f4d": "Dedikovaní poradcovia dostupní kedykoľvek."
+    },
+    "testi": {
+      "eyebrow": "Referencie",
+      "title": "Dôverujú nám",
+      "t1n": "Marie Dubois",
+      "t1r": "Finančná riaditeľka",
+      "t1q": "Plynulý a profesionálny bankový zážitok. Podpora je výnimočná.",
+      "t2n": "Jean Martin",
+      "t2r": "Podnikateľ",
+      "t2q": "Medzinárodné prevody sú rýchle a bezpečnosť je bezchybná.",
+      "t3n": "Sophie Laurent",
+      "t3r": "Advokátka",
+      "t3q": "Konečne digitálna banka, ktorá spája jednoduchosť s inštitucionálnou vážnosťou."
+    },
+    "mobile": {
+      "eyebrow": "Mobilná aplikácia",
+      "title": "Celá vaša banka na dlani",
+      "desc": "Spravujte účty, vykonávajte prevody a sledujte investície zo smartfónu.",
+      "b1": "Sledovanie transakcií v reálnom čase",
+      "b2": "Okamžité medzinárodné prevody",
+      "b3": "Biometria Face ID a odtlačok prsta"
+    },
+    "faq": {
+      "title": "Často kladené otázky",
+      "q1": "Ako si otvorím účet?",
+      "a1": "Online registrácia za menej ako 5 minút s platným dokladom totožnosti.",
+      "q2": "Aké sú poplatky?",
+      "a2": "Náš štandardný plán nemá skryté poplatky. Bežné operácie sú zadarmo.",
+      "q3": "Sú moje prostriedky chránené?",
+      "a3": "Vklady sú zaručené do 100 000 € Fondom ochrany vkladov.",
+      "q4": "Ako kontaktovať podporu?",
+      "a4": "Náš tím je k dispozícii 24/7 cez zabezpečený chat, e-mail alebo telefón."
+    }
+  },
+  "transferProcess": {
+    "progress": "Bezpečný postup",
+    "rejectedBadge": "Prevod zamietnutý",
+    "validatedBadge": "Prevod potvrdený",
+    "complianceBadge": "Kontrola súladu",
+    "processingBadge": "Bankové spracovanie",
+    "rejectedTitle": "Tento prevod bol zamietnutý",
+    "rejectedDesc": "Prostriedky boli automaticky pripísané späť na váš účet.",
+    "finalTitle": "Prevod úspešne vykonaný",
+    "finalDesc": "Príjemca dostane prostriedky v štandardnej medzibankovej lehote.",
+    "animatingTitle": "Bankové smerovanie prebieha",
+    "animatingDesc": "Váš prevod prechádza našimi zabezpečenými kanálmi. Nie je potrebná žiadna akcia.",
+    "blockedTitle": "Vyžaduje sa kontrola súladu",
+    "blockedDesc": "Na dokončenie tohto kroku uhradte nižšie uvedený poplatok za súlad a zadajte prijatý kód.",
+    "configTitle": "Konfigurácia prebieha",
+    "configDesc": "Poradca BNP PARIBASPARIBAS pripravuje platbu za súlad. Pokyny dostanete čoskoro.",
+    "fee": "Splatný poplatok za súlad",
+    "bankOrder": "Bankové údaje BNP PARIBAS",
+    "accountHolder": "Majiteľ účtu",
+    "reason": "Dôvod prevodu",
+    "receiptLabel": "Doklad o platbe",
+    "receiptPending": "Prebieha kontrola",
+    "receiptApproved": "Schválené",
+    "receiptRejected": "Zamietnuté",
+    "replaceReceipt": "Nahradiť potvrdenku",
+    "uploadReceipt": "Nahrať potvrdenku",
+    "unlockCodeReceived": "Odblokovací kód prijatý",
+    "codePlaceholder": "Zadajte kód (napr. ABC-1234)",
+    "validateAndContinue": "Potvrdiť a pokračovať",
+    "waitingCodeTitle": "Čaká sa na odblokovací kód",
+    "waitingCodeDesc": "Po overení potvrdenky vám poradca pošle 6-miestny kód.",
+    "fileTooBig": "Súbor presahuje 10 MB.",
+    "invalidCode": "Neplatný alebo už použitý kód.",
+    "successFinal": "Prevod dokončený.",
+    "advanced": "Krok potvrdený.",
+    "copied": "{{label}} skopírované do schránky.",
+    "receiptSent": "Potvrdenka odoslaná poradcovi.",
+    "adminValidationTitle": "Prevod čaká na overenie",
+    "adminValidationMessage": "Klient dosiahol krok súladu a čaká na uvoľnenie kódu.",
+    "adminReceiptTitle": "Nová potvrdenka na kontrolu",
+    "adminReceiptMessage": "Klient nahral potvrdenku o platbe za súlad."
+  },
+  "transferStepDialog": {
+    "title": "Krok súladu",
+    "subtitle": "Sledujte postup a bezpečne potvrďte každý míľnik."
+  },
+  "transferDetail": {
+    "metaTitle": "Detail prevodu — BNP PARIBAS",
+    "backAll": "Všetky prevody",
+    "header": "BNP PARIBAS · Príkaz na prevod",
+    "amount": "Suma",
+    "beneficiary": "Príjemca",
+    "bank": "Banka",
+    "reference": "Referencia",
+    "iban": "IBAN",
+    "bic": "BIC",
+    "issuedAt": "Vydané",
+    "tracking": "Sledovanie prevodu",
+    "history": "História",
+    "notFound": "Prevod sa nenašiel.",
+    "badge": {
+      "validated": "Prevod potvrdený",
+      "rejected": "Prevod zamietnutý",
+      "compliance": "Kontrola súladu",
+      "processing": "Bankové spracovanie"
+    },
+    "rejected": {
+      "title": "Tento prevod bol zamietnutý",
+      "desc": "Prostriedky boli automaticky pripísané späť na váš účet BNP PARIBAS.",
+      "reason": "Dôvod"
+    },
+    "timeline": {
+      "issued": "Príkaz na prevod vydaný",
+      "issuedDesc": "Pre {{beneficiary}} ({{amount}})",
+      "compliance": "Krok súladu potvrdený",
+      "complianceDesc": "Odblokovací kód úspešne zadaný.",
+      "enhanced": "Rozšírené overenie potvrdené",
+      "enhancedDesc": "Prevod pokračuje k príjemcovi.",
+      "executed": "Prevod vykonaný",
+      "executedDesc": "Prostriedky boli pripísané.",
+      "rejected": "Prevod zamietnutý",
+      "rejectedDesc": "Zostatok bol automaticky pripísaný späť.",
+      "now": "Práve teraz"
+    },
+    "receipt": {
+      "title": "Bankový doklad dostupný",
+      "desc": "Stiahnite si oficiálne zhrnutie BNP PARIBAS k tomuto príkazu na prevod.",
+      "download": "Stiahnuť doklad"
+    }
+  },
+  "receipt": {
+    "metaTitle": "Doklad o prevode — BNP PARIBAS",
+    "download": "Stiahnuť PDF",
+    "subBrand": "Together we thrive",
+    "documentLabel": "Oficiálny dokument",
+    "documentTitle": "Doklad o prevode",
+    "title": "Bankový doklad o prevode",
+    "subtitle": "Vydané {{date}}",
+    "amount": "Prevedená suma",
+    "statusExecuted": "Prevod vykonaný",
+    "statusPending": "Prevod sa spracováva",
+    "beneficiary": "Príjemca",
+    "bank": "Banka príjemcu",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "reference": "Referencia",
+    "issuedAt": "Dátum vydania",
+    "footerSecurity": "Dokument vygenerovaný zabezpečenými systémami BNP PARIBAS.",
+    "footerLegal": "Tento doklad potvrdzuje bankovú operáciu a môže byť predložený príslušnému orgánu.",
+    "generating": "Generuje sa PDF…",
+    "downloaded": "Doklad úspešne stiahnutý",
+    "downloadError": "Doklad sa nepodarilo stiahnuť",
+    "sessionExpired": "Relácia vypršala. Prihláste sa znova.",
+    "serverSessionExpired": "Relácia vypršala. Prihláste sa znova.",
+    "serverNotFound": "Prevod sa nenašiel",
+    "serverUnauthorized": "Neoprávnený prístup k tomuto potvrdeniu",
+    "serverUnavailable": "Potvrdenie je dostupné až po overení prevodu",
+    "serverSubtitle": "Oficiálne bankové potvrdenie",
+    "serverSecure": "Zabezpečený dokument",
+    "serverTitle": "Potvrdenie o prevode",
+    "serverIssued": "Vystavené dňa {{date}}",
+    "serverAmount": "Prevedená suma",
+    "serverStatus": "Status",
+    "serverExecuted": "Prevod vykonaný",
+    "serverBeneficiary": "Príjemca",
+    "serverBank": "Banka príjemcu",
+    "serverIban": "IBAN",
+    "serverBic": "BIC / SWIFT",
+    "serverReference": "Referencia",
+    "serverExecutedAt": "Dátum vykonania",
+    "serverSecurity": "Dokument vygenerovaný zabezpečenými systémami BNP PARIBAS.",
+    "serverLegal": "Tento doklad slúži ako potvrdenie bankovej operácie a možno ho predložiť ktorémukoľvek príslušnému orgánu."
+  },
+  "notif": {
+    "transfer": {
+      "instantTitle": "Prijatý okamžitý prevod",
+      "classicTitle": "Prevod prebieha",
+      "instantMsg": "{{amount}} pripísané na účet {{iban4}}…{{ibanLast}} (ref. {{ref}})",
+      "classicMsg": "Bol spustený štandardný prevod {{amount}} (pripísanie do 1 pracovného dňa, ref. {{ref}})",
+      "adminInitTitle": "Nový prevod spustený",
+      "adminInitMsg": "{{amount}} → {{beneficiary}} (ref. {{ref}})"
+    },
+    "transferProcess": {
+      "adminValidationTitle": "Potvrdenie na overenie",
+      "adminValidationMsg": "Klient nahral potvrdenie o platbe na overenie.",
+      "adminReceiptTitle": "Prijaté nové potvrdenie",
+      "adminReceiptMsg": "Bolo nahrané nové potvrdenie o platbe poplatku."
+    },
+    "adminCodes": {
+      "codeTitle": "Odblokovací kód {{p}}%",
+      "codeMsg": "Váš kód: {{code}} (poplatok {{fee}})",
+      "rejectedTitle": "Potvrdenie zamietnuté",
+      "rejectedMsg": "Nahrajte platné potvrdenie.",
+      "manualCodeTitle": "Odblokovací kód {{p}}%",
+      "manualCodeMsg": "Váš odblokovací kód je: {{code}}"
+    },
+    "loan": {
+      "newRequestAdminTitle": "Nová žiadosť o úver",
+      "newRequestAdminMsg": "{{name}} žiada {{amount}} € na {{months}} mesiacov",
+      "statusTitle": "Stav vašej žiadosti bol aktualizovaný",
+      "statusMsg": "Vaša žiadosť o {{amount}} je teraz: $t(status.{{statusKey}})",
+      "signedReceivedTitle": "Prijatá podpísaná zmluva",
+      "signedReceivedMsg": "{{name}} podpísal zmluvu (žiadosť {{id}})"
+    },
+    "withdrawal": {
+      "sentTitle": "Prevod vykonaný",
+      "sentMsg": "{{amount}} bolo odoslaných na {{iban4}}…{{ibanLast}} (ref. {{ref}})",
+      "rejectedTitle": "Prevod zamietnutý · prostriedky vrátené",
+      "rejectedMsg": "Váš prevod {{amount}} bol zamietnutý. Zostatok bol automaticky vrátený."
+    }
+  },
+  "settings": {
+    "metaTitle": "Nastavenia — BNP PARIBAS",
+    "title": "Nastavenia",
+    "subtitleDesktop": "Spravujte svoje osobné údaje a bezpečnosť",
+    "subtitleMobile": "Spravujte svoj účet a bezpečnosť",
+    "profile": "Profile",
+    "fullName": "Celé meno",
+    "phone": "Telefón",
+    "currentEmail": "Aktuálny e-mail",
+    "saveProfile": "Uložiť profil",
+    "emailSection": "E-mailová adresa",
+    "newEmail": "Nová e-mailová adresa",
+    "emailHint": "Na novú adresu bude odoslaný potvrdzovací e-mail.",
+    "updateEmail": "Aktualizovať e-mail",
+    "passwordSection": "Password",
+    "currentPassword": "Aktuálne heslo",
+    "newPassword": "Nové heslo",
+    "confirmPassword": "Potvrdiť",
+    "changePassword": "Zmeniť heslo",
+    "adminAccount": "Účet administrátora",
+    "adminDesc": "Máte oprávnenia na správu klientskych spisov a operácií.",
+    "loadProfileError": "Nie je možné načítať profil",
+    "saveError": "Chyba pri ukladaní",
+    "profileUpdated": "Profil aktualizovaný",
+    "emailUpdated": "E-mail aktualizovaný. Skontrolujte schránku pre potvrdenie.",
+    "passwordTooShort": "Heslo musí mať aspoň 8 znakov",
+    "passwordMismatch": "Heslá sa nezhodujú",
+    "currentPasswordWrong": "Aktuálne heslo je nesprávne",
+    "passwordUpdated": "Heslo aktualizované",
+    "back": "Späť",
+    "accessAdmin": "Otvoriť admin panel",
+    "goBack": "Späť",
+    "languageSection": "Jazyk",
+    "languageDesc": "Vyberte jazyk rozhrania. Vaša voľba sa uloží a synchronizuje s vaším účtom.",
+    "languageSaved": "Jazyk aktualizovaný"
+  },
+  "loanDetail": {
+    "metaTitle": "Detail pôžičky — BNP PARIBAS",
+    "downloadImpossible": "Stiahnutie nie je dostupné",
+    "contractGenerating": "Generuje sa PDF zmluva…",
+    "sessionExpired": "Relácia vypršala. Prihláste sa znova.",
+    "contractDownloaded": "Zmluva stiahnutá",
+    "generationImpossible": "Generovanie zlyhalo: {{message}}",
+    "unknownError": "Neznáma chyba",
+    "fileTooHeavy": "Súbor je príliš veľký (max. 10 MB)",
+    "uploadFailed": "Nahrávanie zlyhalo",
+    "updateError": "Chyba aktualizácie",
+    "signedSent": "Podpísaná zmluva odoslaná!",
+    "signedReceivedTitle": "Prijatá podpísaná zmluva",
+    "signedReceivedMessage": "{{name}} podpísal/a zmluvu (žiadosť {{id}})",
+    "loading": "Načítava sa…",
+    "notFound": "Úver sa nenašiel",
+    "back": "Späť na moje úvery",
+    "fileNumber": "Spis #{{id}}",
+    "title": "Detail úveru",
+    "refusedTitle": "Žiadosť zamietnutá",
+    "refusedDesc": "Po preskúmaní vašej žiadosti, žiaľ, nemôžeme vyhovieť vašej žiadosti o financovanie.",
+    "reason": "Dôvod",
+    "summaryTitle": "Súhrn žiadosti",
+    "amount": "Suma",
+    "duration": "Doba",
+    "durationMonths": "{{count}} mesiacov",
+    "monthlyPayment": "Odhadovaná mesačná splátka",
+    "monthlyIncome": "Mesačný príjem",
+    "purpose": "Účel",
+    "documentsTitle": "Poskytnuté dokumenty",
+    "addedOn": "Pridané dňa {{date}}",
+    "availableBalance": "Dostupný zostatok",
+    "alreadyWithdrawn": "Už vybraté: {{withdrawn}} z {{total}}",
+    "makeTransfer": "Vykonať prevod",
+    "contractTitle": "Zmluva",
+    "downloadContract": "Stiahnuť zmluvu",
+    "signInstruction": "Podpíšte zmluvu a nahrajte ju nižšie na overenie.",
+    "sendSignedContract": "Odoslať podpísanú zmluvu",
+    "signedContractReceived": "Prijatá podpísaná zmluva",
+    "historyTitle": "História akcií",
+    "noAction": "Zatiaľ žiadna akcia.",
+    "requestSubmitted": "Žiadosť odoslaná",
+    "requestRefused": "Žiadosť zamietnutá",
+    "withdraw": "Vybrať",
+    "details": "Details",
+    "loanDescription": {
+      "en_attente": "Vaša žiadosť sa posudzuje",
+      "accepte": "Vaša žiadosť bola schválená",
+      "refuse": "Žiadosť neúspešná",
+      "contrat_envoye": "Zmluva bola odoslaná na podpis",
+      "contrat_signe": "Prijatá podpísaná zmluva, uvoľnenie sa pripravuje",
+      "en_traitement": "Sprístupnenie prostriedkov do 72 hodín",
+      "fonds_disponibles": "Vaše prostriedky sú k dispozícii"
+    },
+    "steps": {
+      "en_attente": "Žiadosť odoslaná",
+      "accepte": "Schválené",
+      "contrat_envoye": "Zmluva odoslaná",
+      "contrat_signe": "Zmluva podpísaná",
+      "en_traitement": "Spracováva sa",
+      "fonds_disponibles": "Prostriedky k dispozícii"
+    }
+  },
+  "nav": {
+    "home": "Domov",
+    "transfers": "Prevody",
+    "request": "Žiadosť",
+    "primary": "Hlavná navigácia",
+    "support": "Podpora"
+  },
+  "mobileHome": {
+    "title": "Vitajte v BNP PARIBAS",
+    "subtitle": "Vaša banka, vo vašom vrecku.",
+    "description": "Spravujte svoje úvery, prevody a účty bezpečne, kdekoľvek ste.",
+    "cta": "Začať",
+    "tagline": "Európska banková bezpečnosť",
+    "feature1": "Bezpečné",
+    "feature2": "Šifrovanie end-to-end",
+    "feature3": "Prémiový zážitok"
+  },
+  "authPending": {
+    "title": "Skontrolujte e-mail",
+    "description": "Odoslali sme potvrdzovací odkaz.",
+    "instruction": "Kliknite na odkaz na aktiváciu účtu.",
+    "loading": "Čakanie na potvrdenie...",
+    "footer": "Nikdy nezdieľajte svoje údaje."
+  },
+  "password": {
+    "show": "Zobraziť heslo",
+    "hide": "Skryť heslo",
+    "veryWeak": "Veľmi slabé",
+    "weak": "Slabé",
+    "fair": "Priemerné",
+    "good": "Dobré",
+    "strong": "Silné",
+    "excellent": "Vynikajúce",
+    "ruleLength": "Aspoň 10 znakov",
+    "ruleUpper": "Veľké písmeno",
+    "ruleLower": "Malé písmeno",
+    "ruleDigit": "Číslica",
+    "ruleSpecial": "Špeciálny znak",
+    "notStrong": "Heslo nespĺňa všetky bezpečnostné pravidlá."
+  },
+  "livechat": {
+    "open": "Otvoriť chat",
+    "close": "Zavrieť",
+    "title": "BNP PARIBAS poradca",
+    "online": "Online",
+    "placeholder": "Napíšte správu…",
+    "greeting": "Dobrý deň 👋! Ako vám môžem pomôcť?",
+    "faq": {
+      "loan": "Pre žiadosť o úver vyberte „Nový úver\" na nástenke. Rozhodnutie do 24 h, prostriedky do 72 h.",
+      "password": "Heslo môžete obnoviť na prihlasovacej stránke cez „Zabudli ste heslo?\".",
+      "transfer": "Vaše prevody nájdete v sekcii „Prevody\" na nástenke.",
+      "contact": "Tím je dostupný na +39 350 036 6867 alebo cez stránku Kontakt.",
+      "thanks": "Rado sa stalo! Pokojne sa pýtajte ďalej.",
+      "default": "Poradca BNP PARIBAS sa vám čoskoro ozve. Kontaktovať nás môžete aj cez stránku Kontakt."
+    }
+  },
+  "legal": {
+    "badge": "Právne",
+    "lastUpdated": "Posledná aktualizácia",
+    "home": "Domov",
+    "privacy": {
+      "title": "Zásady ochrany súkromia",
+      "subtitle": "Vaše súkromie je základom dôvery v banku.",
+      "sections": [
+        {
+          "h": "1. Zbierané údaje",
+          "p": "Identita, kontakt, finančné, technické a behaviorálne údaje."
+        },
+        {
+          "h": "2. Účely",
+          "p": "Vedenie účtu, posúdenie úveru, prevencia podvodov a prania."
+        },
+        {
+          "h": "3. Právny základ (GDPR)",
+          "p": "Zmluva, oprávnený záujem, zákonná povinnosť, súhlas."
+        },
+        {
+          "h": "4. Zdieľanie",
+          "p": "Iba s preverenými spracovateľmi a orgánmi."
+        },
+        {
+          "h": "5. Uchovávanie",
+          "p": "Účet: vzťah + 10 rokov. Logy: 24 mesiacov."
+        },
+        {
+          "h": "6. Vaše práva",
+          "p": "Prístup, oprava, výmaz, obmedzenie, prenosnosť, námietka."
+        },
+        {
+          "h": "7. Bezpečnosť",
+          "p": "TLS, fingerprint, detekcia anomálií, MFA, 24/7 reakcia."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Obchodné podmienky",
+      "subtitle": "Používaním BNP PARIBAS súhlasíte s týmito podmienkami.",
+      "sections": [
+        {
+          "h": "1. Podmienky",
+          "p": "Min. 18 rokov, rezident povolenej krajiny."
+        },
+        {
+          "h": "2. Účet",
+          "p": "Pravdivé údaje a dôverné prihlásenia."
+        },
+        {
+          "h": "3. Prijateľné použitie",
+          "p": "Bez podvodov, prania, financovania terorizmu."
+        },
+        {
+          "h": "4. Poplatky",
+          "p": "Zobrazené pred operáciou; zmeny s 30 dní vopred."
+        },
+        {
+          "h": "5. Zodpovednosť",
+          "p": "Priame škody pri hrubej nedbanlivosti."
+        },
+        {
+          "h": "6. Pozastavenie",
+          "p": "Okamžité pri podozrení."
+        },
+        {
+          "h": "7. Právny poriadok",
+          "p": "Francúzske právo s ochranou spotrebiteľa."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Politika cookies",
+      "sections": [
+        {
+          "h": "Čo používame",
+          "list": [
+            "<strong>Nevyhnutné</strong>",
+            "<strong>Funkčné</strong>",
+            "<strong>Bezpečnostné</strong>",
+            "<strong>Analytické</strong> — len so súhlasom."
+          ]
+        },
+        {
+          "h": "Správa",
+          "p": "Cookies môžete vymazať v prehliadači."
+        }
+      ]
+    },
+    "mentions": {
+      "title": "Právne oznámenia",
+      "sections": [
+        {
+          "h": "Vydavateľ",
+          "p": "BNP PARIBAS — SAS, kapitál 1 000 000 EUR — sídlo: 1 Centenary Square, Birmingham, Spojené kráľovstvo."
+        },
+        {
+          "h": "Riaditeľ",
+          "p": "Compliance BNP PARIBAS."
+        },
+        {
+          "h": "Hosting",
+          "p": "Cloudflare Workers — San Francisco, USA."
+        },
+        {
+          "h": "Kontakt",
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+        },
+        {
+          "h": "Duševné vlastníctvo",
+          "p": "Značky a obsah patria BNP PARIBAS."
+        }
+      ]
+    },
+    "amlKyc": {
+      "title": "AML / KYC politika",
+      "sections": [
+        {
+          "h": "Záväzok",
+          "p": "Nulová tolerancia voči praniu a financovaniu terorizmu."
+        },
+        {
+          "h": "Dôkladná identifikácia",
+          "p": "Identita, adresa, zdroj prostriedkov, sústavný monitoring."
+        },
+        {
+          "h": "Zvýšená",
+          "p": "PEP, vysokorizikové krajiny."
+        },
+        {
+          "h": "Sankcie",
+          "p": "Skríning voči zoznamom EÚ, OSN, OFAC, UK."
+        },
+        {
+          "h": "Hlásenia",
+          "p": "Hlásenia FIU; zákaz tipping-off."
+        },
+        {
+          "h": "Školenie",
+          "p": "Ročné školenie; nezávislý MLRO."
+        }
+      ]
+    },
+    "finPriv": {
+      "title": "Finančné súkromie a bezpečnosť",
+      "sections": [
+        {
+          "h": "Ochrana peňazí",
+          "p": "TLS 1.3, AES-256, HSM, oddelené prostriedky klientov."
+        },
+        {
+          "h": "Autentifikácia",
+          "p": "SCA PSD2: heslo + zariadenie + OTP."
+        },
+        {
+          "h": "Monitorovanie",
+          "p": "24/7 detekcia anomálií."
+        },
+        {
+          "h": "Dôvernosť",
+          "p": "Bankové tajomstvo."
+        },
+        {
+          "h": "Vaša rola",
+          "p": "Chráňte prihlásenia, registrujte dôveryhodné zariadenia."
+        }
+      ]
+    },
+    "loanTerms": {
+      "title": "Podmienky úveru",
+      "subtitle": "Úver vás zaväzuje; overte si schopnosť splácať.",
+      "sections": [
+        {
+          "h": "1. Podmienky",
+          "p": "Overená identita, stabilný príjem."
+        },
+        {
+          "h": "2. Sumy a doba",
+          "p": "Od 1 000 EUR do 500 000 EUR, 12 až 120 mesiacov."
+        },
+        {
+          "h": "3. Úrok / RPMN",
+          "p": "Pevný úrok uvedený v ponuke."
+        },
+        {
+          "h": "4. Vyplatenie",
+          "p": "Po podpise a overení."
+        },
+        {
+          "h": "5. Splácanie",
+          "p": "Mesačné inkaso."
+        },
+        {
+          "h": "6. Omeškanie",
+          "p": "Úroky, poplatky a možná zosplatnenie."
+        },
+        {
+          "h": "7. Odstúpenie",
+          "p": "14 kalendárnych dní od podpisu."
+        }
+      ]
+    },
+    "repayment": {
+      "title": "Politika splácania",
+      "sections": [
+        {
+          "h": "Splátkový kalendár",
+          "p": "Mesačné splátky v dohodnutý deň."
+        },
+        {
+          "h": "Predčasné splatenie",
+          "p": "Vždy povolené."
+        },
+        {
+          "h": "Omeškanie",
+          "list": [
+            "Deň 1–7: upozornenie.",
+            "Deň 8–30: poplatky + úrok z omeškania.",
+            "Od dňa 31: výzva."
+          ]
+        },
+        {
+          "h": "Vymáhanie",
+          "p": "Najprv zmierne riešenie."
+        },
+        {
+          "h": "Ťažkosti",
+          "p": "Kontaktujte nás kvôli odkladu."
+        }
+      ]
+    }
+  },
+  "adminSec": {
+    "metaTitle": "Bezpečnosť · Admin",
+    "unauthorized": "Neoprávnené",
+    "adminLink": "Admin",
+    "center": "Centrum bezpečnosti",
+    "ok": "ok",
+    "fail": "chyba",
+    "user": "používateľ",
+    "kpi": {
+      "totalEvents": "Celkom udalostí",
+      "devicesTracked": "Sledované zariadenia",
+      "openAlerts": "Otvorené upozornenia",
+      "highRisk": "Rizikoví používatelia"
+    },
+    "tab": {
+      "logs": "Záznamy",
+      "alerts": "Upozornenia",
+      "devices": "Zariadenia",
+      "risk": "Riziko"
+    },
+    "logs": {
+      "title": "Bezpečnostné záznamy",
+      "searchPh": "Hľadať používateľ, IP, krajina…",
+      "action": "Akcia",
+      "allActions": "Všetky akcie",
+      "when": "Kedy",
+      "user": "Používateľ",
+      "ipCountry": "IP / Krajina",
+      "device": "Zariadenie",
+      "status": "Stav",
+      "empty": "Žiadne záznamy."
+    },
+    "alerts": {
+      "title": "Bezpečnostné upozornenia",
+      "empty": "Žiadne upozornenia.",
+      "resolved": "vyriešené",
+      "resolve": "Vyriešiť"
+    },
+    "devices": {
+      "title": "Dôveryhodné zariadenia",
+      "label": "Štítok",
+      "country": "Krajina",
+      "lastSeen": "Naposledy videné",
+      "trusted": "Dôvera",
+      "trustedBadge": "dôveryhodné",
+      "pending": "čaká",
+      "empty": "Žiadne zariadenia."
+    },
+    "risk": {
+      "title": "Skóre rizika",
+      "risk": "Riziko",
+      "sessions": "Relácie",
+      "sensitive": "Citlivé",
+      "empty": "Žiadne údaje."
+    }
+  },
+  "footer": {
+    "legal": "Právne",
+    "privacy": "Súkromie",
+    "terms": "Podmienky",
+    "cookies": "Cookies",
+    "mentions": "Právne upozornenie",
+    "banking": "Bankovníctvo",
+    "loanTerms": "Podmienky úveru",
+    "repayment": "Splácanie a omeškanie",
+    "aml": "AML / KYC",
+    "finPriv": "Finančné súkromie",
+    "contact": "Kontakt"
+  },
+  "chat": {
+    "loading": "Načítava",
+    "notFound": "Stránka nenájdená",
+    "notFoundDesc": "Táto stránka neexistuje.",
+    "backHome": "Späť domov",
+    "assistant": "asistentka",
+    "typing": "píše",
+    "today": "Dnes",
+    "yesterday": "Včera",
+    "pageTitle": "Živá podpora",
+    "pageDesc": "Chatujte s naším tímom alebo s Annou, našou virtuálnou asistentkou.",
+    "closed": "Konverzácia zatvorená",
+    "closeTicket": "Zatvoriť konverzáciu",
+    "close": "Zatvoriť",
+    "compose": {
+      "placeholder": "Napíšte správu…"
+    },
+    "rt": {
+      "bold": "Tučné",
+      "italic": "Kurzíva",
+      "link": "Odkaz",
+      "linkPrompt": "Zadajte URL (https://...)"
+    },
+    "handoff": {
+      "question": "Chcete hovoriť s poradcom?",
+      "yes": "Áno, hovoriť s poradcom",
+      "no": "Nie, ďakujem",
+      "pending": "Vaša požiadavka sa spracúva, poradca sa pripojí za 1-2 minúty…"
+    },
+    "agent": {
+      "joined": "sa pripojil ku konverzácii",
+      "joinedYou": "Pripojili ste sa ku konverzácii",
+      "notAssigned": "Žiadny priradený agent",
+      "join": "Pripojiť sa"
+    },
+    "status": {
+      "online": "Online",
+      "agent": "Poradca online",
+      "open": "Otvorené",
+      "waiting_agent": "Čaká na agenta",
+      "assigned": "Prebieha",
+      "closed": "Zatvorené"
+    },
+    "admin": {
+      "empty": "Žiadne konverzácie.",
+      "selectHint": "Vyberte konverzáciu vľavo.",
+      "folders": "Súbory zákazníkov",
+      "tickets": "Vstupenky",
+      "searchPlaceholder": "Vyhľadajte zákazníka, lístok, e-mail…",
+      "filter": {
+        "all": "Všetky",
+        "waiting": "Podržané",
+        "mine": "Pridelené mne",
+        "closed": "ZATVORENÉ",
+        "guests": "Návštevníci"
+      },
+      "info": {
+        "title": "Informácie o tikete",
+        "none": "Žiadne informácie"
+      },
+      "close": "Zavrieť tiket",
+      "reopen": "Znovu otvoriť tiket",
+      "updated": "Tiket aktualizovaný"
+    },
+    "banner": {
+      "top": "BNP PARIBAS — Bezpečný zákaznícky servis",
+      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+    },
+    "loginRequired": {
+      "title": "Prihláste sa na chat",
+      "desc": "Na použitie podpory musíte byť prihlásený.",
+      "cta": "Prihlásiť sa"
+    },
+    "nav": "Podpora",
+    "guest": {
+      "subtitle": "Pomoc návštevníkom",
+      "intro": "Vyplňte tento formulár a poradca BNP PARIBAS rýchlo odpovie. Dostanete číslo lístka.",
+      "name": "Celé meno *",
+      "email": "E-mail *",
+      "phone": "Telefón",
+      "whatsapp": "WhatsApp",
+      "country": "Krajina pobytu",
+      "subject": "Predmet",
+      "message": "Vaša správa *",
+      "submit": "Otvor môj lístok",
+      "privacy": "S vašimi údajmi sa zaobchádza dôverne (GDPR).",
+      "created": "Vstupenka #{{ticket}} vytvorená!",
+      "errors": {
+        "required": "Vyžaduje sa meno, e-mail a správa.",
+        "fail": "Odosielanie zlyhalo, skúste to znova."
+      }
+    },
+    "ticket": "Lístok",
+    "archived": "Archívy",
+    "open": "OTVORENÉ",
+    "welcome": {
+      "greeting": "Dobrý deň 👋 Som Anna, vaša asistentka BNP PARIBAS.",
+      "help": "Ako vám dnes môžem pomôcť?"
+    },
+    "tickets": {
+      "title": "Moje konverzácie",
+      "new": "Nová konverzácia",
+      "open": "Otvorené",
+      "closed": "Zatvorené",
+      "empty": "Zatiaľ žiadne konverzácie.",
+      "back": "Späť",
+      "one": "Konverzácia"
+    }
+  },
+  "adminDash": {
+    "title": "Prístrojová doska — BNP PARIBAS",
+    "overview": "Prehľad",
+    "clients": "zákazníkov",
+    "loans": "Pôžičky",
+    "transfers": "Prestupy",
+    "chat": "Živý rozhovor",
+    "security": "Bezpečnosť",
+    "notifications": "Upozornenia",
+    "kpis": {
+      "clients": "Aktívni zákazníci",
+      "loansPending": "Čakajúce úvery",
+      "transfersBlocked": "Prevody sú zablokované",
+      "ticketsOpen": "Otvorené lístky",
+      "newToday": "Dnes nové"
+    },
+    "recentActivity": "Nedávna aktivita",
+    "quickActions": "Rýchle akcie",
+    "staff": "Team & roles",
+    "roles": "Permissions",
+    "logs": "Activity log"
+  }
+}

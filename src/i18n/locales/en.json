@@ -1,0 +1,1402 @@
+{
+  "common": {
+    "loading": "Loading…",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "open": "Open",
+    "search": "Search",
+    "actions": "Actions",
+    "yes": "Yes",
+    "no": "No",
+    "all": "All",
+    "none": "None",
+    "language": "Language",
+    "submit": "Submit",
+    "send": "Send",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "download": "Download",
+    "upload": "Upload",
+    "next": "Next",
+    "previous": "Previous",
+    "from": "From",
+    "to": "To",
+    "amount": "Amount",
+    "date": "Date",
+    "status": "Status",
+    "details": "Details",
+    "optional": "optional",
+    "required": "required",
+    "refresh": "Refresh",
+    "viewAll": "View all",
+    "new": "New",
+    "saving": "Saving…",
+    "sending": "Sending…",
+    "updating": "Updating…",
+    "loadError": "Loading error",
+    "sessionExpired": "Session expired due to inactivity",
+    "notFound": "Page not found",
+    "notFoundDesc": "The page you're looking for doesn't exist or has been moved.",
+    "backHome": "Back to home"
+  },
+  "header": {
+    "myLoans": "My loans",
+    "newLoan": "Apply for a loan",
+    "dashboard": "Dashboard",
+    "admin": "Admin",
+    "settings": "Settings",
+    "signOut": "Sign out",
+    "signIn": "Sign in",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No notifications",
+    "markAllRead": "Mark all read",
+    "pageTitle": "All notifications",
+    "noLink": "No link",
+    "allRead": "All caught up",
+    "viewAll": "View all notifications"
+  },
+  "auth": {
+    "title": "Client area",
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Full name",
+    "phone": "Phone",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "No account yet?",
+    "hasAccount": "Already have an account?",
+    "createAccount": "Create my account",
+    "loginSuccess": "Successfully signed in",
+    "signupSuccess": "Account created · check your inbox",
+    "backHome": "Back to home",
+    "brandBadge": "Secure digital bank",
+    "creating": "Creating account…",
+    "decision": "Decision within 24 business hours",
+    "google": "Continue with Google",
+    "googleError": "Unable to sign in with Google",
+    "googleLoading": "Signing in with Google…",
+    "minPasswordHint": "At least 8 characters.",
+    "mobileHint": "Sign in or create your account",
+    "rgpd": "GDPR compliant",
+    "signingIn": "Signing in…",
+    "terms": "By continuing, you accept our Terms and Privacy Policy.",
+    "tls": "TLS 1.3 encryption",
+    "welcomeDesc": "Access your loans, transfers and premium services securely.",
+    "welcomeTitle": "Welcome to",
+    "nameShort": "Name too short",
+    "phoneInvalid": "Invalid phone number",
+    "emailInvalid": "Invalid email",
+    "passwordMin": "Password must be at least 8 characters",
+    "passwordRequired": "Password required",
+    "invalidCredentials": "Invalid credentials",
+    "connectedToast": "Successfully signed in",
+    "emailAlreadyUsed": "Email already in use",
+    "accountCreated": "Account created successfully",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "fullNameLabel": "Full name",
+    "phoneLabel": "Phone",
+    "tabSignin": "Sign in",
+    "tabSignup": "Create account",
+    "forgotLink": "Forgot password?",
+    "forgotTitle": "Reset your password",
+    "forgotDesc": "Enter your email address. We'll send you a secure link to set a new password.",
+    "forgotSend": "Send link",
+    "forgotSent": "If an account exists, an email has been sent.",
+    "resetTitle": "Set a new password",
+    "resetWaiting": "Verifying the reset link…",
+    "resetSuccess": "Password updated successfully.",
+    "newPassword": "New password",
+    "confirmNewPassword": "Confirm password",
+    "updatePassword": "Update password"
+  },
+  "dashboard": {
+    "title": "My dashboard",
+    "welcome": "Hello",
+    "balance": "Available balance",
+    "showBalance": "Show balance",
+    "hideBalance": "Hide balance",
+    "newLoan": "New loan",
+    "withdraw": "Withdraw",
+    "transfer": "Make a transfer",
+    "myLoans": "My loans",
+    "transferHistory": "Transfer history",
+    "noLoans": "You don't have a loan yet",
+    "startApplication": "Start an application",
+    "noTransfers": "No transfers",
+    "viewLoan": "View file",
+    "needHelp": "Need help?",
+    "contactSupport": "Contact customer service",
+    "metaTitle": "My dashboard — BNP PARIBAS",
+    "sessionExpired": "Session expired due to inactivity",
+    "loadError": "Loading error",
+    "welcomeNamed": "Welcome, {{name}}",
+    "welcomeAnon": "Welcome",
+    "totalAvailable": "Total available balance",
+    "fundedOutOf": "out of {{amount}} funded",
+    "withdrawnAmount": "{{amount}} withdrawn",
+    "newShort": "+ New",
+    "activeLoans": "Active loans",
+    "totalFunded": "Total funded",
+    "transfers": "Transfers",
+    "loading": "Loading…",
+    "firstLoanTitle": "Start your first application",
+    "firstLoanDesc": "Finance your projects in minutes: car, renovation, treasury or any other need.",
+    "apply": "Apply now",
+    "loanDurationCreated": "{{months}} months · Requested on {{date}}",
+    "disbursedRemaining": "Disbursed: {{disbursed}} · Remaining: {{remaining}}",
+    "recentActivity": "Recent activity",
+    "viewAll": "View all",
+    "noRecentTransfers": "No transfers yet",
+    "status": {
+      "en_traitement": "Processing",
+      "envoye": "Sent",
+      "rejete": "Rejected"
+    },
+    "welcomeShort": "Welcome",
+    "myDashboard": "My dashboard",
+    "newRequest": "New request",
+    "fundedOf": "of {{amount}} funded",
+    "makeTransfer": "Make a transfer",
+    "transfersKpi": "Transfers",
+    "applyCta": "Apply now",
+    "monthsSince": "{{months}} months · Requested on {{date}}",
+    "details": "Details",
+    "noTransfersYet": "No transfers yet"
+  },
+  "loanForm": {
+    "title": "New loan application",
+    "subtitle": "Fill in the form and attach your documents.",
+    "fullName": "Full name",
+    "email": "Email",
+    "address": "Full postal address",
+    "addressPlaceholder": "Start typing your address…",
+    "addressHint": "Pick a suggestion or type your full address manually.",
+    "addressRequired": "Please provide your full postal address",
+    "amount": "Requested amount (€)",
+    "duration": "Duration (months)",
+    "monthlyIncome": "Net monthly income (€)",
+    "purpose": "Purpose of the loan (optional)",
+    "purposePlaceholder": "Renovation, car, personal project…",
+    "documents": "Required documents (max 5, 5 MB each)",
+    "uploadHint": "Click to add (PDF, JPG, PNG)",
+    "submit": "Submit application",
+    "submitting": "Sending…",
+    "success": "Application sent!",
+    "requiredDocs": "Required documents for review",
+    "requiredDocsHint": "Upload readable PDF, JPG or PNG files to speed up approval.",
+    "doc1": "Valid ID or driving licence (both sides) — or passport (front only)",
+    "doc2": "Recent proof of address",
+    "doc3": "Last three pay slips or income proof",
+    "doc4": "Latest bank statement or IBAN in the applicant's name",
+    "back": "Back",
+    "newRequestShort": "New request",
+    "newRequestDesc": "Submit your loan request",
+    "amountMin": "Minimum €500",
+    "amountMax": "Maximum €100,000",
+    "fileTooLarge": "{{name}} exceeds 5 MB",
+    "createError": "Error creating the request",
+    "uploadFailed": "Upload failed: {{name}}",
+    "adminNotifTitle": "New loan request",
+    "adminNotifMsg": "{{name}} requests €{{amount}} over {{months}} months",
+    "successToast": "Your request was sent successfully",
+    "loading": "Loading…",
+    "docsRequiredExact": "You must upload exactly {{count}} documents to submit your request.",
+    "uploadHintExact": "Upload exactly {{count}} documents (PDF, JPG, PNG — 5 MB max each)"
+  },
+  "transfer": {
+    "title": "Make a transfer",
+    "subtitle": "Choose the type, enter the beneficiary details and confirm.",
+    "kindInstant": "Instant (SEPA Instant)",
+    "kindInstantHint": "Credited to the beneficiary immediately (24/7).",
+    "kindClassic": "Standard (SEPA)",
+    "kindClassicHint": "Credited within 1 business day · scheduling available.",
+    "sourceLoan": "Source loan",
+    "amount": "Amount (€)",
+    "available": "Available balance",
+    "beneficiary": "Beneficiary",
+    "beneficiaryPlaceholder": "First and last name",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "bankName": "Bank",
+    "bankNamePlaceholder": "Bank name",
+    "reference": "Reference",
+    "referencePlaceholder": "Auto-generated if empty",
+    "schedule": "Schedule (optional)",
+    "scheduleHint": "Leave empty for the next business day.",
+    "reason": "Reason (optional)",
+    "reasonPlaceholder": "Rent, purchase, repayment…",
+    "secureInstant": "Encrypted details · immediate execution",
+    "secureClassic": "Encrypted details · 1 business day",
+    "executeInstant": "Execute transfer",
+    "confirmClassic": "Confirm transfer",
+    "successInstant": "Instant transfer executed",
+    "successScheduled": "Transfer scheduled",
+    "successClassic": "Transfer order recorded",
+    "errorEmit": "Error issuing the transfer",
+    "noLoanSelected": "No loan selected",
+    "amountInvalid": "Invalid amount",
+    "ibanInvalid": "Invalid IBAN",
+    "bicInvalid": "Invalid BIC/SWIFT",
+    "beneficiaryRequired": "Beneficiary required",
+    "bankRequired": "Bank required",
+    "scheduleFuture": "Scheduled date must be in the future"
+  },
+  "contact": {
+    "title": "Contact customer service",
+    "subtitle": "We respond within 24 business hours · confidentiality guaranteed.",
+    "infoTitle": "Contact details",
+    "phoneLabel": "Customer service",
+    "phoneHours": "Mon-Fri · 8am-8pm",
+    "emailLabel": "Email",
+    "addressLabel": "Head office",
+    "secureNote": "Your messages are encrypted and handled confidentially by our compliance team.",
+    "formTitle": "Send a message",
+    "fullName": "Full name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "messagePlaceholder": "Describe your request in detail…",
+    "send": "Send message",
+    "success": "Message sent · customer service will reply within 24 hours",
+    "error": "Sending failed",
+    "subjects": {
+      "account": "Question about my account",
+      "loan": "Question about a loan",
+      "transfer": "Transfer issue",
+      "complaint": "Complaint",
+      "appointment": "Appointment request",
+      "other": "Other"
+    },
+    "metaTitle": "Contact — BNP PARIBAS customer service",
+    "metaDesc": "Contact BNP PARIBAS customer service for questions about your account, loans or transfers.",
+    "nameRequired": "Name is required",
+    "emailInvalid": "Invalid email",
+    "messageTooShort": "Message too short (10 characters minimum)",
+    "defaultNamePlaceholder": "John Smith",
+    "defaultEmailPlaceholder": "you@example.com",
+    "back": "Back",
+    "phoneTitle": "Customer service",
+    "address": "103 avenue des Champs-Élysées",
+    "addressCity": "75008 Paris, France",
+    "sending": "Sending…",
+    "successQueued": "Your message has been recorded. Our team will reply shortly."
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "subtitle": "Overview of banking activity.",
+    "kpis": {
+      "total": "Total applications",
+      "pending": "Pending",
+      "accepted": "Accepted",
+      "refused": "Refused"
+    },
+    "amounts": {
+      "requested": "Total requested",
+      "accepted": "Total accepted",
+      "disbursed": "Funds disbursed"
+    },
+    "recent": {
+      "title": "Recent activity",
+      "empty": "No recent activity",
+      "open": "Open"
+    },
+    "quickActions": {
+      "title": "Quick actions",
+      "subtitle": "Handle pending files first.",
+      "toStudy": "Files to review",
+      "signedContracts": "Signed contracts to process",
+      "manageClients": "Manage clients"
+    },
+    "loansPage": {
+      "title": "All loan files",
+      "subtitle": "Detailed and filterable view of applications.",
+      "client": "Client",
+      "amount": "Amount",
+      "status": "Status",
+      "date": "Date",
+      "documents": "Docs",
+      "duration": "Duration"
+    },
+    "clientsPage": {
+      "title": "Clients",
+      "subtitle": "Client accounts and access status.",
+      "client": "Client",
+      "phone": "Phone",
+      "loans": "Loans",
+      "totalBorrowed": "Total borrowed",
+      "joined": "Joined",
+      "status": "Status",
+      "active": "Active",
+      "blocked": "Blocked"
+    },
+    "clientDetail": {
+      "title": "Client profile",
+      "personalInfo": "Personal information",
+      "summary": "Summary",
+      "loans": "Client's loans",
+      "withdrawals": "Transfers",
+      "noLoans": "This client has no files yet.",
+      "noWithdrawals": "No transfers.",
+      "blockBtn": "Block account",
+      "unblockBtn": "Unblock account",
+      "blockTitle": "Block client account",
+      "blockReason": "Block reason",
+      "blockReasonPlaceholder": "e.g. fraud suspicion, KYC non-compliant…",
+      "blockedSince": "Blocked since",
+      "blockedReason": "Reason",
+      "confirm": "Confirm"
+    },
+    "stages": {
+      "title": "Release fees & codes",
+      "planSaved": "Plan saved",
+      "planFirst": "Set fees first",
+      "codeSent": "Code sent for stage {{stage}}%",
+      "unlocked": "Unlocked",
+      "codeSentBadge": "Code sent",
+      "fee": "Fee (€)",
+      "sentAt": "Sent",
+      "genAndSend": "Generate & send",
+      "regenAndSend": "Regenerate & send",
+      "savePlan": "Save plan"
+    },
+    "transfer": {
+      "title": "Issue a client transfer",
+      "subtitle": "Create an instant or standard bank transfer on behalf of a client.",
+      "kind": "Transfer type",
+      "instant": "Instant",
+      "instantHint": "Credited immediately 24/7.",
+      "classic": "Standard",
+      "classicHint": "Credited within 1 business day.",
+      "client": "Client",
+      "selectClient": "Select a client",
+      "loan": "Source loan",
+      "selectLoan": "Select a loan",
+      "amount": "Amount (€)",
+      "beneficiary": "Beneficiary",
+      "bankName": "Beneficiary bank",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "reference": "Reference",
+      "submit": "Issue transfer",
+      "success": "Transfer issued successfully",
+      "error": "Failed to issue the transfer"
+    }
+  },
+  "blocked": {
+    "title": "Account suspended",
+    "message": "Your account has been temporarily suspended by our compliance team.",
+    "reasonLabel": "Reason",
+    "contact": "Please contact support for more information.",
+    "signOut": "Sign out"
+  },
+  "status": {
+    "en_attente": "Pending",
+    "accepte": "Accepted",
+    "refuse": "Refused",
+    "contrat_envoye": "Contract sent",
+    "contrat_signe": "Contract signed",
+    "en_traitement": "Processing",
+    "fonds_disponibles": "Funds available",
+    "envoye": "Sent",
+    "rejete": "Rejected"
+  },
+  "client": {
+    "stages": {
+      "title": "Transfers in progress",
+      "blockedTitle": "Transfer blocked at {{stage}}%",
+      "blockedDesc": "Fee due: {{fee}}. You will receive a code after validation.",
+      "codePlaceholder": "Release code",
+      "unlock": "Unlock",
+      "enterCode": "Enter the code",
+      "invalidCode": "Invalid code",
+      "unlocked": "Stage unlocked",
+      "awaitCode": "Waiting for admin code",
+      "codeReceivedTitle": "Release code {{stage}}%",
+      "codeReceivedMsg": "Your code: {{code}} (fee {{fee}})"
+    }
+  },
+  "adminCodes": {
+    "title": "Unlock codes",
+    "help": "Manage transfer progress codes.",
+    "step": "Step",
+    "released": "Released",
+    "fee": "Fee (€)",
+    "code": "Code",
+    "generate": "Generate",
+    "regenerate": "Regenerate",
+    "send": "Send",
+    "generateAndSend": "Generate and send",
+    "regenerateAndSend": "Regenerate and send",
+    "noCode": "No code",
+    "created": "Code created",
+    "updated": "Code updated",
+    "error": "Error",
+    "success": "Success",
+    "sectionTitle": "Transfer step configuration",
+    "sectionHelp": "Set fees and payment address per step, validate the receipt, then send the code.",
+    "gatedTitle": "Configuration locked",
+    "gatedDesc": "Transfer step configuration becomes available after loan acceptance.",
+    "address": "Payment address",
+    "saved": "Configuration saved",
+    "invalidFee": "Invalid fee",
+    "codeSent": "Code generated and sent",
+    "consumed": "Consumed",
+    "receiptUploaded": "Receipt uploaded",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "approve": "Approve",
+    "reject": "Reject",
+    "receiptApproved": "Receipt approved",
+    "receiptRejected": "Receipt rejected",
+    "invalidates": "Regenerating a code automatically invalidates the previous one: only the latest code works.",
+    "notifTitle": "Unlock code {{p}}%",
+    "notifMsg": "Your code: {{code}} (fee {{fee}})",
+    "notifApprovedTitle": "Receipt approved — step {{p}}%",
+    "notifApprovedMsg": "Your payment was validated. The code will be sent.",
+    "notifRejectedTitle": "Receipt rejected — step {{p}}%",
+    "notifRejectedMsg": "Please upload a valid receipt.",
+    "holder": "Account holder",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "description": "Reference / Description"
+  },
+  "transferSteps": {
+    "title": "Secure transfer",
+    "subtitle": "Banking progress in 3 steps: 63% · 88% · 100%.",
+    "progress": "Progress",
+    "completed": "Transfer completed",
+    "completedDesc": "The funds have been credited to the beneficiary.",
+    "blockedTitle": "Transfer blocked at {{p}}%",
+    "blockedDesc": "For banking compliance reasons, unlocking step {{p}}% requires fee payment and validation of your receipt.",
+    "awaitingConfig": "Configuration in progress",
+    "awaitingConfigDesc": "Our team is finalising this step. You will be notified.",
+    "feeFor": "Fee step {{p}}%",
+    "paymentAddress": "Payment address",
+    "paymentHelp": "Make the payment to this address, then upload your receipt.",
+    "receipt": "Payment receipt",
+    "receiptPending": "Awaiting validation",
+    "receiptApproved": "Approved",
+    "receiptRejected": "Rejected — resend",
+    "uploadReceipt": "Upload receipt",
+    "replaceReceipt": "Replace receipt",
+    "receiptSent": "Receipt sent for validation",
+    "fileTooBig": "File too large (10 MB max)",
+    "enterCode": "Enter your unlock code",
+    "unlock": "Unlock step {{p}}%",
+    "awaitingCode": "Awaiting code",
+    "awaitingCodeDesc": "The code will be sent after admin validates your receipt.",
+    "invalidCode": "Invalid code",
+    "advanced": "Step {{p}}% unlocked",
+    "successFinal": "Transfer completed successfully",
+    "notifAdminTitle": "Receipt received — step {{p}}%",
+    "notifAdminMsg": "A client has uploaded a receipt for validation.",
+    "stepNotReached": "Step not yet reached"
+  },
+  "transfersPage": {
+    "metaTitle": "My transfers — BNP PARIBAS",
+    "eyebrow": "Transfers area",
+    "title": "My transfers",
+    "subtitle": "Track SEPA transfers, compliance steps and receipts.",
+    "newTransfer": "New transfer",
+    "beneficiary": "Beneficiary:",
+    "issuedAt": "Issued on {{date}}",
+    "reference": "ref. {{reference}}",
+    "emptyTitle": "No transfers",
+    "emptyDesc": "Your transfers will appear here once created.",
+    "filters": {
+      "all": "All",
+      "active": "In progress",
+      "blocked": "Blocked",
+      "done": "Completed"
+    },
+    "status": {
+      "final": "Validated",
+      "rejected": "Rejected",
+      "blocked": "Verification required",
+      "processing": "Bank processing"
+    }
+  },
+  "landing": {
+    "metaTitle": "BNP PARIBAS — Instant online loans",
+    "metaDesc": "Finance your projects with confidence. Fast personal loans from €1,000 to €50,000. Decision in 24h, funds within 72h.",
+    "badge": "Decision in less than 24 hours",
+    "heroTitleA": "Finance your projects",
+    "heroTitleB": "with confidence.",
+    "heroDesc": "BNP PARIBAS is part of the leading generation of European banks offering fast, transparent and secure personal loans.",
+    "ctaPrimary": "Apply for a loan",
+    "ctaSecondary": "I already have an account",
+    "trust1": "Encrypted data",
+    "trust2": "100% secure",
+    "trust3": "No hidden fees",
+    "values": {
+      "response": {
+        "title": "Response within 24h",
+        "desc": "Our team of experts reviews your file quickly. No more endless weeks of waiting."
+      },
+      "secure": {
+        "title": "100% Secure",
+        "desc": "Your data is encrypted end-to-end. We comply with the strictest banking standards."
+      },
+      "nofees": {
+        "title": "No hidden fees",
+        "desc": "The advertised rate is the rate applied. No surprises on your monthly payments."
+      }
+    },
+    "how": {
+      "title": "How does it work?",
+      "s1t": "Simulate your loan",
+      "s1d": "Choose the amount and term that suit you. We immediately calculate your estimated monthly payment.",
+      "s2t": "Complete your file",
+      "s2d": "Fill out the form in 5 minutes and upload your supporting documents (ID, proof of address, payslips).",
+      "s3t": "Sign your contract",
+      "s3d": "Once approved by our team, sign your contract electronically and securely.",
+      "s4t": "Receive your funds",
+      "s4d": "Once the legal period has passed, funds are available in your BNP PARIBAS wallet, ready to be withdrawn."
+    },
+    "partners": {
+      "eyebrow": "Our partner banks",
+      "title": "A trusted banking network",
+      "desc": "We work with the main European financial institutions to guarantee fast and secure transfers."
+    },
+    "finalCta": {
+      "title": "Ready to bring your projects to life?",
+      "desc": "Create your account and submit your first request in just a few minutes.",
+      "button": "Start my application"
+    },
+    "footer": {
+      "rights": "All rights reserved.",
+      "legal": "A loan commits you and must be repaid. Check your repayment capacity before committing."
+    },
+    "slides": {
+      "s1t": "Banking designed around you",
+      "s1d": "Open an account in minutes, no paperwork.",
+      "s2t": "Manage your finances in real time",
+      "s2d": "Clear dashboard, analytics and smart alerts.",
+      "s3t": "Your bank in your pocket",
+      "s3d": "Secure mobile app available 24/7.",
+      "s4t": "Bank-grade security",
+      "s4d": "End-to-end encryption and strong authentication."
+    },
+    "kpis": {
+      "clients": "Active clients",
+      "countries": "Countries covered",
+      "assets": "Assets managed",
+      "uptime": "Uptime"
+    },
+    "security": {
+      "eyebrow": "Security & Compliance",
+      "title": "Top-tier banking protection",
+      "desc": "Our systems meet the strictest European banking standards.",
+      "f1t": "AES-256 encryption",
+      "f1d": "Your data is protected by military-grade encryption.",
+      "f2t": "PSD2 & GDPR compliant",
+      "f2d": "European regulations strictly enforced.",
+      "f3t": "Strong authentication",
+      "f3d": "Two-factor validation for every sensitive operation.",
+      "f4t": "24/7 support",
+      "f4d": "Dedicated advisors available at all hours."
+    },
+    "testi": {
+      "eyebrow": "Testimonials",
+      "title": "They trust us",
+      "t1n": "Marie Dubois",
+      "t1r": "CFO",
+      "t1q": "A smooth and professional banking experience. Support is outstanding.",
+      "t2n": "Jean Martin",
+      "t2r": "Entrepreneur",
+      "t2q": "International transfers are fast and security is impeccable.",
+      "t3n": "Sophie Laurent",
+      "t3r": "Lawyer",
+      "t3q": "Finally a digital bank that combines simplicity with institutional seriousness."
+    },
+    "mobile": {
+      "eyebrow": "Mobile app",
+      "title": "Your entire bank, in the palm of your hand",
+      "desc": "Manage accounts, send transfers and track investments from your smartphone.",
+      "b1": "Real-time transaction tracking",
+      "b2": "Instant international transfers",
+      "b3": "Face ID & fingerprint biometrics"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "q1": "How do I open an account?",
+      "a1": "Sign up online in under 5 minutes with a valid ID document.",
+      "q2": "What are the fees?",
+      "a2": "Our standard plan has no hidden fees. Everyday operations are free.",
+      "q3": "Are my funds protected?",
+      "a3": "Deposits are guaranteed up to €100,000 by the Deposit Guarantee Fund.",
+      "q4": "How do I contact support?",
+      "a4": "Our team is reachable 24/7 via secure chat, email or phone."
+    }
+  },
+  "transferProcess": {
+    "progress": "Secure progress",
+    "rejectedBadge": "Transfer rejected",
+    "validatedBadge": "Transfer validated",
+    "complianceBadge": "Compliance check",
+    "processingBadge": "Bank processing",
+    "rejectedTitle": "This transfer was rejected",
+    "rejectedDesc": "Funds have been automatically credited back to your account.",
+    "finalTitle": "Transfer successfully executed",
+    "finalDesc": "The beneficiary will receive the funds within the standard interbank timeframe.",
+    "animatingTitle": "Bank routing in progress",
+    "animatingDesc": "Your transfer is moving through our secure channels. No action required.",
+    "blockedTitle": "Compliance verification required",
+    "blockedDesc": "To complete this step, please pay the compliance fee below and enter the code you receive.",
+    "configTitle": "Configuration in progress",
+    "configDesc": "An BNP PARIBAS advisor is preparing the compliance payment. You will receive instructions shortly.",
+    "fee": "Compliance fee due",
+    "bankOrder": "BNP PARIBAS details",
+    "accountHolder": "Account holder",
+    "reason": "Transfer reason",
+    "receiptLabel": "Payment proof",
+    "receiptPending": "Under review",
+    "receiptApproved": "Approved",
+    "receiptRejected": "Rejected",
+    "replaceReceipt": "Replace receipt",
+    "uploadReceipt": "Upload receipt",
+    "unlockCodeReceived": "Unlock code received",
+    "codePlaceholder": "Enter the code (e.g. ABC-1234)",
+    "validateAndContinue": "Validate and continue",
+    "waitingCodeTitle": "Waiting for the unlock code",
+    "waitingCodeDesc": "Once your receipt is validated, your advisor will send you a 6-character code.",
+    "fileTooBig": "File exceeds 10 MB.",
+    "invalidCode": "Invalid or already used code.",
+    "successFinal": "Transfer finalised.",
+    "advanced": "Step validated.",
+    "copied": "{{label}} copied to clipboard.",
+    "receiptSent": "Receipt sent to your advisor.",
+    "adminValidationTitle": "Transfer awaiting validation",
+    "adminValidationMessage": "A client reached a compliance step and is awaiting code release.",
+    "adminReceiptTitle": "New receipt to review",
+    "adminReceiptMessage": "A client uploaded a compliance payment receipt."
+  },
+  "transferStepDialog": {
+    "title": "Compliance step",
+    "subtitle": "Track progress and securely validate each milestone."
+  },
+  "transferDetail": {
+    "metaTitle": "Transfer details — BNP PARIBAS",
+    "backAll": "All transfers",
+    "header": "BNP PARIBAS · Transfer order",
+    "amount": "Amount",
+    "beneficiary": "Beneficiary",
+    "bank": "Bank",
+    "reference": "Reference",
+    "iban": "IBAN",
+    "bic": "BIC",
+    "issuedAt": "Issued on",
+    "tracking": "Transfer tracking",
+    "history": "History",
+    "notFound": "Transfer not found.",
+    "badge": {
+      "validated": "Transfer validated",
+      "rejected": "Transfer rejected",
+      "compliance": "Compliance check",
+      "processing": "Bank processing"
+    },
+    "rejected": {
+      "title": "This transfer was rejected",
+      "desc": "The funds have been automatically credited back to your BNP PARIBAS account.",
+      "reason": "Reason"
+    },
+    "timeline": {
+      "issued": "Transfer order issued",
+      "issuedDesc": "To {{beneficiary}} ({{amount}})",
+      "compliance": "Compliance step validated",
+      "complianceDesc": "Unlock code successfully entered.",
+      "enhanced": "Enhanced verification validated",
+      "enhancedDesc": "The transfer continues its routing to the beneficiary.",
+      "executed": "Transfer executed",
+      "executedDesc": "Funds have been credited.",
+      "rejected": "Transfer rejected",
+      "rejectedDesc": "The balance has been automatically credited back.",
+      "now": "Just now"
+    },
+    "receipt": {
+      "title": "Bank receipt available",
+      "desc": "Download the official BNP PARIBAS summary of this transfer order.",
+      "download": "Download receipt"
+    }
+  },
+  "receipt": {
+    "metaTitle": "Transfer receipt — BNP PARIBAS",
+    "download": "Download PDF",
+    "subBrand": "Together we thrive",
+    "documentLabel": "Official document",
+    "documentTitle": "Transfer receipt",
+    "title": "Bank transfer receipt",
+    "subtitle": "Issued on {{date}}",
+    "amount": "Transferred amount",
+    "statusExecuted": "Transfer executed",
+    "statusPending": "Transfer being processed",
+    "beneficiary": "Beneficiary",
+    "bank": "Beneficiary bank",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "reference": "Reference",
+    "issuedAt": "Issue date",
+    "footerSecurity": "Document generated by BNP PARIBAS secure systems.",
+    "footerLegal": "This receipt certifies the banking operation and may be presented to any competent authority.",
+    "generating": "Generating PDF…",
+    "downloaded": "Receipt downloaded successfully",
+    "downloadError": "Unable to download the receipt",
+    "sessionExpired": "Session expired. Please sign in again.",
+    "serverSessionExpired": "Session expired. Please sign in again.",
+    "serverNotFound": "Transfer not found",
+    "serverUnauthorized": "Unauthorized access to this receipt",
+    "serverUnavailable": "The receipt is available only after the transfer is approved",
+    "serverSubtitle": "Official bank receipt",
+    "serverSecure": "Secure document",
+    "serverTitle": "Transfer receipt",
+    "serverIssued": "Issued on {{date}}",
+    "serverAmount": "Amount transferred",
+    "serverStatus": "Status",
+    "serverExecuted": "Transfer executed",
+    "serverBeneficiary": "Beneficiary",
+    "serverBank": "Beneficiary bank",
+    "serverIban": "IBAN",
+    "serverBic": "BIC / SWIFT",
+    "serverReference": "Reference",
+    "serverExecutedAt": "Execution date",
+    "serverSecurity": "Document generated by BNP PARIBAS secure systems.",
+    "serverLegal": "This receipt is proof of the banking operation and may be presented to any competent authority."
+  },
+  "notif": {
+    "transfer": {
+      "instantTitle": "Instant transfer received",
+      "classicTitle": "Transfer in progress",
+      "instantMsg": "{{amount}} credited to account {{iban4}}…{{ibanLast}} (ref. {{ref}})",
+      "classicMsg": "A standard transfer of {{amount}} has been initiated (credit within 1 business day, ref. {{ref}})",
+      "adminInitTitle": "New transfer initiated",
+      "adminInitMsg": "{{amount}} → {{beneficiary}} (ref. {{ref}})"
+    },
+    "transferProcess": {
+      "adminValidationTitle": "Receipt to validate",
+      "adminValidationMsg": "A client has uploaded a payment receipt for validation.",
+      "adminReceiptTitle": "New receipt received",
+      "adminReceiptMsg": "A new fee payment receipt has been uploaded."
+    },
+    "adminCodes": {
+      "codeTitle": "Unlock code {{p}}%",
+      "codeMsg": "Your code: {{code}} (fee {{fee}})",
+      "rejectedTitle": "Receipt rejected",
+      "rejectedMsg": "Please upload a valid receipt.",
+      "manualCodeTitle": "Unlock code {{p}}%",
+      "manualCodeMsg": "Your unlock code is: {{code}}"
+    },
+    "loan": {
+      "newRequestAdminTitle": "New loan request",
+      "newRequestAdminMsg": "{{name}} requests {{amount}} € over {{months}} months",
+      "statusTitle": "Your application status was updated",
+      "statusMsg": "Your application for {{amount}} is now: $t(status.{{statusKey}})",
+      "signedReceivedTitle": "Signed contract received",
+      "signedReceivedMsg": "{{name}} signed the contract (application {{id}})"
+    },
+    "withdrawal": {
+      "sentTitle": "Transfer executed",
+      "sentMsg": "{{amount}} has been sent to {{iban4}}…{{ibanLast}} (ref. {{ref}})",
+      "rejectedTitle": "Transfer rejected · funds refunded",
+      "rejectedMsg": "Your transfer of {{amount}} was rejected. The balance has been automatically refunded."
+    }
+  },
+  "settings": {
+    "metaTitle": "Settings — BNP PARIBAS",
+    "title": "Settings",
+    "subtitleDesktop": "Manage your personal information and security",
+    "subtitleMobile": "Manage your account and security",
+    "profile": "Profile",
+    "fullName": "Full name",
+    "phone": "Phone",
+    "currentEmail": "Current email",
+    "saveProfile": "Save profile",
+    "emailSection": "Email address",
+    "newEmail": "New email address",
+    "emailHint": "A confirmation email will be sent to the new address.",
+    "updateEmail": "Update email",
+    "passwordSection": "Password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm",
+    "changePassword": "Change password",
+    "adminAccount": "Administrator account",
+    "adminDesc": "You have management rights for customer files and operations.",
+    "loadProfileError": "Unable to load profile",
+    "saveError": "Save error",
+    "profileUpdated": "Profile updated",
+    "emailUpdated": "Email updated. Check your inbox to confirm.",
+    "passwordTooShort": "Password must be at least 8 characters",
+    "passwordMismatch": "Passwords do not match",
+    "currentPasswordWrong": "Current password is incorrect",
+    "passwordUpdated": "Password updated",
+    "back": "Back",
+    "accessAdmin": "Open admin dashboard",
+    "goBack": "Back",
+    "languageSection": "Language",
+    "languageDesc": "Choose the language for the interface. Your choice is saved and synced to your account.",
+    "languageSaved": "Language updated"
+  },
+  "loanDetail": {
+    "metaTitle": "Loan details — BNP PARIBAS",
+    "downloadImpossible": "Download unavailable",
+    "contractGenerating": "Generating contract PDF…",
+    "sessionExpired": "Session expired. Please sign in again.",
+    "contractDownloaded": "Contract downloaded",
+    "generationImpossible": "Generation failed: {{message}}",
+    "unknownError": "Unknown error",
+    "fileTooHeavy": "File too large (max 10 MB)",
+    "uploadFailed": "Upload failed",
+    "updateError": "Update error",
+    "signedSent": "Signed contract sent!",
+    "signedReceivedTitle": "Signed contract received",
+    "signedReceivedMessage": "{{name}} signed the contract (application {{id}})",
+    "loading": "Loading…",
+    "notFound": "Loan not found",
+    "back": "Back to my loans",
+    "fileNumber": "File #{{id}}",
+    "title": "Loan details",
+    "refusedTitle": "Application refused",
+    "refusedDesc": "After reviewing your file, we unfortunately cannot approve this financing request.",
+    "reason": "Reason",
+    "summaryTitle": "Application summary",
+    "amount": "Amount",
+    "duration": "Term",
+    "durationMonths": "{{count}} months",
+    "monthlyPayment": "Estimated monthly payment",
+    "monthlyIncome": "Monthly income",
+    "purpose": "Purpose",
+    "documentsTitle": "Provided documents",
+    "addedOn": "Added on {{date}}",
+    "availableBalance": "Available balance",
+    "alreadyWithdrawn": "Already withdrawn: {{withdrawn}} of {{total}}",
+    "makeTransfer": "Make a transfer",
+    "contractTitle": "Contract",
+    "downloadContract": "Download contract",
+    "signInstruction": "Please sign the contract and upload it below for validation.",
+    "sendSignedContract": "Send signed contract",
+    "signedContractReceived": "Signed contract received",
+    "historyTitle": "Action history",
+    "noAction": "No action yet.",
+    "requestSubmitted": "Application submitted",
+    "requestRefused": "Application refused",
+    "withdraw": "Withdraw",
+    "details": "Details",
+    "loanDescription": {
+      "en_attente": "Your application is being reviewed",
+      "accepte": "Your application has been accepted",
+      "refuse": "Application unsuccessful",
+      "contrat_envoye": "The contract has been sent for signature",
+      "contrat_signe": "Signed contract received, release in preparation",
+      "en_traitement": "Funds availability within 72 hours",
+      "fonds_disponibles": "Your funds are available"
+    },
+    "steps": {
+      "en_attente": "Application submitted",
+      "accepte": "Accepted",
+      "contrat_envoye": "Contract sent",
+      "contrat_signe": "Contract signed",
+      "en_traitement": "Processing",
+      "fonds_disponibles": "Funds available"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "transfers": "Transfers",
+    "request": "Request",
+    "primary": "Main navigation",
+    "support": "Support"
+  },
+  "mobileHome": {
+    "title": "Welcome to BNP PARIBAS",
+    "subtitle": "Your bank, in your pocket.",
+    "description": "Manage your loans, transfers and accounts securely, wherever you are.",
+    "cta": "Get started",
+    "tagline": "European banking security",
+    "feature1": "Secure",
+    "feature2": "End-to-end encryption",
+    "feature3": "Premium experience"
+  },
+  "authPending": {
+    "title": "Check your email",
+    "description": "We have sent a confirmation link to your email address.",
+    "instruction": "Click the link in your inbox to activate your account.",
+    "loading": "Waiting for confirmation...",
+    "footer": "For your security, never share your credentials. BNP PARIBAS will never ask for your password."
+  },
+  "password": {
+    "show": "Show password",
+    "hide": "Hide password",
+    "veryWeak": "Very weak",
+    "weak": "Weak",
+    "fair": "Fair",
+    "good": "Good",
+    "strong": "Strong",
+    "excellent": "Excellent",
+    "ruleLength": "At least 10 characters",
+    "ruleUpper": "One uppercase letter",
+    "ruleLower": "One lowercase letter",
+    "ruleDigit": "One digit",
+    "ruleSpecial": "One special character",
+    "notStrong": "The password does not meet all security rules."
+  },
+  "livechat": {
+    "open": "Open chat",
+    "close": "Close",
+    "title": "BNP PARIBAS Adviser",
+    "online": "Online",
+    "placeholder": "Write your message…",
+    "greeting": "Hello 👋! How can I help you today?",
+    "faq": {
+      "loan": "To request a loan, go to \"New loan\" from your dashboard. Decision within 24h, funds within 72h.",
+      "password": "You can reset your password from the sign-in page using \"Forgot password?\".",
+      "transfer": "Your transfers are listed in the \"Transfers\" section of your dashboard.",
+      "contact": "Our team is reachable at +39 350 036 6867 or via the Contact page.",
+      "thanks": "You're welcome! Feel free to ask anything else.",
+      "default": "An BNP PARIBAS adviser will get back to you shortly. You can also reach us via the Contact page."
+    }
+  },
+  "legal": {
+    "badge": "Legal",
+    "lastUpdated": "Last updated",
+    "home": "Home",
+    "privacy": {
+      "title": "Privacy Policy",
+      "subtitle": "Your privacy is a core part of our banking trust commitment.",
+      "sections": [
+        {
+          "h": "1. Data we collect",
+          "p": "Identity (name, date of birth), contact (email, phone, address), financial data (income, IBAN, loan information), technical data (IP, browser, device fingerprint), and behavioural data (sessions, clicks, security events)."
+        },
+        {
+          "h": "2. Why we collect it",
+          "p": "Open and manage your account, evaluate loan applications, prevent fraud and money laundering, meet legal obligations, and improve our services."
+        },
+        {
+          "h": "3. Legal basis (GDPR)",
+          "p": "Performance of a contract, legitimate interest in fraud prevention, legal obligation (AML/KYC), and your explicit consent for marketing."
+        },
+        {
+          "h": "4. Data sharing",
+          "p": "Limited to vetted processors (cloud hosting, identity verification, payment networks), regulators and judicial authorities upon legal request."
+        },
+        {
+          "h": "5. Retention",
+          "p": "Account data: while the relationship is active plus 10 years (AML). Security logs: 24 months. Cookies: as set in our cookie policy."
+        },
+        {
+          "h": "6. Your rights",
+          "p": "Access, rectification, deletion, restriction, portability, and objection. Contact <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@bnpparibas.com</a>. You may file a complaint with your national data protection authority."
+        },
+        {
+          "h": "7. Security",
+          "p": "Encryption in transit (TLS) and at rest, device fingerprinting, anomaly detection, MFA on sensitive actions, and a 24/7 incident response process."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "subtitle": "By using BNP PARIBAS you accept the terms below.",
+      "sections": [
+        {
+          "h": "1. Eligibility",
+          "p": "You must be at least 18, a resident of an eligible country, and able to enter binding contracts."
+        },
+        {
+          "h": "2. Account",
+          "p": "Provide accurate information, keep credentials confidential, and notify us of any suspected compromise."
+        },
+        {
+          "h": "3. Acceptable use",
+          "p": "No fraud, money laundering, terrorism financing, market abuse, automated scraping, or any activity prohibited by applicable law."
+        },
+        {
+          "h": "4. Fees",
+          "p": "Disclosed in-app before each operation. We may update fees with 30 days' notice."
+        },
+        {
+          "h": "5. Liability",
+          "p": "We are liable for direct losses caused by our gross negligence. We do not cover indirect, consequential or speculative losses."
+        },
+        {
+          "h": "6. Suspension",
+          "p": "We may suspend access immediately if we suspect fraud, AML risk, or breach of these terms."
+        },
+        {
+          "h": "7. Governing law",
+          "p": "French law unless mandatory consumer law of your residence applies. Disputes go to the competent French courts subject to consumer protections."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookies Policy",
+      "sections": [
+        {
+          "h": "What we use",
+          "list": [
+            "<strong>Strictly necessary</strong> — authentication, session, security (no consent required).",
+            "<strong>Functional</strong> — language preference, theme.",
+            "<strong>Security</strong> — device fingerprinting for fraud detection (legitimate interest).",
+            "<strong>Analytics</strong> — aggregated usage, only with consent."
+          ]
+        },
+        {
+          "h": "Manage your cookies",
+          "p": "You can clear cookies in your browser settings at any time. Disabling strictly necessary cookies will prevent you from signing in."
+        }
+      ]
+    },
+    "mentions": {
+      "title": "Legal Notice",
+      "sections": [
+        {
+          "h": "Publisher",
+          "p": "BNP PARIBAS — SAS with capital of 1,000,000 EUR — registered office: 1 Centenary Square, Birmingham, B1 1HQ, United Kingdom. RCS Birmingham 000 000 000."
+        },
+        {
+          "h": "Publication director",
+          "p": "BNP PARIBAS Compliance Office."
+        },
+        {
+          "h": "Hosting",
+          "p": "Cloudflare Workers — 101 Townsend St, San Francisco, CA 94107, USA."
+        },
+        {
+          "h": "Contact",
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+        },
+        {
+          "h": "Intellectual property",
+          "p": "All trademarks, logos and content remain the property of BNP PARIBAS or its licensors. Any reproduction without written authorisation is prohibited."
+        }
+      ]
+    },
+    "amlKyc": {
+      "title": "Anti-Money Laundering & KYC Policy",
+      "sections": [
+        {
+          "h": "Commitment",
+          "p": "BNP PARIBAS applies a zero-tolerance approach to money laundering, terrorism financing and sanctions evasion, in line with EU directives (AMLD5/6), FATF recommendations, and applicable national laws."
+        },
+        {
+          "h": "Customer due diligence",
+          "p": "Identity verification (government ID + selfie liveness), proof of address, source-of-funds checks, and continuous monitoring of transactions."
+        },
+        {
+          "h": "Enhanced due diligence",
+          "p": "Applied to politically exposed persons (PEPs), high-risk jurisdictions, and complex or unusual transactions."
+        },
+        {
+          "h": "Sanctions screening",
+          "p": "Real-time screening against EU, UN, OFAC and UK consolidated lists."
+        },
+        {
+          "h": "Reporting",
+          "p": "Suspicious activity reports filed with the competent Financial Intelligence Unit. Tipping-off is strictly prohibited."
+        },
+        {
+          "h": "Training & governance",
+          "p": "All staff receive annual AML/KYC training. An independent MLRO supervises the program."
+        }
+      ]
+    },
+    "finPriv": {
+      "title": "Financial Privacy & Security",
+      "sections": [
+        {
+          "h": "Protecting your money",
+          "p": "We apply bank-grade controls to every account: TLS 1.3 in transit, AES-256 at rest, hardware-backed key management, segregated client funds at top-tier custodian banks."
+        },
+        {
+          "h": "Authentication",
+          "p": "Strong customer authentication (SCA) compliant with PSD2: password + device fingerprint + one-time code on sensitive actions."
+        },
+        {
+          "h": "Fraud monitoring",
+          "p": "24/7 anomaly detection: new-device alerts, geo-velocity checks, unusual transfer patterns, behaviour scoring."
+        },
+        {
+          "h": "Confidentiality",
+          "p": "Bank secrecy applies. Financial data is shared only with you, regulators, or upon a valid court order."
+        },
+        {
+          "h": "Your role",
+          "p": "Keep your credentials private, register trusted devices, enable notifications, and report anything suspicious to support immediately."
+        }
+      ]
+    },
+    "loanTerms": {
+      "title": "Loan & Credit Terms",
+      "subtitle": "Borrowing engages you. Repay your loan and check your repayment capacity before committing.",
+      "sections": [
+        {
+          "h": "1. Eligibility",
+          "p": "Verified identity, stable income, no active default. We perform credit and AML/KYC checks before approval."
+        },
+        {
+          "h": "2. Amounts & duration",
+          "p": "From 1,000 EUR to 500,000 EUR, 12 to 120 months. Approved amounts depend on your file and applicable law."
+        },
+        {
+          "h": "3. Rate & APR",
+          "p": "Fixed rate disclosed in your offer. The APR includes interest and mandatory fees."
+        },
+        {
+          "h": "4. Disbursement",
+          "p": "Funds are released after contract signature and ID verification. Releases above 50,000 EUR follow a staged anti-fraud process (63% / 88% / 100%)."
+        },
+        {
+          "h": "5. Repayment",
+          "p": "Monthly direct debit on a fixed day. Early repayment is allowed with the legal cap on indemnities."
+        },
+        {
+          "h": "6. Default",
+          "p": "Late payments trigger interest, fees and may lead to acceleration, registration on payment incident databases and judicial recovery."
+        },
+        {
+          "h": "7. Right of withdrawal",
+          "p": "You have 14 calendar days from contract signature to withdraw without cause."
+        }
+      ]
+    },
+    "repayment": {
+      "title": "Repayment & Default Policy",
+      "sections": [
+        {
+          "h": "Repayment schedule",
+          "p": "Monthly installments are debited on the agreed date from your declared IBAN. The schedule is visible from your dashboard."
+        },
+        {
+          "h": "Early repayment",
+          "p": "Allowed at any time. Indemnity capped per consumer law (0.5% to 1% of capital repaid early depending on remaining duration)."
+        },
+        {
+          "h": "Late payment",
+          "list": [
+            "Day 1–7: friendly reminder, no extra fee.",
+            "Day 8–30: late fee + statutory default interest.",
+            "Day 31+: formal notice and possible acceleration of the loan."
+          ]
+        },
+        {
+          "h": "Recovery",
+          "p": "We always prefer an amicable solution. Persistent default may lead to registration with central payment-incident files and judicial recovery."
+        },
+        {
+          "h": "Hardship",
+          "p": "If you face genuine hardship, contact us immediately. We can offer payment holidays, rescheduling, or temporary reductions where eligible."
+        }
+      ]
+    }
+  },
+  "adminSec": {
+    "metaTitle": "Security · Admin",
+    "unauthorized": "Unauthorized",
+    "adminLink": "Admin",
+    "center": "Security Center",
+    "ok": "ok",
+    "fail": "fail",
+    "user": "user",
+    "kpi": {
+      "totalEvents": "Total events",
+      "devicesTracked": "Devices tracked",
+      "openAlerts": "Open alerts",
+      "highRisk": "High-risk users"
+    },
+    "tab": {
+      "logs": "Logs",
+      "alerts": "Alerts",
+      "devices": "Devices",
+      "risk": "Risk"
+    },
+    "logs": {
+      "title": "Security logs",
+      "searchPh": "Search user, IP, country…",
+      "action": "Action",
+      "allActions": "All actions",
+      "when": "When",
+      "user": "User",
+      "ipCountry": "IP / Country",
+      "device": "Device",
+      "status": "Status",
+      "empty": "No logs."
+    },
+    "alerts": {
+      "title": "Security alerts",
+      "empty": "No alerts.",
+      "resolved": "resolved",
+      "resolve": "Resolve"
+    },
+    "devices": {
+      "title": "Trusted devices",
+      "label": "Label",
+      "country": "Country",
+      "lastSeen": "Last seen",
+      "trusted": "Trusted",
+      "trustedBadge": "trusted",
+      "pending": "pending",
+      "empty": "No devices."
+    },
+    "risk": {
+      "title": "Risk scores",
+      "risk": "Risk",
+      "sessions": "Sessions",
+      "sensitive": "Sensitive",
+      "empty": "No data."
+    }
+  },
+  "footer": {
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "mentions": "Legal notice",
+    "banking": "Banking",
+    "loanTerms": "Loan terms",
+    "repayment": "Repayment & default",
+    "aml": "AML / KYC",
+    "finPriv": "Financial privacy",
+    "contact": "Contact"
+  },
+  "chat": {
+    "loading": "Loading",
+    "notFound": "Page not found",
+    "notFoundDesc": "This page does not exist.",
+    "backHome": "Back to home",
+    "assistant": "assistant",
+    "typing": "is typing",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "pageTitle": "Live support",
+    "pageDesc": "Chat with our team or with Anna, our virtual assistant.",
+    "closed": "Conversation closed",
+    "closeTicket": "Close conversation",
+    "close": "Close",
+    "compose": {
+      "placeholder": "Type your message…"
+    },
+    "rt": {
+      "bold": "Bold",
+      "italic": "Italic",
+      "link": "Link",
+      "linkPrompt": "Enter URL (https://...)"
+    },
+    "handoff": {
+      "question": "Would you like to speak with an advisor?",
+      "yes": "Yes, speak to an advisor",
+      "no": "No, thanks",
+      "pending": "Your request is being processed, an advisor will join you in 1-2 minutes…"
+    },
+    "agent": {
+      "joined": "joined the conversation",
+      "joinedYou": "You joined the conversation",
+      "notAssigned": "No agent assigned",
+      "join": "Join"
+    },
+    "status": {
+      "online": "Online",
+      "agent": "Advisor online",
+      "open": "Open",
+      "waiting_agent": "Waiting for agent",
+      "assigned": "In progress",
+      "closed": "Closed"
+    },
+    "admin": {
+      "empty": "No conversations.",
+      "selectHint": "Select a conversation on the left.",
+      "folders": "Client folders",
+      "tickets": "Tickets",
+      "searchPlaceholder": "Search client, ticket, email…",
+      "filter": {
+        "all": "All",
+        "waiting": "Waiting",
+        "mine": "Assigned to me",
+        "closed": "Closed",
+        "guests": "Visitors"
+      },
+      "info": {
+        "title": "Ticket information",
+        "none": "No information provided"
+      },
+      "close": "Close ticket",
+      "reopen": "Reopen ticket",
+      "updated": "Ticket updated"
+    },
+    "banner": {
+      "top": "BNP PARIBAS — Secure customer service",
+      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+    },
+    "loginRequired": {
+      "title": "Log in to chat",
+      "desc": "You must be logged in to access support.",
+      "cta": "Log in"
+    },
+    "nav": "Support",
+    "guest": {
+      "subtitle": "Visitor support",
+      "intro": "Fill in this form and a BNP PARIBAS advisor will reply shortly. You will get a ticket number.",
+      "name": "Full name *",
+      "email": "Email *",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "country": "Country",
+      "subject": "Subject",
+      "message": "Your message *",
+      "submit": "Open my ticket",
+      "privacy": "Your data is processed confidentially (GDPR).",
+      "created": "Ticket #{{ticket}} created!",
+      "errors": {
+        "required": "Name, email and message are required.",
+        "fail": "Send failed, retry."
+      }
+    },
+    "ticket": "Ticket",
+    "archived": "Archived",
+    "open": "Open",
+    "welcome": {
+      "greeting": "Hello 👋 I'm Anna, your BNP PARIBAS assistant.",
+      "help": "How can I help you today?"
+    },
+    "tickets": {
+      "title": "My conversations",
+      "new": "New conversation",
+      "open": "Open",
+      "closed": "Closed",
+      "empty": "No conversation yet.",
+      "back": "Back",
+      "one": "Conversation"
+    }
+  },
+  "adminDash": {
+    "title": "Dashboard — BNP PARIBAS",
+    "overview": "Overview",
+    "clients": "Clients",
+    "loans": "Loans",
+    "transfers": "Transfers",
+    "chat": "Live Chat",
+    "security": "Security",
+    "notifications": "Notifications",
+    "kpis": {
+      "clients": "Active clients",
+      "loansPending": "Loans pending",
+      "transfersBlocked": "Blocked transfers",
+      "ticketsOpen": "Open tickets",
+      "newToday": "New today"
+    },
+    "recentActivity": "Recent activity",
+    "quickActions": "Quick actions",
+    "staff": "Team & roles",
+    "roles": "Permissions",
+    "logs": "Activity log"
+  }
+}

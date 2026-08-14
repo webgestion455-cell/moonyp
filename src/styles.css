@@ -1,0 +1,244 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+
+  --color-info: hsl(var(--info));
+  --color-info-foreground: hsl(var(--info-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-surface: hsl(var(--surface));
+  --color-surface-elevated: hsl(var(--surface-elevated));
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+}
+
+/* =========================================================
+   LIGHT — Fintech (Trade Republic / Revolut / PayPal inspired)
+   Deep Navy + Electric Blue
+   ========================================================= */
+:root {
+  --radius: 0.875rem;
+
+  --background: 220 30% 98%;
+  --foreground: 220 40% 11%;
+
+  --surface: 220 25% 96%;
+  --surface-elevated: 0 0% 100%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 220 40% 11%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 40% 11%;
+
+  --primary: 220 70% 16%;            /* deep navy #0b1e3f */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 220 20% 96%;
+  --secondary-foreground: 220 40% 11%;
+
+  --muted: 220 20% 95%;
+  --muted-foreground: 220 15% 45%;
+
+  --accent: 213 100% 56%;            /* electric blue #1e88ff */
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 75% 55%;
+  --destructive-foreground: 0 0% 100%;
+
+  --success: 162 90% 41%;            /* mint #00d09c */
+  --success-foreground: 0 0% 100%;
+
+  --warning: 32 100% 50%;             /* banking orange */
+  --warning-foreground: 0 0% 100%;
+
+  --info: 213 100% 56%;
+  --info-foreground: 0 0% 100%;
+
+  --border: 220 20% 91%;
+  --input: 220 20% 91%;
+  --ring: 213 100% 56%;
+
+  --font-sans: "Inter", -apple-system, system-ui, sans-serif;
+  --font-display: "Inter", "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+
+  --gradient-hero:
+    radial-gradient(ellipse 80% 60% at 50% 0%, hsl(213 100% 56% / 0.10), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, hsl(220 70% 16% / 0.06), transparent 60%);
+  --gradient-accent: linear-gradient(135deg, hsl(213 100% 56%), hsl(220 70% 16%));
+  --gradient-wallet: linear-gradient(135deg, hsl(220 70% 16%) 0%, hsl(220 75% 12%) 50%, hsl(220 80% 8%) 100%);
+  --shadow-glow: 0 8px 24px -8px hsl(213 100% 56% / 0.35);
+  --shadow-card: 0 1px 2px hsl(220 40% 11% / 0.04), 0 4px 12px -4px hsl(220 40% 11% / 0.06);
+  --shadow-elevated: 0 10px 30px -10px hsl(220 40% 11% / 0.18);
+}
+
+/* =========================================================
+   DARK — fintech professional
+   ========================================================= */
+.dark {
+  --background: 220 40% 8%;
+  --foreground: 220 20% 96%;
+
+  --surface: 220 35% 11%;
+  --surface-elevated: 220 30% 14%;
+
+  --card: 220 35% 11%;
+  --card-foreground: 220 20% 96%;
+
+  --popover: 220 35% 11%;
+  --popover-foreground: 220 20% 96%;
+
+  --primary: 213 100% 56%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 220 30% 15%;
+  --secondary-foreground: 220 20% 96%;
+
+  --muted: 220 30% 15%;
+  --muted-foreground: 220 15% 65%;
+
+  --accent: 213 100% 56%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 70% 55%;
+  --destructive-foreground: 0 0% 100%;
+
+  --success: 162 90% 41%;
+  --success-foreground: 0 0% 100%;
+
+  --warning: 32 100% 50%;
+  --warning-foreground: 0 0% 100%;
+
+  --info: 213 100% 56%;
+  --info-foreground: 0 0% 100%;
+
+  --border: 220 25% 18%;
+  --input: 220 25% 18%;
+  --ring: 213 100% 56%;
+
+  --gradient-hero:
+    radial-gradient(ellipse 80% 60% at 50% 0%, hsl(213 100% 56% / 0.15), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, hsl(220 70% 16% / 0.30), transparent 60%);
+  --gradient-accent: linear-gradient(135deg, hsl(213 100% 56%), hsl(220 70% 25%));
+  --gradient-wallet: linear-gradient(135deg, hsl(220 70% 16%) 0%, hsl(220 75% 10%) 50%, hsl(220 80% 6%) 100%);
+  --shadow-glow: 0 8px 32px -8px hsl(213 100% 56% / 0.40);
+  --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.4), 0 8px 24px -8px hsl(0 0% 0% / 0.5);
+  --shadow-elevated: 0 10px 30px -10px hsl(0 0% 0% / 0.6);
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html, body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01", "ss03";
+    -webkit-font-smoothing: antialiased;
+    /* Aucun débordement horizontal, du petit Android aux écrans ultra-larges / TV */
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  img, svg, video, canvas, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Les longues chaînes (IBAN, e-mails, références) ne cassent jamais la grille */
+  p, span, td, th, li, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: anywhere;
+  }
+
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+
+  .font-sans-display {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .bg-hero { background-image: var(--gradient-hero); }
+  .bg-gradient-accent { background-image: var(--gradient-accent); }
+  .bg-gradient-wallet { background-image: var(--gradient-wallet); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hover-elevate {
+    position: relative;
+    transition: background-color 150ms ease;
+  }
+  .hover-elevate:hover {
+    background-color: hsl(var(--foreground) / 0.04);
+  }
+
+  /* Stepper utilities */
+  .stepper-line { background: hsl(var(--border)); }
+  .stepper-line-done { background: hsl(var(--success)); }
+}
+
+.pt-safe {padding-top: env(safe-area-inset-top,0px);}
+/* Skeletons premium (loader.tsx) */
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}

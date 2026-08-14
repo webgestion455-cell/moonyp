@@ -1,0 +1,43 @@
+project_id = "wvsdeyvsdanuczugomdj"
+
+[functions.send-push]
+enabled = true
+verify_jwt = true
+import_map = "./functions/send-push/deno.json"
+entrypoint = "./functions/send-push/index.ts"
+
+[functions.chat-ai]
+enabled = true
+verify_jwt = true
+import_map = "./functions/chat-ai/deno.json"
+entrypoint = "./functions/chat-ai/index.ts"
+
+[functions.chat-handoff]
+enabled = true
+verify_jwt = true
+import_map = "./functions/chat-handoff/deno.json"
+entrypoint = "./functions/chat-handoff/index.ts"
+
+[functions.chat-guest-start]
+enabled = true
+verify_jwt = false
+import_map = "./functions/chat-guest-start/deno.json"
+entrypoint = "./functions/chat-guest-start/index.ts"
+
+[functions.chat-guest-post]
+enabled = true
+verify_jwt = false
+import_map = "./functions/chat-guest-post/deno.json"
+entrypoint = "./functions/chat-guest-post/index.ts"
+
+[functions.chat-close]
+enabled = true
+verify_jwt = false
+import_map = "./functions/chat-close/deno.json"
+entrypoint = "./functions/chat-close/index.ts"
+
+[functions.chat-transcribe]
+enabled = true
+verify_jwt = true
+import_map = "./functions/chat-transcribe/deno.json"
+entrypoint = "./functions/chat-transcribe/index.ts"

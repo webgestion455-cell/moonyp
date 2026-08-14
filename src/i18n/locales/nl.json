@@ -1,0 +1,1402 @@
+{
+  "common": {
+    "loading": "Laden…",
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "close": "Sluiten",
+    "back": "Terug",
+    "open": "Openen",
+    "search": "Zoeken",
+    "actions": "Acties",
+    "yes": "Ja",
+    "no": "Nee",
+    "all": "Alle",
+    "none": "Geen",
+    "language": "Taal",
+    "submit": "Versturen",
+    "send": "Versturen",
+    "confirm": "Bevestigen",
+    "delete": "Verwijderen",
+    "edit": "Bewerken",
+    "view": "Bekijken",
+    "download": "Downloaden",
+    "upload": "Uploaden",
+    "next": "Volgende",
+    "previous": "Vorige",
+    "from": "Van",
+    "to": "Naar",
+    "amount": "Bedrag",
+    "date": "Datum",
+    "status": "Status",
+    "details": "Details",
+    "optional": "optioneel",
+    "required": "verplicht",
+    "refresh": "Vernieuwen",
+    "viewAll": "Alles bekijken",
+    "new": "Nieuw",
+    "saving": "Opslaan…",
+    "sending": "Verzenden…",
+    "updating": "Bijwerken…",
+    "loadError": "Laadfout",
+    "sessionExpired": "Sessie verlopen door inactiviteit",
+    "notFound": "Pagina niet gevonden",
+    "notFoundDesc": "De gezochte pagina bestaat niet of is verplaatst.",
+    "backHome": "Terug naar home"
+  },
+  "header": {
+    "myLoans": "Mijn leningen",
+    "newLoan": "Lening aanvragen",
+    "dashboard": "Dashboard",
+    "admin": "Admin",
+    "settings": "Instellingen",
+    "signOut": "Uitloggen",
+    "signIn": "Inloggen",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "notifications": {
+    "title": "Meldingen",
+    "empty": "Geen meldingen",
+    "markAllRead": "Alles markeren als gelezen",
+    "pageTitle": "Alle meldingen",
+    "noLink": "Geen link",
+    "allRead": "Alles bijgewerkt",
+    "viewAll": "Alle meldingen bekijken"
+  },
+  "auth": {
+    "title": "Klantgebied",
+    "signIn": "Inloggen",
+    "signUp": "Account aanmaken",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "fullName": "Volledige naam",
+    "phone": "Telefoon",
+    "forgotPassword": "Wachtwoord vergeten?",
+    "noAccount": "Nog geen account?",
+    "hasAccount": "Heb je al een account?",
+    "createAccount": "Account aanmaken",
+    "loginSuccess": "Succesvol ingelogd",
+    "signupSuccess": "Account aangemaakt · controleer je e-mail",
+    "backHome": "Terug naar home",
+    "brandBadge": "Veilige digitale bank",
+    "creating": "Account aanmaken…",
+    "decision": "Beslissing binnen 24 werkuren",
+    "google": "Doorgaan met Google",
+    "googleError": "Inloggen met Google mislukt",
+    "googleLoading": "Inloggen met Google…",
+    "minPasswordHint": "Minimaal 8 tekens.",
+    "mobileHint": "Log in of maak je account aan",
+    "rgpd": "GDPR-conform",
+    "signingIn": "Inloggen…",
+    "terms": "Door door te gaan, ga je akkoord met onze Voorwaarden en Privacybeleid.",
+    "tls": "TLS 1.3 versleuteling",
+    "welcomeDesc": "Krijg veilig toegang tot je leningen, overboekingen en premium diensten.",
+    "welcomeTitle": "Welkom bij",
+    "nameShort": "Naam te kort",
+    "phoneInvalid": "Ongeldig telefoonnummer",
+    "emailInvalid": "Ongeldige e-mail",
+    "passwordMin": "Wachtwoord moet minimaal 8 tekens bevatten",
+    "passwordRequired": "Wachtwoord vereist",
+    "invalidCredentials": "Ongeldige inloggegevens",
+    "connectedToast": "Succesvol ingelogd",
+    "emailAlreadyUsed": "E-mail al in gebruik",
+    "accountCreated": "Account succesvol aangemaakt",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Wachtwoord",
+    "fullNameLabel": "Volledige naam",
+    "phoneLabel": "Telefoon",
+    "tabSignin": "Inloggen",
+    "tabSignup": "Account aanmaken",
+    "forgotLink": "Wachtwoord vergeten?",
+    "forgotTitle": "Wachtwoord opnieuw instellen",
+    "forgotDesc": "Voer uw e-mailadres in. We sturen u een veilige link om een nieuw wachtwoord in te stellen.",
+    "forgotSend": "Link verzenden",
+    "forgotSent": "Als het account bestaat, is een e-mail verzonden.",
+    "resetTitle": "Nieuw wachtwoord instellen",
+    "resetWaiting": "Reset-link wordt gecontroleerd…",
+    "resetSuccess": "Wachtwoord bijgewerkt.",
+    "newPassword": "Nieuw wachtwoord",
+    "confirmNewPassword": "Bevestig wachtwoord",
+    "updatePassword": "Wachtwoord bijwerken"
+  },
+  "dashboard": {
+    "title": "Mijn dashboard",
+    "welcome": "Hallo",
+    "balance": "Beschikbaar saldo",
+    "showBalance": "Saldo tonen",
+    "hideBalance": "Saldo verbergen",
+    "newLoan": "Nieuwe lening",
+    "withdraw": "Opnemen",
+    "transfer": "Overboeking maken",
+    "myLoans": "Mijn leningen",
+    "transferHistory": "Overboekingsgeschiedenis",
+    "noLoans": "Je hebt nog geen lening",
+    "startApplication": "Start een aanvraag",
+    "noTransfers": "Geen overboekingen",
+    "viewLoan": "Bekijk dossier",
+    "needHelp": "Hulp nodig?",
+    "contactSupport": "Klantenservice contacteren",
+    "metaTitle": "Mijn dashboard — BNP PARIBASAS",
+    "sessionExpired": "Sessie verlopen door inactiviteit",
+    "loadError": "Laadfout",
+    "welcomeNamed": "Welkom, {{name}}",
+    "welcomeAnon": "Welkom",
+    "totalAvailable": "Totaal beschikbaar saldo",
+    "fundedOutOf": "van {{amount}} gefinancierd",
+    "withdrawnAmount": "{{amount}} opgenomen",
+    "newShort": "+ Nieuw",
+    "activeLoans": "Actieve leningen",
+    "totalFunded": "Totaal gefinancierd",
+    "transfers": "Overschrijvingen",
+    "loading": "Laden…",
+    "firstLoanTitle": "Start uw eerste aanvraag",
+    "firstLoanDesc": "Financier uw projecten in enkele minuten: auto, verbouwing, liquiditeit of andere behoeften.",
+    "apply": "Nu aanvragen",
+    "loanDurationCreated": "{{months}} maanden · Aanvraag van {{date}}",
+    "disbursedRemaining": "Uitbetaald: {{disbursed}} · Resterend: {{remaining}}",
+    "recentActivity": "Recente activiteit",
+    "viewAll": "Alles bekijken",
+    "noRecentTransfers": "Nog geen overschrijvingen",
+    "status": {
+      "en_traitement": "In behandeling",
+      "envoye": "Verzonden",
+      "rejete": "Geweigerd"
+    },
+    "welcomeShort": "Welkom",
+    "myDashboard": "Mijn dashboard",
+    "newRequest": "Nieuwe aanvraag",
+    "fundedOf": "van {{amount}} gefinancierd",
+    "makeTransfer": "Overschrijving doen",
+    "transfersKpi": "Overschrijvingen",
+    "applyCta": "Aanvragen",
+    "monthsSince": "{{months}} maanden · Aanvraag van {{date}}",
+    "details": "Details",
+    "noTransfersYet": "Nog geen overschrijvingen"
+  },
+  "loanForm": {
+    "title": "Nieuwe leningaanvraag",
+    "subtitle": "Vul het formulier in en voeg je documenten toe.",
+    "fullName": "Volledige naam",
+    "email": "E-mail",
+    "address": "Volledig postadres",
+    "addressPlaceholder": "Begin met het typen van uw adres…",
+    "addressHint": "Kies een suggestie of typ uw volledige adres handmatig.",
+    "addressRequired": "Vermeld uw volledige postadres",
+    "amount": "Gewenst bedrag (€)",
+    "duration": "Looptijd (maanden)",
+    "monthlyIncome": "Netto maandinkomen (€)",
+    "purpose": "Doel van de lening (optioneel)",
+    "purposePlaceholder": "Renovatie, auto, persoonlijk project…",
+    "documents": "Vereiste documenten (max 5, 5 MB per stuk)",
+    "uploadHint": "Klik om toe te voegen (PDF, JPG, PNG)",
+    "submit": "Aanvraag indienen",
+    "submitting": "Versturen…",
+    "success": "Aanvraag verzonden!",
+    "requiredDocs": "Vereiste documenten voor beoordeling",
+    "requiredDocsHint": "Upload leesbare bestanden in PDF-, JPG- of PNG-formaat om de validatie te versnellen.",
+    "doc1": "Geldig identiteitsbewijs of rijbewijs (voor- en achterzijde) — of paspoort (alleen voorzijde)",
+    "doc2": "Recent bewijs van adres",
+    "doc3": "Laatste drie loonstroken of inkomstenbewijzen",
+    "doc4": "Laatste bankafschrift of IBAN op naam van de aanvrager",
+    "back": "Terug",
+    "newRequestShort": "Nieuwe aanvraag",
+    "newRequestDesc": "Dien uw leningaanvraag in",
+    "amountMin": "Minimaal € 500",
+    "amountMax": "Maximaal € 100.000",
+    "fileTooLarge": "{{name}} overschrijdt 5 MB",
+    "createError": "Fout bij het aanmaken van de aanvraag",
+    "uploadFailed": "Upload mislukt: {{name}}",
+    "adminNotifTitle": "Nieuwe leningaanvraag",
+    "adminNotifMsg": "{{name}} vraagt € {{amount}} aan over {{months}} maanden",
+    "successToast": "Uw aanvraag is succesvol verzonden",
+    "loading": "Laden…",
+    "docsRequiredExact": "U moet precies {{count}} documenten uploaden.",
+    "uploadHintExact": "Upload precies {{count}} documenten (PDF, JPG, PNG — max. 5 MB elk)"
+  },
+  "transfer": {
+    "title": "Overboeking uitvoeren",
+    "subtitle": "Kies het type, vul de gegevens van de begunstigde in en bevestig.",
+    "kindInstant": "Direct (SEPA Instant)",
+    "kindInstantHint": "Direct bijgeschreven bij de begunstigde (24/7).",
+    "kindClassic": "Standaard (SEPA)",
+    "kindClassicHint": "Bijgeschreven binnen 1 werkdag · inplannen mogelijk.",
+    "sourceLoan": "Bron lening",
+    "amount": "Bedrag (€)",
+    "available": "Beschikbaar saldo",
+    "beneficiary": "Begunstigde",
+    "beneficiaryPlaceholder": "Voor- en achternaam",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "bankName": "Bank",
+    "bankNamePlaceholder": "Naam van de bank",
+    "reference": "Referentie",
+    "referencePlaceholder": "Automatisch gegenereerd indien leeg",
+    "schedule": "Inplannen (optioneel)",
+    "scheduleHint": "Laat leeg voor uitvoering op de volgende werkdag.",
+    "reason": "Reden (optioneel)",
+    "reasonPlaceholder": "Huur, aankoop, terugbetaling…",
+    "secureInstant": "Gegevens versleuteld · directe uitvoering",
+    "secureClassic": "Gegevens versleuteld · banktermijn 1 werkdag",
+    "executeInstant": "Overboeking uitvoeren",
+    "confirmClassic": "Overboeking bevestigen",
+    "successInstant": "Directe overboeking uitgevoerd",
+    "successScheduled": "Overboeking ingepland",
+    "successClassic": "Overboekingsopdracht geregistreerd",
+    "errorEmit": "Fout bij uitvoering",
+    "noLoanSelected": "Geen lening geselecteerd",
+    "amountInvalid": "Ongeldig bedrag",
+    "ibanInvalid": "Ongeldige IBAN",
+    "bicInvalid": "Ongeldige BIC/SWIFT",
+    "beneficiaryRequired": "Begunstigde vereist",
+    "bankRequired": "Bank vereist",
+    "scheduleFuture": "De geplande datum moet in de toekomst liggen"
+  },
+  "contact": {
+    "title": "Contacteer de klantenservice",
+    "subtitle": "Ons team antwoordt binnen 24 werkuren · vertrouwelijkheid gegarandeerd.",
+    "infoTitle": "Contactgegevens",
+    "phoneLabel": "Klantenservice",
+    "phoneHours": "Ma-Vr · 8u-20u",
+    "emailLabel": "E-mail",
+    "addressLabel": "Hoofdkantoor",
+    "secureNote": "Je berichten zijn versleuteld en worden vertrouwelijk verwerkt door onze compliance-afdeling.",
+    "formTitle": "Stuur een bericht",
+    "fullName": "Volledige naam",
+    "email": "E-mail",
+    "subject": "Onderwerp",
+    "message": "Bericht",
+    "messagePlaceholder": "Beschrijf je verzoek in detail…",
+    "send": "Bericht versturen",
+    "success": "Bericht verzonden · de klantenservice antwoordt binnen 24 uur",
+    "error": "Versturen mislukt",
+    "subjects": {
+      "account": "Vraag over mijn account",
+      "loan": "Vraag over een lening",
+      "transfer": "Probleem met een overboeking",
+      "complaint": "Klacht",
+      "appointment": "Afspraakverzoek",
+      "other": "Anders"
+    },
+    "metaTitle": "Contact — BNP PARIBAS klantenservice",
+    "metaDesc": "Neem contact op met de klantenservice van BNP PARIBAS voor vragen over uw rekening, leningen of overschrijvingen.",
+    "nameRequired": "Naam verplicht",
+    "emailInvalid": "Ongeldig e-mailadres",
+    "messageTooShort": "Bericht te kort (minimaal 10 tekens)",
+    "defaultNamePlaceholder": "Jan Jansen",
+    "defaultEmailPlaceholder": "jij@voorbeeld.nl",
+    "back": "Terug",
+    "phoneTitle": "Klantenservice",
+    "address": "103 avenue des Champs-Élysées",
+    "addressCity": "75008 Parijs, Frankrijk",
+    "sending": "Verzenden…",
+    "successQueued": "Uw bericht is geregistreerd. Ons team antwoordt snel."
+  },
+  "admin": {
+    "title": "Admin dashboard",
+    "subtitle": "Overzicht van de bankactiviteit.",
+    "kpis": {
+      "total": "Totaal aanvragen",
+      "pending": "In afwachting",
+      "accepted": "Geaccepteerd",
+      "refused": "Geweigerd"
+    },
+    "amounts": {
+      "requested": "Totaal aangevraagd bedrag",
+      "accepted": "Totaal geaccepteerd bedrag",
+      "disbursed": "Uitbetaalde fondsen"
+    },
+    "recent": {
+      "title": "Recente activiteit",
+      "empty": "Geen recente activiteit",
+      "open": "Openen"
+    },
+    "quickActions": {
+      "title": "Snelle acties",
+      "subtitle": "Behandel wachtende dossiers met prioriteit.",
+      "toStudy": "Te beoordelen dossiers",
+      "signedContracts": "Ondertekende contracten verwerken",
+      "manageClients": "Klanten beheren"
+    },
+    "loansPage": {
+      "title": "Alle leningdossiers",
+      "subtitle": "Gedetailleerd en filterbaar overzicht van aanvragen.",
+      "client": "Klant",
+      "amount": "Bedrag",
+      "status": "Status",
+      "date": "Datum",
+      "documents": "Doc.",
+      "duration": "Looptijd"
+    },
+    "clientsPage": {
+      "title": "Klanten",
+      "subtitle": "Klantaccounts en toegangsstatus.",
+      "client": "Klant",
+      "phone": "Telefoon",
+      "loans": "Leningen",
+      "totalBorrowed": "Totaal geleend",
+      "joined": "Lid sinds",
+      "status": "Status",
+      "active": "Actief",
+      "blocked": "Geblokkeerd"
+    },
+    "clientDetail": {
+      "title": "Klantfiche",
+      "personalInfo": "Persoonlijke gegevens",
+      "summary": "Samenvatting",
+      "loans": "Leningen van de klant",
+      "withdrawals": "Overboekingen",
+      "noLoans": "Deze klant heeft nog geen dossier.",
+      "noWithdrawals": "Geen overboekingen.",
+      "blockBtn": "Account blokkeren",
+      "unblockBtn": "Account deblokkeren",
+      "blockTitle": "Klantaccount blokkeren",
+      "blockReason": "Reden voor blokkering",
+      "blockReasonPlaceholder": "Bijv.: vermoeden van fraude, KYC niet-conform…",
+      "blockedSince": "Geblokkeerd sinds",
+      "blockedReason": "Reden",
+      "confirm": "Bevestigen"
+    },
+    "stages": {
+      "title": "Kosten en deblokkeringscodes",
+      "planSaved": "Plan opgeslagen",
+      "planFirst": "Plan eerst de kosten",
+      "codeSent": "Code verzonden voor stap {{stage}}%",
+      "unlocked": "Gedeblokkeerd",
+      "codeSentBadge": "Code verzonden",
+      "fee": "Kosten (€)",
+      "sentAt": "Verzonden",
+      "genAndSend": "Genereren en verzenden",
+      "regenAndSend": "Opnieuw genereren en verzenden",
+      "savePlan": "Plan opslaan"
+    },
+    "transfer": {
+      "title": "Klant-overboeking uitvoeren",
+      "subtitle": "Maak een directe of standaard overboeking namens een klant.",
+      "kind": "Type overboeking",
+      "instant": "Direct",
+      "instantHint": "Direct bijgeschreven 24/7.",
+      "classic": "Standaard",
+      "classicHint": "Bijgeschreven binnen 1 werkdag.",
+      "client": "Klant",
+      "selectClient": "Selecteer een klant",
+      "loan": "Bron lening",
+      "selectLoan": "Selecteer een lening",
+      "amount": "Bedrag (€)",
+      "beneficiary": "Begunstigde",
+      "bankName": "Bank van de begunstigde",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "reference": "Referentie",
+      "submit": "Overboeking uitvoeren",
+      "success": "Overboeking succesvol uitgevoerd",
+      "error": "Fout bij het uitvoeren van de overboeking"
+    }
+  },
+  "blocked": {
+    "title": "Account opgeschort",
+    "message": "Je account is tijdelijk opgeschort door onze compliance-afdeling.",
+    "reasonLabel": "Reden",
+    "contact": "Neem contact op met support voor meer informatie.",
+    "signOut": "Uitloggen"
+  },
+  "status": {
+    "en_attente": "In afwachting",
+    "accepte": "Geaccepteerd",
+    "refuse": "Geweigerd",
+    "contrat_envoye": "Contract verzonden",
+    "contrat_signe": "Contract ondertekend",
+    "en_traitement": "In behandeling",
+    "fonds_disponibles": "Fondsen beschikbaar",
+    "envoye": "Verzonden",
+    "rejete": "Geweigerd"
+  },
+  "client": {
+    "stages": {
+      "title": "Lopende overboekingen",
+      "blockedTitle": "Overboeking geblokkeerd op {{stage}}%",
+      "blockedDesc": "Te betalen kosten: {{fee}}. Je ontvangt een code na validatie.",
+      "codePlaceholder": "Deblokkeringscode",
+      "unlock": "Deblokkeren",
+      "enterCode": "Voer de code in",
+      "invalidCode": "Ongeldige code",
+      "unlocked": "Stap gedeblokkeerd",
+      "awaitCode": "Wacht op code van beheerder",
+      "codeReceivedTitle": "Deblokkeringscode {{stage}}%",
+      "codeReceivedMsg": "Je code: {{code}} (kosten {{fee}})"
+    }
+  },
+  "adminCodes": {
+    "title": "Deblokkeringscodes",
+    "help": "Beheer de voortgangscodes van de overboeking.",
+    "step": "Stap",
+    "released": "Gedeblokkeerd",
+    "fee": "Kosten (€)",
+    "code": "Code",
+    "generate": "Genereren",
+    "regenerate": "Opnieuw genereren",
+    "send": "Verzenden",
+    "generateAndSend": "Genereren en verzenden",
+    "regenerateAndSend": "Opnieuw genereren en verzenden",
+    "noCode": "Geen code",
+    "created": "Code aangemaakt",
+    "updated": "Code bijgewerkt",
+    "error": "Fout",
+    "success": "Succes",
+    "sectionTitle": "Configuratie van overboekingsstappen",
+    "sectionHelp": "Bepaal de kosten en het betalingsadres per stap, valideer de ontvangstbevestiging en stuur dan de code.",
+    "gatedTitle": "Configuratie vergrendeld",
+    "gatedDesc": "De configuratie van overboekingsstappen wordt beschikbaar na acceptatie van de lening.",
+    "address": "Betalingsadres",
+    "saved": "Configuratie opgeslagen",
+    "invalidFee": "Ongeldige kosten",
+    "codeSent": "Code gegenereerd en verzonden",
+    "consumed": "Verbruikt",
+    "receiptUploaded": "Ontvangstbewijs geüpload",
+    "pending": "In afwachting",
+    "approved": "Goedgekeurd",
+    "rejected": "Geweigerd",
+    "approve": "Goedkeuren",
+    "reject": "Weigeren",
+    "receiptApproved": "Ontvangstbewijs goedgekeurd",
+    "receiptRejected": "Ontvangstbewijs geweigerd",
+    "invalidates": "Het opnieuw genereren van een code maakt de vorige automatisch ongeldig: alleen de laatst uitgegeven code werkt.",
+    "notifTitle": "Deblokkeringscode {{p}}%",
+    "notifMsg": "Je code: {{code}} (kosten {{fee}})",
+    "notifApprovedTitle": "Ontvangstbewijs goedgekeurd — stap {{p}}%",
+    "notifApprovedMsg": "Je betaling is goedgekeurd. De code wordt verzonden.",
+    "notifRejectedTitle": "Ontvangstbewijs geweigerd — stap {{p}}%",
+    "notifRejectedMsg": "Stuur een geldig ontvangstbewijs.",
+    "holder": "Rekeninghouder",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "description": "Reden / Beschrijving"
+  },
+  "transferSteps": {
+    "title": "Veilige overboeking",
+    "subtitle": "Bankvoortgang in 3 stappen: 63% · 88% · 100%.",
+    "progress": "Voortgang",
+    "completed": "Overboeking voltooid",
+    "completedDesc": "De fondsen zijn bijgeschreven bij de begunstigde.",
+    "blockedTitle": "Overboeking geblokkeerd op {{p}}%",
+    "blockedDesc": "Om redenen van bankcompliance vereist het deblokkeren van stap {{p}}% het betalen van kosten en validatie van je ontvangstbewijs.",
+    "awaitingConfig": "Configuratie wordt verwerkt",
+    "awaitingConfigDesc": "Ons team rondt de parameters van deze stap af. Je ontvangt een melding.",
+    "feeFor": "Kosten stap {{p}}%",
+    "paymentAddress": "Betalingsadres",
+    "paymentHelp": "Doe de betaling op dit adres en upload vervolgens je ontvangstbewijs.",
+    "receipt": "Betalingsbewijs",
+    "receiptPending": "In afwachting van validatie",
+    "receiptApproved": "Goedgekeurd",
+    "receiptRejected": "Geweigerd — opnieuw versturen",
+    "uploadReceipt": "Ontvangstbewijs uploaden",
+    "replaceReceipt": "Ontvangstbewijs vervangen",
+    "receiptSent": "Ontvangstbewijs verzonden voor validatie",
+    "fileTooBig": "Bestand te groot (max 10 MB)",
+    "enterCode": "Voer je deblokkeringscode in",
+    "unlock": "Deblokkeer stap {{p}}%",
+    "awaitingCode": "Wachten op code",
+    "awaitingCodeDesc": "De code wordt verzonden na validatie van je ontvangstbewijs door een beheerder.",
+    "invalidCode": "Ongeldige code",
+    "advanced": "Stap {{p}}% gedeblokkeerd",
+    "successFinal": "Overboeking succesvol voltooid",
+    "notifAdminTitle": "Ontvangstbewijs ontvangen — stap {{p}}%",
+    "notifAdminMsg": "Een klant heeft een ontvangstbewijs geüpload voor validatie.",
+    "stepNotReached": "Stap nog niet bereikt"
+  },
+  "transfersPage": {
+    "metaTitle": "Mijn overboekingen — BNP PARIBAS",
+    "eyebrow": "Overboekingen ruimte",
+    "title": "Mijn overboekingen",
+    "subtitle": "Tracking van SEPA-overboekingen, compliance-stappen en bewijzen.",
+    "newTransfer": "Nieuwe overboeking",
+    "beneficiary": "Begunstigde:",
+    "issuedAt": "Uitgegeven op {{date}}",
+    "reference": "ref. {{reference}}",
+    "emptyTitle": "Geen overboekingen",
+    "emptyDesc": "Je overboekingen verschijnen hier zodra ze zijn aangemaakt.",
+    "filters": {
+      "all": "Alle",
+      "active": "Lopend",
+      "blocked": "Geblokkeerd",
+      "done": "Voltooid"
+    },
+    "status": {
+      "final": "Goedgekeurd",
+      "rejected": "Geweigerd",
+      "blocked": "Verificatie vereist",
+      "processing": "Bankverwerking"
+    }
+  },
+  "landing": {
+    "metaTitle": "BNP PARIBAS — Directe online leningen",
+    "metaDesc": "Financier je projecten met vertrouwen. Snelle persoonlijke leningen van € 1.000 tot € 50.000. Beslissing in 24u, fondsen binnen 72u.",
+    "badge": "Beslissing binnen 24 uur",
+    "heroTitleA": "Financier je projecten",
+    "heroTitleB": "met vertrouwen.",
+    "heroDesc": "BNP PARIBAS behoort tot de beste generatie Europese banken die snelle, transparante en veilige persoonlijke leningen aanbieden.",
+    "ctaPrimary": "Lening aanvragen",
+    "ctaSecondary": "Ik heb al een account",
+    "trust1": "Versleutelde gegevens",
+    "trust2": "100% veilig",
+    "trust3": "Geen verborgen kosten",
+    "values": {
+      "response": {
+        "title": "Antwoord binnen 24u",
+        "desc": "Ons team van experts beoordeelt je dossier snel. Geen eindeloze wachttijden meer."
+      },
+      "secure": {
+        "title": "100% Veilig",
+        "desc": "Je gegevens zijn end-to-end versleuteld. We voldoen aan de strengste bankstandaarden."
+      },
+      "nofees": {
+        "title": "Geen verborgen kosten",
+        "desc": "De getoonde rente is de toegepaste rente. Geen verrassingen op je termijnbetalingen."
+      }
+    },
+    "how": {
+      "title": "Hoe werkt het?",
+      "s1t": "Simuleer je lening",
+      "s1d": "Kies het bedrag en de looptijd die je passen. We berekenen direct je geschatte termijnbedrag.",
+      "s2t": "Vul je dossier in",
+      "s2d": "Vul het formulier in 5 minuten in en upload je documenten (identiteitsbewijs, bewijs van adres, loonstroken).",
+      "s3t": "Onderteken je contract",
+      "s3d": "Zodra goedgekeurd door ons team, onderteken je contract veilig elektronisch.",
+      "s4t": "Ontvang je fondsen",
+      "s4d": "Zodra de wettelijke termijn is verstreken, zijn de fondsen beschikbaar in je BNP PARIBAS portefeuille, klaar om op te nemen."
+    },
+    "partners": {
+      "eyebrow": "Onze partnerbanken",
+      "title": "Een betrouwbaar banknetwerk",
+      "desc": "We werken samen met de belangrijkste Europese financiële instellingen om je snelle en veilige overboekingen te garanderen."
+    },
+    "finalCta": {
+      "title": "Klaar om je projecten te realiseren?",
+      "desc": "Maak je account aan en dien je eerste aanvraag in binnen enkele minuten.",
+      "button": "Start mijn aanvraag"
+    },
+    "footer": {
+      "rights": "Alle rechten voorbehouden.",
+      "legal": "Een krediet verbindt je en moet worden terugbetaald. Controleer je terugbetalingscapaciteit voordat je je verbindt."
+    },
+    "slides": {
+      "s1t": "Een bank ontworpen voor jou",
+      "s1d": "Open in enkele minuten een rekening, zonder papierwerk.",
+      "s2t": "Beheer je financiën in real-time",
+      "s2d": "Helder dashboard, analyses en slimme meldingen.",
+      "s3t": "Je bank in je broekzak",
+      "s3d": "Veilige mobiele app 24/7 beschikbaar.",
+      "s4t": "Beveiliging op bankniveau",
+      "s4d": "End-to-end versleuteling en sterke authenticatie."
+    },
+    "kpis": {
+      "clients": "Actieve klanten",
+      "countries": "Landen gedekt",
+      "assets": "Beheerd vermogen",
+      "uptime": "Beschikbaarheid"
+    },
+    "security": {
+      "eyebrow": "Beveiliging & Compliance",
+      "title": "Eersteklas bankbescherming",
+      "desc": "Onze systemen voldoen aan de strengste normen van de Europese banksector.",
+      "f1t": "AES-256 versleuteling",
+      "f1d": "Je gegevens worden beschermd door de militaire standaard.",
+      "f2t": "PSD2 & GDPR conform",
+      "f2d": "Europese voorschriften strikt toegepast.",
+      "f3t": "Sterke authenticatie",
+      "f3d": "Dubbele validatie voor elke gevoelige operatie.",
+      "f4t": "24/7 ondersteuning",
+      "f4d": "Toegewijde adviseurs op elk moment beschikbaar."
+    },
+    "testi": {
+      "eyebrow": "Getuigenissen",
+      "title": "Zij vertrouwen ons",
+      "t1n": "Marie de Vries",
+      "t1r": "Financieel Directeur",
+      "t1q": "Een vloeiende en professionele bankervaring. De support is uitzonderlijk.",
+      "t2n": "Jan van der Berg",
+      "t2r": "Ondernemer",
+      "t2q": "De internationale overboekingen zijn snel en de beveiliging is onberispelijk.",
+      "t3n": "Sophie Bakker",
+      "t3r": "Advocaat",
+      "t3q": "Eindelijk een digitale bank die eenvoud combineert met institutionele degelijkheid."
+    },
+    "mobile": {
+      "eyebrow": "Mobiele app",
+      "title": "Je hele bank, in de palm van je hand",
+      "desc": "Beheer je rekeningen, voer overboekingen uit en volg je beleggingen vanaf je smartphone.",
+      "b1": "Real-time tracking van je transacties",
+      "b2": "Directe internationale overboekingen",
+      "b3": "Biometrie Face ID & vingerafdruk"
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "q1": "Hoe open ik een rekening?",
+      "a1": "Registratie gebeurt online in minder dan 5 minuten met een geldig identiteitsbewijs.",
+      "q2": "Wat zijn de kosten?",
+      "a2": "Ons standaardaanbod heeft geen verborgen kosten. Standaardverrichtingen zijn gratis.",
+      "q3": "Zijn mijn fondsen beschermd?",
+      "a3": "Je deposito's zijn gegarandeerd tot € 100.000 door het Depositogarantiestelsel.",
+      "q4": "Hoe contacteer ik support?",
+      "a4": "Ons team is 24/7 bereikbaar via beveiligde chat, e-mail of telefoon."
+    }
+  },
+  "transferProcess": {
+    "progress": "Veilige voortgang",
+    "rejectedBadge": "Overboeking geweigerd",
+    "validatedBadge": "Overboeking goedgekeurd",
+    "complianceBadge": "Compliance-controle",
+    "processingBadge": "Bankverwerking",
+    "rejectedTitle": "Deze overboeking is geweigerd",
+    "rejectedDesc": "De fondsen zijn automatisch teruggestort op je rekening.",
+    "finalTitle": "Overboeking succesvol uitgevoerd",
+    "finalDesc": "De begunstigde ontvangt de fondsen volgens de interbancaire termijnen.",
+    "animatingTitle": "Bankrouting bezig",
+    "animatingDesc": "Je overboeking gaat door onze beveiligde kanalen. Geen actie vereist.",
+    "blockedTitle": "Compliance-verificatie vereist",
+    "blockedDesc": "Om deze stap af te ronden, betaal de compliance-kosten hieronder en voer de ontvangen code in.",
+    "configTitle": "Configuratie bezig",
+    "configDesc": "Een BNP PARIBAS-adviseur bereidt de compliance-betaling voor. Je ontvangt binnenkort instructies.",
+    "fee": "Te betalen compliance-kosten",
+    "bankOrder": "BNP PARIBASgegevens",
+    "accountHolder": "Houder",
+    "reason": "Reden van de overboeking",
+    "receiptLabel": "Betalingsbewijs",
+    "receiptPending": "In verificatie",
+    "receiptApproved": "Goedgekeurd",
+    "receiptRejected": "Geweigerd",
+    "replaceReceipt": "Vervang het bewijs",
+    "uploadReceipt": "Upload het bewijs",
+    "unlockCodeReceived": "Deblokkeringscode ontvangen",
+    "codePlaceholder": "Voer code in (bijv. ABC-1234)",
+    "validateAndContinue": "Goedkeuren en doorgaan",
+    "waitingCodeTitle": "Wachten op deblokkeringscode",
+    "waitingCodeDesc": "Na validatie van je bewijs stuurt je adviseur je een code van 6 tekens.",
+    "fileTooBig": "Bestand groter dan 10 MB.",
+    "invalidCode": "Code ongeldig of al gebruikt.",
+    "successFinal": "Overboeking succesvol afgerond.",
+    "advanced": "Stap goedgekeurd.",
+    "copied": "{{label}} gekopieerd naar klembord.",
+    "receiptSent": "Bewijs verzonden naar je adviseur.",
+    "adminValidationTitle": "Overboeking in afwachting van validatie",
+    "adminValidationMessage": "Een klant heeft een compliance-niveau bereikt en wacht op de vrijgave van de code.",
+    "adminReceiptTitle": "Nieuw te controleren bewijs",
+    "adminReceiptMessage": "Een klant heeft een compliance-betalingsbewijs geüpload."
+  },
+  "transferStepDialog": {
+    "title": "Compliance-stap",
+    "subtitle": "Volg de voortgang en valideer elk niveau in alle veiligheid."
+  },
+  "transferDetail": {
+    "metaTitle": "Overboekingsdetails — BNP PARIBAS",
+    "backAll": "Alle overboekingen",
+    "header": "BNP PARIBAS · Overboekingsopdracht",
+    "amount": "Bedrag",
+    "beneficiary": "Begunstigde",
+    "bank": "Bank",
+    "reference": "Referentie",
+    "iban": "IBAN",
+    "bic": "BIC",
+    "issuedAt": "Uitgegeven op",
+    "tracking": "Overboeking volgen",
+    "history": "Geschiedenis",
+    "notFound": "Overboeking niet gevonden.",
+    "badge": {
+      "validated": "Overboeking goedgekeurd",
+      "rejected": "Overboeking geweigerd",
+      "compliance": "Compliance-verificatie",
+      "processing": "Bankverwerking"
+    },
+    "rejected": {
+      "title": "Deze overboeking is geweigerd",
+      "desc": "De fondsen zijn automatisch teruggestort op je BNP PARIBASPARIBAS-rekening.",
+      "reason": "Reden"
+    },
+    "timeline": {
+      "issued": "Overboekingsopdracht uitgegeven",
+      "issuedDesc": "Naar {{beneficiary}} ({{amount}})",
+      "compliance": "Compliance-stap goedgekeurd",
+      "complianceDesc": "Deblokkeringscode succesvol ingevoerd.",
+      "enhanced": "Uitgebreide verificatie goedgekeurd",
+      "enhancedDesc": "De overboeking gaat verder naar de begunstigde.",
+      "executed": "Overboeking uitgevoerd",
+      "executedDesc": "De fondsen zijn bijgeschreven.",
+      "rejected": "Overboeking geweigerd",
+      "rejectedDesc": "Het saldo is automatisch teruggestort.",
+      "now": "Zojuist"
+    },
+    "receipt": {
+      "title": "Bankbewijs beschikbaar",
+      "desc": "Download de officiële BNP PARIBAS-samenvatting van deze overboekingsopdracht.",
+      "download": "Download het bewijs"
+    }
+  },
+  "receipt": {
+    "metaTitle": "Overboekingsbewijs — BNP PARIBAS",
+    "download": "Download de PDF",
+    "subBrand": "Together we thrive",
+    "documentLabel": "Officieel document",
+    "documentTitle": "Overboekingsbewijs",
+    "title": "Bewijs van bankoverboeking",
+    "subtitle": "Uitgegeven op {{date}}",
+    "amount": "Overgemaakt bedrag",
+    "statusExecuted": "Overboeking uitgevoerd",
+    "statusPending": "Overboeking in behandeling",
+    "beneficiary": "Begunstigde",
+    "bank": "Bank van de begunstigde",
+    "iban": "IBAN",
+    "bic": "BIC / SWIFT",
+    "reference": "Referentie",
+    "issuedAt": "Datum van uitgifte",
+    "footerSecurity": "Document gegenereerd door de beveiligde BNP PARIBAS-systemen.",
+    "footerLegal": "Dit bewijs geldt als bewijs van de banktransactie en kan worden voorgelegd aan elke bevoegde autoriteit.",
+    "generating": "PDF genereren…",
+    "downloaded": "Bewijs succesvol gedownload",
+    "downloadError": "Kan het bewijs niet downloaden",
+    "sessionExpired": "Sessie verlopen. Log opnieuw in.",
+    "serverSessionExpired": "Sessie verlopen. Log opnieuw in.",
+    "serverNotFound": "Overschrijving niet gevonden",
+    "serverUnauthorized": "Onbevoegde toegang tot dit bewijs",
+    "serverUnavailable": "Het bewijs is alleen beschikbaar na validatie van de overschrijving",
+    "serverSubtitle": "Officieel bankbewijs",
+    "serverSecure": "Beveiligd document",
+    "serverTitle": "Overschrijvingsbewijs",
+    "serverIssued": "Uitgegeven op {{date}}",
+    "serverAmount": "Overgemaakt bedrag",
+    "serverStatus": "Status",
+    "serverExecuted": "Overschrijving uitgevoerd",
+    "serverBeneficiary": "Begunstigde",
+    "serverBank": "Bank van begunstigde",
+    "serverIban": "IBAN",
+    "serverBic": "BIC / SWIFT",
+    "serverReference": "Referentie",
+    "serverExecutedAt": "Uitvoeringsdatum",
+    "serverSecurity": "Document gegenereerd door de beveiligde systemen van BNP PARIBAS.",
+    "serverLegal": "Dit bewijs dient als bewijs van de bankverrichting en kan aan elke bevoegde autoriteit worden voorgelegd."
+  },
+  "notif": {
+    "transfer": {
+      "instantTitle": "Directe overboeking ontvangen",
+      "classicTitle": "Overboeking lopend",
+      "instantMsg": "{{amount}} bijgeschreven op rekening {{iban4}}…{{ibanLast}} (ref. {{ref}})",
+      "classicMsg": "Een standaard overboeking van {{amount}} is gestart (bijschrijving binnen 1 werkdag, ref. {{ref}})",
+      "adminInitTitle": "Nieuwe overboeking gestart",
+      "adminInitMsg": "{{amount}} → {{beneficiary}} (ref. {{ref}})"
+    },
+    "transferProcess": {
+      "adminValidationTitle": "Bewijs te valideren",
+      "adminValidationMsg": "Een klant heeft een betalingsbewijs geüpload ter validatie.",
+      "adminReceiptTitle": "Nieuw bewijs ontvangen",
+      "adminReceiptMsg": "Er is een nieuw kostenbewijs geüpload."
+    },
+    "adminCodes": {
+      "codeTitle": "Ontgrendelcode {{p}}%",
+      "codeMsg": "Uw code: {{code}} (kosten {{fee}})",
+      "rejectedTitle": "Bewijs geweigerd",
+      "rejectedMsg": "Upload een geldig bewijs.",
+      "manualCodeTitle": "Ontgrendelcode {{p}}%",
+      "manualCodeMsg": "Uw ontgrendelcode is: {{code}}"
+    },
+    "loan": {
+      "newRequestAdminTitle": "Nieuwe leningaanvraag",
+      "newRequestAdminMsg": "{{name}} vraagt {{amount}} € over {{months}} maanden aan",
+      "statusTitle": "Status van uw aanvraag bijgewerkt",
+      "statusMsg": "Uw aanvraag van {{amount}} is nu: $t(status.{{statusKey}})",
+      "signedReceivedTitle": "Ondertekend contract ontvangen",
+      "signedReceivedMsg": "{{name}} heeft het contract ondertekend (aanvraag {{id}})"
+    },
+    "withdrawal": {
+      "sentTitle": "Overboeking uitgevoerd",
+      "sentMsg": "{{amount}} is verzonden naar {{iban4}}…{{ibanLast}} (ref. {{ref}})",
+      "rejectedTitle": "Overboeking geweigerd · saldo teruggestort",
+      "rejectedMsg": "Uw overboeking van {{amount}} is geweigerd. Het saldo is automatisch teruggestort."
+    }
+  },
+  "settings": {
+    "metaTitle": "Instellingen — BNP PARIBAS",
+    "title": "Instellingen",
+    "subtitleDesktop": "Beheer uw persoonlijke gegevens en beveiliging",
+    "subtitleMobile": "Beheer uw account en beveiliging",
+    "profile": "Profiel",
+    "fullName": "Volledige naam",
+    "phone": "Telefoon",
+    "currentEmail": "Huidig e-mailadres",
+    "saveProfile": "Profiel opslaan",
+    "emailSection": "E-mailadres",
+    "newEmail": "Nieuw e-mailadres",
+    "emailHint": "Een bevestigingsmail wordt naar het nieuwe adres gestuurd.",
+    "updateEmail": "E-mail bijwerken",
+    "passwordSection": "Wachtwoord",
+    "currentPassword": "Huidig wachtwoord",
+    "newPassword": "Nieuw wachtwoord",
+    "confirmPassword": "Bevestigen",
+    "changePassword": "Wachtwoord wijzigen",
+    "adminAccount": "Beheerdersaccount",
+    "adminDesc": "U heeft beheerrechten voor klantdossiers en transacties.",
+    "loadProfileError": "Kan profiel niet laden",
+    "saveError": "Opslaanfout",
+    "profileUpdated": "Profiel bijgewerkt",
+    "emailUpdated": "E-mail bijgewerkt. Controleer uw inbox om te bevestigen.",
+    "passwordTooShort": "Wachtwoord moet minimaal 8 tekens hebben",
+    "passwordMismatch": "Wachtwoorden komen niet overeen",
+    "currentPasswordWrong": "Huidig wachtwoord is onjuist",
+    "passwordUpdated": "Wachtwoord bijgewerkt",
+    "back": "Terug",
+    "accessAdmin": "Admin-dashboard openen",
+    "goBack": "Terug",
+    "languageSection": "Taal",
+    "languageDesc": "Kies de taal van de interface. Uw keuze wordt opgeslagen en gesynchroniseerd met uw account.",
+    "languageSaved": "Taal bijgewerkt"
+  },
+  "loanDetail": {
+    "metaTitle": "Leningdetails — BNP PARIBASAS",
+    "downloadImpossible": "Download niet beschikbaar",
+    "contractGenerating": "PDF-contract genereren…",
+    "sessionExpired": "Sessie verlopen. Log opnieuw in.",
+    "contractDownloaded": "Contract gedownload",
+    "generationImpossible": "Genereren mislukt: {{message}}",
+    "unknownError": "Onbekende fout",
+    "fileTooHeavy": "Bestand te groot (max 10 MB)",
+    "uploadFailed": "Upload mislukt",
+    "updateError": "Bijwerkfout",
+    "signedSent": "Ondertekend contract verzonden!",
+    "signedReceivedTitle": "Ondertekend contract ontvangen",
+    "signedReceivedMessage": "{{name}} heeft het contract ondertekend (aanvraag {{id}})",
+    "loading": "Laden…",
+    "notFound": "Lening niet gevonden",
+    "back": "Terug naar mijn leningen",
+    "fileNumber": "Dossier #{{id}}",
+    "title": "Leningdetails",
+    "refusedTitle": "Aanvraag afgewezen",
+    "refusedDesc": "Na beoordeling van uw dossier kunnen we uw financieringsaanvraag helaas niet goedkeuren.",
+    "reason": "Reden",
+    "summaryTitle": "Aanvraagoverzicht",
+    "amount": "Bedrag",
+    "duration": "Looptijd",
+    "durationMonths": "{{count}} maanden",
+    "monthlyPayment": "Geschatte maandlast",
+    "monthlyIncome": "Maandinkomen",
+    "purpose": "Doel",
+    "documentsTitle": "Aangeleverde documenten",
+    "addedOn": "Toegevoegd op {{date}}",
+    "availableBalance": "Beschikbaar saldo",
+    "alreadyWithdrawn": "Al opgenomen: {{withdrawn}} van {{total}}",
+    "makeTransfer": "Overschrijving maken",
+    "contractTitle": "Contract",
+    "downloadContract": "Contract downloaden",
+    "signInstruction": "Onderteken het contract en upload het hieronder ter validatie.",
+    "sendSignedContract": "Ondertekend contract verzenden",
+    "signedContractReceived": "Ondertekend contract ontvangen",
+    "historyTitle": "Actiegeschiedenis",
+    "noAction": "Nog geen actie.",
+    "requestSubmitted": "Aanvraag ingediend",
+    "requestRefused": "Aanvraag afgewezen",
+    "withdraw": "Opnemen",
+    "details": "Details",
+    "loanDescription": {
+      "en_attente": "Uw aanvraag wordt beoordeeld",
+      "accepte": "Uw aanvraag is geaccepteerd",
+      "refuse": "Aanvraag niet geslaagd",
+      "contrat_envoye": "Het contract is verzonden voor ondertekening",
+      "contrat_signe": "Ondertekend contract ontvangen, vrijgave in voorbereiding",
+      "en_traitement": "Beschikbaarheid van fondsen binnen 72 uur",
+      "fonds_disponibles": "Uw fondsen zijn beschikbaar"
+    },
+    "steps": {
+      "en_attente": "Aanvraag ingediend",
+      "accepte": "Geaccepteerd",
+      "contrat_envoye": "Contract verzonden",
+      "contrat_signe": "Contract ondertekend",
+      "en_traitement": "In behandeling",
+      "fonds_disponibles": "Fondsen beschikbaar"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "transfers": "Overschrijvingen",
+    "request": "Aanvraag",
+    "primary": "Hoofdnavigatie",
+    "support": "Support"
+  },
+  "mobileHome": {
+    "title": "Welkom bij BNP PARIBAS",
+    "subtitle": "Uw bank, in uw zak.",
+    "description": "Beheer uw leningen, overschrijvingen en rekeningen veilig, waar u ook bent.",
+    "cta": "Beginnen",
+    "tagline": "Europese bankbeveiliging",
+    "feature1": "Veilig",
+    "feature2": "End-to-end versleuteling",
+    "feature3": "Premium ervaring"
+  },
+  "authPending": {
+    "title": "Controleer je e-mail",
+    "description": "We hebben een bevestigingslink gestuurd.",
+    "instruction": "Klik op de link om je account te activeren.",
+    "loading": "Wachten op bevestiging...",
+    "footer": "Deel nooit je inloggegevens."
+  },
+  "password": {
+    "show": "Wachtwoord tonen",
+    "hide": "Wachtwoord verbergen",
+    "veryWeak": "Zeer zwak",
+    "weak": "Zwak",
+    "fair": "Matig",
+    "good": "Goed",
+    "strong": "Sterk",
+    "excellent": "Uitstekend",
+    "ruleLength": "Minstens 10 tekens",
+    "ruleUpper": "Een hoofdletter",
+    "ruleLower": "Een kleine letter",
+    "ruleDigit": "Een cijfer",
+    "ruleSpecial": "Een speciaal teken",
+    "notStrong": "Het wachtwoord voldoet niet aan alle beveiligingsregels."
+  },
+  "livechat": {
+    "open": "Chat openen",
+    "close": "Sluiten",
+    "title": "BNP PARIBAS-adviseur",
+    "online": "Online",
+    "placeholder": "Typ uw bericht…",
+    "greeting": "Hallo 👋! Hoe kan ik u helpen?",
+    "faq": {
+      "loan": "Voor een lening klikt u op \"Nieuwe lening\" in uw dashboard. Beslissing binnen 24 u, geld binnen 72 u.",
+      "password": "U kunt uw wachtwoord opnieuw instellen via \"Wachtwoord vergeten?\".",
+      "transfer": "Uw overboekingen vindt u in de sectie \"Overboekingen\".",
+      "contact": "Ons team is bereikbaar op +39 350 036 6867 of via de contactpagina.",
+      "thanks": "Graag gedaan! Stel gerust andere vragen.",
+      "default": "Een BNP PARIBAS-adviseur neemt spoedig contact op. U kunt ons ook bereiken via de contactpagina."
+    }
+  },
+  "legal": {
+    "badge": "Juridisch",
+    "lastUpdated": "Laatst bijgewerkt",
+    "home": "Home",
+    "privacy": {
+      "title": "Privacybeleid",
+      "subtitle": "Uw privacy is essentieel voor ons bankvertrouwen.",
+      "sections": [
+        {
+          "h": "1. Verzamelde gegevens",
+          "p": "Identiteit, contact, financiële, technische en gedragsdata."
+        },
+        {
+          "h": "2. Doeleinden",
+          "p": "Account, kredietbeoordeling, fraude- en witwasbestrijding, wettelijke plichten."
+        },
+        {
+          "h": "3. Rechtsgrond (AVG)",
+          "p": "Uitvoering contract, gerechtvaardigd belang, wettelijke plicht, toestemming."
+        },
+        {
+          "h": "4. Delen",
+          "p": "Alleen met gecontroleerde verwerkers, toezichthouders en justitie."
+        },
+        {
+          "h": "5. Bewaring",
+          "p": "Accountdata: looptijd + 10 jaar (Wwft). Beveiligingslogs: 24 maanden."
+        },
+        {
+          "h": "6. Uw rechten",
+          "p": "Inzage, rectificatie, verwijdering, beperking, overdraagbaarheid, bezwaar. <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@bnpparibas.com</a>."
+        },
+        {
+          "h": "7. Beveiliging",
+          "p": "TLS, encryptie at rest, fingerprint, anomaliedetectie, MFA, 24/7-response."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Algemene voorwaarden",
+      "subtitle": "Door BNP PARIBAS te gebruiken accepteert u deze voorwaarden.",
+      "sections": [
+        {
+          "h": "1. Voorwaarden",
+          "p": "Minimaal 18 jaar, ingezetene van een toegestaan land."
+        },
+        {
+          "h": "2. Account",
+          "p": "Juiste gegevens, vertrouwelijke inloggegevens."
+        },
+        {
+          "h": "3. Aanvaardbaar gebruik",
+          "p": "Geen fraude, witwassen, terrorismefinanciering, marktmisbruik."
+        },
+        {
+          "h": "4. Tarieven",
+          "p": "Vermeld vóór elke verrichting. Wijzigingen met 30 dagen voorafgaande kennisgeving."
+        },
+        {
+          "h": "5. Aansprakelijkheid",
+          "p": "Directe schade bij grove nalatigheid; geen indirecte schade."
+        },
+        {
+          "h": "6. Opschorting",
+          "p": "Onmiddellijke opschorting bij fraude- of AML-vermoeden."
+        },
+        {
+          "h": "7. Toepasselijk recht",
+          "p": "Frans recht, onder voorbehoud van dwingend consumentenrecht."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookiebeleid",
+      "sections": [
+        {
+          "h": "Wat we gebruiken",
+          "list": [
+            "<strong>Strikt noodzakelijk</strong> — authenticatie, sessie, beveiliging.",
+            "<strong>Functioneel</strong> — taal, thema.",
+            "<strong>Beveiliging</strong> — fingerprint tegen fraude.",
+            "<strong>Analytics</strong> — geaggregeerd, alleen met toestemming."
+          ]
+        },
+        {
+          "h": "Beheer",
+          "p": "U kunt cookies wissen via uw browser. Zonder noodzakelijke cookies kunt u niet inloggen."
+        }
+      ]
+    },
+    "mentions": {
+      "title": "Wettelijke vermeldingen",
+      "sections": [
+        {
+          "h": "Uitgever",
+          "p": "BNP PARIBAS — SAS met kapitaal van 1.000.000 EUR — zetel: 1 Centenary Square, Birmingham, B1 1HQ, Verenigd Koninkrijk."
+        },
+        {
+          "h": "Verantwoordelijk",
+          "p": "BNP PARIBAS Compliance."
+        },
+        {
+          "h": "Hosting",
+          "p": "Cloudflare Workers — 101 Townsend St, San Francisco, CA 94107, USA."
+        },
+        {
+          "h": "Contact",
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+        },
+        {
+          "h": "Intellectueel eigendom",
+          "p": "Alle merken, logo's en content blijven eigendom van BNP PARIBAS."
+        }
+      ]
+    },
+    "amlKyc": {
+      "title": "AML / KYC-beleid",
+      "sections": [
+        {
+          "h": "Inzet",
+          "p": "Geen tolerantie voor witwassen, terrorismefinanciering en sanctie-ontduiking."
+        },
+        {
+          "h": "Cliëntonderzoek",
+          "p": "Identiteit, adres, bron van middelen, doorlopende monitoring."
+        },
+        {
+          "h": "Verscherpt onderzoek",
+          "p": "PEP, hoogrisicolanden, complexe transacties."
+        },
+        {
+          "h": "Sanctiescreening",
+          "p": "Realtime tegen EU-, UN-, OFAC-, UK-lijsten."
+        },
+        {
+          "h": "Meldingen",
+          "p": "Meldingen aan de FIU. Tipping-off verboden."
+        },
+        {
+          "h": "Training",
+          "p": "Jaarlijkse AML/KYC-training; onafhankelijke MLRO."
+        }
+      ]
+    },
+    "finPriv": {
+      "title": "Financiële privacy en veiligheid",
+      "sections": [
+        {
+          "h": "Bescherming",
+          "p": "TLS 1.3, AES-256, HSM, gescheiden klantgelden."
+        },
+        {
+          "h": "Authenticatie",
+          "p": "SCA PSD2: wachtwoord + apparaat + OTP."
+        },
+        {
+          "h": "Fraudemonitoring",
+          "p": "24/7 anomaliedetectie, geo-velocity, gedragsscoring."
+        },
+        {
+          "h": "Geheimhouding",
+          "p": "Bankgeheim. Data alleen aan u, toezichthouders of bij geldig bevel."
+        },
+        {
+          "h": "Uw rol",
+          "p": "Bescherm uw gegevens, registreer vertrouwde apparaten, activeer meldingen."
+        }
+      ]
+    },
+    "loanTerms": {
+      "title": "Krediet- en leningsvoorwaarden",
+      "subtitle": "Lenen kost geld; controleer uw aflossingscapaciteit.",
+      "sections": [
+        {
+          "h": "1. Voorwaarden",
+          "p": "Geverifieerde identiteit, stabiel inkomen, geen actieve achterstand."
+        },
+        {
+          "h": "2. Bedrag en duur",
+          "p": "Van 1.000 EUR tot 500.000 EUR, 12 tot 120 maanden."
+        },
+        {
+          "h": "3. Rente / JKP",
+          "p": "Vast tarief in uw aanbod."
+        },
+        {
+          "h": "4. Uitbetaling",
+          "p": "Na tekening en verificatie. > 50.000 EUR gefaseerd (63 % / 88 % / 100 %)."
+        },
+        {
+          "h": "5. Aflossing",
+          "p": "Maandelijkse incasso. Vervroegde aflossing toegestaan."
+        },
+        {
+          "h": "6. Verzuim",
+          "p": "Rente, kosten en eventuele opzegging en gerechtelijke invordering."
+        },
+        {
+          "h": "7. Herroepingsrecht",
+          "p": "14 kalenderdagen na tekening."
+        }
+      ]
+    },
+    "repayment": {
+      "title": "Aflossings- en verzuimbeleid",
+      "sections": [
+        {
+          "h": "Aflossingsschema",
+          "p": "Maandelijkse incasso vanaf uw IBAN op de afgesproken datum."
+        },
+        {
+          "h": "Vervroegde aflossing",
+          "p": "Altijd toegestaan; vergoeding binnen wettelijke grenzen."
+        },
+        {
+          "h": "Te late betaling",
+          "list": [
+            "Dag 1–7: herinnering zonder kosten.",
+            "Dag 8–30: kosten + wettelijke rente.",
+            "Vanaf dag 31: ingebrekestelling."
+          ]
+        },
+        {
+          "h": "Invordering",
+          "p": "Wij geven de voorkeur aan een minnelijke regeling."
+        },
+        {
+          "h": "Hardheid",
+          "p": "Neem direct contact op: uitstel of herstructurering mogelijk."
+        }
+      ]
+    }
+  },
+  "adminSec": {
+    "metaTitle": "Beveiliging · Admin",
+    "unauthorized": "Niet bevoegd",
+    "adminLink": "Admin",
+    "center": "Beveiligingscentrum",
+    "ok": "ok",
+    "fail": "mislukt",
+    "user": "gebruiker",
+    "kpi": {
+      "totalEvents": "Totaal events",
+      "devicesTracked": "Apparaten gevolgd",
+      "openAlerts": "Open waarschuwingen",
+      "highRisk": "Risicogebruikers"
+    },
+    "tab": {
+      "logs": "Logboeken",
+      "alerts": "Waarschuwingen",
+      "devices": "Apparaten",
+      "risk": "Risico"
+    },
+    "logs": {
+      "title": "Beveiligingslogboek",
+      "searchPh": "Zoek gebruiker, IP, land…",
+      "action": "Actie",
+      "allActions": "Alle acties",
+      "when": "Wanneer",
+      "user": "Gebruiker",
+      "ipCountry": "IP / Land",
+      "device": "Apparaat",
+      "status": "Status",
+      "empty": "Geen logs."
+    },
+    "alerts": {
+      "title": "Beveiligingswaarschuwingen",
+      "empty": "Geen waarschuwingen.",
+      "resolved": "opgelost",
+      "resolve": "Oplossen"
+    },
+    "devices": {
+      "title": "Vertrouwde apparaten",
+      "label": "Label",
+      "country": "Land",
+      "lastSeen": "Laatst gezien",
+      "trusted": "Vertrouwd",
+      "trustedBadge": "vertrouwd",
+      "pending": "in afwachting",
+      "empty": "Geen apparaten."
+    },
+    "risk": {
+      "title": "Risicoscores",
+      "risk": "Risico",
+      "sessions": "Sessies",
+      "sensitive": "Gevoelig",
+      "empty": "Geen data."
+    }
+  },
+  "footer": {
+    "legal": "Juridisch",
+    "privacy": "Privacy",
+    "terms": "Voorwaarden",
+    "cookies": "Cookies",
+    "mentions": "Wettelijke vermeldingen",
+    "banking": "Bankzaken",
+    "loanTerms": "Leningsvoorwaarden",
+    "repayment": "Terugbetaling & wanbetaling",
+    "aml": "AML / KYC",
+    "finPriv": "Financiële privacy",
+    "contact": "Contact"
+  },
+  "chat": {
+    "loading": "Laden",
+    "notFound": "Pagina niet gevonden",
+    "notFoundDesc": "Deze pagina bestaat niet.",
+    "backHome": "Terug naar home",
+    "assistant": "assistent",
+    "typing": "typt",
+    "today": "Vandaag",
+    "yesterday": "Gisteren",
+    "pageTitle": "Live ondersteuning",
+    "pageDesc": "Chat met ons team of met Anna, onze virtuele assistent.",
+    "closed": "Gesprek gesloten",
+    "closeTicket": "Gesprek sluiten",
+    "close": "Sluiten",
+    "compose": {
+      "placeholder": "Typ je bericht…"
+    },
+    "rt": {
+      "bold": "Vet",
+      "italic": "Cursief",
+      "link": "Link",
+      "linkPrompt": "Voer URL in (https://...)"
+    },
+    "handoff": {
+      "question": "Wilt u met een adviseur spreken?",
+      "yes": "Ja, met adviseur spreken",
+      "no": "Nee, bedankt",
+      "pending": "Uw verzoek wordt verwerkt, een adviseur komt binnen 1-2 minuten…"
+    },
+    "agent": {
+      "joined": "heeft zich bij het gesprek gevoegd",
+      "joinedYou": "Je bent bij het gesprek gekomen",
+      "notAssigned": "Geen agent toegewezen",
+      "join": "Deelnemen"
+    },
+    "status": {
+      "online": "Online",
+      "agent": "Adviseur online",
+      "open": "Open",
+      "waiting_agent": "Wachten op agent",
+      "assigned": "Bezig",
+      "closed": "Gesloten"
+    },
+    "admin": {
+      "empty": "Geen gesprekken.",
+      "selectHint": "Selecteer een gesprek links.",
+      "folders": "Klantenbestanden",
+      "tickets": "Kaartjes",
+      "searchPlaceholder": "Zoek een klant, ticket, e-mail…",
+      "filter": {
+        "all": "Alle",
+        "waiting": "In de wacht",
+        "mine": "Aan mij toegewezen",
+        "closed": "Gesloten",
+        "guests": "Bezoekers"
+      },
+      "info": {
+        "title": "Ticketinformatie",
+        "none": "Geen informatie"
+      },
+      "close": "Ticket sluiten",
+      "reopen": "Ticket heropenen",
+      "updated": "Ticket bijgewerkt"
+    },
+    "banner": {
+      "top": "BNP PARIBAS — Veilige klantenservice",
+      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+    },
+    "loginRequired": {
+      "title": "Log in om te chatten",
+      "desc": "Je moet ingelogd zijn om support te gebruiken.",
+      "cta": "Inloggen"
+    },
+    "nav": "Support",
+    "guest": {
+      "subtitle": "Hulp van bezoekers",
+      "intro": "Vul dit formulier in, een adviseur van BNP PARIBAS zal snel reageren. U krijgt een ticketnummer.",
+      "name": "Volledige naam *",
+      "email": "E-mail *",
+      "phone": "Telefoon",
+      "whatsapp": "WhatsAppen",
+      "country": "Land van verblijf",
+      "subject": "Onderwerp",
+      "message": "Jouw bericht *",
+      "submit": "Open mijn kaartje",
+      "privacy": "Uw gegevens worden vertrouwelijk behandeld (AVG).",
+      "created": "Ticket #{{ticket}} aangemaakt!",
+      "errors": {
+        "required": "Naam, e-mailadres en bericht vereist.",
+        "fail": "Verzenden mislukt. Probeer het opnieuw."
+      }
+    },
+    "ticket": "Ticket",
+    "archived": "Archief",
+    "open": "Open",
+    "welcome": {
+      "greeting": "Hallo 👋 Ik ben Anna, uw BNP PARIBAS-assistente.",
+      "help": "Hoe kan ik u vandaag helpen?"
+    },
+    "tickets": {
+      "title": "Mijn gesprekken",
+      "new": "Nieuw gesprek",
+      "open": "Open",
+      "closed": "Gesloten",
+      "empty": "Nog geen gesprekken.",
+      "back": "Terug",
+      "one": "Gesprek"
+    }
+  },
+  "adminDash": {
+    "title": "Dashboard — BNP PARIBAS",
+    "overview": "Overzicht",
+    "clients": "Klanten",
+    "loans": "Leningen",
+    "transfers": "Overdrachten",
+    "chat": "Livechat",
+    "security": "Beveiliging",
+    "notifications": "Meldingen",
+    "kpis": {
+      "clients": "Actieve klanten",
+      "loansPending": "Lopende leningen",
+      "transfersBlocked": "Overboekingen geblokkeerd",
+      "ticketsOpen": "Kaartjes openen",
+      "newToday": "Nieuw vandaag"
+    },
+    "recentActivity": "Recente activiteit",
+    "quickActions": "Snelle acties",
+    "staff": "Team & roles",
+    "roles": "Permissions",
+    "logs": "Activity log"
+  }
+}
