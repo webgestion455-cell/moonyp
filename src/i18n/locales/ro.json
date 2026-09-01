@@ -41,7 +41,8 @@
     "sessionExpired": "Sesiunea a expirat",
     "notFound": "Pagina nu a fost găsită",
     "notFoundDesc": "Pagina căutată nu există.",
-    "backHome": "Înapoi la pagina principală"
+    "backHome": "Înapoi la pagina principală",
+    "errorRetry": "Reîncearcă"
   },
   "header": {
     "myLoans": "Creditele mele",
@@ -136,7 +137,7 @@
     "viewLoan": "Vizualizați fișierul",
     "needHelp": "Ai nevoie de ajutor?",
     "contactSupport": "Contactați serviciul pentru clienți",
-    "metaTitle": "Tabloul meu de bord — BNP PARIBAS",
+    "metaTitle": "Tabloul meu de bord — MOONYP",
     "sessionExpired": "Sesiunea a expirat din cauza inactivității",
     "loadError": "Eroare de încărcare",
     "welcomeNamed": "Bun venit, {{name}}",
@@ -277,8 +278,8 @@
       "appointment": "Cerere de programare",
       "other": "Alte"
     },
-    "metaTitle": "Contact — Serviciu clienți BNP PARIBAS",
-    "metaDesc": "Contactați serviciul clienți BNP PARIBAS pentru întrebări despre contul dvs., împrumuturi sau transferuri.",
+    "metaTitle": "Contact — Serviciu clienți MOONYP",
+    "metaDesc": "Contactați serviciul clienți MOONYP pentru întrebări despre contul dvs., împrumuturi sau transferuri.",
     "nameRequired": "Numele este obligatoriu",
     "emailInvalid": "E-mail nevalid",
     "messageTooShort": "Mesaj prea scurt (minimum 10 caractere)",
@@ -504,7 +505,7 @@
     "stepNotReached": "Pasul încă nu a fost atins"
   },
   "transfersPage": {
-    "metaTitle": "Transferurile mele — BNP PARIBAS",
+    "metaTitle": "Transferurile mele — MOONYP",
     "eyebrow": "Zona de transferuri",
     "title": "Transferurile mele",
     "subtitle": "Urmăriți transferurile SEPA, pașii de conformitate și chitanțele.",
@@ -528,14 +529,14 @@
     }
   },
   "landing": {
-    "metaTitle": "BNP PARIBAS — Împrumuturi online instantanee",
+    "metaTitle": "MOONYP — Împrumuturi online instantanee",
     "metaDesc": "Finanțați-vă proiectele cu încredere. Împrumuturi rapide personale de la 1.000 € la 50.000 €. Decizie în 24h, fonduri în 72h.",
     "badge": "Decizie în mai puțin de 24 de ore",
     "heroTitleA": "Finanțați-vă proiectele",
     "heroTitleB": "cu incredere.",
-    "heroDesc": "BNP PARIBAS face parte din generația lider de bănci europene care oferă împrumuturi personale rapide, transparente și sigure.",
+    "heroDesc": "MOONYP face parte din generația lider de bănci europene care oferă împrumuturi personale rapide, transparente și sigure.",
     "ctaPrimary": "Aplicați pentru un împrumut",
-    "ctaSecondary": "Am deja un cont",
+    "ctaSecondary": "Simulează creditul meu",
     "trust1": "Date criptate",
     "trust2": "100% sigur",
     "trust3": "Fără taxe ascunse",
@@ -562,7 +563,7 @@
       "s3t": "Semnează-ți contractul",
       "s3d": "Odată aprobat de echipa noastră, semnați-vă contractul electronic și în siguranță.",
       "s4t": "Primește-ți fondurile",
-      "s4d": "Odată ce perioada legală a trecut, fondurile sunt disponibile în portofelul tău BNP PARIBAS, gata pentru a fi retrase."
+      "s4d": "Odată ce perioada legală a trecut, fondurile sunt disponibile în portofelul tău MOONYP, gata pentru a fi retrase."
     },
     "partners": {
       "eyebrow": "Băncile noastre partenere",
@@ -571,8 +572,8 @@
     },
     "finalCta": {
       "title": "Ești gata să dai viață proiectelor tale?",
-      "desc": "Creați-vă contul și trimiteți prima cerere în doar câteva minute.",
-      "button": "Începeți aplicația mea"
+      "desc": "Depuneți cererea în câteva minute — fără cont și fără hârtii.",
+      "button": "Începe cererea"
     },
     "footer": {
       "rights": "Toate drepturile rezervate.",
@@ -580,7 +581,7 @@
     },
     "slides": {
       "s1t": "Servicii bancare concepute în jurul tău",
-      "s1d": "Deschideți un cont în câteva minute, fără acte.",
+      "s1d": "Cerere în câteva minute, fără cont și fără hârtii.",
       "s2t": "Gestionați-vă finanțele în timp real",
       "s2d": "Tabloul de bord clar, analize și alerte inteligente.",
       "s3t": "Banca ta în buzunar",
@@ -623,15 +624,15 @@
     "mobile": {
       "eyebrow": "Aplicație mobilă",
       "title": "Întreaga ta bancă, în palmă",
-      "desc": "Gestionați conturile, trimiteți transferuri și urmăriți investițiile de pe smartphone.",
+      "desc": "Urmăriți cererea, încărcați documente și semnați contractul de pe telefon.",
       "b1": "Urmărirea tranzacțiilor în timp real",
       "b2": "Transferuri internaționale instantanee",
       "b3": "Face ID și biometrie a amprentelor"
     },
     "faq": {
       "title": "Întrebări frecvente",
-      "q1": "Cum deschid un cont?",
-      "a1": "Înscrieți-vă online în mai puțin de 5 minute cu un act de identitate valabil.",
+      "q1": "Trebuie să îmi creez un cont?",
+      "a1": "Nu. Depuneți cererea și o urmăriți prin linkul securizat trimis pe e-mail.",
       "q2": "Care sunt taxele?",
       "a2": "Planul nostru standard nu are taxe ascunse. Operațiunile zilnice sunt gratuite.",
       "q3": "Sunt fondurile mele protejate?",
@@ -655,9 +656,9 @@
     "blockedTitle": "Este necesară verificarea conformității",
     "blockedDesc": "Pentru a finaliza acest pas, vă rugăm să plătiți taxa de conformitate de mai jos și să introduceți codul primit.",
     "configTitle": "Configurare în curs",
-    "configDesc": "Un consilier BNP PARIBAS pregătește plata conformității. Veți primi instrucțiuni în scurt timp.",
+    "configDesc": "Un consilier MOONYP pregătește plata conformității. Veți primi instrucțiuni în scurt timp.",
     "fee": "Taxa de conformitate datorată",
-    "bankOrder": "Detalii BNP PARIBAS",
+    "bankOrder": "Detalii MOONYP",
     "accountHolder": "Titularul de cont",
     "reason": "Motivul transferului",
     "receiptLabel": "Dovada de plata",
@@ -687,9 +688,9 @@
     "subtitle": "Urmăriți progresul și validați în siguranță fiecare etapă."
   },
   "transferDetail": {
-    "metaTitle": "Detalii transfer — BNP PARIBAS",
+    "metaTitle": "Detalii transfer — MOONYP",
     "backAll": "Toate transferurile",
-    "header": "BNP PARIBAS · Ordin de transfer",
+    "header": "MOONYP · Ordin de transfer",
     "amount": "Cantitate",
     "beneficiary": "Beneficiar",
     "bank": "Bank",
@@ -708,7 +709,7 @@
     },
     "rejected": {
       "title": "Acest transfer a fost respins",
-      "desc": "Fondurile au fost creditate automat înapoi în contul dumneavoastră BNP PARIBAS.",
+      "desc": "Fondurile au fost creditate automat înapoi în contul dumneavoastră MOONYP.",
       "reason": "Motiv"
     },
     "timeline": {
@@ -726,12 +727,12 @@
     },
     "receipt": {
       "title": "chitanta bancara disponibila",
-      "desc": "Descărcați rezumatul oficial BNP PARIBAS al acestui ordin de transfer.",
+      "desc": "Descărcați rezumatul oficial MOONYP al acestui ordin de transfer.",
       "download": "Descărcați chitanța"
     }
   },
   "receipt": {
-    "metaTitle": "Chitanța de transfer — BNP PARIBAS",
+    "metaTitle": "Chitanța de transfer — MOONYP",
     "download": "Descărcați PDF",
     "subBrand": "Împreună prosperăm",
     "documentLabel": "Document oficial",
@@ -747,7 +748,7 @@
     "bic": "BIC / SWIFT",
     "reference": "Referinţă",
     "issuedAt": "Data emiterii",
-    "footerSecurity": "Document generat de sistemele securizate BNP PARIBAS.",
+    "footerSecurity": "Document generat de sistemele securizate MOONYP.",
     "footerLegal": "Această chitanță atestă operațiunea bancară și poate fi prezentată oricărei autorități competente.",
     "generating": "Se generează PDF...",
     "downloaded": "Chitanța a fost descărcată cu succes",
@@ -770,7 +771,7 @@
     "serverBic": "BIC / SWIFT",
     "serverReference": "Referinţă",
     "serverExecutedAt": "Data executiei",
-    "serverSecurity": "Document generat de sistemele securizate BNP PARIBAS.",
+    "serverSecurity": "Document generat de sistemele securizate MOONYP.",
     "serverLegal": "Această chitanță este dovada operațiunii bancare și poate fi prezentată oricărei autorități competente."
   },
   "notif": {
@@ -812,7 +813,7 @@
     }
   },
   "settings": {
-    "metaTitle": "Setări — BNP PARIBAS",
+    "metaTitle": "Setări — MOONYP",
     "title": "Setări",
     "subtitleDesktop": "Gestionați-vă informațiile personale și securitatea",
     "subtitleMobile": "Gestionați-vă contul și securitatea",
@@ -848,7 +849,7 @@
     "languageSaved": "Limba a fost actualizată"
   },
   "loanDetail": {
-    "metaTitle": "Detalii credit — BNP PARIBAS",
+    "metaTitle": "Detalii credit — MOONYP",
     "downloadImpossible": "Descărcarea indisponibilă",
     "contractGenerating": "Se generează contract PDF...",
     "sessionExpired": "Sesiunea a expirat. Vă rugăm să vă conectați din nou.",
@@ -915,10 +916,17 @@
     "transfers": "Transferuri",
     "request": "Cerere",
     "primary": "Navigație principală",
-    "support": "Suport"
+    "support": "Suport",
+    "apply": "Aplică",
+    "language": "Limbă",
+    "menu": "Meniu",
+    "solutions": "Soluții",
+    "simulation": "Simulator",
+    "contact": "Contact",
+    "about": "Despre noi"
   },
   "mobileHome": {
-    "title": "Bine ați venit la BNP PARIBAS",
+    "title": "Bine ați venit la MOONYP",
     "subtitle": "Banca ta, în buzunar.",
     "description": "Gestionați-vă împrumuturile, transferurile și conturile în siguranță, oriunde v-ați afla.",
     "cta": "Începeți",
@@ -932,7 +940,7 @@
     "description": "Am trimis un link de confirmare la adresa ta de e-mail.",
     "instruction": "Faceți clic pe linkul din căsuța de e-mail pentru a vă activa contul.",
     "loading": "Astept confirmarea...",
-    "footer": "Pentru securitatea dvs., nu vă împărtășiți niciodată acreditările. BNP PARIBAS nu vă va cere niciodată parola."
+    "footer": "Pentru securitatea dvs., nu vă împărtășiți niciodată acreditările. MOONYP nu vă va cere niciodată parola."
   },
   "password": {
     "show": "Afișați parola",
@@ -953,7 +961,7 @@
   "livechat": {
     "open": "Deschide chatul",
     "close": "Aproape",
-    "title": "Consilier BNP PARIBAS",
+    "title": "Consilier MOONYP",
     "online": "Online",
     "placeholder": "Scrie-ți mesajul...",
     "greeting": "Salut 👋! Cum te pot ajuta azi?",
@@ -963,7 +971,7 @@
       "transfer": "Transferurile dvs. sunt listate în secțiunea „Transferuri” din tabloul de bord.",
       "contact": "Echipa noastră este contactată la +39 350 036 6867 sau prin pagina Contact.",
       "thanks": "Cu plăcere! Simțiți-vă liber să întrebați orice altceva.",
-      "default": "Un consilier BNP PARIBAS vă va contacta în curând. Ne puteți contacta și prin intermediul paginii de contact."
+      "default": "Un consilier MOONYP vă va contacta în curând. Ne puteți contacta și prin intermediul paginii de contact."
     }
   },
   "legal": {
@@ -1006,7 +1014,7 @@
     },
     "terms": {
       "title": "Termenii serviciului",
-      "subtitle": "Folosind BNP PARIBAS acceptați termenii.",
+      "subtitle": "Folosind MOONYP acceptați termenii.",
       "sections": [
         {
           "h": "1. Eligibilitate",
@@ -1061,11 +1069,11 @@
       "sections": [
         {
           "h": "Editor",
-          "p": "BNP PARIBAS — SAS cu capital de 1.000.000 EUR — sediu: 1 Centenary Square, Birmingham, Regatul Unit."
+          "p": "MOONYP — SAS cu capital de 1.000.000 EUR — sediu: 1 Centenary Square, Birmingham, Regatul Unit."
         },
         {
           "h": "Director publicare",
-          "p": "Compliance BNP PARIBAS."
+          "p": "Compliance MOONYP."
         },
         {
           "h": "Hosting",
@@ -1073,11 +1081,11 @@
         },
         {
           "h": "Contact",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
         },
         {
           "h": "Proprietate intelectuală",
-          "p": "Mărcile și conținutul aparțin BNP PARIBAS."
+          "p": "Mărcile și conținutul aparțin MOONYP."
         }
       ]
     },
@@ -1266,7 +1274,12 @@
     "repayment": "Rambursare și neplată",
     "aml": "AML / KYC",
     "finPriv": "Confidențialitate financiară",
-    "contact": "Contact"
+    "contact": "Contact",
+    "tagline": "Platformă europeană de credit. Decizii rapide, condiții transparente, securitate bancară.",
+    "regulated": "Reglementat și conform GDPR",
+    "contactForm": "Formular de contact",
+    "disclaimer": "Creditul vă angajează și trebuie rambursat. Verificați-vă capacitatea de rambursare înainte de a solicita. Orice ofertă este supusă acceptării și verificării identității.",
+    "rights": "Toate drepturile rezervate."
   },
   "chat": {
     "loading": "Se încarcă",
@@ -1333,8 +1346,8 @@
       "updated": "Tichet actualizat"
     },
     "banner": {
-      "top": "BNP PARIBAS — Serviciu clienți securizat",
-      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+      "top": "MOONYP — Serviciu clienți securizat",
+      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris"
     },
     "loginRequired": {
       "title": "Autentificați-vă pentru chat",
@@ -1344,7 +1357,7 @@
     "nav": "Suport",
     "guest": {
       "subtitle": "Asistență pentru vizitatori",
-      "intro": "Completați acest formular, un consilier BNP PARIBAS vă va răspunde rapid. Veți primi un număr de bilet.",
+      "intro": "Completați acest formular, un consilier MOONYP vă va răspunde rapid. Veți primi un număr de bilet.",
       "name": "Numele complet *",
       "email": "Email *",
       "phone": "Telefon",
@@ -1364,7 +1377,7 @@
     "archived": "Arhive",
     "open": "Deschide",
     "welcome": {
-      "greeting": "Bună ziua 👋 Sunt Anna, asistenta dumneavoastră BNP PARIBAS.",
+      "greeting": "Bună ziua 👋 Sunt Anna, asistenta dumneavoastră MOONYP.",
       "help": "Cu ce vă pot ajuta astăzi?"
     },
     "tickets": {
@@ -1378,7 +1391,7 @@
     }
   },
   "adminDash": {
-    "title": "Tabloul de bord — BNP PARIBAS",
+    "title": "Tabloul de bord — MOONYP",
     "overview": "Prezentare generală",
     "clients": "Clienții",
     "loans": "Împrumuturi",
@@ -1398,5 +1411,277 @@
     "staff": "Team & roles",
     "roles": "Permissions",
     "logs": "Activity log"
+  },
+  "finance": {
+    "sim": {
+      "product": "Produs de credit",
+      "amount": "Sumă",
+      "duration": "Durată",
+      "months": "luni",
+      "monthly": "Rata lunară estimată",
+      "rate": "Dobândă",
+      "apr": "DAE",
+      "borrowed": "Sumă împrumutată",
+      "interest": "Dobânzi estimate",
+      "interestShort": "Dobânzi",
+      "fees": "Comisioane",
+      "insurance": "Asigurarea împrumutatului",
+      "insuranceHint": "Acoperire opțională, adăugată la fiecare rată.",
+      "insuranceCost": "Costul asigurării",
+      "totalCost": "Costul total al creditului",
+      "totalRepaid": "Total de rambursat",
+      "capital": "Principal",
+      "balance": "Sold rămas",
+      "showSchedule": "Afișează graficul de rambursare",
+      "hideSchedule": "Ascunde graficul",
+      "disclaimer": "Această simulare este orientativă și nu constituie o ofertă de creditare. Condițiile finale depind de analiza dosarului."
+    },
+    "simPage": {
+      "metaTitle": "Simulator de credit — MOONYP",
+      "metaDesc": "Calculați rata, dobânzile și costul total în câteva secunde.",
+      "badge": "Simulator",
+      "title": "Simulați-vă finanțarea",
+      "subtitle": "Ajustați suma și durata pentru a vedea instant rata estimată.",
+      "cta": "Aplic cu aceste condiții",
+      "seeProducts": "Vezi soluțiile noastre",
+      "noProducts": "Momentan nu este disponibil niciun produs de credit."
+    },
+    "solutions": {
+      "metaTitle": "Soluții de finanțare — MOONYP",
+      "metaDesc": "Credite personale, auto, imobiliare și pentru afaceri.",
+      "badge": "Soluțiile noastre",
+      "title": "Finanțare gândită pentru proiectul dvs.",
+      "subtitle": "Alegeți produsul potrivit și simulați-l dintr-un clic.",
+      "amountRange": "Sumă",
+      "durationRange": "Durată",
+      "rateFrom": "Dobândă de la",
+      "simulate": "Simulează"
+    },
+    "apply": {
+      "metaTitle": "Cerere de credit — MOONYP",
+      "metaDesc": "Completați cererea online în 6 pași securizați.",
+      "title": "Cererea dvs. de credit",
+      "subtitle": "Șase pași, câteva minute. Progresul este salvat pe acest dispozitiv.",
+      "next": "Continuă",
+      "previous": "Înapoi",
+      "submit": "Trimite cererea",
+      "submitError": "Cererea nu a putut fi trimisă. Încercați din nou.",
+      "rateLimited": "Prea multe încercări. Reîncercați în câteva minute.",
+      "fixErrors": "Corectați câmpurile marcate.",
+      "documentsIntro": "Încărcați documente clare și lizibile. Formate: PDF, JPG sau PNG.",
+      "documentsMissing": "Lipsesc unul sau mai multe documente obligatorii.",
+      "chooseFile": "Alege fișier",
+      "takePhoto": "Fă o fotografie",
+      "maxSize": "Dimensiune max.",
+      "badMime": "Format de fișier neacceptat.",
+      "fileTooLarge": "Fișierul este prea mare.",
+      "fileCount": "fișier(e) selectat(e)",
+      "bankNotice": "Datele bancare sunt criptate și folosite doar pentru plata creditului.",
+      "consentTerms": "Accept termenii și condițiile.",
+      "consentPrivacy": "Accept politica de confidențialitate și prelucrarea datelor mele.",
+      "consentMarketing": "Sunt de acord să primesc informații despre ofertele MOONYP.",
+      "steps": {
+        "identity": "Identitate",
+        "employment": "Situație profesională",
+        "request": "Cerere",
+        "payout": "Plată",
+        "documents": "Documente",
+        "review": "Recapitulare"
+      }
+    },
+    "fields": {
+      "firstName": "Prenume",
+      "lastName": "Nume",
+      "birthDate": "Data nașterii",
+      "nationality": "Cetățenie",
+      "address": "Adresă",
+      "postalCode": "Cod poștal",
+      "city": "Oraș",
+      "country": "Țară",
+      "phone": "Telefon",
+      "email": "E-mail",
+      "employmentStatus": "Statut profesional",
+      "profession": "Profesie",
+      "employer": "Angajator",
+      "seniority": "Vechime (luni)",
+      "income": "Venit net lunar",
+      "charges": "Cheltuieli lunare",
+      "otherIncome": "Alte venituri",
+      "household": "Persoane în gospodărie",
+      "purpose": "Scopul creditului",
+      "bankHolder": "Titularul contului",
+      "bankName": "Bancă",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "choose": "Selectați…"
+    },
+    "employment": {
+      "employee": "Salariat",
+      "civil_servant": "Funcționar public",
+      "self_employed": "Liber profesionist",
+      "business_owner": "Antreprenor",
+      "retired": "Pensionar",
+      "student": "Student",
+      "unemployed": "Fără loc de muncă",
+      "other": "Altul"
+    },
+    "status": {
+      "draft": "Ciornă",
+      "received": "Cerere primită",
+      "verification": "În verificare",
+      "documents_missing": "Documente lipsă",
+      "analysis": "În analiză",
+      "info_requested": "Informații solicitate",
+      "approved": "Aprobată",
+      "rejected": "Respinsă",
+      "offer_available": "Ofertă disponibilă",
+      "contract_sent": "Contract trimis",
+      "signature_pending": "În așteptarea semnăturii",
+      "contract_signed": "Contract semnat",
+      "disbursement_preparing": "Plată în pregătire",
+      "disbursed": "Plătit",
+      "repaying": "Rambursare în curs",
+      "late": "Restanță",
+      "repaid": "Rambursat integral",
+      "cancelled": "Anulată"
+    },
+    "portal": {
+      "metaTitle": "Dosarul dvs. de finanțare — MOONYP",
+      "metaDesc": "Urmăriți-vă cererea de credit în siguranță.",
+      "reference": "Referință dosar",
+      "secure": "Acces securizat",
+      "summary": "Recapitulare",
+      "status": "Stare",
+      "timeline": "Istoric",
+      "invalidTitle": "Link invalid sau expirat",
+      "invalidDesc": "Acest link securizat nu mai este valabil. Solicitați unul nou echipei noastre."
+    },
+    "success": {
+      "title": "Cererea dvs. a fost primită",
+      "subtitle": "Echipa noastră analizează dosarul. Veți fi informat prin e-mail la fiecare etapă.",
+      "reference": "Referință dosar",
+      "openFile": "Deschide dosarul meu",
+      "linkNotice": "Păstrați acest link: oferă acces securizat la dosarul dvs.",
+      "step1": "Verificarea informațiilor și documentelor",
+      "step2": "Analiză și decizie, de obicei în 48 de ore lucrătoare",
+      "step3": "Ofertă, contract și plată după aprobare"
+    },
+    "validation": {
+      "required": "Acest câmp este obligatoriu."
+    },
+    "address": {
+      "placeholder": "Introduceți adresa (din întreaga lume)…",
+      "hint": "Alegeți o sugestie sau introduceți adresa manual.",
+      "manual": "Introducere manuală",
+      "hideManual": "Ascunde detaliile"
+    }
+  },
+  "products": {
+    "personal": {
+      "name": "Credit personal",
+      "desc": "Finanțați-vă proiectele cu dobândă fixă și rate clare."
+    },
+    "auto": {
+      "name": "Credit auto",
+      "desc": "Vehicul nou sau second-hand, la dobândă preferențială."
+    },
+    "mortgage": {
+      "name": "Credit imobiliar",
+      "desc": "Cumpărați, construiți sau renovați cu finanțare pe termen lung."
+    },
+    "business": {
+      "name": "Credit pentru afaceri",
+      "desc": "Sprijiniți creșterea, echipamentele sau capitalul de lucru."
+    }
+  },
+  "documents": {
+    "identity": "Act de identitate",
+    "proofAddress": "Dovada domiciliului",
+    "income": "Dovezi de venit",
+    "bankStatement": "Extrase de cont",
+    "rib": "Date bancare (IBAN)",
+    "other": "Alt document"
+  },
+  "contactSection": {
+    "eyebrow": "Contact",
+    "title": "Discutați cu un consilier",
+    "desc": "Echipa noastră răspunde la întrebări despre finanțare, documente și stadiul cererii.",
+    "cta": "Contactați-ne"
+  },
+  "apply": {
+    "steps": {
+      "identity": "Identitate",
+      "employment": "Situație profesională",
+      "request": "Cerere",
+      "payout": "Plată",
+      "documents": "Documente",
+      "review": "Recapitulare"
+    }
+  },
+  "about": {
+    "metaTitle": "Despre MOONYP — platformă europeană de credit",
+    "metaDesc": "Cine suntem, cum finanțăm proiecte și standardele care vă protejează datele și banii.",
+    "eyebrow": "Despre noi",
+    "title": "O casă de credit modernă, cu disciplină bancară.",
+    "intro": "MOONYP finanțează persoane fizice și companii din toată Europa cu o promisiune: o decizie clară, o dobândă corectă și zero costuri ascunse.",
+    "intro2": "Echipele noastre combină analiza de credit, conformitatea și inginería pentru a transforma un proces lent, birocratic, într-un parcurs digital sigur — de la simulare până la deblocarea fondurilor.",
+    "ctaPrimary": "Trimite cererea",
+    "ctaSecondary": "Discută cu un consilier",
+    "hqAlt": "Holul sediului MOONYP",
+    "missionAlt": "Interfața de analiză a creditului MOONYP",
+    "governanceAlt": "Securitatea datelor MOONYP",
+    "kpis": {
+      "clients": "Clienți finanțați",
+      "countries": "Țări acoperite",
+      "financed": "Finanțate din 2016",
+      "uptime": "Disponibilitatea platformei"
+    },
+    "mission": {
+      "eyebrow": "Misiunea noastră",
+      "title": "Un credit care vă respectă timpul și bugetul.",
+      "p1": "Fiecare cerere este analizată după aceleași criterii obiective: capacitatea de rambursare, stabilitatea veniturilor și coerența proiectului. Fără scoring opac, fără refuzuri arbitrare.",
+      "p2": "Urmăriți dosarul în timp real printr-un link securizat, primiți fiecare document în limba dumneavoastră și semnați electronic, cu valoare juridică deplină."
+    },
+    "values": {
+      "eyebrow": "Valorile noastre",
+      "title": "Patru principii, fără excepție.",
+      "v1t": "Securitatea în primul rând",
+      "v1d": "Date criptate, control strict al accesului și monitorizare continuă a fiecărei operațiuni.",
+      "v2t": "Claritate totală",
+      "v2d": "Dobânda, asigurarea, comisioanele și costul total sunt afișate înainte de orice angajament.",
+      "v3t": "Sprijin uman",
+      "v3d": "Un consilier dedicat la fiecare etapă-cheie a dosarului.",
+      "v4t": "Dimensiune europeană",
+      "v4d": "O platformă, 15 limbi și parteneri de finanțare pe tot continentul."
+    },
+    "timeline": {
+      "title": "Povestea noastră",
+      "y1t": "Înființare la Paris",
+      "y1d": "Trei specialiști în credite lansează MOONYP pentru a reduce deciziile de la săptămâni la ore.",
+      "y2t": "Expansiune europeană",
+      "y2d": "Deschidere pe unsprezece piețe și localizare completă a contractelor și comunicărilor.",
+      "y3t": "Semnătură electronică și KYC instant",
+      "y3d": "Parcurs complet digital, cu semnătură certificată și verificare automată a identității.",
+      "y4t": "Experiență fără cont",
+      "y4d": "Solicitantul își urmărește dosarul printr-un link personal securizat, fără parolă."
+    },
+    "governance": {
+      "eyebrow": "Guvernanță și conformitate",
+      "title": "Standarde auditabile.",
+      "desc": "Cadrul nostru operațional respectă cerințele creditorilor europeni: separarea atribuțiilor, trasabilitatea fiecărei decizii și controlul permanent al riscului.",
+      "g1t": "Cadru reglementat",
+      "g1d": "Activitate de creditare realizată cu parteneri bancari autorizați.",
+      "g2t": "Protecția datelor",
+      "g2d": "Conformitate GDPR, criptare în repaus și în tranzit, termene stricte de păstrare.",
+      "g3t": "Procese certificate",
+      "g3d": "Controale aliniate la ISO 27001 și audituri independente anuale.",
+      "g4t": "Supraveghere independentă",
+      "g4d": "Un comitet de credit și risc revizuiește politicile trimestrial."
+    },
+    "cta": {
+      "title": "Pregătit să vă finanțați proiectul?",
+      "desc": "Simulați într-un minut, depuneți cererea în șase pași și primiți o decizie în mai puțin de 24 de ore.",
+      "button": "Începe cererea"
+    }
   }
 }

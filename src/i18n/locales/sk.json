@@ -41,7 +41,8 @@
     "sessionExpired": "Relácia vypršala z dôvodu nečinnosti",
     "notFound": "Stránka sa nenašla",
     "notFoundDesc": "Hľadaná stránka neexistuje alebo bola presunutá.",
-    "backHome": "Späť na domov"
+    "backHome": "Späť na domov",
+    "errorRetry": "Skúsiť znova"
   },
   "header": {
     "myLoans": "Moje úvery",
@@ -136,7 +137,7 @@
     "viewLoan": "Zobraziť spis",
     "needHelp": "Potrebujete pomoc?",
     "contactSupport": "Kontaktovať podporu",
-    "metaTitle": "Môj panel — BNP PARIBASAS",
+    "metaTitle": "Môj panel — MOONYPAS",
     "sessionExpired": "Relácia vypršala z dôvodu nečinnosti",
     "loadError": "Chyba pri načítaní",
     "welcomeNamed": "Vitajte, {{name}}",
@@ -277,8 +278,8 @@
       "appointment": "Žiadosť o stretnutie",
       "other": "Iné"
     },
-    "metaTitle": "Kontakt — Zákaznícky servis BNP PARIBAS",
-    "metaDesc": "Kontaktujte zákaznícky servis BNP PARIBAS pre otázky o vašom účte, úveroch alebo prevodoch.",
+    "metaTitle": "Kontakt — Zákaznícky servis MOONYP",
+    "metaDesc": "Kontaktujte zákaznícky servis MOONYP pre otázky o vašom účte, úveroch alebo prevodoch.",
     "nameRequired": "Meno je povinné",
     "emailInvalid": "Neplatný e-mail",
     "messageTooShort": "Správa je príliš krátka (minimálne 10 znakov)",
@@ -504,7 +505,7 @@
     "stepNotReached": "Etapa ešte nedosiahnutá"
   },
   "transfersPage": {
-    "metaTitle": "Moje prevody — BNP PARIBAS",
+    "metaTitle": "Moje prevody — MOONYP",
     "eyebrow": "Zóna prevodov",
     "title": "Moje prevody",
     "subtitle": "Sledovanie SEPA prevodov, krokov súladu a potvrdeniek.",
@@ -528,14 +529,14 @@
     }
   },
   "landing": {
-    "metaTitle": "BNP PARIBAS — Okamžité online pôžičky",
+    "metaTitle": "MOONYP — Okamžité online pôžičky",
     "metaDesc": "Financujte svoje projekty s dôverou. Rýchle osobné pôžičky od 1 000 € do 50 000 €. Rozhodnutie do 24h, prostriedky do 72h.",
     "badge": "Rozhodnutie do 24 hodín",
     "heroTitleA": "Financujte svoje projekty",
     "heroTitleB": "s dôverou.",
-    "heroDesc": "BNP PARIBAS patrí k najlepšej generácii európskych bánk ponúkajúcich rýchle, transparentné a bezpečné osobné pôžičky.",
+    "heroDesc": "MOONYP patrí k najlepšej generácii európskych bánk ponúkajúcich rýchle, transparentné a bezpečné osobné pôžičky.",
     "ctaPrimary": "Požiadať o pôžičku",
-    "ctaSecondary": "Už mám účet",
+    "ctaSecondary": "Simulovať moju pôžičku",
     "trust1": "Šifrované údaje",
     "trust2": "100% bezpečné",
     "trust3": "Bez skrytých poplatkov",
@@ -562,7 +563,7 @@
       "s3t": "Podpíšte zmluvu",
       "s3d": "Po schválení naším tímom podpíšte zmluvu elektronicky a bezpečne.",
       "s4t": "Prijmite prostriedky",
-      "s4d": "Po uplynutí zákonnej lehoty sú prostriedky dostupné vo vašej peňaženke BNP PARIBAS, pripravené na výber."
+      "s4d": "Po uplynutí zákonnej lehoty sú prostriedky dostupné vo vašej peňaženke MOONYP, pripravené na výber."
     },
     "partners": {
       "eyebrow": "Naše partnerské banky",
@@ -571,8 +572,8 @@
     },
     "finalCta": {
       "title": "Pripravení uskutočniť svoje projekty?",
-      "desc": "Vytvorte si účet a podajte prvú žiadosť za pár minút.",
-      "button": "Začať moju žiadosť"
+      "desc": "Žiadosť podáte za pár minút – bez účtu a bez papierovania.",
+      "button": "Začať žiadosť"
     },
     "footer": {
       "rights": "Všetky práva vyhradené.",
@@ -580,7 +581,7 @@
     },
     "slides": {
       "s1t": "Bankovníctvo navrhnuté pre vás",
-      "s1d": "Otvorte si účet za pár minút, bez papierovania.",
+      "s1d": "Žiadosť za pár minút, bez účtu a papierovania.",
       "s2t": "Spravujte svoje financie v reálnom čase",
       "s2d": "Prehľadný panel, analýzy a inteligentné upozornenia.",
       "s3t": "Vaša banka vo vrecku",
@@ -623,15 +624,15 @@
     "mobile": {
       "eyebrow": "Mobilná aplikácia",
       "title": "Celá vaša banka na dlani",
-      "desc": "Spravujte účty, vykonávajte prevody a sledujte investície zo smartfónu.",
+      "desc": "Sledujte žiadosť, nahrajte dokumenty a podpíšte zmluvu z telefónu.",
       "b1": "Sledovanie transakcií v reálnom čase",
       "b2": "Okamžité medzinárodné prevody",
       "b3": "Biometria Face ID a odtlačok prsta"
     },
     "faq": {
       "title": "Často kladené otázky",
-      "q1": "Ako si otvorím účet?",
-      "a1": "Online registrácia za menej ako 5 minút s platným dokladom totožnosti.",
+      "q1": "Musím si vytvoriť účet?",
+      "a1": "Nie. Podáte žiadosť a sledujete ju cez bezpečný odkaz zaslaný e-mailom.",
       "q2": "Aké sú poplatky?",
       "a2": "Náš štandardný plán nemá skryté poplatky. Bežné operácie sú zadarmo.",
       "q3": "Sú moje prostriedky chránené?",
@@ -655,9 +656,9 @@
     "blockedTitle": "Vyžaduje sa kontrola súladu",
     "blockedDesc": "Na dokončenie tohto kroku uhradte nižšie uvedený poplatok za súlad a zadajte prijatý kód.",
     "configTitle": "Konfigurácia prebieha",
-    "configDesc": "Poradca BNP PARIBASPARIBAS pripravuje platbu za súlad. Pokyny dostanete čoskoro.",
+    "configDesc": "Poradca MOONYPPARIBAS pripravuje platbu za súlad. Pokyny dostanete čoskoro.",
     "fee": "Splatný poplatok za súlad",
-    "bankOrder": "Bankové údaje BNP PARIBAS",
+    "bankOrder": "Bankové údaje MOONYP",
     "accountHolder": "Majiteľ účtu",
     "reason": "Dôvod prevodu",
     "receiptLabel": "Doklad o platbe",
@@ -687,9 +688,9 @@
     "subtitle": "Sledujte postup a bezpečne potvrďte každý míľnik."
   },
   "transferDetail": {
-    "metaTitle": "Detail prevodu — BNP PARIBAS",
+    "metaTitle": "Detail prevodu — MOONYP",
     "backAll": "Všetky prevody",
-    "header": "BNP PARIBAS · Príkaz na prevod",
+    "header": "MOONYP · Príkaz na prevod",
     "amount": "Suma",
     "beneficiary": "Príjemca",
     "bank": "Banka",
@@ -708,7 +709,7 @@
     },
     "rejected": {
       "title": "Tento prevod bol zamietnutý",
-      "desc": "Prostriedky boli automaticky pripísané späť na váš účet BNP PARIBAS.",
+      "desc": "Prostriedky boli automaticky pripísané späť na váš účet MOONYP.",
       "reason": "Dôvod"
     },
     "timeline": {
@@ -726,12 +727,12 @@
     },
     "receipt": {
       "title": "Bankový doklad dostupný",
-      "desc": "Stiahnite si oficiálne zhrnutie BNP PARIBAS k tomuto príkazu na prevod.",
+      "desc": "Stiahnite si oficiálne zhrnutie MOONYP k tomuto príkazu na prevod.",
       "download": "Stiahnuť doklad"
     }
   },
   "receipt": {
-    "metaTitle": "Doklad o prevode — BNP PARIBAS",
+    "metaTitle": "Doklad o prevode — MOONYP",
     "download": "Stiahnuť PDF",
     "subBrand": "Together we thrive",
     "documentLabel": "Oficiálny dokument",
@@ -747,7 +748,7 @@
     "bic": "BIC / SWIFT",
     "reference": "Referencia",
     "issuedAt": "Dátum vydania",
-    "footerSecurity": "Dokument vygenerovaný zabezpečenými systémami BNP PARIBAS.",
+    "footerSecurity": "Dokument vygenerovaný zabezpečenými systémami MOONYP.",
     "footerLegal": "Tento doklad potvrdzuje bankovú operáciu a môže byť predložený príslušnému orgánu.",
     "generating": "Generuje sa PDF…",
     "downloaded": "Doklad úspešne stiahnutý",
@@ -770,7 +771,7 @@
     "serverBic": "BIC / SWIFT",
     "serverReference": "Referencia",
     "serverExecutedAt": "Dátum vykonania",
-    "serverSecurity": "Dokument vygenerovaný zabezpečenými systémami BNP PARIBAS.",
+    "serverSecurity": "Dokument vygenerovaný zabezpečenými systémami MOONYP.",
     "serverLegal": "Tento doklad slúži ako potvrdenie bankovej operácie a možno ho predložiť ktorémukoľvek príslušnému orgánu."
   },
   "notif": {
@@ -812,7 +813,7 @@
     }
   },
   "settings": {
-    "metaTitle": "Nastavenia — BNP PARIBAS",
+    "metaTitle": "Nastavenia — MOONYP",
     "title": "Nastavenia",
     "subtitleDesktop": "Spravujte svoje osobné údaje a bezpečnosť",
     "subtitleMobile": "Spravujte svoj účet a bezpečnosť",
@@ -848,7 +849,7 @@
     "languageSaved": "Jazyk aktualizovaný"
   },
   "loanDetail": {
-    "metaTitle": "Detail pôžičky — BNP PARIBAS",
+    "metaTitle": "Detail pôžičky — MOONYP",
     "downloadImpossible": "Stiahnutie nie je dostupné",
     "contractGenerating": "Generuje sa PDF zmluva…",
     "sessionExpired": "Relácia vypršala. Prihláste sa znova.",
@@ -915,10 +916,17 @@
     "transfers": "Prevody",
     "request": "Žiadosť",
     "primary": "Hlavná navigácia",
-    "support": "Podpora"
+    "support": "Podpora",
+    "apply": "Požiadať",
+    "language": "Jazyk",
+    "menu": "Menu",
+    "solutions": "Riešenia",
+    "simulation": "Kalkulačka",
+    "contact": "Kontakt",
+    "about": "O nás"
   },
   "mobileHome": {
-    "title": "Vitajte v BNP PARIBAS",
+    "title": "Vitajte v MOONYP",
     "subtitle": "Vaša banka, vo vašom vrecku.",
     "description": "Spravujte svoje úvery, prevody a účty bezpečne, kdekoľvek ste.",
     "cta": "Začať",
@@ -953,7 +961,7 @@
   "livechat": {
     "open": "Otvoriť chat",
     "close": "Zavrieť",
-    "title": "BNP PARIBAS poradca",
+    "title": "MOONYP poradca",
     "online": "Online",
     "placeholder": "Napíšte správu…",
     "greeting": "Dobrý deň 👋! Ako vám môžem pomôcť?",
@@ -963,7 +971,7 @@
       "transfer": "Vaše prevody nájdete v sekcii „Prevody\" na nástenke.",
       "contact": "Tím je dostupný na +39 350 036 6867 alebo cez stránku Kontakt.",
       "thanks": "Rado sa stalo! Pokojne sa pýtajte ďalej.",
-      "default": "Poradca BNP PARIBAS sa vám čoskoro ozve. Kontaktovať nás môžete aj cez stránku Kontakt."
+      "default": "Poradca MOONYP sa vám čoskoro ozve. Kontaktovať nás môžete aj cez stránku Kontakt."
     }
   },
   "legal": {
@@ -1006,7 +1014,7 @@
     },
     "terms": {
       "title": "Obchodné podmienky",
-      "subtitle": "Používaním BNP PARIBAS súhlasíte s týmito podmienkami.",
+      "subtitle": "Používaním MOONYP súhlasíte s týmito podmienkami.",
       "sections": [
         {
           "h": "1. Podmienky",
@@ -1061,11 +1069,11 @@
       "sections": [
         {
           "h": "Vydavateľ",
-          "p": "BNP PARIBAS — SAS, kapitál 1 000 000 EUR — sídlo: 1 Centenary Square, Birmingham, Spojené kráľovstvo."
+          "p": "MOONYP — SAS, kapitál 1 000 000 EUR — sídlo: 1 Centenary Square, Birmingham, Spojené kráľovstvo."
         },
         {
           "h": "Riaditeľ",
-          "p": "Compliance BNP PARIBAS."
+          "p": "Compliance MOONYP."
         },
         {
           "h": "Hosting",
@@ -1073,11 +1081,11 @@
         },
         {
           "h": "Kontakt",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
         },
         {
           "h": "Duševné vlastníctvo",
-          "p": "Značky a obsah patria BNP PARIBAS."
+          "p": "Značky a obsah patria MOONYP."
         }
       ]
     },
@@ -1266,7 +1274,12 @@
     "repayment": "Splácanie a omeškanie",
     "aml": "AML / KYC",
     "finPriv": "Finančné súkromie",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "tagline": "Európska úverová platforma. Rýchle rozhodnutia, transparentné podmienky, banková bezpečnosť.",
+    "regulated": "Regulované a v súlade s GDPR",
+    "contactForm": "Kontaktný formulár",
+    "disclaimer": "Úver zaväzuje a musí byť splatený. Pred podaním žiadosti si overte svoju schopnosť splácať. Každá ponuka podlieha schváleniu a overeniu totožnosti.",
+    "rights": "Všetky práva vyhradené."
   },
   "chat": {
     "loading": "Načítava",
@@ -1333,8 +1346,8 @@
       "updated": "Tiket aktualizovaný"
     },
     "banner": {
-      "top": "BNP PARIBAS — Bezpečný zákaznícky servis",
-      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+      "top": "MOONYP — Bezpečný zákaznícky servis",
+      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris"
     },
     "loginRequired": {
       "title": "Prihláste sa na chat",
@@ -1344,7 +1357,7 @@
     "nav": "Podpora",
     "guest": {
       "subtitle": "Pomoc návštevníkom",
-      "intro": "Vyplňte tento formulár a poradca BNP PARIBAS rýchlo odpovie. Dostanete číslo lístka.",
+      "intro": "Vyplňte tento formulár a poradca MOONYP rýchlo odpovie. Dostanete číslo lístka.",
       "name": "Celé meno *",
       "email": "E-mail *",
       "phone": "Telefón",
@@ -1364,7 +1377,7 @@
     "archived": "Archívy",
     "open": "OTVORENÉ",
     "welcome": {
-      "greeting": "Dobrý deň 👋 Som Anna, vaša asistentka BNP PARIBAS.",
+      "greeting": "Dobrý deň 👋 Som Anna, vaša asistentka MOONYP.",
       "help": "Ako vám dnes môžem pomôcť?"
     },
     "tickets": {
@@ -1378,7 +1391,7 @@
     }
   },
   "adminDash": {
-    "title": "Prístrojová doska — BNP PARIBAS",
+    "title": "Prístrojová doska — MOONYP",
     "overview": "Prehľad",
     "clients": "zákazníkov",
     "loans": "Pôžičky",
@@ -1398,5 +1411,277 @@
     "staff": "Team & roles",
     "roles": "Permissions",
     "logs": "Activity log"
+  },
+  "finance": {
+    "sim": {
+      "product": "Úverový produkt",
+      "amount": "Suma",
+      "duration": "Doba splatnosti",
+      "months": "mesiacov",
+      "monthly": "Odhadovaná mesačná splátka",
+      "rate": "Úroková sadzba",
+      "apr": "RPMN",
+      "borrowed": "Požičaná suma",
+      "interest": "Odhadované úroky",
+      "interestShort": "Úroky",
+      "fees": "Poplatky",
+      "insurance": "Poistenie dlžníka",
+      "insuranceHint": "Voliteľné krytie pripočítané ku každej splátke.",
+      "insuranceCost": "Náklady na poistenie",
+      "totalCost": "Celkové náklady úveru",
+      "totalRepaid": "Celkovo splatené",
+      "capital": "Istina",
+      "balance": "Zostatok istiny",
+      "showSchedule": "Zobraziť splátkový kalendár",
+      "hideSchedule": "Skryť kalendár",
+      "disclaimer": "Táto simulácia je len informatívna a nie je ponukou úveru. Konečné podmienky závisia od posúdenia žiadosti."
+    },
+    "simPage": {
+      "metaTitle": "Úverová kalkulačka — MOONYP",
+      "metaDesc": "Vypočítajte splátku, úroky a celkové náklady za pár sekúnd.",
+      "badge": "Kalkulačka",
+      "title": "Simulujte svoje financovanie",
+      "subtitle": "Upravte sumu a dobu a ihneď uvidíte odhadovanú splátku.",
+      "cta": "Požiadať za týchto podmienok",
+      "seeProducts": "Pozrieť naše riešenia",
+      "noProducts": "Momentálne nie je dostupný žiadny úverový produkt."
+    },
+    "solutions": {
+      "metaTitle": "Riešenia financovania — MOONYP",
+      "metaDesc": "Spotrebné, autoúvery, hypotéky a podnikateľské úvery.",
+      "badge": "Naše riešenia",
+      "title": "Financovanie pre váš projekt",
+      "subtitle": "Vyberte vhodný produkt a simulujte ho jedným klikom.",
+      "amountRange": "Suma",
+      "durationRange": "Doba",
+      "rateFrom": "Sadzba od",
+      "simulate": "Simulovať"
+    },
+    "apply": {
+      "metaTitle": "Žiadosť o úver — MOONYP",
+      "metaDesc": "Vyplňte žiadosť online v 6 bezpečných krokoch.",
+      "title": "Vaša žiadosť o úver",
+      "subtitle": "Šesť krokov, pár minút. Postup sa ukladá v tomto zariadení.",
+      "next": "Pokračovať",
+      "previous": "Späť",
+      "submit": "Odoslať žiadosť",
+      "submitError": "Žiadosť sa nepodarilo odoslať. Skúste to znova.",
+      "rateLimited": "Príliš veľa pokusov. Skúste to o niekoľko minút.",
+      "fixErrors": "Opravte označené polia.",
+      "documentsIntro": "Nahrajte ostré a čitateľné dokumenty. Formáty: PDF, JPG alebo PNG.",
+      "documentsMissing": "Chýba jeden alebo viac povinných dokumentov.",
+      "chooseFile": "Vybrať súbor",
+      "takePhoto": "Odfotiť",
+      "maxSize": "Max. veľkosť",
+      "badMime": "Nepodporovaný formát súboru.",
+      "fileTooLarge": "Tento súbor je príliš veľký.",
+      "fileCount": "vybraných súborov",
+      "bankNotice": "Vaše bankové údaje sú šifrované a použité len na vyplatenie úveru.",
+      "consentTerms": "Súhlasím so všeobecnými podmienkami.",
+      "consentPrivacy": "Súhlasím so zásadami ochrany súkromia a spracovaním údajov.",
+      "consentMarketing": "Súhlasím so zasielaním informácií o ponukách MOONYP.",
+      "steps": {
+        "identity": "Totožnosť",
+        "employment": "Zamestnanie",
+        "request": "Žiadosť",
+        "payout": "Výplata",
+        "documents": "Dokumenty",
+        "review": "Súhrn"
+      }
+    },
+    "fields": {
+      "firstName": "Meno",
+      "lastName": "Priezvisko",
+      "birthDate": "Dátum narodenia",
+      "nationality": "Štátna príslušnosť",
+      "address": "Adresa",
+      "postalCode": "PSČ",
+      "city": "Mesto",
+      "country": "Krajina",
+      "phone": "Telefón",
+      "email": "E-mail",
+      "employmentStatus": "Pracovný status",
+      "profession": "Povolanie",
+      "employer": "Zamestnávateľ",
+      "seniority": "Dĺžka zamestnania (mesiace)",
+      "income": "Čistý mesačný príjem",
+      "charges": "Mesačné výdavky",
+      "otherIncome": "Iné príjmy",
+      "household": "Počet osôb v domácnosti",
+      "purpose": "Účel úveru",
+      "bankHolder": "Majiteľ účtu",
+      "bankName": "Banka",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "choose": "Vyberte…"
+    },
+    "employment": {
+      "employee": "Zamestnanec",
+      "civil_servant": "Štátny zamestnanec",
+      "self_employed": "Živnostník",
+      "business_owner": "Podnikateľ",
+      "retired": "Dôchodca",
+      "student": "Študent",
+      "unemployed": "Nezamestnaný",
+      "other": "Iné"
+    },
+    "status": {
+      "draft": "Koncept",
+      "received": "Žiadosť prijatá",
+      "verification": "Overovanie",
+      "documents_missing": "Chýbajú dokumenty",
+      "analysis": "Posudzovanie",
+      "info_requested": "Vyžiadané informácie",
+      "approved": "Schválená",
+      "rejected": "Zamietnutá",
+      "offer_available": "Ponuka k dispozícii",
+      "contract_sent": "Zmluva odoslaná",
+      "signature_pending": "Čaká na podpis",
+      "contract_signed": "Zmluva podpísaná",
+      "disbursement_preparing": "Príprava výplaty",
+      "disbursed": "Vyplatené",
+      "repaying": "Prebieha splácanie",
+      "late": "Po splatnosti",
+      "repaid": "Úplne splatené",
+      "cancelled": "Zrušená"
+    },
+    "portal": {
+      "metaTitle": "Váš úverový spis — MOONYP",
+      "metaDesc": "Bezpečne sledujte svoju žiadosť o úver.",
+      "reference": "Referencia spisu",
+      "secure": "Bezpečný prístup",
+      "summary": "Súhrn",
+      "status": "Stav",
+      "timeline": "História",
+      "invalidTitle": "Neplatný alebo expirovaný odkaz",
+      "invalidDesc": "Tento bezpečný odkaz už nie je platný. Požiadajte náš tím o nový."
+    },
+    "success": {
+      "title": "Vaša žiadosť bola prijatá",
+      "subtitle": "Náš tím posudzuje váš spis. O každom kroku vás budeme informovať e-mailom.",
+      "reference": "Referencia spisu",
+      "openFile": "Otvoriť môj spis",
+      "linkNotice": "Uschovajte tento odkaz: poskytuje bezpečný prístup k vášmu spisu.",
+      "step1": "Overenie údajov a dokumentov",
+      "step2": "Posúdenie a rozhodnutie, zvyčajne do 48 pracovných hodín",
+      "step3": "Ponuka, zmluva a výplata po schválení"
+    },
+    "validation": {
+      "required": "Toto pole je povinné."
+    },
+    "address": {
+      "placeholder": "Začnite písať svoju adresu (celý svet)…",
+      "hint": "Vyberte návrh alebo zadajte adresu manuálne.",
+      "manual": "Zadať manuálne",
+      "hideManual": "Skryť podrobnosti"
+    }
+  },
+  "products": {
+    "personal": {
+      "name": "Spotrebný úver",
+      "desc": "Financujte svoje plány s fixnou sadzbou a jasnými splátkami."
+    },
+    "auto": {
+      "name": "Autoúver",
+      "desc": "Nové alebo jazdené vozidlo za zvýhodnenú sadzbu."
+    },
+    "mortgage": {
+      "name": "Hypotéka",
+      "desc": "Kúpte, postavte alebo zrekonštruujte s dlhodobým financovaním."
+    },
+    "business": {
+      "name": "Podnikateľský úver",
+      "desc": "Podporte rast, vybavenie alebo prevádzkový kapitál."
+    }
+  },
+  "documents": {
+    "identity": "Doklad totožnosti",
+    "proofAddress": "Doklad o adrese",
+    "income": "Doklady o príjme",
+    "bankStatement": "Bankové výpisy",
+    "rib": "Bankové údaje (IBAN)",
+    "other": "Iný dokument"
+  },
+  "contactSection": {
+    "eyebrow": "Kontakt",
+    "title": "Hovorte s poradcom",
+    "desc": "Náš tím odpovie na otázky o financovaní, dokumentoch a stave žiadosti.",
+    "cta": "Kontaktujte nás"
+  },
+  "apply": {
+    "steps": {
+      "identity": "Totožnosť",
+      "employment": "Zamestnanie",
+      "request": "Žiadosť",
+      "payout": "Výplata",
+      "documents": "Dokumenty",
+      "review": "Súhrn"
+    }
+  },
+  "about": {
+    "metaTitle": "O MOONYP — európska úverová platforma",
+    "metaDesc": "Kto sme, ako financujeme projekty a aké štandardy chránia vaše údaje a peniaze.",
+    "eyebrow": "O nás",
+    "title": "Moderný úverový dom s bankovou disciplínou.",
+    "intro": "MOONYP financuje jednotlivcov aj firmy v celej Európe s jedným sľubom: jasné rozhodnutie, férová sadzba a žiadne skryté poplatky.",
+    "intro2": "Naše tímy spájajú úverovú analýzu, compliance a technológie a menia pomalý papierový proces na bezpečnú digitálnu cestu — od simulácie po vyplatenie.",
+    "ctaPrimary": "Podať žiadosť",
+    "ctaSecondary": "Hovoriť s poradcom",
+    "hqAlt": "Vstupná hala centrály MOONYP",
+    "missionAlt": "Rozhranie úverovej analýzy MOONYP",
+    "governanceAlt": "Bezpečnosť údajov MOONYP",
+    "kpis": {
+      "clients": "Financovaní klienti",
+      "countries": "Pokryté krajiny",
+      "financed": "Financované od roku 2016",
+      "uptime": "Dostupnosť platformy"
+    },
+    "mission": {
+      "eyebrow": "Naše poslanie",
+      "title": "Úver, ktorý rešpektuje váš čas aj rozpočet.",
+      "p1": "Každú žiadosť posudzujeme podľa rovnakých objektívnych kritérií: schopnosť splácať, stabilita príjmu a súlad projektu. Žiadny nepriehľadný scoring, žiadne svojvoľné zamietnutia.",
+      "p2": "Svoju žiadosť sledujete v reálnom čase cez zabezpečený odkaz, každý dokument dostanete vo svojom jazyku a podpisujete elektronicky s plnou právnou platnosťou."
+    },
+    "values": {
+      "eyebrow": "Naše hodnoty",
+      "title": "Štyri zásady, bez výnimky.",
+      "v1t": "Bezpečnosť na prvom mieste",
+      "v1d": "Šifrované údaje, prísna kontrola prístupu a nepretržité monitorovanie.",
+      "v2t": "Úplná zrozumiteľnosť",
+      "v2d": "Sadzba, poistenie, poplatky a celkové náklady zobrazíme pred akýmkoľvek záväzkom.",
+      "v3t": "Ľudská podpora",
+      "v3d": "Vyhradený poradca v každej kľúčovej fáze vašej žiadosti.",
+      "v4t": "Európsky dosah",
+      "v4d": "Jedna platforma, 15 jazykov a finančných partnerov naprieč kontinentom."
+    },
+    "timeline": {
+      "title": "Náš príbeh",
+      "y1t": "Založenie v Paríži",
+      "y1d": "Traja úveroví špecialisti zakladajú MOONYP, aby skrátili rozhodnutia z týždňov na hodiny.",
+      "y2t": "Európska expanzia",
+      "y2d": "Vstup na jedenásť trhov a úplná lokalizácia zmlúv a komunikácie.",
+      "y3t": "Elektronický podpis a okamžité KYC",
+      "y3d": "Úplne bezpapierový proces s certifikovaným podpisom a automatizovaným overením totožnosti.",
+      "y4t": "Skúsenosť bez účtu",
+      "y4d": "Žiadateľ sleduje svoj spis cez zabezpečený osobný odkaz, bez hesla."
+    },
+    "governance": {
+      "eyebrow": "Riadenie a compliance",
+      "title": "Auditovateľné štandardy.",
+      "desc": "Náš operačný rámec spĺňa požiadavky európskych veriteľov: oddelenie právomocí, sledovateľnosť každého rozhodnutia a trvalá kontrola rizík.",
+      "g1t": "Regulovaný rámec",
+      "g1d": "Úverová činnosť sa vykonáva s licencovanými bankovými partnermi.",
+      "g2t": "Ochrana údajov",
+      "g2d": "Súlad s GDPR, šifrovanie v pokoji aj pri prenose, prísne lehoty uchovávania.",
+      "g3t": "Certifikované procesy",
+      "g3d": "Kontroly podľa ISO 27001 a každoročné nezávislé audity.",
+      "g4t": "Nezávislý dohľad",
+      "g4d": "Úverový a rizikový výbor reviduje politiky každý štvrťrok."
+    },
+    "cta": {
+      "title": "Pripravení financovať svoj projekt?",
+      "desc": "Simulácia za minútu, žiadosť v šiestich krokoch a rozhodnutie do 24 hodín.",
+      "button": "Začať žiadosť"
+    }
   }
 }

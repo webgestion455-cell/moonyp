@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
@@ -25,6 +24,95 @@ export function productDescription(p: LoanProduct, t: (k: string) => string): st
   if (!p.i18n_key) return p.description ?? "";
   const translated = t(`${p.i18n_key}.desc`);
   return translated === `${p.i18n_key}.desc` ? (p.description ?? "") : translated;
+}
+
+function monthPresets(p: LoanProduct): number[] {
+  const out: number[] = [];
+  for (const m of [12, 24, 36, 48, 60, 72, 84, 96, 120, 180, 240, 300]) {
+    if (m >= p.min_months && m <= p.max_months) out.push(m);
+  }
+  return out.slice(0, 6);
+}
+
+interface NumberFieldProps {
+  id: string;
+  label: string;
+  hint: string;
+  suffix: string;
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  onCommit: (v: number) => void;
+}
+
+function NumberField({ id, label, hint, suffix, value, min, max, step, onCommit }: NumberFieldProps) {
+  const [draft, setDraft] = useState<string>(String(value));
+
+  useEffect(() => {
+    setDraft(String(value));
+  }, [value]);
+
+  const commit = (raw: string) => {
+    const parsed = Number(raw.replace(/[^\d.,-]/g, "").replace(",", "."));
+    const next = Number.isFinite(parsed) ? clampToStep(parsed, min, max, step) : value;
+    setDraft(String(next));
+    if (next !== value) onCommit(next);
+  };
+
+  const nudge = (dir: 1 | -1) => {
+    const next = clampToStep(value + dir * step, min, max, step);
+    if (next !== value) onCommit(next);
+  };
+
+  return (
+    <div className="space-y-1.5">
+      <div className="flex items-baseline justify-between gap-3">
+        <Label htmlFor={id} className="text-sm font-medium">{label}</Label>
+        <span className="text-xs text-muted-foreground tabular-nums">{hint}</span>
+      </div>
+      <div className="flex items-stretch gap-2">
+        <button
+          type="button"
+          onClick={() => nudge(-1)}
+          disabled={value <= min}
+          aria-label={`${label} −`}
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border text-lg font-semibold text-muted-foreground transition-colors hover:bg-muted disabled:opacity-40"
+        >
+          −
+        </button>
+        <div className="relative flex-1">
+          <input
+            id={id}
+            type="text"
+            inputMode="numeric"
+            value={draft}
+            onChange={(e) => setDraft(e.target.value)}
+            onBlur={(e) => commit(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                commit((e.target as HTMLInputElement).value);
+              }
+            }}
+            className="h-12 w-full rounded-xl border border-input bg-background pl-3 pr-16 text-lg font-semibold tabular-nums outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
+          />
+          <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-xs font-medium text-muted-foreground">
+            {suffix}
+          </span>
+        </div>
+        <button
+          type="button"
+          onClick={() => nudge(1)}
+          disabled={value >= max}
+          aria-label={`${label} +`}
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border text-lg font-semibold text-muted-foreground transition-colors hover:bg-muted disabled:opacity-40"
+        >
+          +
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export function Simulator({ products, value, onChange, onQuote, compact = false }: SimulatorProps) {
@@ -89,45 +177,46 @@ export function Simulator({ products, value, onChange, onQuote, compact = false 
             </div>
           </div>
 
-          <div className="space-y-3">
-            <div className="flex items-baseline justify-between gap-3">
-              <Label htmlFor="sim-amount" className="text-sm font-medium">{t("finance.sim.amount")}</Label>
-              <span className="text-lg font-bold tabular-nums">{money(value.amount)}</span>
-            </div>
-            <Slider
-              id="sim-amount"
-              min={product.min_amount}
-              max={product.max_amount}
-              step={product.amount_step}
-              value={[value.amount]}
-              onValueChange={([v]) => onChange({ ...value, amount: v })}
-              aria-label={t("finance.sim.amount")}
-            />
-            <div className="flex justify-between text-xs text-muted-foreground tabular-nums">
-              <span>{money(product.min_amount)}</span>
-              <span>{money(product.max_amount)}</span>
-            </div>
-          </div>
+          <NumberField
+            id="sim-amount"
+            label={t("finance.sim.amount")}
+            hint={`${money(product.min_amount)} – ${money(product.max_amount)}`}
+            suffix={product.currency}
+            value={value.amount}
+            min={product.min_amount}
+            max={product.max_amount}
+            step={product.amount_step}
+            onCommit={(v) => onChange({ ...value, amount: v })}
+          />
 
           <div className="space-y-3">
-            <div className="flex items-baseline justify-between gap-3">
-              <Label htmlFor="sim-months" className="text-sm font-medium">{t("finance.sim.duration")}</Label>
-              <span className="text-lg font-bold tabular-nums">
-                {value.months} {t("finance.sim.months")}
-              </span>
-            </div>
-            <Slider
+            <NumberField
               id="sim-months"
+              label={t("finance.sim.duration")}
+              hint={`${product.min_months} – ${product.max_months} ${t("finance.sim.months")}`}
+              suffix={t("finance.sim.months")}
+              value={value.months}
               min={product.min_months}
               max={product.max_months}
               step={product.months_step}
-              value={[value.months]}
-              onValueChange={([v]) => onChange({ ...value, months: v })}
-              aria-label={t("finance.sim.duration")}
+              onCommit={(v) => onChange({ ...value, months: v })}
             />
-            <div className="flex justify-between text-xs text-muted-foreground tabular-nums">
-              <span>{product.min_months}</span>
-              <span>{product.max_months}</span>
+            <div className="flex flex-wrap gap-2">
+              {monthPresets(product).map((m) => (
+                <button
+                  key={m}
+                  type="button"
+                  onClick={() => onChange({ ...value, months: m })}
+                  aria-pressed={m === value.months}
+                  className={`min-h-9 rounded-full border px-3 text-xs font-medium tabular-nums transition-colors ${
+                    m === value.months
+                      ? "border-primary bg-primary/10 text-foreground"
+                      : "border-border text-muted-foreground hover:bg-muted/60"
+                  }`}
+                >
+                  {m} {t("finance.sim.months")}
+                </button>
+              ))}
             </div>
           </div>
 

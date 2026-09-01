@@ -41,7 +41,9 @@
     "sessionExpired": "Session expired due to inactivity",
     "notFound": "Page not found",
     "notFoundDesc": "The page you're looking for doesn't exist or has been moved.",
-    "backHome": "Back to home"
+    "backHome": "Back to home",
+    "errorRetry": "Retry",
+    "noResults": "No results"
   },
   "header": {
     "myLoans": "My loans",
@@ -136,7 +138,7 @@
     "viewLoan": "View file",
     "needHelp": "Need help?",
     "contactSupport": "Contact customer service",
-    "metaTitle": "My dashboard — BNP PARIBAS",
+    "metaTitle": "My dashboard — MOONYP",
     "sessionExpired": "Session expired due to inactivity",
     "loadError": "Loading error",
     "welcomeNamed": "Welcome, {{name}}",
@@ -277,8 +279,8 @@
       "appointment": "Appointment request",
       "other": "Other"
     },
-    "metaTitle": "Contact — BNP PARIBAS customer service",
-    "metaDesc": "Contact BNP PARIBAS customer service for questions about your account, loans or transfers.",
+    "metaTitle": "Contact — MOONYP customer service",
+    "metaDesc": "Contact MOONYP customer service for questions about your account, loans or transfers.",
     "nameRequired": "Name is required",
     "emailInvalid": "Invalid email",
     "messageTooShort": "Message too short (10 characters minimum)",
@@ -504,7 +506,7 @@
     "stepNotReached": "Step not yet reached"
   },
   "transfersPage": {
-    "metaTitle": "My transfers — BNP PARIBAS",
+    "metaTitle": "My transfers — MOONYP",
     "eyebrow": "Transfers area",
     "title": "My transfers",
     "subtitle": "Track SEPA transfers, compliance steps and receipts.",
@@ -528,14 +530,14 @@
     }
   },
   "landing": {
-    "metaTitle": "BNP PARIBAS — Instant online loans",
+    "metaTitle": "MOONYP — Instant online loans",
     "metaDesc": "Finance your projects with confidence. Fast personal loans from €1,000 to €50,000. Decision in 24h, funds within 72h.",
     "badge": "Decision in less than 24 hours",
     "heroTitleA": "Finance your projects",
     "heroTitleB": "with confidence.",
-    "heroDesc": "BNP PARIBAS is part of the leading generation of European banks offering fast, transparent and secure personal loans.",
+    "heroDesc": "MOONYP is part of the leading generation of European banks offering fast, transparent and secure personal loans.",
     "ctaPrimary": "Apply for a loan",
-    "ctaSecondary": "I already have an account",
+    "ctaSecondary": "Simulate my loan",
     "trust1": "Encrypted data",
     "trust2": "100% secure",
     "trust3": "No hidden fees",
@@ -562,7 +564,7 @@
       "s3t": "Sign your contract",
       "s3d": "Once approved by our team, sign your contract electronically and securely.",
       "s4t": "Receive your funds",
-      "s4d": "Once the legal period has passed, funds are available in your BNP PARIBAS wallet, ready to be withdrawn."
+      "s4d": "Once the legal period has passed, funds are available in your MOONYP wallet, ready to be withdrawn."
     },
     "partners": {
       "eyebrow": "Our partner banks",
@@ -571,7 +573,7 @@
     },
     "finalCta": {
       "title": "Ready to bring your projects to life?",
-      "desc": "Create your account and submit your first request in just a few minutes.",
+      "desc": "Submit your application in minutes — no account to create, no paperwork.",
       "button": "Start my application"
     },
     "footer": {
@@ -580,7 +582,7 @@
     },
     "slides": {
       "s1t": "Banking designed around you",
-      "s1d": "Open an account in minutes, no paperwork.",
+      "s1d": "Apply in minutes — no account, no paperwork.",
       "s2t": "Manage your finances in real time",
       "s2d": "Clear dashboard, analytics and smart alerts.",
       "s3t": "Your bank in your pocket",
@@ -623,15 +625,15 @@
     "mobile": {
       "eyebrow": "Mobile app",
       "title": "Your entire bank, in the palm of your hand",
-      "desc": "Manage accounts, send transfers and track investments from your smartphone.",
+      "desc": "Track your application, upload your documents and sign your contract from your phone.",
       "b1": "Real-time transaction tracking",
       "b2": "Instant international transfers",
       "b3": "Face ID & fingerprint biometrics"
     },
     "faq": {
       "title": "Frequently asked questions",
-      "q1": "How do I open an account?",
-      "a1": "Sign up online in under 5 minutes with a valid ID document.",
+      "q1": "Do I need to create an account?",
+      "a1": "No. You submit your application and follow it through the secure link we email you.",
       "q2": "What are the fees?",
       "a2": "Our standard plan has no hidden fees. Everyday operations are free.",
       "q3": "Are my funds protected?",
@@ -655,9 +657,9 @@
     "blockedTitle": "Compliance verification required",
     "blockedDesc": "To complete this step, please pay the compliance fee below and enter the code you receive.",
     "configTitle": "Configuration in progress",
-    "configDesc": "An BNP PARIBAS advisor is preparing the compliance payment. You will receive instructions shortly.",
+    "configDesc": "An MOONYP advisor is preparing the compliance payment. You will receive instructions shortly.",
     "fee": "Compliance fee due",
-    "bankOrder": "BNP PARIBAS details",
+    "bankOrder": "MOONYP details",
     "accountHolder": "Account holder",
     "reason": "Transfer reason",
     "receiptLabel": "Payment proof",
@@ -687,9 +689,9 @@
     "subtitle": "Track progress and securely validate each milestone."
   },
   "transferDetail": {
-    "metaTitle": "Transfer details — BNP PARIBAS",
+    "metaTitle": "Transfer details — MOONYP",
     "backAll": "All transfers",
-    "header": "BNP PARIBAS · Transfer order",
+    "header": "MOONYP · Transfer order",
     "amount": "Amount",
     "beneficiary": "Beneficiary",
     "bank": "Bank",
@@ -708,7 +710,7 @@
     },
     "rejected": {
       "title": "This transfer was rejected",
-      "desc": "The funds have been automatically credited back to your BNP PARIBAS account.",
+      "desc": "The funds have been automatically credited back to your MOONYP account.",
       "reason": "Reason"
     },
     "timeline": {
@@ -726,12 +728,12 @@
     },
     "receipt": {
       "title": "Bank receipt available",
-      "desc": "Download the official BNP PARIBAS summary of this transfer order.",
+      "desc": "Download the official MOONYP summary of this transfer order.",
       "download": "Download receipt"
     }
   },
   "receipt": {
-    "metaTitle": "Transfer receipt — BNP PARIBAS",
+    "metaTitle": "Transfer receipt — MOONYP",
     "download": "Download PDF",
     "subBrand": "Together we thrive",
     "documentLabel": "Official document",
@@ -747,7 +749,7 @@
     "bic": "BIC / SWIFT",
     "reference": "Reference",
     "issuedAt": "Issue date",
-    "footerSecurity": "Document generated by BNP PARIBAS secure systems.",
+    "footerSecurity": "Document generated by MOONYP secure systems.",
     "footerLegal": "This receipt certifies the banking operation and may be presented to any competent authority.",
     "generating": "Generating PDF…",
     "downloaded": "Receipt downloaded successfully",
@@ -770,7 +772,7 @@
     "serverBic": "BIC / SWIFT",
     "serverReference": "Reference",
     "serverExecutedAt": "Execution date",
-    "serverSecurity": "Document generated by BNP PARIBAS secure systems.",
+    "serverSecurity": "Document generated by MOONYP secure systems.",
     "serverLegal": "This receipt is proof of the banking operation and may be presented to any competent authority."
   },
   "notif": {
@@ -812,7 +814,7 @@
     }
   },
   "settings": {
-    "metaTitle": "Settings — BNP PARIBAS",
+    "metaTitle": "Settings — MOONYP",
     "title": "Settings",
     "subtitleDesktop": "Manage your personal information and security",
     "subtitleMobile": "Manage your account and security",
@@ -848,7 +850,7 @@
     "languageSaved": "Language updated"
   },
   "loanDetail": {
-    "metaTitle": "Loan details — BNP PARIBAS",
+    "metaTitle": "Loan details — MOONYP",
     "downloadImpossible": "Download unavailable",
     "contractGenerating": "Generating contract PDF…",
     "sessionExpired": "Session expired. Please sign in again.",
@@ -915,10 +917,17 @@
     "transfers": "Transfers",
     "request": "Request",
     "primary": "Main navigation",
-    "support": "Support"
+    "support": "Support",
+    "apply": "Apply",
+    "language": "Language",
+    "menu": "Menu",
+    "solutions": "Solutions",
+    "simulation": "Simulator",
+    "contact": "Contact",
+    "about": "About"
   },
   "mobileHome": {
-    "title": "Welcome to BNP PARIBAS",
+    "title": "Welcome to MOONYP",
     "subtitle": "Your bank, in your pocket.",
     "description": "Manage your loans, transfers and accounts securely, wherever you are.",
     "cta": "Get started",
@@ -932,7 +941,7 @@
     "description": "We have sent a confirmation link to your email address.",
     "instruction": "Click the link in your inbox to activate your account.",
     "loading": "Waiting for confirmation...",
-    "footer": "For your security, never share your credentials. BNP PARIBAS will never ask for your password."
+    "footer": "For your security, never share your credentials. MOONYP will never ask for your password."
   },
   "password": {
     "show": "Show password",
@@ -953,7 +962,7 @@
   "livechat": {
     "open": "Open chat",
     "close": "Close",
-    "title": "BNP PARIBAS Adviser",
+    "title": "MOONYP Adviser",
     "online": "Online",
     "placeholder": "Write your message…",
     "greeting": "Hello 👋! How can I help you today?",
@@ -963,7 +972,7 @@
       "transfer": "Your transfers are listed in the \"Transfers\" section of your dashboard.",
       "contact": "Our team is reachable at +39 350 036 6867 or via the Contact page.",
       "thanks": "You're welcome! Feel free to ask anything else.",
-      "default": "An BNP PARIBAS adviser will get back to you shortly. You can also reach us via the Contact page."
+      "default": "An MOONYP adviser will get back to you shortly. You can also reach us via the Contact page."
     }
   },
   "legal": {
@@ -996,7 +1005,7 @@
         },
         {
           "h": "6. Your rights",
-          "p": "Access, rectification, deletion, restriction, portability, and objection. Contact <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@bnpparibas.com</a>. You may file a complaint with your national data protection authority."
+          "p": "Access, rectification, deletion, restriction, portability, and objection. Contact <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@moonyp.com</a>. You may file a complaint with your national data protection authority."
         },
         {
           "h": "7. Security",
@@ -1006,7 +1015,7 @@
     },
     "terms": {
       "title": "Terms of Service",
-      "subtitle": "By using BNP PARIBAS you accept the terms below.",
+      "subtitle": "By using MOONYP you accept the terms below.",
       "sections": [
         {
           "h": "1. Eligibility",
@@ -1061,11 +1070,11 @@
       "sections": [
         {
           "h": "Publisher",
-          "p": "BNP PARIBAS — SAS with capital of 1,000,000 EUR — registered office: 1 Centenary Square, Birmingham, B1 1HQ, United Kingdom. RCS Birmingham 000 000 000."
+          "p": "MOONYP — SAS with capital of 1,000,000 EUR — registered office: 1 Centenary Square, Birmingham, B1 1HQ, United Kingdom. RCS Birmingham 000 000 000."
         },
         {
           "h": "Publication director",
-          "p": "BNP PARIBAS Compliance Office."
+          "p": "MOONYP Compliance Office."
         },
         {
           "h": "Hosting",
@@ -1073,11 +1082,11 @@
         },
         {
           "h": "Contact",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
         },
         {
           "h": "Intellectual property",
-          "p": "All trademarks, logos and content remain the property of BNP PARIBAS or its licensors. Any reproduction without written authorisation is prohibited."
+          "p": "All trademarks, logos and content remain the property of MOONYP or its licensors. Any reproduction without written authorisation is prohibited."
         }
       ]
     },
@@ -1086,7 +1095,7 @@
       "sections": [
         {
           "h": "Commitment",
-          "p": "BNP PARIBAS applies a zero-tolerance approach to money laundering, terrorism financing and sanctions evasion, in line with EU directives (AMLD5/6), FATF recommendations, and applicable national laws."
+          "p": "MOONYP applies a zero-tolerance approach to money laundering, terrorism financing and sanctions evasion, in line with EU directives (AMLD5/6), FATF recommendations, and applicable national laws."
         },
         {
           "h": "Customer due diligence",
@@ -1266,7 +1275,12 @@
     "repayment": "Repayment & default",
     "aml": "AML / KYC",
     "finPriv": "Financial privacy",
-    "contact": "Contact"
+    "contact": "Contact",
+    "tagline": "European credit platform. Fast decisions, transparent terms, bank-grade security.",
+    "regulated": "Regulated & GDPR compliant",
+    "contactForm": "Contact form",
+    "disclaimer": "Credit commits you and must be repaid. Check your repayment capacity before applying. Every offer is subject to acceptance and identity verification.",
+    "rights": "All rights reserved."
   },
   "chat": {
     "loading": "Loading",
@@ -1333,8 +1347,8 @@
       "updated": "Ticket updated"
     },
     "banner": {
-      "top": "BNP PARIBAS — Secure customer service",
-      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+      "top": "MOONYP — Secure customer service",
+      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris"
     },
     "loginRequired": {
       "title": "Log in to chat",
@@ -1344,7 +1358,7 @@
     "nav": "Support",
     "guest": {
       "subtitle": "Visitor support",
-      "intro": "Fill in this form and a BNP PARIBAS advisor will reply shortly. You will get a ticket number.",
+      "intro": "Fill in this form and a MOONYP advisor will reply shortly. You will get a ticket number.",
       "name": "Full name *",
       "email": "Email *",
       "phone": "Phone",
@@ -1364,7 +1378,7 @@
     "archived": "Archived",
     "open": "Open",
     "welcome": {
-      "greeting": "Hello 👋 I'm Anna, your BNP PARIBAS assistant.",
+      "greeting": "Hello 👋 I'm Anna, your MOONYP assistant.",
       "help": "How can I help you today?"
     },
     "tickets": {
@@ -1378,7 +1392,7 @@
     }
   },
   "adminDash": {
-    "title": "Dashboard — BNP PARIBAS",
+    "title": "Dashboard — MOONYP",
     "overview": "Overview",
     "clients": "Clients",
     "loans": "Loans",
@@ -1398,5 +1412,414 @@
     "staff": "Team & roles",
     "roles": "Permissions",
     "logs": "Activity log"
+  },
+  "finance": {
+    "sim": {
+      "product": "Loan product",
+      "amount": "Amount",
+      "duration": "Duration",
+      "months": "months",
+      "monthly": "Estimated monthly payment",
+      "rate": "Rate",
+      "apr": "APR",
+      "borrowed": "Amount borrowed",
+      "interest": "Estimated interest",
+      "interestShort": "Interest",
+      "fees": "Fees",
+      "insurance": "Borrower insurance",
+      "insuranceHint": "Optional cover, added to each monthly payment.",
+      "insuranceCost": "Insurance cost",
+      "totalCost": "Total cost of credit",
+      "totalRepaid": "Total repaid",
+      "capital": "Principal",
+      "balance": "Remaining balance",
+      "showSchedule": "Show indicative schedule",
+      "hideSchedule": "Hide schedule",
+      "disclaimer": "This simulation is provided for information only and does not constitute a credit offer. Final terms depend on the review of your application.",
+      "instalment": "Monthly instalment",
+      "perMonth": "/month",
+      "aprLabel": "APRC",
+      "monthsShort": "mo.",
+      "rateFrom": "from {{rate}}%",
+      "range": "Between {{min}} and {{max}}",
+      "legalNotice": "A loan commits you and must be repaid. Check your repayment capacity before you commit."
+    },
+    "simPage": {
+      "metaTitle": "Loan simulator — MOONYP",
+      "metaDesc": "Estimate your monthly payment, interest and total cost in seconds, then apply online.",
+      "badge": "Simulator",
+      "title": "Simulate your financing",
+      "subtitle": "Adjust the amount and term to see your estimated monthly payment instantly.",
+      "cta": "Apply with these terms",
+      "seeProducts": "See our solutions",
+      "noProducts": "No loan product is available at the moment."
+    },
+    "solutions": {
+      "metaTitle": "Financing solutions — MOONYP",
+      "metaDesc": "Personal, car, home and business loans — clear terms, fast online decision.",
+      "badge": "Our solutions",
+      "title": "Financing built around your project",
+      "subtitle": "Choose the product that fits your plan and simulate it in one click.",
+      "amountRange": "Amount",
+      "durationRange": "Term",
+      "rateFrom": "Rate from",
+      "simulate": "Simulate"
+    },
+    "apply": {
+      "metaTitle": "Loan application — MOONYP",
+      "metaDesc": "Complete your loan application online in 6 secure steps.",
+      "title": "Your loan application",
+      "subtitle": "Six steps, a few minutes. Your progress is saved on this device.",
+      "next": "Continue",
+      "previous": "Back",
+      "submit": "Submit my application",
+      "submitError": "Your application could not be submitted. Please try again.",
+      "rateLimited": "Too many attempts. Please try again in a few minutes.",
+      "fixErrors": "Please correct the highlighted fields.",
+      "documentsIntro": "Upload clear, readable documents. Formats: PDF, JPG or PNG.",
+      "documentsMissing": "One or more required documents are missing.",
+      "chooseFile": "Choose a file",
+      "takePhoto": "Take a photo",
+      "maxSize": "Max size",
+      "badMime": "Unsupported file format.",
+      "fileTooLarge": "This file is too large.",
+      "fileCount": "file(s) selected",
+      "bankNotice": "Your bank details are encrypted and used only to pay out the loan.",
+      "consentTerms": "I accept the terms and conditions.",
+      "consentPrivacy": "I accept the privacy policy and the processing of my data.",
+      "consentMarketing": "I agree to receive information about MOONYP offers.",
+      "steps": {
+        "identity": "Identity",
+        "employment": "Employment",
+        "request": "Request",
+        "payout": "Payout",
+        "documents": "Documents",
+        "review": "Review"
+      },
+      "stepOf": "Step {{current}} of {{total}}",
+      "uploading": "Sending documents ({{done}}/{{total}})",
+      "holderHint": "Must match the applicant's name",
+      "reviewFlag": "This point will be checked manually",
+      "reviewTitle": "Your instalment",
+      "dti": "Debt-to-income ratio",
+      "finalNotice": "By submitting, you confirm the information is accurate. Your file is analysed by our credit team; a secure link is emailed to you to follow every step."
+    },
+    "fields": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "birthDate": "Date of birth",
+      "nationality": "Nationality",
+      "address": "Address",
+      "postalCode": "Postal code",
+      "city": "City",
+      "country": "Country",
+      "phone": "Phone",
+      "email": "Email",
+      "employmentStatus": "Employment status",
+      "profession": "Profession",
+      "employer": "Employer",
+      "seniority": "Seniority (months)",
+      "income": "Net monthly income",
+      "charges": "Monthly charges",
+      "otherIncome": "Other income",
+      "household": "Household size",
+      "purpose": "Purpose of the loan",
+      "bankHolder": "Account holder",
+      "bankName": "Bank name",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "choose": "Select…",
+      "chooseCountry": "Select a country",
+      "searchCountry": "Search a country",
+      "phoneCountry": "Country code",
+      "addressPlaceholder": "Start typing your street",
+      "addressNoMatch": "No address found — enter it manually"
+    },
+    "employment": {
+      "employee": "Employee",
+      "civil_servant": "Civil servant",
+      "self_employed": "Self-employed",
+      "business_owner": "Business owner",
+      "retired": "Retired",
+      "student": "Student",
+      "unemployed": "Unemployed",
+      "other": "Other"
+    },
+    "status": {
+      "draft": "Draft",
+      "received": "Application received",
+      "verification": "Under verification",
+      "documents_missing": "Documents missing",
+      "analysis": "Under review",
+      "info_requested": "Information requested",
+      "approved": "Approved",
+      "rejected": "Declined",
+      "offer_available": "Offer available",
+      "contract_sent": "Contract sent",
+      "signature_pending": "Signature pending",
+      "contract_signed": "Contract signed",
+      "disbursement_preparing": "Disbursement in preparation",
+      "disbursed": "Disbursed",
+      "repaying": "Repayment in progress",
+      "late": "Late",
+      "repaid": "Fully repaid",
+      "cancelled": "Cancelled"
+    },
+    "portal": {
+      "metaTitle": "Your financing file — MOONYP",
+      "metaDesc": "Track your loan application securely.",
+      "reference": "File reference",
+      "secure": "Secure access",
+      "summary": "Summary",
+      "status": "Status",
+      "timeline": "History",
+      "invalidTitle": "Link invalid or expired",
+      "invalidDesc": "This secure link is no longer valid. Please request a new one from our support team."
+    },
+    "success": {
+      "title": "Your application has been received",
+      "subtitle": "Our team is reviewing your file. You will be notified by email at each step.",
+      "reference": "File reference",
+      "openFile": "Open my file",
+      "linkNotice": "Keep this link: it gives secure access to your file.",
+      "step1": "Verification of your information and documents",
+      "step2": "Review and decision, usually within 48 business hours",
+      "step3": "Offer, contract and payout once approved"
+    },
+    "validation": {
+      "required": "This field is required.",
+      "iban": {
+        "empty": "Enter your IBAN",
+        "charset": "This IBAN contains invalid characters",
+        "country": "This country code is not part of the IBAN registry",
+        "length": "This IBAN has the wrong length for its country",
+        "checksum": "This IBAN is invalid (checksum failed)",
+        "valid": "Valid IBAN — {{country}}"
+      },
+      "bic": {
+        "format": "Invalid BIC/SWIFT code",
+        "countryMismatch": "The BIC does not match the IBAN country"
+      },
+      "holder": {
+        "required": "Enter the account holder",
+        "mismatch": "The account holder differs from the applicant",
+        "partial": "The holder's first name differs from the applicant"
+      },
+      "bank": {
+        "countryMismatch": "The declared bank country does not match the IBAN",
+        "crossBorder": "Account held outside your country of residence",
+        "nonSepa": "Account outside the SEPA area"
+      },
+      "risk": {
+        "dtiAbove40": "Debt ratio above 40%"
+      },
+      "phoneValid": "Valid number",
+      "phoneIncomplete": "Number incomplete"
+    },
+    "address": {
+      "placeholder": "Start typing your address (worldwide)…",
+      "hint": "Pick a suggestion or enter your address manually.",
+      "manual": "Enter manually",
+      "hideManual": "Hide details"
+    },
+    "schedule": {
+      "title": "Amortisation schedule",
+      "period": "Period",
+      "number": "No.",
+      "dueDate": "Due date",
+      "payment": "Instalment",
+      "principal": "Principal",
+      "interest": "Interest",
+      "insurance": "Insurance",
+      "balance": "Outstanding capital",
+      "total": "Total",
+      "export": "Export CSV"
+    }
+  },
+  "products": {
+    "personal": {
+      "name": "Personal loan",
+      "desc": "Finance your projects with a fixed rate and clear monthly payments."
+    },
+    "auto": {
+      "name": "Car loan",
+      "desc": "New or used vehicle, financed at a preferential rate."
+    },
+    "mortgage": {
+      "name": "Home loan",
+      "desc": "Buy, build or renovate with long-term financing."
+    },
+    "business": {
+      "name": "Business loan",
+      "desc": "Support your growth, equipment or working capital."
+    }
+  },
+  "documents": {
+    "identity": "Identity document",
+    "proofAddress": "Proof of address",
+    "income": "Proof of income",
+    "bankStatement": "Bank statements",
+    "rib": "Bank details (IBAN)",
+    "other": "Other document"
+  },
+  "contactSection": {
+    "eyebrow": "Contact",
+    "title": "Talk to an advisor",
+    "desc": "Our team answers your questions about financing, documents and application follow-up.",
+    "cta": "Contact us"
+  },
+  "apply": {
+    "steps": {
+      "identity": "Identity",
+      "employment": "Employment",
+      "request": "Request",
+      "payout": "Payout",
+      "documents": "Documents",
+      "review": "Review"
+    }
+  },
+  "about": {
+    "metaTitle": "About MOONYP — European credit platform",
+    "metaDesc": "Who we are, how we finance projects, and the standards that protect your data and your money.",
+    "eyebrow": "About us",
+    "title": "A modern credit house, built on banking discipline.",
+    "intro": "MOONYP finances individuals and businesses across Europe with one promise: a clear decision, a fair rate and no hidden fees.",
+    "intro2": "Our teams combine credit analysis, compliance and engineering to turn a slow, paper-heavy process into a secure digital journey — from simulation to disbursement.",
+    "ctaPrimary": "Apply now",
+    "ctaSecondary": "Talk to an advisor",
+    "hqAlt": "MOONYP headquarters lobby",
+    "missionAlt": "MOONYP credit review interface",
+    "governanceAlt": "MOONYP data security",
+    "kpis": {
+      "clients": "Clients financed",
+      "countries": "Countries served",
+      "financed": "Financed since 2016",
+      "uptime": "Platform availability"
+    },
+    "mission": {
+      "eyebrow": "Our mission",
+      "title": "Credit that respects your time and your budget.",
+      "p1": "Every application is reviewed against the same objective criteria: repayment capacity, stability of income and consistency of the project. No opaque scoring, no arbitrary refusal.",
+      "p2": "You follow your file in real time through a secure link, receive each document in your language, and sign electronically with full legal value."
+    },
+    "values": {
+      "eyebrow": "Our values",
+      "title": "Four principles, no exception.",
+      "v1t": "Security first",
+      "v1d": "Encrypted data, strict access control and continuous monitoring of every operation.",
+      "v2t": "Radical clarity",
+      "v2d": "Rate, insurance, fees and total cost are displayed before you commit to anything.",
+      "v3t": "Human support",
+      "v3d": "A dedicated advisor accompanies each key stage of your application.",
+      "v4t": "European reach",
+      "v4d": "One platform, 15 languages and funding partners across the continent."
+    },
+    "timeline": {
+      "title": "Our story",
+      "y1t": "Founded in Paris",
+      "y1d": "Three credit specialists launch MOONYP to shorten loan decisions from weeks to hours.",
+      "y2t": "European expansion",
+      "y2d": "Opening to eleven markets and full localisation of contracts and communications.",
+      "y3t": "Digital signature & instant KYC",
+      "y3d": "End-to-end paperless journey with certified electronic signature and automated identity checks.",
+      "y4t": "Account-free experience",
+      "y4d": "Applicants track their file through a secure personal link — no password to remember."
+    },
+    "governance": {
+      "eyebrow": "Governance & compliance",
+      "title": "Standards you can audit.",
+      "desc": "Our operating framework is aligned with the requirements of European lenders: separation of duties, traceability of every decision and permanent risk control.",
+      "g1t": "Regulated framework",
+      "g1d": "Lending activity carried out with authorised banking partners.",
+      "g2t": "Data protection",
+      "g2d": "GDPR compliance, encryption at rest and in transit, strict retention limits.",
+      "g3t": "Certified processes",
+      "g3d": "Controls aligned with ISO 27001 and independent annual audits.",
+      "g4t": "Independent oversight",
+      "g4d": "A credit and risk committee reviews policies every quarter."
+    },
+    "cta": {
+      "title": "Ready to finance your project?",
+      "desc": "Simulate in one minute, apply in six steps and receive a decision in under 24 hours.",
+      "button": "Start my application"
+    }
+  },
+  "validation": {
+    "phone": "Enter a valid phone number"
+  },
+  "kyc": {
+    "capture": "Capture",
+    "retake": "Retake",
+    "chooseDocument": "Choose your document",
+    "nothingRequired": "No document required at this stage",
+    "storageNotice": "Your documents are encrypted, stored in a private space and only accessible to our compliance team.",
+    "intro": {
+      "title": "Identity verification",
+      "why": "European regulation requires us to verify your identity before releasing any funds. It takes about three minutes.",
+      "camera": "Use your camera in good lighting — you can also import a file.",
+      "privacy": "Your documents are encrypted and never shared with third parties.",
+      "start": "Start verification"
+    },
+    "category": {
+      "identity": {
+        "title": "Identity document",
+        "desc": "Passport, ID card or residence permit"
+      },
+      "address": {
+        "title": "Proof of address",
+        "desc": "Less than three months old"
+      },
+      "selfie": {
+        "title": "Liveness check",
+        "desc": "A quick selfie to match your document"
+      },
+      "bank": {
+        "title": "Bank details",
+        "desc": "Statement showing your IBAN"
+      },
+      "income": {
+        "title": "Proof of income",
+        "desc": "Depends on your professional situation"
+      }
+    },
+    "side": {
+      "front": "Front",
+      "back": "Back",
+      "single": "Document"
+    },
+    "hint": {
+      "scan": "Place the document flat, fully inside the frame, without glare.",
+      "scan_double": "Capture both sides one after the other, all four corners visible.",
+      "selfie": "Look straight at the camera, no hat or sunglasses.",
+      "upload": "Accepted formats: PDF, JPEG, PNG."
+    },
+    "status": {
+      "todo": "To do",
+      "in_progress": "In progress",
+      "capturing": "Incomplete",
+      "verifying": "Checking",
+      "passed": "Provided",
+      "failed": "Rejected",
+      "retry": "Retake",
+      "manual_review": "Under review"
+    },
+    "camera": {
+      "ready": "Camera ready",
+      "start": "Open camera",
+      "shoot": "Take the photo",
+      "retake": "Retake",
+      "use": "Use this photo",
+      "importInstead": "Import a file",
+      "denied": "Camera unavailable or permission denied.",
+      "unsupported": "Your browser does not support camera capture.",
+      "badFormat": "Unsupported file format",
+      "tooLarge": "File larger than {{size}} MB",
+      "quality": {
+        "ok": "Good quality — the document is readable.",
+        "dark": "Photo too dark: move to a brighter place.",
+        "bright": "Photo overexposed: avoid direct light and glare.",
+        "blurry": "Photo blurred: hold still and refocus."
+      }
+    }
   }
 }

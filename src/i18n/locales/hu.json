@@ -41,7 +41,8 @@
     "sessionExpired": "A munkamenet lejárt",
     "notFound": "Az oldal nem található",
     "notFoundDesc": "A keresett oldal nem létezik.",
-    "backHome": "Vissza a kezdőlapra"
+    "backHome": "Vissza a kezdőlapra",
+    "errorRetry": "Újrapróbálkozás"
   },
   "header": {
     "myLoans": "Hiteleim",
@@ -136,7 +137,7 @@
     "viewLoan": "Fájl megtekintése",
     "needHelp": "Segítségre van szüksége?",
     "contactSupport": "Ügyfélszolgálat felkeresése",
-    "metaTitle": "My dashboard — BNP PARIBASAS",
+    "metaTitle": "My dashboard — MOONYPAS",
     "sessionExpired": "A munkamenet inaktivitás miatt lejárt",
     "loadError": "Betöltési hiba",
     "welcomeNamed": "Welcome, {{name}}",
@@ -277,8 +278,8 @@
       "appointment": "Időpontkérés",
       "other": "Egyéb"
     },
-    "metaTitle": "Kapcsolatfelvétel – BNP PARIBAS ügyfélszolgálat",
-    "metaDesc": "Lépjen kapcsolatba a BNP PARIBAS ügyfélszolgálatával számlájával, hiteleivel vagy átutalásaival kapcsolatos kérdéseivel.",
+    "metaTitle": "Kapcsolatfelvétel – MOONYP ügyfélszolgálat",
+    "metaDesc": "Lépjen kapcsolatba a MOONYP ügyfélszolgálatával számlájával, hiteleivel vagy átutalásaival kapcsolatos kérdéseivel.",
     "nameRequired": "Név megadása kötelező",
     "emailInvalid": "Érvénytelen e-mail cím",
     "messageTooShort": "Túl rövid üzenet (minimum 10 karakter)",
@@ -504,7 +505,7 @@
     "stepNotReached": "A lépés még nem érte el"
   },
   "transfersPage": {
-    "metaTitle": "Átutalásaim – BNP PARIBAS",
+    "metaTitle": "Átutalásaim – MOONYP",
     "eyebrow": "Átutalások területe",
     "title": "Átutalásaim",
     "subtitle": "SEPA átutalások, megfelelőségi lépések és bizonylatok nyomon követése.",
@@ -528,14 +529,14 @@
     }
   },
   "landing": {
-    "metaTitle": "BNP PARIBAS — Azonnali online hitelek",
+    "metaTitle": "MOONYP — Azonnali online hitelek",
     "metaDesc": "Finanszírozza projektjeit bizalommal. Gyors személyi kölcsönök 1 000 €-tól 50 000 €-ig. Döntés 24 órán belül, pénz 72 órán belül.",
     "badge": "Döntés 24 órán belül",
     "heroTitleA": "Finanszírozza projektjeit",
     "heroTitleB": "bizalommal.",
-    "heroDesc": "A BNP PARIBAS az európai bankok vezető generációjának része, amely gyors, átlátható és biztonságos személyi kölcsönöket kínál.",
+    "heroDesc": "A MOONYP az európai bankok vezető generációjának része, amely gyors, átlátható és biztonságos személyi kölcsönöket kínál.",
     "ctaPrimary": "Kérjen kölcsönt",
-    "ctaSecondary": "Már van fiókom",
+    "ctaSecondary": "Hitel szimulálása",
     "trust1": "Titkosított adatok",
     "trust2": "100% biztonságos",
     "trust3": "Nincsenek rejtett díjak",
@@ -562,7 +563,7 @@
       "s3t": "Írja alá a szerződését",
       "s3d": "Miután csapatunk jóváhagyta, írja alá szerződését elektronikusan és biztonságosan.",
       "s4t": "Fogadja meg a pénzét",
-      "s4d": "A jogi időszak letelte után a pénzeszközök elérhetővé válnak a BNP PARIBAS pénztárcájában, készen a kifizetésre."
+      "s4d": "A jogi időszak letelte után a pénzeszközök elérhetővé válnak a MOONYP pénztárcájában, készen a kifizetésre."
     },
     "partners": {
       "eyebrow": "Partnerbankjaink",
@@ -571,8 +572,8 @@
     },
     "finalCta": {
       "title": "Készen áll, hogy életre keltse projektjeit?",
-      "desc": "Hozza létre fiókját, és küldje be első kérelmét mindössze néhány perc alatt.",
-      "button": "Jelentkezés indítása"
+      "desc": "Néhány perc alatt beadhatja kérelmét – fiók és papírmunka nélkül.",
+      "button": "Kérelem indítása"
     },
     "footer": {
       "rights": "Minden jog fenntartva.",
@@ -580,7 +581,7 @@
     },
     "slides": {
       "s1t": "Az Ön igényeire szabott banki szolgáltatások",
-      "s1d": "Nyisson számlát percek alatt, papírmunka nélkül.",
+      "s1d": "Kérelem percek alatt, fiók és papírmunka nélkül.",
       "s2t": "Kezelje pénzügyeit valós időben",
       "s2d": "Áttekinthető műszerfal, elemzések és intelligens riasztások.",
       "s3t": "Bankja a zsebében",
@@ -623,15 +624,15 @@
     "mobile": {
       "eyebrow": "Mobilalkalmazás",
       "title": "Az egész bankja a tenyerében",
-      "desc": "Kezelje számláit, küldjön átutalásokat és kövesse nyomon befektetéseit okostelefonjáról.",
+      "desc": "Kövesse kérelmét, töltse fel dokumentumait és írja alá a szerződést telefonon.",
       "b1": "Valós idejű tranzakciókövetés",
       "b2": "Azonnali nemzetközi átutalások",
       "b3": "Face ID és ujjlenyomat biometria"
     },
     "faq": {
       "title": "Gyakran ismételt kérdések",
-      "q1": "Hogyan nyithatok számlát?",
-      "a1": "Regisztráljon online kevesebb mint 5 perc alatt érvényes személyazonosító okmánnyal.",
+      "q1": "Kell fiókot létrehoznom?",
+      "a1": "Nem. Beadja a kérelmet, és az e-mailben küldött biztonságos linken követi.",
       "q2": "Mik a díjak?",
       "a2": "Standard csomagunk rejtett díjakat nem tartalmaz. A mindennapi műveletek ingyenesek.",
       "q3": "Védettek a pénzeszközeim?",
@@ -655,9 +656,9 @@
     "blockedTitle": "Megfelelőségi ellenőrzés szükséges",
     "blockedDesc": "A lépés befejezéséhez kérjük, fizesse be az alábbi megfelelőségi díjat, és adja meg a kapott kódot.",
     "configTitle": "Konfigurálás folyamatban",
-    "configDesc": "An BNP PARIBASPARIBAS advisor is preparing the compliance payment. You will receive instructions shortly.",
+    "configDesc": "An MOONYPPARIBAS advisor is preparing the compliance payment. You will receive instructions shortly.",
     "fee": "Megfelelőségi díj esedékes",
-    "bankOrder": "BNP PARIBAS adatok",
+    "bankOrder": "MOONYP adatok",
     "accountHolder": "Számlatulajdonos",
     "reason": "Átutalás oka",
     "receiptLabel": "Fizetési igazolás",
@@ -687,9 +688,9 @@
     "subtitle": "Kövesse nyomon a haladást és biztonságosan érvényesítsen minden mérföldkövet."
   },
   "transferDetail": {
-    "metaTitle": "Átutalás részletei — BNP PARIBAS",
+    "metaTitle": "Átutalás részletei — MOONYP",
     "backAll": "Összes átutalás",
-    "header": "BNP PARIBAS · Átutalási megbízás",
+    "header": "MOONYP · Átutalási megbízás",
     "amount": "Összeg",
     "beneficiary": "Kedvezményezett",
     "bank": "Bank",
@@ -708,7 +709,7 @@
     },
     "rejected": {
       "title": "Ezt az átutalást elutasították",
-      "desc": "The funds have been automatically credited back to your BNP PARIBASPARIBAS account.",
+      "desc": "The funds have been automatically credited back to your MOONYPPARIBAS account.",
       "reason": "Ok"
     },
     "timeline": {
@@ -726,12 +727,12 @@
     },
     "receipt": {
       "title": "Banki bizonylat elérhető",
-      "desc": "Töltse le ennek az átutalási megbízásnak a hivatalos BNP PARIBAS összefoglalóját.",
+      "desc": "Töltse le ennek az átutalási megbízásnak a hivatalos MOONYP összefoglalóját.",
       "download": "Bizonylat letöltése"
     }
   },
   "receipt": {
-    "metaTitle": "Átutalási bizonylat – BNP PARIBAS",
+    "metaTitle": "Átutalási bizonylat – MOONYP",
     "download": "PDF letöltése",
     "subBrand": "Együtt boldogulunk",
     "documentLabel": "Hivatalos dokumentum",
@@ -747,7 +748,7 @@
     "bic": "BIC / SWIFT",
     "reference": "Hivatkozás",
     "issuedAt": "Kiállítás dátuma",
-    "footerSecurity": "A BNP PARIBAS biztonságos rendszerei által generált dokumentum.",
+    "footerSecurity": "A MOONYP biztonságos rendszerei által generált dokumentum.",
     "footerLegal": "Ez a bizonylat igazolja a banki műveletet, és bármely illetékes hatóság részére bemutatható.",
     "generating": "PDF generálása…",
     "downloaded": "Bizonylat sikeresen letöltve",
@@ -770,7 +771,7 @@
     "serverBic": "BIC / SWIFT",
     "serverReference": "Közlemény",
     "serverExecutedAt": "Végrehajtás dátuma",
-    "serverSecurity": "A dokumentumot a BNP PARIBAS biztonságos rendszerei generálták.",
+    "serverSecurity": "A dokumentumot a MOONYP biztonságos rendszerei generálták.",
     "serverLegal": "Ez a bizonylat a banki művelet igazolása, és bármely illetékes hatóságnak bemutatható."
   },
   "notif": {
@@ -812,7 +813,7 @@
     }
   },
   "settings": {
-    "metaTitle": "Beállítások — BNP PARIBAS",
+    "metaTitle": "Beállítások — MOONYP",
     "title": "Beállítások",
     "subtitleDesktop": "Személyes adatok és biztonság kezelése",
     "subtitleMobile": "Fiók és biztonság kezelése",
@@ -848,7 +849,7 @@
     "languageSaved": "Nyelv frissítve"
   },
   "loanDetail": {
-    "metaTitle": "Hitel részletei — BNP PARIBAS",
+    "metaTitle": "Hitel részletei — MOONYP",
     "downloadImpossible": "Letöltés nem elérhető",
     "contractGenerating": "Szerződés PDF generálása…",
     "sessionExpired": "A munkamenet lejárt. Kérjük, jelentkezzen be újra.",
@@ -915,10 +916,17 @@
     "transfers": "Átutalások",
     "request": "Kérelem",
     "primary": "Fő navigáció",
-    "support": "Támogatás"
+    "support": "Támogatás",
+    "apply": "Igénylés",
+    "language": "Nyelv",
+    "menu": "Menü",
+    "solutions": "Megoldások",
+    "simulation": "Kalkulátor",
+    "contact": "Kapcsolat",
+    "about": "Rólunk"
   },
   "mobileHome": {
-    "title": "Üdvözöljük a BNP PARIBAS-nál",
+    "title": "Üdvözöljük a MOONYP-nál",
     "subtitle": "Az Ön bankja, a zsebében.",
     "description": "Kezelje hiteleit, átutalásait és számláit biztonságosan, bárhol is legyen.",
     "cta": "Kezdje el",
@@ -932,7 +940,7 @@
     "description": "Elküldtünk egy megerősítő linket az e-mail címére.",
     "instruction": "Kattintson a beérkező levelek mappájában található linkre fiókja aktiválásához.",
     "loading": "Visszaigazolásra vár...",
-    "footer": "Az Ön biztonsága érdekében soha ne ossza meg hitelesítő adatait. A BNP PARIBAS soha nem fogja elkérni a jelszavát."
+    "footer": "Az Ön biztonsága érdekében soha ne ossza meg hitelesítő adatait. A MOONYP soha nem fogja elkérni a jelszavát."
   },
   "password": {
     "show": "Jelszó megjelenítése",
@@ -953,7 +961,7 @@
   "livechat": {
     "open": "Chat megnyitása",
     "close": "Bezárás",
-    "title": "BNP PARIBAS Tanácsadó",
+    "title": "MOONYP Tanácsadó",
     "online": "Online",
     "placeholder": "Írja meg üzenetét…",
     "greeting": "Szia 👋! Miben segíthetek ma?",
@@ -963,7 +971,7 @@
       "transfer": "Átutalásai az irányítópult „Átutalások” szakaszában találhatók.",
       "contact": "Csapatunk elérhető a +39 350 036 6867-es telefonszámon vagy a Kapcsolat oldalon keresztül.",
       "thanks": "Szívesen! Nyugodtan kérdezzen bármi mást.",
-      "default": "Egy BNP PARIBAS tanácsadó hamarosan felveszi Önnel a kapcsolatot. Elérhet minket a Kapcsolat oldalon keresztül is."
+      "default": "Egy MOONYP tanácsadó hamarosan felveszi Önnel a kapcsolatot. Elérhet minket a Kapcsolat oldalon keresztül is."
     }
   },
   "legal": {
@@ -1006,7 +1014,7 @@
     },
     "terms": {
       "title": "Felhasználási feltételek",
-      "subtitle": "A BNP PARIBAS használatával elfogadja a feltételeket.",
+      "subtitle": "A MOONYP használatával elfogadja a feltételeket.",
       "sections": [
         {
           "h": "1. Feltételek",
@@ -1061,11 +1069,11 @@
       "sections": [
         {
           "h": "Kiadó",
-          "p": "BNP PARIBAS — SAS, 1 000 000 EUR tőke — székhely: 1 Centenary Square, Birmingham, Egyesült Királyság."
+          "p": "MOONYP — SAS, 1 000 000 EUR tőke — székhely: 1 Centenary Square, Birmingham, Egyesült Királyság."
         },
         {
           "h": "Felelős kiadó",
-          "p": "Compliance BNP PARIBAS."
+          "p": "Compliance MOONYP."
         },
         {
           "h": "Tárhely",
@@ -1073,11 +1081,11 @@
         },
         {
           "h": "Kapcsolat",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
         },
         {
           "h": "Szellemi tulajdon",
-          "p": "A védjegyek és tartalmak a BNP PARIBAS tulajdonát képezik."
+          "p": "A védjegyek és tartalmak a MOONYP tulajdonát képezik."
         }
       ]
     },
@@ -1266,7 +1274,12 @@
     "repayment": "Visszafizetés és nemfizetés",
     "aml": "AML / KYC",
     "finPriv": "Pénzügyi adatvédelem",
-    "contact": "Kapcsolat"
+    "contact": "Kapcsolat",
+    "tagline": "Európai hitelplatform. Gyors döntések, átlátható feltételek, banki szintű biztonság.",
+    "regulated": "Szabályozott és GDPR-megfelelő",
+    "contactForm": "Kapcsolatfelvételi űrlap",
+    "disclaimer": "A hitel kötelezettséget jelent és vissza kell fizetni. Igénylés előtt mérje fel törlesztési képességét. Minden ajánlat elfogadás és személyazonosság-ellenőrzés függvénye.",
+    "rights": "Minden jog fenntartva."
   },
   "chat": {
     "loading": "Betöltés",
@@ -1333,8 +1346,8 @@
       "updated": "A jegy frissítve"
     },
     "banner": {
-      "top": "BNP PARIBAS — Biztonságos ügyfélszolgálat",
-      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+      "top": "MOONYP — Biztonságos ügyfélszolgálat",
+      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris"
     },
     "loginRequired": {
       "title": "Jelentkezzen be a csevegéshez",
@@ -1344,7 +1357,7 @@
     "nav": "Támogatás",
     "guest": {
       "subtitle": "Látogatói segítség",
-      "intro": "Töltse ki ezt az űrlapot, és a BNP PARIBAS tanácsadója gyorsan válaszol. Kapsz egy jegyszámot.",
+      "intro": "Töltse ki ezt az űrlapot, és a MOONYP tanácsadója gyorsan válaszol. Kapsz egy jegyszámot.",
       "name": "Teljes név *",
       "email": "E-mail*",
       "phone": "Telefon",
@@ -1364,7 +1377,7 @@
     "archived": "Levéltár",
     "open": "Nyitott",
     "welcome": {
-      "greeting": "Jó napot 👋 Anna vagyok, az Ön BNP PARIBAS asszisztense.",
+      "greeting": "Jó napot 👋 Anna vagyok, az Ön MOONYP asszisztense.",
       "help": "Miben segíthetek ma?"
     },
     "tickets": {
@@ -1378,7 +1391,7 @@
     }
   },
   "adminDash": {
-    "title": "Irányítópult – BNP PARIBAS",
+    "title": "Irányítópult – MOONYP",
     "overview": "Áttekintés",
     "clients": "Ügyfelek",
     "loans": "Hitelek",
@@ -1398,5 +1411,277 @@
     "staff": "Team & roles",
     "roles": "Permissions",
     "logs": "Activity log"
+  },
+  "finance": {
+    "sim": {
+      "product": "Hiteltermék",
+      "amount": "Összeg",
+      "duration": "Futamidő",
+      "months": "hónap",
+      "monthly": "Becsült havi törlesztő",
+      "rate": "Kamat",
+      "apr": "THM",
+      "borrowed": "Hitelösszeg",
+      "interest": "Becsült kamat",
+      "interestShort": "Kamat",
+      "fees": "Díjak",
+      "insurance": "Hitelfedezeti biztosítás",
+      "insuranceHint": "Opcionális védelem, minden törlesztőhöz hozzáadva.",
+      "insuranceCost": "Biztosítás költsége",
+      "totalCost": "A hitel teljes költsége",
+      "totalRepaid": "Teljes visszafizetés",
+      "capital": "Tőke",
+      "balance": "Fennálló tőke",
+      "showSchedule": "Törlesztési terv megjelenítése",
+      "hideSchedule": "Terv elrejtése",
+      "disclaimer": "Ez a kalkuláció tájékoztató jellegű, és nem minősül hitelajánlatnak. A végleges feltételek a kérelem elbírálásától függenek."
+    },
+    "simPage": {
+      "metaTitle": "Hitelkalkulátor — MOONYP",
+      "metaDesc": "Számolja ki a törlesztőt, a kamatot és a teljes költséget másodpercek alatt.",
+      "badge": "Kalkulátor",
+      "title": "Számolja ki finanszírozását",
+      "subtitle": "Állítsa be az összeget és a futamidőt, és azonnal látja a törlesztőt.",
+      "cta": "Igénylés ezekkel a feltételekkel",
+      "seeProducts": "Megoldásaink",
+      "noProducts": "Jelenleg nem érhető el hiteltermék."
+    },
+    "solutions": {
+      "metaTitle": "Finanszírozási megoldások — MOONYP",
+      "metaDesc": "Személyi, autó-, lakás- és vállalkozói hitelek.",
+      "badge": "Megoldásaink",
+      "title": "Finanszírozás az Ön tervéhez",
+      "subtitle": "Válassza ki a megfelelő terméket, és számolja ki egy kattintással.",
+      "amountRange": "Összeg",
+      "durationRange": "Futamidő",
+      "rateFrom": "Kamat ettől",
+      "simulate": "Kalkuláció"
+    },
+    "apply": {
+      "metaTitle": "Hiteligénylés — MOONYP",
+      "metaDesc": "Töltse ki igénylését online, 6 biztonságos lépésben.",
+      "title": "Az Ön hiteligénylése",
+      "subtitle": "Hat lépés, néhány perc. A haladás ezen az eszközön mentődik.",
+      "next": "Tovább",
+      "previous": "Vissza",
+      "submit": "Igénylés beküldése",
+      "submitError": "Az igénylést nem sikerült elküldeni. Próbálja újra.",
+      "rateLimited": "Túl sok próbálkozás. Próbálja néhány perc múlva.",
+      "fixErrors": "Javítsa a jelölt mezőket.",
+      "documentsIntro": "Töltsön fel éles, olvasható dokumentumokat. Formátumok: PDF, JPG vagy PNG.",
+      "documentsMissing": "Egy vagy több kötelező dokumentum hiányzik.",
+      "chooseFile": "Fájl választása",
+      "takePhoto": "Fénykép készítése",
+      "maxSize": "Max. méret",
+      "badMime": "Nem támogatott fájlformátum.",
+      "fileTooLarge": "Ez a fájl túl nagy.",
+      "fileCount": "kiválasztott fájl",
+      "bankNotice": "Bankszámlaadatai titkosítva vannak, és csak a folyósításhoz használjuk.",
+      "consentTerms": "Elfogadom az általános feltételeket.",
+      "consentPrivacy": "Elfogadom az adatvédelmi tájékoztatót és adataim kezelését.",
+      "consentMarketing": "Hozzájárulok, hogy tájékoztatást kapjak a MOONYP ajánlatairól.",
+      "steps": {
+        "identity": "Személyazonosság",
+        "employment": "Munkaviszony",
+        "request": "Igénylés",
+        "payout": "Folyósítás",
+        "documents": "Dokumentumok",
+        "review": "Összegzés"
+      }
+    },
+    "fields": {
+      "firstName": "Keresztnév",
+      "lastName": "Vezetéknév",
+      "birthDate": "Születési dátum",
+      "nationality": "Állampolgárság",
+      "address": "Cím",
+      "postalCode": "Irányítószám",
+      "city": "Város",
+      "country": "Ország",
+      "phone": "Telefon",
+      "email": "E-mail",
+      "employmentStatus": "Munkaviszony típusa",
+      "profession": "Foglalkozás",
+      "employer": "Munkáltató",
+      "seniority": "Munkaviszony hossza (hónap)",
+      "income": "Havi nettó jövedelem",
+      "charges": "Havi kiadások",
+      "otherIncome": "Egyéb jövedelem",
+      "household": "Háztartás létszáma",
+      "purpose": "A hitel célja",
+      "bankHolder": "Számlatulajdonos",
+      "bankName": "Bank",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "choose": "Válasszon…"
+    },
+    "employment": {
+      "employee": "Alkalmazott",
+      "civil_servant": "Közalkalmazott",
+      "self_employed": "Egyéni vállalkozó",
+      "business_owner": "Cégtulajdonos",
+      "retired": "Nyugdíjas",
+      "student": "Diák",
+      "unemployed": "Munkanélküli",
+      "other": "Egyéb"
+    },
+    "status": {
+      "draft": "Piszkozat",
+      "received": "Igénylés beérkezett",
+      "verification": "Ellenőrzés alatt",
+      "documents_missing": "Hiányzó dokumentumok",
+      "analysis": "Elbírálás alatt",
+      "info_requested": "Információt kértünk",
+      "approved": "Jóváhagyva",
+      "rejected": "Elutasítva",
+      "offer_available": "Ajánlat elérhető",
+      "contract_sent": "Szerződés elküldve",
+      "signature_pending": "Aláírásra vár",
+      "contract_signed": "Szerződés aláírva",
+      "disbursement_preparing": "Folyósítás előkészítése",
+      "disbursed": "Folyósítva",
+      "repaying": "Törlesztés folyamatban",
+      "late": "Késedelmes",
+      "repaid": "Teljesen visszafizetve",
+      "cancelled": "Visszavonva"
+    },
+    "portal": {
+      "metaTitle": "Az Ön finanszírozási ügye — MOONYP",
+      "metaDesc": "Kövesse nyomon hiteligénylését biztonságosan.",
+      "reference": "Ügyszám",
+      "secure": "Biztonságos hozzáférés",
+      "summary": "Összegzés",
+      "status": "Állapot",
+      "timeline": "Előzmények",
+      "invalidTitle": "Érvénytelen vagy lejárt hivatkozás",
+      "invalidDesc": "Ez a biztonságos hivatkozás már nem érvényes. Kérjen újat csapatunktól."
+    },
+    "success": {
+      "title": "Igénylését megkaptuk",
+      "subtitle": "Csapatunk vizsgálja az ügyét. Minden lépésről e-mailben értesítjük.",
+      "reference": "Ügyszám",
+      "openFile": "Ügyem megnyitása",
+      "linkNotice": "Őrizze meg ezt a hivatkozást: biztonságos hozzáférést ad az ügyéhez.",
+      "step1": "Adatai és dokumentumai ellenőrzése",
+      "step2": "Elbírálás és döntés, általában 48 munkaórán belül",
+      "step3": "Ajánlat, szerződés és folyósítás jóváhagyás után"
+    },
+    "validation": {
+      "required": "Ez a mező kötelező."
+    },
+    "address": {
+      "placeholder": "Kezdje el beírni a címét (világszerte)…",
+      "hint": "Válasszon javaslatot, vagy adja meg a címet kézzel.",
+      "manual": "Kézi megadás",
+      "hideManual": "Részletek elrejtése"
+    }
+  },
+  "products": {
+    "personal": {
+      "name": "Személyi kölcsön",
+      "desc": "Finanszírozza terveit fix kamattal és átlátható törlesztőkkel."
+    },
+    "auto": {
+      "name": "Autóhitel",
+      "desc": "Új vagy használt jármű kedvezményes kamattal."
+    },
+    "mortgage": {
+      "name": "Lakáshitel",
+      "desc": "Vásároljon, építsen vagy újítson fel hosszú távú finanszírozással."
+    },
+    "business": {
+      "name": "Vállalkozói hitel",
+      "desc": "Támogassa növekedését, eszközeit vagy likviditását."
+    }
+  },
+  "documents": {
+    "identity": "Személyazonosító okmány",
+    "proofAddress": "Lakcímigazolás",
+    "income": "Jövedelemigazolás",
+    "bankStatement": "Bankszámlakivonatok",
+    "rib": "Bankszámlaadatok (IBAN)",
+    "other": "Egyéb dokumentum"
+  },
+  "contactSection": {
+    "eyebrow": "Kapcsolat",
+    "title": "Beszéljen tanácsadónkkal",
+    "desc": "Csapatunk válaszol a finanszírozással, dokumentumokkal és ügykövetéssel kapcsolatos kérdésekre.",
+    "cta": "Kapcsolatfelvétel"
+  },
+  "apply": {
+    "steps": {
+      "identity": "Személyazonosság",
+      "employment": "Munkaviszony",
+      "request": "Igénylés",
+      "payout": "Folyósítás",
+      "documents": "Dokumentumok",
+      "review": "Összegzés"
+    }
+  },
+  "about": {
+    "metaTitle": "A MOONYP-ról — európai hitelplatform",
+    "metaDesc": "Kik vagyunk, hogyan finanszírozunk projekteket, és milyen szabványok védik adatait és pénzét.",
+    "eyebrow": "Rólunk",
+    "title": "Modern hitelház banki fegyelemmel.",
+    "intro": "A MOONYP magánszemélyeket és vállalkozásokat finanszíroz Európa-szerte egyetlen ígérettel: világos döntés, tisztességes kamat és semmilyen rejtett költség.",
+    "intro2": "Csapataink a hitelelemzést, a megfelelőséget és a mérnöki munkát ötvözik, így a lassú, papíralapú folyamatból biztonságos digitális út lesz — a szimulációtól a folyósításig.",
+    "ctaPrimary": "Igénylés indítása",
+    "ctaSecondary": "Beszéljen tanácsadóval",
+    "hqAlt": "A MOONYP székházának előcsarnoka",
+    "missionAlt": "MOONYP hitelelemző felület",
+    "governanceAlt": "MOONYP adatbiztonság",
+    "kpis": {
+      "clients": "Finanszírozott ügyfelek",
+      "countries": "Kiszolgált országok",
+      "financed": "Finanszírozva 2016 óta",
+      "uptime": "Platform rendelkezésre állás"
+    },
+    "mission": {
+      "eyebrow": "Küldetésünk",
+      "title": "Hitel, amely tiszteletben tartja idejét és költségvetését.",
+      "p1": "Minden kérelmet ugyanazon objektív szempontok szerint vizsgálunk: törlesztési képesség, jövedelemstabilitás és a terv koherenciája. Nincs átláthatatlan pontozás és önkényes elutasítás.",
+      "p2": "Ügyét valós időben követheti biztonságos linken keresztül, minden dokumentumot a saját nyelvén kap meg, és elektronikusan, teljes jogi hatállyal ír alá."
+    },
+    "values": {
+      "eyebrow": "Értékeink",
+      "title": "Négy alapelv, kivétel nélkül.",
+      "v1t": "Először a biztonság",
+      "v1d": "Titkosított adatok, szigorú hozzáférés-szabályozás és folyamatos felügyelet.",
+      "v2t": "Teljes átláthatóság",
+      "v2d": "Kamat, biztosítás, díjak és teljes költség minden kötelezettségvállalás előtt látható.",
+      "v3t": "Emberi támogatás",
+      "v3d": "Dedikált tanácsadó az ügy minden kulcsfontosságú szakaszában.",
+      "v4t": "Európai lefedettség",
+      "v4d": "Egy platform, 15 nyelv és finanszírozó partnerek az egész kontinensen."
+    },
+    "timeline": {
+      "title": "Történetünk",
+      "y1t": "Alapítás Párizsban",
+      "y1d": "Három hitelszakértő elindítja a MOONYP-ot, hogy a döntés hetek helyett órák alatt szülessen.",
+      "y2t": "Európai terjeszkedés",
+      "y2d": "Megnyitás tizenegy piacon, a szerződések és a kommunikáció teljes honosítása.",
+      "y3t": "Elektronikus aláírás és azonnali KYC",
+      "y3d": "Teljesen papírmentes folyamat tanúsított aláírással és automatizált személyazonosítással.",
+      "y4t": "Fiók nélküli élmény",
+      "y4d": "Az igénylő biztonságos személyes linken követi ügyét, jelszó nélkül."
+    },
+    "governance": {
+      "eyebrow": "Irányítás és megfelelés",
+      "title": "Auditálható szabványok.",
+      "desc": "Működési keretünk megfelel az európai hitelezők elvárásainak: feladatszétválasztás, minden döntés nyomon követhetősége és állandó kockázatkontroll.",
+      "g1t": "Szabályozott keret",
+      "g1d": "A hitelezés engedéllyel rendelkező banki partnerekkel történik.",
+      "g2t": "Adatvédelem",
+      "g2d": "GDPR-megfelelés, titkosítás tárolás és továbbítás közben, szigorú megőrzési idők.",
+      "g3t": "Tanúsított folyamatok",
+      "g3d": "ISO 27001-hez igazodó kontrollok és éves független auditok.",
+      "g4t": "Független felügyelet",
+      "g4d": "Hitel- és kockázati bizottság negyedévente felülvizsgálja a szabályzatokat."
+    },
+    "cta": {
+      "title": "Készen áll projektje finanszírozására?",
+      "desc": "Szimuláljon egy perc alatt, igényeljen hat lépésben, és 24 órán belül döntést kap.",
+      "button": "Igénylés indítása"
+    }
   }
 }

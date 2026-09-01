@@ -1,6 +1,5 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
 
 import fr from "./locales/fr.json";
 import en from "./locales/en.json";
@@ -38,7 +37,7 @@ export const SUPPORTED_LANGUAGES = [
 
 export type LanguageCode = (typeof SUPPORTED_LANGUAGES)[number]["code"];
 
-export const LANG_STORAGE_KEY = "bnpparibas.lang";
+export const LANG_STORAGE_KEY = "moonyp.lang";
 const SUPPORTED_CODES = SUPPORTED_LANGUAGES.map((l) => l.code) as readonly string[];
 
 function pickSupported(raw: string | undefined | null): string | null {
@@ -66,42 +65,63 @@ if (typeof window !== "undefined") {
   }
 }
 
+/**
+ * Détecte la langue préférée : choix manuel stocké > langues du navigateur > fallback.
+ * Appelée UNIQUEMENT après hydratation (voir __root.tsx) afin que le rendu serveur
+ * et le premier rendu client soient strictement identiques.
+ */
+export function detectPreferredLanguage(): string {
+  if (typeof window === "undefined") return "en";
+  try {
+    const stored = pickSupported(window.localStorage.getItem(LANG_STORAGE_KEY));
+    if (stored) return stored;
+  } catch {
+    /* ignore */
+  }
+  const candidates = [...(window.navigator.languages ?? []), window.navigator.language];
+  for (const c of candidates) {
+    const picked = pickSupported(c);
+    if (picked) return picked;
+  }
+  return "en";
+}
+
+/** Applique la langue détectée (no-op si déjà active). */
+export function applyDetectedLanguage(): void {
+  const next = detectPreferredLanguage();
+  if (next !== i18n.resolvedLanguage) void i18n.changeLanguage(next);
+}
+
 if (!i18n.isInitialized) {
-  void i18n
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-      resources: {
-        fr: { translation: fr },
-        en: { translation: en },
-        de: { translation: de },
-        es: { translation: es },
-        it: { translation: it },
-        nl: { translation: nl },
-        sl: { translation: sl },
-        bg: { translation: bg },
-        sk: { translation: sk },
-        el: { translation: el },
-        fi: { translation: fi },
-        ro: { translation: ro },
-        pl: { translation: pl },
-        hr: { translation: hr },
-        hu: { translation: hu },
-      },
-      lng: undefined,
-      fallbackLng: "en",
-      supportedLngs: SUPPORTED_CODES as string[],
-      nonExplicitSupportedLngs: true,
-      load: "languageOnly",
-      initAsync: false,
-      interpolation: { escapeValue: false },
-      react: { useSuspense: false },
-      detection: {
-        order: ["localStorage", "navigator", "htmlTag"],
-        caches: ["localStorage"],
-        lookupLocalStorage: LANG_STORAGE_KEY,
-      },
-    });
+  void i18n.use(initReactI18next).init({
+    resources: {
+      fr: { translation: fr },
+      en: { translation: en },
+      de: { translation: de },
+      es: { translation: es },
+      it: { translation: it },
+      nl: { translation: nl },
+      sl: { translation: sl },
+      bg: { translation: bg },
+      sk: { translation: sk },
+      el: { translation: el },
+      fi: { translation: fi },
+      ro: { translation: ro },
+      pl: { translation: pl },
+      hr: { translation: hr },
+      hu: { translation: hu },
+    },
+    // Rendu déterministe SSR/CSR : on démarre toujours en "en", la détection
+    // réelle est appliquée après hydratation.
+    lng: "en",
+    fallbackLng: "en",
+    supportedLngs: SUPPORTED_CODES as string[],
+    nonExplicitSupportedLngs: true,
+    load: "languageOnly",
+    initAsync: false,
+    interpolation: { escapeValue: false },
+    react: { useSuspense: false },
+  });
 
   if (typeof window !== "undefined") {
     i18n.on("languageChanged", (lng) => {
@@ -114,21 +134,17 @@ if (!i18n.isInitialized) {
       }
     });
 
-    const handleSystemChange = () => {
+    // Changement de langue système : respecté seulement si l'utilisateur n'a rien choisi.
+    window.addEventListener("languagechange", () => {
       try {
-        const stored = window.localStorage.getItem(LANG_STORAGE_KEY);
-        if (stored) return;
+        if (window.localStorage.getItem(LANG_STORAGE_KEY)) return;
       } catch {
         /* ignore */
       }
-      const next = pickSupported(window.navigator.language);
-      if (next && next !== i18n.resolvedLanguage) {
-        void i18n.changeLanguage(next);
-      }
-    };
-
-    window.addEventListener("languagechange", handleSystemChange);
+      applyDetectedLanguage();
+    });
   }
 }
 
 export default i18n;
+

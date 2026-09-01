@@ -369,43 +369,6 @@ function Landing() {
         </div>
       </section>
 
-      <footer className="border-t border-border bg-card py-10 text-xs text-muted-foreground sm:text-sm">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
-            <div>
-              <p className="font-serif text-base font-medium text-foreground">MOONYP</p>
-              <p className="mt-2">{t("landing.footer.legal")}</p>
-            </div>
-            <div>
-              <p className="font-semibold text-foreground">{t("footer.legal", "Legal")}</p>
-              <ul className="mt-3 space-y-2">
-                <li><Link to="/legal/privacy" className="hover:text-accent">{t("footer.privacy", "Privacy")}</Link></li>
-                <li><Link to="/legal/terms" className="hover:text-accent">{t("footer.terms", "Terms")}</Link></li>
-                <li><Link to="/legal/cookies" className="hover:text-accent">{t("footer.cookies", "Cookies")}</Link></li>
-                <li><Link to="/legal/mentions" className="hover:text-accent">{t("footer.mentions", "Legal notice")}</Link></li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-semibold text-foreground">{t("footer.banking", "Banking")}</p>
-              <ul className="mt-3 space-y-2">
-                <li><Link to="/legal/loan-terms" className="hover:text-accent">{t("footer.loanTerms", "Loan terms")}</Link></li>
-                <li><Link to="/legal/repayment" className="hover:text-accent">{t("footer.repayment", "Repayment & default")}</Link></li>
-                <li><Link to="/legal/aml-kyc" className="hover:text-accent">{t("footer.aml", "AML / KYC")}</Link></li>
-                <li><Link to="/legal/financial-privacy" className="hover:text-accent">{t("footer.finPriv", "Financial privacy")}</Link></li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-semibold text-foreground">{t("footer.contact", "Contact")}</p>
-              <ul className="mt-3 space-y-2">
-                <li><a href="#contact" className="hover:text-accent">{t("contactSection.cta", "Contact us")}</a></li>
-                <li><a href="mailto:support@moonyp.com" className="hover:text-accent">support@moonyp.com</a></li>
-                <li><a href="tel:+393500366867" className="hover:text-accent">+39 350 036 6867</a></li>
-              </ul>
-            </div>
-          </div>
-          <p className="mt-8 text-center">© {new Date().getFullYear()} MOONYP. {t("landing.footer.rights")}</p>
-        </div>
-      </footer>
     </div>
   );
 }

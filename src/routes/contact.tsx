@@ -139,7 +139,7 @@ function ContactPage() {
                 <p className="font-medium">{t("contact.emailLabel")}</p>
                 <a
                  href="mailto:support_bnpparibas@nowelio.com"
-                 className="text-muted-foreground hover:text-primary hover:underline transition break-all cursor-pointer">support@bnpparibas.com</a>
+                 className="text-muted-foreground hover:text-primary hover:underline transition break-all cursor-pointer">support@moonyp.com</a>
               </div>
             </div>
             <div className="flex items-start gap-3">

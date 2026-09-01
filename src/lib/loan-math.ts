@@ -174,3 +174,85 @@ export function formatMoney(value: number, currency = "EUR", locale = "fr"): str
     return `${value.toFixed(2)} ${currency}`;
   }
 }
+
+/* ------------------------------------------------------------------------ */
+/* Amortisation schedule (bank grade)                                        */
+/* ------------------------------------------------------------------------ */
+
+export interface DatedScheduleRow extends ScheduleRow {
+  /** ISO date (yyyy-mm-dd) of the instalment due date. */
+  dueDate: string;
+}
+
+/**
+ * First instalment falls one period after disbursement. Dates are computed on
+ * the same anchor day, clamped to the end of shorter months.
+ */
+export function addMonths(start: Date, months: number): Date {
+  const anchor = start.getUTCDate();
+  const d = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth() + months, 1));
+  const lastDay = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 0)).getUTCDate();
+  d.setUTCDate(Math.min(anchor, lastDay));
+  return d;
+}
+
+/** Attaches real due dates to a quotation schedule. */
+export function datedSchedule(
+  schedule: ScheduleRow[],
+  startDate: Date = new Date(),
+  monthsPerPeriod = 1,
+): DatedScheduleRow[] {
+  return schedule.map((row) => ({
+    ...row,
+    dueDate: addMonths(startDate, row.index * monthsPerPeriod).toISOString().slice(0, 10),
+  }));
+}
+
+export function formatDate(iso: string, locale = "fr"): string {
+  try {
+    return new Intl.DateTimeFormat(locale, { day: "2-digit", month: "short", year: "numeric" }).format(
+      new Date(`${iso}T00:00:00Z`),
+    );
+  } catch {
+    return iso;
+  }
+}
+
+/**
+ * Yearly roll-up of a schedule — what banks print above the detailed table so
+ * a 300-instalment mortgage stays readable.
+ */
+export interface ScheduleYear {
+  year: number;
+  payment: number;
+  principal: number;
+  interest: number;
+  insurance: number;
+  balance: number;
+  rows: DatedScheduleRow[];
+}
+
+export function groupScheduleByYear(rows: DatedScheduleRow[]): ScheduleYear[] {
+  const out: ScheduleYear[] = [];
+  for (const row of rows) {
+    const year = Number(row.dueDate.slice(0, 4));
+    let bucket = out.find((b) => b.year === year);
+    if (!bucket) {
+      bucket = { year, payment: 0, principal: 0, interest: 0, insurance: 0, balance: row.balance, rows: [] };
+      out.push(bucket);
+    }
+    bucket.payment += row.payment;
+    bucket.principal += row.principal;
+    bucket.interest += row.interest;
+    bucket.insurance += row.insurance;
+    bucket.balance = row.balance;
+    bucket.rows.push(row);
+  }
+  return out.map((b) => ({
+    ...b,
+    payment: Math.round(b.payment * 100) / 100,
+    principal: Math.round(b.principal * 100) / 100,
+    interest: Math.round(b.interest * 100) / 100,
+    insurance: Math.round(b.insurance * 100) / 100,
+  }));
+}

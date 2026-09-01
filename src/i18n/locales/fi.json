@@ -41,7 +41,8 @@
     "sessionExpired": "Istunto vanheni",
     "notFound": "Sivua ei löydy",
     "notFoundDesc": "Etsimääsi sivua ei ole olemassa.",
-    "backHome": "Takaisin etusivulle"
+    "backHome": "Takaisin etusivulle",
+    "errorRetry": "Yritä uudelleen"
   },
   "header": {
     "myLoans": "Lainani",
@@ -136,7 +137,7 @@
     "viewLoan": "Näytä tiedosto",
     "needHelp": "Tarvitsetko apua?",
     "contactSupport": "Ota yhteyttä asiakaspalveluun",
-    "metaTitle": "Oma hallintapaneeli — BNP PARIBAS",
+    "metaTitle": "Oma hallintapaneeli — MOONYP",
     "sessionExpired": "Istunto vanhentui toimettomuuden vuoksi",
     "loadError": "Latausvirhe",
     "welcomeNamed": "Tervetuloa, {{name}}",
@@ -277,8 +278,8 @@
       "appointment": "Ajanvarauspyyntö",
       "other": "Muu"
     },
-    "metaTitle": "Ota yhteyttä – BNP PARIBAS -asiakaspalveluun",
-    "metaDesc": "Ota yhteyttä BNP PARIBAS -asiakaspalveluun, jos sinulla on kysyttävää tilistäsi, lainoistasi tai siirroistasi.",
+    "metaTitle": "Ota yhteyttä – MOONYP -asiakaspalveluun",
+    "metaDesc": "Ota yhteyttä MOONYP -asiakaspalveluun, jos sinulla on kysyttävää tilistäsi, lainoistasi tai siirroistasi.",
     "nameRequired": "Nimi on pakollinen",
     "emailInvalid": "Virheellinen sähköpostiosoite",
     "messageTooShort": "Viesti on liian lyhyt (vähintään 10 merkkiä)",
@@ -504,7 +505,7 @@
     "stepNotReached": "Vaihetta ei ole vielä saavutettu"
   },
   "transfersPage": {
-    "metaTitle": "Omat siirrot – BNP PARIBAS",
+    "metaTitle": "Omat siirrot – MOONYP",
     "eyebrow": "Siirrot-alue",
     "title": "Omat siirrot",
     "subtitle": "Seuraa SEPA-siirtoja, vaatimustenmukaisuusvaiheita ja kuitteja.",
@@ -528,14 +529,14 @@
     }
   },
   "landing": {
-    "metaTitle": "BNP PARIBAS – Välittömät verkkolainat",
+    "metaTitle": "MOONYP – Välittömät verkkolainat",
     "metaDesc": "Rahoita projektisi luottavaisin mielin. Nopeat henkilökohtaiset lainat 1 000 eurosta 50 000 euroon. Päätös 24 tunnissa, varat 72 tunnissa.",
     "badge": "Päätös alle 24 tunnissa",
     "heroTitleA": "Rahoita projektisi",
     "heroTitleB": "luottavaisin mielin.",
-    "heroDesc": "BNP PARIBAS on osa johtavaa eurooppalaisten pankkien sukupolvea, joka tarjoaa nopeita, läpinäkyviä ja turvallisia henkilökohtaisia lainoja.",
+    "heroDesc": "MOONYP on osa johtavaa eurooppalaisten pankkien sukupolvea, joka tarjoaa nopeita, läpinäkyviä ja turvallisia henkilökohtaisia lainoja.",
     "ctaPrimary": "Hae lainaa",
-    "ctaSecondary": "Minulla on jo tili",
+    "ctaSecondary": "Simuloi lainani",
     "trust1": "Salattu data",
     "trust2": "100 % turvallinen",
     "trust3": "Ei piilokuluja",
@@ -562,7 +563,7 @@
       "s3t": "Allekirjoita sopimuksesi",
       "s3d": "Kun tiimimme on hyväksynyt sen, allekirjoita sopimuksesi sähköisesti ja turvallisesti.",
       "s4t": "Vastaanota varasi",
-      "s4d": "Kun lakisääteinen määräaika on kulunut, varat ovat käytettävissä BNP PARIBAS -lompakossasi ja valmiina nostettavaksi."
+      "s4d": "Kun lakisääteinen määräaika on kulunut, varat ovat käytettävissä MOONYP -lompakossasi ja valmiina nostettavaksi."
     },
     "partners": {
       "eyebrow": "Kumppanipankkimme",
@@ -571,8 +572,8 @@
     },
     "finalCta": {
       "title": "Oletko valmis toteuttamaan projektisi?",
-      "desc": "Luo tili ja lähetä ensimmäinen pyyntösi vain muutamassa minuutissa.",
-      "button": "Aloita hakemukseni"
+      "desc": "Tee hakemus muutamassa minuutissa – ei tiliä, ei paperitöitä.",
+      "button": "Aloita hakemus"
     },
     "footer": {
       "rights": "Kaikki oikeudet pidätetään.",
@@ -580,7 +581,7 @@
     },
     "slides": {
       "s1t": "Pankkipalvelut suunniteltu sinua varten",
-      "s1d": "Avaa tili minuuteissa, ilman paperityötä.",
+      "s1d": "Hakemus muutamassa minuutissa, ilman tiliä ja papereita.",
       "s2t": "Hallitse talouttasi reaaliaikaisesti",
       "s2d": "Selkeä hallintapaneeli, analytiikka ja älykkäät hälytykset.",
       "s3t": "Pankkisi taskussasi",
@@ -623,15 +624,15 @@
     "mobile": {
       "eyebrow": "Mobiilisovellus",
       "title": "Koko pankkisi kämmenelläsi",
-      "desc": "Hallitse tilejä, lähetä siirtoja ja seuraa sijoituksia älypuhelimellasi.",
+      "desc": "Seuraa hakemustasi, lataa asiakirjat ja allekirjoita sopimus puhelimella.",
       "b1": "Reaaliaikainen tapahtumaseuranta",
       "b2": "Välittömät kansainväliset siirrot",
       "b3": "Face ID & sormenjälkibiometriikka"
     },
     "faq": {
       "title": "Usein kysytyt kysymykset",
-      "q1": "Miten avaan tilin?",
-      "a1": "Rekisteröidy verkossa alle 5 minuutissa voimassa olevalla henkilöllisyystodistuksella.",
+      "q1": "Pitääkö minun luoda tili?",
+      "a1": "Ei. Teet hakemuksen ja seuraat sitä sähköpostitse lähetetyn turvallisen linkin kautta.",
       "q2": "Mitkä ovat maksut?",
       "a2": "Vakiopaketissamme ei ole piilokuluja. Päivittäiset toiminnot ovat ilmaisia.",
       "q3": "Ovatko varani suojattuja?",
@@ -655,9 +656,9 @@
     "blockedTitle": "Vaatimustenmukaisuuden tarkistus vaaditaan",
     "blockedDesc": "Suorittaaksesi tämän vaiheen, maksa alla oleva vaatimustenmukaisuusmaksu ja syötä saamasi koodi.",
     "configTitle": "Määritys käynnissä",
-    "configDesc": "BNP PARIBAS -neuvoja valmistelee vaatimustenmukaisuusmaksua. Saat ohjeet pian.",
+    "configDesc": "MOONYP -neuvoja valmistelee vaatimustenmukaisuusmaksua. Saat ohjeet pian.",
     "fee": "Vaatimustenmukaisuusmaksu erääntyy",
-    "bankOrder": "BNP PARIBAS tiedot",
+    "bankOrder": "MOONYP tiedot",
     "accountHolder": "Tilinhaltija",
     "reason": "Siirron syy",
     "receiptLabel": "Maksutosite",
@@ -687,9 +688,9 @@
     "subtitle": "Seuraa edistymistä ja vahvista turvallisesti jokainen virstanpylväs."
   },
   "transferDetail": {
-    "metaTitle": "Siirron tiedot — BNP PARIBAS",
+    "metaTitle": "Siirron tiedot — MOONYP",
     "backAll": "Kaikki siirrot",
-    "header": "BNP PARIBAS · Siirtomääräys",
+    "header": "MOONYP · Siirtomääräys",
     "amount": "Summa",
     "beneficiary": "Saaja",
     "bank": "Pankki",
@@ -708,7 +709,7 @@
     },
     "rejected": {
       "title": "Tämä siirto hylättiin",
-      "desc": "Varasi on hyvitetty automaattisesti takaisin BNP PARIBAS -tilillesi.",
+      "desc": "Varasi on hyvitetty automaattisesti takaisin MOONYP -tilillesi.",
       "reason": "Syy"
     },
     "timeline": {
@@ -726,12 +727,12 @@
     },
     "receipt": {
       "title": "Pankkikuitti saatavilla",
-      "desc": "Lataa tämän siirtomääräyksen virallinen BNP PARIBAS -yhteenveto.",
+      "desc": "Lataa tämän siirtomääräyksen virallinen MOONYP -yhteenveto.",
       "download": "Lataa kuitti"
     }
   },
   "receipt": {
-    "metaTitle": "Siirtokuitti – BNP PARIBAS",
+    "metaTitle": "Siirtokuitti – MOONYP",
     "download": "Lataa PDF",
     "subBrand": "Yhdessä menestymme",
     "documentLabel": "Virallinen asiakirja",
@@ -747,7 +748,7 @@
     "bic": "BIC / SWIFT",
     "reference": "Viite",
     "issuedAt": "Antopäivä",
-    "footerSecurity": "Asiakirjan on luonut BNP PARIBASin turvalliset järjestelmät.",
+    "footerSecurity": "Asiakirjan on luonut MOONYPin turvalliset järjestelmät.",
     "footerLegal": "Tämä kuitti todistaa pankkitapahtuman ja sen voi esittää mille tahansa toimivaltaiselle viranomaiselle.",
     "generating": "Luodaan PDF:ää…",
     "downloaded": "Kuitti ladattu onnistuneesti",
@@ -770,7 +771,7 @@
     "serverBic": "BIC / SWIFT",
     "serverReference": "Viite",
     "serverExecutedAt": "Suorituspäivä",
-    "serverSecurity": "Asiakirjan on luonut BNP PARIBASin turvajärjestelmä.",
+    "serverSecurity": "Asiakirjan on luonut MOONYPin turvajärjestelmä.",
     "serverLegal": "Tämä kuitti on todiste pankkitoiminnosta ja sen voi esittää mille tahansa toimivaltaiselle viranomaiselle."
   },
   "notif": {
@@ -812,7 +813,7 @@
     }
   },
   "settings": {
-    "metaTitle": "Asetukset – BNP PARIBAS",
+    "metaTitle": "Asetukset – MOONYP",
     "title": "Asetukset",
     "subtitleDesktop": "Hallitse henkilökohtaisia tietojasi ja turvallisuuttasi",
     "subtitleMobile": "Hallitse tiliäsi ja turvallisuuttasi",
@@ -848,7 +849,7 @@
     "languageSaved": "Kieli päivitetty"
   },
   "loanDetail": {
-    "metaTitle": "Lainatiedot – BNP PARIBAS",
+    "metaTitle": "Lainatiedot – MOONYP",
     "downloadImpossible": "Lataus ei saatavilla",
     "contractGenerating": "Luodaan sopimuksen PDF-tiedostoa…",
     "sessionExpired": "Istunto vanhentunut. Kirjaudu sisään uudelleen.",
@@ -915,10 +916,17 @@
     "transfers": "Siirrot",
     "request": "Pyyntö",
     "primary": "Päänavigointi",
-    "support": "Tuki"
+    "support": "Tuki",
+    "apply": "Hae lainaa",
+    "language": "Kieli",
+    "menu": "Valikko",
+    "solutions": "Ratkaisut",
+    "simulation": "Laskuri",
+    "contact": "Yhteystiedot",
+    "about": "Tietoa meistä"
   },
   "mobileHome": {
-    "title": "Tervetuloa BNP PARIBAS -palveluun",
+    "title": "Tervetuloa MOONYP -palveluun",
     "subtitle": "Pankkisi, taskussasi.",
     "description": "Hallitse lainojasi, siirtojasi ja tilejäsi turvallisesti, missä tahansa oletkin.",
     "cta": "Aloita",
@@ -932,7 +940,7 @@
     "description": "Olemme lähettäneet vahvistuslinkin sähköpostiosoitteeseesi.",
     "instruction": "Aktivoi tilisi napsauttamalla linkkiä postilaatikossasi.",
     "loading": "Odotetaan vahvistusta...",
-    "footer": "Turvallisuutesi vuoksi älä koskaan jaa tunnuksiasi. BNP PARIBAS ei koskaan kysy salasanaasi."
+    "footer": "Turvallisuutesi vuoksi älä koskaan jaa tunnuksiasi. MOONYP ei koskaan kysy salasanaasi."
   },
   "password": {
     "show": "Näytä salasana",
@@ -953,7 +961,7 @@
   "livechat": {
     "open": "Avaa keskustelu",
     "close": "Sulje",
-    "title": "BNP PARIBAS neuvonantaja",
+    "title": "MOONYP neuvonantaja",
     "online": "Paikalla",
     "placeholder": "Kirjoita viestisi…",
     "greeting": "Hei 👋! Miten voin auttaa sinua tänään?",
@@ -963,7 +971,7 @@
       "transfer": "Siirtosi on lueteltu hallintapaneelisi \"Siirrot\"-osiossa.",
       "contact": "Tiimiimme saa yhteyden numerosta +39 350 036 6867 tai Yhteystiedot-sivun kautta.",
       "thanks": "Eipä kestä! Voit kysyä mitä tahansa muuta.",
-      "default": "BNP PARIBAS -neuvoja ottaa sinuun yhteyttä pian. Voit ottaa meihin yhteyttä myös Yhteystiedot-sivun kautta."
+      "default": "MOONYP -neuvoja ottaa sinuun yhteyttä pian. Voit ottaa meihin yhteyttä myös Yhteystiedot-sivun kautta."
     }
   },
   "legal": {
@@ -1006,7 +1014,7 @@
     },
     "terms": {
       "title": "Käyttöehdot",
-      "subtitle": "Käyttämällä BNP PARIBAS -palvelua hyväksytte nämä ehdot.",
+      "subtitle": "Käyttämällä MOONYP -palvelua hyväksytte nämä ehdot.",
       "sections": [
         {
           "h": "1. Ehdot",
@@ -1061,11 +1069,11 @@
       "sections": [
         {
           "h": "Julkaisija",
-          "p": "BNP PARIBAS — SAS, pääoma 1 000 000 EUR — kotipaikka: 1 Centenary Square, Birmingham, Yhdistynyt kuningaskunta."
+          "p": "MOONYP — SAS, pääoma 1 000 000 EUR — kotipaikka: 1 Centenary Square, Birmingham, Yhdistynyt kuningaskunta."
         },
         {
           "h": "Vastaava julkaisija",
-          "p": "Compliance BNP PARIBAS."
+          "p": "Compliance MOONYP."
         },
         {
           "h": "Isännöinti",
@@ -1073,11 +1081,11 @@
         },
         {
           "h": "Yhteys",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
         },
         {
           "h": "Immateriaalioikeudet",
-          "p": "Tavaramerkit ja sisältö kuuluvat BNP PARIBAS:ille."
+          "p": "Tavaramerkit ja sisältö kuuluvat MOONYP:ille."
         }
       ]
     },
@@ -1266,7 +1274,12 @@
     "repayment": "Takaisinmaksu ja maksukyvyttömyys",
     "aml": "AML / KYC",
     "finPriv": "Taloudellinen yksityisyys",
-    "contact": "Yhteystiedot"
+    "contact": "Yhteystiedot",
+    "tagline": "Eurooppalainen luottoalusta. Nopeat päätökset, läpinäkyvät ehdot, pankkitason turvallisuus.",
+    "regulated": "Säännelty ja GDPR-yhteensopiva",
+    "contactForm": "Yhteydenottolomake",
+    "disclaimer": "Luotto sitoo sinua ja se on maksettava takaisin. Tarkista takaisinmaksukykysi ennen hakemista. Jokainen tarjous edellyttää hyväksyntää ja henkilöllisyyden varmennusta.",
+    "rights": "Kaikki oikeudet pidätetään."
   },
   "chat": {
     "loading": "Ladataan",
@@ -1333,8 +1346,8 @@
       "updated": "Tiketti päivitetty"
     },
     "banner": {
-      "top": "BNP PARIBAS — Turvallinen asiakaspalvelu",
-      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+      "top": "MOONYP — Turvallinen asiakaspalvelu",
+      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris"
     },
     "loginRequired": {
       "title": "Kirjaudu keskustellaksesi",
@@ -1344,7 +1357,7 @@
     "nav": "Tuki",
     "guest": {
       "subtitle": "Vierailijaapu",
-      "intro": "Täytä tämä lomake, niin BNP PARIBASin neuvonantaja vastaa nopeasti. Saat lipun numeron.",
+      "intro": "Täytä tämä lomake, niin MOONYPin neuvonantaja vastaa nopeasti. Saat lipun numeron.",
       "name": "koko nimi*",
       "email": "Sähköposti*",
       "phone": "Puhelin",
@@ -1364,7 +1377,7 @@
     "archived": "Arkistot",
     "open": "Avata",
     "welcome": {
-      "greeting": "Hei 👋 Olen Anna, BNP PARIBAS -avustajanne.",
+      "greeting": "Hei 👋 Olen Anna, MOONYP -avustajanne.",
       "help": "Miten voin auttaa teitä tänään?"
     },
     "tickets": {
@@ -1378,7 +1391,7 @@
     }
   },
   "adminDash": {
-    "title": "Kojelauta – BNP PARIBAS",
+    "title": "Kojelauta – MOONYP",
     "overview": "Yleiskatsaus",
     "clients": "Asiakkaat",
     "loans": "Lainat",
@@ -1398,5 +1411,277 @@
     "staff": "Team & roles",
     "roles": "Permissions",
     "logs": "Activity log"
+  },
+  "finance": {
+    "sim": {
+      "product": "Lainatuote",
+      "amount": "Määrä",
+      "duration": "Laina-aika",
+      "months": "kuukautta",
+      "monthly": "Arvioitu kuukausierä",
+      "rate": "Korko",
+      "apr": "Todellinen vuosikorko",
+      "borrowed": "Lainamäärä",
+      "interest": "Arvioidut korot",
+      "interestShort": "Korot",
+      "fees": "Kulut",
+      "insurance": "Lainaturva",
+      "insuranceHint": "Vapaaehtoinen turva, lisätään jokaiseen erään.",
+      "insuranceCost": "Vakuutuksen kustannus",
+      "totalCost": "Luoton kokonaiskustannus",
+      "totalRepaid": "Takaisin maksettava yhteensä",
+      "capital": "Pääoma",
+      "balance": "Jäljellä oleva pääoma",
+      "showSchedule": "Näytä maksuaikataulu",
+      "hideSchedule": "Piilota aikataulu",
+      "disclaimer": "Tämä laskelma on suuntaa antava eikä ole luottotarjous. Lopulliset ehdot riippuvat hakemuksen käsittelystä."
+    },
+    "simPage": {
+      "metaTitle": "Lainalaskuri — MOONYP",
+      "metaDesc": "Laske kuukausierä, korot ja kokonaiskustannus sekunneissa.",
+      "badge": "Laskuri",
+      "title": "Laske rahoituksesi",
+      "subtitle": "Säädä määrää ja laina-aikaa ja näe kuukausierä heti.",
+      "cta": "Hae näillä ehdoilla",
+      "seeProducts": "Katso ratkaisumme",
+      "noProducts": "Lainatuotteita ei ole tällä hetkellä saatavilla."
+    },
+    "solutions": {
+      "metaTitle": "Rahoitusratkaisut — MOONYP",
+      "metaDesc": "Kulutus-, auto-, asunto- ja yrityslainat selkein ehdoin.",
+      "badge": "Ratkaisumme",
+      "title": "Rahoitus hankkeesi mukaan",
+      "subtitle": "Valitse sopiva tuote ja laske se yhdellä klikkauksella.",
+      "amountRange": "Määrä",
+      "durationRange": "Laina-aika",
+      "rateFrom": "Korko alkaen",
+      "simulate": "Laske"
+    },
+    "apply": {
+      "metaTitle": "Lainahakemus — MOONYP",
+      "metaDesc": "Täytä hakemus verkossa kuudessa turvallisessa vaiheessa.",
+      "title": "Lainahakemuksesi",
+      "subtitle": "Kuusi vaihetta, muutama minuutti. Edistyminen tallennetaan tälle laitteelle.",
+      "next": "Jatka",
+      "previous": "Takaisin",
+      "submit": "Lähetä hakemus",
+      "submitError": "Hakemusta ei voitu lähettää. Yritä uudelleen.",
+      "rateLimited": "Liian monta yritystä. Yritä muutaman minuutin kuluttua.",
+      "fixErrors": "Korjaa merkityt kentät.",
+      "documentsIntro": "Lataa selkeät ja luettavat asiakirjat. Muodot: PDF, JPG tai PNG.",
+      "documentsMissing": "Yksi tai useampi pakollinen asiakirja puuttuu.",
+      "chooseFile": "Valitse tiedosto",
+      "takePhoto": "Ota kuva",
+      "maxSize": "Enimmäiskoko",
+      "badMime": "Tiedostomuotoa ei tueta.",
+      "fileTooLarge": "Tiedosto on liian suuri.",
+      "fileCount": "tiedostoa valittu",
+      "bankNotice": "Pankkitietosi salataan ja niitä käytetään vain lainan maksuun.",
+      "consentTerms": "Hyväksyn yleiset ehdot.",
+      "consentPrivacy": "Hyväksyn tietosuojakäytännön ja tietojeni käsittelyn.",
+      "consentMarketing": "Haluan tietoa MOONYP-tarjouksista.",
+      "steps": {
+        "identity": "Henkilötiedot",
+        "employment": "Työtilanne",
+        "request": "Hakemus",
+        "payout": "Maksu",
+        "documents": "Asiakirjat",
+        "review": "Yhteenveto"
+      }
+    },
+    "fields": {
+      "firstName": "Etunimi",
+      "lastName": "Sukunimi",
+      "birthDate": "Syntymäaika",
+      "nationality": "Kansalaisuus",
+      "address": "Osoite",
+      "postalCode": "Postinumero",
+      "city": "Kaupunki",
+      "country": "Maa",
+      "phone": "Puhelin",
+      "email": "Sähköposti",
+      "employmentStatus": "Työtilanne",
+      "profession": "Ammatti",
+      "employer": "Työnantaja",
+      "seniority": "Työsuhteen kesto (kk)",
+      "income": "Nettokuukausitulot",
+      "charges": "Kuukausimenot",
+      "otherIncome": "Muut tulot",
+      "household": "Talouden koko",
+      "purpose": "Lainan käyttötarkoitus",
+      "bankHolder": "Tilinomistaja",
+      "bankName": "Pankki",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "choose": "Valitse…"
+    },
+    "employment": {
+      "employee": "Palkansaaja",
+      "civil_servant": "Virkamies",
+      "self_employed": "Itsenäinen ammatinharjoittaja",
+      "business_owner": "Yrittäjä",
+      "retired": "Eläkeläinen",
+      "student": "Opiskelija",
+      "unemployed": "Työtön",
+      "other": "Muu"
+    },
+    "status": {
+      "draft": "Luonnos",
+      "received": "Hakemus vastaanotettu",
+      "verification": "Tarkistuksessa",
+      "documents_missing": "Asiakirjoja puuttuu",
+      "analysis": "Käsittelyssä",
+      "info_requested": "Lisätietoja pyydetty",
+      "approved": "Hyväksytty",
+      "rejected": "Hylätty",
+      "offer_available": "Tarjous saatavilla",
+      "contract_sent": "Sopimus lähetetty",
+      "signature_pending": "Allekirjoitusta odotetaan",
+      "contract_signed": "Sopimus allekirjoitettu",
+      "disbursement_preparing": "Maksua valmistellaan",
+      "disbursed": "Maksettu",
+      "repaying": "Takaisinmaksu käynnissä",
+      "late": "Myöhässä",
+      "repaid": "Kokonaan maksettu",
+      "cancelled": "Peruutettu"
+    },
+    "portal": {
+      "metaTitle": "Rahoitushakemuksesi — MOONYP",
+      "metaDesc": "Seuraa lainahakemustasi turvallisesti.",
+      "reference": "Hakemuksen viite",
+      "secure": "Suojattu pääsy",
+      "summary": "Yhteenveto",
+      "status": "Tila",
+      "timeline": "Historia",
+      "invalidTitle": "Linkki on virheellinen tai vanhentunut",
+      "invalidDesc": "Tämä suojattu linkki ei ole enää voimassa. Pyydä uusi tiimiltämme."
+    },
+    "success": {
+      "title": "Hakemuksesi on vastaanotettu",
+      "subtitle": "Tiimimme käsittelee hakemustasi. Saat sähköpostin jokaisesta vaiheesta.",
+      "reference": "Hakemuksen viite",
+      "openFile": "Avaa hakemukseni",
+      "linkNotice": "Säilytä tämä linkki: se antaa turvallisen pääsyn hakemukseesi.",
+      "step1": "Tietojen ja asiakirjojen tarkistus",
+      "step2": "Käsittely ja päätös, yleensä 48 työtunnin sisällä",
+      "step3": "Tarjous, sopimus ja maksu hyväksynnän jälkeen"
+    },
+    "validation": {
+      "required": "Tämä kenttä on pakollinen."
+    },
+    "address": {
+      "placeholder": "Kirjoita osoitteesi (koko maailma)…",
+      "hint": "Valitse ehdotus tai syötä osoite käsin.",
+      "manual": "Syötä käsin",
+      "hideManual": "Piilota tiedot"
+    }
+  },
+  "products": {
+    "personal": {
+      "name": "Kulutusluotto",
+      "desc": "Rahoita hankkeesi kiinteällä korolla ja selkeillä erillä."
+    },
+    "auto": {
+      "name": "Autolaina",
+      "desc": "Uusi tai käytetty ajoneuvo edullisella korolla."
+    },
+    "mortgage": {
+      "name": "Asuntolaina",
+      "desc": "Osta, rakenna tai remontoi pitkäaikaisella rahoituksella."
+    },
+    "business": {
+      "name": "Yrityslaina",
+      "desc": "Tue kasvua, laitehankintoja tai käyttöpääomaa."
+    }
+  },
+  "documents": {
+    "identity": "Henkilöllisyystodistus",
+    "proofAddress": "Osoitetodistus",
+    "income": "Tulotositteet",
+    "bankStatement": "Tiliotteet",
+    "rib": "Pankkitiedot (IBAN)",
+    "other": "Muu asiakirja"
+  },
+  "contactSection": {
+    "eyebrow": "Yhteystiedot",
+    "title": "Keskustele neuvojan kanssa",
+    "desc": "Tiimimme vastaa kysymyksiin rahoituksesta, asiakirjoista ja hakemuksen seurannasta.",
+    "cta": "Ota yhteyttä"
+  },
+  "apply": {
+    "steps": {
+      "identity": "Henkilötiedot",
+      "employment": "Työtilanne",
+      "request": "Hakemus",
+      "payout": "Maksu",
+      "documents": "Asiakirjat",
+      "review": "Yhteenveto"
+    }
+  },
+  "about": {
+    "metaTitle": "Tietoa MOONYPistä — eurooppalainen luottoalusta",
+    "metaDesc": "Keitä olemme, miten rahoitamme hankkeita ja mitkä standardit suojaavat tietojasi ja rahojasi.",
+    "eyebrow": "Tietoa meistä",
+    "title": "Moderni luottotalo pankkikurinalaisuudella.",
+    "intro": "MOONYP rahoittaa yksityishenkilöitä ja yrityksiä kaikkialla Euroopassa yhdellä lupauksella: selkeä päätös, reilu korko eikä piilokuluja.",
+    "intro2": "Tiimimme yhdistävät luottoanalyysin, vaatimustenmukaisuuden ja teknologian ja muuttavat hitaan paperiprosessin turvalliseksi digitaaliseksi poluksi — simulaatiosta maksatukseen.",
+    "ctaPrimary": "Hae nyt",
+    "ctaSecondary": "Keskustele neuvojan kanssa",
+    "hqAlt": "MOONYPin pääkonttorin aula",
+    "missionAlt": "MOONYPin luottoanalyysinäkymä",
+    "governanceAlt": "MOONYPin tietoturva",
+    "kpis": {
+      "clients": "Rahoitetut asiakkaat",
+      "countries": "Palvellut maat",
+      "financed": "Rahoitettu vuodesta 2016",
+      "uptime": "Alustan käytettävyys"
+    },
+    "mission": {
+      "eyebrow": "Tehtävämme",
+      "title": "Luotto, joka kunnioittaa aikaasi ja budjettiasi.",
+      "p1": "Jokainen hakemus arvioidaan samoilla objektiivisilla kriteereillä: takaisinmaksukyky, tulojen vakaus ja hankkeen johdonmukaisuus. Ei läpinäkymätöntä pisteytystä eikä mielivaltaisia hylkäyksiä.",
+      "p2": "Seuraat hakemustasi reaaliajassa suojatun linkin kautta, saat jokaisen asiakirjan omalla kielelläsi ja allekirjoitat sähköisesti täydellä oikeusvaikutuksella."
+    },
+    "values": {
+      "eyebrow": "Arvomme",
+      "title": "Neljä periaatetta, poikkeuksetta.",
+      "v1t": "Turvallisuus ensin",
+      "v1d": "Salatut tiedot, tiukka pääsynhallinta ja jatkuva valvonta.",
+      "v2t": "Täysi selkeys",
+      "v2d": "Korko, vakuutus, kulut ja kokonaishinta näkyvät ennen sitoutumista.",
+      "v3t": "Ihmisen tuki",
+      "v3d": "Oma neuvoja hakemuksesi jokaisessa keskeisessä vaiheessa.",
+      "v4t": "Eurooppalainen kattavuus",
+      "v4d": "Yksi alusta, 15 kieltä ja rahoituskumppanit koko mantereella."
+    },
+    "timeline": {
+      "title": "Tarinamme",
+      "y1t": "Perustettu Pariisissa",
+      "y1d": "Kolme luottoasiantuntijaa perustaa MOONYPin lyhentääkseen päätökset viikoista tunteihin.",
+      "y2t": "Eurooppalainen laajentuminen",
+      "y2d": "Avautuminen yhteentoista markkinaan ja sopimusten sekä viestinnän täysi lokalisointi.",
+      "y3t": "Sähköinen allekirjoitus ja välitön KYC",
+      "y3d": "Täysin paperiton polku sertifioidulla allekirjoituksella ja automaattisella tunnistautumisella.",
+      "y4t": "Kokemus ilman tiliä",
+      "y4d": "Hakija seuraa hakemustaan suojatulla henkilökohtaisella linkillä ilman salasanaa."
+    },
+    "governance": {
+      "eyebrow": "Hallinto ja vaatimustenmukaisuus",
+      "title": "Auditoitavat standardit.",
+      "desc": "Toimintamallimme vastaa eurooppalaisten luotonantajien vaatimuksia: tehtävien eriyttäminen, jokaisen päätöksen jäljitettävyys ja jatkuva riskienhallinta.",
+      "g1t": "Säännelty kehys",
+      "g1d": "Luotonanto toteutetaan toimiluvan saaneiden pankkikumppaneiden kanssa.",
+      "g2t": "Tietosuoja",
+      "g2d": "GDPR-vaatimustenmukaisuus, salaus levossa ja siirrossa, tiukat säilytysajat.",
+      "g3t": "Sertifioidut prosessit",
+      "g3d": "ISO 27001 -mukaiset kontrollit ja vuosittaiset riippumattomat auditoinnit.",
+      "g4t": "Riippumaton valvonta",
+      "g4d": "Luotto- ja riskikomitea tarkistaa periaatteet neljännesvuosittain."
+    },
+    "cta": {
+      "title": "Valmis rahoittamaan hankkeesi?",
+      "desc": "Simuloi minuutissa, hae kuudessa vaiheessa ja saa päätös alle 24 tunnissa.",
+      "button": "Aloita hakemus"
+    }
   }
 }

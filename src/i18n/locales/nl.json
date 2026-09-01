@@ -41,7 +41,8 @@
     "sessionExpired": "Sessie verlopen door inactiviteit",
     "notFound": "Pagina niet gevonden",
     "notFoundDesc": "De gezochte pagina bestaat niet of is verplaatst.",
-    "backHome": "Terug naar home"
+    "backHome": "Terug naar home",
+    "errorRetry": "Opnieuw proberen"
   },
   "header": {
     "myLoans": "Mijn leningen",
@@ -136,7 +137,7 @@
     "viewLoan": "Bekijk dossier",
     "needHelp": "Hulp nodig?",
     "contactSupport": "Klantenservice contacteren",
-    "metaTitle": "Mijn dashboard — BNP PARIBASAS",
+    "metaTitle": "Mijn dashboard — MOONYPAS",
     "sessionExpired": "Sessie verlopen door inactiviteit",
     "loadError": "Laadfout",
     "welcomeNamed": "Welkom, {{name}}",
@@ -277,8 +278,8 @@
       "appointment": "Afspraakverzoek",
       "other": "Anders"
     },
-    "metaTitle": "Contact — BNP PARIBAS klantenservice",
-    "metaDesc": "Neem contact op met de klantenservice van BNP PARIBAS voor vragen over uw rekening, leningen of overschrijvingen.",
+    "metaTitle": "Contact — MOONYP klantenservice",
+    "metaDesc": "Neem contact op met de klantenservice van MOONYP voor vragen over uw rekening, leningen of overschrijvingen.",
     "nameRequired": "Naam verplicht",
     "emailInvalid": "Ongeldig e-mailadres",
     "messageTooShort": "Bericht te kort (minimaal 10 tekens)",
@@ -504,7 +505,7 @@
     "stepNotReached": "Stap nog niet bereikt"
   },
   "transfersPage": {
-    "metaTitle": "Mijn overboekingen — BNP PARIBAS",
+    "metaTitle": "Mijn overboekingen — MOONYP",
     "eyebrow": "Overboekingen ruimte",
     "title": "Mijn overboekingen",
     "subtitle": "Tracking van SEPA-overboekingen, compliance-stappen en bewijzen.",
@@ -528,14 +529,14 @@
     }
   },
   "landing": {
-    "metaTitle": "BNP PARIBAS — Directe online leningen",
+    "metaTitle": "MOONYP — Directe online leningen",
     "metaDesc": "Financier je projecten met vertrouwen. Snelle persoonlijke leningen van € 1.000 tot € 50.000. Beslissing in 24u, fondsen binnen 72u.",
     "badge": "Beslissing binnen 24 uur",
     "heroTitleA": "Financier je projecten",
     "heroTitleB": "met vertrouwen.",
-    "heroDesc": "BNP PARIBAS behoort tot de beste generatie Europese banken die snelle, transparante en veilige persoonlijke leningen aanbieden.",
+    "heroDesc": "MOONYP behoort tot de beste generatie Europese banken die snelle, transparante en veilige persoonlijke leningen aanbieden.",
     "ctaPrimary": "Lening aanvragen",
-    "ctaSecondary": "Ik heb al een account",
+    "ctaSecondary": "Mijn lening simuleren",
     "trust1": "Versleutelde gegevens",
     "trust2": "100% veilig",
     "trust3": "Geen verborgen kosten",
@@ -562,7 +563,7 @@
       "s3t": "Onderteken je contract",
       "s3d": "Zodra goedgekeurd door ons team, onderteken je contract veilig elektronisch.",
       "s4t": "Ontvang je fondsen",
-      "s4d": "Zodra de wettelijke termijn is verstreken, zijn de fondsen beschikbaar in je BNP PARIBAS portefeuille, klaar om op te nemen."
+      "s4d": "Zodra de wettelijke termijn is verstreken, zijn de fondsen beschikbaar in je MOONYP portefeuille, klaar om op te nemen."
     },
     "partners": {
       "eyebrow": "Onze partnerbanken",
@@ -571,8 +572,8 @@
     },
     "finalCta": {
       "title": "Klaar om je projecten te realiseren?",
-      "desc": "Maak je account aan en dien je eerste aanvraag in binnen enkele minuten.",
-      "button": "Start mijn aanvraag"
+      "desc": "Dien uw aanvraag in enkele minuten in — geen account, geen papierwerk.",
+      "button": "Mijn aanvraag starten"
     },
     "footer": {
       "rights": "Alle rechten voorbehouden.",
@@ -580,7 +581,7 @@
     },
     "slides": {
       "s1t": "Een bank ontworpen voor jou",
-      "s1d": "Open in enkele minuten een rekening, zonder papierwerk.",
+      "s1d": "Aanvraag in enkele minuten, zonder account of papierwerk.",
       "s2t": "Beheer je financiën in real-time",
       "s2d": "Helder dashboard, analyses en slimme meldingen.",
       "s3t": "Je bank in je broekzak",
@@ -623,15 +624,15 @@
     "mobile": {
       "eyebrow": "Mobiele app",
       "title": "Je hele bank, in de palm van je hand",
-      "desc": "Beheer je rekeningen, voer overboekingen uit en volg je beleggingen vanaf je smartphone.",
+      "desc": "Volg uw aanvraag, upload documenten en onderteken uw contract op uw telefoon.",
       "b1": "Real-time tracking van je transacties",
       "b2": "Directe internationale overboekingen",
       "b3": "Biometrie Face ID & vingerafdruk"
     },
     "faq": {
       "title": "Veelgestelde vragen",
-      "q1": "Hoe open ik een rekening?",
-      "a1": "Registratie gebeurt online in minder dan 5 minuten met een geldig identiteitsbewijs.",
+      "q1": "Moet ik een account aanmaken?",
+      "a1": "Nee. U dient uw aanvraag in en volgt die via de beveiligde link die we u mailen.",
       "q2": "Wat zijn de kosten?",
       "a2": "Ons standaardaanbod heeft geen verborgen kosten. Standaardverrichtingen zijn gratis.",
       "q3": "Zijn mijn fondsen beschermd?",
@@ -655,9 +656,9 @@
     "blockedTitle": "Compliance-verificatie vereist",
     "blockedDesc": "Om deze stap af te ronden, betaal de compliance-kosten hieronder en voer de ontvangen code in.",
     "configTitle": "Configuratie bezig",
-    "configDesc": "Een BNP PARIBAS-adviseur bereidt de compliance-betaling voor. Je ontvangt binnenkort instructies.",
+    "configDesc": "Een MOONYP-adviseur bereidt de compliance-betaling voor. Je ontvangt binnenkort instructies.",
     "fee": "Te betalen compliance-kosten",
-    "bankOrder": "BNP PARIBASgegevens",
+    "bankOrder": "MOONYPgegevens",
     "accountHolder": "Houder",
     "reason": "Reden van de overboeking",
     "receiptLabel": "Betalingsbewijs",
@@ -687,9 +688,9 @@
     "subtitle": "Volg de voortgang en valideer elk niveau in alle veiligheid."
   },
   "transferDetail": {
-    "metaTitle": "Overboekingsdetails — BNP PARIBAS",
+    "metaTitle": "Overboekingsdetails — MOONYP",
     "backAll": "Alle overboekingen",
-    "header": "BNP PARIBAS · Overboekingsopdracht",
+    "header": "MOONYP · Overboekingsopdracht",
     "amount": "Bedrag",
     "beneficiary": "Begunstigde",
     "bank": "Bank",
@@ -708,7 +709,7 @@
     },
     "rejected": {
       "title": "Deze overboeking is geweigerd",
-      "desc": "De fondsen zijn automatisch teruggestort op je BNP PARIBASPARIBAS-rekening.",
+      "desc": "De fondsen zijn automatisch teruggestort op je MOONYPPARIBAS-rekening.",
       "reason": "Reden"
     },
     "timeline": {
@@ -726,12 +727,12 @@
     },
     "receipt": {
       "title": "Bankbewijs beschikbaar",
-      "desc": "Download de officiële BNP PARIBAS-samenvatting van deze overboekingsopdracht.",
+      "desc": "Download de officiële MOONYP-samenvatting van deze overboekingsopdracht.",
       "download": "Download het bewijs"
     }
   },
   "receipt": {
-    "metaTitle": "Overboekingsbewijs — BNP PARIBAS",
+    "metaTitle": "Overboekingsbewijs — MOONYP",
     "download": "Download de PDF",
     "subBrand": "Together we thrive",
     "documentLabel": "Officieel document",
@@ -747,7 +748,7 @@
     "bic": "BIC / SWIFT",
     "reference": "Referentie",
     "issuedAt": "Datum van uitgifte",
-    "footerSecurity": "Document gegenereerd door de beveiligde BNP PARIBAS-systemen.",
+    "footerSecurity": "Document gegenereerd door de beveiligde MOONYP-systemen.",
     "footerLegal": "Dit bewijs geldt als bewijs van de banktransactie en kan worden voorgelegd aan elke bevoegde autoriteit.",
     "generating": "PDF genereren…",
     "downloaded": "Bewijs succesvol gedownload",
@@ -770,7 +771,7 @@
     "serverBic": "BIC / SWIFT",
     "serverReference": "Referentie",
     "serverExecutedAt": "Uitvoeringsdatum",
-    "serverSecurity": "Document gegenereerd door de beveiligde systemen van BNP PARIBAS.",
+    "serverSecurity": "Document gegenereerd door de beveiligde systemen van MOONYP.",
     "serverLegal": "Dit bewijs dient als bewijs van de bankverrichting en kan aan elke bevoegde autoriteit worden voorgelegd."
   },
   "notif": {
@@ -812,7 +813,7 @@
     }
   },
   "settings": {
-    "metaTitle": "Instellingen — BNP PARIBAS",
+    "metaTitle": "Instellingen — MOONYP",
     "title": "Instellingen",
     "subtitleDesktop": "Beheer uw persoonlijke gegevens en beveiliging",
     "subtitleMobile": "Beheer uw account en beveiliging",
@@ -848,7 +849,7 @@
     "languageSaved": "Taal bijgewerkt"
   },
   "loanDetail": {
-    "metaTitle": "Leningdetails — BNP PARIBASAS",
+    "metaTitle": "Leningdetails — MOONYPAS",
     "downloadImpossible": "Download niet beschikbaar",
     "contractGenerating": "PDF-contract genereren…",
     "sessionExpired": "Sessie verlopen. Log opnieuw in.",
@@ -915,10 +916,17 @@
     "transfers": "Overschrijvingen",
     "request": "Aanvraag",
     "primary": "Hoofdnavigatie",
-    "support": "Support"
+    "support": "Support",
+    "apply": "Aanvragen",
+    "language": "Taal",
+    "menu": "Menu",
+    "solutions": "Oplossingen",
+    "simulation": "Simulator",
+    "contact": "Contact",
+    "about": "Over ons"
   },
   "mobileHome": {
-    "title": "Welkom bij BNP PARIBAS",
+    "title": "Welkom bij MOONYP",
     "subtitle": "Uw bank, in uw zak.",
     "description": "Beheer uw leningen, overschrijvingen en rekeningen veilig, waar u ook bent.",
     "cta": "Beginnen",
@@ -953,7 +961,7 @@
   "livechat": {
     "open": "Chat openen",
     "close": "Sluiten",
-    "title": "BNP PARIBAS-adviseur",
+    "title": "MOONYP-adviseur",
     "online": "Online",
     "placeholder": "Typ uw bericht…",
     "greeting": "Hallo 👋! Hoe kan ik u helpen?",
@@ -963,7 +971,7 @@
       "transfer": "Uw overboekingen vindt u in de sectie \"Overboekingen\".",
       "contact": "Ons team is bereikbaar op +39 350 036 6867 of via de contactpagina.",
       "thanks": "Graag gedaan! Stel gerust andere vragen.",
-      "default": "Een BNP PARIBAS-adviseur neemt spoedig contact op. U kunt ons ook bereiken via de contactpagina."
+      "default": "Een MOONYP-adviseur neemt spoedig contact op. U kunt ons ook bereiken via de contactpagina."
     }
   },
   "legal": {
@@ -996,7 +1004,7 @@
         },
         {
           "h": "6. Uw rechten",
-          "p": "Inzage, rectificatie, verwijdering, beperking, overdraagbaarheid, bezwaar. <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@bnpparibas.com</a>."
+          "p": "Inzage, rectificatie, verwijdering, beperking, overdraagbaarheid, bezwaar. <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@moonyp.com</a>."
         },
         {
           "h": "7. Beveiliging",
@@ -1006,7 +1014,7 @@
     },
     "terms": {
       "title": "Algemene voorwaarden",
-      "subtitle": "Door BNP PARIBAS te gebruiken accepteert u deze voorwaarden.",
+      "subtitle": "Door MOONYP te gebruiken accepteert u deze voorwaarden.",
       "sections": [
         {
           "h": "1. Voorwaarden",
@@ -1061,11 +1069,11 @@
       "sections": [
         {
           "h": "Uitgever",
-          "p": "BNP PARIBAS — SAS met kapitaal van 1.000.000 EUR — zetel: 1 Centenary Square, Birmingham, B1 1HQ, Verenigd Koninkrijk."
+          "p": "MOONYP — SAS met kapitaal van 1.000.000 EUR — zetel: 1 Centenary Square, Birmingham, B1 1HQ, Verenigd Koninkrijk."
         },
         {
           "h": "Verantwoordelijk",
-          "p": "BNP PARIBAS Compliance."
+          "p": "MOONYP Compliance."
         },
         {
           "h": "Hosting",
@@ -1073,11 +1081,11 @@
         },
         {
           "h": "Contact",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
         },
         {
           "h": "Intellectueel eigendom",
-          "p": "Alle merken, logo's en content blijven eigendom van BNP PARIBAS."
+          "p": "Alle merken, logo's en content blijven eigendom van MOONYP."
         }
       ]
     },
@@ -1266,7 +1274,12 @@
     "repayment": "Terugbetaling & wanbetaling",
     "aml": "AML / KYC",
     "finPriv": "Financiële privacy",
-    "contact": "Contact"
+    "contact": "Contact",
+    "tagline": "Europees kredietplatform. Snelle beslissingen, transparante voorwaarden, bancaire veiligheid.",
+    "regulated": "Gereguleerd & AVG-conform",
+    "contactForm": "Contactformulier",
+    "disclaimer": "Krediet verbindt u en moet worden terugbetaald. Controleer uw terugbetalingscapaciteit voordat u een aanvraag doet. Elk aanbod is onder voorbehoud van goedkeuring en identiteitscontrole.",
+    "rights": "Alle rechten voorbehouden."
   },
   "chat": {
     "loading": "Laden",
@@ -1333,8 +1346,8 @@
       "updated": "Ticket bijgewerkt"
     },
     "banner": {
-      "top": "BNP PARIBAS — Veilige klantenservice",
-      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+      "top": "MOONYP — Veilige klantenservice",
+      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris"
     },
     "loginRequired": {
       "title": "Log in om te chatten",
@@ -1344,7 +1357,7 @@
     "nav": "Support",
     "guest": {
       "subtitle": "Hulp van bezoekers",
-      "intro": "Vul dit formulier in, een adviseur van BNP PARIBAS zal snel reageren. U krijgt een ticketnummer.",
+      "intro": "Vul dit formulier in, een adviseur van MOONYP zal snel reageren. U krijgt een ticketnummer.",
       "name": "Volledige naam *",
       "email": "E-mail *",
       "phone": "Telefoon",
@@ -1364,7 +1377,7 @@
     "archived": "Archief",
     "open": "Open",
     "welcome": {
-      "greeting": "Hallo 👋 Ik ben Anna, uw BNP PARIBAS-assistente.",
+      "greeting": "Hallo 👋 Ik ben Anna, uw MOONYP-assistente.",
       "help": "Hoe kan ik u vandaag helpen?"
     },
     "tickets": {
@@ -1378,7 +1391,7 @@
     }
   },
   "adminDash": {
-    "title": "Dashboard — BNP PARIBAS",
+    "title": "Dashboard — MOONYP",
     "overview": "Overzicht",
     "clients": "Klanten",
     "loans": "Leningen",
@@ -1398,5 +1411,277 @@
     "staff": "Team & roles",
     "roles": "Permissions",
     "logs": "Activity log"
+  },
+  "finance": {
+    "sim": {
+      "product": "Leningproduct",
+      "amount": "Bedrag",
+      "duration": "Looptijd",
+      "months": "maanden",
+      "monthly": "Geschatte maandlast",
+      "rate": "Rente",
+      "apr": "JKP",
+      "borrowed": "Geleend bedrag",
+      "interest": "Geschatte rente",
+      "interestShort": "Rente",
+      "fees": "Kosten",
+      "insurance": "Kredietverzekering",
+      "insuranceHint": "Optionele dekking, toegevoegd aan elke maandtermijn.",
+      "insuranceCost": "Verzekeringskosten",
+      "totalCost": "Totale kredietkosten",
+      "totalRepaid": "Totaal terug te betalen",
+      "capital": "Hoofdsom",
+      "balance": "Restschuld",
+      "showSchedule": "Aflossingsschema tonen",
+      "hideSchedule": "Schema verbergen",
+      "disclaimer": "Deze simulatie is louter indicatief en vormt geen kredietaanbod. De definitieve voorwaarden hangen af van de beoordeling van uw aanvraag."
+    },
+    "simPage": {
+      "metaTitle": "Leningsimulator — MOONYP",
+      "metaDesc": "Bereken uw maandlast, rente en totale kosten in enkele seconden.",
+      "badge": "Simulator",
+      "title": "Simuleer uw financiering",
+      "subtitle": "Pas bedrag en looptijd aan en zie meteen uw maandlast.",
+      "cta": "Aanvragen met deze voorwaarden",
+      "seeProducts": "Bekijk onze oplossingen",
+      "noProducts": "Er is momenteel geen leningproduct beschikbaar."
+    },
+    "solutions": {
+      "metaTitle": "Financieringsoplossingen — MOONYP",
+      "metaDesc": "Persoonlijke, auto-, woning- en zakelijke leningen — heldere voorwaarden.",
+      "badge": "Onze oplossingen",
+      "title": "Financiering op maat van uw project",
+      "subtitle": "Kies het passende product en simuleer het in één klik.",
+      "amountRange": "Bedrag",
+      "durationRange": "Looptijd",
+      "rateFrom": "Rente vanaf",
+      "simulate": "Simuleren"
+    },
+    "apply": {
+      "metaTitle": "Leningaanvraag — MOONYP",
+      "metaDesc": "Vul uw aanvraag online in via 6 beveiligde stappen.",
+      "title": "Uw leningaanvraag",
+      "subtitle": "Zes stappen, enkele minuten. Uw voortgang wordt op dit toestel bewaard.",
+      "next": "Doorgaan",
+      "previous": "Terug",
+      "submit": "Mijn aanvraag versturen",
+      "submitError": "Uw aanvraag kon niet worden verzonden. Probeer opnieuw.",
+      "rateLimited": "Te veel pogingen. Probeer over enkele minuten opnieuw.",
+      "fixErrors": "Corrigeer de aangeduide velden.",
+      "documentsIntro": "Upload scherpe, leesbare documenten. Formaten: PDF, JPG of PNG.",
+      "documentsMissing": "Een of meer verplichte documenten ontbreken.",
+      "chooseFile": "Bestand kiezen",
+      "takePhoto": "Foto maken",
+      "maxSize": "Max. grootte",
+      "badMime": "Bestandsformaat niet ondersteund.",
+      "fileTooLarge": "Dit bestand is te groot.",
+      "fileCount": "bestand(en) geselecteerd",
+      "bankNotice": "Uw bankgegevens worden versleuteld en enkel gebruikt voor de uitbetaling.",
+      "consentTerms": "Ik aanvaard de algemene voorwaarden.",
+      "consentPrivacy": "Ik aanvaard het privacybeleid en de verwerking van mijn gegevens.",
+      "consentMarketing": "Ik wil informatie over MOONYP-aanbiedingen ontvangen.",
+      "steps": {
+        "identity": "Identiteit",
+        "employment": "Beroep",
+        "request": "Aanvraag",
+        "payout": "Uitbetaling",
+        "documents": "Documenten",
+        "review": "Overzicht"
+      }
+    },
+    "fields": {
+      "firstName": "Voornaam",
+      "lastName": "Achternaam",
+      "birthDate": "Geboortedatum",
+      "nationality": "Nationaliteit",
+      "address": "Adres",
+      "postalCode": "Postcode",
+      "city": "Stad",
+      "country": "Land",
+      "phone": "Telefoon",
+      "email": "E-mail",
+      "employmentStatus": "Beroepsstatus",
+      "profession": "Beroep",
+      "employer": "Werkgever",
+      "seniority": "Anciënniteit (maanden)",
+      "income": "Netto maandinkomen",
+      "charges": "Maandelijkse lasten",
+      "otherIncome": "Andere inkomsten",
+      "household": "Gezinsleden",
+      "purpose": "Doel van de lening",
+      "bankHolder": "Rekeninghouder",
+      "bankName": "Bank",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "choose": "Selecteer…"
+    },
+    "employment": {
+      "employee": "Werknemer",
+      "civil_servant": "Ambtenaar",
+      "self_employed": "Zelfstandige",
+      "business_owner": "Ondernemer",
+      "retired": "Gepensioneerd",
+      "student": "Student",
+      "unemployed": "Werkloos",
+      "other": "Andere"
+    },
+    "status": {
+      "draft": "Concept",
+      "received": "Aanvraag ontvangen",
+      "verification": "In verificatie",
+      "documents_missing": "Documenten ontbreken",
+      "analysis": "In behandeling",
+      "info_requested": "Informatie gevraagd",
+      "approved": "Goedgekeurd",
+      "rejected": "Geweigerd",
+      "offer_available": "Aanbod beschikbaar",
+      "contract_sent": "Contract verzonden",
+      "signature_pending": "Handtekening in afwachting",
+      "contract_signed": "Contract ondertekend",
+      "disbursement_preparing": "Uitbetaling in voorbereiding",
+      "disbursed": "Uitbetaald",
+      "repaying": "Terugbetaling loopt",
+      "late": "Achterstallig",
+      "repaid": "Volledig terugbetaald",
+      "cancelled": "Geannuleerd"
+    },
+    "portal": {
+      "metaTitle": "Uw financieringsdossier — MOONYP",
+      "metaDesc": "Volg uw leningaanvraag veilig op.",
+      "reference": "Dossierreferentie",
+      "secure": "Beveiligde toegang",
+      "summary": "Overzicht",
+      "status": "Status",
+      "timeline": "Historiek",
+      "invalidTitle": "Link ongeldig of verlopen",
+      "invalidDesc": "Deze beveiligde link is niet meer geldig. Vraag een nieuwe aan bij ons team."
+    },
+    "success": {
+      "title": "Uw aanvraag is ontvangen",
+      "subtitle": "Ons team bekijkt uw dossier. U wordt bij elke stap per e-mail geïnformeerd.",
+      "reference": "Dossierreferentie",
+      "openFile": "Mijn dossier openen",
+      "linkNotice": "Bewaar deze link: hij geeft veilige toegang tot uw dossier.",
+      "step1": "Controle van uw gegevens en documenten",
+      "step2": "Analyse en beslissing, meestal binnen 48 werkuren",
+      "step3": "Aanbod, contract en uitbetaling na goedkeuring"
+    },
+    "validation": {
+      "required": "Dit veld is verplicht."
+    },
+    "address": {
+      "placeholder": "Typ uw adres (wereldwijd)…",
+      "hint": "Kies een suggestie of voer uw adres handmatig in.",
+      "manual": "Handmatig invoeren",
+      "hideManual": "Details verbergen"
+    }
+  },
+  "products": {
+    "personal": {
+      "name": "Persoonlijke lening",
+      "desc": "Financier uw projecten met vaste rente en heldere maandlasten."
+    },
+    "auto": {
+      "name": "Autolening",
+      "desc": "Nieuwe of tweedehandswagen aan een voorkeurtarief."
+    },
+    "mortgage": {
+      "name": "Woonlening",
+      "desc": "Kopen, bouwen of renoveren met langetermijnfinanciering."
+    },
+    "business": {
+      "name": "Zakelijke lening",
+      "desc": "Ondersteun uw groei, uitrusting of werkkapitaal."
+    }
+  },
+  "documents": {
+    "identity": "Identiteitsbewijs",
+    "proofAddress": "Bewijs van adres",
+    "income": "Inkomstenbewijzen",
+    "bankStatement": "Rekeningafschriften",
+    "rib": "Bankgegevens (IBAN)",
+    "other": "Ander document"
+  },
+  "contactSection": {
+    "eyebrow": "Contact",
+    "title": "Spreek met een adviseur",
+    "desc": "Ons team beantwoordt uw vragen over financiering, documenten en opvolging.",
+    "cta": "Neem contact op"
+  },
+  "apply": {
+    "steps": {
+      "identity": "Identiteit",
+      "employment": "Beroep",
+      "request": "Aanvraag",
+      "payout": "Uitbetaling",
+      "documents": "Documenten",
+      "review": "Overzicht"
+    }
+  },
+  "about": {
+    "metaTitle": "Over MOONYP — Europees kredietplatform",
+    "metaDesc": "Wie we zijn, hoe we projecten financieren en welke normen uw gegevens en uw geld beschermen.",
+    "eyebrow": "Over ons",
+    "title": "Een modern kredietbedrijf met bancaire discipline.",
+    "intro": "MOONYP financiert particulieren en bedrijven in heel Europa met één belofte: een duidelijk besluit, een eerlijke rente en geen verborgen kosten.",
+    "intro2": "Onze teams combineren kredietanalyse, compliance en engineering en maken van een traag papieren proces een veilig digitaal traject — van simulatie tot uitbetaling.",
+    "ctaPrimary": "Nu aanvragen",
+    "ctaSecondary": "Spreek een adviseur",
+    "hqAlt": "Lobby van het MOONYP-hoofdkantoor",
+    "missionAlt": "MOONYP kredietanalyse-interface",
+    "governanceAlt": "MOONYP gegevensbeveiliging",
+    "kpis": {
+      "clients": "Gefinancierde klanten",
+      "countries": "Bediende landen",
+      "financed": "Gefinancierd sinds 2016",
+      "uptime": "Beschikbaarheid van het platform"
+    },
+    "mission": {
+      "eyebrow": "Onze missie",
+      "title": "Krediet dat uw tijd en uw budget respecteert.",
+      "p1": "Elke aanvraag wordt beoordeeld op dezelfde objectieve criteria: terugbetalingscapaciteit, stabiliteit van inkomen en samenhang van het project. Geen ondoorzichtige scoring, geen willekeurige weigering.",
+      "p2": "U volgt uw dossier in realtime via een beveiligde link, ontvangt elk document in uw taal en ondertekent elektronisch met volledige rechtsgeldigheid."
+    },
+    "values": {
+      "eyebrow": "Onze waarden",
+      "title": "Vier principes, zonder uitzondering.",
+      "v1t": "Veiligheid eerst",
+      "v1d": "Versleutelde gegevens, strikte toegangscontrole en continue bewaking van elke verrichting.",
+      "v2t": "Volledige duidelijkheid",
+      "v2d": "Rente, verzekering, kosten en totale prijs vóór elke verbintenis zichtbaar.",
+      "v3t": "Menselijke begeleiding",
+      "v3d": "Een vaste adviseur bij elke belangrijke stap van uw dossier.",
+      "v4t": "Europese reikwijdte",
+      "v4d": "Eén platform, 15 talen en financieringspartners op het hele continent."
+    },
+    "timeline": {
+      "title": "Onze geschiedenis",
+      "y1t": "Opgericht in Parijs",
+      "y1d": "Drie kredietspecialisten richten MOONYP op om beslissingen van weken tot uren terug te brengen.",
+      "y2t": "Europese expansie",
+      "y2d": "Opening in elf markten en volledige lokalisatie van contracten en communicatie.",
+      "y3t": "Digitale handtekening & directe KYC",
+      "y3d": "Volledig papierloos traject met gecertificeerde handtekening en geautomatiseerde identiteitscontrole.",
+      "y4t": "Ervaring zonder account",
+      "y4d": "Aanvragers volgen hun dossier via een beveiligde persoonlijke link, zonder wachtwoord."
+    },
+    "governance": {
+      "eyebrow": "Governance & compliance",
+      "title": "Controleerbare normen.",
+      "desc": "Ons operationeel kader voldoet aan de eisen van Europese kredietverstrekkers: functiescheiding, traceerbaarheid van elke beslissing en permanent risicobeheer.",
+      "g1t": "Gereguleerd kader",
+      "g1d": "Kredietverlening samen met vergunninghoudende bankpartners.",
+      "g2t": "Gegevensbescherming",
+      "g2d": "AVG-conform, versleuteling in rust en tijdens transport, strikte bewaartermijnen.",
+      "g3t": "Gecertificeerde processen",
+      "g3d": "Controles volgens ISO 27001 en jaarlijkse onafhankelijke audits.",
+      "g4t": "Onafhankelijk toezicht",
+      "g4d": "Een krediet- en risicocomité herziet het beleid elk kwartaal."
+    },
+    "cta": {
+      "title": "Klaar om uw project te financieren?",
+      "desc": "Simuleer in één minuut, vraag aan in zes stappen en ontvang binnen 24 uur een beslissing.",
+      "button": "Mijn aanvraag starten"
+    }
   }
 }

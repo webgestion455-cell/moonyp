@@ -130,25 +130,32 @@ export const adminGetApplication = createServerFn({ method: "POST" })
     await assertStaff(context.supabase as never, context.userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    const [{ data: application }, { data: history }, { data: documents }, { data: events }] = await Promise.all([
-      supabaseAdmin.from("loan_applications").select("*").eq("id", data.id).maybeSingle(),
-      supabaseAdmin
-        .from("application_status_history")
-        .select("id, old_status, new_status, actor, note, created_at")
-        .eq("application_id", data.id)
-        .order("created_at", { ascending: true }),
-      supabaseAdmin
-        .from("application_documents")
-        .select("id, document_type_slug, file_name, storage_path, mime_type, file_size, status, review_note, created_at")
-        .eq("application_id", data.id)
-        .order("created_at", { ascending: true }),
-      supabaseAdmin
-        .from("application_events")
-        .select("id, event_type, actor, description, created_at")
-        .eq("application_id", data.id)
-        .order("created_at", { ascending: false })
-        .limit(50),
-    ]);
+    const [{ data: application }, { data: history }, { data: documents }, { data: events }, { data: kyc }] =
+      await Promise.all([
+        supabaseAdmin.from("loan_applications").select("*").eq("id", data.id).maybeSingle(),
+        supabaseAdmin
+          .from("application_status_history")
+          .select("id, old_status, new_status, actor, note, created_at")
+          .eq("application_id", data.id)
+          .order("created_at", { ascending: true }),
+        supabaseAdmin
+          .from("application_documents")
+          .select("id, document_type_slug, file_name, storage_path, mime_type, file_size, status, review_note, created_at")
+          .eq("application_id", data.id)
+          .order("created_at", { ascending: true }),
+        supabaseAdmin
+          .from("application_events")
+          .select("id, event_type, actor, description, created_at")
+          .eq("application_id", data.id)
+          .order("created_at", { ascending: false })
+          .limit(50),
+        supabaseAdmin
+          .from("application_kyc_checks")
+          .select("id, step_key, category, document_type_slug, document_id, status, attempts, review_note, reviewed_at, created_at")
+          .eq("application_id", data.id)
+          .order("created_at", { ascending: true }),
+      ]);
+
 
     if (!application) return null;
 
@@ -165,7 +172,15 @@ export const adminGetApplication = createServerFn({ method: "POST" })
       ? await supabaseAdmin.from("loan_products").select("*").eq("id", application.product_id).maybeSingle()
       : { data: null };
 
-    return { application, product, history: history ?? [], documents: withLinks, events: events ?? [] };
+    return {
+      application,
+      product,
+      history: history ?? [],
+      documents: withLinks,
+      events: events ?? [],
+      kycChecks: kyc ?? [],
+    };
+
   });
 
 /** Moves an application through the workflow. */
@@ -236,8 +251,85 @@ export const adminReviewDocument = createServerFn({ method: "POST" })
       })
       .eq("id", data.id);
     if (error) throw new Error(error.message);
+
+    // Keep the KYC checklist aligned with the document decision.
+    const kycStatus =
+      data.status === "approved" ? "passed" : data.status === "pending" ? "verifying" : "failed";
+    await supabaseAdmin
+      .from("application_kyc_checks")
+      .update({
+        status: kycStatus,
+        review_note: data.review_note ?? null,
+        reviewed_by: context.userId,
+        reviewed_at: new Date().toISOString(),
+      })
+      .eq("document_id", data.id);
+
+    const { data: doc } = await supabaseAdmin
+      .from("application_documents")
+      .select("application_id")
+      .eq("id", data.id)
+      .maybeSingle();
+    if (doc?.application_id) await refreshKycStatus(doc.application_id);
+
     return { ok: true };
   });
+
+/** Recomputes the aggregate KYC status of an application from its checks. */
+async function refreshKycStatus(applicationId: string) {
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+  const { data: checks } = await supabaseAdmin
+    .from("application_kyc_checks")
+    .select("status")
+    .eq("application_id", applicationId);
+
+  const rows = checks ?? [];
+  const failed = rows.some((c) => c.status === "failed");
+  const allPassed = rows.length > 0 && rows.every((c) => c.status === "passed");
+  const status = failed ? "failed" : allPassed ? "passed" : rows.length ? "verifying" : "pending";
+
+  await supabaseAdmin
+    .from("loan_applications")
+    .update({
+      kyc_status: status,
+      kyc_completed_at: allPassed ? new Date().toISOString() : null,
+      review_required: failed,
+    })
+    .eq("id", applicationId);
+}
+
+/** Manual decision on a single KYC checkpoint. */
+export const adminReviewKycCheck = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input) =>
+    z
+      .object({
+        id: z.string().uuid(),
+        status: z.enum(["todo", "verifying", "passed", "failed"]),
+        review_note: z.string().max(500).optional(),
+      })
+      .parse(input),
+  )
+  .handler(async ({ data, context }) => {
+    await assertStaff(context.supabase as never, context.userId);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+    const { data: row, error } = await supabaseAdmin
+      .from("application_kyc_checks")
+      .update({
+        status: data.status,
+        review_note: data.review_note ?? null,
+        reviewed_by: context.userId,
+        reviewed_at: new Date().toISOString(),
+      })
+      .eq("id", data.id)
+      .select("application_id")
+      .maybeSingle();
+    if (error) throw new Error(error.message);
+    if (row?.application_id) await refreshKycStatus(row.application_id);
+    return { ok: true };
+  });
+
 
 /** Issues a fresh secure link for the applicant. */
 export const adminIssuePortalLink = createServerFn({ method: "POST" })

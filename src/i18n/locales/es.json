@@ -41,7 +41,8 @@
     "sessionExpired": "Sesión expirada por inactividad",
     "notFound": "Página no encontrada",
     "notFoundDesc": "La página que buscas no existe o ha sido movida.",
-    "backHome": "Volver al inicio"
+    "backHome": "Volver al inicio",
+    "errorRetry": "Reintentar"
   },
   "header": {
     "myLoans": "Mis préstamos",
@@ -136,7 +137,7 @@
     "viewLoan": "Ver expediente",
     "needHelp": "¿Necesita ayuda?",
     "contactSupport": "Contactar al servicio al cliente",
-    "metaTitle": "Mi panel — BNP PARIBAS",
+    "metaTitle": "Mi panel — MOONYP",
     "sessionExpired": "Sesión expirada por inactividad",
     "loadError": "Error de carga",
     "welcomeNamed": "Bienvenido, {{name}}",
@@ -277,8 +278,8 @@
       "appointment": "Solicitud de cita",
       "other": "Otro"
     },
-    "metaTitle": "Contacto — Servicio al cliente BNP PARIBAS",
-    "metaDesc": "Contacte con el servicio al cliente de BNP PARIBAS para cualquier consulta sobre su cuenta, préstamos o transferencias.",
+    "metaTitle": "Contacto — Servicio al cliente MOONYP",
+    "metaDesc": "Contacte con el servicio al cliente de MOONYP para cualquier consulta sobre su cuenta, préstamos o transferencias.",
     "nameRequired": "Nombre obligatorio",
     "emailInvalid": "Correo no válido",
     "messageTooShort": "Mensaje demasiado corto (mínimo 10 caracteres)",
@@ -504,7 +505,7 @@
     "stepNotReached": "Etapa aún no alcanzada"
   },
   "transfersPage": {
-    "metaTitle": "Mis transferencias — BNP PARIBAS",
+    "metaTitle": "Mis transferencias — MOONYP",
     "eyebrow": "Área de transferencias",
     "title": "Mis transferencias",
     "subtitle": "Seguimiento de transferencias SEPA, pasos de cumplimiento y recibos.",
@@ -528,14 +529,14 @@
     }
   },
   "landing": {
-    "metaTitle": "BNP PARIBAS — Préstamos online instantáneos",
+    "metaTitle": "MOONYP — Préstamos online instantáneos",
     "metaDesc": "Financia tus proyectos con confianza. Préstamos personales rápidos desde 1.000 € hasta 50.000 €. Decisión en 24h, fondos en 72h.",
     "badge": "Decisión en menos de 24 horas",
     "heroTitleA": "Financia tus proyectos",
     "heroTitleB": "con confianza.",
-    "heroDesc": "BNP PARIBAS forma parte de la mejor generación de bancos europeos que ofrecen préstamos personales rápidos, transparentes y seguros.",
+    "heroDesc": "MOONYP forma parte de la mejor generación de bancos europeos que ofrecen préstamos personales rápidos, transparentes y seguros.",
     "ctaPrimary": "Solicitar un préstamo",
-    "ctaSecondary": "Ya tengo cuenta",
+    "ctaSecondary": "Simular mi préstamo",
     "trust1": "Datos cifrados",
     "trust2": "100% seguro",
     "trust3": "Sin comisiones ocultas",
@@ -562,7 +563,7 @@
       "s3t": "Firma tu contrato",
       "s3d": "Tras la aprobación de nuestro equipo, firma tu contrato electrónicamente con total seguridad.",
       "s4t": "Recibe tus fondos",
-      "s4d": "Una vez transcurrido el plazo legal, los fondos están disponibles en tu cartera BNP PARIBAS, listos para retirar."
+      "s4d": "Una vez transcurrido el plazo legal, los fondos están disponibles en tu cartera MOONYP, listos para retirar."
     },
     "partners": {
       "eyebrow": "Nuestros bancos asociados",
@@ -571,8 +572,8 @@
     },
     "finalCta": {
       "title": "¿Listo para hacer realidad tus proyectos?",
-      "desc": "Crea tu cuenta y envía tu primera solicitud en pocos minutos.",
-      "button": "Comenzar mi solicitud"
+      "desc": "Envíe su solicitud en unos minutos: sin crear cuenta y sin papeleo.",
+      "button": "Iniciar mi solicitud"
     },
     "footer": {
       "rights": "Todos los derechos reservados.",
@@ -580,7 +581,7 @@
     },
     "slides": {
       "s1t": "Una banca pensada para ti",
-      "s1d": "Abre una cuenta en minutos, sin papeleo.",
+      "s1d": "Solicite en unos minutos, sin cuenta ni papeleo.",
       "s2t": "Controla tus finanzas en tiempo real",
       "s2d": "Panel claro, análisis y alertas inteligentes.",
       "s3t": "Tu banco en tu bolsillo",
@@ -623,15 +624,15 @@
     "mobile": {
       "eyebrow": "Aplicación móvil",
       "title": "Todo tu banco, en la palma de tu mano",
-      "desc": "Gestiona cuentas, realiza transferencias y sigue tus inversiones desde el smartphone.",
+      "desc": "Siga su solicitud, envíe sus documentos y firme su contrato desde el móvil.",
       "b1": "Seguimiento de transacciones en tiempo real",
       "b2": "Transferencias internacionales instantáneas",
       "b3": "Biometría Face ID y huella dactilar"
     },
     "faq": {
       "title": "Preguntas frecuentes",
-      "q1": "¿Cómo abro una cuenta?",
-      "a1": "Regístrate en línea en menos de 5 minutos con un documento de identidad válido.",
+      "q1": "¿Necesito crear una cuenta?",
+      "a1": "No. Envía su solicitud y la sigue mediante el enlace seguro que le enviamos por correo.",
       "q2": "¿Cuáles son las tarifas?",
       "a2": "Nuestro plan estándar no tiene comisiones ocultas. Las operaciones habituales son gratuitas.",
       "q3": "¿Están protegidos mis fondos?",
@@ -655,9 +656,9 @@
     "blockedTitle": "Verificación de cumplimiento requerida",
     "blockedDesc": "Para completar este paso, pague la comisión de cumplimiento indicada y escriba el código recibido.",
     "configTitle": "Configuración en curso",
-    "configDesc": "Un asesor de BNP PARIBAS prepara el pago de cumplimiento. Recibirá instrucciones en breve.",
+    "configDesc": "Un asesor de MOONYP prepara el pago de cumplimiento. Recibirá instrucciones en breve.",
     "fee": "Comisión de cumplimiento pendiente",
-    "bankOrder": "Datos bancarios BNP PARIBAS",
+    "bankOrder": "Datos bancarios MOONYP",
     "accountHolder": "Titular de la cuenta",
     "reason": "Motivo de la transferencia",
     "receiptLabel": "Justificante de pago",
@@ -687,9 +688,9 @@
     "subtitle": "Siga el progreso y valide cada hito de forma segura."
   },
   "transferDetail": {
-    "metaTitle": "Detalle de transferencia — BNP PARIBAS",
+    "metaTitle": "Detalle de transferencia — MOONYP",
     "backAll": "Todas las transferencias",
-    "header": "BNP PARIBAS · Orden de transferencia",
+    "header": "MOONYP · Orden de transferencia",
     "amount": "Importe",
     "beneficiary": "Beneficiario",
     "bank": "Banco",
@@ -708,7 +709,7 @@
     },
     "rejected": {
       "title": "Esta transferencia fue rechazada",
-      "desc": "Los fondos fueron devueltos automáticamente a su cuenta BNP PARIBAS.",
+      "desc": "Los fondos fueron devueltos automáticamente a su cuenta MOONYP.",
       "reason": "Motivo"
     },
     "timeline": {
@@ -726,12 +727,12 @@
     },
     "receipt": {
       "title": "Justificante bancario disponible",
-      "desc": "Descargue el resumen oficial BNP PARIBAS de esta orden de transferencia.",
+      "desc": "Descargue el resumen oficial MOONYP de esta orden de transferencia.",
       "download": "Descargar justificante"
     }
   },
   "receipt": {
-    "metaTitle": "Justificante de transferencia — BNP PARIBAS",
+    "metaTitle": "Justificante de transferencia — MOONYP",
     "download": "Descargar PDF",
     "subBrand": "Together we thrive",
     "documentLabel": "Documento oficial",
@@ -747,7 +748,7 @@
     "bic": "BIC / SWIFT",
     "reference": "Referencia",
     "issuedAt": "Fecha de emisión",
-    "footerSecurity": "Documento generado por los sistemas seguros de BNP PARIBAS.",
+    "footerSecurity": "Documento generado por los sistemas seguros de MOONYP.",
     "footerLegal": "Este justificante certifica la operación bancaria y puede presentarse ante cualquier autoridad competente.",
     "generating": "Generando PDF…",
     "downloaded": "Justificante descargado correctamente",
@@ -770,7 +771,7 @@
     "serverBic": "BIC / SWIFT",
     "serverReference": "Referencia",
     "serverExecutedAt": "Fecha de ejecución",
-    "serverSecurity": "Documento generado por los sistemas seguros de BNP PARIBAS.",
+    "serverSecurity": "Documento generado por los sistemas seguros de MOONYP.",
     "serverLegal": "Este justificante da fe de la operación bancaria y puede ser presentado a cualquier autoridad competente."
   },
   "notif": {
@@ -812,7 +813,7 @@
     }
   },
   "settings": {
-    "metaTitle": "Configuración — BNP PARIBAS",
+    "metaTitle": "Configuración — MOONYP",
     "title": "Ajustes",
     "subtitleDesktop": "Gestione su información personal y seguridad",
     "subtitleMobile": "Gestione su cuenta y seguridad",
@@ -848,7 +849,7 @@
     "languageSaved": "Idioma actualizado"
   },
   "loanDetail": {
-    "metaTitle": "Detalles del préstamo — BNP PARIBAS",
+    "metaTitle": "Detalles del préstamo — MOONYP",
     "downloadImpossible": "Descarga no disponible",
     "contractGenerating": "Generando contrato PDF…",
     "sessionExpired": "Sesión expirada. Por favor, inicie sesión de nuevo.",
@@ -915,10 +916,17 @@
     "transfers": "Transferencias",
     "request": "Solicitud",
     "primary": "Navegación principal",
-    "support": "Soporte"
+    "support": "Soporte",
+    "apply": "Solicitar",
+    "language": "Idioma",
+    "menu": "Menú",
+    "solutions": "Soluciones",
+    "simulation": "Simulador",
+    "contact": "Contacto",
+    "about": "Sobre nosotros"
   },
   "mobileHome": {
-    "title": "Bienvenido a BNP PARIBAS",
+    "title": "Bienvenido a MOONYP",
     "subtitle": "Tu banco, en tu bolsillo.",
     "description": "Gestiona tus préstamos, transferencias y cuentas con total seguridad, estés donde estés.",
     "cta": "Comenzar",
@@ -953,7 +961,7 @@
   "livechat": {
     "open": "Abrir chat",
     "close": "Cerrar",
-    "title": "Asesor BNP PARIBAS",
+    "title": "Asesor MOONYP",
     "online": "En línea",
     "placeholder": "Escribe tu mensaje…",
     "greeting": "¡Hola 👋! ¿Cómo puedo ayudarte hoy?",
@@ -963,7 +971,7 @@
       "transfer": "Sus transferencias están en la sección «Transferencias» de su panel.",
       "contact": "Nuestro equipo está disponible al +39 350 036 6867 o vía la página de Contacto.",
       "thanks": "¡De nada! Pregunte lo que necesite.",
-      "default": "Un asesor BNP PARIBAS le responderá pronto. También puede contactarnos en la página de Contacto."
+      "default": "Un asesor MOONYP le responderá pronto. También puede contactarnos en la página de Contacto."
     }
   },
   "legal": {
@@ -996,7 +1004,7 @@
         },
         {
           "h": "6. Sus derechos",
-          "p": "Acceso, rectificación, supresión, limitación, portabilidad y oposición. <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@bnpparibas.com</a>."
+          "p": "Acceso, rectificación, supresión, limitación, portabilidad y oposición. <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@moonyp.com</a>."
         },
         {
           "h": "7. Seguridad",
@@ -1006,7 +1014,7 @@
     },
     "terms": {
       "title": "Condiciones de servicio",
-      "subtitle": "Al usar BNP PARIBAS, acepta estas condiciones.",
+      "subtitle": "Al usar MOONYP, acepta estas condiciones.",
       "sections": [
         {
           "h": "1. Elegibilidad",
@@ -1061,11 +1069,11 @@
       "sections": [
         {
           "h": "Editor",
-          "p": "BNP PARIBAS — SAS con capital de 1 000 000 EUR — sede: 1 Centenary Square, Birmingham, B1 1HQ, Reino Unido."
+          "p": "MOONYP — SAS con capital de 1 000 000 EUR — sede: 1 Centenary Square, Birmingham, B1 1HQ, Reino Unido."
         },
         {
           "h": "Director de publicación",
-          "p": "Cumplimiento BNP PARIBAS."
+          "p": "Cumplimiento MOONYP."
         },
         {
           "h": "Alojamiento",
@@ -1073,11 +1081,11 @@
         },
         {
           "h": "Contacto",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
         },
         {
           "h": "Propiedad intelectual",
-          "p": "Las marcas, logos y contenidos pertenecen a BNP PARIBAS o sus licenciantes."
+          "p": "Las marcas, logos y contenidos pertenecen a MOONYP o sus licenciantes."
         }
       ]
     },
@@ -1266,7 +1274,12 @@
     "repayment": "Reembolso e impago",
     "aml": "AML / KYC",
     "finPriv": "Privacidad financiera",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "tagline": "Plataforma europea de crédito. Decisiones rápidas, condiciones transparentes, seguridad bancaria.",
+    "regulated": "Regulado y conforme al RGPD",
+    "contactForm": "Formulario de contacto",
+    "disclaimer": "Un crédito le compromete y debe reembolsarse. Compruebe su capacidad de reembolso antes de solicitarlo. Toda oferta está sujeta a aceptación y verificación de identidad.",
+    "rights": "Todos los derechos reservados."
   },
   "chat": {
     "loading": "Cargando",
@@ -1333,8 +1346,8 @@
       "updated": "Ticket actualizado"
     },
     "banner": {
-      "top": "BNP PARIBAS — Servicio al cliente seguro",
-      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+      "top": "MOONYP — Servicio al cliente seguro",
+      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris"
     },
     "loginRequired": {
       "title": "Inicia sesión para chatear",
@@ -1344,7 +1357,7 @@
     "nav": "Soporte",
     "guest": {
       "subtitle": "Asistencia al visitante",
-      "intro": "Complete este formulario, un asesor de BNP PARIBAS le responderá rápidamente. Obtendrá un número de billete.",
+      "intro": "Complete este formulario, un asesor de MOONYP le responderá rápidamente. Obtendrá un número de billete.",
       "name": "Nombre completo *",
       "email": "Correo electrónico *",
       "phone": "Teléfono",
@@ -1364,7 +1377,7 @@
     "archived": "Archivo",
     "open": "Abierto",
     "welcome": {
-      "greeting": "Hola 👋 Soy Anna, su asistente de BNP PARIBAS.",
+      "greeting": "Hola 👋 Soy Anna, su asistente de MOONYP.",
       "help": "¿En qué puedo ayudarle hoy?"
     },
     "tickets": {
@@ -1378,7 +1391,7 @@
     }
   },
   "adminDash": {
-    "title": "Panel de control — BNP PARIBAS",
+    "title": "Panel de control — MOONYP",
     "overview": "Descripción general",
     "clients": "Clientes",
     "loans": "Préstamos",
@@ -1398,5 +1411,277 @@
     "staff": "Team & roles",
     "roles": "Permissions",
     "logs": "Activity log"
+  },
+  "finance": {
+    "sim": {
+      "product": "Producto de préstamo",
+      "amount": "Importe",
+      "duration": "Duración",
+      "months": "meses",
+      "monthly": "Cuota mensual estimada",
+      "rate": "Tipo",
+      "apr": "TAE",
+      "borrowed": "Importe solicitado",
+      "interest": "Intereses estimados",
+      "interestShort": "Intereses",
+      "fees": "Comisiones",
+      "insurance": "Seguro del prestatario",
+      "insuranceHint": "Cobertura opcional, añadida a cada cuota.",
+      "insuranceCost": "Coste del seguro",
+      "totalCost": "Coste total del crédito",
+      "totalRepaid": "Total a devolver",
+      "capital": "Capital",
+      "balance": "Capital pendiente",
+      "showSchedule": "Ver cuadro de amortización",
+      "hideSchedule": "Ocultar cuadro",
+      "disclaimer": "Esta simulación es orientativa y no constituye una oferta de crédito. Las condiciones finales dependen del estudio de su solicitud."
+    },
+    "simPage": {
+      "metaTitle": "Simulador de préstamos — MOONYP",
+      "metaDesc": "Calcule su cuota, intereses y coste total en segundos.",
+      "badge": "Simulador",
+      "title": "Simule su financiación",
+      "subtitle": "Ajuste el importe y el plazo para ver su cuota al instante.",
+      "cta": "Solicitar con estas condiciones",
+      "seeProducts": "Ver nuestras soluciones",
+      "noProducts": "No hay productos de préstamo disponibles por ahora."
+    },
+    "solutions": {
+      "metaTitle": "Soluciones de financiación — MOONYP",
+      "metaDesc": "Préstamos personales, de auto, hipotecarios y para empresas.",
+      "badge": "Nuestras soluciones",
+      "title": "Financiación pensada para su proyecto",
+      "subtitle": "Elija el producto adecuado y simúlelo en un clic.",
+      "amountRange": "Importe",
+      "durationRange": "Plazo",
+      "rateFrom": "Tipo desde",
+      "simulate": "Simular"
+    },
+    "apply": {
+      "metaTitle": "Solicitud de préstamo — MOONYP",
+      "metaDesc": "Complete su solicitud en línea en 6 pasos seguros.",
+      "title": "Su solicitud de préstamo",
+      "subtitle": "Seis pasos, unos minutos. Su progreso se guarda en este dispositivo.",
+      "next": "Continuar",
+      "previous": "Atrás",
+      "submit": "Enviar mi solicitud",
+      "submitError": "No se ha podido enviar su solicitud. Inténtelo de nuevo.",
+      "rateLimited": "Demasiados intentos. Vuelva a intentarlo en unos minutos.",
+      "fixErrors": "Corrija los campos señalados.",
+      "documentsIntro": "Suba documentos nítidos y legibles. Formatos: PDF, JPG o PNG.",
+      "documentsMissing": "Faltan uno o varios documentos obligatorios.",
+      "chooseFile": "Elegir archivo",
+      "takePhoto": "Hacer una foto",
+      "maxSize": "Tamaño máx.",
+      "badMime": "Formato de archivo no admitido.",
+      "fileTooLarge": "Este archivo es demasiado grande.",
+      "fileCount": "archivo(s) seleccionado(s)",
+      "bankNotice": "Sus datos bancarios se cifran y solo se usan para el abono del préstamo.",
+      "consentTerms": "Acepto las condiciones generales.",
+      "consentPrivacy": "Acepto la política de privacidad y el tratamiento de mis datos.",
+      "consentMarketing": "Acepto recibir información sobre las ofertas de MOONYP.",
+      "steps": {
+        "identity": "Identidad",
+        "employment": "Situación laboral",
+        "request": "Solicitud",
+        "payout": "Abono",
+        "documents": "Documentos",
+        "review": "Resumen"
+      }
+    },
+    "fields": {
+      "firstName": "Nombre",
+      "lastName": "Apellidos",
+      "birthDate": "Fecha de nacimiento",
+      "nationality": "Nacionalidad",
+      "address": "Dirección",
+      "postalCode": "Código postal",
+      "city": "Ciudad",
+      "country": "País",
+      "phone": "Teléfono",
+      "email": "Correo electrónico",
+      "employmentStatus": "Situación laboral",
+      "profession": "Profesión",
+      "employer": "Empleador",
+      "seniority": "Antigüedad (meses)",
+      "income": "Ingresos netos mensuales",
+      "charges": "Gastos mensuales",
+      "otherIncome": "Otros ingresos",
+      "household": "Personas en el hogar",
+      "purpose": "Finalidad del préstamo",
+      "bankHolder": "Titular de la cuenta",
+      "bankName": "Banco",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "choose": "Seleccionar…"
+    },
+    "employment": {
+      "employee": "Asalariado",
+      "civil_servant": "Funcionario",
+      "self_employed": "Autónomo",
+      "business_owner": "Empresario",
+      "retired": "Jubilado",
+      "student": "Estudiante",
+      "unemployed": "Desempleado",
+      "other": "Otro"
+    },
+    "status": {
+      "draft": "Borrador",
+      "received": "Solicitud recibida",
+      "verification": "En verificación",
+      "documents_missing": "Faltan documentos",
+      "analysis": "En estudio",
+      "info_requested": "Información solicitada",
+      "approved": "Aprobada",
+      "rejected": "Denegada",
+      "offer_available": "Oferta disponible",
+      "contract_sent": "Contrato enviado",
+      "signature_pending": "Firma pendiente",
+      "contract_signed": "Contrato firmado",
+      "disbursement_preparing": "Abono en preparación",
+      "disbursed": "Abonado",
+      "repaying": "Reembolso en curso",
+      "late": "En mora",
+      "repaid": "Totalmente reembolsado",
+      "cancelled": "Cancelada"
+    },
+    "portal": {
+      "metaTitle": "Su expediente de financiación — MOONYP",
+      "metaDesc": "Siga su solicitud de préstamo de forma segura.",
+      "reference": "Referencia del expediente",
+      "secure": "Acceso seguro",
+      "summary": "Resumen",
+      "status": "Estado",
+      "timeline": "Historial",
+      "invalidTitle": "Enlace no válido o caducado",
+      "invalidDesc": "Este enlace seguro ya no es válido. Solicite uno nuevo a nuestro equipo."
+    },
+    "success": {
+      "title": "Hemos recibido su solicitud",
+      "subtitle": "Nuestro equipo está estudiando su expediente. Le informaremos por correo en cada etapa.",
+      "reference": "Referencia del expediente",
+      "openFile": "Abrir mi expediente",
+      "linkNotice": "Guarde este enlace: da acceso seguro a su expediente.",
+      "step1": "Verificación de sus datos y documentos",
+      "step2": "Estudio y decisión, normalmente en 48 horas hábiles",
+      "step3": "Oferta, contrato y abono tras la aprobación"
+    },
+    "validation": {
+      "required": "Este campo es obligatorio."
+    },
+    "address": {
+      "placeholder": "Escriba su dirección (todo el mundo)…",
+      "hint": "Elija una sugerencia o introduzca su dirección manualmente.",
+      "manual": "Introducir manualmente",
+      "hideManual": "Ocultar detalles"
+    }
+  },
+  "products": {
+    "personal": {
+      "name": "Préstamo personal",
+      "desc": "Financie sus proyectos con tipo fijo y cuotas claras."
+    },
+    "auto": {
+      "name": "Préstamo de auto",
+      "desc": "Vehículo nuevo o usado con un tipo preferente."
+    },
+    "mortgage": {
+      "name": "Préstamo hipotecario",
+      "desc": "Compre, construya o reforme con financiación a largo plazo."
+    },
+    "business": {
+      "name": "Préstamo profesional",
+      "desc": "Impulse su crecimiento, equipamiento o tesorería."
+    }
+  },
+  "documents": {
+    "identity": "Documento de identidad",
+    "proofAddress": "Justificante de domicilio",
+    "income": "Justificantes de ingresos",
+    "bankStatement": "Extractos bancarios",
+    "rib": "Datos bancarios (IBAN)",
+    "other": "Otro documento"
+  },
+  "contactSection": {
+    "eyebrow": "Contacto",
+    "title": "Hable con un asesor",
+    "desc": "Nuestro equipo responde a sus dudas sobre financiación, documentos y seguimiento.",
+    "cta": "Contáctenos"
+  },
+  "apply": {
+    "steps": {
+      "identity": "Identidad",
+      "employment": "Situación laboral",
+      "request": "Solicitud",
+      "payout": "Abono",
+      "documents": "Documentos",
+      "review": "Resumen"
+    }
+  },
+  "about": {
+    "metaTitle": "Sobre MOONYP — plataforma europea de crédito",
+    "metaDesc": "Quiénes somos, cómo financiamos proyectos y los estándares que protegen sus datos y su dinero.",
+    "eyebrow": "Sobre nosotros",
+    "title": "Una casa de crédito moderna, con disciplina bancaria.",
+    "intro": "MOONYP financia a particulares y empresas en toda Europa con una promesa: una decisión clara, un tipo justo y ninguna comisión oculta.",
+    "intro2": "Nuestros equipos combinan análisis de crédito, cumplimiento e ingeniería para convertir un proceso lento y burocrático en un recorrido digital seguro, desde la simulación hasta el desembolso.",
+    "ctaPrimary": "Solicitar ahora",
+    "ctaSecondary": "Hablar con un asesor",
+    "hqAlt": "Vestíbulo de la sede de MOONYP",
+    "missionAlt": "Interfaz de análisis de crédito de MOONYP",
+    "governanceAlt": "Seguridad de datos de MOONYP",
+    "kpis": {
+      "clients": "Clientes financiados",
+      "countries": "Países cubiertos",
+      "financed": "Financiados desde 2016",
+      "uptime": "Disponibilidad de la plataforma"
+    },
+    "mission": {
+      "eyebrow": "Nuestra misión",
+      "title": "Un crédito que respeta su tiempo y su presupuesto.",
+      "p1": "Cada solicitud se estudia con los mismos criterios objetivos: capacidad de reembolso, estabilidad de ingresos y coherencia del proyecto. Sin scoring opaco ni rechazos arbitrarios.",
+      "p2": "Siga su expediente en tiempo real mediante un enlace seguro, reciba cada documento en su idioma y firme electrónicamente con plena validez legal."
+    },
+    "values": {
+      "eyebrow": "Nuestros valores",
+      "title": "Cuatro principios, sin excepción.",
+      "v1t": "Seguridad ante todo",
+      "v1d": "Datos cifrados, control de acceso estricto y supervisión continua de cada operación.",
+      "v2t": "Claridad total",
+      "v2d": "Tipo, seguro, comisiones y coste total visibles antes de cualquier compromiso.",
+      "v3t": "Acompañamiento humano",
+      "v3d": "Un asesor dedicado en cada etapa clave de su expediente.",
+      "v4t": "Dimensión europea",
+      "v4d": "Una plataforma, 15 idiomas y socios de financiación en todo el continente."
+    },
+    "timeline": {
+      "title": "Nuestra historia",
+      "y1t": "Fundación en París",
+      "y1d": "Tres especialistas en crédito crean MOONYP para reducir los plazos de decisión de semanas a horas.",
+      "y2t": "Expansión europea",
+      "y2d": "Apertura a once mercados y localización completa de contratos y comunicaciones.",
+      "y3t": "Firma electrónica y KYC instantáneo",
+      "y3d": "Recorrido 100 % digital con firma certificada y verificación de identidad automatizada.",
+      "y4t": "Experiencia sin cuenta",
+      "y4d": "El solicitante sigue su expediente mediante un enlace personal seguro, sin contraseñas."
+    },
+    "governance": {
+      "eyebrow": "Gobernanza y cumplimiento",
+      "title": "Estándares auditables.",
+      "desc": "Nuestro marco operativo cumple las exigencias de los prestamistas europeos: separación de funciones, trazabilidad de cada decisión y control permanente del riesgo.",
+      "g1t": "Marco regulado",
+      "g1d": "Actividad de préstamo realizada con socios bancarios autorizados.",
+      "g2t": "Protección de datos",
+      "g2d": "Cumplimiento del RGPD, cifrado en reposo y en tránsito, plazos de conservación estrictos.",
+      "g3t": "Procesos certificados",
+      "g3d": "Controles alineados con ISO 27001 y auditorías independientes anuales.",
+      "g4t": "Supervisión independiente",
+      "g4d": "Un comité de crédito y riesgos revisa las políticas cada trimestre."
+    },
+    "cta": {
+      "title": "¿Listo para financiar su proyecto?",
+      "desc": "Simule en un minuto, solicite en seis pasos y reciba una decisión en menos de 24 horas.",
+      "button": "Iniciar mi solicitud"
+    }
   }
 }

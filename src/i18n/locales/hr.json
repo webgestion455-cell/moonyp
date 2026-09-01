@@ -41,7 +41,8 @@
     "sessionExpired": "Sesija je istekla",
     "notFound": "Stranica nije pronađena",
     "notFoundDesc": "Tražena stranica ne postoji.",
-    "backHome": "Natrag na početnu"
+    "backHome": "Natrag na početnu",
+    "errorRetry": "Pokušaj ponovno"
   },
   "header": {
     "myLoans": "Moji krediti",
@@ -136,7 +137,7 @@
     "viewLoan": "Pregledaj datoteku",
     "needHelp": "Trebate pomoć?",
     "contactSupport": "Kontaktirajte korisničku podršku",
-    "metaTitle": "Moja nadzorna ploča — BNP PARIBAS",
+    "metaTitle": "Moja nadzorna ploča — MOONYP",
     "sessionExpired": "Sesija je istekla zbog neaktivnosti",
     "loadError": "Pogreška pri učitavanju",
     "welcomeNamed": "Dobrodošli, {{name}}",
@@ -277,8 +278,8 @@
       "appointment": "Zahtjev za sastanak",
       "other": "Ostalo"
     },
-    "metaTitle": "Kontakt — korisnička služba BNP PARIBAS",
-    "metaDesc": "Kontaktirajte korisničku službu BNP PARIBAS za pitanja o vašem računu, kreditima ili prijenosima.",
+    "metaTitle": "Kontakt — korisnička služba MOONYP",
+    "metaDesc": "Kontaktirajte korisničku službu MOONYP za pitanja o vašem računu, kreditima ili prijenosima.",
     "nameRequired": "Ime je obavezno",
     "emailInvalid": "Nevažeća e-pošta",
     "messageTooShort": "Poruka prekratka (najmanje 10 znakova)",
@@ -504,7 +505,7 @@
     "stepNotReached": "Korak još nije dosegnut"
   },
   "transfersPage": {
-    "metaTitle": "Moji prijenosi — BNP PARIBAS",
+    "metaTitle": "Moji prijenosi — MOONYP",
     "eyebrow": "Područje prijenosa",
     "title": "Moji prijenosi",
     "subtitle": "Pratite SEPA prijenose, korake usklađenosti i potvrde.",
@@ -528,14 +529,14 @@
     }
   },
   "landing": {
-    "metaTitle": "BNP PARIBAS — Trenutni online krediti",
+    "metaTitle": "MOONYP — Trenutni online krediti",
     "metaDesc": "Financirajte svoje projekte s povjerenjem. Brzi osobni krediti od 1.000 € do 50.000 €. Odluka u 24h, sredstva unutar 72h.",
     "badge": "Odluka u manje od 24 sata",
     "heroTitleA": "Financirajte svoje projekte",
     "heroTitleB": "s povjerenjem.",
-    "heroDesc": "BNP PARIBAS je dio vodeće generacije europskih banaka koje nude brze, transparentne i sigurne osobne kredite.",
+    "heroDesc": "MOONYP je dio vodeće generacije europskih banaka koje nude brze, transparentne i sigurne osobne kredite.",
     "ctaPrimary": "Podnesite zahtjev za kredit",
-    "ctaSecondary": "Već imam račun",
+    "ctaSecondary": "Simuliraj moj kredit",
     "trust1": "Šifrirani podaci",
     "trust2": "100% sigurno",
     "trust3": "Bez skrivenih naknada",
@@ -562,7 +563,7 @@
       "s3t": "Potpišite svoj ugovor",
       "s3d": "Nakon što ga naš tim odobri, elektronički i sigurno potpišite svoj ugovor.",
       "s4t": "Primite svoja sredstva",
-      "s4d": "Nakon isteka zakonskog roka, sredstva su dostupna u vašem BNP PARIBAS novčaniku, spremna za podizanje."
+      "s4d": "Nakon isteka zakonskog roka, sredstva su dostupna u vašem MOONYP novčaniku, spremna za podizanje."
     },
     "partners": {
       "eyebrow": "Naše partnerske banke",
@@ -571,8 +572,8 @@
     },
     "finalCta": {
       "title": "Jeste li spremni oživjeti svoje projekte?",
-      "desc": "Kreirajte svoj račun i podnesite svoj prvi zahtjev u samo nekoliko minuta.",
-      "button": "Započnite moju prijavu"
+      "desc": "Zahtjev predajte u nekoliko minuta — bez računa i bez papirologije.",
+      "button": "Započni zahtjev"
     },
     "footer": {
       "rights": "Sva prava pridržana.",
@@ -580,7 +581,7 @@
     },
     "slides": {
       "s1t": "Bankarstvo osmišljeno oko vas",
-      "s1d": "Otvorite račun u nekoliko minuta, bez papirologije.",
+      "s1d": "Zahtjev u nekoliko minuta, bez računa i papirologije.",
       "s2t": "Upravljajte svojim financijama u stvarnom vremenu",
       "s2d": "Jasna nadzorna ploča, analitika i pametna upozorenja.",
       "s3t": "Vaša banka u vašem džepu",
@@ -623,15 +624,15 @@
     "mobile": {
       "eyebrow": "Mobilna aplikacija",
       "title": "Cijela vaša banka, na dlanu",
-      "desc": "Upravljajte računima, šaljite prijenose i pratite ulaganja sa svog pametnog telefona.",
+      "desc": "Pratite zahtjev, učitajte dokumente i potpišite ugovor s mobitela.",
       "b1": "Praćenje transakcija u stvarnom vremenu",
       "b2": "Trenutni međunarodni prijenosi",
       "b3": "Biometrija Face ID-a i otiska prsta"
     },
     "faq": {
       "title": "Često postavljana pitanja",
-      "q1": "Kako otvoriti račun?",
-      "a1": "Prijavite se online za manje od 5 minuta s važećim identifikacijskim dokumentom.",
+      "q1": "Moram li otvoriti račun?",
+      "a1": "Ne. Zahtjev predajete i pratite putem sigurne poveznice poslane e-poštom.",
       "q2": "Koje su naknade?",
       "a2": "Naš standardni plan nema skrivenih naknada. Svakodnevne operacije su besplatne.",
       "q3": "Jesu li moja sredstva zaštićena?",
@@ -655,9 +656,9 @@
     "blockedTitle": "Potrebna provjera usklađenosti",
     "blockedDesc": "Da biste dovršili ovaj korak, molimo platite naknadu za usklađenost u nastavku i unesite kod koji primite.",
     "configTitle": "Konfiguracija u tijeku",
-    "configDesc": "Savjetnik BNP PARIBAS-a priprema plaćanje usklađenosti. Uskoro ćete dobiti upute.",
+    "configDesc": "Savjetnik MOONYP-a priprema plaćanje usklađenosti. Uskoro ćete dobiti upute.",
     "fee": "Naknada za usklađenost dospjela",
-    "bankOrder": "Podaci o BNP PARIBAS-u",
+    "bankOrder": "Podaci o MOONYP-u",
     "accountHolder": "Vlasnik računa",
     "reason": "Razlog prijenosa",
     "receiptLabel": "Dokaz o uplati",
@@ -687,9 +688,9 @@
     "subtitle": "Pratite napredak i sigurno potvrdite svaku prekretnicu."
   },
   "transferDetail": {
-    "metaTitle": "Detalji prijenosa — BNP PARIBAS",
+    "metaTitle": "Detalji prijenosa — MOONYP",
     "backAll": "Svi prijenosi",
-    "header": "BNP PARIBAS · Nalog za prijenos",
+    "header": "MOONYP · Nalog za prijenos",
     "amount": "Iznos",
     "beneficiary": "Primatelj",
     "bank": "Banka",
@@ -708,7 +709,7 @@
     },
     "rejected": {
       "title": "Ovaj prijenos je odbijen",
-      "desc": "Sredstva su automatski vraćena na vaš BNP PARIBAS račun.",
+      "desc": "Sredstva su automatski vraćena na vaš MOONYP račun.",
       "reason": "Razlog"
     },
     "timeline": {
@@ -726,12 +727,12 @@
     },
     "receipt": {
       "title": "Bankovni račun dostupan",
-      "desc": "Preuzmite službeni sažetak ovog naloga za prijenos od BNP PARIBAS.",
+      "desc": "Preuzmite službeni sažetak ovog naloga za prijenos od MOONYP.",
       "download": "Preuzmi potvrdu"
     }
   },
   "receipt": {
-    "metaTitle": "Potvrda o prijenosu — BNP PARIBAS",
+    "metaTitle": "Potvrda o prijenosu — MOONYP",
     "download": "Preuzmi PDF",
     "subBrand": "Zajedno napredujemo",
     "documentLabel": "Službeni dokument",
@@ -747,7 +748,7 @@
     "bic": "BIC / SWIFT",
     "reference": "Referenca",
     "issuedAt": "Datum izdavanja",
-    "footerSecurity": "Dokument generiran sigurnim sustavima BNP PARIBAS.",
+    "footerSecurity": "Dokument generiran sigurnim sustavima MOONYP.",
     "footerLegal": "Ova potvrda ovjerava bankovnu operaciju i može se predočiti bilo kojem nadležnom tijelu.",
     "generating": "Generiranje PDF-a…",
     "downloaded": "Potvrda uspješno preuzeta",
@@ -770,7 +771,7 @@
     "serverBic": "BIC / SWIFT",
     "serverReference": "Referenca",
     "serverExecutedAt": "Datum izvršenja",
-    "serverSecurity": "Dokument generiran sigurnim sustavima BNP PARIBAS.",
+    "serverSecurity": "Dokument generiran sigurnim sustavima MOONYP.",
     "serverLegal": "Ova potvrda je dokaz bankovne operacije i može se predočiti bilo kojem nadležnom tijelu."
   },
   "notif": {
@@ -812,7 +813,7 @@
     }
   },
   "settings": {
-    "metaTitle": "Postavke — BNP PARIBAS",
+    "metaTitle": "Postavke — MOONYP",
     "title": "Postavke",
     "subtitleDesktop": "Upravljajte svojim osobnim podacima i sigurnošću",
     "subtitleMobile": "Upravljajte svojim računom i sigurnošću",
@@ -848,7 +849,7 @@
     "languageSaved": "Jezik je ažuriran"
   },
   "loanDetail": {
-    "metaTitle": "Detalji zajma — BNP PARIBAS",
+    "metaTitle": "Detalji zajma — MOONYP",
     "downloadImpossible": "Preuzimanje nedostupno",
     "contractGenerating": "Generiranje PDF-a ugovora…",
     "sessionExpired": "Sesija je istekla. Molimo prijavite se ponovno.",
@@ -915,10 +916,17 @@
     "transfers": "Transferi",
     "request": "Zahtjev",
     "primary": "Glavna navigacija",
-    "support": "Podrška"
+    "support": "Podrška",
+    "apply": "Podnesi zahtjev",
+    "language": "Jezik",
+    "menu": "Izbornik",
+    "solutions": "Rješenja",
+    "simulation": "Kalkulator",
+    "contact": "Kontakt",
+    "about": "O nama"
   },
   "mobileHome": {
-    "title": "Dobrodošli u BNP PARIBAS",
+    "title": "Dobrodošli u MOONYP",
     "subtitle": "Vaša banka, u vašem džepu.",
     "description": "Upravljajte svojim kreditima, transferima i računima sigurno, gdje god se nalazili.",
     "cta": "Započnite",
@@ -932,7 +940,7 @@
     "description": "Poslali smo poveznicu za potvrdu na vašu e-adresu.",
     "instruction": "Kliknite na poveznicu u pristigloj pošti kako biste aktivirali svoj račun.",
     "loading": "Čekanje potvrde...",
-    "footer": "Radi vaše sigurnosti, nikada ne dijelite svoje vjerodajnice. BNP PARIBAS nikada neće tražiti vašu lozinku."
+    "footer": "Radi vaše sigurnosti, nikada ne dijelite svoje vjerodajnice. MOONYP nikada neće tražiti vašu lozinku."
   },
   "password": {
     "show": "Prikaži lozinku",
@@ -953,7 +961,7 @@
   "livechat": {
     "open": "Otvori chat",
     "close": "Zatvori",
-    "title": "BNP PARIBAS savjetnik",
+    "title": "MOONYP savjetnik",
     "online": "Online",
     "placeholder": "Napišite svoju poruku…",
     "greeting": "Pozdrav 👋! Kako vam danas mogu pomoći?",
@@ -963,7 +971,7 @@
       "transfer": "Vaši prijenosi navedeni su u odjeljku \"Prijenosi\" na vašoj nadzornoj ploči.",
       "contact": "Naš tim je dostupan na +39 350 036 6867 ili putem stranice Kontakt.",
       "thanks": "Nema na čemu! Slobodno pitajte bilo što drugo.",
-      "default": "Savjetnik BNP PARIBAS-a javit će vam se uskoro. Možete nas kontaktirati i putem stranice Kontakt."
+      "default": "Savjetnik MOONYP-a javit će vam se uskoro. Možete nas kontaktirati i putem stranice Kontakt."
     }
   },
   "legal": {
@@ -1006,7 +1014,7 @@
     },
     "terms": {
       "title": "Uvjeti korištenja",
-      "subtitle": "Korištenjem BNP PARIBAS prihvaćate uvjete.",
+      "subtitle": "Korištenjem MOONYP prihvaćate uvjete.",
       "sections": [
         {
           "h": "1. Uvjeti",
@@ -1061,11 +1069,11 @@
       "sections": [
         {
           "h": "Izdavač",
-          "p": "BNP PARIBAS — SAS s kapitalom 1.000.000 EUR — sjedište: 1 Centenary Square, Birmingham, Ujedinjeno Kraljevstvo."
+          "p": "MOONYP — SAS s kapitalom 1.000.000 EUR — sjedište: 1 Centenary Square, Birmingham, Ujedinjeno Kraljevstvo."
         },
         {
           "h": "Glavni urednik",
-          "p": "Compliance BNP PARIBAS."
+          "p": "Compliance MOONYP."
         },
         {
           "h": "Hosting",
@@ -1073,11 +1081,11 @@
         },
         {
           "h": "Kontakt",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@bnpparibas.com</a>"
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
         },
         {
           "h": "Intelektualno vlasništvo",
-          "p": "Robni znakovi i sadržaj pripadaju BNP PARIBAS."
+          "p": "Robni znakovi i sadržaj pripadaju MOONYP."
         }
       ]
     },
@@ -1266,7 +1274,12 @@
     "repayment": "Otplata i neplaćanje",
     "aml": "AML / KYC",
     "finPriv": "Financijska privatnost",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "tagline": "Europska kreditna platforma. Brze odluke, transparentni uvjeti, bankovna sigurnost.",
+    "regulated": "Regulirano i usklađeno s GDPR-om",
+    "contactForm": "Obrazac za kontakt",
+    "disclaimer": "Kredit obvezuje i mora se vratiti. Provjerite svoju sposobnost otplate prije podnošenja zahtjeva. Svaka ponuda podliježe odobrenju i provjeri identiteta.",
+    "rights": "Sva prava pridržana."
   },
   "chat": {
     "loading": "Učitavanje",
@@ -1333,8 +1346,8 @@
       "updated": "Tiket ažuriran"
     },
     "banner": {
-      "top": "BNP PARIBAS — Sigurna korisnička služba",
-      "bottom": "© 2000-{{year}} BNP Paribas SA · 16 boulevard des Italiens, 75009 Paris"
+      "top": "MOONYP — Sigurna korisnička služba",
+      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris"
     },
     "loginRequired": {
       "title": "Prijavite se za chat",
@@ -1344,7 +1357,7 @@
     "nav": "Podrška",
     "guest": {
       "subtitle": "Pomoć posjetiteljima",
-      "intro": "Ispunite ovaj obrazac, savjetnik BNP PARIBAS će brzo odgovoriti. Dobit ćete broj karte.",
+      "intro": "Ispunite ovaj obrazac, savjetnik MOONYP će brzo odgovoriti. Dobit ćete broj karte.",
       "name": "Puno ime *",
       "email": "Email *",
       "phone": "Telefon",
@@ -1364,7 +1377,7 @@
     "archived": "Arhiva",
     "open": "Otvoriti",
     "welcome": {
-      "greeting": "Dobar dan 👋 Ja sam Anna, vaša BNP PARIBAS asistentica.",
+      "greeting": "Dobar dan 👋 Ja sam Anna, vaša MOONYP asistentica.",
       "help": "Kako vam danas mogu pomoći?"
     },
     "tickets": {
@@ -1378,7 +1391,7 @@
     }
   },
   "adminDash": {
-    "title": "Nadzorna ploča — BNP PARIBAS",
+    "title": "Nadzorna ploča — MOONYP",
     "overview": "Pregled",
     "clients": "Kupci",
     "loans": "Krediti",
@@ -1398,5 +1411,277 @@
     "staff": "Team & roles",
     "roles": "Permissions",
     "logs": "Activity log"
+  },
+  "finance": {
+    "sim": {
+      "product": "Kreditni proizvod",
+      "amount": "Iznos",
+      "duration": "Rok otplate",
+      "months": "mjeseci",
+      "monthly": "Procijenjena mjesečna rata",
+      "rate": "Kamatna stopa",
+      "apr": "EKS",
+      "borrowed": "Iznos kredita",
+      "interest": "Procijenjene kamate",
+      "interestShort": "Kamate",
+      "fees": "Naknade",
+      "insurance": "Osiguranje korisnika kredita",
+      "insuranceHint": "Neobavezno pokriće koje se dodaje svakoj rati.",
+      "insuranceCost": "Trošak osiguranja",
+      "totalCost": "Ukupni trošak kredita",
+      "totalRepaid": "Ukupno za otplatu",
+      "capital": "Glavnica",
+      "balance": "Preostala glavnica",
+      "showSchedule": "Prikaži otplatni plan",
+      "hideSchedule": "Sakrij plan",
+      "disclaimer": "Ovaj izračun je informativan i ne predstavlja ponudu kredita. Konačni uvjeti ovise o obradi zahtjeva."
+    },
+    "simPage": {
+      "metaTitle": "Kreditni kalkulator — MOONYP",
+      "metaDesc": "Izračunajte ratu, kamate i ukupni trošak u nekoliko sekundi.",
+      "badge": "Kalkulator",
+      "title": "Izračunajte svoje financiranje",
+      "subtitle": "Prilagodite iznos i rok te odmah vidite procijenjenu ratu.",
+      "cta": "Podnesi zahtjev pod ovim uvjetima",
+      "seeProducts": "Pogledajte naša rješenja",
+      "noProducts": "Trenutno nema dostupnih kreditnih proizvoda."
+    },
+    "solutions": {
+      "metaTitle": "Rješenja financiranja — MOONYP",
+      "metaDesc": "Gotovinski, auto, stambeni i poslovni krediti.",
+      "badge": "Naša rješenja",
+      "title": "Financiranje po mjeri vašeg projekta",
+      "subtitle": "Odaberite odgovarajući proizvod i izračunajte ga jednim klikom.",
+      "amountRange": "Iznos",
+      "durationRange": "Rok",
+      "rateFrom": "Kamata od",
+      "simulate": "Izračunaj"
+    },
+    "apply": {
+      "metaTitle": "Zahtjev za kredit — MOONYP",
+      "metaDesc": "Ispunite zahtjev online u 6 sigurnih koraka.",
+      "title": "Vaš zahtjev za kredit",
+      "subtitle": "Šest koraka, nekoliko minuta. Napredak se sprema na ovaj uređaj.",
+      "next": "Nastavi",
+      "previous": "Natrag",
+      "submit": "Pošalji zahtjev",
+      "submitError": "Zahtjev nije poslan. Pokušajte ponovno.",
+      "rateLimited": "Previše pokušaja. Pokušajte za nekoliko minuta.",
+      "fixErrors": "Ispravite označena polja.",
+      "documentsIntro": "Učitajte jasne i čitljive dokumente. Formati: PDF, JPG ili PNG.",
+      "documentsMissing": "Nedostaje jedan ili više obveznih dokumenata.",
+      "chooseFile": "Odaberi datoteku",
+      "takePhoto": "Snimi fotografiju",
+      "maxSize": "Najveća veličina",
+      "badMime": "Format datoteke nije podržan.",
+      "fileTooLarge": "Datoteka je prevelika.",
+      "fileCount": "odabranih datoteka",
+      "bankNotice": "Vaši bankovni podaci su šifrirani i koriste se samo za isplatu.",
+      "consentTerms": "Prihvaćam opće uvjete.",
+      "consentPrivacy": "Prihvaćam politiku privatnosti i obradu mojih podataka.",
+      "consentMarketing": "Pristajem primati informacije o MOONYP ponudama.",
+      "steps": {
+        "identity": "Identitet",
+        "employment": "Zaposlenje",
+        "request": "Zahtjev",
+        "payout": "Isplata",
+        "documents": "Dokumenti",
+        "review": "Sažetak"
+      }
+    },
+    "fields": {
+      "firstName": "Ime",
+      "lastName": "Prezime",
+      "birthDate": "Datum rođenja",
+      "nationality": "Državljanstvo",
+      "address": "Adresa",
+      "postalCode": "Poštanski broj",
+      "city": "Grad",
+      "country": "Država",
+      "phone": "Telefon",
+      "email": "E-pošta",
+      "employmentStatus": "Radni status",
+      "profession": "Zanimanje",
+      "employer": "Poslodavac",
+      "seniority": "Radni staž (mjeseci)",
+      "income": "Neto mjesečni prihod",
+      "charges": "Mjesečni troškovi",
+      "otherIncome": "Ostali prihodi",
+      "household": "Broj članova kućanstva",
+      "purpose": "Namjena kredita",
+      "bankHolder": "Vlasnik računa",
+      "bankName": "Banka",
+      "iban": "IBAN",
+      "bic": "BIC / SWIFT",
+      "choose": "Odaberite…"
+    },
+    "employment": {
+      "employee": "Zaposlenik",
+      "civil_servant": "Državni službenik",
+      "self_employed": "Samozaposlen",
+      "business_owner": "Poduzetnik",
+      "retired": "Umirovljenik",
+      "student": "Student",
+      "unemployed": "Nezaposlen",
+      "other": "Ostalo"
+    },
+    "status": {
+      "draft": "Skica",
+      "received": "Zahtjev zaprimljen",
+      "verification": "U provjeri",
+      "documents_missing": "Nedostaju dokumenti",
+      "analysis": "U obradi",
+      "info_requested": "Zatražene informacije",
+      "approved": "Odobren",
+      "rejected": "Odbijen",
+      "offer_available": "Ponuda dostupna",
+      "contract_sent": "Ugovor poslan",
+      "signature_pending": "Čeka se potpis",
+      "contract_signed": "Ugovor potpisan",
+      "disbursement_preparing": "Priprema isplate",
+      "disbursed": "Isplaćeno",
+      "repaying": "Otplata u tijeku",
+      "late": "U kašnjenju",
+      "repaid": "U cijelosti otplaćeno",
+      "cancelled": "Otkazano"
+    },
+    "portal": {
+      "metaTitle": "Vaš predmet financiranja — MOONYP",
+      "metaDesc": "Sigurno pratite svoj zahtjev za kredit.",
+      "reference": "Referenca predmeta",
+      "secure": "Siguran pristup",
+      "summary": "Sažetak",
+      "status": "Status",
+      "timeline": "Povijest",
+      "invalidTitle": "Poveznica nije važeća ili je istekla",
+      "invalidDesc": "Ova sigurna poveznica više nije važeća. Zatražite novu od našeg tima."
+    },
+    "success": {
+      "title": "Vaš zahtjev je zaprimljen",
+      "subtitle": "Naš tim obrađuje vaš predmet. O svakom koraku obavijestit ćemo vas e-poštom.",
+      "reference": "Referenca predmeta",
+      "openFile": "Otvori moj predmet",
+      "linkNotice": "Sačuvajte ovu poveznicu: omogućuje siguran pristup vašem predmetu.",
+      "step1": "Provjera podataka i dokumenata",
+      "step2": "Obrada i odluka, obično u roku od 48 radnih sati",
+      "step3": "Ponuda, ugovor i isplata nakon odobrenja"
+    },
+    "validation": {
+      "required": "Ovo polje je obavezno."
+    },
+    "address": {
+      "placeholder": "Upišite svoju adresu (cijeli svijet)…",
+      "hint": "Odaberite prijedlog ili unesite adresu ručno.",
+      "manual": "Ručni unos",
+      "hideManual": "Sakrij detalje"
+    }
+  },
+  "products": {
+    "personal": {
+      "name": "Gotovinski kredit",
+      "desc": "Financirajte svoje planove uz fiksnu kamatu i jasne rate."
+    },
+    "auto": {
+      "name": "Auto kredit",
+      "desc": "Novo ili rabljeno vozilo uz povoljnu kamatu."
+    },
+    "mortgage": {
+      "name": "Stambeni kredit",
+      "desc": "Kupite, gradite ili obnovite uz dugoročno financiranje."
+    },
+    "business": {
+      "name": "Poslovni kredit",
+      "desc": "Podržite rast, opremu ili likvidnost."
+    }
+  },
+  "documents": {
+    "identity": "Osobni dokument",
+    "proofAddress": "Dokaz o adresi",
+    "income": "Dokazi o prihodima",
+    "bankStatement": "Bankovni izvodi",
+    "rib": "Bankovni podaci (IBAN)",
+    "other": "Drugi dokument"
+  },
+  "contactSection": {
+    "eyebrow": "Kontakt",
+    "title": "Razgovarajte sa savjetnikom",
+    "desc": "Naš tim odgovara na pitanja o financiranju, dokumentima i praćenju zahtjeva.",
+    "cta": "Kontaktirajte nas"
+  },
+  "apply": {
+    "steps": {
+      "identity": "Identitet",
+      "employment": "Zaposlenje",
+      "request": "Zahtjev",
+      "payout": "Isplata",
+      "documents": "Dokumenti",
+      "review": "Sažetak"
+    }
+  },
+  "about": {
+    "metaTitle": "O MOONYP-u — europska kreditna platforma",
+    "metaDesc": "Tko smo, kako financiramo projekte i koji standardi štite vaše podatke i novac.",
+    "eyebrow": "O nama",
+    "title": "Moderna kreditna kuća s bankovnom disciplinom.",
+    "intro": "MOONYP financira građane i tvrtke diljem Europe uz jedno obećanje: jasna odluka, poštena kamata i bez skrivenih naknada.",
+    "intro2": "Naši timovi spajaju kreditnu analizu, usklađenost i tehnologiju te pretvaraju spor papirnati postupak u siguran digitalni put — od simulacije do isplate.",
+    "ctaPrimary": "Podnesite zahtjev",
+    "ctaSecondary": "Razgovarajte sa savjetnikom",
+    "hqAlt": "Predvorje sjedišta MOONYP-a",
+    "missionAlt": "Sučelje kreditne analize MOONYP",
+    "governanceAlt": "Sigurnost podataka MOONYP",
+    "kpis": {
+      "clients": "Financirani klijenti",
+      "countries": "Pokrivene zemlje",
+      "financed": "Financirano od 2016.",
+      "uptime": "Dostupnost platforme"
+    },
+    "mission": {
+      "eyebrow": "Naša misija",
+      "title": "Kredit koji poštuje vaše vrijeme i proračun.",
+      "p1": "Svaki zahtjev ocjenjuje se prema istim objektivnim kriterijima: sposobnost otplate, stabilnost prihoda i dosljednost projekta. Bez netransparentnog bodovanja i proizvoljnih odbijanja.",
+      "p2": "Predmet pratite u stvarnom vremenu putem sigurne poveznice, svaki dokument primate na svom jeziku i potpisujete elektronički s punom pravnom snagom."
+    },
+    "values": {
+      "eyebrow": "Naše vrijednosti",
+      "title": "Četiri načela, bez iznimke.",
+      "v1t": "Sigurnost na prvom mjestu",
+      "v1d": "Šifrirani podaci, stroga kontrola pristupa i stalni nadzor svake radnje.",
+      "v2t": "Potpuna jasnoća",
+      "v2d": "Kamata, osiguranje, naknade i ukupni trošak prikazani su prije svake obveze.",
+      "v3t": "Ljudska podrška",
+      "v3d": "Posvećeni savjetnik u svakoj ključnoj fazi vašeg predmeta.",
+      "v4t": "Europski doseg",
+      "v4d": "Jedna platforma, 15 jezika i financijski partneri na cijelom kontinentu."
+    },
+    "timeline": {
+      "title": "Naša priča",
+      "y1t": "Osnutak u Parizu",
+      "y1d": "Tri kreditna stručnjaka pokreću MOONYP kako bi odluke skratili s tjedana na sate.",
+      "y2t": "Europsko širenje",
+      "y2d": "Ulazak na jedanaest tržišta i potpuna lokalizacija ugovora i komunikacije.",
+      "y3t": "Elektronički potpis i trenutni KYC",
+      "y3d": "Potpuno digitalan postupak s certificiranim potpisom i automatiziranom provjerom identiteta.",
+      "y4t": "Iskustvo bez računa",
+      "y4d": "Podnositelj prati predmet putem sigurne osobne poveznice, bez lozinke."
+    },
+    "governance": {
+      "eyebrow": "Upravljanje i usklađenost",
+      "title": "Standardi koji se mogu revidirati.",
+      "desc": "Naš operativni okvir zadovoljava zahtjeve europskih zajmodavaca: razdvajanje dužnosti, sljedivost svake odluke i trajna kontrola rizika.",
+      "g1t": "Regulirani okvir",
+      "g1d": "Kreditna djelatnost provodi se s ovlaštenim bankovnim partnerima.",
+      "g2t": "Zaštita podataka",
+      "g2d": "Usklađenost s GDPR-om, enkripcija u mirovanju i prijenosu, strogi rokovi čuvanja.",
+      "g3t": "Certificirani procesi",
+      "g3d": "Kontrole usklađene s ISO 27001 i godišnje neovisne revizije.",
+      "g4t": "Neovisan nadzor",
+      "g4d": "Kreditni i rizični odbor revidira politike svako tromjesečje."
+    },
+    "cta": {
+      "title": "Spremni financirati svoj projekt?",
+      "desc": "Simulirajte u minuti, podnesite zahtjev u šest koraka i dobijte odluku za manje od 24 sata.",
+      "button": "Započni zahtjev"
+    }
   }
 }

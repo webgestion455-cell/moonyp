@@ -9,9 +9,12 @@ import { ThemeProvider } from "@/lib/theme-context";
 import { Toaster } from "@/components/ui/sonner";
 import { AppHeader } from "@/components/AppHeader";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
+import { SiteFooter } from "@/components/SiteFooter";
 import { LiveChat } from "@/components/LiveChat";
 import "@/i18n";
-import i18n from "@/i18n";
+import i18n, { applyDetectedLanguage, LANG_STORAGE_KEY } from "@/i18n";
+import { isSupportedLang } from "@/lib/lang-url";
+
 
 import appCss from "../styles.css?url";
 
@@ -37,7 +40,7 @@ function NotFoundComponent() {
 }
 
 // Inline script to set theme class BEFORE first paint (no FOUC) + sets <html lang> from saved i18n choice
-const themeInitScript = `(function(){try{var k='lendly-theme';var t=localStorage.getItem(k);if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.classList.toggle('dark',t==='dark');document.documentElement.style.colorScheme=t;var lng=localStorage.getItem('moonyp.lang');if(lng){document.documentElement.lang=lng.split('-')[0];}}catch(e){}})();`;
+const themeInitScript = `(function(){try{var t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.classList.toggle('dark',t==='dark');document.documentElement.style.colorScheme=t;var lng=localStorage.getItem('moonyp.lang');if(lng){document.documentElement.lang=lng.split('-')[0];}}catch(e){}})();`;
 
 export const Route = createRootRoute({
   head: () => ({
@@ -59,18 +62,28 @@ export const Route = createRootRoute({
       {
         httpEquiv: "Content-Security-Policy",
         content:
+          // Strict by default: every remote origin below is explicitly required
+          // by a feature that actually ships (backend, fonts, flags, geocoding).
           "default-src 'self'; " +
           "script-src 'self' 'unsafe-inline'; " +
           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
           "font-src 'self' data: https://fonts.gstatic.com; " +
-          "img-src 'self' data: blob: https:; " +
-          "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://ipapi.co https://nominatim.openstreetmap.org; " +
+          // data:/blob: are needed for KYC camera captures and object URLs.
+          "img-src 'self' data: blob: https://flagcdn.com https://*.supabase.co https://tile.openstreetmap.org; " +
+          "media-src 'self' blob: mediastream:; " +
+          "worker-src 'self' blob:; " +
+          "connect-src 'self' blob: https://*.supabase.co wss://*.supabase.co " +
+          "https://photon.komoot.io https://nominatim.openstreetmap.org https://api.bigdatacloud.net " +
+          "https://flagcdn.com https://ipapi.co; " +
+          "frame-src 'self'; " +
+          "object-src 'none'; " +
           "frame-ancestors 'self'; " +
           "base-uri 'self'; " +
           "form-action 'self';",
       },
       { httpEquiv: "X-Content-Type-Options", content: "nosniff" },
-      { httpEquiv: "Permissions-Policy", content: "geolocation=(), microphone=(), camera=(self)" },
+      // Camera is required by the KYC capture flow; microphone stays disabled.
+      { httpEquiv: "Permissions-Policy", content: "geolocation=(self), microphone=(), camera=(self), payment=()" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -90,17 +103,18 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
+    <html suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <Scripts />
       </body>
     </html>
   );
 }
+
 
 function RootComponent() {
   const location = useLocation();
@@ -114,7 +128,32 @@ function RootComponent() {
     pathname === "/staff-invite" ||
     pathname === "/reset-password";
 
+  // Détection de langue appliquée après hydratation (SSR déterministe en "en").
   useEffect(() => {
+    // /fr, /de/simulation… redirigent vers /?lang=xx : on applique puis on nettoie l'URL.
+    try {
+      const url = new URL(window.location.href);
+      const q = url.searchParams.get("lang");
+      if (q && isSupportedLang(q)) {
+        const code = q.toLowerCase().split(/[-_]/)[0]!;
+        window.localStorage.setItem(LANG_STORAGE_KEY, code);
+        if (i18n.resolvedLanguage !== code) void i18n.changeLanguage(code);
+        document.documentElement.lang = code;
+        url.searchParams.delete("lang");
+        window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+        return;
+      }
+    } catch {
+      /* ignore */
+    }
+    applyDetectedLanguage();
+    requestAnimationFrame(() => {
+      document.documentElement.lang = (i18n.resolvedLanguage ?? "en").split("-")[0]!;
+    });
+  }, []);
+
+  useEffect(() => {
+
     if (!Capacitor.isNativePlatform()) return;
     void StatusBar.setOverlaysWebView({ overlay: false });
     void StatusBar.setStyle({ style: Style.Dark });
@@ -134,9 +173,11 @@ function RootComponent() {
       <AuthProvider>
         <div className="flex min-h-screen flex-col">
           {!hideLayout && <AppHeader />}
-          <main className="flex-1">
+          {!hideLayout && <div className="h-16 shrink-0" aria-hidden />}
+          <main key={hideLayout ? "app" : pathname} className={`flex-1 ${hideLayout ? "" : "animate-page"}`}>
             <Outlet />
           </main>
+          {!hideLayout && <SiteFooter />}
           {!hideLayout && <div className="h-16 md:hidden" aria-hidden />}
           {!hideLayout && <MobileBottomNav />}
         </div>
