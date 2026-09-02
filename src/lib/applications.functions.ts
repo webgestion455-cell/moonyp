@@ -230,6 +230,21 @@ export const submitApplication = createServerFn({ method: "POST" })
       ip,
     });
 
+    // Notification back-office + email transactionnel dans la langue du client.
+    const workflow = await import("@/lib/workflow.server");
+    await workflow.notifyAdmins({
+      title: inserted.reference,
+      message: `Nouvelle demande · ${amount} ${product.currency}`,
+      link: `/admin/applications/${inserted.id}`,
+      category: "application",
+    });
+    await workflow.queueEmail({
+      applicationId: inserted.id,
+      to: applicationPayload.email,
+      locale: data.language,
+      template: "applicationReceived",
+      vars: { reference: inserted.reference, firstName: data.first_name, reason: "" },
+    });
 
     return {
       id: inserted.id,
@@ -238,6 +253,7 @@ export const submitApplication = createServerFn({ method: "POST" })
       created_at: inserted.created_at,
       token,
     };
+
   });
 
 /** Attaches documents that were uploaded through a signed URL. */
@@ -387,10 +403,74 @@ export const getApplicationByToken = createServerFn({ method: "POST" })
           .maybeSingle()
       : { data: null };
 
+    const { data: infoRequests } = await supabaseAdmin
+      .from("application_info_requests")
+      .select("id, kind, message, status, document_type_slug, response_text, responded_at, created_at")
+      .eq("application_id", applicationId)
+      .neq("status", "cancelled")
+      .order("created_at", { ascending: false });
+
     return {
       application,
       product,
       history: history ?? [],
       documents: documents ?? [],
+      infoRequests: infoRequests ?? [],
     };
   });
+
+/** Réponse du demandeur à une demande d'information, via le lien sécurisé. */
+export const respondToInfoRequest = createServerFn({ method: "POST" })
+  .inputValidator((input) =>
+    z
+      .object({
+        token: z.string().min(20).max(200),
+        request_id: z.string().uuid(),
+        response: z.string().min(2).max(2000),
+      })
+      .parse(input),
+  )
+  .handler(async ({ data }) => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const server = await import("@/lib/applications.server");
+    const { notifyAdmins } = await import("@/lib/workflow.server");
+
+    const applicationId = await server.resolveToken(data.token);
+    if (!applicationId) throw new Error("invalid_token");
+
+    const { data: updated, error } = await supabaseAdmin
+      .from("application_info_requests")
+      .update({
+        response_text: data.response,
+        responded_at: new Date().toISOString(),
+        status: "answered",
+      } as never)
+      .eq("id", data.request_id)
+      .eq("application_id", applicationId)
+      .eq("status", "open")
+      .select("id, kind")
+      .maybeSingle();
+    if (error) throw new Error(error.message);
+    if (!updated) throw new Error("request_not_open");
+
+    await server.logEvent(applicationId, "info_request_answered", {
+      actor: "applicant",
+      description: data.response.slice(0, 500),
+      metadata: { request_id: data.request_id },
+    });
+
+    const { data: app } = await supabaseAdmin
+      .from("loan_applications")
+      .select("reference")
+      .eq("id", applicationId)
+      .maybeSingle();
+    await notifyAdmins({
+      title: app?.reference ?? "Dossier",
+      message: "Réponse du demandeur à une demande d'information",
+      link: `/admin/applications/${applicationId}`,
+      category: "application",
+    });
+
+    return { ok: true };
+  });
+

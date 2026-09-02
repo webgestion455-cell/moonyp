@@ -20,8 +20,9 @@ import {
   KeyRound,
   ScrollText,
   Settings,
+  ScanFace,
+  Package,
 } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { NotificationBell } from "@/components/NotificationBell";
 
 export const Route = createFileRoute("/admin")({
@@ -53,6 +54,8 @@ function AdminLayout() {
     const all: NavItem[] = [
       { to: "/admin", label: t("adminDash.overview"), icon: LayoutDashboard, match: (p) => p === "/admin" || p === "/admin/", permission: "dashboard.view" },
       { to: "/admin/applications", label: "Dossiers", icon: Wallet, match: (p) => p.startsWith("/admin/applications"), permission: "loans.view" },
+      { to: "/admin/kyc", label: "Conformité KYC", icon: ScanFace, match: (p) => p.startsWith("/admin/kyc"), permission: "loans.view" },
+      { to: "/admin/products", label: "Catalogue", icon: Package, match: (p) => p.startsWith("/admin/products"), permission: "settings.manage" },
       { to: "/admin/chat", label: t("adminDash.chat"), icon: MessageCircle, match: (p) => p.startsWith("/admin/chat"), permission: "chat.view" },
       { to: "/admin/notifications", label: t("adminDash.notifications"), icon: Bell, match: (p) => p.startsWith("/admin/notifications"), permission: "notifications.send" },
       { to: "/admin/security", label: t("adminDash.security"), icon: ShieldCheck, match: (p) => p.startsWith("/admin/security"), permission: "security.view" },
@@ -176,7 +179,6 @@ function AdminLayout() {
             </div>
             <div className="flex-1 md:hidden" />
             <div className="flex items-center gap-2">
-              <ThemeToggle />
               <NotificationBell />
               <div className="h-9 w-9 rounded-full bg-[#00915A] text-white grid place-items-center text-sm font-semibold">
                 {adminName.slice(0, 1).toUpperCase()}

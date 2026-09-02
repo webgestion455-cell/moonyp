@@ -92,6 +92,17 @@ export function applyDetectedLanguage(): void {
   if (next !== i18n.resolvedLanguage) void i18n.changeLanguage(next);
 }
 
+/**
+ * Langue d'initialisation : côté client on lit le préfixe de l'URL (source de
+ * vérité, identique au rendu serveur) ; sinon "en", la route /$lang appliquant
+ * ensuite la bonne langue durant le SSR.
+ */
+function initialLanguage(): string {
+  if (typeof window === "undefined") return "en";
+  const seg = window.location.pathname.split("/")[1];
+  return pickSupported(seg) ?? "en";
+}
+
 if (!i18n.isInitialized) {
   void i18n.use(initReactI18next).init({
     resources: {
@@ -111,9 +122,9 @@ if (!i18n.isInitialized) {
       hr: { translation: hr },
       hu: { translation: hu },
     },
-    // Rendu déterministe SSR/CSR : on démarre toujours en "en", la détection
-    // réelle est appliquée après hydratation.
-    lng: "en",
+    // La langue du premier segment d'URL est la source de vérité : le client
+    // démarre donc exactement sur la même langue que le HTML rendu côté serveur.
+    lng: initialLanguage(),
     fallbackLng: "en",
     supportedLngs: SUPPORTED_CODES as string[],
     nonExplicitSupportedLngs: true,

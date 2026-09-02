@@ -1,27 +1,14 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { INFO_REQUEST_KINDS, REASON_REQUIRED } from "@/lib/application-workflow";
+import { APPLICATION_STATUS_ORDER } from "@/lib/application-status";
 
-const STATUSES = [
-  "draft",
-  "received",
-  "verification",
-  "documents_missing",
-  "analysis",
-  "info_requested",
-  "approved",
-  "rejected",
-  "offer_available",
-  "contract_sent",
-  "signature_pending",
-  "contract_signed",
-  "disbursement_preparing",
-  "disbursed",
-  "repaying",
-  "late",
-  "repaid",
-  "cancelled",
-] as const;
+const STATUSES = APPLICATION_STATUS_ORDER as unknown as [
+  (typeof APPLICATION_STATUS_ORDER)[number],
+  ...(typeof APPLICATION_STATUS_ORDER)[number][],
+];
+
 
 async function assertStaff(supabase: { rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown }> }, userId: string) {
   const { data } = await supabase.rpc("has_role", { _user_id: userId, _role: "admin" });
@@ -130,12 +117,18 @@ export const adminGetApplication = createServerFn({ method: "POST" })
     await assertStaff(context.supabase as never, context.userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    const [{ data: application }, { data: history }, { data: documents }, { data: events }, { data: kyc }] =
-      await Promise.all([
+    const [
+      { data: application },
+      { data: history },
+      { data: documents },
+      { data: events },
+      { data: kyc },
+      { data: infoRequests },
+    ] = await Promise.all([
         supabaseAdmin.from("loan_applications").select("*").eq("id", data.id).maybeSingle(),
         supabaseAdmin
           .from("application_status_history")
-          .select("id, old_status, new_status, actor, note, created_at")
+          .select("id, old_status, new_status, actor, note, reason, created_at")
           .eq("application_id", data.id)
           .order("created_at", { ascending: true }),
         supabaseAdmin
@@ -154,6 +147,11 @@ export const adminGetApplication = createServerFn({ method: "POST" })
           .select("id, step_key, category, document_type_slug, document_id, status, attempts, review_note, reviewed_at, created_at")
           .eq("application_id", data.id)
           .order("created_at", { ascending: true }),
+        supabaseAdmin
+          .from("application_info_requests")
+          .select("id, kind, message, status, document_type_slug, response_text, responded_at, created_at")
+          .eq("application_id", data.id)
+          .order("created_at", { ascending: false }),
       ]);
 
 
@@ -172,6 +170,9 @@ export const adminGetApplication = createServerFn({ method: "POST" })
       ? await supabaseAdmin.from("loan_products").select("*").eq("id", application.product_id).maybeSingle()
       : { data: null };
 
+    const { loadWorkflowContext } = await import("@/lib/workflow.server");
+    const workflow = await loadWorkflowContext(data.id);
+
     return {
       application,
       product,
@@ -179,11 +180,14 @@ export const adminGetApplication = createServerFn({ method: "POST" })
       documents: withLinks,
       events: events ?? [],
       kycChecks: kyc ?? [],
+      infoRequests: infoRequests ?? [],
+      workflowContext: workflow?.context ?? {},
     };
+
 
   });
 
-/** Moves an application through the workflow. */
+/** Moves an application through the workflow (règles centralisées). */
 export const adminUpdateApplicationStatus = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((input) =>
@@ -192,39 +196,112 @@ export const adminUpdateApplicationStatus = createServerFn({ method: "POST" })
         id: z.string().uuid(),
         status: z.enum(STATUSES),
         note: z.string().max(1000).optional(),
+        reason: z.string().max(1000).optional(),
         rejection_reason: z.string().max(1000).optional(),
       })
       .parse(input),
   )
   .handler(async ({ data, context }) => {
     await assertStaff(context.supabase as never, context.userId);
+    const { applyTransition } = await import("@/lib/workflow.server");
+
+    const reason = data.reason ?? data.rejection_reason ?? null;
+    if (REASON_REQUIRED.includes(data.status) && !reason?.trim()) {
+      return { ok: false as const, reason: "workflow.error.reasonRequired" };
+    }
+
+    const result = await applyTransition({
+      applicationId: data.id,
+      to: data.status,
+      actorId: context.userId,
+      actor: "staff",
+      reason,
+      note: data.note ?? null,
+    });
+    return result;
+  });
+
+/** Ouvre une demande d'information / de document auprès du client. */
+export const adminCreateInfoRequest = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input) =>
+    z
+      .object({
+        application_id: z.string().uuid(),
+        kind: z.enum(INFO_REQUEST_KINDS),
+        message: z.string().min(3).max(1000),
+        document_type_slug: z.string().max(60).optional(),
+        move_status: z.boolean().optional().default(true),
+      })
+      .parse(input),
+  )
+  .handler(async ({ data, context }) => {
+    await assertStaff(context.supabase as never, context.userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { applyTransition, queueEmail } = await import("@/lib/workflow.server");
+    const server = await import("@/lib/applications.server");
 
-    const patch: {
-      status: (typeof STATUSES)[number];
-      admin_notes: string | null;
-      rejection_reason?: string | null;
-      decided_at?: string;
-    } = {
-      status: data.status,
-      admin_notes: data.note ?? null,
-    };
-    if (data.status === "rejected") patch.rejection_reason = data.rejection_reason ?? data.note ?? null;
-    if (["approved", "rejected"].includes(data.status)) patch.decided_at = new Date().toISOString();
-
-    const { error } = await supabaseAdmin.from("loan_applications").update(patch).eq("id", data.id);
+    const { error } = await supabaseAdmin.from("application_info_requests").insert({
+      application_id: data.application_id,
+      kind: data.kind,
+      message: data.message,
+      document_type_slug: data.document_type_slug ?? null,
+      requested_by: context.userId,
+    } as never);
     if (error) throw new Error(error.message);
 
-    await supabaseAdmin.from("application_events").insert({
-      application_id: data.id,
-      event_type: "status_changed",
+    await server.logEvent(data.application_id, "info_requested", {
       actor: "staff",
-      actor_id: context.userId,
-      description: `Statut mis à jour : ${data.status}`,
+      actorId: context.userId,
+      description: data.message,
+      metadata: { kind: data.kind, document_type_slug: data.document_type_slug ?? null },
     });
 
+    if (data.move_status) {
+      const target = data.kind === "missing_document" ? "documents_missing" : "info_requested";
+      const moved = await applyTransition({
+        applicationId: data.application_id,
+        to: target,
+        actorId: context.userId,
+        actor: "staff",
+        reason: data.message,
+      });
+      if (moved.ok) return { ok: true as const };
+    }
+
+    // Statut inchangé : on informe tout de même le client.
+    const { data: app } = await supabaseAdmin
+      .from("loan_applications")
+      .select("email, language, reference, first_name")
+      .eq("id", data.application_id)
+      .maybeSingle();
+    if (app?.email) {
+      await queueEmail({
+        applicationId: data.application_id,
+        to: app.email,
+        locale: app.language,
+        template: "infoRequested",
+        vars: { reference: app.reference, firstName: app.first_name ?? "", reason: data.message },
+      });
+    }
+    return { ok: true as const };
+  });
+
+/** Clôture manuellement une demande d'information. */
+export const adminCloseInfoRequest = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input) => z.object({ id: z.string().uuid() }).parse(input))
+  .handler(async ({ data, context }) => {
+    await assertStaff(context.supabase as never, context.userId);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { error } = await supabaseAdmin
+      .from("application_info_requests")
+      .update({ status: "cancelled" } as never)
+      .eq("id", data.id);
+    if (error) throw new Error(error.message);
     return { ok: true };
   });
+
 
 /** Approves or rejects a KYC document. */
 export const adminReviewDocument = createServerFn({ method: "POST" })

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Send, X, Bold, Italic, Link2, Loader2, Check, ArrowRight, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import i18n from "@/i18n";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -85,8 +86,8 @@ export async function ensureConversation(
   if (error) throw error;
 
   // Message de bienvenue — toujours dans la langue de l'utilisateur
-  const greeting = welcome?.greeting ?? "Hello, I'm Anna.";
-  const help = welcome?.help ?? "";
+  const greeting = welcome?.greeting ?? i18n.t("chat.welcome.greeting");
+  const help = welcome?.help ?? i18n.t("chat.welcome.help");
   await (supabase as any).from("chat_messages").insert({
     conversation_id: (created as any).id,
     sender_type: "bot",
@@ -221,8 +222,8 @@ export function ChatWindow({
         if (!user) return;
         const senderName =
           mode === "agent"
-            ? (profile?.full_name ?? "Conseiller BNP")
-            : (profile?.full_name ?? user.email ?? "Client");
+            ? (profile?.full_name ?? t("chat.agent.brandName"))
+            : (profile?.full_name ?? user.email ?? t("chat.you"));
         const { error } = await (supabase as any).from("chat_messages").insert({
           conversation_id: conversationId,
           sender_type: mode === "agent" ? "agent" : "client",
@@ -269,7 +270,7 @@ export function ChatWindow({
           }
         }
       } catch (e: any) {
-        toast.error(e?.message ?? "Erreur d'envoi");
+        toast.error(e?.message ?? t("chat.sendError"));
       } finally {
         setSending(false);
       }
@@ -291,14 +292,14 @@ export function ChatWindow({
       });
       toast.success(t("chat.handoff.pending"));
     } catch (e: any) {
-      toast.error(e?.message ?? "Erreur");
+      toast.error(e?.message ?? t("chat.genericError"));
     }
   }, [conversationId, user, profile, t]);
 
   // Agent : rejoindre la conversation
   const joinAsAgent = useCallback(async () => {
     if (!user || !conv) return;
-    const agentName = profile?.full_name ?? user.email ?? "Conseiller";
+    const agentName = profile?.full_name ?? user.email ?? t("chat.agent.defaultName");
     await (supabase as any)
       .from("chat_conversations")
       .update({
@@ -310,10 +311,10 @@ export function ChatWindow({
     await (supabase as any).from("chat_messages").insert({
       conversation_id: conv.id,
       sender_type: "system",
-      sender_name: "Système",
+      sender_name: t("chat.system"),
       format: "html",
       content_html: `<p><em>${agentName} ${t("chat.agent.joined")}</em></p>`,
-      content_text: `${agentName} a rejoint la conversation.`,
+      content_text: t("chat.joinedNotice", { name: agentName }),
     });
     toast.success(t("chat.agent.joinedYou"));
   }, [user, conv, profile, t]);
@@ -332,10 +333,10 @@ export function ChatWindow({
     await (supabase as any).from("chat_messages").insert({
       conversation_id: conversationId,
       sender_type: "system",
-      sender_name: "Système",
+      sender_name: t("chat.system"),
       format: "html",
       content_html: `<p><em>${t("chat.closed")}</em></p>`,
-      content_text: "Conversation fermée.",
+      content_text: t("chat.closedNotice"),
     });
     toast.success(t("chat.closed"));
     onCloseTicket?.();
@@ -369,7 +370,7 @@ export function ChatWindow({
         className,
       )}
     >
-      {/* Header BNP PARIBAS */}
+      {/* Header MOONYP */}
       {showHeader && (
         <header className="bg-[#00915A] text-white px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-3">
           <BankLogo className="h-7 w-7 sm:h-8 sm:w-8 shrink-0" />

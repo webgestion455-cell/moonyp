@@ -42,7 +42,9 @@
     "notFound": "Seite nicht gefunden",
     "notFoundDesc": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
     "backHome": "Zur Startseite",
-    "errorRetry": "Erneut versuchen"
+    "errorRetry": "Erneut versuchen",
+    "noResults": "Keine Ergebnisse",
+    "continue": "Weiter"
   },
   "header": {
     "myLoans": "Meine Kredite",
@@ -1314,7 +1316,9 @@
       "joined": "ist dem Gespräch beigetreten",
       "joinedYou": "Sie sind dem Gespräch beigetreten",
       "notAssigned": "Kein Agent zugewiesen",
-      "join": "Beitreten"
+      "join": "Beitreten",
+      "defaultName": "Berater",
+      "brandName": "MOONYP-Berater"
     },
     "status": {
       "online": "Online",
@@ -1388,7 +1392,14 @@
       "empty": "Noch keine Unterhaltung.",
       "back": "Zurück",
       "one": "Unterhaltung"
-    }
+    },
+    "system": "System",
+    "closedNotice": "Unterhaltung geschlossen.",
+    "joinedNotice": "{{name}} ist der Unterhaltung beigetreten.",
+    "sendError": "Senden fehlgeschlagen",
+    "genericError": "Ein Fehler ist aufgetreten",
+    "agentTitle": "Kundenservice-Spezialistin",
+    "you": "Sie"
   },
   "adminDash": {
     "title": "Dashboard – MOONYP",
@@ -1434,7 +1445,14 @@
       "balance": "Restschuld",
       "showSchedule": "Tilgungsplan anzeigen",
       "hideSchedule": "Tilgungsplan ausblenden",
-      "disclaimer": "Diese Simulation dient nur zur Information und stellt kein Kreditangebot dar. Die endgültigen Konditionen hängen von der Prüfung Ihres Antrags ab."
+      "disclaimer": "Diese Simulation dient nur zur Information und stellt kein Kreditangebot dar. Die endgültigen Konditionen hängen von der Prüfung Ihres Antrags ab.",
+      "instalment": "Monatliche Rate",
+      "perMonth": "/ Monat",
+      "aprLabel": "Effektiver Jahreszins",
+      "monthsShort": "Mt.",
+      "rateFrom": "ab {{rate}}%",
+      "range": "Zwischen {{min}} und {{max}}",
+      "legalNotice": "Ein Kredit verpflichtet Sie und muss zurückgezahlt werden. Prüfen Sie Ihre Rückzahlungsfähigkeit, bevor Sie eine Verpflichtung eingehen."
     },
     "simPage": {
       "metaTitle": "Kreditrechner — MOONYP",
@@ -1487,7 +1505,14 @@
         "payout": "Auszahlung",
         "documents": "Dokumente",
         "review": "Übersicht"
-      }
+      },
+      "stepOf": "Schritt {{current}} von {{total}}",
+      "uploading": "Dokumente werden übermittelt ({{done}}/{{total}})",
+      "holderHint": "Muss mit dem Namen des Antragstellers übereinstimmen",
+      "reviewFlag": "Dieser Punkt wird manuell geprüft",
+      "reviewTitle": "Ihre Rate",
+      "dti": "Schuldendienstquote",
+      "finalNotice": "Mit der Übermittlung bestätigen Sie die Richtigkeit der Angaben. Ihr Dossier wird von unserer Kreditabteilung geprüft; ein sicherer Link zur Statusverfolgung wird Ihnen per E-Mail zugesandt."
     },
     "fields": {
       "firstName": "Vorname",
@@ -1513,7 +1538,12 @@
       "bankName": "Bank",
       "iban": "IBAN",
       "bic": "BIC / SWIFT",
-      "choose": "Auswählen…"
+      "choose": "Auswählen…",
+      "chooseCountry": "Land auswählen",
+      "searchCountry": "Land suchen",
+      "phoneCountry": "Landesvorwahl",
+      "addressPlaceholder": "Geben Sie Ihre Straße ein",
+      "addressNoMatch": "Adresse nicht gefunden – bitte manuell eingeben"
     },
     "employment": {
       "employee": "Angestellt",
@@ -1543,7 +1573,12 @@
       "repaying": "Rückzahlung läuft",
       "late": "Im Verzug",
       "repaid": "Vollständig zurückgezahlt",
-      "cancelled": "Storniert"
+      "cancelled": "Storniert",
+      "unknown": "Status unbekannt",
+      "guarantee_sent": "Sicherheit gesendet",
+      "guarantee_signed": "Sicherheit unterzeichnet",
+      "insurance_pending": "Versicherung ausstehend",
+      "insurance_validated": "Versicherung bestätigt"
     },
     "portal": {
       "metaTitle": "Ihr Finanzierungsvorgang — MOONYP",
@@ -1554,7 +1589,49 @@
       "status": "Status",
       "timeline": "Verlauf",
       "invalidTitle": "Link ungültig oder abgelaufen",
-      "invalidDesc": "Dieser sichere Link ist nicht mehr gültig. Bitte fordern Sie einen neuen bei unserem Team an."
+      "invalidDesc": "Dieser sichere Link ist nicht mehr gültig. Bitte fordern Sie einen neuen bei unserem Team an.",
+      "progress": "Bearbeitungsstatus",
+      "submittedOn": "Eingereicht am",
+      "monthly": "Monatliche Rate",
+      "apr": "Effektiver Jahreszins",
+      "product": "Finanzierungsprodukt",
+      "insurance": "Restschuldversicherung",
+      "totalCost": "Gesamtkosten des Kredits",
+      "interest": "Gesamtzinsbelastung",
+      "fees": "Bearbeitungsgebühren",
+      "documents": "Nachweise",
+      "noDocuments": "Es sind noch keine Dokumente eingegangen.",
+      "help": "Diese Seite wird in Echtzeit aktualisiert. Unsere Kreditabteilung kontaktiert Sie bei jedem wichtigen Schritt per E-Mail. Geben Sie diesen sicheren Link niemals an Dritte weiter.",
+      "kyc": {
+        "pending": "Verifizierung ausstehend",
+        "verifying": "Verifizierung in Bearbeitung",
+        "passed": "Identität verifiziert",
+        "failed": "Verifizierung fehlgeschlagen",
+        "manual_review": "Manuelle Prüfung"
+      },
+      "doc": {
+        "pending": "Ausstehend",
+        "approved": "Genehmigt",
+        "rejected": "Abgelehnt",
+        "replacement_requested": "Ersetzung erforderlich"
+      },
+      "requests": {
+        "title": "Angeforderte Informationen",
+        "desc": "Unser Team benötigt zusätzliche Angaben zur weiteren Prüfung.",
+        "none": "Keine offene Anfrage.",
+        "open": "Offen",
+        "answered": "Bearbeitet",
+        "respondLabel": "Ihre Antwort",
+        "placeholder": "Antwort eingeben…",
+        "submit": "Antwort senden",
+        "success": "Antwort gesendet",
+        "error": "Senden fehlgeschlagen",
+        "kindMissingDocument": "Fehlendes Dokument",
+        "kindReplaceDocument": "Dokument ersetzen",
+        "kindInformation": "Zusätzliche Information",
+        "kindJustification": "Begründung angefordert",
+        "answeredAt": "Beantwortet am"
+      }
     },
     "success": {
       "title": "Ihr Antrag ist eingegangen",
@@ -1567,13 +1644,53 @@
       "step3": "Angebot, Vertrag und Auszahlung nach Zusage"
     },
     "validation": {
-      "required": "Dieses Feld ist erforderlich."
+      "required": "Dieses Feld ist erforderlich.",
+      "iban": {
+        "empty": "Bitte geben Sie Ihre IBAN ein",
+        "charset": "Diese IBAN enthält ungültige Zeichen",
+        "country": "Dieser Ländercode ist nicht im IBAN-Register hinterlegt",
+        "length": "Die Länge dieser IBAN ist für das angegebene Land ungültig",
+        "checksum": "Diese IBAN ist ungültig (Prüfsummenfehler)",
+        "valid": "Gültige IBAN — {{country}}"
+      },
+      "bic": {
+        "format": "Ungültiger BIC/SWIFT-Code",
+        "countryMismatch": "Der BIC stimmt nicht mit dem IBAN-Land überein"
+      },
+      "holder": {
+        "required": "Bitte geben Sie den Kontoinhaber an",
+        "mismatch": "Der Kontoinhaber weicht vom Antragsteller ab",
+        "partial": "Der Vorname des Inhabers weicht vom Antragsteller ab"
+      },
+      "bank": {
+        "countryMismatch": "Das angegebene Bankland stimmt nicht mit der IBAN überein",
+        "crossBorder": "Konto wird außerhalb Ihres Wohnsitzlandes geführt",
+        "nonSepa": "Konto außerhalb des SEPA-Raums"
+      },
+      "risk": {
+        "dtiAbove40": "Schuldendienstquote über 40%"
+      },
+      "phoneValid": "Gültige Nummer",
+      "phoneIncomplete": "Nummer unvollständig"
     },
     "address": {
       "placeholder": "Adresse eingeben (weltweit)…",
       "hint": "Wählen Sie einen Vorschlag oder geben Sie Ihre Adresse manuell ein.",
       "manual": "Manuell eingeben",
       "hideManual": "Details ausblenden"
+    },
+    "schedule": {
+      "title": "Tilgungsplan",
+      "period": "Zeitraum",
+      "number": "Nr.",
+      "dueDate": "Fälligkeitsdatum",
+      "payment": "Rate",
+      "principal": "Tilgung",
+      "interest": "Zinsen",
+      "insurance": "Versicherung",
+      "balance": "Restschuld",
+      "total": "Gesamtbetrag",
+      "export": "CSV exportieren"
     }
   },
   "products": {
@@ -1682,6 +1799,181 @@
       "title": "Bereit, Ihr Projekt zu finanzieren?",
       "desc": "In einer Minute simulieren, in sechs Schritten beantragen und in weniger als 24 Stunden eine Entscheidung erhalten.",
       "button": "Antrag starten"
+    }
+  },
+  "validation": {
+    "phone": "Bitte geben Sie eine gültige Telefonnummer ein"
+  },
+  "kyc": {
+    "capture": "Erfassen",
+    "retake": "Erneut aufnehmen",
+    "chooseDocument": "Wählen Sie Ihr Dokument aus",
+    "nothingRequired": "Zum jetzigen Zeitpunkt ist kein Dokument erforderlich",
+    "storageNotice": "Ihre Dokumente werden verschlüsselt, in einem privaten Bereich gespeichert und sind nur für unser Compliance-Team zugänglich.",
+    "intro": {
+      "title": "Identitätsprüfung",
+      "why": "Gemäß europäischer Regulierung sind wir verpflichtet, Ihre Identität zu verifizieren, bevor Gelder ausgezahlt werden können. Dies dauert etwa drei Minuten.",
+      "camera": "Nutzen Sie Ihre Kamera bei guten Lichtverhältnissen – Sie können alternativ auch eine Datei importieren.",
+      "privacy": "Ihre Dokumente werden verschlüsselt und niemals an Dritte weitergegeben.",
+      "start": "Verifizierung starten"
+    },
+    "category": {
+      "identity": {
+        "title": "Identitätsnachweis",
+        "desc": "Reisepass, Personalausweis oder Aufenthaltstitel"
+      },
+      "address": {
+        "title": "Wohnsitznachweis",
+        "desc": "Nicht älter als drei Monate"
+      },
+      "selfie": {
+        "title": "Biometrischer Abgleich",
+        "desc": "Ein kurzes Selfie zum Abgleich mit Ihrem Dokument"
+      },
+      "bank": {
+        "title": "Bankverbindung",
+        "desc": "Kontoauszug mit Angabe Ihrer IBAN"
+      },
+      "income": {
+        "title": "Einkommensnachweis",
+        "desc": "Abhängig von Ihrer beruflichen Situation"
+      }
+    },
+    "side": {
+      "front": "Vorderseite",
+      "back": "Rückseite",
+      "single": "Dokument"
+    },
+    "hint": {
+      "scan": "Legen Sie das Dokument flach hin, vollständig innerhalb des Rahmens und ohne Reflexionen.",
+      "scan_double": "Erfassen Sie beide Seiten nacheinander, wobei alle vier Ecken sichtbar sein müssen.",
+      "selfie": "Blicken Sie direkt in die Kamera, ohne Kopfbedeckung oder Sonnenbrille.",
+      "upload": "Akzeptierte Formate: PDF, JPEG, PNG."
+    },
+    "status": {
+      "todo": "Ausstehend",
+      "in_progress": "In Bearbeitung",
+      "capturing": "Unvollständig",
+      "verifying": "Wird geprüft",
+      "passed": "Eingereicht",
+      "failed": "Abgelehnt",
+      "retry": "Wiederholen",
+      "manual_review": "Wird manuell geprüft"
+    },
+    "camera": {
+      "ready": "Kamera bereit",
+      "start": "Kamera öffnen",
+      "shoot": "Foto aufnehmen",
+      "retake": "Wiederholen",
+      "use": "Dieses Foto verwenden",
+      "importInstead": "Datei importieren",
+      "denied": "Kamera nicht verfügbar oder Zugriff verweigert.",
+      "unsupported": "Ihr Browser unterstützt keine Kameraaufnahme.",
+      "badFormat": "Nicht unterstütztes Dateiformat",
+      "tooLarge": "Datei größer als {{size}} MB",
+      "quality": {
+        "ok": "Gute Qualität – das Dokument ist lesbar.",
+        "dark": "Foto zu dunkel: Bitte sorgen Sie für hellere Umgebung.",
+        "bright": "Foto überbelichtet: Vermeiden Sie direktes Licht und Reflexionen.",
+        "blurry": "Foto unscharf: Bitte ruhig halten und neu fokussieren."
+      }
+    },
+    "stepOf": "Schritt {{current}} von {{total}}",
+    "finish": "Abschließen",
+    "done": {
+      "title": "Identitätsprüfung abgeschlossen",
+      "desc": "Alle erforderlichen Dokumente wurden erfasst. Sie können diese vor dem Einreichen Ihres Antrags nochmals prüfen oder ersetzen."
+    },
+    "docs": {
+      "bankStatement": "Kontoauszug (letzte 3 Monate)",
+      "benefits": "Leistungsbescheid",
+      "drivingLicence": "Führerschein",
+      "electricity": "Stromrechnung",
+      "hosting": "Wohnungsgeberbestätigung",
+      "kbis": "Handelsregisterauszug",
+      "nationalId": "Personalausweis",
+      "passport": "Reisepass",
+      "payslip": "Gehaltsabrechnungen (letzte 3 Monate)",
+      "pension": "Rentenbescheid",
+      "residencePermit": "Aufenthaltstitel",
+      "selfie": "Gesichtsverifizierung",
+      "taxReturn": "Steuerbescheid",
+      "telecom": "Telefon-/Internetrechnung",
+      "water": "Wasserrechnung"
+    }
+  },
+  "emails": {
+    "applicationReceived": {
+      "subject": "Ihr Antrag {{reference}} ist eingegangen",
+      "body": "Hallo {{firstName}}, wir haben Ihren Antrag {{reference}} erhalten. Unser Team prüft ihn und hält Sie über jeden Schritt auf dem Laufenden."
+    },
+    "documentsMissing": {
+      "subject": "Fehlende Unterlagen — Akte {{reference}}",
+      "body": "Hallo {{firstName}}, in Ihrer Akte {{reference}} fehlen Unterlagen. Bitte laden Sie diese in Ihrem sicheren Bereich hoch. {{reason}}"
+    },
+    "infoRequested": {
+      "subject": "Zusätzliche Informationen — Akte {{reference}}",
+      "body": "Hallo {{firstName}}, wir benötigen zusätzliche Angaben zu Ihrer Akte {{reference}}. {{reason}}"
+    },
+    "approved": {
+      "subject": "Ihr Antrag {{reference}} wurde genehmigt",
+      "body": "Hallo {{firstName}}, Ihr Antrag {{reference}} wurde genehmigt. Ihr Angebot finden Sie in Ihrem sicheren Bereich."
+    },
+    "rejected": {
+      "subject": "Entscheidung zu Ihrem Antrag {{reference}}",
+      "body": "Hallo {{firstName}}, nach Prüfung konnte Ihr Antrag {{reference}} nicht angenommen werden. Grund: {{reason}}"
+    },
+    "offerAvailable": {
+      "subject": "Ihr Angebot {{reference}} ist verfügbar",
+      "body": "Hallo {{firstName}}, Ihr Finanzierungsangebot {{reference}} steht in Ihrem sicheren Bereich bereit."
+    },
+    "contractSent": {
+      "subject": "Ihr Vertrag {{reference}} ist bereit",
+      "body": "Hallo {{firstName}}, Ihr Vertrag {{reference}} kann in Ihrem sicheren Bereich unterzeichnet werden."
+    },
+    "disbursed": {
+      "subject": "Auszahlung erfolgt — Akte {{reference}}",
+      "body": "Hallo {{firstName}}, die Mittel Ihrer Akte {{reference}} wurden auf Ihr Konto überwiesen."
+    }
+  },
+  "workflow": {
+    "guard": {
+      "kycNotPassed": "KYC checks not passed",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "noInsurance": "No insurance subscribed on this file",
+      "missingPayout": "Payout details missing",
+      "complianceBlocking": "Blocking compliance alert"
+    },
+    "error": {
+      "sameStatus": "The file already has this status",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "forbidden": "Action not allowed"
+    },
+    "confirmTitle": "Confirm the decision",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Internal note",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "requests": {
+      "title": "Information requests",
+      "kind": "Request type",
+      "message": "Message sent to the applicant",
+      "create": "Send request",
+      "none": "No information request.",
+      "close": "Close",
+      "open": "Pending",
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "kinds": {
+        "missing_document": "Fehlendes Dokument",
+        "replace_document": "Dokument ersetzen",
+        "information": "Zusätzliche Information",
+        "justification": "Begründung angefordert"
+      }
     }
   }
 }

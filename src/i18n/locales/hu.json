@@ -42,7 +42,9 @@
     "notFound": "Az oldal nem található",
     "notFoundDesc": "A keresett oldal nem létezik.",
     "backHome": "Vissza a kezdőlapra",
-    "errorRetry": "Újrapróbálkozás"
+    "errorRetry": "Újrapróbálkozás",
+    "noResults": "Nincs találat",
+    "continue": "Folytatás"
   },
   "header": {
     "myLoans": "Hiteleim",
@@ -1314,7 +1316,9 @@
       "joined": "csatlakozott a beszélgetéshez",
       "joinedYou": "Csatlakozott a beszélgetéshez",
       "notAssigned": "Nincs kijelölt ügynök",
-      "join": "Csatlakozás"
+      "join": "Csatlakozás",
+      "defaultName": "Tanácsadó",
+      "brandName": "MOONYP tanácsadó"
     },
     "status": {
       "online": "Online",
@@ -1388,7 +1392,14 @@
       "empty": "Még nincs beszélgetés.",
       "back": "Vissza",
       "one": "Beszélgetés"
-    }
+    },
+    "system": "Rendszer",
+    "closedNotice": "A beszélgetés lezárva.",
+    "joinedNotice": "{{name}} csatlakozott a beszélgetéshez.",
+    "sendError": "A küldés sikertelen",
+    "genericError": "Hiba történt",
+    "agentTitle": "Ügyfélszolgálati szakértő",
+    "you": "Ön"
   },
   "adminDash": {
     "title": "Irányítópult – MOONYP",
@@ -1434,7 +1445,14 @@
       "balance": "Fennálló tőke",
       "showSchedule": "Törlesztési terv megjelenítése",
       "hideSchedule": "Terv elrejtése",
-      "disclaimer": "Ez a kalkuláció tájékoztató jellegű, és nem minősül hitelajánlatnak. A végleges feltételek a kérelem elbírálásától függenek."
+      "disclaimer": "Ez a kalkuláció tájékoztató jellegű, és nem minősül hitelajánlatnak. A végleges feltételek a kérelem elbírálásától függenek.",
+      "instalment": "Havi törlesztőrészlet",
+      "perMonth": "/hó",
+      "aprLabel": "THM",
+      "monthsShort": "hó",
+      "rateFrom": "már {{rate}}%-tól",
+      "range": "{{min}} és {{max}} között",
+      "legalNotice": "A hitelfelvétel kötelezettséggel jár, és a kölcsönt vissza kell fizetni. Kérjük, mérlegelje teherviselő képességét a szerződés aláírása előtt."
     },
     "simPage": {
       "metaTitle": "Hitelkalkulátor — MOONYP",
@@ -1487,7 +1505,14 @@
         "payout": "Folyósítás",
         "documents": "Dokumentumok",
         "review": "Összegzés"
-      }
+      },
+      "stepOf": "{{current}} / {{total}} lépés",
+      "uploading": "Dokumentumok küldése ({{done}}/{{total}})",
+      "holderHint": "Meg kell egyeznie az igénylő nevével",
+      "reviewFlag": "Ezt a pontot manuálisan ellenőrizzük",
+      "reviewTitle": "Az Ön törlesztőrészlete",
+      "dti": "Jövedelemarányos törlesztési mutató (JTM)",
+      "finalNotice": "A beküldéssel Ön igazolja, hogy az adatok a valóságnak megfelelnek. A kérelmet hitelbírálati csoportunk elemzi; a folyamat nyomon követéséhez szükséges biztonságos hivatkozást e-mailben küldjük el."
     },
     "fields": {
       "firstName": "Keresztnév",
@@ -1513,7 +1538,12 @@
       "bankName": "Bank",
       "iban": "IBAN",
       "bic": "BIC / SWIFT",
-      "choose": "Válasszon…"
+      "choose": "Válasszon…",
+      "chooseCountry": "Válasszon országot",
+      "searchCountry": "Ország keresése",
+      "phoneCountry": "Országhívószám",
+      "addressPlaceholder": "Kezdje el gépelni az utcát",
+      "addressNoMatch": "Nincs találat — adja meg manuálisan"
     },
     "employment": {
       "employee": "Alkalmazott",
@@ -1543,7 +1573,12 @@
       "repaying": "Törlesztés folyamatban",
       "late": "Késedelmes",
       "repaid": "Teljesen visszafizetve",
-      "cancelled": "Visszavonva"
+      "cancelled": "Visszavonva",
+      "unknown": "Ismeretlen állapot",
+      "guarantee_sent": "Biztosíték elküldve",
+      "guarantee_signed": "Biztosíték aláírva",
+      "insurance_pending": "Biztosítás függőben",
+      "insurance_validated": "Biztosítás jóváhagyva"
     },
     "portal": {
       "metaTitle": "Az Ön finanszírozási ügye — MOONYP",
@@ -1554,7 +1589,49 @@
       "status": "Állapot",
       "timeline": "Előzmények",
       "invalidTitle": "Érvénytelen vagy lejárt hivatkozás",
-      "invalidDesc": "Ez a biztonságos hivatkozás már nem érvényes. Kérjen újat csapatunktól."
+      "invalidDesc": "Ez a biztonságos hivatkozás már nem érvényes. Kérjen újat csapatunktól.",
+      "progress": "Kérelem állapota",
+      "submittedOn": "Beküldve:",
+      "monthly": "Havi törlesztőrészlet",
+      "apr": "THM",
+      "product": "Finanszírozási termék",
+      "insurance": "Hitelfedezeti biztosítás",
+      "totalCost": "Teljes hiteldíj",
+      "interest": "Összesített kamat",
+      "fees": "Folyósítási és kezelési költségek",
+      "documents": "Igazoló dokumentumok",
+      "noDocuments": "Még nem érkezett dokumentum.",
+      "help": "Ez az oldal valós időben frissül. Hitelbírálati csoportunk minden kulcsfontosságú lépésnél e-mailben értesíti Önt. Kérjük, ezt a biztonságos hivatkozást ne ossza meg harmadik féllel.",
+      "kyc": {
+        "pending": "Ellenőrzésre vár",
+        "verifying": "Ellenőrzés folyamatban",
+        "passed": "Személyazonosság igazolva",
+        "failed": "Az ellenőrzés sikertelen",
+        "manual_review": "Manuális felülvizsgálat"
+      },
+      "doc": {
+        "pending": "Függőben",
+        "approved": "Jóváhagyva",
+        "rejected": "Elutasítva",
+        "replacement_requested": "Pótlás szükséges"
+      },
+      "requests": {
+        "title": "Kért információk",
+        "desc": "Csapatunknak további adatokra van szüksége az elbíráláshoz.",
+        "none": "Nincs függőben lévő kérés.",
+        "open": "Függőben",
+        "answered": "Feldolgozva",
+        "respondLabel": "Az Ön válasza",
+        "placeholder": "Írja be a válaszát…",
+        "submit": "Válasz küldése",
+        "success": "Válasz elküldve",
+        "error": "A küldés sikertelen",
+        "kindMissingDocument": "Hiányzó dokumentum",
+        "kindReplaceDocument": "Dokumentum cseréje",
+        "kindInformation": "További információ",
+        "kindJustification": "Indoklás kérése",
+        "answeredAt": "Megválaszolva"
+      }
     },
     "success": {
       "title": "Igénylését megkaptuk",
@@ -1567,13 +1644,53 @@
       "step3": "Ajánlat, szerződés és folyósítás jóváhagyás után"
     },
     "validation": {
-      "required": "Ez a mező kötelező."
+      "required": "Ez a mező kötelező.",
+      "iban": {
+        "empty": "Adja meg az IBAN-számot",
+        "charset": "Az IBAN érvénytelen karaktereket tartalmaz",
+        "country": "Ez az országkód nem szerepel az IBAN-nyilvántartásban",
+        "length": "Az IBAN hossza nem felel meg az adott ország szabványának",
+        "checksum": "Érvénytelen IBAN (ellenőrzőösszeg hiba)",
+        "valid": "Érvényes IBAN — {{country}}"
+      },
+      "bic": {
+        "format": "Érvénytelen BIC/SWIFT kód",
+        "countryMismatch": "A BIC kód nem egyezik az IBAN országkódjával"
+      },
+      "holder": {
+        "required": "Adja meg a számlatulajdonos nevét",
+        "mismatch": "A számlatulajdonos neve eltér az igénylőétől",
+        "partial": "A tulajdonos keresztneve eltér az igénylőétől"
+      },
+      "bank": {
+        "countryMismatch": "A megadott bank országa nem egyezik az IBAN-nal",
+        "crossBorder": "A számlavezető bank a lakóhely szerinti országon kívül található",
+        "nonSepa": "A számla a SEPA-övezeten kívül található"
+      },
+      "risk": {
+        "dtiAbove40": "A jövedelemarányos törlesztőrészlet meghaladja a 40%-ot"
+      },
+      "phoneValid": "Érvényes telefonszám",
+      "phoneIncomplete": "Hiányos telefonszám"
     },
     "address": {
       "placeholder": "Kezdje el beírni a címét (világszerte)…",
       "hint": "Válasszon javaslatot, vagy adja meg a címet kézzel.",
       "manual": "Kézi megadás",
       "hideManual": "Részletek elrejtése"
+    },
+    "schedule": {
+      "title": "Törlesztési terv",
+      "period": "Időszak",
+      "number": "Ssz.",
+      "dueDate": "Esedékesség",
+      "payment": "Törlesztőrészlet",
+      "principal": "Tőke",
+      "interest": "Kamat",
+      "insurance": "Biztosítás",
+      "balance": "Fennálló tőketartozás",
+      "total": "Összesen",
+      "export": "Exportálás CSV formátumban"
     }
   },
   "products": {
@@ -1682,6 +1799,181 @@
       "title": "Készen áll projektje finanszírozására?",
       "desc": "Szimuláljon egy perc alatt, igényeljen hat lépésben, és 24 órán belül döntést kap.",
       "button": "Igénylés indítása"
+    }
+  },
+  "validation": {
+    "phone": "Kérjük, adjon meg egy érvényes telefonszámot"
+  },
+  "kyc": {
+    "capture": "Fénykép készítése",
+    "retake": "Újrafelvétel",
+    "chooseDocument": "Válassza ki az okmány típusát",
+    "nothingRequired": "Ebben a szakaszban nincs szükség dokumentumra",
+    "storageNotice": "Dokumentumait titkosítva, zárt környezetben tároljuk, azokhoz kizárólag a megfelelőségi (compliance) csoportunk férhet hozzá.",
+    "intro": {
+      "title": "Személyazonosság igazolása",
+      "why": "Az európai szabályozás értelmében a kifizetés előtt ellenőriznünk kell az Ön személyazonosságát. A folyamat körülbelül három percet vesz igénybe.",
+      "camera": "Kérjük, használja kameráját megfelelő fényviszonyok mellett — fájl feltöltésére is van lehetőség.",
+      "privacy": "Dokumentumait titkosítjuk, és soha nem adjuk át harmadik félnek.",
+      "start": "Ellenőrzés indítása"
+    },
+    "category": {
+      "identity": {
+        "title": "Személyazonosító okmány",
+        "desc": "Útlevél, személyi igazolvány vagy tartózkodási engedély"
+      },
+      "address": {
+        "title": "Lakcímigazolás",
+        "desc": "Három hónapnál nem régebbi"
+      },
+      "selfie": {
+        "title": "Élőhelyesség-ellenőrzés",
+        "desc": "Egy gyors szelfi az okmányával való egyezés igazolásához"
+      },
+      "bank": {
+        "title": "Banki adatok",
+        "desc": "Az IBAN számot tartalmazó bankszámlakivonat"
+      },
+      "income": {
+        "title": "Jövedelemigazolás",
+        "desc": "Az Ön szakmai helyzetétől függően"
+      }
+    },
+    "side": {
+      "front": "Előlap",
+      "back": "Hátlap",
+      "single": "Dokumentum"
+    },
+    "hint": {
+      "scan": "Helyezze az okmányt sík felületre, a kereten belülre, tükröződésmentesen.",
+      "scan_double": "Fényképezze le egymás után mindkét oldalt, ügyelve, hogy mind a négy sarok látható legyen.",
+      "selfie": "Nézzen közvetlenül a kamerába, szemüveg és fejfedő nélkül.",
+      "upload": "Elfogadott formátumok: PDF, JPEG, PNG."
+    },
+    "status": {
+      "todo": "Teendő",
+      "in_progress": "Folyamatban",
+      "capturing": "Hiányos",
+      "verifying": "Ellenőrzés alatt",
+      "passed": "Benyújtva",
+      "failed": "Elutasítva",
+      "retry": "Újrafelvétel",
+      "manual_review": "Felülvizsgálat alatt"
+    },
+    "camera": {
+      "ready": "Kamera készen áll",
+      "start": "Kamera megnyitása",
+      "shoot": "Fénykép készítése",
+      "retake": "Újrafelvétel",
+      "use": "Fénykép felhasználása",
+      "importInstead": "Fájl importálása",
+      "denied": "A kamera nem érhető el, vagy a hozzáférés megtagadva.",
+      "unsupported": "Böngészője nem támogatja a kamerás rögzítést.",
+      "badFormat": "Nem támogatott fájlformátum",
+      "tooLarge": "A fájl mérete meghaladja a {{size}} MB-ot",
+      "quality": {
+        "ok": "Megfelelő minőség — a dokumentum olvasható.",
+        "dark": "A fotó túl sötét: menjen világosabb helyre.",
+        "bright": "A fotó túlexponált: kerülje a közvetlen fényt és a csillogást.",
+        "blurry": "Elmosódott fotó: kérjük, tartsa stabilan a készüléket, és fókuszáljon újra."
+      }
+    },
+    "stepOf": "{{current}} / {{total}} lépés",
+    "finish": "Befejezés",
+    "done": {
+      "title": "Ellenőrzés befejeződött",
+      "desc": "Minden szükséges dokumentum rögzítésre került. A kérelem benyújtása előtt áttekintheti vagy módosíthatja azokat."
+    },
+    "docs": {
+      "bankStatement": "Bankszámlakivonat (utolsó 3 hónap)",
+      "benefits": "Ellátási igazolás",
+      "drivingLicence": "Vezetői engedély",
+      "electricity": "Villanyszámla",
+      "hosting": "Szállásadói nyilatkozat",
+      "kbis": "Cégkivonat",
+      "nationalId": "Személyazonosító igazolvány",
+      "passport": "Útlevél",
+      "payslip": "Bérjegyzékek (utolsó 3 hónap)",
+      "pension": "Nyugdíjigazolás",
+      "residencePermit": "Tartózkodási engedély",
+      "selfie": "Arcellenőrzés",
+      "taxReturn": "Adóhatósági határozat",
+      "telecom": "Telefon-/internetszámla",
+      "water": "Vízszámla"
+    }
+  },
+  "emails": {
+    "applicationReceived": {
+      "subject": "Megkaptuk a(z) {{reference}} kérelmét",
+      "body": "Üdvözöljük {{firstName}}, megkaptuk a(z) {{reference}} kérelmét. Csapatunk feldolgozza és minden lépésről tájékoztatja."
+    },
+    "documentsMissing": {
+      "subject": "Hiányzó dokumentumok — ügy {{reference}}",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügyből dokumentumok hiányoznak. Töltse fel a biztonságos felületen. {{reason}}"
+    },
+    "infoRequested": {
+      "subject": "További információ — ügy {{reference}}",
+      "body": "Üdvözöljük {{firstName}}, további információra van szükségünk a(z) {{reference}} ügyhöz. {{reason}}"
+    },
+    "approved": {
+      "subject": "A(z) {{reference}} kérelem jóváhagyva",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} kérelmét jóváhagytuk. Az ajánlat a biztonságos felületen lesz elérhető."
+    },
+    "rejected": {
+      "subject": "Döntés a(z) {{reference}} kérelemről",
+      "body": "Üdvözöljük {{firstName}}, az elbírálás után a(z) {{reference}} kérelmet nem tudtuk elfogadni. Indok: {{reason}}"
+    },
+    "offerAvailable": {
+      "subject": "A(z) {{reference}} ajánlata elérhető",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} finanszírozási ajánlata elérhető a biztonságos felületen."
+    },
+    "contractSent": {
+      "subject": "A(z) {{reference}} szerződése kész",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} szerződés aláírásra kész a biztonságos felületen."
+    },
+    "disbursed": {
+      "subject": "Folyósítás megtörtént — ügy {{reference}}",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügy összegét átutaltuk a számlájára."
+    }
+  },
+  "workflow": {
+    "guard": {
+      "kycNotPassed": "KYC checks not passed",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "noInsurance": "No insurance subscribed on this file",
+      "missingPayout": "Payout details missing",
+      "complianceBlocking": "Blocking compliance alert"
+    },
+    "error": {
+      "sameStatus": "The file already has this status",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "forbidden": "Action not allowed"
+    },
+    "confirmTitle": "Confirm the decision",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Internal note",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "requests": {
+      "title": "Information requests",
+      "kind": "Request type",
+      "message": "Message sent to the applicant",
+      "create": "Send request",
+      "none": "No information request.",
+      "close": "Close",
+      "open": "Pending",
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "kinds": {
+        "missing_document": "Hiányzó dokumentum",
+        "replace_document": "Dokumentum cseréje",
+        "information": "További információ",
+        "justification": "Indoklás kérése"
+      }
     }
   }
 }

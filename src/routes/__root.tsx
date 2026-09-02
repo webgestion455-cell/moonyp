@@ -13,7 +13,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { LiveChat } from "@/components/LiveChat";
 import "@/i18n";
 import i18n, { applyDetectedLanguage, LANG_STORAGE_KEY } from "@/i18n";
-import { isSupportedLang } from "@/lib/lang-url";
+import { applyLang, isSupportedLang, normalizeLang } from "@/lib/lang-url";
 
 
 import appCss from "../styles.css?url";
@@ -119,17 +119,26 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   const location = useLocation();
   const pathname = location.pathname;
+  const routeLang = normalizeLang(pathname.split("/")[1]);
+
+  // Chemin sans préfixe de langue (/de/secure/... → /secure/...)
+  const basePath = routeLang ? pathname.slice(routeLang.length + 1) || "/" : pathname;
 
   // Staff area and the secure applicant portal render their own chrome.
   const hideLayout =
-    pathname.startsWith("/admin") ||
-    pathname.startsWith("/auth") ||
-    pathname.startsWith("/secure") ||
-    pathname === "/staff-invite" ||
-    pathname === "/reset-password";
+    basePath.startsWith("/admin") ||
+    basePath.startsWith("/auth") ||
+    basePath.startsWith("/secure") ||
+    basePath === "/staff-invite" ||
+    basePath === "/reset-password";
 
   // Détection de langue appliquée après hydratation (SSR déterministe en "en").
   useEffect(() => {
+    if (routeLang) {
+      document.documentElement.lang = routeLang;
+      return;
+    }
+
     // /fr, /de/simulation… redirigent vers /?lang=xx : on applique puis on nettoie l'URL.
     try {
       const url = new URL(window.location.href);
@@ -150,7 +159,7 @@ function RootComponent() {
     requestAnimationFrame(() => {
       document.documentElement.lang = (i18n.resolvedLanguage ?? "en").split("-")[0]!;
     });
-  }, []);
+  }, [routeLang, pathname]);
 
   useEffect(() => {
 

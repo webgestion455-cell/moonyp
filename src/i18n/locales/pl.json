@@ -42,7 +42,9 @@
     "notFound": "Nie znaleziono strony",
     "notFoundDesc": "Szukana strona nie istnieje.",
     "backHome": "Wróć do strony głównej",
-    "errorRetry": "Spróbuj ponownie"
+    "errorRetry": "Spróbuj ponownie",
+    "noResults": "Brak wyników",
+    "continue": "Kontynuuj"
   },
   "header": {
     "myLoans": "Moje kredyty",
@@ -1314,7 +1316,9 @@
       "joined": "dołączył do rozmowy",
       "joinedYou": "Dołączyłeś do rozmowy",
       "notAssigned": "Brak przypisanego agenta",
-      "join": "Dołącz"
+      "join": "Dołącz",
+      "defaultName": "Doradca",
+      "brandName": "Doradca MOONYP"
     },
     "status": {
       "online": "Online",
@@ -1388,7 +1392,14 @@
       "empty": "Brak rozmów.",
       "back": "Wstecz",
       "one": "Rozmowa"
-    }
+    },
+    "system": "System",
+    "closedNotice": "Rozmowa zamknięta.",
+    "joinedNotice": "{{name}} dołączył do rozmowy.",
+    "sendError": "Wysyłanie nie powiodło się",
+    "genericError": "Wystąpił błąd",
+    "agentTitle": "Specjalista obsługi klienta",
+    "you": "Ty"
   },
   "adminDash": {
     "title": "Panel kontrolny — MOONYP",
@@ -1434,7 +1445,14 @@
       "balance": "Pozostały kapitał",
       "showSchedule": "Pokaż harmonogram spłat",
       "hideSchedule": "Ukryj harmonogram",
-      "disclaimer": "Ta symulacja ma charakter informacyjny i nie stanowi oferty kredytowej. Ostateczne warunki zależą od analizy wniosku."
+      "disclaimer": "Ta symulacja ma charakter informacyjny i nie stanowi oferty kredytowej. Ostateczne warunki zależą od analizy wniosku.",
+      "instalment": "Rata miesięczna",
+      "perMonth": "/mies.",
+      "aprLabel": "RRSO",
+      "monthsShort": "mies.",
+      "rateFrom": "od {{rate}}%",
+      "range": "Od {{min}} do {{max}}",
+      "legalNotice": "Zaciągnięcie kredytu wiąże się z obowiązkiem jego spłaty. Przed podjęciem zobowiązania należy ocenić swoją zdolność do spłaty."
     },
     "simPage": {
       "metaTitle": "Kalkulator kredytowy — MOONYP",
@@ -1487,7 +1505,14 @@
         "payout": "Wypłata",
         "documents": "Dokumenty",
         "review": "Podsumowanie"
-      }
+      },
+      "stepOf": "Krok {{current}} z {{total}}",
+      "uploading": "Przesyłanie dokumentów ({{done}}/{{total}})",
+      "holderHint": "Musi być zgodne z imieniem i nazwiskiem wnioskodawcy",
+      "reviewFlag": "Ten punkt zostanie zweryfikowany ręcznie",
+      "reviewTitle": "Twoja rata",
+      "dti": "Wskaźnik zadłużenia do dochodu (DTI)",
+      "finalNotice": "Przesyłając wniosek, potwierdzasz, że podane informacje są prawdziwe. Twój wniosek zostanie przeanalizowany przez nasz zespół kredytowy; bezpieczny link do śledzenia statusu zostanie wysłany e-mailem."
     },
     "fields": {
       "firstName": "Imię",
@@ -1513,7 +1538,12 @@
       "bankName": "Bank",
       "iban": "IBAN",
       "bic": "BIC / SWIFT",
-      "choose": "Wybierz…"
+      "choose": "Wybierz…",
+      "chooseCountry": "Wybierz kraj",
+      "searchCountry": "Wyszukaj kraj",
+      "phoneCountry": "Kod kraju",
+      "addressPlaceholder": "Zacznij wpisywać nazwę ulicy",
+      "addressNoMatch": "Nie znaleziono adresu — wprowadź go ręcznie"
     },
     "employment": {
       "employee": "Pracownik etatowy",
@@ -1543,7 +1573,12 @@
       "repaying": "Spłata w toku",
       "late": "Zaległość",
       "repaid": "Spłacony w całości",
-      "cancelled": "Anulowany"
+      "cancelled": "Anulowany",
+      "unknown": "Status nieznany",
+      "guarantee_sent": "Zabezpieczenie wysłane",
+      "guarantee_signed": "Zabezpieczenie podpisane",
+      "insurance_pending": "Ubezpieczenie oczekuje",
+      "insurance_validated": "Ubezpieczenie zatwierdzone"
     },
     "portal": {
       "metaTitle": "Twój wniosek o finansowanie — MOONYP",
@@ -1554,7 +1589,49 @@
       "status": "Status",
       "timeline": "Historia",
       "invalidTitle": "Link nieważny lub wygasł",
-      "invalidDesc": "Ten bezpieczny link nie jest już ważny. Poproś nasz zespół o nowy."
+      "invalidDesc": "Ten bezpieczny link nie jest już ważny. Poproś nasz zespół o nowy.",
+      "progress": "Postęp wniosku",
+      "submittedOn": "Złożono w dniu",
+      "monthly": "Rata miesięczna",
+      "apr": "RRSO",
+      "product": "Produkt finansowy",
+      "insurance": "Ubezpieczenie kredytobiorcy",
+      "totalCost": "Całkowity koszt kredytu",
+      "interest": "Całkowita kwota odsetek",
+      "fees": "Prowizje i opłaty przygotowawcze",
+      "documents": "Dokumenty potwierdzające",
+      "noDocuments": "Nie otrzymano jeszcze żadnych dokumentów.",
+      "help": "Strona jest aktualizowana w czasie rzeczywistym. Nasz zespół kredytowy będzie kontaktować się drogą mailową na każdym kluczowym etapie. Nigdy nie udostępniaj nikomu tego bezpiecznego linku.",
+      "kyc": {
+        "pending": "Oczekiwanie na weryfikację",
+        "verifying": "Weryfikacja w toku",
+        "passed": "Tożsamość zweryfikowana",
+        "failed": "Weryfikacja nieudana",
+        "manual_review": "Weryfikacja ręczna"
+      },
+      "doc": {
+        "pending": "Oczekujący",
+        "approved": "Zatwierdzony",
+        "rejected": "Odrzucony",
+        "replacement_requested": "Do wymiany"
+      },
+      "requests": {
+        "title": "Wymagane informacje",
+        "desc": "Nasz zespół potrzebuje dodatkowych danych, aby kontynuować analizę.",
+        "none": "Brak oczekujących wniosków.",
+        "open": "Oczekuje",
+        "answered": "Rozpatrzone",
+        "respondLabel": "Twoja odpowiedź",
+        "placeholder": "Wpisz odpowiedź…",
+        "submit": "Wyślij odpowiedź",
+        "success": "Odpowiedź wysłana",
+        "error": "Nie udało się wysłać",
+        "kindMissingDocument": "Brakujący dokument",
+        "kindReplaceDocument": "Wymiana dokumentu",
+        "kindInformation": "Dodatkowa informacja",
+        "kindJustification": "Wymagane uzasadnienie",
+        "answeredAt": "Odpowiedziano"
+      }
     },
     "success": {
       "title": "Twój wniosek został przyjęty",
@@ -1567,13 +1644,53 @@
       "step3": "Oferta, umowa i wypłata po akceptacji"
     },
     "validation": {
-      "required": "To pole jest wymagane."
+      "required": "To pole jest wymagane.",
+      "iban": {
+        "empty": "Wprowadź numer IBAN",
+        "charset": "Ten numer IBAN zawiera nieprawidłowe znaki",
+        "country": "Ten kod kraju nie figuruje w rejestrze IBAN",
+        "length": "Ten numer IBAN ma nieprawidłową długość dla danego kraju",
+        "checksum": "Ten numer IBAN jest nieprawidłowy (błędna suma kontrolna)",
+        "valid": "Prawidłowy IBAN — {{country}}"
+      },
+      "bic": {
+        "format": "Nieprawidłowy kod BIC/SWIFT",
+        "countryMismatch": "Kod BIC nie odpowiada krajowi numeru IBAN"
+      },
+      "holder": {
+        "required": "Wprowadź posiadacza rachunku",
+        "mismatch": "Posiadacz rachunku jest inny niż wnioskodawca",
+        "partial": "Imię posiadacza rachunku różni się od imienia wnioskodawcy"
+      },
+      "bank": {
+        "countryMismatch": "Zadeklarowany kraj banku nie jest zgodny z numerem IBAN",
+        "crossBorder": "Rachunek prowadzony poza krajem zamieszkania",
+        "nonSepa": "Rachunek spoza obszaru SEPA"
+      },
+      "risk": {
+        "dtiAbove40": "Wskaźnik zadłużenia powyżej 40%"
+      },
+      "phoneValid": "Prawidłowy numer",
+      "phoneIncomplete": "Numer niekompletny"
     },
     "address": {
       "placeholder": "Zacznij wpisywać adres (cały świat)…",
       "hint": "Wybierz podpowiedź lub wpisz adres ręcznie.",
       "manual": "Wpisz ręcznie",
       "hideManual": "Ukryj szczegóły"
+    },
+    "schedule": {
+      "title": "Harmonogram spłaty",
+      "period": "Okres",
+      "number": "Nr",
+      "dueDate": "Termin płatności",
+      "payment": "Rata",
+      "principal": "Kapitał",
+      "interest": "Odsetki",
+      "insurance": "Ubezpieczenie",
+      "balance": "Pozostały kapitał",
+      "total": "Suma",
+      "export": "Eksportuj do CSV"
     }
   },
   "products": {
@@ -1682,6 +1799,181 @@
       "title": "Gotowy sfinansować swój projekt?",
       "desc": "Symulacja w minutę, wniosek w sześciu krokach, decyzja w mniej niż 24 godziny.",
       "button": "Rozpocznij wniosek"
+    }
+  },
+  "validation": {
+    "phone": "Wprowadź poprawny numer telefonu"
+  },
+  "kyc": {
+    "capture": "Zrób zdjęcie",
+    "retake": "Ponów zdjęcie",
+    "chooseDocument": "Wybierz dokument",
+    "nothingRequired": "Na tym etapie nie są wymagane żadne dokumenty",
+    "storageNotice": "Twoje dokumenty są szyfrowane, przechowywane w prywatnej przestrzeni i dostępne wyłącznie dla naszego zespołu ds. zgodności (compliance).",
+    "intro": {
+      "title": "Weryfikacja tożsamości",
+      "why": "Zgodnie z europejskimi regulacjami prawnymi, przed wypłatą środków musimy zweryfikować Twoją tożsamość. Proces ten zajmuje około trzech minut.",
+      "camera": "Użyj aparatu przy dobrym oświetleniu — możesz również zaimportować plik z dysku.",
+      "privacy": "Twoje dokumenty są szyfrowane i nigdy nie są udostępniane podmiotom trzecim.",
+      "start": "Rozpocznij weryfikację"
+    },
+    "category": {
+      "identity": {
+        "title": "Dokument tożsamości",
+        "desc": "Paszport, dowód osobisty lub karta pobytu"
+      },
+      "address": {
+        "title": "Potwierdzenie adresu",
+        "desc": "Dokument wystawiony w ciągu ostatnich trzech miesięcy"
+      },
+      "selfie": {
+        "title": "Weryfikacja biometryczna",
+        "desc": "Szybkie zdjęcie typu selfie w celu dopasowania do dokumentu"
+      },
+      "bank": {
+        "title": "Dane bankowe",
+        "desc": "Wyciąg bankowy z widocznym numerem IBAN"
+      },
+      "income": {
+        "title": "Potwierdzenie dochodów",
+        "desc": "Wymagane w zależności od Twojej sytuacji zawodowej"
+      }
+    },
+    "side": {
+      "front": "Przód",
+      "back": "Tył",
+      "single": "Dokument"
+    },
+    "hint": {
+      "scan": "Umieść dokument na płaskiej powierzchni, wewnątrz ramki, unikając odblasków.",
+      "scan_double": "Sfotografuj obie strony po kolei, dbając o widoczność wszystkich czterech rogów.",
+      "selfie": "Patrz prosto w obiektyw, bez nakrycia głowy i okularów przeciwsłonecznych.",
+      "upload": "Akceptowane formaty: PDF, JPEG, PNG."
+    },
+    "status": {
+      "todo": "Do wykonania",
+      "in_progress": "W toku",
+      "capturing": "Niekompletne",
+      "verifying": "Weryfikacja",
+      "passed": "Przekazano",
+      "failed": "Odrzucono",
+      "retry": "Spróbuj ponownie",
+      "manual_review": "W trakcie analizy"
+    },
+    "camera": {
+      "ready": "Aparat gotowy",
+      "start": "Uruchom aparat",
+      "shoot": "Zrób zdjęcie",
+      "retake": "Ponów",
+      "use": "Użyj tego zdjęcia",
+      "importInstead": "Importuj plik",
+      "denied": "Aparat niedostępny lub odmówiono dostępu.",
+      "unsupported": "Twoja przeglądarka nie obsługuje przechwytywania obrazu z aparatu.",
+      "badFormat": "Nieobsługiwany format pliku",
+      "tooLarge": "Plik większy niż {{size}} MB",
+      "quality": {
+        "ok": "Dobra jakość — dokument jest czytelny.",
+        "dark": "Zdjęcie zbyt ciemne: przejdź do jaśniejszego miejsca.",
+        "bright": "Zdjęcie prześwietlone: unikaj bezpośredniego światła i odblasków.",
+        "blurry": "Zdjęcie nieostre: prosimy o ustabilizowanie urządzenia i ponowne ustawienie ostrości."
+      }
+    },
+    "stepOf": "Krok {{current}} z {{total}}",
+    "finish": "Zakończ",
+    "done": {
+      "title": "Weryfikacja zakończona",
+      "desc": "Wszystkie wymagane dokumenty zostały zarejestrowane. Mogą Państwo przejrzeć lub wymienić dowolny z nich przed ostatecznym przesłaniem wniosku."
+    },
+    "docs": {
+      "bankStatement": "Wyciąg bankowy (ostatnie 3 miesiące)",
+      "benefits": "Zaświadczenie o zasiłku",
+      "drivingLicence": "Prawo jazdy",
+      "electricity": "Rachunek za prąd",
+      "hosting": "Poświadczenie zamieszkania",
+      "kbis": "Odpis z rejestru przedsiębiorców",
+      "nationalId": "Dowód osobisty",
+      "passport": "Paszport",
+      "payslip": "Paski wypłat (ostatnie 3 miesiące)",
+      "pension": "Zaświadczenie o emeryturze",
+      "residencePermit": "Karta pobytu",
+      "selfie": "Weryfikacja twarzy",
+      "taxReturn": "Decyzja podatkowa",
+      "telecom": "Rachunek za telefon / internet",
+      "water": "Rachunek za wodę"
+    }
+  },
+  "emails": {
+    "applicationReceived": {
+      "subject": "Otrzymaliśmy Twój wniosek {{reference}}",
+      "body": "Cześć {{firstName}}, otrzymaliśmy Twój wniosek {{reference}}. Nasz zespół go analizuje i będzie informować o każdym etapie."
+    },
+    "documentsMissing": {
+      "subject": "Brakujące dokumenty — sprawa {{reference}}",
+      "body": "Cześć {{firstName}}, w sprawie {{reference}} brakuje dokumentów. Prześlij je w swojej bezpiecznej strefie. {{reason}}"
+    },
+    "infoRequested": {
+      "subject": "Dodatkowe informacje — sprawa {{reference}}",
+      "body": "Cześć {{firstName}}, potrzebujemy dodatkowych informacji do sprawy {{reference}}. {{reason}}"
+    },
+    "approved": {
+      "subject": "Twój wniosek {{reference}} został zatwierdzony",
+      "body": "Cześć {{firstName}}, Twój wniosek {{reference}} został zatwierdzony. Oferta pojawi się w bezpiecznej strefie."
+    },
+    "rejected": {
+      "subject": "Decyzja w sprawie wniosku {{reference}}",
+      "body": "Cześć {{firstName}}, po analizie wniosek {{reference}} nie mógł zostać przyjęty. Powód: {{reason}}"
+    },
+    "offerAvailable": {
+      "subject": "Twoja oferta {{reference}} jest dostępna",
+      "body": "Cześć {{firstName}}, Twoja oferta finansowania {{reference}} jest dostępna w bezpiecznej strefie."
+    },
+    "contractSent": {
+      "subject": "Twoja umowa {{reference}} czeka",
+      "body": "Cześć {{firstName}}, umowa {{reference}} jest gotowa do podpisu w bezpiecznej strefie."
+    },
+    "disbursed": {
+      "subject": "Środki wypłacone — sprawa {{reference}}",
+      "body": "Cześć {{firstName}}, środki ze sprawy {{reference}} zostały przelane na Twoje konto."
+    }
+  },
+  "workflow": {
+    "guard": {
+      "kycNotPassed": "KYC checks not passed",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "noInsurance": "No insurance subscribed on this file",
+      "missingPayout": "Payout details missing",
+      "complianceBlocking": "Blocking compliance alert"
+    },
+    "error": {
+      "sameStatus": "The file already has this status",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "forbidden": "Action not allowed"
+    },
+    "confirmTitle": "Confirm the decision",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Internal note",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "requests": {
+      "title": "Information requests",
+      "kind": "Request type",
+      "message": "Message sent to the applicant",
+      "create": "Send request",
+      "none": "No information request.",
+      "close": "Close",
+      "open": "Pending",
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "kinds": {
+        "missing_document": "Brakujący dokument",
+        "replace_document": "Wymiana dokumentu",
+        "information": "Dodatkowa informacja",
+        "justification": "Wymagane uzasadnienie"
+      }
     }
   }
 }

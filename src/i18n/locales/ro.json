@@ -42,7 +42,9 @@
     "notFound": "Pagina nu a fost găsită",
     "notFoundDesc": "Pagina căutată nu există.",
     "backHome": "Înapoi la pagina principală",
-    "errorRetry": "Reîncearcă"
+    "errorRetry": "Reîncearcă",
+    "noResults": "Niciun rezultat",
+    "continue": "Continuă"
   },
   "header": {
     "myLoans": "Creditele mele",
@@ -1314,7 +1316,9 @@
       "joined": "s-a alăturat conversației",
       "joinedYou": "V-ați alăturat conversației",
       "notAssigned": "Niciun agent atribuit",
-      "join": "Alăturați-vă"
+      "join": "Alăturați-vă",
+      "defaultName": "Consilier",
+      "brandName": "Consilier MOONYP"
     },
     "status": {
       "online": "Online",
@@ -1388,7 +1392,14 @@
       "empty": "Nicio conversație deocamdată.",
       "back": "Înapoi",
       "one": "Conversație"
-    }
+    },
+    "system": "Sistem",
+    "closedNotice": "Conversație închisă.",
+    "joinedNotice": "{{name}} s-a alăturat conversației.",
+    "sendError": "Trimiterea a eșuat",
+    "genericError": "A apărut o eroare",
+    "agentTitle": "Specialist relații clienți",
+    "you": "Tu"
   },
   "adminDash": {
     "title": "Tabloul de bord — MOONYP",
@@ -1434,7 +1445,14 @@
       "balance": "Sold rămas",
       "showSchedule": "Afișează graficul de rambursare",
       "hideSchedule": "Ascunde graficul",
-      "disclaimer": "Această simulare este orientativă și nu constituie o ofertă de creditare. Condițiile finale depind de analiza dosarului."
+      "disclaimer": "Această simulare este orientativă și nu constituie o ofertă de creditare. Condițiile finale depind de analiza dosarului.",
+      "instalment": "Rată lunară",
+      "perMonth": "/lună",
+      "aprLabel": "DAE",
+      "monthsShort": "luni",
+      "rateFrom": "de la {{rate}}%",
+      "range": "Între {{min}} și {{max}}",
+      "legalNotice": "Un împrumut vă angajează și trebuie rambursat. Verificați capacitatea de rambursare înainte de a vă lua un angajament."
     },
     "simPage": {
       "metaTitle": "Simulator de credit — MOONYP",
@@ -1487,7 +1505,14 @@
         "payout": "Plată",
         "documents": "Documente",
         "review": "Recapitulare"
-      }
+      },
+      "stepOf": "Pasul {{current}} din {{total}}",
+      "uploading": "Se transmit documentele ({{done}}/{{total}})",
+      "holderHint": "Trebuie să corespundă numelui solicitantului",
+      "reviewFlag": "Acest punct va fi verificat manual",
+      "reviewTitle": "Rata dumneavoastră",
+      "dti": "Gradul de îndatorare",
+      "finalNotice": "Prin trimitere, confirmați că informațiile sunt corecte. Dosarul dumneavoastră este analizat de echipa noastră de creditare; un link securizat vă va fi trimis prin e-mail pentru a urmări fiecare etapă."
     },
     "fields": {
       "firstName": "Prenume",
@@ -1513,7 +1538,12 @@
       "bankName": "Bancă",
       "iban": "IBAN",
       "bic": "BIC / SWIFT",
-      "choose": "Selectați…"
+      "choose": "Selectați…",
+      "chooseCountry": "Selectați o țară",
+      "searchCountry": "Căutați o țară",
+      "phoneCountry": "Prefix de țară",
+      "addressPlaceholder": "Începeți să tastați strada",
+      "addressNoMatch": "Nicio adresă găsită — introduceți-o manual"
     },
     "employment": {
       "employee": "Salariat",
@@ -1543,7 +1573,12 @@
       "repaying": "Rambursare în curs",
       "late": "Restanță",
       "repaid": "Rambursat integral",
-      "cancelled": "Anulată"
+      "cancelled": "Anulată",
+      "unknown": "Stare necunoscută",
+      "guarantee_sent": "Garanție trimisă",
+      "guarantee_signed": "Garanție semnată",
+      "insurance_pending": "Asigurare în așteptare",
+      "insurance_validated": "Asigurare validată"
     },
     "portal": {
       "metaTitle": "Dosarul dvs. de finanțare — MOONYP",
@@ -1554,7 +1589,49 @@
       "status": "Stare",
       "timeline": "Istoric",
       "invalidTitle": "Link invalid sau expirat",
-      "invalidDesc": "Acest link securizat nu mai este valabil. Solicitați unul nou echipei noastre."
+      "invalidDesc": "Acest link securizat nu mai este valabil. Solicitați unul nou echipei noastre.",
+      "progress": "Progresul dosarului",
+      "submittedOn": "Depus la data de",
+      "monthly": "Rată lunară",
+      "apr": "DAE",
+      "product": "Produs financiar",
+      "insurance": "Asigurare de credit",
+      "totalCost": "Costul total al creditului",
+      "interest": "Dobândă totală",
+      "fees": "Comisioane de analiză",
+      "documents": "Documente justificative",
+      "noDocuments": "Niciun document nu a fost primit încă.",
+      "help": "Această pagină este actualizată în timp real. Echipa noastră de creditare vă contactează prin e-mail la fiecare etapă cheie. Nu partajați niciodată acest link securizat cu nimeni.",
+      "kyc": {
+        "pending": "Verificare în așteptare",
+        "verifying": "Verificare în curs",
+        "passed": "Identitate verificată",
+        "failed": "Verificarea a eșuat",
+        "manual_review": "Analiză manuală"
+      },
+      "doc": {
+        "pending": "În așteptare",
+        "approved": "Aprobat",
+        "rejected": "Respins",
+        "replacement_requested": "Necesită înlocuire"
+      },
+      "requests": {
+        "title": "Informații solicitate",
+        "desc": "Echipa noastră are nevoie de detalii suplimentare pentru a continua analiza.",
+        "none": "Nicio solicitare în curs.",
+        "open": "În așteptare",
+        "answered": "Soluționată",
+        "respondLabel": "Răspunsul dvs.",
+        "placeholder": "Scrieți răspunsul…",
+        "submit": "Trimite răspunsul",
+        "success": "Răspuns trimis",
+        "error": "Trimitere eșuată",
+        "kindMissingDocument": "Document lipsă",
+        "kindReplaceDocument": "Înlocuire document",
+        "kindInformation": "Informație suplimentară",
+        "kindJustification": "Justificare solicitată",
+        "answeredAt": "Răspuns la"
+      }
     },
     "success": {
       "title": "Cererea dvs. a fost primită",
@@ -1567,13 +1644,53 @@
       "step3": "Ofertă, contract și plată după aprobare"
     },
     "validation": {
-      "required": "Acest câmp este obligatoriu."
+      "required": "Acest câmp este obligatoriu.",
+      "iban": {
+        "empty": "Introduceți codul IBAN",
+        "charset": "Acest cod IBAN conține caractere nevalide",
+        "country": "Acest cod de țară nu face parte din registrul IBAN",
+        "length": "Acest cod IBAN are o lungime incorectă pentru țara sa",
+        "checksum": "Acest cod IBAN este nevalid (cifra de control incorectă)",
+        "valid": "IBAN valid — {{country}}"
+      },
+      "bic": {
+        "format": "Cod BIC/SWIFT nevalid",
+        "countryMismatch": "Codul BIC nu corespunde cu țara codului IBAN"
+      },
+      "holder": {
+        "required": "Introduceți titularul contului",
+        "mismatch": "Titularul contului este diferit de solicitant",
+        "partial": "Prenumele titularului diferă de cel al solicitantului"
+      },
+      "bank": {
+        "countryMismatch": "Țara băncii declarate nu corespunde cu IBAN-ul",
+        "crossBorder": "Cont deschis în afara țării dumneavoastră de reședință",
+        "nonSepa": "Cont în afara zonei SEPA"
+      },
+      "risk": {
+        "dtiAbove40": "Grad de îndatorare de peste 40%"
+      },
+      "phoneValid": "Număr valid",
+      "phoneIncomplete": "Număr incomplet"
     },
     "address": {
       "placeholder": "Introduceți adresa (din întreaga lume)…",
       "hint": "Alegeți o sugestie sau introduceți adresa manual.",
       "manual": "Introducere manuală",
       "hideManual": "Ascunde detaliile"
+    },
+    "schedule": {
+      "title": "Scadențar de plată",
+      "period": "Perioadă",
+      "number": "Nr.",
+      "dueDate": "Data scadenței",
+      "payment": "Rată",
+      "principal": "Principal",
+      "interest": "Dobândă",
+      "insurance": "Asigurare",
+      "balance": "Sold de capital",
+      "total": "Total",
+      "export": "Exportă CSV"
     }
   },
   "products": {
@@ -1682,6 +1799,181 @@
       "title": "Pregătit să vă finanțați proiectul?",
       "desc": "Simulați într-un minut, depuneți cererea în șase pași și primiți o decizie în mai puțin de 24 de ore.",
       "button": "Începe cererea"
+    }
+  },
+  "validation": {
+    "phone": "Introduceți un număr de telefon valid"
+  },
+  "kyc": {
+    "capture": "Fotografiază",
+    "retake": "Refă fotografia",
+    "chooseDocument": "Selectați tipul de document",
+    "nothingRequired": "Nu este necesar niciun document în această etapă",
+    "storageNotice": "Documentele dumneavoastră sunt criptate, stocate într-un spațiu privat și accesibile exclusiv echipei noastre de conformitate.",
+    "intro": {
+      "title": "Verificarea identității",
+      "why": "Reglementările europene ne obligă să vă verificăm identitatea înainte de a elibera orice fonduri. Procesul durează aproximativ trei minute.",
+      "camera": "Utilizați camera foto într-un spațiu bine iluminat — puteți, de asemenea, să importați un fișier.",
+      "privacy": "Documentele dumneavoastră sunt criptate și nu sunt niciodată partajate cu terți.",
+      "start": "Începe verificarea"
+    },
+    "category": {
+      "identity": {
+        "title": "Document de identitate",
+        "desc": "Pașaport, carte de identitate sau permis de ședere"
+      },
+      "address": {
+        "title": "Dovadă de adresă",
+        "desc": "Mai recentă de trei luni"
+      },
+      "selfie": {
+        "title": "Verificare biometrică",
+        "desc": "Un selfie rapid pentru confirmarea documentului"
+      },
+      "bank": {
+        "title": "Detalii bancare",
+        "desc": "Extras de cont care să conțină codul IBAN"
+      },
+      "income": {
+        "title": "Dovadă de venit",
+        "desc": "În funcție de situația dumneavoastră profesională"
+      }
+    },
+    "side": {
+      "front": "Față",
+      "back": "Verso",
+      "single": "Document"
+    },
+    "hint": {
+      "scan": "Așezați documentul pe o suprafață plană, complet în interiorul cadrului, fără reflexii.",
+      "scan_double": "Fotografiați ambele fețe succesiv, asigurându-vă că toate cele patru colțuri sunt vizibile.",
+      "selfie": "Priviți direct spre cameră, fără pălărie sau ochelari de soare.",
+      "upload": "Formate acceptate: PDF, JPEG, PNG."
+    },
+    "status": {
+      "todo": "De efectuat",
+      "in_progress": "În curs",
+      "capturing": "Incomplet",
+      "verifying": "În curs de verificare",
+      "passed": "Furnizat",
+      "failed": "Respins",
+      "retry": "Reîncearcă",
+      "manual_review": "În curs de revizuire"
+    },
+    "camera": {
+      "ready": "Cameră pregătită",
+      "start": "Deschide camera",
+      "shoot": "Fă fotografia",
+      "retake": "Refă",
+      "use": "Utilizează această fotografie",
+      "importInstead": "Importă un fișier",
+      "denied": "Camera este indisponibilă sau accesul a fost refuzat.",
+      "unsupported": "Browserul dumneavoastră nu acceptă captura foto.",
+      "badFormat": "Format de fișier neacceptat",
+      "tooLarge": "Fișierul depășește {{size}} MB",
+      "quality": {
+        "ok": "Calitate bună — documentul este lizibil.",
+        "dark": "Fotografie prea întunecată: mutați-vă într-un loc mai bine iluminat.",
+        "bright": "Fotografie supraexpusă: evitați lumina directă și reflexiile.",
+        "blurry": "Fotografie neclară: mențineți dispozitivul fix și focalizați din nou."
+      }
+    },
+    "stepOf": "Pasul {{current}} din {{total}}",
+    "finish": "Finalizare",
+    "done": {
+      "title": "Verificare finalizată",
+      "desc": "Toate documentele necesare au fost capturate. Puteți revizui sau înlocui oricare dintre acestea înainte de a transmite solicitarea dumneavoastră."
+    },
+    "docs": {
+      "bankStatement": "Extras de cont (ultimele 3 luni)",
+      "benefits": "Adeverință de indemnizație",
+      "drivingLicence": "Permis de conducere",
+      "electricity": "Factură de electricitate",
+      "hosting": "Declarație de găzduire",
+      "kbis": "Certificat constatator ONRC",
+      "nationalId": "Carte de identitate",
+      "passport": "Pașaport",
+      "payslip": "Fluturași de salariu (ultimele 3 luni)",
+      "pension": "Adeverință de pensie",
+      "residencePermit": "Permis de ședere",
+      "selfie": "Verificarea feței",
+      "taxReturn": "Decizie de impunere",
+      "telecom": "Factură telefon / internet",
+      "water": "Factură de apă"
+    }
+  },
+  "emails": {
+    "applicationReceived": {
+      "subject": "Am primit cererea dvs. {{reference}}",
+      "body": "Bună {{firstName}}, am primit cererea {{reference}}. Echipa noastră o analizează și vă va informa la fiecare etapă."
+    },
+    "documentsMissing": {
+      "subject": "Documente lipsă — dosar {{reference}}",
+      "body": "Bună {{firstName}}, lipsesc documente din dosarul {{reference}}. Încărcați-le din spațiul securizat. {{reason}}"
+    },
+    "infoRequested": {
+      "subject": "Informații suplimentare — dosar {{reference}}",
+      "body": "Bună {{firstName}}, avem nevoie de informații suplimentare pentru dosarul {{reference}}. {{reason}}"
+    },
+    "approved": {
+      "subject": "Cererea {{reference}} a fost aprobată",
+      "body": "Bună {{firstName}}, cererea {{reference}} a fost aprobată. Oferta va fi disponibilă în spațiul securizat."
+    },
+    "rejected": {
+      "subject": "Decizie privind cererea {{reference}}",
+      "body": "Bună {{firstName}}, în urma analizei, cererea {{reference}} nu a putut fi acceptată. Motiv: {{reason}}"
+    },
+    "offerAvailable": {
+      "subject": "Oferta {{reference}} este disponibilă",
+      "body": "Bună {{firstName}}, oferta dvs. de finanțare {{reference}} este disponibilă în spațiul securizat."
+    },
+    "contractSent": {
+      "subject": "Contractul {{reference}} vă așteaptă",
+      "body": "Bună {{firstName}}, contractul {{reference}} este gata de semnat în spațiul securizat."
+    },
+    "disbursed": {
+      "subject": "Fonduri virate — dosar {{reference}}",
+      "body": "Bună {{firstName}}, fondurile dosarului {{reference}} au fost virate în contul dvs."
+    }
+  },
+  "workflow": {
+    "guard": {
+      "kycNotPassed": "KYC checks not passed",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "noInsurance": "No insurance subscribed on this file",
+      "missingPayout": "Payout details missing",
+      "complianceBlocking": "Blocking compliance alert"
+    },
+    "error": {
+      "sameStatus": "The file already has this status",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "forbidden": "Action not allowed"
+    },
+    "confirmTitle": "Confirm the decision",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Internal note",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "requests": {
+      "title": "Information requests",
+      "kind": "Request type",
+      "message": "Message sent to the applicant",
+      "create": "Send request",
+      "none": "No information request.",
+      "close": "Close",
+      "open": "Pending",
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "kinds": {
+        "missing_document": "Document lipsă",
+        "replace_document": "Înlocuire document",
+        "information": "Informație suplimentară",
+        "justification": "Justificare solicitată"
+      }
     }
   }
 }

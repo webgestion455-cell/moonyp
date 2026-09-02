@@ -42,7 +42,9 @@
     "notFound": "Stranica nije pronađena",
     "notFoundDesc": "Tražena stranica ne postoji.",
     "backHome": "Natrag na početnu",
-    "errorRetry": "Pokušaj ponovno"
+    "errorRetry": "Pokušaj ponovno",
+    "noResults": "Nema rezultata",
+    "continue": "Nastavi"
   },
   "header": {
     "myLoans": "Moji krediti",
@@ -1314,7 +1316,9 @@
       "joined": "pridružio se razgovoru",
       "joinedYou": "Pridružili ste se razgovoru",
       "notAssigned": "Nema dodijeljenog agenta",
-      "join": "Pridruži se"
+      "join": "Pridruži se",
+      "defaultName": "Savjetnik",
+      "brandName": "Savjetnik MOONYP"
     },
     "status": {
       "online": "Online",
@@ -1388,7 +1392,14 @@
       "empty": "Još nema razgovora.",
       "back": "Natrag",
       "one": "Razgovor"
-    }
+    },
+    "system": "Sustav",
+    "closedNotice": "Razgovor je zatvoren.",
+    "joinedNotice": "{{name}} se pridružio razgovoru.",
+    "sendError": "Slanje nije uspjelo",
+    "genericError": "Došlo je do pogreške",
+    "agentTitle": "Stručnjak za korisničku podršku",
+    "you": "Vi"
   },
   "adminDash": {
     "title": "Nadzorna ploča — MOONYP",
@@ -1434,7 +1445,14 @@
       "balance": "Preostala glavnica",
       "showSchedule": "Prikaži otplatni plan",
       "hideSchedule": "Sakrij plan",
-      "disclaimer": "Ovaj izračun je informativan i ne predstavlja ponudu kredita. Konačni uvjeti ovise o obradi zahtjeva."
+      "disclaimer": "Ovaj izračun je informativan i ne predstavlja ponudu kredita. Konačni uvjeti ovise o obradi zahtjeva.",
+      "instalment": "Mjesečni obrok",
+      "perMonth": "/mj.",
+      "aprLabel": "EKS",
+      "monthsShort": "mj.",
+      "rateFrom": "od {{rate}}%",
+      "range": "Između {{min}} i {{max}}",
+      "legalNotice": "Zaduživanje podrazumijeva obvezu otplate. Provjerite svoju kreditnu sposobnost prije preuzimanja obveze."
     },
     "simPage": {
       "metaTitle": "Kreditni kalkulator — MOONYP",
@@ -1487,7 +1505,14 @@
         "payout": "Isplata",
         "documents": "Dokumenti",
         "review": "Sažetak"
-      }
+      },
+      "stepOf": "Korak {{current}} od {{total}}",
+      "uploading": "Slanje dokumentacije ({{done}}/{{total}})",
+      "holderHint": "Mora odgovarati imenu podnositelja zahtjeva",
+      "reviewFlag": "Ova stavka bit će ručno provjerena",
+      "reviewTitle": "Vaš obrok",
+      "dti": "Omjer duga i dohotka",
+      "finalNotice": "Podnošenjem zahtjeva potvrđujete točnost podataka. Vašu dokumentaciju analizira naš kreditni odjel; sigurna poveznica za praćenje svakog koraka bit će vam dostavljena e-poštom."
     },
     "fields": {
       "firstName": "Ime",
@@ -1513,7 +1538,12 @@
       "bankName": "Banka",
       "iban": "IBAN",
       "bic": "BIC / SWIFT",
-      "choose": "Odaberite…"
+      "choose": "Odaberite…",
+      "chooseCountry": "Odaberite državu",
+      "searchCountry": "Pretražite državu",
+      "phoneCountry": "Pozivni broj države",
+      "addressPlaceholder": "Počnite upisivati svoju ulicu",
+      "addressNoMatch": "Adresa nije pronađena — unesite je ručno"
     },
     "employment": {
       "employee": "Zaposlenik",
@@ -1543,7 +1573,12 @@
       "repaying": "Otplata u tijeku",
       "late": "U kašnjenju",
       "repaid": "U cijelosti otplaćeno",
-      "cancelled": "Otkazano"
+      "cancelled": "Otkazano",
+      "unknown": "Nepoznat status",
+      "guarantee_sent": "Jamstvo poslano",
+      "guarantee_signed": "Jamstvo potpisano",
+      "insurance_pending": "Osiguranje na čekanju",
+      "insurance_validated": "Osiguranje potvrđeno"
     },
     "portal": {
       "metaTitle": "Vaš predmet financiranja — MOONYP",
@@ -1554,7 +1589,49 @@
       "status": "Status",
       "timeline": "Povijest",
       "invalidTitle": "Poveznica nije važeća ili je istekla",
-      "invalidDesc": "Ova sigurna poveznica više nije važeća. Zatražite novu od našeg tima."
+      "invalidDesc": "Ova sigurna poveznica više nije važeća. Zatražite novu od našeg tima.",
+      "progress": "Napredak obrade",
+      "submittedOn": "Podneseno dana",
+      "monthly": "Mjesečni obrok",
+      "apr": "EKS",
+      "product": "Financijski proizvod",
+      "insurance": "Osiguranje korisnika kredita",
+      "totalCost": "Ukupni trošak kredita",
+      "interest": "Ukupna kamata",
+      "fees": "Naknade za obradu",
+      "documents": "Prateća dokumentacija",
+      "noDocuments": "Niti jedan dokument još nije zaprimljen.",
+      "help": "Ova se stranica ažurira u stvarnom vremenu. Naš kreditni odjel kontaktirat će vas e-poštom u svakoj ključnoj fazi. Nikada ne dijelite ovu sigurnu poveznicu s drugima.",
+      "kyc": {
+        "pending": "Provjera na čekanju",
+        "verifying": "Provjera u tijeku",
+        "passed": "Identitet potvrđen",
+        "failed": "Provjera nije uspjela",
+        "manual_review": "Ručni pregled"
+      },
+      "doc": {
+        "pending": "Na čekanju",
+        "approved": "Odobreno",
+        "rejected": "Odbijeno",
+        "replacement_requested": "Potrebna zamjena"
+      },
+      "requests": {
+        "title": "Tražene informacije",
+        "desc": "Naš tim treba dodatne podatke za nastavak obrade.",
+        "none": "Nema otvorenih zahtjeva.",
+        "open": "Na čekanju",
+        "answered": "Riješeno",
+        "respondLabel": "Vaš odgovor",
+        "placeholder": "Upišite odgovor…",
+        "submit": "Pošalji odgovor",
+        "success": "Odgovor poslan",
+        "error": "Slanje nije uspjelo",
+        "kindMissingDocument": "Nedostaje dokument",
+        "kindReplaceDocument": "Zamjena dokumenta",
+        "kindInformation": "Dodatna informacija",
+        "kindJustification": "Zatraženo obrazloženje",
+        "answeredAt": "Odgovoreno"
+      }
     },
     "success": {
       "title": "Vaš zahtjev je zaprimljen",
@@ -1567,13 +1644,53 @@
       "step3": "Ponuda, ugovor i isplata nakon odobrenja"
     },
     "validation": {
-      "required": "Ovo polje je obavezno."
+      "required": "Ovo polje je obavezno.",
+      "iban": {
+        "empty": "Unesite svoj IBAN",
+        "charset": "IBAN sadrži nevažeće znakove",
+        "country": "Ovaj kod države nije dio IBAN registra",
+        "length": "Duljina IBAN-a ne odgovara državi",
+        "checksum": "IBAN je nevažeći (pogrešan kontrolni broj)",
+        "valid": "Važeći IBAN — {{country}}"
+      },
+      "bic": {
+        "format": "Nevažeći BIC/SWIFT kod",
+        "countryMismatch": "BIC ne odgovara državi IBAN-a"
+      },
+      "holder": {
+        "required": "Unesite vlasnika računa",
+        "mismatch": "Vlasnik računa se razlikuje od podnositelja zahtjeva",
+        "partial": "Ime vlasnika se razlikuje od podnositelja zahtjeva"
+      },
+      "bank": {
+        "countryMismatch": "Navedena država banke ne odgovara IBAN-u",
+        "crossBorder": "Račun je otvoren izvan vaše države prebivališta",
+        "nonSepa": "Račun je izvan SEPA područja"
+      },
+      "risk": {
+        "dtiAbove40": "Omjer duga veći od 40%"
+      },
+      "phoneValid": "Važeći broj",
+      "phoneIncomplete": "Broj je nepotpun"
     },
     "address": {
       "placeholder": "Upišite svoju adresu (cijeli svijet)…",
       "hint": "Odaberite prijedlog ili unesite adresu ručno.",
       "manual": "Ručni unos",
       "hideManual": "Sakrij detalje"
+    },
+    "schedule": {
+      "title": "Otplatni plan",
+      "period": "Razdoblje",
+      "number": "Br.",
+      "dueDate": "Datum dospijeća",
+      "payment": "Anuitet",
+      "principal": "Glavnica",
+      "interest": "Kamata",
+      "insurance": "Osiguranje",
+      "balance": "Ostatak duga",
+      "total": "Ukupno",
+      "export": "Izvezi u CSV"
     }
   },
   "products": {
@@ -1682,6 +1799,181 @@
       "title": "Spremni financirati svoj projekt?",
       "desc": "Simulirajte u minuti, podnesite zahtjev u šest koraka i dobijte odluku za manje od 24 sata.",
       "button": "Započni zahtjev"
+    }
+  },
+  "validation": {
+    "phone": "Unesite valjan broj telefona"
+  },
+  "kyc": {
+    "capture": "Snimi",
+    "retake": "Ponovi snimanje",
+    "chooseDocument": "Odaberite vrstu dokumenta",
+    "nothingRequired": "U ovoj fazi nije potreban niti jedan dokument",
+    "storageNotice": "Vaši dokumenti su kriptirani, pohranjeni u privatnom prostoru i dostupni isključivo našem odjelu za usklađenost.",
+    "intro": {
+      "title": "Provjera identiteta",
+      "why": "Europska regulativa zahtijeva provjeru vašeg identiteta prije isplate sredstava. Postupak traje oko tri minute.",
+      "camera": "Koristite kameru uz dobro osvjetljenje — možete također uvesti datoteku.",
+      "privacy": "Vaši dokumenti su kriptirani i nikada se ne dijele s trećim stranama.",
+      "start": "Pokreni provjeru"
+    },
+    "category": {
+      "identity": {
+        "title": "Identifikacijski dokument",
+        "desc": "Putovnica, osobna iskaznica ili boravišna dozvola"
+      },
+      "address": {
+        "title": "Dokaz o prebivalištu",
+        "desc": "Ne stariji od tri mjeseca"
+      },
+      "selfie": {
+        "title": "Provjera prisutnosti",
+        "desc": "Brza fotografija lica radi usporedbe s dokumentom"
+      },
+      "bank": {
+        "title": "Bankovni podaci",
+        "desc": "Izvadak na kojem je vidljiv vaš IBAN"
+      },
+      "income": {
+        "title": "Dokaz o prihodima",
+        "desc": "Ovisi o vašem profesionalnom statusu"
+      }
+    },
+    "side": {
+      "front": "Prednja strana",
+      "back": "Poleđina",
+      "single": "Dokument"
+    },
+    "hint": {
+      "scan": "Postavite dokument na ravnu površinu, unutar okvira, bez odsjaja.",
+      "scan_double": "Snimite obje strane jednu za drugom, pazeći da su vidljiva sva četiri kuta.",
+      "selfie": "Gledajte ravno u kameru, bez kape ili sunčanih naočala.",
+      "upload": "Prihvaćeni formati: PDF, JPEG, PNG."
+    },
+    "status": {
+      "todo": "Za izvršiti",
+      "in_progress": "U tijeku",
+      "capturing": "Nepotpuno",
+      "verifying": "Provjera",
+      "passed": "Dostavljeno",
+      "failed": "Odbijeno",
+      "retry": "Pokušaj ponovno",
+      "manual_review": "U fazi pregleda"
+    },
+    "camera": {
+      "ready": "Kamera je spremna",
+      "start": "Otvori kameru",
+      "shoot": "Snimi fotografiju",
+      "retake": "Ponovi",
+      "use": "Koristi ovu fotografiju",
+      "importInstead": "Uvezi datoteku",
+      "denied": "Kamera nije dostupna ili je pristup odbijen.",
+      "unsupported": "Vaš preglednik ne podržava snimanje kamerom.",
+      "badFormat": "Nepodržani format datoteke",
+      "tooLarge": "Datoteka je veća od {{size}} MB",
+      "quality": {
+        "ok": "Dobra kvaliteta — dokument je čitljiv.",
+        "dark": "Fotografija je pretamna: premjestite se na osvjetljenije mjesto.",
+        "bright": "Fotografija je presvijetla: izbjegavajte izravno svjetlo i odsjaj.",
+        "blurry": "Fotografija je mutna: umirite uređaj i ponovno izoštrite."
+      }
+    },
+    "stepOf": "Korak {{current}} od {{total}}",
+    "finish": "Završi",
+    "done": {
+      "title": "Verifikacija završena",
+      "desc": "Svi potrebni dokumenti su uspješno prikupljeni. Možete ih pregledati ili zamijeniti prije podnošenja zahtjeva."
+    },
+    "docs": {
+      "bankStatement": "Bankovni izvod (zadnja 3 mjeseca)",
+      "benefits": "Potvrda o naknadi",
+      "drivingLicence": "Vozačka dozvola",
+      "electricity": "Račun za struju",
+      "hosting": "Potvrda o smještaju",
+      "kbis": "Izvadak iz sudskog registra",
+      "nationalId": "Osobna iskaznica",
+      "passport": "Putovnica",
+      "payslip": "Platne liste (zadnja 3 mjeseca)",
+      "pension": "Potvrda o mirovini",
+      "residencePermit": "Dozvola boravka",
+      "selfie": "Provjera lica",
+      "taxReturn": "Porezno rješenje",
+      "telecom": "Račun za telefon / internet",
+      "water": "Račun za vodu"
+    }
+  },
+  "emails": {
+    "applicationReceived": {
+      "subject": "Zaprimili smo vaš zahtjev {{reference}}",
+      "body": "Pozdrav {{firstName}}, zaprimili smo zahtjev {{reference}}. Naš tim ga obrađuje i obavještavat će vas u svakoj fazi."
+    },
+    "documentsMissing": {
+      "subject": "Nedostaju dokumenti — predmet {{reference}}",
+      "body": "Pozdrav {{firstName}}, u predmetu {{reference}} nedostaju dokumenti. Učitajte ih u sigurnom prostoru. {{reason}}"
+    },
+    "infoRequested": {
+      "subject": "Dodatne informacije — predmet {{reference}}",
+      "body": "Pozdrav {{firstName}}, trebamo dodatne informacije za predmet {{reference}}. {{reason}}"
+    },
+    "approved": {
+      "subject": "Zahtjev {{reference}} je odobren",
+      "body": "Pozdrav {{firstName}}, zahtjev {{reference}} je odobren. Ponuda će biti dostupna u sigurnom prostoru."
+    },
+    "rejected": {
+      "subject": "Odluka o zahtjevu {{reference}}",
+      "body": "Pozdrav {{firstName}}, nakon obrade zahtjev {{reference}} nije prihvaćen. Razlog: {{reason}}"
+    },
+    "offerAvailable": {
+      "subject": "Vaša ponuda {{reference}} je dostupna",
+      "body": "Pozdrav {{firstName}}, ponuda financiranja {{reference}} dostupna je u sigurnom prostoru."
+    },
+    "contractSent": {
+      "subject": "Vaš ugovor {{reference}} je spreman",
+      "body": "Pozdrav {{firstName}}, ugovor {{reference}} spreman je za potpis u sigurnom prostoru."
+    },
+    "disbursed": {
+      "subject": "Sredstva isplaćena — predmet {{reference}}",
+      "body": "Pozdrav {{firstName}}, sredstva predmeta {{reference}} doznačena su na vaš račun."
+    }
+  },
+  "workflow": {
+    "guard": {
+      "kycNotPassed": "KYC checks not passed",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "noInsurance": "No insurance subscribed on this file",
+      "missingPayout": "Payout details missing",
+      "complianceBlocking": "Blocking compliance alert"
+    },
+    "error": {
+      "sameStatus": "The file already has this status",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "forbidden": "Action not allowed"
+    },
+    "confirmTitle": "Confirm the decision",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Internal note",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "requests": {
+      "title": "Information requests",
+      "kind": "Request type",
+      "message": "Message sent to the applicant",
+      "create": "Send request",
+      "none": "No information request.",
+      "close": "Close",
+      "open": "Pending",
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "kinds": {
+        "missing_document": "Nedostaje dokument",
+        "replace_document": "Zamjena dokumenta",
+        "information": "Dodatna informacija",
+        "justification": "Zatraženo obrazloženje"
+      }
     }
   }
 }

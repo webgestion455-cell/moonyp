@@ -4,6 +4,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { clampToStep, formatMoney, quote } from "@/lib/loan-math";
+import { translateOrNull } from "@/lib/document-labels";
 import type { LoanProduct, Quotation } from "@/lib/loan-math";
 
 interface SimulatorProps {
@@ -14,16 +15,20 @@ interface SimulatorProps {
   compact?: boolean;
 }
 
-export function productLabel(p: LoanProduct, t: (k: string) => string): string {
-  if (!p.i18n_key) return p.name;
-  const translated = t(`${p.i18n_key}.name`);
-  return translated === `${p.i18n_key}.name` ? p.name : translated;
+/**
+ * Le catalogue stocke une clé de namespace (ex. `products.personal`) : on ne
+ * traduit JAMAIS cette clé directement (elle pointe sur un objet), mais ses
+ * feuilles `.name` / `.desc`.
+ */
+export function productLabel(p: LoanProduct, t: (k: string, o?: Record<string, unknown>) => unknown): string {
+  return translateOrNull(t, p.i18n_key ? `${p.i18n_key}.name` : null) ?? p.name;
 }
 
-export function productDescription(p: LoanProduct, t: (k: string) => string): string {
-  if (!p.i18n_key) return p.description ?? "";
-  const translated = t(`${p.i18n_key}.desc`);
-  return translated === `${p.i18n_key}.desc` ? (p.description ?? "") : translated;
+export function productDescription(
+  p: LoanProduct,
+  t: (k: string, o?: Record<string, unknown>) => unknown,
+): string {
+  return translateOrNull(t, p.i18n_key ? `${p.i18n_key}.desc` : null) ?? (p.description ?? "");
 }
 
 function monthPresets(p: LoanProduct): number[] {
@@ -135,7 +140,7 @@ export function Simulator({ products, value, onChange, onQuote, compact = false 
 
   if (!product || !result) return null;
 
-  const locale = i18n.resolvedLanguage ?? "fr";
+  const locale = i18n.resolvedLanguage ?? "en";
   const money = (n: number) => formatMoney(n, product.currency, locale);
 
   const setProduct = (id: string) => {

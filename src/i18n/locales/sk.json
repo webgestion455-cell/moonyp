@@ -42,7 +42,9 @@
     "notFound": "Stránka sa nenašla",
     "notFoundDesc": "Hľadaná stránka neexistuje alebo bola presunutá.",
     "backHome": "Späť na domov",
-    "errorRetry": "Skúsiť znova"
+    "errorRetry": "Skúsiť znova",
+    "noResults": "Žiadne výsledky",
+    "continue": "Pokračovať"
   },
   "header": {
     "myLoans": "Moje úvery",
@@ -1314,7 +1316,9 @@
       "joined": "sa pripojil ku konverzácii",
       "joinedYou": "Pripojili ste sa ku konverzácii",
       "notAssigned": "Žiadny priradený agent",
-      "join": "Pripojiť sa"
+      "join": "Pripojiť sa",
+      "defaultName": "Poradca",
+      "brandName": "Poradca MOONYP"
     },
     "status": {
       "online": "Online",
@@ -1388,7 +1392,14 @@
       "empty": "Zatiaľ žiadne konverzácie.",
       "back": "Späť",
       "one": "Konverzácia"
-    }
+    },
+    "system": "Systém",
+    "closedNotice": "Konverzácia je uzavretá.",
+    "joinedNotice": "{{name}} sa pripojil ku konverzácii.",
+    "sendError": "Odoslanie zlyhalo",
+    "genericError": "Vyskytla sa chyba",
+    "agentTitle": "Špecialista zákazníckeho servisu",
+    "you": "Vy"
   },
   "adminDash": {
     "title": "Prístrojová doska — MOONYP",
@@ -1434,7 +1445,14 @@
       "balance": "Zostatok istiny",
       "showSchedule": "Zobraziť splátkový kalendár",
       "hideSchedule": "Skryť kalendár",
-      "disclaimer": "Táto simulácia je len informatívna a nie je ponukou úveru. Konečné podmienky závisia od posúdenia žiadosti."
+      "disclaimer": "Táto simulácia je len informatívna a nie je ponukou úveru. Konečné podmienky závisia od posúdenia žiadosti.",
+      "instalment": "Mesačná splátka",
+      "perMonth": "/mes.",
+      "aprLabel": "RPMN",
+      "monthsShort": "mes.",
+      "rateFrom": "od {{rate}} %",
+      "range": "Medzi {{min}} a {{max}}",
+      "legalNotice": "Pôžička je záväzkom a musí byť splatená. Pred uzavretím zmluvy si preverte svoju schopnosť splácať."
     },
     "simPage": {
       "metaTitle": "Úverová kalkulačka — MOONYP",
@@ -1487,7 +1505,14 @@
         "payout": "Výplata",
         "documents": "Dokumenty",
         "review": "Súhrn"
-      }
+      },
+      "stepOf": "Krok {{current}} z {{total}}",
+      "uploading": "Odosielanie dokumentov ({{done}}/{{total}})",
+      "holderHint": "Musí sa zhodovať s menom žiadateľa",
+      "reviewFlag": "Tento bod bude overený manuálne",
+      "reviewTitle": "Vaša splátka",
+      "dti": "Ukazovateľ dlhovej služby (DTI)",
+      "finalNotice": "Odoslaním potvrdzujete, že uvedené informácie sú správne. Vašu žiadosť analyzuje náš úverový tím; zabezpečený odkaz na sledovanie každého kroku vám bude zaslaný e-mailom."
     },
     "fields": {
       "firstName": "Meno",
@@ -1513,7 +1538,12 @@
       "bankName": "Banka",
       "iban": "IBAN",
       "bic": "BIC / SWIFT",
-      "choose": "Vyberte…"
+      "choose": "Vyberte…",
+      "chooseCountry": "Vyberte krajinu",
+      "searchCountry": "Vyhľadať krajinu",
+      "phoneCountry": "Predvoľba krajiny",
+      "addressPlaceholder": "Začnite písať názov ulice",
+      "addressNoMatch": "Adresa sa nenašla – zadajte ju manuálne"
     },
     "employment": {
       "employee": "Zamestnanec",
@@ -1543,7 +1573,12 @@
       "repaying": "Prebieha splácanie",
       "late": "Po splatnosti",
       "repaid": "Úplne splatené",
-      "cancelled": "Zrušená"
+      "cancelled": "Zrušená",
+      "unknown": "Neznámy stav",
+      "guarantee_sent": "Záruka odoslaná",
+      "guarantee_signed": "Záruka podpísaná",
+      "insurance_pending": "Poistenie čaká",
+      "insurance_validated": "Poistenie schválené"
     },
     "portal": {
       "metaTitle": "Váš úverový spis — MOONYP",
@@ -1554,7 +1589,49 @@
       "status": "Stav",
       "timeline": "História",
       "invalidTitle": "Neplatný alebo expirovaný odkaz",
-      "invalidDesc": "Tento bezpečný odkaz už nie je platný. Požiadajte náš tím o nový."
+      "invalidDesc": "Tento bezpečný odkaz už nie je platný. Požiadajte náš tím o nový.",
+      "progress": "Stav spracovania žiadosti",
+      "submittedOn": "Odoslané dňa",
+      "monthly": "Mesačná splátka",
+      "apr": "RPMN",
+      "product": "Finančný produkt",
+      "insurance": "Poistenie dlžníka",
+      "totalCost": "Celkové náklady na úver",
+      "interest": "Celkový úrok",
+      "fees": "Poplatky za spracovanie",
+      "documents": "Podkladové dokumenty",
+      "noDocuments": "Zatiaľ neboli prijaté žiadne dokumenty.",
+      "help": "Táto stránka je aktualizovaná v reálnom čase. Náš úverový tím vás bude kontaktovať e-mailom pri každom kľúčovom kroku. Tento zabezpečený odkaz nikdy s nikým nezdieľajte.",
+      "kyc": {
+        "pending": "Čaká na overenie",
+        "verifying": "Prebieha overovanie",
+        "passed": "Identita overená",
+        "failed": "Overenie zlyhalo",
+        "manual_review": "Manuálna kontrola"
+      },
+      "doc": {
+        "pending": "Čakajúci",
+        "approved": "Schválený",
+        "rejected": "Zamietnutý",
+        "replacement_requested": "Vyžaduje sa náhrada"
+      },
+      "requests": {
+        "title": "Požadované informácie",
+        "desc": "Náš tím potrebuje ďalšie údaje na pokračovanie posudzovania.",
+        "none": "Žiadna otvorená požiadavka.",
+        "open": "Čaká",
+        "answered": "Vybavené",
+        "respondLabel": "Vaša odpoveď",
+        "placeholder": "Napíšte odpoveď…",
+        "submit": "Odoslať odpoveď",
+        "success": "Odpoveď odoslaná",
+        "error": "Odoslanie zlyhalo",
+        "kindMissingDocument": "Chýbajúci dokument",
+        "kindReplaceDocument": "Výmena dokumentu",
+        "kindInformation": "Doplňujúca informácia",
+        "kindJustification": "Vyžiadané odôvodnenie",
+        "answeredAt": "Odpovedané"
+      }
     },
     "success": {
       "title": "Vaša žiadosť bola prijatá",
@@ -1567,13 +1644,53 @@
       "step3": "Ponuka, zmluva a výplata po schválení"
     },
     "validation": {
-      "required": "Toto pole je povinné."
+      "required": "Toto pole je povinné.",
+      "iban": {
+        "empty": "Zadajte váš IBAN",
+        "charset": "Tento IBAN obsahuje neplatné znaky",
+        "country": "Tento kód krajiny nie je súčasťou registra IBAN",
+        "length": "Tento IBAN má nesprávnu dĺžku pre danú krajinu",
+        "checksum": "Tento IBAN je neplatný (kontrolný súčet zlyhal)",
+        "valid": "Platný IBAN — {{country}}"
+      },
+      "bic": {
+        "format": "Neplatný kód BIC/SWIFT",
+        "countryMismatch": "Kód BIC nezodpovedá krajine IBAN"
+      },
+      "holder": {
+        "required": "Zadajte majiteľa účtu",
+        "mismatch": "Majiteľ účtu sa nezhoduje so žiadateľom",
+        "partial": "Meno majiteľa účtu sa nezhoduje so žiadateľom"
+      },
+      "bank": {
+        "countryMismatch": "Deklarovaná krajina banky nezodpovedá kódu IBAN",
+        "crossBorder": "Účet je vedený mimo vašej krajiny pobytu",
+        "nonSepa": "Účet mimo oblasti SEPA"
+      },
+      "risk": {
+        "dtiAbove40": "Miera zadlženosti nad 40 %"
+      },
+      "phoneValid": "Platné číslo",
+      "phoneIncomplete": "Neúplné číslo"
     },
     "address": {
       "placeholder": "Začnite písať svoju adresu (celý svet)…",
       "hint": "Vyberte návrh alebo zadajte adresu manuálne.",
       "manual": "Zadať manuálne",
       "hideManual": "Skryť podrobnosti"
+    },
+    "schedule": {
+      "title": "Splátkový kalendár",
+      "period": "Obdobie",
+      "number": "Č.",
+      "dueDate": "Dátum splatnosti",
+      "payment": "Splátka",
+      "principal": "Istina",
+      "interest": "Úrok",
+      "insurance": "Poistenie",
+      "balance": "Zostatok istiny",
+      "total": "Celkom",
+      "export": "Exportovať CSV"
     }
   },
   "products": {
@@ -1682,6 +1799,181 @@
       "title": "Pripravení financovať svoj projekt?",
       "desc": "Simulácia za minútu, žiadosť v šiestich krokoch a rozhodnutie do 24 hodín.",
       "button": "Začať žiadosť"
+    }
+  },
+  "validation": {
+    "phone": "Zadajte platné telefónne číslo"
+  },
+  "kyc": {
+    "capture": "Snímať",
+    "retake": "Zopakovať",
+    "chooseDocument": "Vyberte si doklad",
+    "nothingRequired": "V tejto fáze nie sú potrebné žiadne doklady",
+    "storageNotice": "Vaše dokumenty sú šifrované, uložené v súkromnom priestore a prístupné výhradne nášmu oddeleniu kontroly zhody.",
+    "intro": {
+      "title": "Overenie identity",
+      "why": "Európska regulácia vyžaduje, aby sme pred uvoľnením akýchkoľvek prostriedkov overili vašu totožnosť. Trvá to približne tri minúty.",
+      "camera": "Použite fotoaparát pri dobrom osvetlení – môžete tiež importovať súbor.",
+      "privacy": "Vaše dokumenty sú šifrované a nikdy nie sú zdieľané s tretími stranami.",
+      "start": "Začať overovanie"
+    },
+    "category": {
+      "identity": {
+        "title": "Doklad totožnosti",
+        "desc": "Cestovný pas, občiansky preukaz alebo povolenie na pobyt"
+      },
+      "address": {
+        "title": "Doklad o adrese",
+        "desc": "Nie starší ako tri mesiace"
+      },
+      "selfie": {
+        "title": "Overenie živosti",
+        "desc": "Rýchla selfie na porovnanie s vaším dokladom"
+      },
+      "bank": {
+        "title": "Bankové údaje",
+        "desc": "Výpis z účtu s uvedeným IBAN"
+      },
+      "income": {
+        "title": "Doklad o príjme",
+        "desc": "Závisí od vašej pracovnej situácie"
+      }
+    },
+    "side": {
+      "front": "Predná strana",
+      "back": "Zadná strana",
+      "single": "Dokument"
+    },
+    "hint": {
+      "scan": "Umiestnite dokument na rovný povrch, plne do rámu a bez odleskov.",
+      "scan_double": "Nasnímajte obe strany jednu po druhej, so všetkými štyrmi viditeľnými rohmi.",
+      "selfie": "Pozerajte sa priamo do fotoaparátu, bez pokrývky hlavy alebo slnečných okuliarov.",
+      "upload": "Akceptované formáty: PDF, JPEG, PNG."
+    },
+    "status": {
+      "todo": "Na vybavenie",
+      "in_progress": "Prebieha",
+      "capturing": "Neúplné",
+      "verifying": "Kontroluje sa",
+      "passed": "Poskytnuté",
+      "failed": "Odmietnuté",
+      "retry": "Zopakovať",
+      "manual_review": "V procese posudzovania"
+    },
+    "camera": {
+      "ready": "Fotoaparát je pripravený",
+      "start": "Otvoriť fotoaparát",
+      "shoot": "Odfotiť",
+      "retake": "Zopakovať",
+      "use": "Použiť túto fotku",
+      "importInstead": "Importovať súbor",
+      "denied": "Fotoaparát nie je k dispozícii alebo prístup bol zamietnutý.",
+      "unsupported": "Váš prehliadač nepodporuje snímanie cez fotoaparát.",
+      "badFormat": "Nepodporovaný formát súboru",
+      "tooLarge": "Súbor je väčší ako {{size}} MB",
+      "quality": {
+        "ok": "Dobrá kvalita – dokument je čitateľný.",
+        "dark": "Fotografia je príliš tmavá: presuňte sa na svetlejšie miesto.",
+        "bright": "Fotografia je preexponovaná: vyhnite sa priamemu svetlu a odleskom.",
+        "blurry": "Fotografia je rozmazaná: držte zariadenie nehybne a znova zaostrite."
+      }
+    },
+    "stepOf": "Krok {{current}} z {{total}}",
+    "finish": "Dokončiť",
+    "done": {
+      "title": "Overenie dokončené",
+      "desc": "Všetky požadované dokumenty boli nasnímané. Pred odoslaním žiadosti si ich môžete skontrolovať alebo nahradiť."
+    },
+    "docs": {
+      "bankStatement": "Bankový výpis (posledné 3 mesiace)",
+      "benefits": "Potvrdenie o dávkach",
+      "drivingLicence": "Vodičský preukaz",
+      "electricity": "Faktúra za elektrinu",
+      "hosting": "Potvrdenie o ubytovaní",
+      "kbis": "Výpis z obchodného registra",
+      "nationalId": "Občiansky preukaz",
+      "passport": "Cestovný pas",
+      "payslip": "Výplatné pásky (posledné 3 mesiace)",
+      "pension": "Potvrdenie o dôchodku",
+      "residencePermit": "Povolenie na pobyt",
+      "selfie": "Overenie tváre",
+      "taxReturn": "Daňové priznanie",
+      "telecom": "Faktúra za telefón / internet",
+      "water": "Faktúra za vodu"
+    }
+  },
+  "emails": {
+    "applicationReceived": {
+      "subject": "Prijali sme vašu žiadosť {{reference}}",
+      "body": "Dobrý deň {{firstName}}, prijali sme žiadosť {{reference}}. Náš tím ju posudzuje a bude vás informovať v každom kroku."
+    },
+    "documentsMissing": {
+      "subject": "Chýbajúce dokumenty — spis {{reference}}",
+      "body": "Dobrý deň {{firstName}}, v spise {{reference}} chýbajú dokumenty. Nahrajte ich v zabezpečenej zóne. {{reason}}"
+    },
+    "infoRequested": {
+      "subject": "Doplňujúce informácie — spis {{reference}}",
+      "body": "Dobrý deň {{firstName}}, potrebujeme doplňujúce informácie k spisu {{reference}}. {{reason}}"
+    },
+    "approved": {
+      "subject": "Žiadosť {{reference}} bola schválená",
+      "body": "Dobrý deň {{firstName}}, žiadosť {{reference}} bola schválená. Ponuka bude dostupná v zabezpečenej zóne."
+    },
+    "rejected": {
+      "subject": "Rozhodnutie o žiadosti {{reference}}",
+      "body": "Dobrý deň {{firstName}}, po posúdení nebolo možné žiadosť {{reference}} prijať. Dôvod: {{reason}}"
+    },
+    "offerAvailable": {
+      "subject": "Vaša ponuka {{reference}} je dostupná",
+      "body": "Dobrý deň {{firstName}}, ponuka financovania {{reference}} je dostupná v zabezpečenej zóne."
+    },
+    "contractSent": {
+      "subject": "Vaša zmluva {{reference}} je pripravená",
+      "body": "Dobrý deň {{firstName}}, zmluva {{reference}} je pripravená na podpis v zabezpečenej zóne."
+    },
+    "disbursed": {
+      "subject": "Prostriedky vyplatené — spis {{reference}}",
+      "body": "Dobrý deň {{firstName}}, prostriedky spisu {{reference}} boli poukázané na váš účet."
+    }
+  },
+  "workflow": {
+    "guard": {
+      "kycNotPassed": "KYC checks not passed",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "noInsurance": "No insurance subscribed on this file",
+      "missingPayout": "Payout details missing",
+      "complianceBlocking": "Blocking compliance alert"
+    },
+    "error": {
+      "sameStatus": "The file already has this status",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "forbidden": "Action not allowed"
+    },
+    "confirmTitle": "Confirm the decision",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Internal note",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "requests": {
+      "title": "Information requests",
+      "kind": "Request type",
+      "message": "Message sent to the applicant",
+      "create": "Send request",
+      "none": "No information request.",
+      "close": "Close",
+      "open": "Pending",
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "kinds": {
+        "missing_document": "Chýbajúci dokument",
+        "replace_document": "Výmena dokumentu",
+        "information": "Doplňujúca informácia",
+        "justification": "Vyžiadané odôvodnenie"
+      }
     }
   }
 }

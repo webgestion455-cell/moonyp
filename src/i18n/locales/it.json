@@ -42,7 +42,9 @@
     "notFound": "Pagina non trovata",
     "notFoundDesc": "La pagina cercata non esiste o è stata spostata.",
     "backHome": "Torna alla home",
-    "errorRetry": "Riprova"
+    "errorRetry": "Riprova",
+    "noResults": "Nessun risultato",
+    "continue": "Continua"
   },
   "header": {
     "myLoans": "I miei prestiti",
@@ -1314,7 +1316,9 @@
       "joined": "si è unito alla conversazione",
       "joinedYou": "Ti sei unito alla conversazione",
       "notAssigned": "Nessun agente assegnato",
-      "join": "Unisciti"
+      "join": "Unisciti",
+      "defaultName": "Consulente",
+      "brandName": "Consulente MOONYP"
     },
     "status": {
       "online": "Online",
@@ -1388,7 +1392,14 @@
       "empty": "Nessuna conversazione al momento.",
       "back": "Indietro",
       "one": "Conversazione"
-    }
+    },
+    "system": "Sistema",
+    "closedNotice": "Conversazione chiusa.",
+    "joinedNotice": "{{name}} è entrato nella conversazione.",
+    "sendError": "Invio non riuscito",
+    "genericError": "Si è verificato un errore",
+    "agentTitle": "Specialista servizio clienti",
+    "you": "Tu"
   },
   "adminDash": {
     "title": "Cruscotto — MOONYP",
@@ -1434,7 +1445,14 @@
       "balance": "Capitale residuo",
       "showSchedule": "Mostra piano di ammortamento",
       "hideSchedule": "Nascondi piano",
-      "disclaimer": "Questa simulazione è puramente indicativa e non costituisce un'offerta di credito. Le condizioni definitive dipendono dall'esame della domanda."
+      "disclaimer": "Questa simulazione è puramente indicativa e non costituisce un'offerta di credito. Le condizioni definitive dipendono dall'esame della domanda.",
+      "instalment": "Rata mensile",
+      "perMonth": "/mese",
+      "aprLabel": "TAEG",
+      "monthsShort": "mesi",
+      "rateFrom": "da {{rate}}%",
+      "range": "Tra {{min}} e {{max}}",
+      "legalNotice": "Il prestito è un impegno e deve essere rimborsato. Verificate la vostra capacità di rimborso prima di impegnarvi."
     },
     "simPage": {
       "metaTitle": "Simulatore di prestito — MOONYP",
@@ -1487,7 +1505,14 @@
         "payout": "Erogazione",
         "documents": "Documenti",
         "review": "Riepilogo"
-      }
+      },
+      "stepOf": "Passaggio {{current}} di {{total}}",
+      "uploading": "Invio documenti in corso ({{done}}/{{total}})",
+      "holderHint": "Deve corrispondere al nome del richiedente",
+      "reviewFlag": "Questo punto sarà verificato manualmente",
+      "reviewTitle": "La tua rata",
+      "dti": "Rapporto debito-reddito",
+      "finalNotice": "Inviando la richiesta, confermi che le informazioni fornite sono accurate. La tua pratica sarà analizzata dal nostro team crediti; riceverai via email un link sicuro per seguire ogni fase."
     },
     "fields": {
       "firstName": "Nome",
@@ -1513,7 +1538,12 @@
       "bankName": "Banca",
       "iban": "IBAN",
       "bic": "BIC / SWIFT",
-      "choose": "Seleziona…"
+      "choose": "Seleziona…",
+      "chooseCountry": "Seleziona un paese",
+      "searchCountry": "Cerca un paese",
+      "phoneCountry": "Prefisso internazionale",
+      "addressPlaceholder": "Inizia a digitare il tuo indirizzo",
+      "addressNoMatch": "Nessun indirizzo trovato — inseriscilo manualmente"
     },
     "employment": {
       "employee": "Dipendente",
@@ -1543,7 +1573,12 @@
       "repaying": "Rimborso in corso",
       "late": "In ritardo",
       "repaid": "Rimborsato",
-      "cancelled": "Annullata"
+      "cancelled": "Annullata",
+      "unknown": "Stato sconosciuto",
+      "guarantee_sent": "Garanzia inviata",
+      "guarantee_signed": "Garanzia firmata",
+      "insurance_pending": "Assicurazione in attesa",
+      "insurance_validated": "Assicurazione convalidata"
     },
     "portal": {
       "metaTitle": "La tua pratica di finanziamento — MOONYP",
@@ -1554,7 +1589,49 @@
       "status": "Stato",
       "timeline": "Cronologia",
       "invalidTitle": "Link non valido o scaduto",
-      "invalidDesc": "Questo link sicuro non è più valido. Richiedine uno nuovo al nostro team."
+      "invalidDesc": "Questo link sicuro non è più valido. Richiedine uno nuovo al nostro team.",
+      "progress": "Avanzamento pratica",
+      "submittedOn": "Inviata il",
+      "monthly": "Rata mensile",
+      "apr": "TAEG",
+      "product": "Prodotto di finanziamento",
+      "insurance": "Assicurazione mutuatario",
+      "totalCost": "Costo totale del credito",
+      "interest": "Interessi totali",
+      "fees": "Spese d'istruttoria",
+      "documents": "Documenti giustificativi",
+      "noDocuments": "Nessun documento ancora ricevuto.",
+      "help": "Questa pagina è aggiornata in tempo reale. Il nostro team crediti ti contatterà via email ad ogni fase chiave. Non condividere mai questo link sicuro con terzi.",
+      "kyc": {
+        "pending": "Verifica in sospeso",
+        "verifying": "Verifica in corso",
+        "passed": "Identità verificata",
+        "failed": "Verifica fallita",
+        "manual_review": "Revisione manuale"
+      },
+      "doc": {
+        "pending": "In attesa",
+        "approved": "Approvato",
+        "rejected": "Respinto",
+        "replacement_requested": "Da sostituire"
+      },
+      "requests": {
+        "title": "Informazioni richieste",
+        "desc": "Il nostro team necessita di ulteriori elementi per proseguire l'istruttoria.",
+        "none": "Nessuna richiesta in corso.",
+        "open": "In attesa",
+        "answered": "Gestita",
+        "respondLabel": "La tua risposta",
+        "placeholder": "Scrivi la tua risposta…",
+        "submit": "Invia risposta",
+        "success": "Risposta inviata",
+        "error": "Invio non riuscito",
+        "kindMissingDocument": "Documento mancante",
+        "kindReplaceDocument": "Sostituzione documento",
+        "kindInformation": "Informazione aggiuntiva",
+        "kindJustification": "Giustificazione richiesta",
+        "answeredAt": "Risposto il"
+      }
     },
     "success": {
       "title": "La tua domanda è stata ricevuta",
@@ -1567,13 +1644,53 @@
       "step3": "Offerta, contratto ed erogazione dopo l'approvazione"
     },
     "validation": {
-      "required": "Questo campo è obbligatorio."
+      "required": "Questo campo è obbligatorio.",
+      "iban": {
+        "empty": "Inserisci il tuo IBAN",
+        "charset": "Questo IBAN contiene caratteri non validi",
+        "country": "Questo codice paese non fa parte del registro IBAN",
+        "length": "Questo IBAN ha una lunghezza errata per il paese indicato",
+        "checksum": "IBAN non valido (errore checksum)",
+        "valid": "IBAN valido — {{country}}"
+      },
+      "bic": {
+        "format": "Codice BIC/SWIFT non valido",
+        "countryMismatch": "Il BIC non corrisponde al paese dell'IBAN"
+      },
+      "holder": {
+        "required": "Inserisci l'intestatario del conto",
+        "mismatch": "L'intestatario del conto differisce dal richiedente",
+        "partial": "Il nome dell'intestatario differisce dal richiedente"
+      },
+      "bank": {
+        "countryMismatch": "Il paese della banca dichiarato non corrisponde all'IBAN",
+        "crossBorder": "Conto detenuto fuori dal tuo paese di residenza",
+        "nonSepa": "Conto esterno all'area SEPA"
+      },
+      "risk": {
+        "dtiAbove40": "Rapporto di indebitamento superiore al 40%"
+      },
+      "phoneValid": "Numero valido",
+      "phoneIncomplete": "Numero incompleto"
     },
     "address": {
       "placeholder": "Digiti il suo indirizzo (in tutto il mondo)…",
       "hint": "Scelga un suggerimento oppure inserisca l'indirizzo manualmente.",
       "manual": "Inserimento manuale",
       "hideManual": "Nascondi dettagli"
+    },
+    "schedule": {
+      "title": "Piano di ammortamento",
+      "period": "Periodo",
+      "number": "N.",
+      "dueDate": "Scadenza",
+      "payment": "Rata",
+      "principal": "Quota capitale",
+      "interest": "Quota interessi",
+      "insurance": "Assicurazione",
+      "balance": "Debito residuo",
+      "total": "Totale",
+      "export": "Esporta in CSV"
     }
   },
   "products": {
@@ -1682,6 +1799,181 @@
       "title": "Pronto a finanziare il suo progetto?",
       "desc": "Simuli in un minuto, presenti la richiesta in sei passaggi e riceva una decisione in meno di 24 ore.",
       "button": "Inizia la richiesta"
+    }
+  },
+  "validation": {
+    "phone": "Inserire un numero di telefono valido"
+  },
+  "kyc": {
+    "capture": "Scatta",
+    "retake": "Riprova",
+    "chooseDocument": "Scegli il tuo documento",
+    "nothingRequired": "Nessun documento richiesto in questa fase",
+    "storageNotice": "I tuoi documenti sono crittografati, conservati in uno spazio riservato e accessibili esclusivamente al nostro team di conformità.",
+    "intro": {
+      "title": "Verifica dell'identità",
+      "why": "La normativa europea ci impone di verificare la tua identità prima di procedere all'erogazione dei fondi. L'operazione richiede circa tre minuti.",
+      "camera": "Usa la fotocamera in condizioni di buona luminosità — puoi anche importare un file.",
+      "privacy": "I tuoi documenti sono crittografati e non vengono mai condivisi con terze parti.",
+      "start": "Inizia verifica"
+    },
+    "category": {
+      "identity": {
+        "title": "Documento d'identità",
+        "desc": "Passaporto, carta d'identità o permesso di soggiorno"
+      },
+      "address": {
+        "title": "Prova di residenza",
+        "desc": "Documento emesso negli ultimi tre mesi"
+      },
+      "selfie": {
+        "title": "Verifica biometrica",
+        "desc": "Un rapido selfie per il confronto con il documento"
+      },
+      "bank": {
+        "title": "Coordinate bancarie",
+        "desc": "Estratto conto con indicazione dell'IBAN"
+      },
+      "income": {
+        "title": "Documentazione reddituale",
+        "desc": "In base alla tua situazione professionale"
+      }
+    },
+    "side": {
+      "front": "Fronte",
+      "back": "Retro",
+      "single": "Documento"
+    },
+    "hint": {
+      "scan": "Posiziona il documento su una superficie piana, all'interno della cornice e senza riflessi.",
+      "scan_double": "Acquisisci entrambi i lati consecutivamente, rendendo visibili tutti e quattro gli angoli.",
+      "selfie": "Guarda direttamente la fotocamera, senza cappello o occhiali da sole.",
+      "upload": "Formati accettati: PDF, JPEG, PNG."
+    },
+    "status": {
+      "todo": "Da completare",
+      "in_progress": "In corso",
+      "capturing": "Incompleto",
+      "verifying": "Verifica in corso",
+      "passed": "Fornito",
+      "failed": "Rifiutato",
+      "retry": "Riprova",
+      "manual_review": "In fase di revisione"
+    },
+    "camera": {
+      "ready": "Fotocamera pronta",
+      "start": "Apri fotocamera",
+      "shoot": "Scatta la foto",
+      "retake": "Scatta di nuovo",
+      "use": "Usa questa foto",
+      "importInstead": "Importa un file",
+      "denied": "Fotocamera non disponibile o autorizzazione negata.",
+      "unsupported": "Il tuo browser non supporta l'acquisizione tramite fotocamera.",
+      "badFormat": "Formato file non supportato",
+      "tooLarge": "File superiore a {{size}} MB",
+      "quality": {
+        "ok": "Qualità ottimale — il documento è leggibile.",
+        "dark": "Foto troppo scura: spostati in un ambiente più illuminato.",
+        "bright": "Foto sovraesposta: evita luce diretta e riflessi.",
+        "blurry": "Foto sfocata: mantieni la posizione e metti nuovamente a fuoco."
+      }
+    },
+    "stepOf": "Passaggio {{current}} di {{total}}",
+    "finish": "Concludi",
+    "done": {
+      "title": "Verifica completata",
+      "desc": "L'acquisizione di tutti i documenti richiesti è terminata. È possibile esaminare o sostituire i file prima di trasmettere la richiesta."
+    },
+    "docs": {
+      "bankStatement": "Estratto conto (ultimi 3 mesi)",
+      "benefits": "Certificato di sussidio",
+      "drivingLicence": "Patente di guida",
+      "electricity": "Bolletta della luce",
+      "hosting": "Dichiarazione di ospitalità",
+      "kbis": "Visura camerale",
+      "nationalId": "Carta d'identità",
+      "passport": "Passaporto",
+      "payslip": "Buste paga (ultimi 3 mesi)",
+      "pension": "Certificato di pensione",
+      "residencePermit": "Permesso di soggiorno",
+      "selfie": "Verifica del volto",
+      "taxReturn": "Dichiarazione dei redditi",
+      "telecom": "Bolletta telefono / internet",
+      "water": "Bolletta dell'acqua"
+    }
+  },
+  "emails": {
+    "applicationReceived": {
+      "subject": "Abbiamo ricevuto la tua richiesta {{reference}}",
+      "body": "Ciao {{firstName}}, abbiamo ricevuto la tua richiesta {{reference}}. Il nostro team la sta esaminando e ti aggiornerà a ogni fase."
+    },
+    "documentsMissing": {
+      "subject": "Documenti mancanti — pratica {{reference}}",
+      "body": "Ciao {{firstName}}, mancano documenti nella pratica {{reference}}. Caricali dalla tua area sicura. {{reason}}"
+    },
+    "infoRequested": {
+      "subject": "Informazioni aggiuntive — pratica {{reference}}",
+      "body": "Ciao {{firstName}}, servono informazioni aggiuntive per la pratica {{reference}}. {{reason}}"
+    },
+    "approved": {
+      "subject": "La tua richiesta {{reference}} è approvata",
+      "body": "Ciao {{firstName}}, la tua richiesta {{reference}} è approvata. L'offerta sarà disponibile nella tua area sicura."
+    },
+    "rejected": {
+      "subject": "Decisione sulla richiesta {{reference}}",
+      "body": "Ciao {{firstName}}, dopo l'analisi la richiesta {{reference}} non è stata accettata. Motivo: {{reason}}"
+    },
+    "offerAvailable": {
+      "subject": "La tua offerta {{reference}} è disponibile",
+      "body": "Ciao {{firstName}}, la tua offerta di finanziamento {{reference}} è disponibile nella tua area sicura."
+    },
+    "contractSent": {
+      "subject": "Il tuo contratto {{reference}} è pronto",
+      "body": "Ciao {{firstName}}, il contratto {{reference}} è pronto per la firma nella tua area sicura."
+    },
+    "disbursed": {
+      "subject": "Fondi erogati — pratica {{reference}}",
+      "body": "Ciao {{firstName}}, i fondi della pratica {{reference}} sono stati accreditati sul tuo conto."
+    }
+  },
+  "workflow": {
+    "guard": {
+      "kycNotPassed": "KYC checks not passed",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "noInsurance": "No insurance subscribed on this file",
+      "missingPayout": "Payout details missing",
+      "complianceBlocking": "Blocking compliance alert"
+    },
+    "error": {
+      "sameStatus": "The file already has this status",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "forbidden": "Action not allowed"
+    },
+    "confirmTitle": "Confirm the decision",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Internal note",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "requests": {
+      "title": "Information requests",
+      "kind": "Request type",
+      "message": "Message sent to the applicant",
+      "create": "Send request",
+      "none": "No information request.",
+      "close": "Close",
+      "open": "Pending",
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "kinds": {
+        "missing_document": "Documento mancante",
+        "replace_document": "Sostituzione documento",
+        "information": "Informazione aggiuntiva",
+        "justification": "Giustificazione richiesta"
+      }
     }
   }
 }

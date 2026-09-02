@@ -43,7 +43,8 @@
     "notFoundDesc": "The page you're looking for doesn't exist or has been moved.",
     "backHome": "Back to home",
     "errorRetry": "Retry",
-    "noResults": "No results"
+    "noResults": "No results",
+    "continue": "Continue"
   },
   "header": {
     "myLoans": "My loans",
@@ -1315,7 +1316,9 @@
       "joined": "joined the conversation",
       "joinedYou": "You joined the conversation",
       "notAssigned": "No agent assigned",
-      "join": "Join"
+      "join": "Join",
+      "defaultName": "Advisor",
+      "brandName": "MOONYP advisor"
     },
     "status": {
       "online": "Online",
@@ -1389,7 +1392,14 @@
       "empty": "No conversation yet.",
       "back": "Back",
       "one": "Conversation"
-    }
+    },
+    "system": "System",
+    "closedNotice": "Conversation closed.",
+    "joinedNotice": "{{name}} joined the conversation.",
+    "sendError": "Sending failed",
+    "genericError": "An error occurred",
+    "agentTitle": "Customer service specialist",
+    "you": "You"
   },
   "adminDash": {
     "title": "Dashboard — MOONYP",
@@ -1563,7 +1573,12 @@
       "repaying": "Repayment in progress",
       "late": "Late",
       "repaid": "Fully repaid",
-      "cancelled": "Cancelled"
+      "cancelled": "Cancelled",
+      "unknown": "Unknown status",
+      "guarantee_sent": "Guarantee sent",
+      "guarantee_signed": "Guarantee signed",
+      "insurance_pending": "Insurance pending",
+      "insurance_validated": "Insurance validated"
     },
     "portal": {
       "metaTitle": "Your financing file — MOONYP",
@@ -1574,7 +1589,49 @@
       "status": "Status",
       "timeline": "History",
       "invalidTitle": "Link invalid or expired",
-      "invalidDesc": "This secure link is no longer valid. Please request a new one from our support team."
+      "invalidDesc": "This secure link is no longer valid. Please request a new one from our support team.",
+      "progress": "File progress",
+      "submittedOn": "Submitted on",
+      "monthly": "Monthly instalment",
+      "apr": "APRC",
+      "product": "Financing product",
+      "insurance": "Borrower insurance",
+      "totalCost": "Total cost of credit",
+      "interest": "Total interest",
+      "fees": "Arrangement fees",
+      "documents": "Supporting documents",
+      "noDocuments": "No document has been received yet.",
+      "help": "This page is updated in real time. Our credit team contacts you by email at every key step. Never share this secure link with anyone.",
+      "kyc": {
+        "pending": "Verification pending",
+        "verifying": "Verification in progress",
+        "passed": "Identity verified",
+        "failed": "Verification failed",
+        "manual_review": "Manual review"
+      },
+      "doc": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "replacement_requested": "To be replaced"
+      },
+      "requests": {
+        "title": "Requested information",
+        "desc": "Our team needs additional details to continue reviewing your file.",
+        "none": "No pending request.",
+        "open": "Pending",
+        "answered": "Handled",
+        "respondLabel": "Your reply",
+        "placeholder": "Type your reply…",
+        "submit": "Send reply",
+        "success": "Reply sent",
+        "error": "Sending failed",
+        "kindMissingDocument": "Missing document",
+        "kindReplaceDocument": "Document replacement",
+        "kindInformation": "Additional information",
+        "kindJustification": "Justification requested",
+        "answeredAt": "Answered on"
+      }
     },
     "success": {
       "title": "Your application has been received",
@@ -1819,6 +1876,103 @@
         "dark": "Photo too dark: move to a brighter place.",
         "bright": "Photo overexposed: avoid direct light and glare.",
         "blurry": "Photo blurred: hold still and refocus."
+      }
+    },
+    "stepOf": "Step {{current}} of {{total}}",
+    "finish": "Finish",
+    "done": {
+      "title": "Verification complete",
+      "desc": "All required documents have been captured. You can review or replace any of them before submitting your application."
+    },
+    "docs": {
+      "bankStatement": "Bank statement (last 3 months)",
+      "benefits": "Benefits statement",
+      "drivingLicence": "Driving licence",
+      "electricity": "Electricity bill",
+      "hosting": "Proof of accommodation",
+      "kbis": "Company registration extract",
+      "nationalId": "National identity card",
+      "passport": "Passport",
+      "payslip": "Payslips (last 3 months)",
+      "pension": "Pension statement",
+      "residencePermit": "Residence permit",
+      "selfie": "Face verification",
+      "taxReturn": "Tax assessment notice",
+      "telecom": "Phone / internet bill",
+      "water": "Water bill"
+    }
+  },
+  "emails": {
+    "applicationReceived": {
+      "subject": "We received your application {{reference}}",
+      "body": "Hello {{firstName}}, we have received your application {{reference}}. Our team is reviewing it and will keep you posted at every step."
+    },
+    "documentsMissing": {
+      "subject": "Missing documents — file {{reference}}",
+      "body": "Hello {{firstName}}, documents are missing from your file {{reference}}. Please upload them from your secure area. {{reason}}"
+    },
+    "infoRequested": {
+      "subject": "Additional information — file {{reference}}",
+      "body": "Hello {{firstName}}, we need additional information for your file {{reference}}. {{reason}}"
+    },
+    "approved": {
+      "subject": "Your application {{reference}} is approved",
+      "body": "Hello {{firstName}}, your application {{reference}} is approved. Your offer will be available in your secure area."
+    },
+    "rejected": {
+      "subject": "Decision on your application {{reference}}",
+      "body": "Hello {{firstName}}, after review your application {{reference}} could not be accepted. Reason: {{reason}}"
+    },
+    "offerAvailable": {
+      "subject": "Your offer {{reference}} is available",
+      "body": "Hello {{firstName}}, your financing offer {{reference}} is available in your secure area."
+    },
+    "contractSent": {
+      "subject": "Your contract {{reference}} is ready",
+      "body": "Hello {{firstName}}, your contract {{reference}} is ready to sign from your secure area."
+    },
+    "disbursed": {
+      "subject": "Funds released — file {{reference}}",
+      "body": "Hello {{firstName}}, the funds for your file {{reference}} have been transferred to your account."
+    }
+  },
+  "workflow": {
+    "guard": {
+      "kycNotPassed": "KYC checks not passed",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "noInsurance": "No insurance subscribed on this file",
+      "missingPayout": "Payout details missing",
+      "complianceBlocking": "Blocking compliance alert"
+    },
+    "error": {
+      "sameStatus": "The file already has this status",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "forbidden": "Action not allowed"
+    },
+    "confirmTitle": "Confirm the decision",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Internal note",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "requests": {
+      "title": "Information requests",
+      "kind": "Request type",
+      "message": "Message sent to the applicant",
+      "create": "Send request",
+      "none": "No information request.",
+      "close": "Close",
+      "open": "Pending",
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "kinds": {
+        "missing_document": "Missing document",
+        "replace_document": "Document replacement",
+        "information": "Additional information",
+        "justification": "Justification requested"
       }
     }
   }

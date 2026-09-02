@@ -43,7 +43,8 @@
     "notFoundDesc": "La page que vous cherchez n'existe pas ou a été déplacée.",
     "backHome": "Retour à l'accueil",
     "errorRetry": "Réessayer",
-    "noResults": "Aucun résultat"
+    "noResults": "Aucun résultat",
+    "continue": "Continuer"
   },
   "header": {
     "myLoans": "Mes prêts",
@@ -1315,7 +1316,9 @@
       "joined": "a rejoint la conversation",
       "joinedYou": "Vous avez rejoint la conversation",
       "notAssigned": "Aucun agent assigné",
-      "join": "Rejoindre"
+      "join": "Rejoindre",
+      "defaultName": "Conseiller",
+      "brandName": "Conseiller MOONYP"
     },
     "status": {
       "online": "En ligne",
@@ -1389,7 +1392,14 @@
       "empty": "Aucune conversation pour le moment.",
       "back": "Retour",
       "one": "Conversation"
-    }
+    },
+    "system": "Système",
+    "closedNotice": "Conversation fermée.",
+    "joinedNotice": "{{name}} a rejoint la conversation.",
+    "sendError": "Erreur d'envoi",
+    "genericError": "Une erreur est survenue",
+    "agentTitle": "Spécialiste service client",
+    "you": "Vous"
   },
   "adminDash": {
     "title": "Tableau de bord — MOONYP",
@@ -1563,7 +1573,12 @@
       "repaying": "Remboursement en cours",
       "late": "En retard",
       "repaid": "Remboursé intégralement",
-      "cancelled": "Annulé"
+      "cancelled": "Annulé",
+      "unknown": "Statut inconnu",
+      "guarantee_sent": "Garantie envoyée",
+      "guarantee_signed": "Garantie signée",
+      "insurance_pending": "Assurance en attente",
+      "insurance_validated": "Assurance validée"
     },
     "portal": {
       "metaTitle": "Votre dossier de financement — MOONYP",
@@ -1574,7 +1589,49 @@
       "status": "Statut",
       "timeline": "Historique",
       "invalidTitle": "Lien invalide ou expiré",
-      "invalidDesc": "Ce lien sécurisé n'est plus valable. Demandez-en un nouveau à notre équipe."
+      "invalidDesc": "Ce lien sécurisé n'est plus valable. Demandez-en un nouveau à notre équipe.",
+      "progress": "Avancement du dossier",
+      "submittedOn": "Déposé le",
+      "monthly": "Mensualité",
+      "apr": "TAEG",
+      "product": "Produit de financement",
+      "insurance": "Assurance emprunteur",
+      "totalCost": "Coût total du crédit",
+      "interest": "Intérêts totaux",
+      "fees": "Frais de dossier",
+      "documents": "Pièces justificatives",
+      "noDocuments": "Aucun document reçu pour le moment.",
+      "help": "Cette page est actualisée en temps réel. Notre équipe crédit vous contacte par e-mail à chaque étape clé. Ne partagez jamais ce lien sécurisé.",
+      "kyc": {
+        "pending": "Vérification en attente",
+        "verifying": "Vérification en cours",
+        "passed": "Identité vérifiée",
+        "failed": "Vérification échouée",
+        "manual_review": "Revue manuelle"
+      },
+      "doc": {
+        "pending": "En attente",
+        "approved": "Validé",
+        "rejected": "Refusé",
+        "replacement_requested": "À remplacer"
+      },
+      "requests": {
+        "title": "Informations demandées",
+        "desc": "Notre équipe a besoin d'éléments complémentaires pour poursuivre l'instruction.",
+        "none": "Aucune demande en cours.",
+        "open": "En attente",
+        "answered": "Traitée",
+        "respondLabel": "Votre réponse",
+        "placeholder": "Saisissez votre réponse…",
+        "submit": "Envoyer la réponse",
+        "success": "Réponse envoyée",
+        "error": "Envoi impossible",
+        "kindMissingDocument": "Document manquant",
+        "kindReplaceDocument": "Remplacement de document",
+        "kindInformation": "Information complémentaire",
+        "kindJustification": "Justification demandée",
+        "answeredAt": "Répondu le"
+      }
     },
     "success": {
       "title": "Votre demande a bien été reçue",
@@ -1819,6 +1876,103 @@
         "dark": "Photo trop sombre : placez-vous dans un endroit mieux éclairé.",
         "bright": "Photo surexposée : évitez la lumière directe et les reflets.",
         "blurry": "Photo floue : stabilisez l'appareil et refaites la mise au point."
+      }
+    },
+    "stepOf": "Étape {{current}} sur {{total}}",
+    "finish": "Terminer",
+    "done": {
+      "title": "Vérification terminée",
+      "desc": "Tous les justificatifs requis ont été capturés. Vous pouvez les vérifier ou les remplacer avant d'envoyer votre demande."
+    },
+    "docs": {
+      "bankStatement": "Relevé bancaire (3 derniers mois)",
+      "benefits": "Attestation d'allocations",
+      "drivingLicence": "Permis de conduire",
+      "electricity": "Facture d'électricité",
+      "hosting": "Attestation d'hébergement",
+      "kbis": "Extrait Kbis / registre du commerce",
+      "nationalId": "Carte nationale d'identité",
+      "passport": "Passeport",
+      "payslip": "Bulletins de salaire (3 derniers mois)",
+      "pension": "Attestation de pension",
+      "residencePermit": "Titre de séjour",
+      "selfie": "Vérification du visage",
+      "taxReturn": "Avis d'imposition",
+      "telecom": "Facture téléphone / internet",
+      "water": "Facture d'eau"
+    }
+  },
+  "emails": {
+    "applicationReceived": {
+      "subject": "Votre demande {{reference}} a bien été reçue",
+      "body": "Bonjour {{firstName}}, nous avons bien reçu votre demande {{reference}}. Notre équipe la traite et vous informera de chaque étape."
+    },
+    "documentsMissing": {
+      "subject": "Pièces manquantes — dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, il manque des pièces à votre dossier {{reference}}. Merci de les déposer depuis votre espace sécurisé. {{reason}}"
+    },
+    "infoRequested": {
+      "subject": "Informations complémentaires — dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, nous avons besoin d'informations complémentaires pour votre dossier {{reference}}. {{reason}}"
+    },
+    "approved": {
+      "subject": "Votre demande {{reference}} est approuvée",
+      "body": "Bonjour {{firstName}}, votre demande {{reference}} est approuvée. Votre offre sera disponible dans votre espace sécurisé."
+    },
+    "rejected": {
+      "subject": "Décision concernant votre demande {{reference}}",
+      "body": "Bonjour {{firstName}}, après étude, votre demande {{reference}} n'a pas pu être acceptée. Motif : {{reason}}"
+    },
+    "offerAvailable": {
+      "subject": "Votre offre {{reference}} est disponible",
+      "body": "Bonjour {{firstName}}, votre offre de financement {{reference}} est disponible dans votre espace sécurisé."
+    },
+    "contractSent": {
+      "subject": "Votre contrat {{reference}} vous attend",
+      "body": "Bonjour {{firstName}}, votre contrat {{reference}} est prêt à être signé depuis votre espace sécurisé."
+    },
+    "disbursed": {
+      "subject": "Fonds débloqués — dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, les fonds de votre dossier {{reference}} ont été versés sur votre compte."
+    }
+  },
+  "workflow": {
+    "guard": {
+      "kycNotPassed": "Contrôles KYC non validés",
+      "documentsPending": "Pièces obligatoires manquantes ou non validées",
+      "infoRequestsOpen": "Demandes d'informations encore ouvertes",
+      "noInsurance": "Aucune assurance souscrite sur ce dossier",
+      "missingPayout": "Coordonnées de versement absentes",
+      "complianceBlocking": "Alerte de conformité bloquante"
+    },
+    "error": {
+      "sameStatus": "Le dossier est déjà dans ce statut",
+      "notAllowed": "Transition non autorisée par le workflow",
+      "notFound": "Dossier introuvable",
+      "reasonRequired": "Un motif est obligatoire",
+      "forbidden": "Action non autorisée"
+    },
+    "confirmTitle": "Confirmer la décision",
+    "confirmBody": "Le dossier {{reference}} passera au statut « {{status}} ». Cette action est historisée.",
+    "reasonLabel": "Motif communiqué au client",
+    "noteLabel": "Note interne",
+    "confirm": "Confirmer",
+    "cancel": "Annuler",
+    "requests": {
+      "title": "Demandes d'informations",
+      "kind": "Type de demande",
+      "message": "Message adressé au client",
+      "create": "Envoyer la demande",
+      "none": "Aucune demande d'information.",
+      "close": "Clôturer",
+      "open": "En attente",
+      "answered": "Répondue",
+      "cancelled": "Annulée",
+      "kinds": {
+        "missing_document": "Document manquant",
+        "replace_document": "Remplacement de document",
+        "information": "Information complémentaire",
+        "justification": "Justification demandée"
       }
     }
   }

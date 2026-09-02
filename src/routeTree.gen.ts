@@ -18,8 +18,10 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as LangRouteImport } from './routes/$lang'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as LangIndexRouteImport } from './routes/$lang.index'
 import { Route as LegalTermsRouteImport } from './routes/legal.terms'
 import { Route as LegalRepaymentRouteImport } from './routes/legal.repayment'
 import { Route as LegalPrivacyRouteImport } from './routes/legal.privacy'
@@ -34,14 +36,32 @@ import { Route as AdminStaffRouteImport } from './routes/admin.staff'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminSecurityRouteImport } from './routes/admin.security'
 import { Route as AdminRolesRouteImport } from './routes/admin.roles'
+import { Route as AdminProductsRouteImport } from './routes/admin.products'
 import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
 import { Route as AdminLogsRouteImport } from './routes/admin.logs'
+import { Route as AdminKycRouteImport } from './routes/admin.kyc'
 import { Route as AdminChatRouteImport } from './routes/admin.chat'
+import { Route as LangSolutionsRouteImport } from './routes/$lang.solutions'
+import { Route as LangSimulationRouteImport } from './routes/$lang.simulation'
+import { Route as LangHomeRouteImport } from './routes/$lang.home'
+import { Route as LangContactRouteImport } from './routes/$lang.contact'
+import { Route as LangApplyRouteImport } from './routes/$lang.apply'
+import { Route as LangAboutRouteImport } from './routes/$lang.about'
+import { Route as LangSplatRouteImport } from './routes/$lang.$'
 import { Route as AdminChatIndexRouteImport } from './routes/admin.chat.index'
 import { Route as AdminApplicationsIndexRouteImport } from './routes/admin.applications.index'
 import { Route as SecureApplicationTokenRouteImport } from './routes/secure.application.$token'
 import { Route as AdminChatConversationIdRouteImport } from './routes/admin.chat.$conversationId'
 import { Route as AdminApplicationsApplicationIdRouteImport } from './routes/admin.applications.$applicationId'
+import { Route as LangLegalTermsRouteImport } from './routes/$lang.legal.terms'
+import { Route as LangLegalRepaymentRouteImport } from './routes/$lang.legal.repayment'
+import { Route as LangLegalPrivacyRouteImport } from './routes/$lang.legal.privacy'
+import { Route as LangLegalMentionsRouteImport } from './routes/$lang.legal.mentions'
+import { Route as LangLegalLoanTermsRouteImport } from './routes/$lang.legal.loan-terms'
+import { Route as LangLegalFinancialPrivacyRouteImport } from './routes/$lang.legal.financial-privacy'
+import { Route as LangLegalCookiesRouteImport } from './routes/$lang.legal.cookies'
+import { Route as LangLegalAmlKycRouteImport } from './routes/$lang.legal.aml-kyc'
+import { Route as LangSecureApplicationTokenRouteImport } from './routes/$lang.secure.application.$token'
 
 const StaffInviteRoute = StaffInviteRouteImport.update({
   id: '/staff-invite',
@@ -88,6 +108,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LangRoute = LangRouteImport.update({
+  id: '/$lang',
+  path: '/$lang',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -97,6 +122,11 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AdminRoute,
+} as any)
+const LangIndexRoute = LangIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LangRoute,
 } as any)
 const LegalTermsRoute = LegalTermsRouteImport.update({
   id: '/legal/terms',
@@ -168,6 +198,11 @@ const AdminRolesRoute = AdminRolesRouteImport.update({
   path: '/roles',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminProductsRoute = AdminProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
   id: '/notifications',
   path: '/notifications',
@@ -178,10 +213,50 @@ const AdminLogsRoute = AdminLogsRouteImport.update({
   path: '/logs',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminKycRoute = AdminKycRouteImport.update({
+  id: '/kyc',
+  path: '/kyc',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminChatRoute = AdminChatRouteImport.update({
   id: '/chat',
   path: '/chat',
   getParentRoute: () => AdminRoute,
+} as any)
+const LangSolutionsRoute = LangSolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangSimulationRoute = LangSimulationRouteImport.update({
+  id: '/simulation',
+  path: '/simulation',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangHomeRoute = LangHomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangContactRoute = LangContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangApplyRoute = LangApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangAboutRoute = LangAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangSplatRoute = LangSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => LangRoute,
 } as any)
 const AdminChatIndexRoute = AdminChatIndexRouteImport.update({
   id: '/',
@@ -209,9 +284,57 @@ const AdminApplicationsApplicationIdRoute =
     path: '/applications/$applicationId',
     getParentRoute: () => AdminRoute,
   } as any)
+const LangLegalTermsRoute = LangLegalTermsRouteImport.update({
+  id: '/legal/terms',
+  path: '/legal/terms',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangLegalRepaymentRoute = LangLegalRepaymentRouteImport.update({
+  id: '/legal/repayment',
+  path: '/legal/repayment',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangLegalPrivacyRoute = LangLegalPrivacyRouteImport.update({
+  id: '/legal/privacy',
+  path: '/legal/privacy',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangLegalMentionsRoute = LangLegalMentionsRouteImport.update({
+  id: '/legal/mentions',
+  path: '/legal/mentions',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangLegalLoanTermsRoute = LangLegalLoanTermsRouteImport.update({
+  id: '/legal/loan-terms',
+  path: '/legal/loan-terms',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangLegalFinancialPrivacyRoute =
+  LangLegalFinancialPrivacyRouteImport.update({
+    id: '/legal/financial-privacy',
+    path: '/legal/financial-privacy',
+    getParentRoute: () => LangRoute,
+  } as any)
+const LangLegalCookiesRoute = LangLegalCookiesRouteImport.update({
+  id: '/legal/cookies',
+  path: '/legal/cookies',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangLegalAmlKycRoute = LangLegalAmlKycRouteImport.update({
+  id: '/legal/aml-kyc',
+  path: '/legal/aml-kyc',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangSecureApplicationTokenRoute =
+  LangSecureApplicationTokenRouteImport.update({
+    id: '/secure/application/$token',
+    path: '/secure/application/$token',
+    getParentRoute: () => LangRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$lang': typeof LangRouteWithChildren
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
   '/apply': typeof ApplyRoute
@@ -221,9 +344,18 @@ export interface FileRoutesByFullPath {
   '/simulation': typeof SimulationRoute
   '/solutions': typeof SolutionsRoute
   '/staff-invite': typeof StaffInviteRoute
+  '/$lang/$': typeof LangSplatRoute
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/apply': typeof LangApplyRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/home': typeof LangHomeRoute
+  '/$lang/simulation': typeof LangSimulationRoute
+  '/$lang/solutions': typeof LangSolutionsRoute
   '/admin/chat': typeof AdminChatRouteWithChildren
+  '/admin/kyc': typeof AdminKycRoute
   '/admin/logs': typeof AdminLogsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/products': typeof AdminProductsRoute
   '/admin/roles': typeof AdminRolesRoute
   '/admin/security': typeof AdminSecurityRoute
   '/admin/settings': typeof AdminSettingsRoute
@@ -238,12 +370,22 @@ export interface FileRoutesByFullPath {
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/repayment': typeof LegalRepaymentRoute
   '/legal/terms': typeof LegalTermsRoute
+  '/$lang/': typeof LangIndexRoute
   '/admin/': typeof AdminIndexRoute
+  '/$lang/legal/aml-kyc': typeof LangLegalAmlKycRoute
+  '/$lang/legal/cookies': typeof LangLegalCookiesRoute
+  '/$lang/legal/financial-privacy': typeof LangLegalFinancialPrivacyRoute
+  '/$lang/legal/loan-terms': typeof LangLegalLoanTermsRoute
+  '/$lang/legal/mentions': typeof LangLegalMentionsRoute
+  '/$lang/legal/privacy': typeof LangLegalPrivacyRoute
+  '/$lang/legal/repayment': typeof LangLegalRepaymentRoute
+  '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications/': typeof AdminApplicationsIndexRoute
   '/admin/chat/': typeof AdminChatIndexRoute
+  '/$lang/secure/application/$token': typeof LangSecureApplicationTokenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -255,8 +397,17 @@ export interface FileRoutesByTo {
   '/simulation': typeof SimulationRoute
   '/solutions': typeof SolutionsRoute
   '/staff-invite': typeof StaffInviteRoute
+  '/$lang/$': typeof LangSplatRoute
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/apply': typeof LangApplyRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/home': typeof LangHomeRoute
+  '/$lang/simulation': typeof LangSimulationRoute
+  '/$lang/solutions': typeof LangSolutionsRoute
+  '/admin/kyc': typeof AdminKycRoute
   '/admin/logs': typeof AdminLogsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/products': typeof AdminProductsRoute
   '/admin/roles': typeof AdminRolesRoute
   '/admin/security': typeof AdminSecurityRoute
   '/admin/settings': typeof AdminSettingsRoute
@@ -271,16 +422,27 @@ export interface FileRoutesByTo {
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/repayment': typeof LegalRepaymentRoute
   '/legal/terms': typeof LegalTermsRoute
+  '/$lang': typeof LangIndexRoute
   '/admin': typeof AdminIndexRoute
+  '/$lang/legal/aml-kyc': typeof LangLegalAmlKycRoute
+  '/$lang/legal/cookies': typeof LangLegalCookiesRoute
+  '/$lang/legal/financial-privacy': typeof LangLegalFinancialPrivacyRoute
+  '/$lang/legal/loan-terms': typeof LangLegalLoanTermsRoute
+  '/$lang/legal/mentions': typeof LangLegalMentionsRoute
+  '/$lang/legal/privacy': typeof LangLegalPrivacyRoute
+  '/$lang/legal/repayment': typeof LangLegalRepaymentRoute
+  '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications': typeof AdminApplicationsIndexRoute
   '/admin/chat': typeof AdminChatIndexRoute
+  '/$lang/secure/application/$token': typeof LangSecureApplicationTokenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$lang': typeof LangRouteWithChildren
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
   '/apply': typeof ApplyRoute
@@ -290,9 +452,18 @@ export interface FileRoutesById {
   '/simulation': typeof SimulationRoute
   '/solutions': typeof SolutionsRoute
   '/staff-invite': typeof StaffInviteRoute
+  '/$lang/$': typeof LangSplatRoute
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/apply': typeof LangApplyRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/home': typeof LangHomeRoute
+  '/$lang/simulation': typeof LangSimulationRoute
+  '/$lang/solutions': typeof LangSolutionsRoute
   '/admin/chat': typeof AdminChatRouteWithChildren
+  '/admin/kyc': typeof AdminKycRoute
   '/admin/logs': typeof AdminLogsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/products': typeof AdminProductsRoute
   '/admin/roles': typeof AdminRolesRoute
   '/admin/security': typeof AdminSecurityRoute
   '/admin/settings': typeof AdminSettingsRoute
@@ -307,17 +478,28 @@ export interface FileRoutesById {
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/repayment': typeof LegalRepaymentRoute
   '/legal/terms': typeof LegalTermsRoute
+  '/$lang/': typeof LangIndexRoute
   '/admin/': typeof AdminIndexRoute
+  '/$lang/legal/aml-kyc': typeof LangLegalAmlKycRoute
+  '/$lang/legal/cookies': typeof LangLegalCookiesRoute
+  '/$lang/legal/financial-privacy': typeof LangLegalFinancialPrivacyRoute
+  '/$lang/legal/loan-terms': typeof LangLegalLoanTermsRoute
+  '/$lang/legal/mentions': typeof LangLegalMentionsRoute
+  '/$lang/legal/privacy': typeof LangLegalPrivacyRoute
+  '/$lang/legal/repayment': typeof LangLegalRepaymentRoute
+  '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications/': typeof AdminApplicationsIndexRoute
   '/admin/chat/': typeof AdminChatIndexRoute
+  '/$lang/secure/application/$token': typeof LangSecureApplicationTokenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$lang'
     | '/about'
     | '/admin'
     | '/apply'
@@ -327,9 +509,18 @@ export interface FileRouteTypes {
     | '/simulation'
     | '/solutions'
     | '/staff-invite'
+    | '/$lang/$'
+    | '/$lang/about'
+    | '/$lang/apply'
+    | '/$lang/contact'
+    | '/$lang/home'
+    | '/$lang/simulation'
+    | '/$lang/solutions'
     | '/admin/chat'
+    | '/admin/kyc'
     | '/admin/logs'
     | '/admin/notifications'
+    | '/admin/products'
     | '/admin/roles'
     | '/admin/security'
     | '/admin/settings'
@@ -344,12 +535,22 @@ export interface FileRouteTypes {
     | '/legal/privacy'
     | '/legal/repayment'
     | '/legal/terms'
+    | '/$lang/'
     | '/admin/'
+    | '/$lang/legal/aml-kyc'
+    | '/$lang/legal/cookies'
+    | '/$lang/legal/financial-privacy'
+    | '/$lang/legal/loan-terms'
+    | '/$lang/legal/mentions'
+    | '/$lang/legal/privacy'
+    | '/$lang/legal/repayment'
+    | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
     | '/admin/chat/$conversationId'
     | '/secure/application/$token'
     | '/admin/applications/'
     | '/admin/chat/'
+    | '/$lang/secure/application/$token'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -361,8 +562,17 @@ export interface FileRouteTypes {
     | '/simulation'
     | '/solutions'
     | '/staff-invite'
+    | '/$lang/$'
+    | '/$lang/about'
+    | '/$lang/apply'
+    | '/$lang/contact'
+    | '/$lang/home'
+    | '/$lang/simulation'
+    | '/$lang/solutions'
+    | '/admin/kyc'
     | '/admin/logs'
     | '/admin/notifications'
+    | '/admin/products'
     | '/admin/roles'
     | '/admin/security'
     | '/admin/settings'
@@ -377,15 +587,26 @@ export interface FileRouteTypes {
     | '/legal/privacy'
     | '/legal/repayment'
     | '/legal/terms'
+    | '/$lang'
     | '/admin'
+    | '/$lang/legal/aml-kyc'
+    | '/$lang/legal/cookies'
+    | '/$lang/legal/financial-privacy'
+    | '/$lang/legal/loan-terms'
+    | '/$lang/legal/mentions'
+    | '/$lang/legal/privacy'
+    | '/$lang/legal/repayment'
+    | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
     | '/admin/chat/$conversationId'
     | '/secure/application/$token'
     | '/admin/applications'
     | '/admin/chat'
+    | '/$lang/secure/application/$token'
   id:
     | '__root__'
     | '/'
+    | '/$lang'
     | '/about'
     | '/admin'
     | '/apply'
@@ -395,9 +616,18 @@ export interface FileRouteTypes {
     | '/simulation'
     | '/solutions'
     | '/staff-invite'
+    | '/$lang/$'
+    | '/$lang/about'
+    | '/$lang/apply'
+    | '/$lang/contact'
+    | '/$lang/home'
+    | '/$lang/simulation'
+    | '/$lang/solutions'
     | '/admin/chat'
+    | '/admin/kyc'
     | '/admin/logs'
     | '/admin/notifications'
+    | '/admin/products'
     | '/admin/roles'
     | '/admin/security'
     | '/admin/settings'
@@ -412,16 +642,27 @@ export interface FileRouteTypes {
     | '/legal/privacy'
     | '/legal/repayment'
     | '/legal/terms'
+    | '/$lang/'
     | '/admin/'
+    | '/$lang/legal/aml-kyc'
+    | '/$lang/legal/cookies'
+    | '/$lang/legal/financial-privacy'
+    | '/$lang/legal/loan-terms'
+    | '/$lang/legal/mentions'
+    | '/$lang/legal/privacy'
+    | '/$lang/legal/repayment'
+    | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
     | '/admin/chat/$conversationId'
     | '/secure/application/$token'
     | '/admin/applications/'
     | '/admin/chat/'
+    | '/$lang/secure/application/$token'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LangRoute: typeof LangRouteWithChildren
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
   ApplyRoute: typeof ApplyRoute
@@ -507,6 +748,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$lang': {
+      id: '/$lang'
+      path: '/$lang'
+      fullPath: '/$lang'
+      preLoaderRoute: typeof LangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -520,6 +768,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
+    }
+    '/$lang/': {
+      id: '/$lang/'
+      path: '/'
+      fullPath: '/$lang/'
+      preLoaderRoute: typeof LangIndexRouteImport
+      parentRoute: typeof LangRoute
     }
     '/legal/terms': {
       id: '/legal/terms'
@@ -619,6 +874,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRolesRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/products': {
+      id: '/admin/products'
+      path: '/products'
+      fullPath: '/admin/products'
+      preLoaderRoute: typeof AdminProductsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/notifications': {
       id: '/admin/notifications'
       path: '/notifications'
@@ -633,12 +895,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLogsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/kyc': {
+      id: '/admin/kyc'
+      path: '/kyc'
+      fullPath: '/admin/kyc'
+      preLoaderRoute: typeof AdminKycRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/chat': {
       id: '/admin/chat'
       path: '/chat'
       fullPath: '/admin/chat'
       preLoaderRoute: typeof AdminChatRouteImport
       parentRoute: typeof AdminRoute
+    }
+    '/$lang/solutions': {
+      id: '/$lang/solutions'
+      path: '/solutions'
+      fullPath: '/$lang/solutions'
+      preLoaderRoute: typeof LangSolutionsRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/simulation': {
+      id: '/$lang/simulation'
+      path: '/simulation'
+      fullPath: '/$lang/simulation'
+      preLoaderRoute: typeof LangSimulationRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/home': {
+      id: '/$lang/home'
+      path: '/home'
+      fullPath: '/$lang/home'
+      preLoaderRoute: typeof LangHomeRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/contact': {
+      id: '/$lang/contact'
+      path: '/contact'
+      fullPath: '/$lang/contact'
+      preLoaderRoute: typeof LangContactRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/apply': {
+      id: '/$lang/apply'
+      path: '/apply'
+      fullPath: '/$lang/apply'
+      preLoaderRoute: typeof LangApplyRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/about': {
+      id: '/$lang/about'
+      path: '/about'
+      fullPath: '/$lang/about'
+      preLoaderRoute: typeof LangAboutRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/$': {
+      id: '/$lang/$'
+      path: '/$'
+      fullPath: '/$lang/$'
+      preLoaderRoute: typeof LangSplatRouteImport
+      parentRoute: typeof LangRoute
     }
     '/admin/chat/': {
       id: '/admin/chat/'
@@ -675,8 +993,113 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminApplicationsApplicationIdRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/$lang/legal/terms': {
+      id: '/$lang/legal/terms'
+      path: '/legal/terms'
+      fullPath: '/$lang/legal/terms'
+      preLoaderRoute: typeof LangLegalTermsRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/legal/repayment': {
+      id: '/$lang/legal/repayment'
+      path: '/legal/repayment'
+      fullPath: '/$lang/legal/repayment'
+      preLoaderRoute: typeof LangLegalRepaymentRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/legal/privacy': {
+      id: '/$lang/legal/privacy'
+      path: '/legal/privacy'
+      fullPath: '/$lang/legal/privacy'
+      preLoaderRoute: typeof LangLegalPrivacyRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/legal/mentions': {
+      id: '/$lang/legal/mentions'
+      path: '/legal/mentions'
+      fullPath: '/$lang/legal/mentions'
+      preLoaderRoute: typeof LangLegalMentionsRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/legal/loan-terms': {
+      id: '/$lang/legal/loan-terms'
+      path: '/legal/loan-terms'
+      fullPath: '/$lang/legal/loan-terms'
+      preLoaderRoute: typeof LangLegalLoanTermsRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/legal/financial-privacy': {
+      id: '/$lang/legal/financial-privacy'
+      path: '/legal/financial-privacy'
+      fullPath: '/$lang/legal/financial-privacy'
+      preLoaderRoute: typeof LangLegalFinancialPrivacyRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/legal/cookies': {
+      id: '/$lang/legal/cookies'
+      path: '/legal/cookies'
+      fullPath: '/$lang/legal/cookies'
+      preLoaderRoute: typeof LangLegalCookiesRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/legal/aml-kyc': {
+      id: '/$lang/legal/aml-kyc'
+      path: '/legal/aml-kyc'
+      fullPath: '/$lang/legal/aml-kyc'
+      preLoaderRoute: typeof LangLegalAmlKycRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/secure/application/$token': {
+      id: '/$lang/secure/application/$token'
+      path: '/secure/application/$token'
+      fullPath: '/$lang/secure/application/$token'
+      preLoaderRoute: typeof LangSecureApplicationTokenRouteImport
+      parentRoute: typeof LangRoute
+    }
   }
 }
+
+interface LangRouteChildren {
+  LangSplatRoute: typeof LangSplatRoute
+  LangAboutRoute: typeof LangAboutRoute
+  LangApplyRoute: typeof LangApplyRoute
+  LangContactRoute: typeof LangContactRoute
+  LangHomeRoute: typeof LangHomeRoute
+  LangSimulationRoute: typeof LangSimulationRoute
+  LangSolutionsRoute: typeof LangSolutionsRoute
+  LangIndexRoute: typeof LangIndexRoute
+  LangLegalAmlKycRoute: typeof LangLegalAmlKycRoute
+  LangLegalCookiesRoute: typeof LangLegalCookiesRoute
+  LangLegalFinancialPrivacyRoute: typeof LangLegalFinancialPrivacyRoute
+  LangLegalLoanTermsRoute: typeof LangLegalLoanTermsRoute
+  LangLegalMentionsRoute: typeof LangLegalMentionsRoute
+  LangLegalPrivacyRoute: typeof LangLegalPrivacyRoute
+  LangLegalRepaymentRoute: typeof LangLegalRepaymentRoute
+  LangLegalTermsRoute: typeof LangLegalTermsRoute
+  LangSecureApplicationTokenRoute: typeof LangSecureApplicationTokenRoute
+}
+
+const LangRouteChildren: LangRouteChildren = {
+  LangSplatRoute: LangSplatRoute,
+  LangAboutRoute: LangAboutRoute,
+  LangApplyRoute: LangApplyRoute,
+  LangContactRoute: LangContactRoute,
+  LangHomeRoute: LangHomeRoute,
+  LangSimulationRoute: LangSimulationRoute,
+  LangSolutionsRoute: LangSolutionsRoute,
+  LangIndexRoute: LangIndexRoute,
+  LangLegalAmlKycRoute: LangLegalAmlKycRoute,
+  LangLegalCookiesRoute: LangLegalCookiesRoute,
+  LangLegalFinancialPrivacyRoute: LangLegalFinancialPrivacyRoute,
+  LangLegalLoanTermsRoute: LangLegalLoanTermsRoute,
+  LangLegalMentionsRoute: LangLegalMentionsRoute,
+  LangLegalPrivacyRoute: LangLegalPrivacyRoute,
+  LangLegalRepaymentRoute: LangLegalRepaymentRoute,
+  LangLegalTermsRoute: LangLegalTermsRoute,
+  LangSecureApplicationTokenRoute: LangSecureApplicationTokenRoute,
+}
+
+const LangRouteWithChildren = LangRoute._addFileChildren(LangRouteChildren)
 
 interface AdminChatRouteChildren {
   AdminChatConversationIdRoute: typeof AdminChatConversationIdRoute
@@ -694,8 +1117,10 @@ const AdminChatRouteWithChildren = AdminChatRoute._addFileChildren(
 
 interface AdminRouteChildren {
   AdminChatRoute: typeof AdminChatRouteWithChildren
+  AdminKycRoute: typeof AdminKycRoute
   AdminLogsRoute: typeof AdminLogsRoute
   AdminNotificationsRoute: typeof AdminNotificationsRoute
+  AdminProductsRoute: typeof AdminProductsRoute
   AdminRolesRoute: typeof AdminRolesRoute
   AdminSecurityRoute: typeof AdminSecurityRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
@@ -708,8 +1133,10 @@ interface AdminRouteChildren {
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminChatRoute: AdminChatRouteWithChildren,
+  AdminKycRoute: AdminKycRoute,
   AdminLogsRoute: AdminLogsRoute,
   AdminNotificationsRoute: AdminNotificationsRoute,
+  AdminProductsRoute: AdminProductsRoute,
   AdminRolesRoute: AdminRolesRoute,
   AdminSecurityRoute: AdminSecurityRoute,
   AdminSettingsRoute: AdminSettingsRoute,
@@ -734,6 +1161,7 @@ const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LangRoute: LangRouteWithChildren,
   AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
   ApplyRoute: ApplyRoute,

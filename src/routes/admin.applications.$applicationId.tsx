@@ -8,13 +8,37 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { StatusBadge } from "@/components/StatusBadge";
 import { CenterLoader } from "@/components/ui/loader";
-import { APPLICATION_STATUS_ORDER, statusLabel } from "@/lib/application-status";
+import { useTranslation } from "react-i18next";
+import { statusLabel, type ApplicationStatus } from "@/lib/application-status";
 import {
+  nextStatuses,
+  REASON_REQUIRED,
+  INFO_REQUEST_KINDS,
+  type InfoRequestKind,
+  type WorkflowContext,
+} from "@/lib/application-workflow";
+import {
+  adminCreateInfoRequest,
+  adminCloseInfoRequest,
   adminGetApplication,
   adminIssuePortalLink,
   adminReviewDocument,
+  adminReviewKycCheck,
   adminUpdateApplicationStatus,
 } from "@/lib/admin-applications.functions";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { Input } from "@/components/ui/input";
+
+
 
 export const Route = createFileRoute("/admin/applications/$applicationId")({
   component: ApplicationDetail,
@@ -40,12 +64,22 @@ function ApplicationDetail() {
   const get = useServerFn(adminGetApplication);
   const updateStatus = useServerFn(adminUpdateApplicationStatus);
   const reviewDoc = useServerFn(adminReviewDocument);
+  const reviewKyc = useServerFn(adminReviewKycCheck);
   const issueLink = useServerFn(adminIssuePortalLink);
+
+  const createInfoRequest = useServerFn(adminCreateInfoRequest);
+  const closeInfoRequest = useServerFn(adminCloseInfoRequest);
+  const { t } = useTranslation();
 
   const [data, setData] = useState<Detail>(null);
   const [loading, setLoading] = useState(true);
   const [note, setNote] = useState("");
   const [busy, setBusy] = useState(false);
+  const [pending, setPending] = useState<ApplicationStatus | null>(null);
+  const [reason, setReason] = useState("");
+  const [reqKind, setReqKind] = useState<InfoRequestKind>("missing_document");
+  const [reqMessage, setReqMessage] = useState("");
+  const [reqSlug, setReqSlug] = useState("");
 
   const load = useCallback(async () => {
     const res = await get({ data: { id: applicationId } });
@@ -57,13 +91,37 @@ function ApplicationDetail() {
     void load();
   }, [load]);
 
-  async function changeStatus(status: string) {
-    if (busy) return;
+  const ctx = (data?.workflowContext ?? {}) as WorkflowContext;
+  const transitions = data ? nextStatuses(data.application.status, ctx) : [];
+  const blockers = transitions.filter((tr) => !tr.check.ok && tr.check.reason?.startsWith("workflow.guard."))
+    .map((tr) => tr.check.reason!)
+    .filter((v, i, arr) => arr.indexOf(v) === i);
+
+  async function confirmTransition() {
+    if (!pending || busy) return;
+    if (REASON_REQUIRED.includes(pending) && reason.trim().length < 3) {
+      toast.error(t("workflow.error.reasonRequired", { defaultValue: "Un motif est obligatoire." }));
+      return;
+    }
     setBusy(true);
     try {
-      await updateStatus({ data: { id: applicationId, status: status as never, note: note || undefined } });
+      const res = await updateStatus({
+        data: {
+          id: applicationId,
+          status: pending as never,
+          note: note || undefined,
+          reason: reason || undefined,
+        },
+      });
+      if (res && (res as { ok?: boolean }).ok === false) {
+        const key = (res as { reason?: string }).reason ?? "workflow.error.notAllowed";
+        toast.error(t(key, { defaultValue: key }));
+        return;
+      }
       toast.success("Statut mis à jour");
       setNote("");
+      setReason("");
+      setPending(null);
       await load();
     } catch {
       toast.error("Mise à jour impossible");
@@ -71,6 +129,31 @@ function ApplicationDetail() {
       setBusy(false);
     }
   }
+
+  async function submitInfoRequest() {
+    if (busy || reqMessage.trim().length < 3) return;
+    setBusy(true);
+    try {
+      await createInfoRequest({
+        data: {
+          application_id: applicationId,
+          kind: reqKind,
+          message: reqMessage,
+          document_type_slug: reqSlug || undefined,
+          move_status: true,
+        },
+      });
+      toast.success(t("workflow.requests.create", { defaultValue: "Demande envoyée" }));
+      setReqMessage("");
+      setReqSlug("");
+      await load();
+    } catch {
+      toast.error("Envoi impossible");
+    } finally {
+      setBusy(false);
+    }
+  }
+
 
   async function review(id: string, status: "approved" | "rejected" | "replacement_requested") {
     try {
@@ -80,6 +163,17 @@ function ApplicationDetail() {
       toast.error("Action impossible");
     }
   }
+
+  async function decideKyc(id: string, status: "passed" | "failed" | "verifying") {
+    try {
+      await reviewKyc({ data: { id, status } });
+      toast.success("Contrôle KYC mis à jour");
+      await load();
+    } catch {
+      toast.error("Action impossible");
+    }
+  }
+
 
   async function copyPortalLink() {
     try {
@@ -156,33 +250,239 @@ function ApplicationDetail() {
 
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-semibold">Décision</CardTitle>
+            <CardTitle className="text-sm font-semibold">Décision & workflow</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            <Textarea
-              value={note}
-              onChange={(e) => setNote(e.target.value)}
-              placeholder="Note interne / motif communiqué au client"
-              rows={3}
-              maxLength={1000}
-            />
+            <p className="text-xs text-muted-foreground">
+              Seules les transitions autorisées depuis « {statusLabel(a.status)} » sont proposées.
+            </p>
             <div className="flex flex-wrap gap-2">
-              {APPLICATION_STATUS_ORDER.map((s) => (
+              {transitions.length === 0 && (
+                <p className="text-xs text-muted-foreground">Statut terminal : aucune transition possible.</p>
+              )}
+              {transitions.map(({ status: s, check }) => (
                 <Button
                   key={s}
                   size="sm"
-                  variant={s === a.status ? "default" : "outline"}
-                  disabled={busy}
-                  onClick={() => changeStatus(s)}
+                  variant="outline"
+                  disabled={busy || !check.ok}
+                  title={check.ok ? undefined : t(check.reason ?? "", { defaultValue: check.reason ?? "" })}
+                  onClick={() => setPending(s)}
                   className="text-xs"
                 >
                   {statusLabel(s)}
                 </Button>
               ))}
             </div>
+            {blockers.length > 0 && (
+              <ul className="list-inside list-disc rounded-lg border border-amber-500/40 bg-amber-500/5 p-3 text-xs text-amber-700">
+                {blockers.map((b) => (
+                  <li key={b}>{t(b, { defaultValue: b })}</li>
+                ))}
+              </ul>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm font-semibold">{t("workflow.requests.title")}</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="grid gap-2 sm:grid-cols-2">
+              <select
+                value={reqKind}
+                onChange={(e) => setReqKind(e.target.value as InfoRequestKind)}
+                className="h-10 rounded-md border border-input bg-background px-3 text-sm"
+              >
+                {INFO_REQUEST_KINDS.map((k) => (
+                  <option key={k} value={k}>
+                    {t(`workflow.requests.kinds.${k}`, { defaultValue: k })}
+                  </option>
+                ))}
+              </select>
+              <Input
+                value={reqSlug}
+                onChange={(e) => setReqSlug(e.target.value)}
+                placeholder="Type de document (optionnel)"
+              />
+            </div>
+            <Textarea
+              value={reqMessage}
+              onChange={(e) => setReqMessage(e.target.value)}
+              rows={3}
+              maxLength={1000}
+              placeholder="Message adressé au demandeur"
+            />
+            <Button size="sm" disabled={busy || reqMessage.trim().length < 3} onClick={() => void submitInfoRequest()}>
+              {t("workflow.requests.create")}
+            </Button>
+
+            <ul className="space-y-2">
+              {(data.infoRequests ?? []).map((r) => (
+                <li key={r.id} className="rounded-lg border border-border p-3 text-xs">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-semibold">
+                      {t(`workflow.requests.kinds.${r.kind}`, { defaultValue: r.kind })}
+                      {r.document_type_slug ? ` · ${r.document_type_slug}` : ""}
+                    </span>
+                    <span className="text-muted-foreground">
+                      {t(`workflow.requests.${r.status}`, { defaultValue: r.status })}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-muted-foreground">{r.message}</p>
+                  {r.response_text && (
+                    <p className="mt-2 rounded-md bg-muted p-2">
+                      <span className="font-medium">Réponse : </span>
+                      {r.response_text}
+                    </p>
+                  )}
+                  {r.status === "open" && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="mt-1 h-7 px-2 text-xs"
+                      disabled={busy}
+                      onClick={async () => {
+                        await closeInfoRequest({ data: { id: r.id } });
+                        await load();
+                      }}
+                    >
+                      Clôturer
+                    </Button>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+
+      </div>
+
+      <AlertDialog open={pending !== null} onOpenChange={(o) => !o && setPending(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              {t("workflow.confirmTitle", { defaultValue: "Confirmer le changement de statut" })}
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              {statusLabel(a.status)} → {pending ? statusLabel(pending) : ""}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <div className="space-y-2">
+            <Textarea
+              value={reason}
+              onChange={(e) => setReason(e.target.value)}
+              rows={3}
+              maxLength={1000}
+              placeholder={
+                pending && REASON_REQUIRED.includes(pending)
+                  ? "Motif communiqué au client (obligatoire)"
+                  : "Motif communiqué au client (optionnel)"
+              }
+            />
+            <Textarea
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              rows={2}
+              maxLength={1000}
+              placeholder="Note interne"
+            />
+          </div>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={busy}>{t("workflow.cancel")}</AlertDialogCancel>
+            <AlertDialogAction
+              disabled={busy}
+              onClick={(e) => {
+                e.preventDefault();
+                void confirmTransition();
+              }}
+            >
+              Confirmer
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+
+      <div className="grid gap-4 lg:grid-cols-3">
+        <Card className="lg:col-span-1">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm font-semibold">Analyse financière</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-4 sm:grid-cols-2">
+            <Field label="Mensualité" value={a.monthly_payment ? money(a.monthly_payment) : null} />
+            <Field label="Assurance / mois" value={a.insurance_monthly ? money(a.insurance_monthly) : null} />
+            <Field label="TAEG" value={a.apr != null ? `${Number(a.apr).toFixed(2)} %` : null} />
+            <Field label="Frais de dossier" value={a.fees != null ? money(a.fees) : null} />
+            <Field label="Coût total du crédit" value={a.total_cost != null ? money(a.total_cost) : null} />
+            <Field
+              label="Taux d'endettement"
+              value={a.dti_percent != null ? `${Number(a.dti_percent).toFixed(1)} %` : null}
+            />
+          </CardContent>
+        </Card>
+
+        <Card className="lg:col-span-2">
+          <CardHeader className="flex-row items-center justify-between gap-2 pb-3">
+            <CardTitle className="text-sm font-semibold">Vérification KYC</CardTitle>
+            <span
+              className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${
+                a.kyc_status === "passed"
+                  ? "bg-emerald-500/10 text-emerald-600"
+                  : a.kyc_status === "failed"
+                    ? "bg-destructive/10 text-destructive"
+                    : "bg-muted text-muted-foreground"
+              }`}
+            >
+              {a.kyc_status ?? "pending"}
+            </span>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {(data.kycChecks ?? []).length === 0 ? (
+              <p className="text-sm text-muted-foreground">Aucun contrôle enregistré.</p>
+            ) : (
+              (data.kycChecks ?? []).map((c) => (
+                <div
+                  key={c.id}
+                  className="flex flex-col gap-2 rounded-lg border border-border p-3 sm:flex-row sm:items-center sm:justify-between"
+                >
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-medium">{c.step_key}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {c.category}
+                      {c.document_type_slug ? ` · ${c.document_type_slug}` : ""} · {c.status}
+                    </p>
+                  </div>
+                  <div className="flex shrink-0 flex-wrap gap-2">
+                    <Button size="sm" variant="outline" className="text-xs" onClick={() => decideKyc(c.id, "passed")}>
+                      Valider
+                    </Button>
+                    <Button size="sm" variant="outline" className="text-xs" onClick={() => decideKyc(c.id, "verifying")}>
+                      À revoir
+                    </Button>
+                    <Button size="sm" variant="outline" className="text-xs" onClick={() => decideKyc(c.id, "failed")}>
+                      Rejeter
+                    </Button>
+                  </div>
+                </div>
+              ))
+            )}
+            {Array.isArray((a.compliance_flags as unknown as string[]) ?? null) &&
+              ((a.compliance_flags as unknown as string[]) ?? []).length > 0 && (
+                <div className="rounded-lg border border-amber-500/40 bg-amber-500/5 p-3 text-xs text-amber-700">
+                  <p className="font-semibold">Points de vigilance conformité</p>
+                  <ul className="mt-1 list-inside list-disc">
+                    {((a.compliance_flags as unknown as string[]) ?? []).map((f) => (
+                      <li key={f}>{f}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
           </CardContent>
         </Card>
       </div>
+
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Card>

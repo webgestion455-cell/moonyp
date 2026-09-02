@@ -4,11 +4,10 @@
 // - Constantes de branding
 
 export const CHAT_BRAND = {
-  bankName: "BNP PARIBAS",
-  agentTitle: "Kundenservice-Spezialistin",
+  bankName: "MOONYP",
   address: "16 boulevard des Italiens, 75009 Paris, France",
   companyNumber: "662 042 449",
-  copyright: `© 2000-${new Date().getFullYear()} BNP Paribas, All rights reserved.`,
+  copyright: `© 2000-${new Date().getFullYear()} Moonyp, All rights reserved.`,
   primary: "#00915A",
   supportEmail: "cardservice.bnpparibas@gmail.com",
 };

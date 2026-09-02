@@ -42,7 +42,9 @@
     "notFound": "Pagina niet gevonden",
     "notFoundDesc": "De gezochte pagina bestaat niet of is verplaatst.",
     "backHome": "Terug naar home",
-    "errorRetry": "Opnieuw proberen"
+    "errorRetry": "Opnieuw proberen",
+    "noResults": "Geen resultaten",
+    "continue": "Doorgaan"
   },
   "header": {
     "myLoans": "Mijn leningen",
@@ -1314,7 +1316,9 @@
       "joined": "heeft zich bij het gesprek gevoegd",
       "joinedYou": "Je bent bij het gesprek gekomen",
       "notAssigned": "Geen agent toegewezen",
-      "join": "Deelnemen"
+      "join": "Deelnemen",
+      "defaultName": "Adviseur",
+      "brandName": "MOONYP-adviseur"
     },
     "status": {
       "online": "Online",
@@ -1388,7 +1392,14 @@
       "empty": "Nog geen gesprekken.",
       "back": "Terug",
       "one": "Gesprek"
-    }
+    },
+    "system": "Systeem",
+    "closedNotice": "Gesprek gesloten.",
+    "joinedNotice": "{{name}} neemt deel aan het gesprek.",
+    "sendError": "Verzenden mislukt",
+    "genericError": "Er is een fout opgetreden",
+    "agentTitle": "Klantenservicespecialist",
+    "you": "Jij"
   },
   "adminDash": {
     "title": "Dashboard — MOONYP",
@@ -1434,7 +1445,14 @@
       "balance": "Restschuld",
       "showSchedule": "Aflossingsschema tonen",
       "hideSchedule": "Schema verbergen",
-      "disclaimer": "Deze simulatie is louter indicatief en vormt geen kredietaanbod. De definitieve voorwaarden hangen af van de beoordeling van uw aanvraag."
+      "disclaimer": "Deze simulatie is louter indicatief en vormt geen kredietaanbod. De definitieve voorwaarden hangen af van de beoordeling van uw aanvraag.",
+      "instalment": "Maandelijkse termijn",
+      "perMonth": "/maand",
+      "aprLabel": "JKP",
+      "monthsShort": "mnd.",
+      "rateFrom": "vanaf {{rate}}%",
+      "range": "Tussen {{min}} en {{max}}",
+      "legalNotice": "Een lening aangaan kost geld en moet worden terugbetaald. Controleer uw aflossingscapaciteit voordat u zich verbindt."
     },
     "simPage": {
       "metaTitle": "Leningsimulator — MOONYP",
@@ -1487,7 +1505,14 @@
         "payout": "Uitbetaling",
         "documents": "Documenten",
         "review": "Overzicht"
-      }
+      },
+      "stepOf": "Stap {{current}} van {{total}}",
+      "uploading": "Documenten verzenden ({{done}}/{{total}})",
+      "holderHint": "Dient overeen te komen met de naam van de aanvrager",
+      "reviewFlag": "Dit punt wordt handmatig gecontroleerd",
+      "reviewTitle": "Uw maandtermijn",
+      "dti": "Schuld-inkomstenverhouding",
+      "finalNotice": "Door te verzenden bevestigt u dat de informatie juist is. Uw dossier wordt geanalyseerd door ons kredietteam; een beveiligde link wordt naar u gemaild om elke stap te volgen."
     },
     "fields": {
       "firstName": "Voornaam",
@@ -1513,7 +1538,12 @@
       "bankName": "Bank",
       "iban": "IBAN",
       "bic": "BIC / SWIFT",
-      "choose": "Selecteer…"
+      "choose": "Selecteer…",
+      "chooseCountry": "Selecteer een land",
+      "searchCountry": "Zoek een land",
+      "phoneCountry": "Landcode",
+      "addressPlaceholder": "Begin met het typen van uw straatnaam",
+      "addressNoMatch": "Geen adres gevonden — handmatig invoeren"
     },
     "employment": {
       "employee": "Werknemer",
@@ -1543,7 +1573,12 @@
       "repaying": "Terugbetaling loopt",
       "late": "Achterstallig",
       "repaid": "Volledig terugbetaald",
-      "cancelled": "Geannuleerd"
+      "cancelled": "Geannuleerd",
+      "unknown": "Onbekende status",
+      "guarantee_sent": "Garantie verzonden",
+      "guarantee_signed": "Garantie ondertekend",
+      "insurance_pending": "Verzekering in behandeling",
+      "insurance_validated": "Verzekering gevalideerd"
     },
     "portal": {
       "metaTitle": "Uw financieringsdossier — MOONYP",
@@ -1554,7 +1589,49 @@
       "status": "Status",
       "timeline": "Historiek",
       "invalidTitle": "Link ongeldig of verlopen",
-      "invalidDesc": "Deze beveiligde link is niet meer geldig. Vraag een nieuwe aan bij ons team."
+      "invalidDesc": "Deze beveiligde link is niet meer geldig. Vraag een nieuwe aan bij ons team.",
+      "progress": "Voortgang dossier",
+      "submittedOn": "Ingediend op",
+      "monthly": "Maandelijkse termijn",
+      "apr": "JKP",
+      "product": "Financieringsproduct",
+      "insurance": "Kredietbescherming",
+      "totalCost": "Totale kosten van het krediet",
+      "interest": "Totale rente",
+      "fees": "Dossierkosten",
+      "documents": "Bewijsstukken",
+      "noDocuments": "Er zijn nog geen documenten ontvangen.",
+      "help": "Deze pagina wordt in realtime bijgewerkt. Ons kredietteam neemt bij elke belangrijke stap per e-mail contact met u op. Deel deze beveiligde link nooit met anderen.",
+      "kyc": {
+        "pending": "Verificatie in afwachting",
+        "verifying": "Verificatie in uitvoering",
+        "passed": "Identiteit geverifieerd",
+        "failed": "Verificatie mislukt",
+        "manual_review": "Handmatige beoordeling"
+      },
+      "doc": {
+        "pending": "In afwachting",
+        "approved": "Goedgekeurd",
+        "rejected": "Afgewezen",
+        "replacement_requested": "Te vervangen"
+      },
+      "requests": {
+        "title": "Gevraagde informatie",
+        "desc": "Ons team heeft aanvullende gegevens nodig om uw dossier te beoordelen.",
+        "none": "Geen openstaand verzoek.",
+        "open": "In afwachting",
+        "answered": "Behandeld",
+        "respondLabel": "Uw antwoord",
+        "placeholder": "Typ uw antwoord…",
+        "submit": "Antwoord versturen",
+        "success": "Antwoord verzonden",
+        "error": "Verzenden mislukt",
+        "kindMissingDocument": "Ontbrekend document",
+        "kindReplaceDocument": "Document vervangen",
+        "kindInformation": "Aanvullende informatie",
+        "kindJustification": "Motivering gevraagd",
+        "answeredAt": "Beantwoord op"
+      }
     },
     "success": {
       "title": "Uw aanvraag is ontvangen",
@@ -1567,13 +1644,53 @@
       "step3": "Aanbod, contract en uitbetaling na goedkeuring"
     },
     "validation": {
-      "required": "Dit veld is verplicht."
+      "required": "Dit veld is verplicht.",
+      "iban": {
+        "empty": "Voer uw IBAN in",
+        "charset": "Deze IBAN bevat ongeldige tekens",
+        "country": "Deze landcode maakt geen deel uit van het IBAN-register",
+        "length": "Deze IBAN heeft een onjuiste lengte voor dit land",
+        "checksum": "Deze IBAN is ongeldig (controlegetal onjuist)",
+        "valid": "Geldige IBAN — {{country}}"
+      },
+      "bic": {
+        "format": "Ongeldige BIC/SWIFT-code",
+        "countryMismatch": "De BIC komt niet overeen met het land van de IBAN"
+      },
+      "holder": {
+        "required": "Voer de naam van de rekeninghouder in",
+        "mismatch": "De rekeninghouder wijkt af van de aanvrager",
+        "partial": "De voornaam van de houder wijkt af van de aanvrager"
+      },
+      "bank": {
+        "countryMismatch": "Het opgegeven bankland komt niet overeen met de IBAN",
+        "crossBorder": "Rekening wordt aangehouden buiten uw land van verblijf",
+        "nonSepa": "Rekening buiten de SEPA-zone"
+      },
+      "risk": {
+        "dtiAbove40": "Schuldratio hoger dan 40%"
+      },
+      "phoneValid": "Geldig nummer",
+      "phoneIncomplete": "Nummer onvolledig"
     },
     "address": {
       "placeholder": "Typ uw adres (wereldwijd)…",
       "hint": "Kies een suggestie of voer uw adres handmatig in.",
       "manual": "Handmatig invoeren",
       "hideManual": "Details verbergen"
+    },
+    "schedule": {
+      "title": "Aflossingsschema",
+      "period": "Periode",
+      "number": "Nr.",
+      "dueDate": "Vervaldatum",
+      "payment": "Termijnbedrag",
+      "principal": "Hoofdsom",
+      "interest": "Rente",
+      "insurance": "Verzekering",
+      "balance": "Openstaand kapitaal",
+      "total": "Totaal",
+      "export": "Exporteer CSV"
     }
   },
   "products": {
@@ -1682,6 +1799,181 @@
       "title": "Klaar om uw project te financieren?",
       "desc": "Simuleer in één minuut, vraag aan in zes stappen en ontvang binnen 24 uur een beslissing.",
       "button": "Mijn aanvraag starten"
+    }
+  },
+  "validation": {
+    "phone": "Voer een geldig telefoonnummer in"
+  },
+  "kyc": {
+    "capture": "Vastleggen",
+    "retake": "Opnieuw nemen",
+    "chooseDocument": "Kies uw document",
+    "nothingRequired": "Geen document vereist in dit stadium",
+    "storageNotice": "Uw documenten worden versleuteld opgeslagen in een beveiligde omgeving en zijn uitsluitend toegankelijk voor ons compliance-team.",
+    "intro": {
+      "title": "Identiteitsverificatie",
+      "why": "Europese regelgeving verplicht ons uw identiteit te verifiëren voordat wij fondsen vrijgeven. Dit duurt ongeveer drie minuten.",
+      "camera": "Gebruik uw camera in een goed verlichte omgeving — u kunt ook een bestand importeren.",
+      "privacy": "Uw documenten worden versleuteld en nooit gedeeld met derden.",
+      "start": "Start verificatie"
+    },
+    "category": {
+      "identity": {
+        "title": "Identiteitsbewijs",
+        "desc": "Paspoort, identiteitskaart of verblijfsvergunning"
+      },
+      "address": {
+        "title": "Bewijs van adres",
+        "desc": "Niet ouder dan drie maanden"
+      },
+      "selfie": {
+        "title": "Liveness-check",
+        "desc": "Een snelle selfie ter vergelijking met uw document"
+      },
+      "bank": {
+        "title": "Bankgegevens",
+        "desc": "Bankafschrift met vermelding van uw IBAN"
+      },
+      "income": {
+        "title": "Bewijs van inkomen",
+        "desc": "Afhankelijk van uw professionele situatie"
+      }
+    },
+    "side": {
+      "front": "Voorzijde",
+      "back": "Achterzijde",
+      "single": "Document"
+    },
+    "hint": {
+      "scan": "Plaats het document op een vlakke ondergrond, volledig binnen het kader en zonder schittering.",
+      "scan_double": "Leg beide zijden na elkaar vast, waarbij alle vier de hoeken zichtbaar zijn.",
+      "selfie": "Kijk recht in de camera, zonder hoed of zonnebril.",
+      "upload": "Geaccepteerde formaten: PDF, JPEG, PNG."
+    },
+    "status": {
+      "todo": "Nog te doen",
+      "in_progress": "In behandeling",
+      "capturing": "Onvoltooid",
+      "verifying": "Controleren",
+      "passed": "Verstrekt",
+      "failed": "Geweigerd",
+      "retry": "Opnieuw proberen",
+      "manual_review": "In beoordeling"
+    },
+    "camera": {
+      "ready": "Camera gereed",
+      "start": "Open camera",
+      "shoot": "Maak de foto",
+      "retake": "Opnieuw nemen",
+      "use": "Gebruik deze foto",
+      "importInstead": "Importeer een bestand",
+      "denied": "Camera niet beschikbaar of toestemming geweigerd.",
+      "unsupported": "Uw browser ondersteunt het vastleggen via de camera niet.",
+      "badFormat": "Niet-ondersteund bestandsformaat",
+      "tooLarge": "Bestand groter dan {{size}} MB",
+      "quality": {
+        "ok": "Goede kwaliteit — het document is leesbaar.",
+        "dark": "Foto te donker: ga naar een lichtere plek.",
+        "bright": "Foto overbelicht: vermijd direct licht en schittering.",
+        "blurry": "Foto wazig: houd het toestel stil en stel opnieuw scherp."
+      }
+    },
+    "stepOf": "Stap {{current}} van {{total}}",
+    "finish": "Voltooien",
+    "done": {
+      "title": "Verificatie voltooid",
+      "desc": "Alle vereiste documenten zijn vastgelegd. U kunt deze controleren of vervangen voordat u uw aanvraag definitief indient."
+    },
+    "docs": {
+      "bankStatement": "Bankafschrift (laatste 3 maanden)",
+      "benefits": "Uitkeringsverklaring",
+      "drivingLicence": "Rijbewijs",
+      "electricity": "Energierekening",
+      "hosting": "Verklaring van inwoning",
+      "kbis": "Uittreksel handelsregister",
+      "nationalId": "Identiteitskaart",
+      "passport": "Paspoort",
+      "payslip": "Loonstroken (laatste 3 maanden)",
+      "pension": "Pensioenverklaring",
+      "residencePermit": "Verblijfsvergunning",
+      "selfie": "Gezichtsverificatie",
+      "taxReturn": "Belastingaanslag",
+      "telecom": "Telefoon-/internetrekening",
+      "water": "Waterrekening"
+    }
+  },
+  "emails": {
+    "applicationReceived": {
+      "subject": "We hebben uw aanvraag {{reference}} ontvangen",
+      "body": "Hallo {{firstName}}, we hebben uw aanvraag {{reference}} ontvangen. Ons team beoordeelt deze en houdt u bij elke stap op de hoogte."
+    },
+    "documentsMissing": {
+      "subject": "Ontbrekende documenten — dossier {{reference}}",
+      "body": "Hallo {{firstName}}, er ontbreken documenten in dossier {{reference}}. Upload ze via uw beveiligde omgeving. {{reason}}"
+    },
+    "infoRequested": {
+      "subject": "Aanvullende informatie — dossier {{reference}}",
+      "body": "Hallo {{firstName}}, we hebben aanvullende informatie nodig voor dossier {{reference}}. {{reason}}"
+    },
+    "approved": {
+      "subject": "Uw aanvraag {{reference}} is goedgekeurd",
+      "body": "Hallo {{firstName}}, uw aanvraag {{reference}} is goedgekeurd. Uw aanbod verschijnt in uw beveiligde omgeving."
+    },
+    "rejected": {
+      "subject": "Beslissing over uw aanvraag {{reference}}",
+      "body": "Hallo {{firstName}}, na beoordeling kon aanvraag {{reference}} niet worden geaccepteerd. Reden: {{reason}}"
+    },
+    "offerAvailable": {
+      "subject": "Uw aanbod {{reference}} staat klaar",
+      "body": "Hallo {{firstName}}, uw financieringsaanbod {{reference}} staat klaar in uw beveiligde omgeving."
+    },
+    "contractSent": {
+      "subject": "Uw contract {{reference}} is klaar",
+      "body": "Hallo {{firstName}}, uw contract {{reference}} kan worden ondertekend in uw beveiligde omgeving."
+    },
+    "disbursed": {
+      "subject": "Bedrag uitbetaald — dossier {{reference}}",
+      "body": "Hallo {{firstName}}, het bedrag van dossier {{reference}} is naar uw rekening overgemaakt."
+    }
+  },
+  "workflow": {
+    "guard": {
+      "kycNotPassed": "KYC checks not passed",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "noInsurance": "No insurance subscribed on this file",
+      "missingPayout": "Payout details missing",
+      "complianceBlocking": "Blocking compliance alert"
+    },
+    "error": {
+      "sameStatus": "The file already has this status",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "forbidden": "Action not allowed"
+    },
+    "confirmTitle": "Confirm the decision",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Internal note",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "requests": {
+      "title": "Information requests",
+      "kind": "Request type",
+      "message": "Message sent to the applicant",
+      "create": "Send request",
+      "none": "No information request.",
+      "close": "Close",
+      "open": "Pending",
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "kinds": {
+        "missing_document": "Ontbrekend document",
+        "replace_document": "Document vervangen",
+        "information": "Aanvullende informatie",
+        "justification": "Motivering gevraagd"
+      }
     }
   }
 }
