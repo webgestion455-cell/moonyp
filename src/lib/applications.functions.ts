@@ -116,12 +116,16 @@ export const submitApplication = createServerFn({ method: "POST" })
       throw new Error("rate_limited");
     }
 
-    const { data: product } = await supabaseAdmin
+    const { data: product, error: productError } = await supabaseAdmin
       .from("loan_products")
       .select("*")
       .eq("id", data.product_id)
       .eq("active", true)
       .maybeSingle();
+    if (productError) {
+      console.error("[submitApplication] product lookup failed", productError);
+      throw new Error(`product_lookup_failed:${productError.message}`);
+    }
     if (!product) throw new Error("product_not_found");
 
     const amount = Math.min(Math.max(data.amount, Number(product.min_amount)), Number(product.max_amount));
@@ -216,35 +220,42 @@ export const submitApplication = createServerFn({ method: "POST" })
     if (error) throw new Error(error.message);
 
     const token = await server.issuePortalToken(inserted.id);
-    await server.logEvent(inserted.id, "application_submitted", {
-      description: "Demande soumise par le demandeur",
-      metadata: {
-        amount,
-        months,
-        product: product.slug,
-        monthly: pricing.totalMonthly,
-        apr: pricing.apr,
-        dti,
-        flags: complianceFlags,
-      },
-      ip,
-    });
 
-    // Notification back-office + email transactionnel dans la langue du client.
-    const workflow = await import("@/lib/workflow.server");
-    await workflow.notifyAdmins({
-      title: inserted.reference,
-      message: `Nouvelle demande · ${amount} ${product.currency}`,
-      link: `/admin/applications/${inserted.id}`,
-      category: "application",
-    });
-    await workflow.queueEmail({
-      applicationId: inserted.id,
-      to: applicationPayload.email,
-      locale: data.language,
-      template: "applicationReceived",
-      vars: { reference: inserted.reference, firstName: data.first_name, reason: "" },
-    });
+    // Les effets de bord (journal, notification, email) ne doivent jamais
+    // faire échouer une demande déjà enregistrée : on les isole et on les
+    // journalise côté serveur pour diagnostic.
+    try {
+      await server.logEvent(inserted.id, "application_submitted", {
+        description: "Demande soumise par le demandeur",
+        metadata: {
+          amount,
+          months,
+          product: product.slug,
+          monthly: pricing.totalMonthly,
+          apr: pricing.apr,
+          dti,
+          flags: complianceFlags,
+        },
+        ip,
+      });
+
+      const workflow = await import("@/lib/workflow.server");
+      await workflow.notifyAdmins({
+        title: inserted.reference,
+        message: `Nouvelle demande · ${amount} ${product.currency}`,
+        link: `/admin/applications/${inserted.id}`,
+        category: "application",
+      });
+      await workflow.queueEmail({
+        applicationId: inserted.id,
+        to: applicationPayload.email,
+        locale: data.language,
+        template: "applicationReceived",
+        vars: { reference: inserted.reference, firstName: data.first_name, reason: "" },
+      });
+    } catch (sideEffectError) {
+      console.error("[submitApplication] post-insert side effect failed", sideEffectError);
+    }
 
     return {
       id: inserted.id,
@@ -379,19 +390,25 @@ export const getApplicationByToken = createServerFn({ method: "POST" })
     const applicationId = await server.resolveToken(data.token);
     if (!applicationId) return null;
 
-    const [{ data: application }, { data: history }, { data: documents }] = await Promise.all([
-      supabaseAdmin.from("loan_applications").select("*").eq("id", applicationId).maybeSingle(),
-      supabaseAdmin
-        .from("application_status_history")
-        .select("new_status, created_at, note")
-        .eq("application_id", applicationId)
-        .order("created_at", { ascending: true }),
-      supabaseAdmin
-        .from("application_documents")
-        .select("id, document_type_slug, file_name, status, review_note, created_at")
-        .eq("application_id", applicationId)
-        .order("created_at", { ascending: true }),
-    ]);
+    const [{ data: application }, { data: history }, { data: documents }, { data: kycChecks }] =
+      await Promise.all([
+        supabaseAdmin.from("loan_applications").select("*").eq("id", applicationId).maybeSingle(),
+        supabaseAdmin
+          .from("application_status_history")
+          .select("new_status, created_at, note, reason")
+          .eq("application_id", applicationId)
+          .order("created_at", { ascending: true }),
+        supabaseAdmin
+          .from("application_documents")
+          .select("id, document_type_slug, file_name, status, review_note, created_at")
+          .eq("application_id", applicationId)
+          .order("created_at", { ascending: true }),
+        supabaseAdmin
+          .from("application_kyc_checks")
+          .select("id, step_key, category, document_type_slug, status, review_note, reviewed_at, created_at")
+          .eq("application_id", applicationId)
+          .order("created_at", { ascending: true }),
+      ]);
 
     if (!application) return null;
 
@@ -403,21 +420,160 @@ export const getApplicationByToken = createServerFn({ method: "POST" })
           .maybeSingle()
       : { data: null };
 
-    const { data: infoRequests } = await supabaseAdmin
-      .from("application_info_requests")
-      .select("id, kind, message, status, document_type_slug, response_text, responded_at, created_at")
-      .eq("application_id", applicationId)
-      .neq("status", "cancelled")
-      .order("created_at", { ascending: false });
+    const [
+      { data: infoRequests },
+      { data: offer },
+      { data: contract },
+      { data: guarantee },
+      { data: insurance },
+      { data: disbursement },
+      { data: repayments },
+    ] = await Promise.all([
+      supabaseAdmin
+        .from("application_info_requests")
+        .select("id, kind, message, status, document_type_slug, response_text, responded_at, created_at")
+        .eq("application_id", applicationId)
+        .neq("status", "cancelled")
+        .order("created_at", { ascending: false }),
+      supabaseAdmin
+        .from("application_offers")
+        .select("id, amount, duration_months, annual_rate, monthly_payment, total_cost, insurance_total, fees_total, currency, valid_until, accepted_at, declined_at, created_at")
+        .eq("application_id", applicationId)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("application_contracts")
+        .select("id, language, sent_at, signed_at, signature_name, signature_method, storage_path, signed_storage_path")
+        .eq("application_id", applicationId)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("application_guarantees")
+        .select("id, kind, guarantor_name, amount, currency, status, sent_at, signed_at, fee_amount, fee_description, payment_instructions, payment_status, client_choice, choice_at, scheduled_payment_date, payment_validated_at")
+        .eq("application_id", applicationId)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("application_insurances")
+        .select("id, provider, policy_number, coverage, monthly_premium, currency, status, starts_on, validated_at, fee_amount, fee_description, payment_status, scheduled_payment_date")
+        .eq("application_id", applicationId)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("disbursements")
+        .select("id, amount, currency, beneficiary, iban, bank_name, reference, status, processed_at, created_at")
+        .eq("application_id", applicationId)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("repayment_schedule")
+        .select("id, installment_no, due_date, amount, principal, interest, insurance, remaining_balance, paid, paid_at")
+        .eq("application_id", applicationId)
+        .order("installment_no", { ascending: true })
+        .limit(360),
+    ]);
 
     return {
       application,
       product,
       history: history ?? [],
       documents: documents ?? [],
+      kycChecks: kycChecks ?? [],
       infoRequests: infoRequests ?? [],
+      offer,
+      contract: contract
+        ? {
+            id: contract.id,
+            language: contract.language,
+            sent_at: contract.sent_at,
+            signed_at: contract.signed_at,
+            signature_name: contract.signature_name,
+            signature_method: contract.signature_method,
+            has_document: Boolean(contract.storage_path),
+            has_signed_document: Boolean(contract.signed_storage_path),
+          }
+        : null,
+      guarantee,
+      insurance,
+      disbursement: disbursement
+        ? { ...disbursement, iban: server.maskIban(disbursement.iban) }
+        : null,
+      repayments: repayments ?? [],
     };
   });
+
+/**
+ * Lien de téléchargement temporaire pour une pièce du dossier.
+ * Le document n'est jamais accessible par son nom : le token doit
+ * correspondre au dossier propriétaire, et chaque accès est journalisé.
+ */
+export const getSecureDocumentUrl = createServerFn({ method: "POST" })
+  .inputValidator((input) =>
+    z
+      .object({
+        token: z.string().min(20).max(200),
+        kind: z.enum(["document", "contract", "signed_contract"]).default("document"),
+        document_id: z.string().uuid().optional(),
+      })
+      .parse(input),
+  )
+  .handler(async ({ data }) => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const server = await import("@/lib/applications.server");
+
+    const applicationId = await server.resolveToken(data.token);
+    if (!applicationId) throw new Error("invalid_token");
+
+    const ip =
+      getRequestHeader("cf-connecting-ip") ??
+      getRequestHeader("x-forwarded-for")?.split(",")[0]?.trim() ??
+      null;
+    if (!server.rateLimit(`doc:${applicationId}`, 60, 10 * 60 * 1000)) throw new Error("rate_limited");
+
+    let bucket = "kyc-documents";
+    let path: string | null = null;
+
+    if (data.kind === "document") {
+      if (!data.document_id) throw new Error("missing_document");
+      const { data: doc } = await supabaseAdmin
+        .from("application_documents")
+        .select("storage_path, application_id")
+        .eq("id", data.document_id)
+        .eq("application_id", applicationId)
+        .maybeSingle();
+      path = doc?.storage_path ?? null;
+    } else {
+      bucket = "contracts";
+      const { data: contract } = await supabaseAdmin
+        .from("application_contracts")
+        .select("storage_path, signed_storage_path")
+        .eq("application_id", applicationId)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      path = (data.kind === "signed_contract" ? contract?.signed_storage_path : contract?.storage_path) ?? null;
+    }
+
+    if (!path) throw new Error("not_found");
+
+    const { data: signed, error } = await supabaseAdmin.storage.from(bucket).createSignedUrl(path, 120);
+    if (error || !signed?.signedUrl) throw new Error("signing_failed");
+
+    await server.logEvent(applicationId, "document_accessed", {
+      actor: "applicant",
+      description: data.kind,
+      metadata: { kind: data.kind, document_id: data.document_id ?? null, bucket },
+      ip,
+    });
+
+    return { url: signed.signedUrl, expiresIn: 120 };
+  });
+
 
 /** Réponse du demandeur à une demande d'information, via le lien sécurisé. */
 export const respondToInfoRequest = createServerFn({ method: "POST" })

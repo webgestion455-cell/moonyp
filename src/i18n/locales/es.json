@@ -1631,7 +1631,47 @@
         "kindInformation": "Información adicional",
         "kindJustification": "Justificación solicitada",
         "answeredAt": "Respondido el"
-      }
+      },
+      "stages": {
+        "received": "Solicitud recibida",
+        "study": "Expediente en estudio",
+        "approved": "Solicitud aprobada",
+        "contract": "Contrato",
+        "guarantee": "Garantía",
+        "insurance": "Seguro",
+        "disbursement": "Desembolso",
+        "repayment": "Reembolso"
+      },
+      "offer": "Oferta de préstamo",
+      "contract": "Contrato",
+      "guarantee": "Garantía",
+      "insurance2": "Seguro del prestatario",
+      "disbursement": "Desembolso",
+      "repayments": "Cuadro de amortización",
+      "kycTitle": "Verificación de identidad",
+      "validUntil": "Válida hasta",
+      "sentOn": "Enviado el",
+      "signedOn": "Firmado el",
+      "acceptedOn": "Aceptada el",
+      "download": "Descargar",
+      "downloadContract": "Descargar contrato",
+      "downloadSigned": "Descargar contrato firmado",
+      "guarantor": "Avalista",
+      "provider": "Aseguradora",
+      "policy": "Número de póliza",
+      "premium": "Prima mensual",
+      "beneficiary": "Beneficiario",
+      "paidOn": "Pagada el",
+      "installment": "Cuota",
+      "dueDate": "Fecha de vencimiento",
+      "remaining": "Saldo pendiente",
+      "paid": "Pagada",
+      "unpaid": "Pendiente",
+      "none": "Aún no disponible",
+      "downloadNotice": "Los enlaces de descarga caducan a los dos minutos y quedan registrados.",
+      "downloadError": "Descarga no disponible",
+      "kycNone": "Todavía no hay verificaciones registradas.",
+      "viewContract": "Consultar mi contrato"
     },
     "success": {
       "title": "Hemos recibido su solicitud",
@@ -1691,6 +1731,90 @@
       "balance": "Capital pendiente",
       "total": "Total",
       "export": "Exportar CSV"
+    },
+    "contract": {
+      "metaTitle": "Su contrato — MOONYP",
+      "metaDesc": "Consulte y firme su contrato de financiación de forma segura.",
+      "backToFile": "Volver al expediente",
+      "offerSummary": "Resumen de la oferta",
+      "rate": "Tasa anual",
+      "document": "Documento contractual",
+      "version": "Versión",
+      "state": "Estado",
+      "hash": "Huella del documento",
+      "providerLabel": "Mecanismo de firma",
+      "signTitle": "Firmar el contrato",
+      "legalNotice": "Se trata de una firma electrónica avanzada con valor probatorio (código de un solo uso, sello de tiempo, huella del documento). No es una firma electrónica cualificada según eIDAS.",
+      "fullName": "Nombre completo del firmante",
+      "startSignature": "Recibir mi código de firma",
+      "code": "Código de firma",
+      "codeHint": "Se ha enviado un código de un solo uso al correo del expediente.",
+      "consent": "Confirmo que he leído el contrato y consiento firmarlo electrónicamente.",
+      "confirmSignature": "Confirmar la firma",
+      "resendCode": "Reenviar el código",
+      "history": "Historial del contrato",
+      "important": "Conserve una copia de su contrato firmado. Nuestro servicio de atención está a su disposición.",
+      "notAvailable": "Todavía no hay ningún contrato disponible.",
+      "alreadySigned": "Este contrato ya está firmado.",
+      "codeSent": "Código enviado",
+      "startError": "No se pudo iniciar la firma.",
+      "signError": "No se pudo firmar.",
+      "signed": "Contrato firmado",
+      "states": {
+        "draft": "Borrador",
+        "ready": "Listo",
+        "sent": "Enviado",
+        "viewed": "Consultado",
+        "signed": "Firmado",
+        "cancelled": "Cancelado"
+      },
+      "events": {
+        "contract_created": "Contrato creado",
+        "contract_sent": "Contrato enviado",
+        "contract_viewed": "Contrato consultado",
+        "signature_requested": "Firma solicitada",
+        "signature_completed": "Firma completada",
+        "contract_downloaded": "Contrato descargado"
+      }
+    },
+    "guarantee": {
+      "fee": "Gastos de cobertura del riesgo de crédito",
+      "paymentStatus": "Estado del pago",
+      "payment": {
+        "unpaid": "No pagado",
+        "awaiting_payment": "Pago pendiente",
+        "paid": "Pagado",
+        "waived": "Renunciado",
+        "failed": "Fallido"
+      },
+      "scheduledDate": "Fecha de pago prevista",
+      "paidNotice": "Nuestro equipo ha validado sus gastos.",
+      "chosen": {
+        "pay_now": "Ha elegido pagar ahora.",
+        "decline": "Ha renunciado a su solicitud de préstamo.",
+        "pay_later": "Ha elegido pagar más tarde."
+      },
+      "instructions": "Instrucciones de pago",
+      "validationNotice": "Un pago solo se considera recibido tras la validación de nuestro equipo.",
+      "question": "¿Desea pagar los gastos de cobertura?",
+      "options": {
+        "pay_now": "Sí, pagar y recibir mi préstamo",
+        "decline": "No, no pagar y renunciar a mi solicitud",
+        "pay_later": "Sí, pagar más tarde y mantener mi solicitud en espera"
+      },
+      "optionsHint": {
+        "pay_now": "Recibirá las instrucciones de pago.",
+        "decline": "Su expediente se cerrará.",
+        "pay_later": "Elija una fecha de pago, le enviaremos recordatorios."
+      },
+      "pickDate": "Fecha de pago deseada",
+      "confirmChoice": "Confirmar mi elección",
+      "noPaymentNotice": "Esta elección no realiza ningún pago: se confirma tras la validación de nuestro equipo.",
+      "choiceSaved": "Elección guardada",
+      "error": {
+        "dateRequired": "Indique una fecha de pago.",
+        "generic": "Acción imposible."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Fondos liberados — expediente {{reference}}",
       "body": "Hola {{firstName}}, los fondos de su expediente {{reference}} han sido transferidos a su cuenta."
+    },
+    "signatureCode": {
+      "subject": "Su código de firma {{reference}}",
+      "body": "Hola {{firstName}}, su código de firma es {{code}}. Caduca en 10 minutos."
+    },
+    "contractSigned": {
+      "subject": "Contrato {{reference}} firmado",
+      "body": "Hola {{firstName}}, su contrato {{reference}} ha sido firmado. Puede descargarlo desde su área segura."
+    },
+    "guaranteeSent": {
+      "subject": "Gastos de cobertura — expediente {{reference}}",
+      "body": "Hola {{firstName}}, los gastos de cobertura del riesgo de crédito ascienden a {{amount}}. Elija su opción en su área segura."
+    },
+    "guaranteePayNow": {
+      "subject": "Pago de gastos {{reference}}",
+      "body": "Hola {{firstName}}, hemos registrado su elección de pagar {{amount}}. Las instrucciones de pago llegarán tras la verificación."
+    },
+    "guaranteeDeclined": {
+      "subject": "Solicitud {{reference}} anulada",
+      "body": "Hola {{firstName}}, hemos registrado su renuncia. Su expediente {{reference}} se cerrará."
+    },
+    "guaranteePayLater": {
+      "subject": "Pago programado {{reference}}",
+      "body": "Hola {{firstName}}, su pago de {{amount}} está previsto para el {{date}}. Su solicitud sigue en espera."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Gastos validados {{reference}}",
+      "body": "Hola {{firstName}}, el pago de sus gastos ha sido validado. Su expediente continúa."
+    },
+    "guaranteeReminder": {
+      "subject": "Recordatorio de pago {{reference}}",
+      "body": "Hola {{firstName}}, su pago de {{amount}} vence el {{date}}."
+    },
+    "insurancePending": {
+      "subject": "Seguro {{reference}}",
+      "body": "Hola {{firstName}}, se requiere un seguro de {{amount}} al mes para su expediente."
+    },
+    "insuranceValidated": {
+      "subject": "Seguro validado {{reference}}",
+      "body": "Hola {{firstName}}, su seguro ha sido validado."
     }
   },
   "workflow": {

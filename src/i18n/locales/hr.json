@@ -1631,7 +1631,47 @@
         "kindInformation": "Dodatna informacija",
         "kindJustification": "Zatraženo obrazloženje",
         "answeredAt": "Odgovoreno"
-      }
+      },
+      "stages": {
+        "received": "Zahtjev zaprimljen",
+        "study": "Predmet u obradi",
+        "approved": "Zahtjev odobren",
+        "contract": "Ugovor",
+        "guarantee": "Jamstvo",
+        "insurance": "Osiguranje",
+        "disbursement": "Isplata",
+        "repayment": "Otplata"
+      },
+      "offer": "Ponuda kredita",
+      "contract": "Ugovor",
+      "guarantee": "Jamstvo",
+      "insurance2": "Osiguranje korisnika kredita",
+      "disbursement": "Isplata",
+      "repayments": "Plan otplate",
+      "kycTitle": "Provjera identiteta",
+      "validUntil": "Vrijedi do",
+      "sentOn": "Poslano",
+      "signedOn": "Potpisano",
+      "acceptedOn": "Prihvaćeno",
+      "download": "Preuzmi",
+      "downloadContract": "Preuzmi ugovor",
+      "downloadSigned": "Preuzmi potpisani ugovor",
+      "guarantor": "Jamac",
+      "provider": "Osiguravatelj",
+      "policy": "Broj police",
+      "premium": "Mjesečna premija",
+      "beneficiary": "Primatelj",
+      "paidOn": "Plaćeno",
+      "installment": "Rata",
+      "dueDate": "Dospijeće",
+      "remaining": "Preostali saldo",
+      "paid": "Plaćena",
+      "unpaid": "Predstoji",
+      "none": "Još nije dostupno",
+      "downloadNotice": "Poveznice za preuzimanje istječu nakon dvije minute i bilježe se.",
+      "downloadError": "Preuzimanje nije dostupno",
+      "kycNone": "Još nema zabilježenih provjera.",
+      "viewContract": "Pogledaj moj ugovor"
     },
     "success": {
       "title": "Vaš zahtjev je zaprimljen",
@@ -1691,6 +1731,90 @@
       "balance": "Ostatak duga",
       "total": "Ukupno",
       "export": "Izvezi u CSV"
+    },
+    "contract": {
+      "metaTitle": "Vaš ugovor — MOONYP",
+      "metaDesc": "Pregledajte i sigurno potpišite svoj ugovor o financiranju.",
+      "backToFile": "Natrag na predmet",
+      "offerSummary": "Sažetak ponude",
+      "rate": "Godišnja stopa",
+      "document": "Ugovorni dokument",
+      "version": "Verzija",
+      "state": "Stanje",
+      "hash": "Otisak dokumenta",
+      "providerLabel": "Mehanizam potpisa",
+      "signTitle": "Potpišite ugovor",
+      "legalNotice": "Riječ je o naprednom elektroničkom potpisu s dokazima (jednokratni kod, vremenski žig, otisak dokumenta). To nije kvalificirani elektronički potpis prema eIDAS-u.",
+      "fullName": "Puno ime potpisnika",
+      "startSignature": "Pošalji moj kod za potpis",
+      "code": "Kod za potpis",
+      "codeHint": "Jednokratni kod poslan je na e-poštu iz predmeta.",
+      "consent": "Potvrđujem da sam pročitao ugovor i pristajem na elektroničko potpisivanje.",
+      "confirmSignature": "Potvrdi potpis",
+      "resendCode": "Pošalji kod ponovno",
+      "history": "Povijest ugovora",
+      "important": "Sačuvajte kopiju potpisanog ugovora. Naša korisnička podrška stoji na raspolaganju.",
+      "notAvailable": "Ugovor još nije dostupan.",
+      "alreadySigned": "Ovaj ugovor je već potpisan.",
+      "codeSent": "Kod poslan",
+      "startError": "Potpisivanje nije moguće pokrenuti.",
+      "signError": "Potpisivanje nije uspjelo.",
+      "signed": "Ugovor potpisan",
+      "states": {
+        "draft": "Nacrt",
+        "ready": "Spremno",
+        "sent": "Poslano",
+        "viewed": "Pregledano",
+        "signed": "Potpisano",
+        "cancelled": "Otkazano"
+      },
+      "events": {
+        "contract_created": "Ugovor kreiran",
+        "contract_sent": "Ugovor poslan",
+        "contract_viewed": "Ugovor pregledan",
+        "signature_requested": "Zatražen potpis",
+        "signature_completed": "Potpis dovršen",
+        "contract_downloaded": "Ugovor preuzet"
+      }
+    },
+    "guarantee": {
+      "fee": "Naknada za pokriće kreditnog rizika",
+      "paymentStatus": "Status plaćanja",
+      "payment": {
+        "unpaid": "Neplaćeno",
+        "awaiting_payment": "Čeka plaćanje",
+        "paid": "Plaćeno",
+        "waived": "Odustalo se",
+        "failed": "Neuspjelo"
+      },
+      "scheduledDate": "Planirani datum plaćanja",
+      "paidNotice": "Naš tim je potvrdio vašu naknadu.",
+      "chosen": {
+        "pay_now": "Odabrali ste platiti odmah.",
+        "decline": "Odustali ste od zahtjeva za kredit.",
+        "pay_later": "Odabrali ste platiti kasnije."
+      },
+      "instructions": "Upute za plaćanje",
+      "validationNotice": "Plaćanje se smatra primljenim tek nakon potvrde našeg tima.",
+      "question": "Želite li platiti naknadu za pokriće?",
+      "options": {
+        "pay_now": "Da, platiti i primiti kredit",
+        "decline": "Ne, ne platiti i odustati od zahtjeva",
+        "pay_later": "Da, platiti kasnije i zadržati zahtjev na čekanju"
+      },
+      "optionsHint": {
+        "pay_now": "Primit ćete upute za plaćanje.",
+        "decline": "Vaš predmet bit će zatvoren.",
+        "pay_later": "Odaberite datum plaćanja, poslat ćemo podsjetnike."
+      },
+      "pickDate": "Željeni datum plaćanja",
+      "confirmChoice": "Potvrdi odabir",
+      "noPaymentNotice": "Ovaj odabir ne izvršava plaćanje: ono se potvrđuje nakon provjere našeg tima.",
+      "choiceSaved": "Odabir spremljen",
+      "error": {
+        "dateRequired": "Odaberite datum plaćanja.",
+        "generic": "Radnja nije moguća."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Sredstva isplaćena — predmet {{reference}}",
       "body": "Pozdrav {{firstName}}, sredstva predmeta {{reference}} doznačena su na vaš račun."
+    },
+    "signatureCode": {
+      "subject": "Vaš kod za potpis {{reference}}",
+      "body": "Pozdrav {{firstName}}, vaš kod za potpis je {{code}}. Istječe za 10 minuta."
+    },
+    "contractSigned": {
+      "subject": "Ugovor {{reference}} potpisan",
+      "body": "Pozdrav {{firstName}}, ugovor {{reference}} je potpisan. Možete ga preuzeti u sigurnom prostoru."
+    },
+    "guaranteeSent": {
+      "subject": "Naknada za pokriće — predmet {{reference}}",
+      "body": "Pozdrav {{firstName}}, naknada za pokriće kreditnog rizika iznosi {{amount}}. Odaberite opciju u sigurnom prostoru."
+    },
+    "guaranteePayNow": {
+      "subject": "Plaćanje naknade {{reference}}",
+      "body": "Pozdrav {{firstName}}, zabilježili smo odabir plaćanja {{amount}}. Upute slijede nakon provjere."
+    },
+    "guaranteeDeclined": {
+      "subject": "Zahtjev {{reference}} otkazan",
+      "body": "Pozdrav {{firstName}}, zabilježili smo vaše odustajanje. Predmet {{reference}} bit će zatvoren."
+    },
+    "guaranteePayLater": {
+      "subject": "Plaćanje zakazano {{reference}}",
+      "body": "Pozdrav {{firstName}}, plaćanje od {{amount}} zakazano je za {{date}}. Zahtjev ostaje na čekanju."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Naknada potvrđena {{reference}}",
+      "body": "Pozdrav {{firstName}}, plaćanje je potvrđeno. Predmet se nastavlja."
+    },
+    "guaranteeReminder": {
+      "subject": "Podsjetnik na plaćanje {{reference}}",
+      "body": "Pozdrav {{firstName}}, plaćanje od {{amount}} dospijeva {{date}}."
+    },
+    "insurancePending": {
+      "subject": "Osiguranje {{reference}}",
+      "body": "Pozdrav {{firstName}}, potrebno je osiguranje od {{amount}} mjesečno."
+    },
+    "insuranceValidated": {
+      "subject": "Osiguranje potvrđeno {{reference}}",
+      "body": "Pozdrav {{firstName}}, vaše osiguranje je potvrđeno."
     }
   },
   "workflow": {

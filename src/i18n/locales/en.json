@@ -1631,7 +1631,47 @@
         "kindInformation": "Additional information",
         "kindJustification": "Justification requested",
         "answeredAt": "Answered on"
-      }
+      },
+      "stages": {
+        "received": "Application received",
+        "study": "File under review",
+        "approved": "Application approved",
+        "contract": "Contract",
+        "guarantee": "Guarantee",
+        "insurance": "Insurance",
+        "disbursement": "Disbursement",
+        "repayment": "Repayment"
+      },
+      "offer": "Loan offer",
+      "contract": "Contract",
+      "guarantee": "Guarantee",
+      "insurance2": "Borrower insurance",
+      "disbursement": "Disbursement",
+      "repayments": "Repayment schedule",
+      "kycTitle": "Identity verification",
+      "validUntil": "Valid until",
+      "sentOn": "Sent on",
+      "signedOn": "Signed on",
+      "acceptedOn": "Accepted on",
+      "download": "Download",
+      "downloadContract": "Download contract",
+      "downloadSigned": "Download signed contract",
+      "guarantor": "Guarantor",
+      "provider": "Insurer",
+      "policy": "Policy number",
+      "premium": "Monthly premium",
+      "beneficiary": "Beneficiary",
+      "paidOn": "Paid on",
+      "installment": "Instalment",
+      "dueDate": "Due date",
+      "remaining": "Remaining balance",
+      "paid": "Paid",
+      "unpaid": "Upcoming",
+      "none": "Not available yet",
+      "downloadNotice": "Download links expire after two minutes and are logged.",
+      "downloadError": "Download unavailable",
+      "kycNone": "No verification recorded yet.",
+      "viewContract": "View my contract"
     },
     "success": {
       "title": "Your application has been received",
@@ -1691,6 +1731,90 @@
       "balance": "Outstanding capital",
       "total": "Total",
       "export": "Export CSV"
+    },
+    "contract": {
+      "metaTitle": "Your contract — MOONYP",
+      "metaDesc": "Review and sign your financing contract securely.",
+      "backToFile": "Back to my file",
+      "offerSummary": "Offer summary",
+      "rate": "Annual rate",
+      "document": "Contract document",
+      "version": "Version",
+      "state": "State",
+      "hash": "Document fingerprint",
+      "providerLabel": "Signature mechanism",
+      "signTitle": "Sign the contract",
+      "legalNotice": "This is an advanced electronic signature with evidence (one-time code, timestamp, document hash). It is not a qualified electronic signature under eIDAS.",
+      "fullName": "Signer's full name",
+      "startSignature": "Send my signature code",
+      "code": "Signature code",
+      "codeHint": "A one-time code has just been sent to the email on file.",
+      "consent": "I confirm I have read the contract and consent to sign it electronically.",
+      "confirmSignature": "Confirm signature",
+      "resendCode": "Resend code",
+      "history": "Contract history",
+      "important": "Keep a copy of your signed contract. Contact our support team with any question.",
+      "notAvailable": "No contract is available yet.",
+      "alreadySigned": "This contract is already signed.",
+      "codeSent": "Code sent",
+      "startError": "Could not start the signature.",
+      "signError": "Signature failed.",
+      "signed": "Contract signed",
+      "states": {
+        "draft": "Draft",
+        "ready": "Ready",
+        "sent": "Sent",
+        "viewed": "Viewed",
+        "signed": "Signed",
+        "cancelled": "Cancelled"
+      },
+      "events": {
+        "contract_created": "Contract created",
+        "contract_sent": "Contract sent",
+        "contract_viewed": "Contract viewed",
+        "signature_requested": "Signature requested",
+        "signature_completed": "Signature completed",
+        "contract_downloaded": "Contract downloaded"
+      }
+    },
+    "guarantee": {
+      "fee": "Credit risk coverage fee",
+      "paymentStatus": "Payment status",
+      "payment": {
+        "unpaid": "Unpaid",
+        "awaiting_payment": "Awaiting payment",
+        "paid": "Paid",
+        "waived": "Waived",
+        "failed": "Failed"
+      },
+      "scheduledDate": "Scheduled payment date",
+      "paidNotice": "Your fee has been validated by our team.",
+      "chosen": {
+        "pay_now": "You chose to pay now.",
+        "decline": "You gave up your loan request.",
+        "pay_later": "You chose to pay later."
+      },
+      "instructions": "Payment instructions",
+      "validationNotice": "A payment is only considered received once validated by our team.",
+      "question": "Would you like to pay the coverage fee?",
+      "options": {
+        "pay_now": "Yes, pay and receive my loan",
+        "decline": "No, do not pay and give up my request",
+        "pay_later": "Yes, pay later and keep my request pending"
+      },
+      "optionsHint": {
+        "pay_now": "You will receive payment instructions.",
+        "decline": "Your file will be closed.",
+        "pay_later": "Pick a payment date, reminders will be sent."
+      },
+      "pickDate": "Preferred payment date",
+      "confirmChoice": "Confirm my choice",
+      "noPaymentNotice": "This choice does not make any payment: it is confirmed only after validation by our team.",
+      "choiceSaved": "Choice saved",
+      "error": {
+        "dateRequired": "Please choose a payment date.",
+        "generic": "Action not possible."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Funds released — file {{reference}}",
       "body": "Hello {{firstName}}, the funds for your file {{reference}} have been transferred to your account."
+    },
+    "signatureCode": {
+      "subject": "Your signature code {{reference}}",
+      "body": "Hello {{firstName}}, your signature code is {{code}}. It expires in 10 minutes."
+    },
+    "contractSigned": {
+      "subject": "Contract {{reference}} signed",
+      "body": "Hello {{firstName}}, your contract {{reference}} has been signed. You can download it from your secure area."
+    },
+    "guaranteeSent": {
+      "subject": "Coverage fee — file {{reference}}",
+      "body": "Hello {{firstName}}, the credit risk coverage fee is {{amount}}. Choose your option in your secure area."
+    },
+    "guaranteePayNow": {
+      "subject": "Fee payment {{reference}}",
+      "body": "Hello {{firstName}}, we recorded your choice to pay {{amount}}. Payment instructions will follow after verification."
+    },
+    "guaranteeDeclined": {
+      "subject": "Request {{reference}} cancelled",
+      "body": "Hello {{firstName}}, we recorded that you give up the loan. Your file {{reference}} will be closed."
+    },
+    "guaranteePayLater": {
+      "subject": "Payment scheduled {{reference}}",
+      "body": "Hello {{firstName}}, your payment of {{amount}} is scheduled for {{date}}. Your request stays pending."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Fee validated {{reference}}",
+      "body": "Hello {{firstName}}, your fee payment has been validated. Your file continues."
+    },
+    "guaranteeReminder": {
+      "subject": "Payment reminder {{reference}}",
+      "body": "Hello {{firstName}}, your payment of {{amount}} is due on {{date}}."
+    },
+    "insurancePending": {
+      "subject": "Insurance {{reference}}",
+      "body": "Hello {{firstName}}, insurance of {{amount}} per month is required for your file."
+    },
+    "insuranceValidated": {
+      "subject": "Insurance validated {{reference}}",
+      "body": "Hello {{firstName}}, your insurance has been validated."
     }
   },
   "workflow": {

@@ -1631,7 +1631,47 @@
         "kindInformation": "Informație suplimentară",
         "kindJustification": "Justificare solicitată",
         "answeredAt": "Răspuns la"
-      }
+      },
+      "stages": {
+        "received": "Cerere primită",
+        "study": "Dosar în analiză",
+        "approved": "Cerere aprobată",
+        "contract": "Contract",
+        "guarantee": "Garanție",
+        "insurance": "Asigurare",
+        "disbursement": "Deblocare fonduri",
+        "repayment": "Rambursare"
+      },
+      "offer": "Ofertă de credit",
+      "contract": "Contract",
+      "guarantee": "Garanție",
+      "insurance2": "Asigurare de credit",
+      "disbursement": "Deblocare fonduri",
+      "repayments": "Grafic de rambursare",
+      "kycTitle": "Verificarea identității",
+      "validUntil": "Valabilă până la",
+      "sentOn": "Trimis la",
+      "signedOn": "Semnat la",
+      "acceptedOn": "Acceptată la",
+      "download": "Descarcă",
+      "downloadContract": "Descarcă contractul",
+      "downloadSigned": "Descarcă contractul semnat",
+      "guarantor": "Garant",
+      "provider": "Asigurător",
+      "policy": "Număr poliță",
+      "premium": "Primă lunară",
+      "beneficiary": "Beneficiar",
+      "paidOn": "Plătită la",
+      "installment": "Rată",
+      "dueDate": "Scadență",
+      "remaining": "Sold rămas",
+      "paid": "Plătită",
+      "unpaid": "Următoare",
+      "none": "Indisponibil deocamdată",
+      "downloadNotice": "Linkurile de descărcare expiră după două minute și sunt înregistrate.",
+      "downloadError": "Descărcare indisponibilă",
+      "kycNone": "Nicio verificare înregistrată încă.",
+      "viewContract": "Vezi contractul meu"
     },
     "success": {
       "title": "Cererea dvs. a fost primită",
@@ -1691,6 +1731,90 @@
       "balance": "Sold de capital",
       "total": "Total",
       "export": "Exportă CSV"
+    },
+    "contract": {
+      "metaTitle": "Contractul dvs. — MOONYP",
+      "metaDesc": "Consultați și semnați contractul de finanțare în siguranță.",
+      "backToFile": "Înapoi la dosar",
+      "offerSummary": "Rezumatul ofertei",
+      "rate": "Rata anuală",
+      "document": "Document contractual",
+      "version": "Versiune",
+      "state": "Stare",
+      "hash": "Amprenta documentului",
+      "providerLabel": "Mecanism de semnare",
+      "signTitle": "Semnați contractul",
+      "legalNotice": "Este o semnătură electronică avansată cu valoare probatorie (cod unic, marcaj temporal, amprenta documentului). Nu este o semnătură electronică calificată conform eIDAS.",
+      "fullName": "Numele complet al semnatarului",
+      "startSignature": "Primește codul de semnare",
+      "code": "Cod de semnare",
+      "codeHint": "Un cod unic a fost trimis la adresa de e-mail a dosarului.",
+      "consent": "Confirm că am citit contractul și consimt să îl semnez electronic.",
+      "confirmSignature": "Confirmă semnătura",
+      "resendCode": "Retrimite codul",
+      "history": "Istoricul contractului",
+      "important": "Păstrați o copie a contractului semnat. Serviciul clienți vă stă la dispoziție.",
+      "notAvailable": "Niciun contract disponibil momentan.",
+      "alreadySigned": "Acest contract este deja semnat.",
+      "codeSent": "Cod trimis",
+      "startError": "Semnarea nu a putut fi inițiată.",
+      "signError": "Semnare eșuată.",
+      "signed": "Contract semnat",
+      "states": {
+        "draft": "Ciornă",
+        "ready": "Pregătit",
+        "sent": "Trimis",
+        "viewed": "Consultat",
+        "signed": "Semnat",
+        "cancelled": "Anulat"
+      },
+      "events": {
+        "contract_created": "Contract creat",
+        "contract_sent": "Contract trimis",
+        "contract_viewed": "Contract consultat",
+        "signature_requested": "Semnătură solicitată",
+        "signature_completed": "Semnătură finalizată",
+        "contract_downloaded": "Contract descărcat"
+      }
+    },
+    "guarantee": {
+      "fee": "Comision de acoperire a riscului de credit",
+      "paymentStatus": "Starea plății",
+      "payment": {
+        "unpaid": "Neplătit",
+        "awaiting_payment": "În așteptarea plății",
+        "paid": "Plătit",
+        "waived": "Renunțat",
+        "failed": "Eșuat"
+      },
+      "scheduledDate": "Data de plată programată",
+      "paidNotice": "Comisionul dvs. a fost validat de echipa noastră.",
+      "chosen": {
+        "pay_now": "Ați ales să plătiți acum.",
+        "decline": "Ați renunțat la cererea de împrumut.",
+        "pay_later": "Ați ales să plătiți ulterior."
+      },
+      "instructions": "Instrucțiuni de plată",
+      "validationNotice": "O plată este considerată primită doar după validarea echipei noastre.",
+      "question": "Doriți să plătiți comisionul de acoperire?",
+      "options": {
+        "pay_now": "Da, plătesc și primesc împrumutul",
+        "decline": "Nu, nu plătesc și renunț la cerere",
+        "pay_later": "Da, plătesc ulterior și păstrez cererea în așteptare"
+      },
+      "optionsHint": {
+        "pay_now": "Veți primi instrucțiunile de plată.",
+        "decline": "Dosarul dvs. va fi închis.",
+        "pay_later": "Alegeți o dată de plată, veți primi memento-uri."
+      },
+      "pickDate": "Data de plată dorită",
+      "confirmChoice": "Confirmă alegerea",
+      "noPaymentNotice": "Această alegere nu efectuează nicio plată: va fi confirmată după validarea echipei noastre.",
+      "choiceSaved": "Alegere salvată",
+      "error": {
+        "dateRequired": "Indicați o dată de plată.",
+        "generic": "Acțiune imposibilă."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Fonduri virate — dosar {{reference}}",
       "body": "Bună {{firstName}}, fondurile dosarului {{reference}} au fost virate în contul dvs."
+    },
+    "signatureCode": {
+      "subject": "Codul dvs. de semnare {{reference}}",
+      "body": "Bună {{firstName}}, codul de semnare este {{code}}. Expiră în 10 minute."
+    },
+    "contractSigned": {
+      "subject": "Contract {{reference}} semnat",
+      "body": "Bună {{firstName}}, contractul {{reference}} a fost semnat. Îl puteți descărca din spațiul securizat."
+    },
+    "guaranteeSent": {
+      "subject": "Comision de acoperire — dosar {{reference}}",
+      "body": "Bună {{firstName}}, comisionul de acoperire a riscului de credit este {{amount}}. Alegeți opțiunea în spațiul securizat."
+    },
+    "guaranteePayNow": {
+      "subject": "Plata comisionului {{reference}}",
+      "body": "Bună {{firstName}}, am înregistrat alegerea de a plăti {{amount}}. Instrucțiunile urmează după verificare."
+    },
+    "guaranteeDeclined": {
+      "subject": "Cerere {{reference}} anulată",
+      "body": "Bună {{firstName}}, am înregistrat renunțarea dvs. Dosarul {{reference}} va fi închis."
+    },
+    "guaranteePayLater": {
+      "subject": "Plată programată {{reference}}",
+      "body": "Bună {{firstName}}, plata de {{amount}} este programată pentru {{date}}. Cererea rămâne în așteptare."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Comision validat {{reference}}",
+      "body": "Bună {{firstName}}, plata comisionului a fost validată. Dosarul continuă."
+    },
+    "guaranteeReminder": {
+      "subject": "Memento de plată {{reference}}",
+      "body": "Bună {{firstName}}, plata de {{amount}} este scadentă la {{date}}."
+    },
+    "insurancePending": {
+      "subject": "Asigurare {{reference}}",
+      "body": "Bună {{firstName}}, este necesară o asigurare de {{amount}} pe lună."
+    },
+    "insuranceValidated": {
+      "subject": "Asigurare validată {{reference}}",
+      "body": "Bună {{firstName}}, asigurarea dvs. a fost validată."
     }
   },
   "workflow": {

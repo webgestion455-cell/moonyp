@@ -51,6 +51,7 @@ import { Route as LangSplatRouteImport } from './routes/$lang.$'
 import { Route as AdminChatIndexRouteImport } from './routes/admin.chat.index'
 import { Route as AdminApplicationsIndexRouteImport } from './routes/admin.applications.index'
 import { Route as SecureApplicationTokenRouteImport } from './routes/secure.application.$token'
+import { Route as ApiPublicGuaranteeRemindersRouteImport } from './routes/api/public/guarantee-reminders'
 import { Route as AdminChatConversationIdRouteImport } from './routes/admin.chat.$conversationId'
 import { Route as AdminApplicationsApplicationIdRouteImport } from './routes/admin.applications.$applicationId'
 import { Route as LangLegalTermsRouteImport } from './routes/$lang.legal.terms'
@@ -61,7 +62,9 @@ import { Route as LangLegalLoanTermsRouteImport } from './routes/$lang.legal.loa
 import { Route as LangLegalFinancialPrivacyRouteImport } from './routes/$lang.legal.financial-privacy'
 import { Route as LangLegalCookiesRouteImport } from './routes/$lang.legal.cookies'
 import { Route as LangLegalAmlKycRouteImport } from './routes/$lang.legal.aml-kyc'
-import { Route as LangSecureApplicationTokenRouteImport } from './routes/$lang.secure.application.$token'
+import { Route as LangSecureApplicationTokenIndexRouteImport } from './routes/$lang.secure.application.$token.index'
+import { Route as LangSecureApplicationTokenPaymentRouteImport } from './routes/$lang.secure.application.$token.payment'
+import { Route as LangSecureApplicationTokenContractRouteImport } from './routes/$lang.secure.application.$token.contract'
 
 const StaffInviteRoute = StaffInviteRouteImport.update({
   id: '/staff-invite',
@@ -273,6 +276,12 @@ const SecureApplicationTokenRoute = SecureApplicationTokenRouteImport.update({
   path: '/secure/application/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicGuaranteeRemindersRoute =
+  ApiPublicGuaranteeRemindersRouteImport.update({
+    id: '/api/public/guarantee-reminders',
+    path: '/api/public/guarantee-reminders',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AdminChatConversationIdRoute = AdminChatConversationIdRouteImport.update({
   id: '/$conversationId',
   path: '/$conversationId',
@@ -325,10 +334,22 @@ const LangLegalAmlKycRoute = LangLegalAmlKycRouteImport.update({
   path: '/legal/aml-kyc',
   getParentRoute: () => LangRoute,
 } as any)
-const LangSecureApplicationTokenRoute =
-  LangSecureApplicationTokenRouteImport.update({
-    id: '/secure/application/$token',
-    path: '/secure/application/$token',
+const LangSecureApplicationTokenIndexRoute =
+  LangSecureApplicationTokenIndexRouteImport.update({
+    id: '/secure/application/$token/',
+    path: '/secure/application/$token/',
+    getParentRoute: () => LangRoute,
+  } as any)
+const LangSecureApplicationTokenPaymentRoute =
+  LangSecureApplicationTokenPaymentRouteImport.update({
+    id: '/secure/application/$token/payment',
+    path: '/secure/application/$token/payment',
+    getParentRoute: () => LangRoute,
+  } as any)
+const LangSecureApplicationTokenContractRoute =
+  LangSecureApplicationTokenContractRouteImport.update({
+    id: '/secure/application/$token/contract',
+    path: '/secure/application/$token/contract',
     getParentRoute: () => LangRoute,
   } as any)
 
@@ -382,10 +403,13 @@ export interface FileRoutesByFullPath {
   '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
+  '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications/': typeof AdminApplicationsIndexRoute
   '/admin/chat/': typeof AdminChatIndexRoute
-  '/$lang/secure/application/$token': typeof LangSecureApplicationTokenRoute
+  '/$lang/secure/application/$token/contract': typeof LangSecureApplicationTokenContractRoute
+  '/$lang/secure/application/$token/payment': typeof LangSecureApplicationTokenPaymentRoute
+  '/$lang/secure/application/$token/': typeof LangSecureApplicationTokenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -434,10 +458,13 @@ export interface FileRoutesByTo {
   '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
+  '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications': typeof AdminApplicationsIndexRoute
   '/admin/chat': typeof AdminChatIndexRoute
-  '/$lang/secure/application/$token': typeof LangSecureApplicationTokenRoute
+  '/$lang/secure/application/$token/contract': typeof LangSecureApplicationTokenContractRoute
+  '/$lang/secure/application/$token/payment': typeof LangSecureApplicationTokenPaymentRoute
+  '/$lang/secure/application/$token': typeof LangSecureApplicationTokenIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -490,10 +517,13 @@ export interface FileRoutesById {
   '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
+  '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications/': typeof AdminApplicationsIndexRoute
   '/admin/chat/': typeof AdminChatIndexRoute
-  '/$lang/secure/application/$token': typeof LangSecureApplicationTokenRoute
+  '/$lang/secure/application/$token/contract': typeof LangSecureApplicationTokenContractRoute
+  '/$lang/secure/application/$token/payment': typeof LangSecureApplicationTokenPaymentRoute
+  '/$lang/secure/application/$token/': typeof LangSecureApplicationTokenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -547,10 +577,13 @@ export interface FileRouteTypes {
     | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
     | '/admin/chat/$conversationId'
+    | '/api/public/guarantee-reminders'
     | '/secure/application/$token'
     | '/admin/applications/'
     | '/admin/chat/'
-    | '/$lang/secure/application/$token'
+    | '/$lang/secure/application/$token/contract'
+    | '/$lang/secure/application/$token/payment'
+    | '/$lang/secure/application/$token/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -599,9 +632,12 @@ export interface FileRouteTypes {
     | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
     | '/admin/chat/$conversationId'
+    | '/api/public/guarantee-reminders'
     | '/secure/application/$token'
     | '/admin/applications'
     | '/admin/chat'
+    | '/$lang/secure/application/$token/contract'
+    | '/$lang/secure/application/$token/payment'
     | '/$lang/secure/application/$token'
   id:
     | '__root__'
@@ -654,10 +690,13 @@ export interface FileRouteTypes {
     | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
     | '/admin/chat/$conversationId'
+    | '/api/public/guarantee-reminders'
     | '/secure/application/$token'
     | '/admin/applications/'
     | '/admin/chat/'
-    | '/$lang/secure/application/$token'
+    | '/$lang/secure/application/$token/contract'
+    | '/$lang/secure/application/$token/payment'
+    | '/$lang/secure/application/$token/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -680,6 +719,7 @@ export interface RootRouteChildren {
   LegalPrivacyRoute: typeof LegalPrivacyRoute
   LegalRepaymentRoute: typeof LegalRepaymentRoute
   LegalTermsRoute: typeof LegalTermsRoute
+  ApiPublicGuaranteeRemindersRoute: typeof ApiPublicGuaranteeRemindersRoute
   SecureApplicationTokenRoute: typeof SecureApplicationTokenRoute
 }
 
@@ -979,6 +1019,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SecureApplicationTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/guarantee-reminders': {
+      id: '/api/public/guarantee-reminders'
+      path: '/api/public/guarantee-reminders'
+      fullPath: '/api/public/guarantee-reminders'
+      preLoaderRoute: typeof ApiPublicGuaranteeRemindersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/chat/$conversationId': {
       id: '/admin/chat/$conversationId'
       path: '/$conversationId'
@@ -1049,11 +1096,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangLegalAmlKycRouteImport
       parentRoute: typeof LangRoute
     }
-    '/$lang/secure/application/$token': {
-      id: '/$lang/secure/application/$token'
+    '/$lang/secure/application/$token/': {
+      id: '/$lang/secure/application/$token/'
       path: '/secure/application/$token'
-      fullPath: '/$lang/secure/application/$token'
-      preLoaderRoute: typeof LangSecureApplicationTokenRouteImport
+      fullPath: '/$lang/secure/application/$token/'
+      preLoaderRoute: typeof LangSecureApplicationTokenIndexRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/secure/application/$token/payment': {
+      id: '/$lang/secure/application/$token/payment'
+      path: '/secure/application/$token/payment'
+      fullPath: '/$lang/secure/application/$token/payment'
+      preLoaderRoute: typeof LangSecureApplicationTokenPaymentRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/secure/application/$token/contract': {
+      id: '/$lang/secure/application/$token/contract'
+      path: '/secure/application/$token/contract'
+      fullPath: '/$lang/secure/application/$token/contract'
+      preLoaderRoute: typeof LangSecureApplicationTokenContractRouteImport
       parentRoute: typeof LangRoute
     }
   }
@@ -1076,7 +1137,9 @@ interface LangRouteChildren {
   LangLegalPrivacyRoute: typeof LangLegalPrivacyRoute
   LangLegalRepaymentRoute: typeof LangLegalRepaymentRoute
   LangLegalTermsRoute: typeof LangLegalTermsRoute
-  LangSecureApplicationTokenRoute: typeof LangSecureApplicationTokenRoute
+  LangSecureApplicationTokenContractRoute: typeof LangSecureApplicationTokenContractRoute
+  LangSecureApplicationTokenPaymentRoute: typeof LangSecureApplicationTokenPaymentRoute
+  LangSecureApplicationTokenIndexRoute: typeof LangSecureApplicationTokenIndexRoute
 }
 
 const LangRouteChildren: LangRouteChildren = {
@@ -1096,7 +1159,11 @@ const LangRouteChildren: LangRouteChildren = {
   LangLegalPrivacyRoute: LangLegalPrivacyRoute,
   LangLegalRepaymentRoute: LangLegalRepaymentRoute,
   LangLegalTermsRoute: LangLegalTermsRoute,
-  LangSecureApplicationTokenRoute: LangSecureApplicationTokenRoute,
+  LangSecureApplicationTokenContractRoute:
+    LangSecureApplicationTokenContractRoute,
+  LangSecureApplicationTokenPaymentRoute:
+    LangSecureApplicationTokenPaymentRoute,
+  LangSecureApplicationTokenIndexRoute: LangSecureApplicationTokenIndexRoute,
 }
 
 const LangRouteWithChildren = LangRoute._addFileChildren(LangRouteChildren)
@@ -1179,6 +1246,7 @@ const rootRouteChildren: RootRouteChildren = {
   LegalPrivacyRoute: LegalPrivacyRoute,
   LegalRepaymentRoute: LegalRepaymentRoute,
   LegalTermsRoute: LegalTermsRoute,
+  ApiPublicGuaranteeRemindersRoute: ApiPublicGuaranteeRemindersRoute,
   SecureApplicationTokenRoute: SecureApplicationTokenRoute,
 }
 export const routeTree = rootRouteImport
@@ -1186,10 +1254,11 @@ export const routeTree = rootRouteImport
   ._addFileTypes<FileRouteTypes>()
 
 import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
+import type { startInstance } from './start.ts'
 declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
   }
 }

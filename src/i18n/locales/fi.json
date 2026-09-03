@@ -1631,7 +1631,47 @@
         "kindInformation": "Lisätieto",
         "kindJustification": "Perustelu pyydetty",
         "answeredAt": "Vastattu"
-      }
+      },
+      "stages": {
+        "received": "Hakemus vastaanotettu",
+        "study": "Hakemus käsittelyssä",
+        "approved": "Hakemus hyväksytty",
+        "contract": "Sopimus",
+        "guarantee": "Vakuus",
+        "insurance": "Vakuutus",
+        "disbursement": "Maksatus",
+        "repayment": "Takaisinmaksu"
+      },
+      "offer": "Lainatarjous",
+      "contract": "Sopimus",
+      "guarantee": "Vakuus",
+      "insurance2": "Lainaturvavakuutus",
+      "disbursement": "Maksatus",
+      "repayments": "Maksuaikataulu",
+      "kycTitle": "Henkilöllisyyden varmennus",
+      "validUntil": "Voimassa",
+      "sentOn": "Lähetetty",
+      "signedOn": "Allekirjoitettu",
+      "acceptedOn": "Hyväksytty",
+      "download": "Lataa",
+      "downloadContract": "Lataa sopimus",
+      "downloadSigned": "Lataa allekirjoitettu sopimus",
+      "guarantor": "Takaaja",
+      "provider": "Vakuutusyhtiö",
+      "policy": "Vakuutusnumero",
+      "premium": "Kuukausimaksu",
+      "beneficiary": "Saaja",
+      "paidOn": "Maksettu",
+      "installment": "Erä",
+      "dueDate": "Eräpäivä",
+      "remaining": "Jäljellä oleva saldo",
+      "paid": "Maksettu",
+      "unpaid": "Tuleva",
+      "none": "Ei vielä saatavilla",
+      "downloadNotice": "Latauslinkit vanhenevat kahdessa minuutissa ja ne kirjataan lokiin.",
+      "downloadError": "Lataus ei ole käytettävissä",
+      "kycNone": "Ei vielä kirjattuja tarkastuksia.",
+      "viewContract": "Näytä sopimukseni"
     },
     "success": {
       "title": "Hakemuksesi on vastaanotettu",
@@ -1691,6 +1731,90 @@
       "balance": "Jäljellä oleva pääoma",
       "total": "Yhteensä",
       "export": "Lataa CSV-muodossa"
+    },
+    "contract": {
+      "metaTitle": "Sopimuksesi — MOONYP",
+      "metaDesc": "Tarkastele ja allekirjoita rahoitussopimuksesi turvallisesti.",
+      "backToFile": "Takaisin hakemukseen",
+      "offerSummary": "Tarjouksen yhteenveto",
+      "rate": "Vuosikorko",
+      "document": "Sopimusasiakirja",
+      "version": "Versio",
+      "state": "Tila",
+      "hash": "Asiakirjan tiiviste",
+      "providerLabel": "Allekirjoitusmenetelmä",
+      "signTitle": "Allekirjoita sopimus",
+      "legalNotice": "Tämä on kehittynyt sähköinen allekirjoitus todistusaineistoineen (kertakäyttökoodi, aikaleima, asiakirjan tiiviste). Se ei ole eIDAS-asetuksen mukainen hyväksytty allekirjoitus.",
+      "fullName": "Allekirjoittajan koko nimi",
+      "startSignature": "Lähetä allekirjoituskoodi",
+      "code": "Allekirjoituskoodi",
+      "codeHint": "Kertakäyttökoodi lähetettiin hakemuksen sähköpostiosoitteeseen.",
+      "consent": "Vahvistan lukeneeni sopimuksen ja suostun allekirjoittamaan sen sähköisesti.",
+      "confirmSignature": "Vahvista allekirjoitus",
+      "resendCode": "Lähetä koodi uudelleen",
+      "history": "Sopimuksen historia",
+      "important": "Säilytä kopio allekirjoitetusta sopimuksesta. Asiakaspalvelumme auttaa kysymyksissä.",
+      "notAvailable": "Sopimusta ei ole vielä saatavilla.",
+      "alreadySigned": "Tämä sopimus on jo allekirjoitettu.",
+      "codeSent": "Koodi lähetetty",
+      "startError": "Allekirjoitusta ei voitu aloittaa.",
+      "signError": "Allekirjoitus epäonnistui.",
+      "signed": "Sopimus allekirjoitettu",
+      "states": {
+        "draft": "Luonnos",
+        "ready": "Valmis",
+        "sent": "Lähetetty",
+        "viewed": "Katsottu",
+        "signed": "Allekirjoitettu",
+        "cancelled": "Peruutettu"
+      },
+      "events": {
+        "contract_created": "Sopimus luotu",
+        "contract_sent": "Sopimus lähetetty",
+        "contract_viewed": "Sopimus katsottu",
+        "signature_requested": "Allekirjoitusta pyydetty",
+        "signature_completed": "Allekirjoitus valmis",
+        "contract_downloaded": "Sopimus ladattu"
+      }
+    },
+    "guarantee": {
+      "fee": "Luottoriskin kattamismaksu",
+      "paymentStatus": "Maksun tila",
+      "payment": {
+        "unpaid": "Maksamatta",
+        "awaiting_payment": "Odottaa maksua",
+        "paid": "Maksettu",
+        "waived": "Luovuttu",
+        "failed": "Epäonnistui"
+      },
+      "scheduledDate": "Suunniteltu maksupäivä",
+      "paidNotice": "Tiimimme on vahvistanut maksusi.",
+      "chosen": {
+        "pay_now": "Valitsit maksaa heti.",
+        "decline": "Luovuit lainahakemuksestasi.",
+        "pay_later": "Valitsit maksaa myöhemmin."
+      },
+      "instructions": "Maksuohjeet",
+      "validationNotice": "Maksu katsotaan vastaanotetuksi vasta tiimimme vahvistuksen jälkeen.",
+      "question": "Haluatko maksaa kattamismaksun?",
+      "options": {
+        "pay_now": "Kyllä, maksan ja saan lainani",
+        "decline": "En, en maksa ja luovun hakemuksestani",
+        "pay_later": "Kyllä, maksan myöhemmin ja pidän hakemuksen voimassa"
+      },
+      "optionsHint": {
+        "pay_now": "Saat maksuohjeet.",
+        "decline": "Hakemuksesi suljetaan.",
+        "pay_later": "Valitse maksupäivä, lähetämme muistutuksia."
+      },
+      "pickDate": "Toivottu maksupäivä",
+      "confirmChoice": "Vahvista valintani",
+      "noPaymentNotice": "Tämä valinta ei suorita maksua: maksu vahvistetaan vasta tiimimme tarkistuksen jälkeen.",
+      "choiceSaved": "Valinta tallennettu",
+      "error": {
+        "dateRequired": "Valitse maksupäivä.",
+        "generic": "Toiminto ei ole mahdollinen."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Varat maksettu — hakemus {{reference}}",
       "body": "Hei {{firstName}}, hakemuksen {{reference}} varat on siirretty tilillesi."
+    },
+    "signatureCode": {
+      "subject": "Allekirjoituskoodisi {{reference}}",
+      "body": "Hei {{firstName}}, allekirjoituskoodisi on {{code}}. Se vanhenee 10 minuutissa."
+    },
+    "contractSigned": {
+      "subject": "Sopimus {{reference}} allekirjoitettu",
+      "body": "Hei {{firstName}}, sopimuksesi {{reference}} on allekirjoitettu. Voit ladata sen turvallisesta tilastasi."
+    },
+    "guaranteeSent": {
+      "subject": "Kattamismaksu — hakemus {{reference}}",
+      "body": "Hei {{firstName}}, luottoriskin kattamismaksu on {{amount}}. Valitse vaihtoehtosi turvallisessa tilassa."
+    },
+    "guaranteePayNow": {
+      "subject": "Maksun valinta {{reference}}",
+      "body": "Hei {{firstName}}, kirjasimme valintasi maksaa {{amount}}. Maksuohjeet lähetetään tarkistuksen jälkeen."
+    },
+    "guaranteeDeclined": {
+      "subject": "Hakemus {{reference}} peruttu",
+      "body": "Hei {{firstName}}, kirjasimme luopumisesi. Hakemuksesi {{reference}} suljetaan."
+    },
+    "guaranteePayLater": {
+      "subject": "Maksu ajoitettu {{reference}}",
+      "body": "Hei {{firstName}}, maksusi {{amount}} on ajoitettu {{date}}. Hakemus pysyy voimassa."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Maksu vahvistettu {{reference}}",
+      "body": "Hei {{firstName}}, maksusi on vahvistettu. Hakemuksesi käsittely jatkuu."
+    },
+    "guaranteeReminder": {
+      "subject": "Maksumuistutus {{reference}}",
+      "body": "Hei {{firstName}}, maksusi {{amount}} erääntyy {{date}}."
+    },
+    "insurancePending": {
+      "subject": "Vakuutus {{reference}}",
+      "body": "Hei {{firstName}}, hakemuksesi edellyttää {{amount}} kuukausivakuutusta."
+    },
+    "insuranceValidated": {
+      "subject": "Vakuutus vahvistettu {{reference}}",
+      "body": "Hei {{firstName}}, vakuutuksesi on vahvistettu."
     }
   },
   "workflow": {

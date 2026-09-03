@@ -1631,7 +1631,47 @@
         "kindInformation": "Dodatkowa informacja",
         "kindJustification": "Wymagane uzasadnienie",
         "answeredAt": "Odpowiedziano"
-      }
+      },
+      "stages": {
+        "received": "Wniosek otrzymany",
+        "study": "Wniosek w analizie",
+        "approved": "Wniosek zatwierdzony",
+        "contract": "Umowa",
+        "guarantee": "Zabezpieczenie",
+        "insurance": "Ubezpieczenie",
+        "disbursement": "Wypłata",
+        "repayment": "Spłata"
+      },
+      "offer": "Oferta kredytowa",
+      "contract": "Umowa",
+      "guarantee": "Zabezpieczenie",
+      "insurance2": "Ubezpieczenie kredytobiorcy",
+      "disbursement": "Wypłata",
+      "repayments": "Harmonogram spłat",
+      "kycTitle": "Weryfikacja tożsamości",
+      "validUntil": "Ważna do",
+      "sentOn": "Wysłano",
+      "signedOn": "Podpisano",
+      "acceptedOn": "Zaakceptowano",
+      "download": "Pobierz",
+      "downloadContract": "Pobierz umowę",
+      "downloadSigned": "Pobierz podpisaną umowę",
+      "guarantor": "Poręczyciel",
+      "provider": "Ubezpieczyciel",
+      "policy": "Numer polisy",
+      "premium": "Składka miesięczna",
+      "beneficiary": "Odbiorca",
+      "paidOn": "Opłacona",
+      "installment": "Rata",
+      "dueDate": "Termin płatności",
+      "remaining": "Pozostałe saldo",
+      "paid": "Opłacona",
+      "unpaid": "Nadchodząca",
+      "none": "Jeszcze niedostępne",
+      "downloadNotice": "Linki do pobrania wygasają po dwóch minutach i są rejestrowane.",
+      "downloadError": "Pobieranie niedostępne",
+      "kycNone": "Brak zarejestrowanych weryfikacji.",
+      "viewContract": "Zobacz moją umowę"
     },
     "success": {
       "title": "Twój wniosek został przyjęty",
@@ -1691,6 +1731,90 @@
       "balance": "Pozostały kapitał",
       "total": "Suma",
       "export": "Eksportuj do CSV"
+    },
+    "contract": {
+      "metaTitle": "Twoja umowa — MOONYP",
+      "metaDesc": "Zapoznaj się z umową finansowania i podpisz ją bezpiecznie.",
+      "backToFile": "Powrót do wniosku",
+      "offerSummary": "Podsumowanie oferty",
+      "rate": "Oprocentowanie roczne",
+      "document": "Dokument umowy",
+      "version": "Wersja",
+      "state": "Stan",
+      "hash": "Odcisk dokumentu",
+      "providerLabel": "Mechanizm podpisu",
+      "signTitle": "Podpisz umowę",
+      "legalNotice": "To zaawansowany podpis elektroniczny z wartością dowodową (kod jednorazowy, znacznik czasu, skrót dokumentu). Nie jest to kwalifikowany podpis elektroniczny w rozumieniu eIDAS.",
+      "fullName": "Imię i nazwisko podpisującego",
+      "startSignature": "Wyślij mój kod podpisu",
+      "code": "Kod podpisu",
+      "codeHint": "Kod jednorazowy został wysłany na adres e-mail przypisany do wniosku.",
+      "consent": "Potwierdzam, że przeczytałem umowę i wyrażam zgodę na jej podpisanie elektroniczne.",
+      "confirmSignature": "Potwierdź podpis",
+      "resendCode": "Wyślij kod ponownie",
+      "history": "Historia umowy",
+      "important": "Zachowaj kopię podpisanej umowy. Nasz zespół obsługi jest do dyspozycji.",
+      "notAvailable": "Umowa nie jest jeszcze dostępna.",
+      "alreadySigned": "Ta umowa została już podpisana.",
+      "codeSent": "Kod wysłany",
+      "startError": "Nie udało się rozpocząć podpisywania.",
+      "signError": "Podpisanie nie powiodło się.",
+      "signed": "Umowa podpisana",
+      "states": {
+        "draft": "Szkic",
+        "ready": "Gotowa",
+        "sent": "Wysłana",
+        "viewed": "Wyświetlona",
+        "signed": "Podpisana",
+        "cancelled": "Anulowana"
+      },
+      "events": {
+        "contract_created": "Umowa utworzona",
+        "contract_sent": "Umowa wysłana",
+        "contract_viewed": "Umowa wyświetlona",
+        "signature_requested": "Podpis zażądany",
+        "signature_completed": "Podpis zakończony",
+        "contract_downloaded": "Umowa pobrana"
+      }
+    },
+    "guarantee": {
+      "fee": "Opłata za pokrycie ryzyka kredytowego",
+      "paymentStatus": "Status płatności",
+      "payment": {
+        "unpaid": "Nieopłacone",
+        "awaiting_payment": "Oczekuje na płatność",
+        "paid": "Opłacone",
+        "waived": "Zrezygnowano",
+        "failed": "Nieudane"
+      },
+      "scheduledDate": "Planowana data płatności",
+      "paidNotice": "Nasz zespół zatwierdził Twoją opłatę.",
+      "chosen": {
+        "pay_now": "Wybrałeś płatność teraz.",
+        "decline": "Zrezygnowałeś z wniosku o pożyczkę.",
+        "pay_later": "Wybrałeś płatność później."
+      },
+      "instructions": "Instrukcje płatności",
+      "validationNotice": "Płatność uznaje się za otrzymaną dopiero po zatwierdzeniu przez nasz zespół.",
+      "question": "Czy chcesz opłacić opłatę za pokrycie?",
+      "options": {
+        "pay_now": "Tak, zapłacić i otrzymać pożyczkę",
+        "decline": "Nie, nie płacić i zrezygnować z wniosku",
+        "pay_later": "Tak, zapłacić później i zachować wniosek"
+      },
+      "optionsHint": {
+        "pay_now": "Otrzymasz instrukcje płatności.",
+        "decline": "Twój wniosek zostanie zamknięty.",
+        "pay_later": "Wybierz datę płatności, wyślemy przypomnienia."
+      },
+      "pickDate": "Preferowana data płatności",
+      "confirmChoice": "Potwierdź wybór",
+      "noPaymentNotice": "Ten wybór nie realizuje płatności: zostanie ona potwierdzona po weryfikacji przez nasz zespół.",
+      "choiceSaved": "Wybór zapisany",
+      "error": {
+        "dateRequired": "Wskaż datę płatności.",
+        "generic": "Działanie niemożliwe."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Środki wypłacone — sprawa {{reference}}",
       "body": "Cześć {{firstName}}, środki ze sprawy {{reference}} zostały przelane na Twoje konto."
+    },
+    "signatureCode": {
+      "subject": "Twój kod podpisu {{reference}}",
+      "body": "Cześć {{firstName}}, Twój kod podpisu to {{code}}. Wygasa za 10 minut."
+    },
+    "contractSigned": {
+      "subject": "Umowa {{reference}} podpisana",
+      "body": "Cześć {{firstName}}, umowa {{reference}} została podpisana. Możesz ją pobrać w bezpiecznej strefie."
+    },
+    "guaranteeSent": {
+      "subject": "Opłata za pokrycie — wniosek {{reference}}",
+      "body": "Cześć {{firstName}}, opłata za pokrycie ryzyka kredytowego wynosi {{amount}}. Wybierz opcję w bezpiecznej strefie."
+    },
+    "guaranteePayNow": {
+      "subject": "Płatność opłaty {{reference}}",
+      "body": "Cześć {{firstName}}, zapisaliśmy wybór zapłaty {{amount}}. Instrukcje otrzymasz po weryfikacji."
+    },
+    "guaranteeDeclined": {
+      "subject": "Wniosek {{reference}} anulowany",
+      "body": "Cześć {{firstName}}, zapisaliśmy Twoją rezygnację. Wniosek {{reference}} zostanie zamknięty."
+    },
+    "guaranteePayLater": {
+      "subject": "Płatność zaplanowana {{reference}}",
+      "body": "Cześć {{firstName}}, płatność {{amount}} zaplanowano na {{date}}. Wniosek pozostaje w toku."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Opłata zatwierdzona {{reference}}",
+      "body": "Cześć {{firstName}}, płatność została zatwierdzona. Wniosek jest procedowany dalej."
+    },
+    "guaranteeReminder": {
+      "subject": "Przypomnienie o płatności {{reference}}",
+      "body": "Cześć {{firstName}}, płatność {{amount}} jest wymagana do {{date}}."
+    },
+    "insurancePending": {
+      "subject": "Ubezpieczenie {{reference}}",
+      "body": "Cześć {{firstName}}, wymagane jest ubezpieczenie {{amount}} miesięcznie."
+    },
+    "insuranceValidated": {
+      "subject": "Ubezpieczenie zatwierdzone {{reference}}",
+      "body": "Cześć {{firstName}}, Twoje ubezpieczenie zostało zatwierdzone."
     }
   },
   "workflow": {

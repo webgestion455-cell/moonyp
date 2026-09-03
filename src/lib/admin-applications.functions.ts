@@ -11,7 +11,8 @@ const STATUSES = APPLICATION_STATUS_ORDER as unknown as [
 
 
 async function assertStaff(supabase: { rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown }> }, userId: string) {
-  const { data } = await supabase.rpc("has_role", { _user_id: userId, _role: "admin" });
+  // super_admin / admin / agent — la granularité fine est portée par les policies RLS.
+  const { data } = await supabase.rpc("is_staff", { _user_id: userId });
   if (data !== true) throw new Error("forbidden");
 }
 
@@ -54,26 +55,56 @@ export const adminListApplications = createServerFn({ method: "POST" })
     return rows ?? [];
   });
 
-/** Aggregated KPIs powering the admin overview. */
+/** Aggregated KPIs powering the admin overview — 100% real Supabase data. */
 export const adminApplicationStats = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
     await assertStaff(context.supabase as never, context.userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    const { data, error } = await supabaseAdmin
-      .from("loan_applications")
-      .select("status, amount, created_at")
-      .order("created_at", { ascending: true })
-      .limit(5000);
+    const [
+      { data: appRows, error },
+      { data: offerRows },
+      { data: contractRows },
+      { data: guaranteeRows },
+      { data: insuranceRows },
+      { data: paymentRows },
+      { data: disbursementRows },
+      { data: repaymentRows },
+      { data: productRows },
+    ] = await Promise.all([
+      supabaseAdmin
+        .from("loan_applications")
+        .select("status, amount, created_at, country, product_id")
+        .order("created_at", { ascending: true })
+        .limit(5000),
+      supabaseAdmin.from("application_offers").select("amount, accepted_at, declined_at, created_at").limit(5000),
+      supabaseAdmin.from("application_contracts").select("status, signed_at").limit(5000),
+      supabaseAdmin.from("application_guarantees").select("status, payment_status").limit(5000),
+      supabaseAdmin.from("application_insurances").select("status, payment_status").limit(5000),
+      supabaseAdmin.from("application_payments").select("status, amount, created_at").limit(5000),
+      supabaseAdmin.from("disbursements").select("status, amount, processed_at, created_at").limit(5000),
+      supabaseAdmin.from("repayment_schedule").select("status, amount, paid_amount, due_date, paid_at").limit(20000),
+      supabaseAdmin.from("loan_products").select("id, slug, name").limit(200),
+    ]);
     if (error) throw new Error(error.message);
 
-    const rows = data ?? [];
+    const rows = appRows ?? [];
     const byStatus: Record<string, number> = {};
     for (const r of rows) byStatus[r.status] = (byStatus[r.status] ?? 0) + 1;
+    const countOf = (...s: string[]) => s.reduce((n, k) => n + (byStatus[k] ?? 0), 0);
 
-    // 12-month volume series
-    const months: { key: string; label: string; count: number; volume: number }[] = [];
+    // Séries mensuelles (12 mois glissants)
+    type Point = {
+      key: string;
+      label: string;
+      count: number;
+      volume: number;
+      approved: number;
+      disbursed: number;
+      repaid: number;
+    };
+    const months: Point[] = [];
     const now = new Date();
     for (let i = 11; i >= 0; i--) {
       const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - i, 1));
@@ -82,30 +113,106 @@ export const adminApplicationStats = createServerFn({ method: "POST" })
         label: d.toLocaleDateString("fr-FR", { month: "short" }),
         count: 0,
         volume: 0,
+        approved: 0,
+        disbursed: 0,
+        repaid: 0,
       });
     }
+    const bucket = (iso: string | null | undefined) =>
+      iso ? months.find((m) => m.key === String(iso).slice(0, 7)) : undefined;
+
     for (const r of rows) {
-      const k = String(r.created_at).slice(0, 7);
-      const bucket = months.find((m) => m.key === k);
-      if (bucket) {
-        bucket.count += 1;
-        bucket.volume += Number(r.amount ?? 0);
+      const b = bucket(r.created_at);
+      if (b) {
+        b.count += 1;
+        b.volume += Number(r.amount ?? 0);
       }
+    }
+    for (const o of offerRows ?? []) {
+      if (!o.accepted_at) continue;
+      const b = bucket(o.accepted_at);
+      if (b) b.approved += Number(o.amount ?? 0);
+    }
+    for (const d of disbursementRows ?? []) {
+      if (d.status !== "confirmed") continue;
+      const b = bucket(d.processed_at ?? d.created_at);
+      if (b) b.disbursed += Number(d.amount ?? 0);
+    }
+    for (const r of repaymentRows ?? []) {
+      if (!r.paid_at) continue;
+      const b = bucket(r.paid_at);
+      if (b) b.repaid += Number(r.paid_amount ?? 0);
+    }
+
+    // Répartitions réelles
+    const productName = new Map((productRows ?? []).map((p) => [p.id, p.name]));
+    const byCountry: Record<string, number> = {};
+    const byProduct: Record<string, number> = {};
+    for (const r of rows) {
+      const c = (r.country || "—").toUpperCase();
+      byCountry[c] = (byCountry[c] ?? 0) + 1;
+      const p = r.product_id ? (productName.get(r.product_id) ?? "—") : "—";
+      byProduct[p] = (byProduct[p] ?? 0) + 1;
     }
 
     const disbursedStatuses = new Set(["disbursed", "repaying", "late", "repaid"]);
+    const confirmedDisbursements = (disbursementRows ?? []).filter((d) => d.status === "confirmed");
+    const paidPayments = (paymentRows ?? []).filter((p) => p.status === "paid");
+    const schedule = repaymentRows ?? [];
+
     return {
       total: rows.length,
       byStatus,
       months,
-      pending: rows.filter((r) => ["received", "verification", "analysis", "documents_missing", "info_requested"].includes(r.status)).length,
-      approved: rows.filter((r) => ["approved", "offer_available", "contract_sent", "signature_pending", "contract_signed"].includes(r.status)).length,
-      rejected: rows.filter((r) => r.status === "rejected").length,
-      disbursedCount: rows.filter((r) => disbursedStatuses.has(r.status)).length,
-      disbursedVolume: rows
-        .filter((r) => disbursedStatuses.has(r.status))
+      byCountry,
+      byProduct,
+
+      // Instruction
+      newRequests: countOf("received"),
+      verification: countOf("verification"),
+      analysis: countOf("analysis"),
+      documentsMissing: countOf("documents_missing"),
+      infoRequested: countOf("info_requested"),
+      pending: countOf("received", "verification", "analysis", "documents_missing", "info_requested"),
+      approved: countOf("approved", "offer_available"),
+      rejected: countOf("rejected"),
+      cancelled: countOf("cancelled"),
+
+      // Offres et contrats
+      offersTotal: (offerRows ?? []).length,
+      offersAccepted: (offerRows ?? []).filter((o) => o.accepted_at).length,
+      contractsPending: (contractRows ?? []).filter((c) => ["sent", "viewed"].includes(String(c.status))).length,
+      contractsSigned: (contractRows ?? []).filter((c) => c.signed_at).length,
+
+      // Garanties / assurances
+      guaranteesPending: (guaranteeRows ?? []).filter((g) => g.status !== "validated" && g.status !== "cancelled").length,
+      guaranteesValidated: (guaranteeRows ?? []).filter((g) => g.status === "validated").length,
+      insurancesPending: (insuranceRows ?? []).filter((i) => i.status === "pending" || i.status === "sent").length,
+      insurancesValidated: (insuranceRows ?? []).filter((i) => i.status === "validated").length,
+
+      // Paiements
+      paymentsPending: (paymentRows ?? []).filter((p) => ["pending", "processing"].includes(String(p.status))).length,
+      paymentsPaidCount: paidPayments.length,
+      paymentsPaidVolume: paidPayments.reduce((s, p) => s + Number(p.amount ?? 0), 0),
+
+      // Décaissements
+      disbursementsPreparing: (disbursementRows ?? []).filter((d) => ["preparing", "sent"].includes(String(d.status))).length,
+      disbursedCount: confirmedDisbursements.length,
+      disbursedVolume: confirmedDisbursements.reduce((s, d) => s + Number(d.amount ?? 0), 0),
+
+      // Portefeuille
+      activeLoans: rows.filter((r) => disbursedStatuses.has(r.status) && r.status !== "repaid").length,
+      repaidLoans: countOf("repaid"),
+      lateLoans: countOf("late"),
+      installmentsLate: schedule.filter((r) => r.status === "late").length,
+      installmentsUpcoming: schedule.filter((r) => r.status === "upcoming").length,
+      repaidVolume: schedule.reduce((s, r) => s + Number(r.paid_amount ?? 0), 0),
+      outstandingVolume: schedule
+        .filter((r) => r.status !== "paid" && r.status !== "cancelled")
         .reduce((s, r) => s + Number(r.amount ?? 0), 0),
+
       totalVolume: rows.reduce((s, r) => s + Number(r.amount ?? 0), 0),
+      approvedVolume: (offerRows ?? []).filter((o) => o.accepted_at).reduce((s, o) => s + Number(o.amount ?? 0), 0),
     };
   });
 
@@ -417,4 +524,21 @@ export const adminIssuePortalLink = createServerFn({ method: "POST" })
     const server = await import("@/lib/applications.server");
     const token = await server.issuePortalToken(data.id, "portal");
     return { token };
+  });
+
+/** Note interne : visible uniquement du back-office, jamais du client. */
+export const adminAddInternalNote = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input) =>
+    z.object({ application_id: z.string().uuid(), note: z.string().min(2).max(2000) }).parse(input),
+  )
+  .handler(async ({ data, context }) => {
+    await assertStaff(context.supabase as never, context.userId);
+    const server = await import("@/lib/applications.server");
+    await server.logEvent(data.application_id, "internal_note", {
+      actor: "staff",
+      actorId: context.userId,
+      description: data.note,
+    });
+    return { ok: true };
   });

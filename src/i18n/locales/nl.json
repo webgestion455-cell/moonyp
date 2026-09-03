@@ -1631,7 +1631,47 @@
         "kindInformation": "Aanvullende informatie",
         "kindJustification": "Motivering gevraagd",
         "answeredAt": "Beantwoord op"
-      }
+      },
+      "stages": {
+        "received": "Aanvraag ontvangen",
+        "study": "Dossier in behandeling",
+        "approved": "Aanvraag goedgekeurd",
+        "contract": "Contract",
+        "guarantee": "Waarborg",
+        "insurance": "Verzekering",
+        "disbursement": "Uitbetaling",
+        "repayment": "Terugbetaling"
+      },
+      "offer": "Kredietaanbod",
+      "contract": "Contract",
+      "guarantee": "Waarborg",
+      "insurance2": "Schuldsaldoverzekering",
+      "disbursement": "Uitbetaling",
+      "repayments": "Aflossingsschema",
+      "kycTitle": "Identiteitscontrole",
+      "validUntil": "Geldig tot",
+      "sentOn": "Verzonden op",
+      "signedOn": "Ondertekend op",
+      "acceptedOn": "Aanvaard op",
+      "download": "Downloaden",
+      "downloadContract": "Contract downloaden",
+      "downloadSigned": "Ondertekend contract downloaden",
+      "guarantor": "Borgsteller",
+      "provider": "Verzekeraar",
+      "policy": "Polisnummer",
+      "premium": "Maandpremie",
+      "beneficiary": "Begunstigde",
+      "paidOn": "Betaald op",
+      "installment": "Termijn",
+      "dueDate": "Vervaldatum",
+      "remaining": "Resterend saldo",
+      "paid": "Betaald",
+      "unpaid": "Nog te betalen",
+      "none": "Nog niet beschikbaar",
+      "downloadNotice": "Downloadlinks verlopen na twee minuten en worden gelogd.",
+      "downloadError": "Download niet beschikbaar",
+      "kycNone": "Nog geen controle geregistreerd.",
+      "viewContract": "Mijn contract bekijken"
     },
     "success": {
       "title": "Uw aanvraag is ontvangen",
@@ -1691,6 +1731,90 @@
       "balance": "Openstaand kapitaal",
       "total": "Totaal",
       "export": "Exporteer CSV"
+    },
+    "contract": {
+      "metaTitle": "Uw contract — MOONYP",
+      "metaDesc": "Bekijk en onderteken uw financieringscontract veilig.",
+      "backToFile": "Terug naar mijn dossier",
+      "offerSummary": "Samenvatting van het aanbod",
+      "rate": "Jaarlijkse rente",
+      "document": "Contractdocument",
+      "version": "Versie",
+      "state": "Status",
+      "hash": "Documentvingerafdruk",
+      "providerLabel": "Ondertekeningsmechanisme",
+      "signTitle": "Contract ondertekenen",
+      "legalNotice": "Dit is een geavanceerde elektronische handtekening met bewijswaarde (eenmalige code, tijdstempel, documenthash). Het is geen gekwalificeerde handtekening volgens eIDAS.",
+      "fullName": "Volledige naam van de ondertekenaar",
+      "startSignature": "Mijn ondertekeningscode ontvangen",
+      "code": "Ondertekeningscode",
+      "codeHint": "Er is een eenmalige code verzonden naar het e-mailadres van het dossier.",
+      "consent": "Ik bevestig dat ik het contract heb gelezen en stem in met elektronische ondertekening.",
+      "confirmSignature": "Handtekening bevestigen",
+      "resendCode": "Code opnieuw verzenden",
+      "history": "Contractgeschiedenis",
+      "important": "Bewaar een kopie van uw ondertekende contract. Onze klantenservice staat voor u klaar.",
+      "notAvailable": "Er is nog geen contract beschikbaar.",
+      "alreadySigned": "Dit contract is al ondertekend.",
+      "codeSent": "Code verzonden",
+      "startError": "Ondertekening kon niet worden gestart.",
+      "signError": "Ondertekening mislukt.",
+      "signed": "Contract ondertekend",
+      "states": {
+        "draft": "Concept",
+        "ready": "Gereed",
+        "sent": "Verzonden",
+        "viewed": "Bekeken",
+        "signed": "Ondertekend",
+        "cancelled": "Geannuleerd"
+      },
+      "events": {
+        "contract_created": "Contract aangemaakt",
+        "contract_sent": "Contract verzonden",
+        "contract_viewed": "Contract bekeken",
+        "signature_requested": "Handtekening aangevraagd",
+        "signature_completed": "Handtekening voltooid",
+        "contract_downloaded": "Contract gedownload"
+      }
+    },
+    "guarantee": {
+      "fee": "Kosten voor dekking van het kredietrisico",
+      "paymentStatus": "Betalingsstatus",
+      "payment": {
+        "unpaid": "Niet betaald",
+        "awaiting_payment": "In afwachting van betaling",
+        "paid": "Betaald",
+        "waived": "Afgezien",
+        "failed": "Mislukt"
+      },
+      "scheduledDate": "Geplande betaaldatum",
+      "paidNotice": "Uw kosten zijn door ons team gevalideerd.",
+      "chosen": {
+        "pay_now": "U hebt gekozen om nu te betalen.",
+        "decline": "U hebt afgezien van uw leningaanvraag.",
+        "pay_later": "U hebt gekozen om later te betalen."
+      },
+      "instructions": "Betalingsinstructies",
+      "validationNotice": "Een betaling geldt pas als ontvangen na validatie door ons team.",
+      "question": "Wilt u de dekkingskosten betalen?",
+      "options": {
+        "pay_now": "Ja, betalen en mijn lening ontvangen",
+        "decline": "Nee, niet betalen en afzien van mijn aanvraag",
+        "pay_later": "Ja, later betalen en mijn aanvraag in afwachting houden"
+      },
+      "optionsHint": {
+        "pay_now": "U ontvangt de betalingsinstructies.",
+        "decline": "Uw dossier wordt gesloten.",
+        "pay_later": "Kies een betaaldatum, u ontvangt herinneringen."
+      },
+      "pickDate": "Gewenste betaaldatum",
+      "confirmChoice": "Mijn keuze bevestigen",
+      "noPaymentNotice": "Deze keuze voert geen betaling uit: die wordt pas bevestigd na validatie door ons team.",
+      "choiceSaved": "Keuze opgeslagen",
+      "error": {
+        "dateRequired": "Kies een betaaldatum.",
+        "generic": "Actie niet mogelijk."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Bedrag uitbetaald — dossier {{reference}}",
       "body": "Hallo {{firstName}}, het bedrag van dossier {{reference}} is naar uw rekening overgemaakt."
+    },
+    "signatureCode": {
+      "subject": "Uw ondertekeningscode {{reference}}",
+      "body": "Hallo {{firstName}}, uw ondertekeningscode is {{code}}. Deze verloopt over 10 minuten."
+    },
+    "contractSigned": {
+      "subject": "Contract {{reference}} ondertekend",
+      "body": "Hallo {{firstName}}, uw contract {{reference}} is ondertekend. U kunt het downloaden in uw beveiligde omgeving."
+    },
+    "guaranteeSent": {
+      "subject": "Dekkingskosten — dossier {{reference}}",
+      "body": "Hallo {{firstName}}, de kosten voor dekking van het kredietrisico bedragen {{amount}}. Kies uw optie in uw beveiligde omgeving."
+    },
+    "guaranteePayNow": {
+      "subject": "Betaling kosten {{reference}}",
+      "body": "Hallo {{firstName}}, we hebben uw keuze om {{amount}} te betalen geregistreerd. Instructies volgen na verificatie."
+    },
+    "guaranteeDeclined": {
+      "subject": "Aanvraag {{reference}} geannuleerd",
+      "body": "Hallo {{firstName}}, we hebben uw afzien geregistreerd. Uw dossier {{reference}} wordt gesloten."
+    },
+    "guaranteePayLater": {
+      "subject": "Betaling gepland {{reference}}",
+      "body": "Hallo {{firstName}}, uw betaling van {{amount}} staat gepland op {{date}}. Uw aanvraag blijft in afwachting."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Kosten gevalideerd {{reference}}",
+      "body": "Hallo {{firstName}}, uw betaling is gevalideerd. Uw dossier gaat verder."
+    },
+    "guaranteeReminder": {
+      "subject": "Betalingsherinnering {{reference}}",
+      "body": "Hallo {{firstName}}, uw betaling van {{amount}} vervalt op {{date}}."
+    },
+    "insurancePending": {
+      "subject": "Verzekering {{reference}}",
+      "body": "Hallo {{firstName}}, een verzekering van {{amount}} per maand is vereist voor uw dossier."
+    },
+    "insuranceValidated": {
+      "subject": "Verzekering gevalideerd {{reference}}",
+      "body": "Hallo {{firstName}}, uw verzekering is gevalideerd."
     }
   },
   "workflow": {

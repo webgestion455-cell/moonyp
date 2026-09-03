@@ -1631,7 +1631,47 @@
         "kindInformation": "Zusätzliche Information",
         "kindJustification": "Begründung angefordert",
         "answeredAt": "Beantwortet am"
-      }
+      },
+      "stages": {
+        "received": "Antrag eingegangen",
+        "study": "Antrag in Prüfung",
+        "approved": "Antrag genehmigt",
+        "contract": "Vertrag",
+        "guarantee": "Sicherheit",
+        "insurance": "Versicherung",
+        "disbursement": "Auszahlung",
+        "repayment": "Rückzahlung"
+      },
+      "offer": "Kreditangebot",
+      "contract": "Vertrag",
+      "guarantee": "Sicherheit",
+      "insurance2": "Restschuldversicherung",
+      "disbursement": "Auszahlung",
+      "repayments": "Tilgungsplan",
+      "kycTitle": "Identitätsprüfung",
+      "validUntil": "Gültig bis",
+      "sentOn": "Gesendet am",
+      "signedOn": "Unterzeichnet am",
+      "acceptedOn": "Angenommen am",
+      "download": "Herunterladen",
+      "downloadContract": "Vertrag herunterladen",
+      "downloadSigned": "Unterzeichneten Vertrag herunterladen",
+      "guarantor": "Bürge",
+      "provider": "Versicherer",
+      "policy": "Policennummer",
+      "premium": "Monatsprämie",
+      "beneficiary": "Begünstigter",
+      "paidOn": "Bezahlt am",
+      "installment": "Rate",
+      "dueDate": "Fälligkeitsdatum",
+      "remaining": "Restsaldo",
+      "paid": "Bezahlt",
+      "unpaid": "Ausstehend",
+      "none": "Noch nicht verfügbar",
+      "downloadNotice": "Download-Links laufen nach zwei Minuten ab und werden protokolliert.",
+      "downloadError": "Download nicht verfügbar",
+      "kycNone": "Noch keine Prüfung erfasst.",
+      "viewContract": "Meinen Vertrag ansehen"
     },
     "success": {
       "title": "Ihr Antrag ist eingegangen",
@@ -1691,6 +1731,90 @@
       "balance": "Restschuld",
       "total": "Gesamtbetrag",
       "export": "CSV exportieren"
+    },
+    "contract": {
+      "metaTitle": "Ihr Vertrag — MOONYP",
+      "metaDesc": "Prüfen und unterzeichnen Sie Ihren Finanzierungsvertrag sicher.",
+      "backToFile": "Zurück zur Akte",
+      "offerSummary": "Angebotsübersicht",
+      "rate": "Jahreszins",
+      "document": "Vertragsdokument",
+      "version": "Version",
+      "state": "Status",
+      "hash": "Dokument-Fingerabdruck",
+      "providerLabel": "Signaturverfahren",
+      "signTitle": "Vertrag unterzeichnen",
+      "legalNotice": "Dies ist eine fortgeschrittene elektronische Signatur mit Nachweisen (Einmalcode, Zeitstempel, Dokument-Hash). Es handelt sich nicht um eine qualifizierte Signatur nach eIDAS.",
+      "fullName": "Vollständiger Name des Unterzeichners",
+      "startSignature": "Signaturcode senden",
+      "code": "Signaturcode",
+      "codeHint": "Ein Einmalcode wurde an die hinterlegte E-Mail-Adresse gesendet.",
+      "consent": "Ich bestätige, den Vertrag gelesen zu haben, und stimme der elektronischen Unterzeichnung zu.",
+      "confirmSignature": "Signatur bestätigen",
+      "resendCode": "Code erneut senden",
+      "history": "Vertragsverlauf",
+      "important": "Bewahren Sie eine Kopie Ihres unterzeichneten Vertrags auf. Bei Fragen hilft unser Kundenservice.",
+      "notAvailable": "Derzeit ist kein Vertrag verfügbar.",
+      "alreadySigned": "Dieser Vertrag ist bereits unterzeichnet.",
+      "codeSent": "Code gesendet",
+      "startError": "Signatur konnte nicht gestartet werden.",
+      "signError": "Signatur fehlgeschlagen.",
+      "signed": "Vertrag unterzeichnet",
+      "states": {
+        "draft": "Entwurf",
+        "ready": "Bereit",
+        "sent": "Gesendet",
+        "viewed": "Angesehen",
+        "signed": "Unterzeichnet",
+        "cancelled": "Storniert"
+      },
+      "events": {
+        "contract_created": "Vertrag erstellt",
+        "contract_sent": "Vertrag gesendet",
+        "contract_viewed": "Vertrag angesehen",
+        "signature_requested": "Signatur angefordert",
+        "signature_completed": "Signatur abgeschlossen",
+        "contract_downloaded": "Vertrag heruntergeladen"
+      }
+    },
+    "guarantee": {
+      "fee": "Gebühr zur Deckung des Kreditrisikos",
+      "paymentStatus": "Zahlungsstatus",
+      "payment": {
+        "unpaid": "Unbezahlt",
+        "awaiting_payment": "Zahlung ausstehend",
+        "paid": "Bezahlt",
+        "waived": "Verzichtet",
+        "failed": "Fehlgeschlagen"
+      },
+      "scheduledDate": "Geplantes Zahlungsdatum",
+      "paidNotice": "Ihre Gebühr wurde von unserem Team bestätigt.",
+      "chosen": {
+        "pay_now": "Sie haben gewählt, jetzt zu zahlen.",
+        "decline": "Sie haben auf Ihren Kreditantrag verzichtet.",
+        "pay_later": "Sie haben gewählt, später zu zahlen."
+      },
+      "instructions": "Zahlungsanweisungen",
+      "validationNotice": "Eine Zahlung gilt erst nach Bestätigung durch unser Team als eingegangen.",
+      "question": "Möchten Sie die Deckungsgebühr zahlen?",
+      "options": {
+        "pay_now": "Ja, zahlen und meinen Kredit erhalten",
+        "decline": "Nein, nicht zahlen und auf den Antrag verzichten",
+        "pay_later": "Ja, später zahlen und den Antrag offen halten"
+      },
+      "optionsHint": {
+        "pay_now": "Sie erhalten Zahlungsanweisungen.",
+        "decline": "Ihre Akte wird geschlossen.",
+        "pay_later": "Wählen Sie ein Zahlungsdatum, Sie erhalten Erinnerungen."
+      },
+      "pickDate": "Gewünschtes Zahlungsdatum",
+      "confirmChoice": "Auswahl bestätigen",
+      "noPaymentNotice": "Diese Auswahl löst keine Zahlung aus: Sie wird erst nach Prüfung durch unser Team bestätigt.",
+      "choiceSaved": "Auswahl gespeichert",
+      "error": {
+        "dateRequired": "Bitte wählen Sie ein Zahlungsdatum.",
+        "generic": "Aktion nicht möglich."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Auszahlung erfolgt — Akte {{reference}}",
       "body": "Hallo {{firstName}}, die Mittel Ihrer Akte {{reference}} wurden auf Ihr Konto überwiesen."
+    },
+    "signatureCode": {
+      "subject": "Ihr Signaturcode {{reference}}",
+      "body": "Hallo {{firstName}}, Ihr Signaturcode lautet {{code}}. Er läuft in 10 Minuten ab."
+    },
+    "contractSigned": {
+      "subject": "Vertrag {{reference}} unterzeichnet",
+      "body": "Hallo {{firstName}}, Ihr Vertrag {{reference}} wurde unterzeichnet. Sie können ihn in Ihrem sicheren Bereich herunterladen."
+    },
+    "guaranteeSent": {
+      "subject": "Deckungsgebühr — Akte {{reference}}",
+      "body": "Hallo {{firstName}}, die Gebühr zur Deckung des Kreditrisikos beträgt {{amount}}. Wählen Sie Ihre Option im sicheren Bereich."
+    },
+    "guaranteePayNow": {
+      "subject": "Gebührenzahlung {{reference}}",
+      "body": "Hallo {{firstName}}, wir haben Ihre Wahl erfasst, {{amount}} zu zahlen. Die Zahlungsanweisungen folgen nach Prüfung."
+    },
+    "guaranteeDeclined": {
+      "subject": "Antrag {{reference}} storniert",
+      "body": "Hallo {{firstName}}, wir haben Ihren Verzicht erfasst. Ihre Akte {{reference}} wird geschlossen."
+    },
+    "guaranteePayLater": {
+      "subject": "Zahlung geplant {{reference}}",
+      "body": "Hallo {{firstName}}, Ihre Zahlung von {{amount}} ist für den {{date}} geplant. Ihr Antrag bleibt offen."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Gebühr bestätigt {{reference}}",
+      "body": "Hallo {{firstName}}, Ihre Gebührenzahlung wurde bestätigt. Ihre Akte wird weiter bearbeitet."
+    },
+    "guaranteeReminder": {
+      "subject": "Zahlungserinnerung {{reference}}",
+      "body": "Hallo {{firstName}}, Ihre Zahlung von {{amount}} ist am {{date}} fällig."
+    },
+    "insurancePending": {
+      "subject": "Versicherung {{reference}}",
+      "body": "Hallo {{firstName}}, für Ihre Akte ist eine Versicherung von {{amount}} pro Monat erforderlich."
+    },
+    "insuranceValidated": {
+      "subject": "Versicherung bestätigt {{reference}}",
+      "body": "Hallo {{firstName}}, Ihre Versicherung wurde bestätigt."
     }
   },
   "workflow": {

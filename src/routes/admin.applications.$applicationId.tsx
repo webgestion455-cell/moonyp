@@ -18,6 +18,7 @@ import {
   type WorkflowContext,
 } from "@/lib/application-workflow";
 import {
+  adminAddInternalNote,
   adminCreateInfoRequest,
   adminCloseInfoRequest,
   adminGetApplication,
@@ -37,6 +38,9 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { AdminFinancePanel } from "@/components/admin/AdminFinancePanel";
+
 
 
 
@@ -69,7 +73,11 @@ function ApplicationDetail() {
 
   const createInfoRequest = useServerFn(adminCreateInfoRequest);
   const closeInfoRequest = useServerFn(adminCloseInfoRequest);
+  const addInternalNote = useServerFn(adminAddInternalNote);
   const { t } = useTranslation();
+
+  const [internalNote, setInternalNote] = useState("");
+
 
   const [data, setData] = useState<Detail>(null);
   const [loading, setLoading] = useState(true);
@@ -129,6 +137,23 @@ function ApplicationDetail() {
       setBusy(false);
     }
   }
+
+  async function saveInternalNote() {
+    if (busy || internalNote.trim().length < 2) return;
+    setBusy(true);
+    try {
+      await addInternalNote({ data: { application_id: applicationId, note: internalNote.trim() } });
+      setInternalNote("");
+      toast.success("Note enregistrée");
+      await load();
+    } catch {
+      toast.error("Enregistrement impossible");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+
 
   async function submitInfoRequest() {
     if (busy || reqMessage.trim().length < 3) return;
@@ -221,6 +246,16 @@ function ApplicationDetail() {
         </div>
       </div>
 
+      <Tabs defaultValue="dossier" className="space-y-5">
+        <TabsList className="flex h-auto w-full flex-wrap justify-start gap-1">
+          <TabsTrigger value="dossier">Informations & décision</TabsTrigger>
+          <TabsTrigger value="analyse">Analyse & KYC</TabsTrigger>
+          <TabsTrigger value="documents">Documents</TabsTrigger>
+          <TabsTrigger value="finance">Contrat, paiements & décaissement</TabsTrigger>
+          <TabsTrigger value="audit">Audit</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="dossier" className="space-y-5">
       <div className="grid gap-4 lg:grid-cols-3">
         <Card className="lg:col-span-2">
           <CardHeader className="pb-3">
@@ -404,7 +439,30 @@ function ApplicationDetail() {
         </AlertDialogContent>
       </AlertDialog>
 
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-sm font-semibold">Note interne</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          <Textarea
+            value={internalNote}
+            onChange={(e) => setInternalNote(e.target.value)}
+            rows={3}
+            maxLength={2000}
+            placeholder="Visible uniquement par l'équipe (piste d'audit)"
+          />
+          <Button
+            size="sm"
+            disabled={busy || internalNote.trim().length < 2}
+            onClick={() => void saveInternalNote()}
+          >
+            Enregistrer la note
+          </Button>
+        </CardContent>
+      </Card>
+        </TabsContent>
 
+        <TabsContent value="analyse" className="space-y-5">
       <div className="grid gap-4 lg:grid-cols-3">
         <Card className="lg:col-span-1">
           <CardHeader className="pb-3">
@@ -482,9 +540,10 @@ function ApplicationDetail() {
           </CardContent>
         </Card>
       </div>
+        </TabsContent>
 
-
-      <div className="grid gap-4 lg:grid-cols-2">
+        <TabsContent value="documents" className="space-y-5">
+      <div className="grid gap-4">
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-semibold">Pièces justificatives</CardTitle>
@@ -532,7 +591,15 @@ function ApplicationDetail() {
             )}
           </CardContent>
         </Card>
+      </div>
+        </TabsContent>
 
+        <TabsContent value="finance" className="space-y-5">
+          <AdminFinancePanel applicationId={applicationId} onChanged={() => void load()} />
+        </TabsContent>
+
+        <TabsContent value="audit" className="space-y-5">
+      <div className="grid gap-4">
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-semibold">Historique</CardTitle>
@@ -555,6 +622,9 @@ function ApplicationDetail() {
           </CardContent>
         </Card>
       </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }
+

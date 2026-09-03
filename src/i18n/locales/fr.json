@@ -1631,7 +1631,47 @@
         "kindInformation": "Information complémentaire",
         "kindJustification": "Justification demandée",
         "answeredAt": "Répondu le"
-      }
+      },
+      "stages": {
+        "received": "Demande reçue",
+        "study": "Dossier à l'étude",
+        "approved": "Demande approuvée",
+        "contract": "Contrat",
+        "guarantee": "Garantie",
+        "insurance": "Assurance",
+        "disbursement": "Décaissement",
+        "repayment": "Remboursement"
+      },
+      "offer": "Offre de prêt",
+      "contract": "Contrat",
+      "guarantee": "Garantie",
+      "insurance2": "Assurance emprunteur",
+      "disbursement": "Décaissement",
+      "repayments": "Échéancier de remboursement",
+      "kycTitle": "Vérification d'identité",
+      "validUntil": "Valable jusqu'au",
+      "sentOn": "Envoyé le",
+      "signedOn": "Signé le",
+      "acceptedOn": "Accepté le",
+      "download": "Télécharger",
+      "downloadContract": "Télécharger le contrat",
+      "downloadSigned": "Télécharger le contrat signé",
+      "guarantor": "Garant",
+      "provider": "Assureur",
+      "policy": "Numéro de police",
+      "premium": "Prime mensuelle",
+      "beneficiary": "Bénéficiaire",
+      "paidOn": "Payé le",
+      "installment": "Échéance",
+      "dueDate": "Date d'échéance",
+      "remaining": "Solde restant",
+      "paid": "Payée",
+      "unpaid": "À venir",
+      "none": "Pas encore disponible",
+      "downloadNotice": "Les liens de téléchargement expirent après deux minutes et sont journalisés.",
+      "downloadError": "Téléchargement indisponible",
+      "kycNone": "Aucune vérification enregistrée pour le moment.",
+      "viewContract": "Consulter mon contrat"
     },
     "success": {
       "title": "Votre demande a bien été reçue",
@@ -1691,6 +1731,90 @@
       "balance": "Capital restant dû",
       "total": "Total",
       "export": "Exporter CSV"
+    },
+    "contract": {
+      "metaTitle": "Votre contrat — MOONYP",
+      "metaDesc": "Consultez et signez votre contrat de financement en toute sécurité.",
+      "backToFile": "Retour au dossier",
+      "offerSummary": "Résumé de l'offre",
+      "rate": "Taux annuel",
+      "document": "Document contractuel",
+      "version": "Version",
+      "state": "État",
+      "hash": "Empreinte du document",
+      "providerLabel": "Mécanisme de signature",
+      "signTitle": "Signer le contrat",
+      "legalNotice": "La signature proposée est une signature électronique avancée à valeur probante (code à usage unique, horodatage, empreinte du document). Elle ne constitue pas une signature électronique qualifiée au sens du règlement eIDAS.",
+      "fullName": "Nom et prénom du signataire",
+      "startSignature": "Recevoir mon code de signature",
+      "code": "Code de signature",
+      "codeHint": "Un code à usage unique vient d'être envoyé à l'adresse email du dossier.",
+      "consent": "Je confirme avoir lu le contrat et je consens à le signer électroniquement.",
+      "confirmSignature": "Confirmer la signature",
+      "resendCode": "Renvoyer le code",
+      "history": "Historique du contrat",
+      "important": "Conservez une copie de votre contrat signé. Toute question peut être adressée à notre service client.",
+      "notAvailable": "Aucun contrat n'est disponible pour le moment.",
+      "alreadySigned": "Ce contrat est déjà signé.",
+      "codeSent": "Code envoyé",
+      "startError": "Impossible de démarrer la signature.",
+      "signError": "Signature impossible.",
+      "signed": "Contrat signé",
+      "states": {
+        "draft": "Brouillon",
+        "ready": "Prêt",
+        "sent": "Envoyé",
+        "viewed": "Consulté",
+        "signed": "Signé",
+        "cancelled": "Annulé"
+      },
+      "events": {
+        "contract_created": "Contrat créé",
+        "contract_sent": "Contrat envoyé",
+        "contract_viewed": "Contrat consulté",
+        "signature_requested": "Signature demandée",
+        "signature_completed": "Signature effectuée",
+        "contract_downloaded": "Contrat téléchargé"
+      }
+    },
+    "guarantee": {
+      "fee": "Frais de couverture du risque de crédit",
+      "paymentStatus": "Statut du paiement",
+      "payment": {
+        "unpaid": "Non payé",
+        "awaiting_payment": "En attente de paiement",
+        "paid": "Payé",
+        "waived": "Renoncé",
+        "failed": "Échec"
+      },
+      "scheduledDate": "Date de paiement prévue",
+      "paidNotice": "Vos frais ont été validés par nos équipes.",
+      "chosen": {
+        "pay_now": "Vous avez choisi de payer maintenant.",
+        "decline": "Vous avez renoncé à votre demande de prêt.",
+        "pay_later": "Vous avez choisi de payer ultérieurement."
+      },
+      "instructions": "Instructions de paiement",
+      "validationNotice": "Le paiement ne sera considéré comme reçu qu'après validation par nos équipes.",
+      "question": "Souhaitez-vous payer les frais de couverture ?",
+      "options": {
+        "pay_now": "Oui, payer et recevoir mon prêt",
+        "decline": "Non, ne pas payer et renoncer à ma demande",
+        "pay_later": "Oui, payer ultérieurement et conserver ma demande en attente"
+      },
+      "optionsHint": {
+        "pay_now": "Vous recevrez les instructions de paiement.",
+        "decline": "Votre dossier sera clôturé.",
+        "pay_later": "Choisissez une date de paiement, des rappels vous seront envoyés."
+      },
+      "pickDate": "Date de paiement souhaitée",
+      "confirmChoice": "Confirmer mon choix",
+      "noPaymentNotice": "Ce choix n'effectue aucun paiement : votre paiement sera confirmé après validation par nos équipes.",
+      "choiceSaved": "Choix enregistré",
+      "error": {
+        "dateRequired": "Veuillez indiquer une date de paiement.",
+        "generic": "Action impossible."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Fonds débloqués — dossier {{reference}}",
       "body": "Bonjour {{firstName}}, les fonds de votre dossier {{reference}} ont été versés sur votre compte."
+    },
+    "signatureCode": {
+      "subject": "Votre code de signature {{reference}}",
+      "body": "Bonjour {{firstName}}, votre code de signature est {{code}}. Il expire dans 10 minutes."
+    },
+    "contractSigned": {
+      "subject": "Contrat {{reference}} signé",
+      "body": "Bonjour {{firstName}}, votre contrat {{reference}} a bien été signé. Vous pouvez le télécharger depuis votre espace sécurisé."
+    },
+    "guaranteeSent": {
+      "subject": "Frais de couverture — dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, les frais de couverture du risque de crédit s'élèvent à {{amount}}. Choisissez votre option depuis votre espace sécurisé."
+    },
+    "guaranteePayNow": {
+      "subject": "Paiement des frais {{reference}}",
+      "body": "Bonjour {{firstName}}, nous avons enregistré votre choix de payer {{amount}}. Les instructions de paiement vous seront communiquées après vérification."
+    },
+    "guaranteeDeclined": {
+      "subject": "Demande {{reference}} annulée",
+      "body": "Bonjour {{firstName}}, nous avons enregistré votre renoncement au prêt. Votre dossier {{reference}} sera clôturé."
+    },
+    "guaranteePayLater": {
+      "subject": "Paiement programmé {{reference}}",
+      "body": "Bonjour {{firstName}}, votre paiement de {{amount}} est programmé pour le {{date}}. Votre demande reste en attente."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Frais validés {{reference}}",
+      "body": "Bonjour {{firstName}}, le paiement de vos frais a été validé. Votre dossier poursuit son traitement."
+    },
+    "guaranteeReminder": {
+      "subject": "Rappel de paiement {{reference}}",
+      "body": "Bonjour {{firstName}}, votre paiement de {{amount}} est attendu pour le {{date}}."
+    },
+    "insurancePending": {
+      "subject": "Assurance {{reference}}",
+      "body": "Bonjour {{firstName}}, une assurance de {{amount}} par mois est requise pour votre dossier."
+    },
+    "insuranceValidated": {
+      "subject": "Assurance validée {{reference}}",
+      "body": "Bonjour {{firstName}}, votre assurance a été validée."
     }
   },
   "workflow": {

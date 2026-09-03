@@ -1631,7 +1631,47 @@
         "kindInformation": "Informazione aggiuntiva",
         "kindJustification": "Giustificazione richiesta",
         "answeredAt": "Risposto il"
-      }
+      },
+      "stages": {
+        "received": "Richiesta ricevuta",
+        "study": "Pratica in esame",
+        "approved": "Richiesta approvata",
+        "contract": "Contratto",
+        "guarantee": "Garanzia",
+        "insurance": "Assicurazione",
+        "disbursement": "Erogazione",
+        "repayment": "Rimborso"
+      },
+      "offer": "Offerta di prestito",
+      "contract": "Contratto",
+      "guarantee": "Garanzia",
+      "insurance2": "Assicurazione del mutuatario",
+      "disbursement": "Erogazione",
+      "repayments": "Piano di ammortamento",
+      "kycTitle": "Verifica dell'identità",
+      "validUntil": "Valida fino al",
+      "sentOn": "Inviato il",
+      "signedOn": "Firmato il",
+      "acceptedOn": "Accettata il",
+      "download": "Scarica",
+      "downloadContract": "Scarica il contratto",
+      "downloadSigned": "Scarica il contratto firmato",
+      "guarantor": "Garante",
+      "provider": "Assicuratore",
+      "policy": "Numero di polizza",
+      "premium": "Premio mensile",
+      "beneficiary": "Beneficiario",
+      "paidOn": "Pagata il",
+      "installment": "Rata",
+      "dueDate": "Scadenza",
+      "remaining": "Saldo residuo",
+      "paid": "Pagata",
+      "unpaid": "In arrivo",
+      "none": "Non ancora disponibile",
+      "downloadNotice": "I link di download scadono dopo due minuti e vengono registrati.",
+      "downloadError": "Download non disponibile",
+      "kycNone": "Nessuna verifica registrata al momento.",
+      "viewContract": "Consulta il contratto"
     },
     "success": {
       "title": "La tua domanda è stata ricevuta",
@@ -1691,6 +1731,90 @@
       "balance": "Debito residuo",
       "total": "Totale",
       "export": "Esporta in CSV"
+    },
+    "contract": {
+      "metaTitle": "Il tuo contratto — MOONYP",
+      "metaDesc": "Consulta e firma il tuo contratto di finanziamento in sicurezza.",
+      "backToFile": "Torna alla pratica",
+      "offerSummary": "Riepilogo dell'offerta",
+      "rate": "Tasso annuo",
+      "document": "Documento contrattuale",
+      "version": "Versione",
+      "state": "Stato",
+      "hash": "Impronta del documento",
+      "providerLabel": "Meccanismo di firma",
+      "signTitle": "Firma il contratto",
+      "legalNotice": "Si tratta di una firma elettronica avanzata con valore probatorio (codice monouso, marca temporale, hash del documento). Non è una firma elettronica qualificata ai sensi di eIDAS.",
+      "fullName": "Nome e cognome del firmatario",
+      "startSignature": "Ricevi il codice di firma",
+      "code": "Codice di firma",
+      "codeHint": "Un codice monouso è stato inviato all'email della pratica.",
+      "consent": "Confermo di aver letto il contratto e acconsento a firmarlo elettronicamente.",
+      "confirmSignature": "Conferma la firma",
+      "resendCode": "Invia di nuovo il codice",
+      "history": "Cronologia del contratto",
+      "important": "Conserva una copia del contratto firmato. Il nostro servizio clienti resta a disposizione.",
+      "notAvailable": "Nessun contratto disponibile al momento.",
+      "alreadySigned": "Questo contratto è già firmato.",
+      "codeSent": "Codice inviato",
+      "startError": "Impossibile avviare la firma.",
+      "signError": "Firma non riuscita.",
+      "signed": "Contratto firmato",
+      "states": {
+        "draft": "Bozza",
+        "ready": "Pronto",
+        "sent": "Inviato",
+        "viewed": "Consultato",
+        "signed": "Firmato",
+        "cancelled": "Annullato"
+      },
+      "events": {
+        "contract_created": "Contratto creato",
+        "contract_sent": "Contratto inviato",
+        "contract_viewed": "Contratto consultato",
+        "signature_requested": "Firma richiesta",
+        "signature_completed": "Firma completata",
+        "contract_downloaded": "Contratto scaricato"
+      }
+    },
+    "guarantee": {
+      "fee": "Spese di copertura del rischio di credito",
+      "paymentStatus": "Stato del pagamento",
+      "payment": {
+        "unpaid": "Non pagato",
+        "awaiting_payment": "In attesa di pagamento",
+        "paid": "Pagato",
+        "waived": "Rinunciato",
+        "failed": "Fallito"
+      },
+      "scheduledDate": "Data di pagamento prevista",
+      "paidNotice": "Le spese sono state convalidate dal nostro team.",
+      "chosen": {
+        "pay_now": "Hai scelto di pagare subito.",
+        "decline": "Hai rinunciato alla richiesta di prestito.",
+        "pay_later": "Hai scelto di pagare più tardi."
+      },
+      "instructions": "Istruzioni di pagamento",
+      "validationNotice": "Un pagamento è considerato ricevuto solo dopo la convalida del nostro team.",
+      "question": "Vuoi pagare le spese di copertura?",
+      "options": {
+        "pay_now": "Sì, pagare e ricevere il prestito",
+        "decline": "No, non pagare e rinunciare alla richiesta",
+        "pay_later": "Sì, pagare più tardi e mantenere la richiesta in attesa"
+      },
+      "optionsHint": {
+        "pay_now": "Riceverai le istruzioni di pagamento.",
+        "decline": "La pratica verrà chiusa.",
+        "pay_later": "Scegli una data di pagamento, riceverai promemoria."
+      },
+      "pickDate": "Data di pagamento desiderata",
+      "confirmChoice": "Conferma la scelta",
+      "noPaymentNotice": "Questa scelta non effettua alcun pagamento: verrà confermato dopo la convalida del nostro team.",
+      "choiceSaved": "Scelta registrata",
+      "error": {
+        "dateRequired": "Indica una data di pagamento.",
+        "generic": "Azione impossibile."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Fondi erogati — pratica {{reference}}",
       "body": "Ciao {{firstName}}, i fondi della pratica {{reference}} sono stati accreditati sul tuo conto."
+    },
+    "signatureCode": {
+      "subject": "Il tuo codice di firma {{reference}}",
+      "body": "Ciao {{firstName}}, il tuo codice di firma è {{code}}. Scade tra 10 minuti."
+    },
+    "contractSigned": {
+      "subject": "Contratto {{reference}} firmato",
+      "body": "Ciao {{firstName}}, il contratto {{reference}} è stato firmato. Puoi scaricarlo dalla tua area sicura."
+    },
+    "guaranteeSent": {
+      "subject": "Spese di copertura — pratica {{reference}}",
+      "body": "Ciao {{firstName}}, le spese di copertura del rischio di credito sono di {{amount}}. Scegli la tua opzione nell'area sicura."
+    },
+    "guaranteePayNow": {
+      "subject": "Pagamento spese {{reference}}",
+      "body": "Ciao {{firstName}}, abbiamo registrato la scelta di pagare {{amount}}. Le istruzioni seguiranno dopo la verifica."
+    },
+    "guaranteeDeclined": {
+      "subject": "Richiesta {{reference}} annullata",
+      "body": "Ciao {{firstName}}, abbiamo registrato la tua rinuncia. La pratica {{reference}} verrà chiusa."
+    },
+    "guaranteePayLater": {
+      "subject": "Pagamento programmato {{reference}}",
+      "body": "Ciao {{firstName}}, il pagamento di {{amount}} è previsto per il {{date}}. La richiesta resta in attesa."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Spese convalidate {{reference}}",
+      "body": "Ciao {{firstName}}, il pagamento delle spese è stato convalidato. La pratica prosegue."
+    },
+    "guaranteeReminder": {
+      "subject": "Promemoria di pagamento {{reference}}",
+      "body": "Ciao {{firstName}}, il pagamento di {{amount}} scade il {{date}}."
+    },
+    "insurancePending": {
+      "subject": "Assicurazione {{reference}}",
+      "body": "Ciao {{firstName}}, è richiesta un'assicurazione di {{amount}} al mese per la pratica."
+    },
+    "insuranceValidated": {
+      "subject": "Assicurazione convalidata {{reference}}",
+      "body": "Ciao {{firstName}}, la tua assicurazione è stata convalidata."
     }
   },
   "workflow": {

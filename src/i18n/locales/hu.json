@@ -1631,7 +1631,47 @@
         "kindInformation": "További információ",
         "kindJustification": "Indoklás kérése",
         "answeredAt": "Megválaszolva"
-      }
+      },
+      "stages": {
+        "received": "Kérelem beérkezett",
+        "study": "Ügyintézés folyamatban",
+        "approved": "Kérelem jóváhagyva",
+        "contract": "Szerződés",
+        "guarantee": "Biztosíték",
+        "insurance": "Biztosítás",
+        "disbursement": "Folyósítás",
+        "repayment": "Törlesztés"
+      },
+      "offer": "Hitelajánlat",
+      "contract": "Szerződés",
+      "guarantee": "Biztosíték",
+      "insurance2": "Hitelfedezeti biztosítás",
+      "disbursement": "Folyósítás",
+      "repayments": "Törlesztési ütemterv",
+      "kycTitle": "Személyazonosság ellenőrzése",
+      "validUntil": "Érvényes eddig",
+      "sentOn": "Elküldve",
+      "signedOn": "Aláírva",
+      "acceptedOn": "Elfogadva",
+      "download": "Letöltés",
+      "downloadContract": "Szerződés letöltése",
+      "downloadSigned": "Aláírt szerződés letöltése",
+      "guarantor": "Kezes",
+      "provider": "Biztosító",
+      "policy": "Kötvényszám",
+      "premium": "Havi díj",
+      "beneficiary": "Kedvezményezett",
+      "paidOn": "Fizetve",
+      "installment": "Törlesztőrészlet",
+      "dueDate": "Esedékesség",
+      "remaining": "Fennmaradó egyenleg",
+      "paid": "Fizetve",
+      "unpaid": "Esedékes",
+      "none": "Még nem érhető el",
+      "downloadNotice": "A letöltési hivatkozások két perc után lejárnak, és naplózzuk őket.",
+      "downloadError": "A letöltés nem érhető el",
+      "kycNone": "Még nincs rögzített ellenőrzés.",
+      "viewContract": "Szerződésem megtekintése"
     },
     "success": {
       "title": "Igénylését megkaptuk",
@@ -1691,6 +1731,90 @@
       "balance": "Fennálló tőketartozás",
       "total": "Összesen",
       "export": "Exportálás CSV formátumban"
+    },
+    "contract": {
+      "metaTitle": "Az Ön szerződése — MOONYP",
+      "metaDesc": "Tekintse meg és írja alá biztonságosan a finanszírozási szerződését.",
+      "backToFile": "Vissza az ügyhöz",
+      "offerSummary": "Ajánlat összefoglalója",
+      "rate": "Éves kamat",
+      "document": "Szerződéses dokumentum",
+      "version": "Verzió",
+      "state": "Állapot",
+      "hash": "Dokumentum ujjlenyomata",
+      "providerLabel": "Aláírási mechanizmus",
+      "signTitle": "Szerződés aláírása",
+      "legalNotice": "Ez fokozott biztonságú elektronikus aláírás bizonyítékokkal (egyszeri kód, időbélyeg, dokumentum-lenyomat). Nem minősített elektronikus aláírás az eIDAS szerint.",
+      "fullName": "Az aláíró teljes neve",
+      "startSignature": "Aláírási kód kérése",
+      "code": "Aláírási kód",
+      "codeHint": "Egyszeri kódot küldtünk az ügyhöz tartozó e-mail-címre.",
+      "consent": "Megerősítem, hogy elolvastam a szerződést, és hozzájárulok az elektronikus aláíráshoz.",
+      "confirmSignature": "Aláírás megerősítése",
+      "resendCode": "Kód újraküldése",
+      "history": "Szerződés előzményei",
+      "important": "Őrizze meg az aláírt szerződés másolatát. Ügyfélszolgálatunk készséggel segít.",
+      "notAvailable": "Jelenleg nincs elérhető szerződés.",
+      "alreadySigned": "Ez a szerződés már alá van írva.",
+      "codeSent": "Kód elküldve",
+      "startError": "Az aláírás nem indítható el.",
+      "signError": "Az aláírás sikertelen.",
+      "signed": "Szerződés aláírva",
+      "states": {
+        "draft": "Piszkozat",
+        "ready": "Kész",
+        "sent": "Elküldve",
+        "viewed": "Megtekintve",
+        "signed": "Aláírva",
+        "cancelled": "Törölve"
+      },
+      "events": {
+        "contract_created": "Szerződés létrehozva",
+        "contract_sent": "Szerződés elküldve",
+        "contract_viewed": "Szerződés megtekintve",
+        "signature_requested": "Aláírás kérve",
+        "signature_completed": "Aláírás befejezve",
+        "contract_downloaded": "Szerződés letöltve"
+      }
+    },
+    "guarantee": {
+      "fee": "Hitelkockázati fedezeti díj",
+      "paymentStatus": "Fizetési állapot",
+      "payment": {
+        "unpaid": "Nincs fizetve",
+        "awaiting_payment": "Fizetésre vár",
+        "paid": "Kifizetve",
+        "waived": "Lemondva",
+        "failed": "Sikertelen"
+      },
+      "scheduledDate": "Tervezett fizetési dátum",
+      "paidNotice": "Csapatunk jóváhagyta a díjat.",
+      "chosen": {
+        "pay_now": "Az azonnali fizetést választotta.",
+        "decline": "Lemondott a hitelkérelméről.",
+        "pay_later": "A későbbi fizetést választotta."
+      },
+      "instructions": "Fizetési utasítások",
+      "validationNotice": "A fizetés csak csapatunk jóváhagyása után minősül beérkezettnek.",
+      "question": "Kifizeti a fedezeti díjat?",
+      "options": {
+        "pay_now": "Igen, fizetek és megkapom a hitelt",
+        "decline": "Nem, nem fizetek és lemondok a kérelemről",
+        "pay_later": "Igen, később fizetek és a kérelem függőben marad"
+      },
+      "optionsHint": {
+        "pay_now": "Megkapja a fizetési utasításokat.",
+        "decline": "Az ügyét lezárjuk.",
+        "pay_later": "Válasszon fizetési dátumot, emlékeztetőket küldünk."
+      },
+      "pickDate": "Kívánt fizetési dátum",
+      "confirmChoice": "Választás megerősítése",
+      "noPaymentNotice": "Ez a választás nem hajt végre fizetést: azt csapatunk ellenőrzése után erősítjük meg.",
+      "choiceSaved": "Választás mentve",
+      "error": {
+        "dateRequired": "Adjon meg fizetési dátumot.",
+        "generic": "A művelet nem lehetséges."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Folyósítás megtörtént — ügy {{reference}}",
       "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügy összegét átutaltuk a számlájára."
+    },
+    "signatureCode": {
+      "subject": "Aláírási kódja {{reference}}",
+      "body": "Üdv {{firstName}}, az aláírási kódja {{code}}. 10 perc múlva lejár."
+    },
+    "contractSigned": {
+      "subject": "{{reference}} szerződés aláírva",
+      "body": "Üdv {{firstName}}, a(z) {{reference}} szerződést aláírták. Letöltheti a biztonságos felületén."
+    },
+    "guaranteeSent": {
+      "subject": "Fedezeti díj — ügy {{reference}}",
+      "body": "Üdv {{firstName}}, a hitelkockázati fedezeti díj {{amount}}. Válasszon a biztonságos felületén."
+    },
+    "guaranteePayNow": {
+      "subject": "Díjfizetés {{reference}}",
+      "body": "Üdv {{firstName}}, rögzítettük, hogy {{amount}} összeget fizet. Az utasítások ellenőrzés után érkeznek."
+    },
+    "guaranteeDeclined": {
+      "subject": "{{reference}} kérelem törölve",
+      "body": "Üdv {{firstName}}, rögzítettük a lemondását. A(z) {{reference}} ügyet lezárjuk."
+    },
+    "guaranteePayLater": {
+      "subject": "Fizetés ütemezve {{reference}}",
+      "body": "Üdv {{firstName}}, a(z) {{amount}} fizetés {{date}} napra van ütemezve. A kérelem függőben marad."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Díj jóváhagyva {{reference}}",
+      "body": "Üdv {{firstName}}, a díjfizetést jóváhagytuk. Az ügy feldolgozása folytatódik."
+    },
+    "guaranteeReminder": {
+      "subject": "Fizetési emlékeztető {{reference}}",
+      "body": "Üdv {{firstName}}, a(z) {{amount}} fizetés esedékessége {{date}}."
+    },
+    "insurancePending": {
+      "subject": "Biztosítás {{reference}}",
+      "body": "Üdv {{firstName}}, havi {{amount}} biztosítás szükséges az ügyéhez."
+    },
+    "insuranceValidated": {
+      "subject": "Biztosítás jóváhagyva {{reference}}",
+      "body": "Üdv {{firstName}}, a biztosítását jóváhagytuk."
     }
   },
   "workflow": {

@@ -1631,7 +1631,47 @@
         "kindInformation": "Doplňujúca informácia",
         "kindJustification": "Vyžiadané odôvodnenie",
         "answeredAt": "Odpovedané"
-      }
+      },
+      "stages": {
+        "received": "Žiadosť prijatá",
+        "study": "Spis sa posudzuje",
+        "approved": "Žiadosť schválená",
+        "contract": "Zmluva",
+        "guarantee": "Zabezpečenie",
+        "insurance": "Poistenie",
+        "disbursement": "Vyplatenie",
+        "repayment": "Splácanie"
+      },
+      "offer": "Ponuka úveru",
+      "contract": "Zmluva",
+      "guarantee": "Zabezpečenie",
+      "insurance2": "Poistenie dlžníka",
+      "disbursement": "Vyplatenie",
+      "repayments": "Splátkový kalendár",
+      "kycTitle": "Overenie totožnosti",
+      "validUntil": "Platná do",
+      "sentOn": "Odoslané",
+      "signedOn": "Podpísané",
+      "acceptedOn": "Prijaté",
+      "download": "Stiahnuť",
+      "downloadContract": "Stiahnuť zmluvu",
+      "downloadSigned": "Stiahnuť podpísanú zmluvu",
+      "guarantor": "Ručiteľ",
+      "provider": "Poisťovateľ",
+      "policy": "Číslo poistky",
+      "premium": "Mesačné poistné",
+      "beneficiary": "Príjemca",
+      "paidOn": "Zaplatené",
+      "installment": "Splátka",
+      "dueDate": "Splatnosť",
+      "remaining": "Zostatok",
+      "paid": "Zaplatená",
+      "unpaid": "Nadchádzajúca",
+      "none": "Zatiaľ nedostupné",
+      "downloadNotice": "Odkazy na stiahnutie vypršia po dvoch minútach a zaznamenávajú sa.",
+      "downloadError": "Stiahnutie nie je dostupné",
+      "kycNone": "Zatiaľ nie je zaznamenané žiadne overenie.",
+      "viewContract": "Zobraziť moju zmluvu"
     },
     "success": {
       "title": "Vaša žiadosť bola prijatá",
@@ -1691,6 +1731,90 @@
       "balance": "Zostatok istiny",
       "total": "Celkom",
       "export": "Exportovať CSV"
+    },
+    "contract": {
+      "metaTitle": "Vaša zmluva — MOONYP",
+      "metaDesc": "Prezrite si a bezpečne podpíšte svoju zmluvu o financovaní.",
+      "backToFile": "Späť na spis",
+      "offerSummary": "Zhrnutie ponuky",
+      "rate": "Ročná sadzba",
+      "document": "Zmluvný dokument",
+      "version": "Verzia",
+      "state": "Stav",
+      "hash": "Odtlačok dokumentu",
+      "providerLabel": "Mechanizmus podpisu",
+      "signTitle": "Podpísať zmluvu",
+      "legalNotice": "Ide o zdokonalený elektronický podpis s dôkaznou hodnotou (jednorazový kód, časová pečiatka, odtlačok dokumentu). Nejde o kvalifikovaný elektronický podpis podľa eIDAS.",
+      "fullName": "Celé meno podpisujúceho",
+      "startSignature": "Poslať kód na podpis",
+      "code": "Kód na podpis",
+      "codeHint": "Jednorazový kód bol odoslaný na e-mail uvedený v spise.",
+      "consent": "Potvrdzujem, že som si zmluvu prečítal a súhlasím s jej elektronickým podpisom.",
+      "confirmSignature": "Potvrdiť podpis",
+      "resendCode": "Poslať kód znova",
+      "history": "História zmluvy",
+      "important": "Uschovajte si kópiu podpísanej zmluvy. Naša podpora je vám k dispozícii.",
+      "notAvailable": "Zmluva zatiaľ nie je k dispozícii.",
+      "alreadySigned": "Táto zmluva je už podpísaná.",
+      "codeSent": "Kód odoslaný",
+      "startError": "Podpis sa nepodarilo spustiť.",
+      "signError": "Podpis zlyhal.",
+      "signed": "Zmluva podpísaná",
+      "states": {
+        "draft": "Koncept",
+        "ready": "Pripravené",
+        "sent": "Odoslané",
+        "viewed": "Zobrazené",
+        "signed": "Podpísané",
+        "cancelled": "Zrušené"
+      },
+      "events": {
+        "contract_created": "Zmluva vytvorená",
+        "contract_sent": "Zmluva odoslaná",
+        "contract_viewed": "Zmluva zobrazená",
+        "signature_requested": "Podpis vyžiadaný",
+        "signature_completed": "Podpis dokončený",
+        "contract_downloaded": "Zmluva stiahnutá"
+      }
+    },
+    "guarantee": {
+      "fee": "Poplatok za krytie úverového rizika",
+      "paymentStatus": "Stav platby",
+      "payment": {
+        "unpaid": "Nezaplatené",
+        "awaiting_payment": "Čaká na platbu",
+        "paid": "Zaplatené",
+        "waived": "Vzdané",
+        "failed": "Zlyhalo"
+      },
+      "scheduledDate": "Plánovaný dátum platby",
+      "paidNotice": "Náš tím potvrdil váš poplatok.",
+      "chosen": {
+        "pay_now": "Zvolili ste zaplatiť teraz.",
+        "decline": "Vzdali ste sa žiadosti o úver.",
+        "pay_later": "Zvolili ste zaplatiť neskôr."
+      },
+      "instructions": "Pokyny na platbu",
+      "validationNotice": "Platba sa považuje za prijatú až po potvrdení naším tímom.",
+      "question": "Chcete zaplatiť poplatok za krytie?",
+      "options": {
+        "pay_now": "Áno, zaplatiť a získať úver",
+        "decline": "Nie, nezaplatiť a vzdať sa žiadosti",
+        "pay_later": "Áno, zaplatiť neskôr a ponechať žiadosť čakajúcu"
+      },
+      "optionsHint": {
+        "pay_now": "Dostanete pokyny na platbu.",
+        "decline": "Váš spis bude uzavretý.",
+        "pay_later": "Vyberte dátum platby, pošleme pripomienky."
+      },
+      "pickDate": "Želaný dátum platby",
+      "confirmChoice": "Potvrdiť voľbu",
+      "noPaymentNotice": "Táto voľba nevykonáva platbu: potvrdí sa až po overení naším tímom.",
+      "choiceSaved": "Voľba uložená",
+      "error": {
+        "dateRequired": "Zadajte dátum platby.",
+        "generic": "Akcia nie je možná."
+      }
     }
   },
   "products": {
@@ -1934,6 +2058,46 @@
     "disbursed": {
       "subject": "Prostriedky vyplatené — spis {{reference}}",
       "body": "Dobrý deň {{firstName}}, prostriedky spisu {{reference}} boli poukázané na váš účet."
+    },
+    "signatureCode": {
+      "subject": "Váš kód na podpis {{reference}}",
+      "body": "Dobrý deň {{firstName}}, váš kód na podpis je {{code}}. Platí 10 minút."
+    },
+    "contractSigned": {
+      "subject": "Zmluva {{reference}} podpísaná",
+      "body": "Dobrý deň {{firstName}}, zmluva {{reference}} bola podpísaná. Stiahnuť si ju môžete v zabezpečenej zóne."
+    },
+    "guaranteeSent": {
+      "subject": "Poplatok za krytie — spis {{reference}}",
+      "body": "Dobrý deň {{firstName}}, poplatok za krytie úverového rizika je {{amount}}. Vyberte možnosť v zabezpečenej zóne."
+    },
+    "guaranteePayNow": {
+      "subject": "Platba poplatku {{reference}}",
+      "body": "Dobrý deň {{firstName}}, zaznamenali sme voľbu zaplatiť {{amount}}. Pokyny pošleme po overení."
+    },
+    "guaranteeDeclined": {
+      "subject": "Žiadosť {{reference}} zrušená",
+      "body": "Dobrý deň {{firstName}}, zaznamenali sme vaše vzdanie sa. Spis {{reference}} bude uzavretý."
+    },
+    "guaranteePayLater": {
+      "subject": "Platba naplánovaná {{reference}}",
+      "body": "Dobrý deň {{firstName}}, platba {{amount}} je naplánovaná na {{date}}. Žiadosť zostáva čakajúca."
+    },
+    "guaranteePaymentValidated": {
+      "subject": "Poplatok potvrdený {{reference}}",
+      "body": "Dobrý deň {{firstName}}, platba bola potvrdená. Spis pokračuje."
+    },
+    "guaranteeReminder": {
+      "subject": "Pripomienka platby {{reference}}",
+      "body": "Dobrý deň {{firstName}}, platba {{amount}} je splatná {{date}}."
+    },
+    "insurancePending": {
+      "subject": "Poistenie {{reference}}",
+      "body": "Dobrý deň {{firstName}}, vyžaduje sa poistenie {{amount}} mesačne."
+    },
+    "insuranceValidated": {
+      "subject": "Poistenie potvrdené {{reference}}",
+      "body": "Dobrý deň {{firstName}}, vaše poistenie bolo potvrdené."
     }
   },
   "workflow": {

@@ -53,9 +53,9 @@ function AdminLayout() {
   const nav: NavItem[] = useMemo(() => {
     const all: NavItem[] = [
       { to: "/admin", label: t("adminDash.overview"), icon: LayoutDashboard, match: (p) => p === "/admin" || p === "/admin/", permission: "dashboard.view" },
-      { to: "/admin/applications", label: "Dossiers", icon: Wallet, match: (p) => p.startsWith("/admin/applications"), permission: "loans.view" },
-      { to: "/admin/kyc", label: "Conformité KYC", icon: ScanFace, match: (p) => p.startsWith("/admin/kyc"), permission: "loans.view" },
-      { to: "/admin/products", label: "Catalogue", icon: Package, match: (p) => p.startsWith("/admin/products"), permission: "settings.manage" },
+      { to: "/admin/applications", label: "Dossiers", icon: Wallet, match: (p) => p.startsWith("/admin/applications"), permission: "applications.view" },
+      { to: "/admin/kyc", label: "Conformité KYC", icon: ScanFace, match: (p) => p.startsWith("/admin/kyc"), permission: "kyc.review" },
+      { to: "/admin/products", label: "Catalogue", icon: Package, match: (p) => p.startsWith("/admin/products"), permission: "products.manage" },
       { to: "/admin/chat", label: t("adminDash.chat"), icon: MessageCircle, match: (p) => p.startsWith("/admin/chat"), permission: "chat.view" },
       { to: "/admin/notifications", label: t("adminDash.notifications"), icon: Bell, match: (p) => p.startsWith("/admin/notifications"), permission: "notifications.send" },
       { to: "/admin/security", label: t("adminDash.security"), icon: ShieldCheck, match: (p) => p.startsWith("/admin/security"), permission: "security.view" },

@@ -59,31 +59,9 @@ export const Route = createRootRoute({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "referrer", content: "strict-origin-when-cross-origin" },
-      {
-        httpEquiv: "Content-Security-Policy",
-        content:
-          // Strict by default: every remote origin below is explicitly required
-          // by a feature that actually ships (backend, fonts, flags, geocoding).
-          "default-src 'self'; " +
-          "script-src 'self' 'unsafe-inline'; " +
-          "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
-          "font-src 'self' data: https://fonts.gstatic.com; " +
-          // data:/blob: are needed for KYC camera captures and object URLs.
-          "img-src 'self' data: blob: https://flagcdn.com https://*.supabase.co https://tile.openstreetmap.org; " +
-          "media-src 'self' blob: mediastream:; " +
-          "worker-src 'self' blob:; " +
-          "connect-src 'self' blob: https://*.supabase.co wss://*.supabase.co " +
-          "https://photon.komoot.io https://nominatim.openstreetmap.org https://api.bigdatacloud.net " +
-          "https://flagcdn.com https://ipapi.co; " +
-          "frame-src 'self'; " +
-          "object-src 'none'; " +
-          "frame-ancestors 'self'; " +
-          "base-uri 'self'; " +
-          "form-action 'self';",
-      },
-      { httpEquiv: "X-Content-Type-Options", content: "nosniff" },
-      // Camera is required by the KYC capture flow; microphone stays disabled.
-      { httpEquiv: "Permissions-Policy", content: "geolocation=(self), microphone=(), camera=(self), payment=()" },
+      // CSP, X-Content-Type-Options et Permissions-Policy sont envoyés en
+      // en-têtes HTTP réels depuis `src/start.ts` (les <meta http-equiv>
+      // correspondants sont ignorés par les navigateurs pour frame-ancestors).
     ],
     links: [
       { rel: "stylesheet", href: appCss },

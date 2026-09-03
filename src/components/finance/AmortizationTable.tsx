@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronDown, Download, Table2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -83,9 +83,8 @@ export function AmortizationTable({ quotation, startDate, locale = "fr" }: Props
             {years.map((y) => {
               const expanded = openYear === y.year;
               return (
-                <>
+                <Fragment key={`y-${y.year}`}>
                   <tr
-                    key={`y-${y.year}`}
                     className={cn("border-b border-border transition-colors hover:bg-muted/40", expanded && "bg-muted/40")}
                   >
                     <th scope="row" className="px-4 py-2.5 text-left font-medium">
@@ -118,7 +117,7 @@ export function AmortizationTable({ quotation, startDate, locale = "fr" }: Props
                         <td className="px-4 py-2 text-right tabular-nums">{money(r.balance)}</td>
                       </tr>
                     ))}
-                </>
+                </Fragment>
               );
             })}
           </tbody>
