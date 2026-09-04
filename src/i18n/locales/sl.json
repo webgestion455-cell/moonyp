@@ -1815,6 +1815,71 @@
         "dateRequired": "Navedite datum plačila.",
         "generic": "Dejanje ni mogoče."
       }
+    },
+    "payment": {
+      "metaTitle": "Varno plačilo — MOONYP",
+      "metaDesc": "Varno poravnajte stroške svoje vloge za financiranje Moonyp.",
+      "title": "Varno plačilo",
+      "subtitle": "Zadeva",
+      "back": "Nazaj na zadevo",
+      "due": "Znesek za plačilo",
+      "noDue": "Trenutno ni zneska za plačilo.",
+      "methods": "Načini plačila",
+      "noMethods": "Trenutno ni na voljo noben način plačila.",
+      "notConfigured": "Ta ponudnik ni konfiguriran.",
+      "pay": "Plačaj",
+      "redirecting": "Preusmerjanje k ponudniku…",
+      "created": "Plačilo zabeleženo",
+      "createdHint": "Plačilo bo potrjeno po dejanskem prejemu sredstev.",
+      "instructions": "Navodila za plačilo",
+      "reference": "Sklic",
+      "copyReference": "Kopiraj sklic",
+      "copied": "Kopirano",
+      "holder": "Imetnik računa",
+      "bank": "Banka",
+      "address": "Naslov",
+      "network": "Omrežje",
+      "history": "Zgodovina plačil",
+      "noPaymentYet": "Ni zabeleženih plačil.",
+      "notice": "Pri nakazilu vedno navedite sklic, sicer plačila ne bo mogoče povezati z vašo zadevo.",
+      "error": "Plačila ni bilo mogoče začeti.",
+      "purpose": {
+        "guarantee_fee": "Stroški jamstva",
+        "insurance_fee": "Stroški zavarovanja",
+        "application_fee": "Stroški obdelave",
+        "installment": "Obrok kredita",
+        "other": "Drugo"
+      },
+      "feeStatus": {
+        "pending": "V čakanju",
+        "paid": "Plačano",
+        "not_required": "Ni potrebno",
+        "late": "Zamuda",
+        "cancelled": "Preklicano"
+      },
+      "kind": {
+        "bank_transfer": "Bančno nakazilo",
+        "card": "Kartica",
+        "qr": "Koda QR",
+        "crypto": "Kripto",
+        "other": "Drugo"
+      },
+      "status": {
+        "pending": "V čakanju",
+        "processing": "V obdelavi",
+        "received": "Prejeto",
+        "failed": "Neuspešno",
+        "cancelled": "Preklicano"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "Prihajajoči",
+        "paid": "Plačan",
+        "partially_paid": "Delno plačan",
+        "late": "V zamudi",
+        "cancelled": "Preklican"
+      }
     }
   },
   "products": {

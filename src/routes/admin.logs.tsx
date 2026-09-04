@@ -11,7 +11,7 @@ const supabase: any = _sb;
 
 export const Route = createFileRoute("/admin/logs")({
   component: AdminLogs,
-  head: () => ({ meta: [{ title: "Journal d'activité — Administration BNP PARIBAS" }] }),
+  head: () => ({ meta: [{ title: "Journal d'activité — Administration MOONYP" }] }),
 });
 
 interface LogRow {

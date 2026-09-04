@@ -1815,6 +1815,71 @@
         "dateRequired": "Kies een betaaldatum.",
         "generic": "Actie niet mogelijk."
       }
+    },
+    "payment": {
+      "metaTitle": "Veilige betaling — MOONYP",
+      "metaDesc": "Betaal de kosten van uw Moonyp-financieringsdossier veilig.",
+      "title": "Veilige betaling",
+      "subtitle": "Dossier",
+      "back": "Terug naar dossier",
+      "due": "Te betalen bedrag",
+      "noDue": "Er is momenteel geen bedrag verschuldigd.",
+      "methods": "Betaalmethoden",
+      "noMethods": "Er is momenteel geen betaalmethode beschikbaar.",
+      "notConfigured": "Deze aanbieder is niet geconfigureerd.",
+      "pay": "Betalen",
+      "redirecting": "Doorverwijzen naar de aanbieder…",
+      "created": "Betaling geregistreerd",
+      "createdHint": "Uw betaling wordt bevestigd zodra de fondsen daadwerkelijk zijn ontvangen.",
+      "instructions": "Betaalinstructies",
+      "reference": "Referentie",
+      "copyReference": "Referentie kopiëren",
+      "copied": "Gekopieerd",
+      "holder": "Rekeninghouder",
+      "bank": "Bank",
+      "address": "Adres",
+      "network": "Netwerk",
+      "history": "Betalingsgeschiedenis",
+      "noPaymentYet": "Geen betaling geregistreerd.",
+      "notice": "Vermeld altijd de referentie bij uw overschrijving, anders kan de betaling niet aan uw dossier worden gekoppeld.",
+      "error": "De betaling kon niet worden gestart.",
+      "purpose": {
+        "guarantee_fee": "Garantiekosten",
+        "insurance_fee": "Verzekeringskosten",
+        "application_fee": "Dossierkosten",
+        "installment": "Leningstermijn",
+        "other": "Overig"
+      },
+      "feeStatus": {
+        "pending": "In afwachting",
+        "paid": "Betaald",
+        "not_required": "Niet vereist",
+        "late": "Te laat",
+        "cancelled": "Geannuleerd"
+      },
+      "kind": {
+        "bank_transfer": "Bankoverschrijving",
+        "card": "Kaart",
+        "qr": "QR-code",
+        "crypto": "Crypto",
+        "other": "Overig"
+      },
+      "status": {
+        "pending": "In afwachting",
+        "processing": "In behandeling",
+        "received": "Ontvangen",
+        "failed": "Mislukt",
+        "cancelled": "Geannuleerd"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "Komend",
+        "paid": "Betaald",
+        "partially_paid": "Deels betaald",
+        "late": "Te laat",
+        "cancelled": "Geannuleerd"
+      }
     }
   },
   "products": {

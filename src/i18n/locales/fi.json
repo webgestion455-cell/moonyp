@@ -1815,6 +1815,71 @@
         "dateRequired": "Valitse maksupäivä.",
         "generic": "Toiminto ei ole mahdollinen."
       }
+    },
+    "payment": {
+      "metaTitle": "Turvallinen maksu — MOONYP",
+      "metaDesc": "Maksa Moonyp-rahoitushakemuksesi kulut turvallisesti.",
+      "title": "Turvallinen maksu",
+      "subtitle": "Hakemus",
+      "back": "Takaisin hakemukseen",
+      "due": "Maksettava summa",
+      "noDue": "Tällä hetkellä ei ole maksettavaa.",
+      "methods": "Maksutavat",
+      "noMethods": "Maksutapoja ei ole tällä hetkellä saatavilla.",
+      "notConfigured": "Tätä palveluntarjoajaa ei ole määritetty.",
+      "pay": "Maksa",
+      "redirecting": "Ohjataan palveluntarjoajalle…",
+      "created": "Maksu kirjattu",
+      "createdHint": "Maksu vahvistetaan, kun varat on tosiasiallisesti vastaanotettu.",
+      "instructions": "Maksuohjeet",
+      "reference": "Viite",
+      "copyReference": "Kopioi viite",
+      "copied": "Kopioitu",
+      "holder": "Tilinomistaja",
+      "bank": "Pankki",
+      "address": "Osoite",
+      "network": "Verkko",
+      "history": "Maksuhistoria",
+      "noPaymentYet": "Ei kirjattuja maksuja.",
+      "notice": "Ilmoita aina viite tilisiirrossa, muuten maksua ei voida kohdistaa hakemukseesi.",
+      "error": "Maksua ei voitu käynnistää.",
+      "purpose": {
+        "guarantee_fee": "Takausmaksu",
+        "insurance_fee": "Vakuutusmaksu",
+        "application_fee": "Käsittelymaksu",
+        "installment": "Lainaerä",
+        "other": "Muu"
+      },
+      "feeStatus": {
+        "pending": "Odottaa",
+        "paid": "Maksettu",
+        "not_required": "Ei vaadita",
+        "late": "Myöhässä",
+        "cancelled": "Peruutettu"
+      },
+      "kind": {
+        "bank_transfer": "Tilisiirto",
+        "card": "Kortti",
+        "qr": "QR-koodi",
+        "crypto": "Krypto",
+        "other": "Muu"
+      },
+      "status": {
+        "pending": "Odottaa",
+        "processing": "Käsittelyssä",
+        "received": "Vastaanotettu",
+        "failed": "Epäonnistui",
+        "cancelled": "Peruutettu"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "Tuleva",
+        "paid": "Maksettu",
+        "partially_paid": "Osittain maksettu",
+        "late": "Myöhässä",
+        "cancelled": "Peruutettu"
+      }
     }
   },
   "products": {

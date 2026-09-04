@@ -1,6 +1,6 @@
 /// <reference lib="deno.ns" />
 // -------------------------------------------------------------------------
-// BNP PARIBAS — Handoff : notifie les admins par email + push
+// MOONYP — Handoff : notifie les admins par email + push
 // Body: { conversationId, userEmail?, userName? }
 // -------------------------------------------------------------------------
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
@@ -19,7 +19,7 @@ const supabaseAdmin = createClient(
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY_MAIL");
 const ADMIN_EMAIL = "cardservice.bnpparibas@gmail.com";
-const FROM_EMAIL = "BNP PARIBAS <no-reply@zenvoriax.com>";
+const FROM_EMAIL = "MOONYP <no-reply@zenvoriax.com>";
 
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: CORS });
@@ -80,7 +80,7 @@ serve(async (req) => {
             html: `
 <div style="font-family:Arial,sans-serif;max-width:640px;margin:auto;background:#0a0a0a;color:#fff;padding:24px;border-radius:12px">
   <div style="text-align:center;margin-bottom:16px">
-    <div style="display:inline-block;background:#00915A;padding:8px 16px;border-radius:6px;font-weight:700;letter-spacing:1px">BNP PARIBAS</div>
+    <div style="display:inline-block;background:#00915A;padding:8px 16px;border-radius:6px;font-weight:700;letter-spacing:1px">MOONYP</div>
   </div>
   <h2 style="color:#fff">Un client attend un conseiller</h2>
   <p><strong>Client :</strong> ${userName ?? "—"} &lt;${userEmail ?? "—"}&gt;</p>
@@ -89,7 +89,7 @@ serve(async (req) => {
   <h3 style="color:#fff">Récapitulatif</h3>
   <div style="color:#111">${recap || "<p>(aucun message)</p>"}</div>
   <hr style="border-color:#333;margin-top:24px"/>
-  <p style="font-size:12px;color:#999;text-align:center">BNP PARIBAS SA — 16 boulevard des Italiens, 75009 Paris</p>
+  <p style="font-size:12px;color:#999;text-align:center">MOONYP SA — 16 boulevard des Italiens, 75009 Paris</p>
 </div>`,
           }),
         });

@@ -17,7 +17,7 @@ export function LegalLayout({ title, subtitle, updated, children }: Props) {
       <header className="border-b border-border bg-card">
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <Link to="/" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-accent">
-            <ArrowLeft className="h-4 w-4" /> BNP PARIBAS
+            <ArrowLeft className="h-4 w-4" /> MOONYP
           </Link>
           <span className="inline-flex items-center gap-2 text-xs text-muted-foreground">
             <ShieldCheck className="h-4 w-4 text-emerald-600" /> {t("legal.badge")}

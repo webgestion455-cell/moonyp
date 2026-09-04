@@ -111,4 +111,4 @@ export const EMPLOYMENT_STATUSES = [
 ] as const;
 
 /** Storage draft key — progress is kept locally until submission. */
-export const APPLY_DRAFT_KEY = "bnpparibas.apply.draft.v1";
+export const APPLY_DRAFT_KEY = "moonyp.apply.draft.v1";

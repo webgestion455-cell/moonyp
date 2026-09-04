@@ -1815,6 +1815,71 @@
         "dateRequired": "Odaberite datum plaćanja.",
         "generic": "Radnja nije moguća."
       }
+    },
+    "payment": {
+      "metaTitle": "Sigurno plaćanje — MOONYP",
+      "metaDesc": "Sigurno podmirite troškove svojeg Moonyp zahtjeva za financiranje.",
+      "title": "Sigurno plaćanje",
+      "subtitle": "Predmet",
+      "back": "Natrag na predmet",
+      "due": "Iznos za plaćanje",
+      "noDue": "Trenutačno nema iznosa za plaćanje.",
+      "methods": "Načini plaćanja",
+      "noMethods": "Trenutačno nije dostupan nijedan način plaćanja.",
+      "notConfigured": "Ovaj pružatelj nije konfiguriran.",
+      "pay": "Plati",
+      "redirecting": "Preusmjeravanje na pružatelja…",
+      "created": "Plaćanje zabilježeno",
+      "createdHint": "Plaćanje će biti potvrđeno nakon stvarnog primitka sredstava.",
+      "instructions": "Upute za plaćanje",
+      "reference": "Referenca",
+      "copyReference": "Kopiraj referencu",
+      "copied": "Kopirano",
+      "holder": "Vlasnik računa",
+      "bank": "Banka",
+      "address": "Adresa",
+      "network": "Mreža",
+      "history": "Povijest plaćanja",
+      "noPaymentYet": "Nema zabilježenih plaćanja.",
+      "notice": "Uvijek navedite referencu pri uplati, inače plaćanje neće biti povezano s vašim predmetom.",
+      "error": "Plaćanje nije moguće pokrenuti.",
+      "purpose": {
+        "guarantee_fee": "Naknada za jamstvo",
+        "insurance_fee": "Naknada za osiguranje",
+        "application_fee": "Naknada za obradu",
+        "installment": "Rata kredita",
+        "other": "Ostalo"
+      },
+      "feeStatus": {
+        "pending": "U tijeku",
+        "paid": "Plaćeno",
+        "not_required": "Nije potrebno",
+        "late": "Kašnjenje",
+        "cancelled": "Otkazano"
+      },
+      "kind": {
+        "bank_transfer": "Bankovni prijenos",
+        "card": "Kartica",
+        "qr": "QR kod",
+        "crypto": "Kripto",
+        "other": "Ostalo"
+      },
+      "status": {
+        "pending": "Na čekanju",
+        "processing": "U obradi",
+        "received": "Primljeno",
+        "failed": "Neuspjelo",
+        "cancelled": "Otkazano"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "Nadolazeća",
+        "paid": "Plaćena",
+        "partially_paid": "Djelomično plaćena",
+        "late": "U kašnjenju",
+        "cancelled": "Otkazana"
+      }
     }
   },
   "products": {

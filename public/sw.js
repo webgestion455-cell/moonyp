@@ -1,4 +1,4 @@
-// BNP PARIBAS service worker — Web Push only (no offline caching to avoid stale UI)
+// MOONYP service worker — Web Push only (no offline caching to avoid stale UI)
 self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
@@ -12,9 +12,9 @@ self.addEventListener("push", (event) => {
   try {
     data = event.data ? event.data.json() : {};
   } catch (_) {
-    data = { title: "BNP PARIBAS", body: event.data ? event.data.text() : "" };
+    data = { title: "MOONYP", body: event.data ? event.data.text() : "" };
   }
-  const title = data.title || "BNP PARIBAS";
+  const title = data.title || "MOONYP";
   const options = {
     body: data.body || data.message || "",
     icon: "/icon-512.png",

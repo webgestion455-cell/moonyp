@@ -1815,6 +1815,71 @@
         "dateRequired": "Indica una data di pagamento.",
         "generic": "Azione impossibile."
       }
+    },
+    "payment": {
+      "metaTitle": "Pagamento sicuro — MOONYP",
+      "metaDesc": "Salda in sicurezza le spese della tua pratica di finanziamento Moonyp.",
+      "title": "Pagamento sicuro",
+      "subtitle": "Pratica",
+      "back": "Torna alla pratica",
+      "due": "Importo da pagare",
+      "noDue": "Nessun importo da pagare al momento.",
+      "methods": "Metodi di pagamento",
+      "noMethods": "Nessun metodo di pagamento disponibile.",
+      "notConfigured": "Questo fornitore non è configurato.",
+      "pay": "Paga",
+      "redirecting": "Reindirizzamento al fornitore…",
+      "created": "Pagamento registrato",
+      "createdHint": "Il pagamento sarà confermato dopo l'effettiva ricezione dei fondi.",
+      "instructions": "Istruzioni di pagamento",
+      "reference": "Riferimento",
+      "copyReference": "Copia il riferimento",
+      "copied": "Copiato",
+      "holder": "Intestatario",
+      "bank": "Banca",
+      "address": "Indirizzo",
+      "network": "Rete",
+      "history": "Storico dei pagamenti",
+      "noPaymentYet": "Nessun pagamento registrato.",
+      "notice": "Indica sempre il riferimento nel bonifico, altrimenti il pagamento non potrà essere abbinato alla pratica.",
+      "error": "Non è stato possibile avviare il pagamento.",
+      "purpose": {
+        "guarantee_fee": "Spese di garanzia",
+        "insurance_fee": "Spese assicurative",
+        "application_fee": "Spese di istruttoria",
+        "installment": "Rata del prestito",
+        "other": "Altro"
+      },
+      "feeStatus": {
+        "pending": "In attesa",
+        "paid": "Pagato",
+        "not_required": "Non richiesto",
+        "late": "In ritardo",
+        "cancelled": "Annullato"
+      },
+      "kind": {
+        "bank_transfer": "Bonifico bancario",
+        "card": "Carta",
+        "qr": "Codice QR",
+        "crypto": "Cripto",
+        "other": "Altro"
+      },
+      "status": {
+        "pending": "In attesa",
+        "processing": "In corso",
+        "received": "Ricevuto",
+        "failed": "Fallito",
+        "cancelled": "Annullato"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "In arrivo",
+        "paid": "Pagata",
+        "partially_paid": "Parzialmente pagata",
+        "late": "In ritardo",
+        "cancelled": "Annullata"
+      }
     }
   },
   "products": {

@@ -1,6 +1,6 @@
 /// <reference lib="deno.ns" />
 // -------------------------------------------------------------------------
-// BNP PARIBAS — Chat GUEST : envoyer un message dans un ticket guest
+// MOONYP — Chat GUEST : envoyer un message dans un ticket guest
 // Body: { conversationId, message, wantHandoff? }
 // -------------------------------------------------------------------------
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";

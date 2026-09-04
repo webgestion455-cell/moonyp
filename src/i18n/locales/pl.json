@@ -1815,6 +1815,71 @@
         "dateRequired": "Wskaż datę płatności.",
         "generic": "Działanie niemożliwe."
       }
+    },
+    "payment": {
+      "metaTitle": "Bezpieczna płatność — MOONYP",
+      "metaDesc": "Bezpiecznie ureguluj opłaty związane z wnioskiem finansowym Moonyp.",
+      "title": "Bezpieczna płatność",
+      "subtitle": "Wniosek",
+      "back": "Powrót do wniosku",
+      "due": "Kwota do zapłaty",
+      "noDue": "Obecnie brak kwoty do zapłaty.",
+      "methods": "Metody płatności",
+      "noMethods": "Obecnie brak dostępnych metod płatności.",
+      "notConfigured": "Ten dostawca nie jest skonfigurowany.",
+      "pay": "Zapłać",
+      "redirecting": "Przekierowanie do dostawcy…",
+      "created": "Płatność zarejestrowana",
+      "createdHint": "Płatność zostanie potwierdzona po faktycznym wpływie środków.",
+      "instructions": "Instrukcje płatności",
+      "reference": "Referencja",
+      "copyReference": "Kopiuj referencję",
+      "copied": "Skopiowano",
+      "holder": "Właściciel rachunku",
+      "bank": "Bank",
+      "address": "Adres",
+      "network": "Sieć",
+      "history": "Historia płatności",
+      "noPaymentYet": "Brak zarejestrowanych płatności.",
+      "notice": "Zawsze podawaj referencję w przelewie, inaczej płatność nie zostanie powiązana z wnioskiem.",
+      "error": "Nie udało się rozpocząć płatności.",
+      "purpose": {
+        "guarantee_fee": "Opłata gwarancyjna",
+        "insurance_fee": "Opłata ubezpieczeniowa",
+        "application_fee": "Opłata za rozpatrzenie",
+        "installment": "Rata kredytu",
+        "other": "Inne"
+      },
+      "feeStatus": {
+        "pending": "Oczekuje",
+        "paid": "Opłacone",
+        "not_required": "Niewymagane",
+        "late": "Zaległe",
+        "cancelled": "Anulowane"
+      },
+      "kind": {
+        "bank_transfer": "Przelew bankowy",
+        "card": "Karta",
+        "qr": "Kod QR",
+        "crypto": "Krypto",
+        "other": "Inne"
+      },
+      "status": {
+        "pending": "Oczekuje",
+        "processing": "W trakcie",
+        "received": "Otrzymano",
+        "failed": "Nieudane",
+        "cancelled": "Anulowane"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "Nadchodząca",
+        "paid": "Opłacona",
+        "partially_paid": "Częściowo opłacona",
+        "late": "Zaległa",
+        "cancelled": "Anulowana"
+      }
     }
   },
   "products": {

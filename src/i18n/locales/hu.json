@@ -1815,6 +1815,71 @@
         "dateRequired": "Adjon meg fizetési dátumot.",
         "generic": "A művelet nem lehetséges."
       }
+    },
+    "payment": {
+      "metaTitle": "Biztonságos fizetés — MOONYP",
+      "metaDesc": "Fizesse ki biztonságosan a Moonyp finanszírozási ügyletéhez kapcsolódó díjakat.",
+      "title": "Biztonságos fizetés",
+      "subtitle": "Ügylet",
+      "back": "Vissza az ügylethez",
+      "due": "Fizetendő összeg",
+      "noDue": "Jelenleg nincs fizetendő összeg.",
+      "methods": "Fizetési módok",
+      "noMethods": "Jelenleg nem érhető el fizetési mód.",
+      "notConfigured": "Ez a szolgáltató nincs beállítva.",
+      "pay": "Fizetés",
+      "redirecting": "Átirányítás a szolgáltatóhoz…",
+      "created": "Fizetés rögzítve",
+      "createdHint": "A fizetést a pénz tényleges beérkezése után igazoljuk vissza.",
+      "instructions": "Fizetési útmutató",
+      "reference": "Hivatkozás",
+      "copyReference": "Hivatkozás másolása",
+      "copied": "Másolva",
+      "holder": "Számlatulajdonos",
+      "bank": "Bank",
+      "address": "Cím",
+      "network": "Hálózat",
+      "history": "Fizetési előzmények",
+      "noPaymentYet": "Nincs rögzített fizetés.",
+      "notice": "Az átutalásnál mindig tüntesse fel a hivatkozást, különben a fizetés nem rendelhető az ügyletéhez.",
+      "error": "A fizetést nem sikerült elindítani.",
+      "purpose": {
+        "guarantee_fee": "Garanciadíj",
+        "insurance_fee": "Biztosítási díj",
+        "application_fee": "Ügyintézési díj",
+        "installment": "Hiteltörlesztő részlet",
+        "other": "Egyéb"
+      },
+      "feeStatus": {
+        "pending": "Függőben",
+        "paid": "Fizetve",
+        "not_required": "Nem szükséges",
+        "late": "Késedelmes",
+        "cancelled": "Törölve"
+      },
+      "kind": {
+        "bank_transfer": "Banki átutalás",
+        "card": "Kártya",
+        "qr": "QR-kód",
+        "crypto": "Kripto",
+        "other": "Egyéb"
+      },
+      "status": {
+        "pending": "Függőben",
+        "processing": "Folyamatban",
+        "received": "Beérkezett",
+        "failed": "Sikertelen",
+        "cancelled": "Törölve"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "Közelgő",
+        "paid": "Fizetve",
+        "partially_paid": "Részben fizetve",
+        "late": "Késedelmes",
+        "cancelled": "Törölve"
+      }
     }
   },
   "products": {

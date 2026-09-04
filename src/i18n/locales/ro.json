@@ -1815,6 +1815,71 @@
         "dateRequired": "Indicați o dată de plată.",
         "generic": "Acțiune imposibilă."
       }
+    },
+    "payment": {
+      "metaTitle": "Plată securizată — MOONYP",
+      "metaDesc": "Achitați în siguranță taxele aferente dosarului dvs. de finanțare Moonyp.",
+      "title": "Plată securizată",
+      "subtitle": "Dosar",
+      "back": "Înapoi la dosar",
+      "due": "Sumă de plată",
+      "noDue": "Momentan nu există sume de plată.",
+      "methods": "Metode de plată",
+      "noMethods": "Nicio metodă de plată disponibilă momentan.",
+      "notConfigured": "Acest furnizor nu este configurat.",
+      "pay": "Plătește",
+      "redirecting": "Redirecționare către furnizor…",
+      "created": "Plată înregistrată",
+      "createdHint": "Plata va fi confirmată după primirea efectivă a fondurilor.",
+      "instructions": "Instrucțiuni de plată",
+      "reference": "Referință",
+      "copyReference": "Copiază referința",
+      "copied": "Copiat",
+      "holder": "Titular",
+      "bank": "Bancă",
+      "address": "Adresă",
+      "network": "Rețea",
+      "history": "Istoricul plăților",
+      "noPaymentYet": "Nicio plată înregistrată.",
+      "notice": "Menționați întotdeauna referința la transfer, altfel plata nu poate fi asociată dosarului.",
+      "error": "Plata nu a putut fi inițiată.",
+      "purpose": {
+        "guarantee_fee": "Taxă de garanție",
+        "insurance_fee": "Taxă de asigurare",
+        "application_fee": "Taxă de dosar",
+        "installment": "Rată de credit",
+        "other": "Altele"
+      },
+      "feeStatus": {
+        "pending": "În așteptare",
+        "paid": "Plătit",
+        "not_required": "Nenecesar",
+        "late": "Întârziat",
+        "cancelled": "Anulat"
+      },
+      "kind": {
+        "bank_transfer": "Transfer bancar",
+        "card": "Card",
+        "qr": "Cod QR",
+        "crypto": "Cripto",
+        "other": "Altele"
+      },
+      "status": {
+        "pending": "În așteptare",
+        "processing": "În curs",
+        "received": "Primit",
+        "failed": "Eșuat",
+        "cancelled": "Anulat"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "Viitoare",
+        "paid": "Plătită",
+        "partially_paid": "Parțial plătită",
+        "late": "Întârziată",
+        "cancelled": "Anulată"
+      }
     }
   },
   "products": {

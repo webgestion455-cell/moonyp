@@ -51,6 +51,7 @@ import { Route as LangSplatRouteImport } from './routes/$lang.$'
 import { Route as AdminChatIndexRouteImport } from './routes/admin.chat.index'
 import { Route as AdminApplicationsIndexRouteImport } from './routes/admin.applications.index'
 import { Route as SecureApplicationTokenRouteImport } from './routes/secure.application.$token'
+import { Route as ApiPublicRepaymentRemindersRouteImport } from './routes/api/public/repayment-reminders'
 import { Route as ApiPublicGuaranteeRemindersRouteImport } from './routes/api/public/guarantee-reminders'
 import { Route as AdminChatConversationIdRouteImport } from './routes/admin.chat.$conversationId'
 import { Route as AdminApplicationsApplicationIdRouteImport } from './routes/admin.applications.$applicationId'
@@ -276,6 +277,12 @@ const SecureApplicationTokenRoute = SecureApplicationTokenRouteImport.update({
   path: '/secure/application/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicRepaymentRemindersRoute =
+  ApiPublicRepaymentRemindersRouteImport.update({
+    id: '/api/public/repayment-reminders',
+    path: '/api/public/repayment-reminders',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicGuaranteeRemindersRoute =
   ApiPublicGuaranteeRemindersRouteImport.update({
     id: '/api/public/guarantee-reminders',
@@ -404,6 +411,7 @@ export interface FileRoutesByFullPath {
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
   '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
+  '/api/public/repayment-reminders': typeof ApiPublicRepaymentRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications/': typeof AdminApplicationsIndexRoute
   '/admin/chat/': typeof AdminChatIndexRoute
@@ -459,6 +467,7 @@ export interface FileRoutesByTo {
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
   '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
+  '/api/public/repayment-reminders': typeof ApiPublicRepaymentRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications': typeof AdminApplicationsIndexRoute
   '/admin/chat': typeof AdminChatIndexRoute
@@ -518,6 +527,7 @@ export interface FileRoutesById {
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
   '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
+  '/api/public/repayment-reminders': typeof ApiPublicRepaymentRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications/': typeof AdminApplicationsIndexRoute
   '/admin/chat/': typeof AdminChatIndexRoute
@@ -578,6 +588,7 @@ export interface FileRouteTypes {
     | '/admin/applications/$applicationId'
     | '/admin/chat/$conversationId'
     | '/api/public/guarantee-reminders'
+    | '/api/public/repayment-reminders'
     | '/secure/application/$token'
     | '/admin/applications/'
     | '/admin/chat/'
@@ -633,6 +644,7 @@ export interface FileRouteTypes {
     | '/admin/applications/$applicationId'
     | '/admin/chat/$conversationId'
     | '/api/public/guarantee-reminders'
+    | '/api/public/repayment-reminders'
     | '/secure/application/$token'
     | '/admin/applications'
     | '/admin/chat'
@@ -691,6 +703,7 @@ export interface FileRouteTypes {
     | '/admin/applications/$applicationId'
     | '/admin/chat/$conversationId'
     | '/api/public/guarantee-reminders'
+    | '/api/public/repayment-reminders'
     | '/secure/application/$token'
     | '/admin/applications/'
     | '/admin/chat/'
@@ -720,6 +733,7 @@ export interface RootRouteChildren {
   LegalRepaymentRoute: typeof LegalRepaymentRoute
   LegalTermsRoute: typeof LegalTermsRoute
   ApiPublicGuaranteeRemindersRoute: typeof ApiPublicGuaranteeRemindersRoute
+  ApiPublicRepaymentRemindersRoute: typeof ApiPublicRepaymentRemindersRoute
   SecureApplicationTokenRoute: typeof SecureApplicationTokenRoute
 }
 
@@ -1019,6 +1033,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SecureApplicationTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/repayment-reminders': {
+      id: '/api/public/repayment-reminders'
+      path: '/api/public/repayment-reminders'
+      fullPath: '/api/public/repayment-reminders'
+      preLoaderRoute: typeof ApiPublicRepaymentRemindersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/guarantee-reminders': {
       id: '/api/public/guarantee-reminders'
       path: '/api/public/guarantee-reminders'
@@ -1247,6 +1268,7 @@ const rootRouteChildren: RootRouteChildren = {
   LegalRepaymentRoute: LegalRepaymentRoute,
   LegalTermsRoute: LegalTermsRoute,
   ApiPublicGuaranteeRemindersRoute: ApiPublicGuaranteeRemindersRoute,
+  ApiPublicRepaymentRemindersRoute: ApiPublicRepaymentRemindersRoute,
   SecureApplicationTokenRoute: SecureApplicationTokenRoute,
 }
 export const routeTree = rootRouteImport

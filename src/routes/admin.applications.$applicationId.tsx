@@ -526,17 +526,48 @@ function ApplicationDetail() {
                 </div>
               ))
             )}
-            {Array.isArray((a.compliance_flags as unknown as string[]) ?? null) &&
-              ((a.compliance_flags as unknown as string[]) ?? []).length > 0 && (
-                <div className="rounded-lg border border-amber-500/40 bg-amber-500/5 p-3 text-xs text-amber-700">
-                  <p className="font-semibold">Points de vigilance conformité</p>
-                  <ul className="mt-1 list-inside list-disc">
-                    {((a.compliance_flags as unknown as string[]) ?? []).map((f) => (
-                      <li key={f}>{f}</li>
-                    ))}
-                  </ul>
-                </div>
+            {Array.isArray(a.compliance_flags) &&
+  a.compliance_flags.length > 0 && (
+    <div className="rounded-lg border border-amber-500/40 bg-amber-500/5 p-3 text-xs text-amber-700">
+      <p className="font-semibold">Points de vigilance conformité</p>
+
+      <ul className="mt-1 list-inside list-disc">
+        {a.compliance_flags.map((f, index) => {
+          if (!f || typeof f !== "object" || Array.isArray(f)) {
+            return null;
+          }
+
+          const flag = f as {
+            code?: string;
+            field?: string;
+            severity?: string;
+          };
+
+          return (
+            <li key={`${flag.code ?? "flag"}-${index}`}>
+              <span className="font-medium">
+                {flag.code ?? "Vigilance conformité"}
+              </span>
+
+              {flag.field && (
+                <span className="text-muted-foreground">
+                  {" · champ : "}
+                  {flag.field}
+                </span>
               )}
+
+              {flag.severity && (
+                <span className="text-muted-foreground">
+                  {" · "}
+                  {flag.severity}
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  )}
           </CardContent>
         </Card>
       </div>

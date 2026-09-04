@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.bkparibas.app',
-  appName: 'BNP PARIBAS',
+  appName: 'MOONYP',
   webDir: 'dist',
 
   server: {

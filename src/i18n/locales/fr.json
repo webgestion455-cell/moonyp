@@ -1815,6 +1815,71 @@
         "dateRequired": "Veuillez indiquer une date de paiement.",
         "generic": "Action impossible."
       }
+    },
+    "payment": {
+      "metaTitle": "Paiement sécurisé — MOONYP",
+      "metaDesc": "Réglez les frais liés à votre dossier de financement Moonyp en toute sécurité.",
+      "title": "Paiement sécurisé",
+      "subtitle": "Dossier",
+      "back": "Retour au dossier",
+      "due": "Montant à régler",
+      "noDue": "Aucun montant à régler pour le moment.",
+      "methods": "Moyens de paiement",
+      "noMethods": "Aucun moyen de paiement n'est disponible actuellement.",
+      "notConfigured": "Ce prestataire n'est pas configuré.",
+      "pay": "Payer",
+      "redirecting": "Redirection vers le prestataire…",
+      "created": "Paiement enregistré",
+      "createdHint": "Votre paiement sera confirmé après réception effective des fonds.",
+      "instructions": "Instructions de paiement",
+      "reference": "Référence",
+      "copyReference": "Copier la référence",
+      "copied": "Copié",
+      "holder": "Titulaire",
+      "bank": "Banque",
+      "address": "Adresse",
+      "network": "Réseau",
+      "history": "Historique des paiements",
+      "noPaymentYet": "Aucun paiement enregistré.",
+      "notice": "Indiquez impérativement la référence lors du virement, sans quoi le paiement ne pourra pas être rapproché de votre dossier.",
+      "error": "Le paiement n'a pas pu être initié.",
+      "purpose": {
+        "guarantee_fee": "Frais de garantie",
+        "insurance_fee": "Frais d'assurance",
+        "application_fee": "Frais de dossier",
+        "installment": "Échéance de prêt",
+        "other": "Autre"
+      },
+      "feeStatus": {
+        "pending": "En attente",
+        "paid": "Payé",
+        "not_required": "Non requis",
+        "late": "En retard",
+        "cancelled": "Annulé"
+      },
+      "kind": {
+        "bank_transfer": "Virement bancaire",
+        "card": "Carte bancaire",
+        "qr": "QR code",
+        "crypto": "Crypto",
+        "other": "Autre"
+      },
+      "status": {
+        "pending": "En attente",
+        "processing": "En cours",
+        "received": "Reçu",
+        "failed": "Échoué",
+        "cancelled": "Annulé"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "À venir",
+        "paid": "Payé",
+        "partially_paid": "Partiellement payé",
+        "late": "En retard",
+        "cancelled": "Annulé"
+      }
     }
   },
   "products": {

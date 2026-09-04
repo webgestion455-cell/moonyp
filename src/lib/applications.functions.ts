@@ -159,7 +159,7 @@ export const submitApplication = createServerFn({ method: "POST" })
     const dti = debtRatio(pricing.totalMonthly, data.monthly_income + (data.other_income ?? 0), data.monthly_charges);
     const complianceFlags = audit.issues.map((i) => ({ field: i.field, code: i.code, severity: i.severity }));
     if (dti !== null && dti > 40) {
-      complianceFlags.push({ field: "bank_iban", code: "risk.dtiAbove40", severity: "warning" });
+      complianceFlags.push({ field: "dti_percent", code: "risk.dtiAbove40", severity: "warning" });
     }
 
     const applicationPayload = {

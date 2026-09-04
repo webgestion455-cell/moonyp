@@ -4,5 +4,5 @@ import i18n from "@/i18n";
 
 export const Route = createFileRoute("/legal/repayment")({
   component: () => <LegalPage i18nKey="legal.repayment" updated="2026-06-22" />,
-  head: () => ({ meta: [{ title: `${i18n.t("legal.repayment.title")} — BNP PARIBAS` }] }),
+  head: () => ({ meta: [{ title: `${i18n.t("legal.repayment.title")} — MOONYP` }] }),
 });

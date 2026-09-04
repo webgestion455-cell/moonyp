@@ -21,13 +21,13 @@ export const Route = createFileRoute("/staff-invite")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Activation de compte équipe — BNP PARIBAS" },
+      { title: "Activation de compte équipe — MOONYP" },
       {
         name: "description",
         content:
-          "Activez votre accès à l'espace d'administration BNP PARIBAS ou refusez l'invitation reçue par e-mail.",
+          "Activez votre accès à l'espace d'administration MOONYP ou refusez l'invitation reçue par e-mail.",
       },
-      { property: "og:title", content: "Activation de compte équipe — BNP PARIBAS" },
+      { property: "og:title", content: "Activation de compte équipe — MOONYP" },
       { property: "og:description", content: "Activez ou refusez votre invitation équipe." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -142,7 +142,7 @@ function StaffInvitePage() {
           </div>
           <CardTitle className="mt-3">Activer votre compte équipe</CardTitle>
           <p className="text-sm text-muted-foreground mt-1">
-            Définissez votre mot de passe pour rejoindre l'espace équipe BNP PARIBAS.
+            Définissez votre mot de passe pour rejoindre l'espace équipe MOONYP.
           </p>
         </CardHeader>
         <CardContent>

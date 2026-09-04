@@ -1815,6 +1815,71 @@
         "dateRequired": "Zadajte dátum platby.",
         "generic": "Akcia nie je možná."
       }
+    },
+    "payment": {
+      "metaTitle": "Bezpečná platba — MOONYP",
+      "metaDesc": "Bezpečne uhraďte poplatky súvisiace s vašou žiadosťou o financovanie Moonyp.",
+      "title": "Bezpečná platba",
+      "subtitle": "Spis",
+      "back": "Späť na spis",
+      "due": "Suma na úhradu",
+      "noDue": "Momentálne nie je nič na úhradu.",
+      "methods": "Spôsoby platby",
+      "noMethods": "Momentálne nie je dostupný žiadny spôsob platby.",
+      "notConfigured": "Tento poskytovateľ nie je nakonfigurovaný.",
+      "pay": "Zaplatiť",
+      "redirecting": "Presmerovanie k poskytovateľovi…",
+      "created": "Platba zaznamenaná",
+      "createdHint": "Platba bude potvrdená po skutočnom prijatí prostriedkov.",
+      "instructions": "Pokyny na platbu",
+      "reference": "Referencia",
+      "copyReference": "Kopírovať referenciu",
+      "copied": "Skopírované",
+      "holder": "Majiteľ účtu",
+      "bank": "Banka",
+      "address": "Adresa",
+      "network": "Sieť",
+      "history": "História platieb",
+      "noPaymentYet": "Žiadna zaznamenaná platba.",
+      "notice": "Pri prevode vždy uveďte referenciu, inak nebude možné platbu priradiť k vášmu spisu.",
+      "error": "Platbu sa nepodarilo spustiť.",
+      "purpose": {
+        "guarantee_fee": "Poplatok za záruku",
+        "insurance_fee": "Poplatok za poistenie",
+        "application_fee": "Poplatok za spracovanie",
+        "installment": "Splátka úveru",
+        "other": "Iné"
+      },
+      "feeStatus": {
+        "pending": "Čaká sa",
+        "paid": "Zaplatené",
+        "not_required": "Nevyžaduje sa",
+        "late": "Po splatnosti",
+        "cancelled": "Zrušené"
+      },
+      "kind": {
+        "bank_transfer": "Bankový prevod",
+        "card": "Karta",
+        "qr": "QR kód",
+        "crypto": "Krypto",
+        "other": "Iné"
+      },
+      "status": {
+        "pending": "Čaká sa",
+        "processing": "Prebieha",
+        "received": "Prijaté",
+        "failed": "Zlyhalo",
+        "cancelled": "Zrušené"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "Nadchádzajúca",
+        "paid": "Zaplatená",
+        "partially_paid": "Čiastočne zaplatená",
+        "late": "Po splatnosti",
+        "cancelled": "Zrušená"
+      }
     }
   },
   "products": {

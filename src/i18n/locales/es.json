@@ -1815,6 +1815,71 @@
         "dateRequired": "Indique una fecha de pago.",
         "generic": "Acción imposible."
       }
+    },
+    "payment": {
+      "metaTitle": "Pago seguro — MOONYP",
+      "metaDesc": "Liquide de forma segura los gastos de su expediente de financiación Moonyp.",
+      "title": "Pago seguro",
+      "subtitle": "Expediente",
+      "back": "Volver al expediente",
+      "due": "Importe a pagar",
+      "noDue": "No hay importe pendiente por ahora.",
+      "methods": "Métodos de pago",
+      "noMethods": "No hay ningún método de pago disponible.",
+      "notConfigured": "Este proveedor no está configurado.",
+      "pay": "Pagar",
+      "redirecting": "Redirigiendo al proveedor…",
+      "created": "Pago registrado",
+      "createdHint": "Su pago se confirmará tras la recepción efectiva de los fondos.",
+      "instructions": "Instrucciones de pago",
+      "reference": "Referencia",
+      "copyReference": "Copiar referencia",
+      "copied": "Copiado",
+      "holder": "Titular",
+      "bank": "Banco",
+      "address": "Dirección",
+      "network": "Red",
+      "history": "Historial de pagos",
+      "noPaymentYet": "Ningún pago registrado.",
+      "notice": "Indique siempre la referencia en la transferencia; de lo contrario no podrá asociarse a su expediente.",
+      "error": "No se ha podido iniciar el pago.",
+      "purpose": {
+        "guarantee_fee": "Gastos de garantía",
+        "insurance_fee": "Gastos de seguro",
+        "application_fee": "Gastos de gestión",
+        "installment": "Cuota del préstamo",
+        "other": "Otro"
+      },
+      "feeStatus": {
+        "pending": "Pendiente",
+        "paid": "Pagado",
+        "not_required": "No requerido",
+        "late": "Atrasado",
+        "cancelled": "Cancelado"
+      },
+      "kind": {
+        "bank_transfer": "Transferencia bancaria",
+        "card": "Tarjeta",
+        "qr": "Código QR",
+        "crypto": "Cripto",
+        "other": "Otro"
+      },
+      "status": {
+        "pending": "Pendiente",
+        "processing": "En curso",
+        "received": "Recibido",
+        "failed": "Fallido",
+        "cancelled": "Cancelado"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "Próxima",
+        "paid": "Pagada",
+        "partially_paid": "Parcialmente pagada",
+        "late": "Atrasada",
+        "cancelled": "Cancelada"
+      }
     }
   },
   "products": {

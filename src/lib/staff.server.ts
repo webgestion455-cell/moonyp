@@ -76,13 +76,13 @@ export function invitationEmailHtml(params: {
     params.role === "super_admin" ? "Super administrateur" : params.role === "admin" ? "Administrateur" : "Agent / Conseiller";
   return `<div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:auto;background:#ffffff;border:1px solid #e6e8e6;border-radius:14px;overflow:hidden">
     <div style="background:#00915A;padding:20px 24px;color:#fff">
-      <div style="font-size:18px;font-weight:700;letter-spacing:.5px">BNP PARIBAS</div>
+      <div style="font-size:18px;font-weight:700;letter-spacing:.5px">MOONYP</div>
       <div style="font-size:12px;opacity:.85">Espace d'administration sécurisé</div>
     </div>
     <div style="padding:24px">
       <h1 style="font-size:19px;margin:0 0 10px;color:#0a0a0a">Bonjour ${params.fullName ?? ""},</h1>
       <p style="font-size:14px;color:#55575d;line-height:1.6;margin:0 0 16px">
-        Vous avez été invité(e) à rejoindre l'équipe BNP PARIBAS en tant que <strong>${roleLabel}</strong>.
+        Vous avez été invité(e) à rejoindre l'équipe MOONYP en tant que <strong>${roleLabel}</strong>.
         Cliquez sur le bouton ci-dessous pour créer votre mot de passe et activer votre accès.
       </p>
       <p style="text-align:center;margin:26px 0">
@@ -99,7 +99,7 @@ export function invitationEmailHtml(params: {
     </div>
 
     <div style="background:#f7f8f7;padding:14px 24px;font-size:11px;color:#8a8d92">
-      © 2000-${new Date().getFullYear()} BNP PARIBAS — Tous droits réservés.
+      © 2000-${new Date().getFullYear()} MOONYP — Tous droits réservés.
     </div>
   </div>`;
 }
@@ -111,9 +111,9 @@ export async function sendInvitationEmail(to: string, html: string) {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
     body: JSON.stringify({
-      from: "BNP PARIBAS <no-reply@zenvoriax.com>",
+      from: "MOONYP <no-reply@zenvoriax.com>",
       to: [to],
-      subject: "Votre accès à l'espace d'administration BNP PARIBAS",
+      subject: "Votre accès à l'espace d'administration MOONYP",
       html,
     }),
   });

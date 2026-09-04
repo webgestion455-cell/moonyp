@@ -16,7 +16,7 @@ import { Loader2, UserPlus, ShieldCheck, Copy, Ban, RotateCcw, MailCheck, Users 
 
 export const Route = createFileRoute("/admin/staff")({
   component: AdminStaff,
-  head: () => ({ meta: [{ title: "Équipe & rôles — Administration BNP PARIBAS" }] }),
+  head: () => ({ meta: [{ title: "Équipe & rôles — Administration MOONYP" }] }),
 });
 
 interface Member {

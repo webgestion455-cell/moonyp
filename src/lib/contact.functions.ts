@@ -11,8 +11,8 @@ const ContactInput = z.object({
   website: z.string().max(0).optional().or(z.literal("")),
 });
 
-const TO_EMAIL = "support@bnpparibas.myinvest-capital.com";
-const FROM_EMAIL = "BNP PARIBAS <no-reply@zenvoriax.com>";
+const TO_EMAIL = "support@moonyp.com";
+const FROM_EMAIL = "MOONYP <no-reply@moonyp.com>";
 
 export const submitContactMessage = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => ContactInput.parse(d))
@@ -40,7 +40,7 @@ export const submitContactMessage = createServerFn({ method: "POST" })
       try {
         const html = `
           <div style="font-family:Arial,sans-serif;max-width:600px;margin:auto">
-            <h2 style="color:#0a0a0a">BNP PARIBAS — New contact message</h2>
+            <h2 style="color:#0a0a0a">MOONYP — New contact message</h2>
             <p><strong>Name:</strong> ${escapeHtml(data.full_name)}</p>
             <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
             <p><strong>Subject:</strong> ${escapeHtml(data.subject)}</p>

@@ -9,7 +9,7 @@ import { Search, Folder, MessageCircle, User } from "lucide-react";
 
 export const Route = createFileRoute("/admin/chat")({
   component: AdminChatLayout,
-  head: () => ({ meta: [{ title: "Admin — Live Chat BNP PARIBAS" }] }),
+  head: () => ({ meta: [{ title: "Admin — Live Chat MOONYP" }] }),
 });
 
 interface Folder {

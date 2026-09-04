@@ -66,9 +66,9 @@ export const requestAdminCode = createServerFn({ method: "POST" })
       try {
         const resend = new Resend(resendKey);
         await resend.emails.send({
-          from: "BNP PARIBAS Admin <no-reply@zenvoriax.com>",
+          from: "MOONYP Admin <no-reply@zenvoriax.com>",
           to: user.email!,
-          subject: `Code admin BNP PARIBAS : ${code}`,
+          subject: `Code admin MOONYP : ${code}`,
           html: `<div style="font-family:Arial,sans-serif;max-width:480px;margin:auto;padding:24px;background:#fafaf7;border-radius:12px"><h1 style="color:#0a0a0a;margin:0 0 8px">Connexion administrateur</h1><p style="color:#55575d;font-size:14px">Voici votre code de vérification à usage unique. Il expire dans 10 minutes.</p><div style="font-size:36px;font-weight:bold;letter-spacing:8px;text-align:center;background:#fff;border:1px solid #e5e5e0;border-radius:12px;padding:20px;margin:20px 0">${code}</div><p style="color:#999;font-size:12px">Si vous n'êtes pas à l'origine de cette demande, ignorez cet email et changez immédiatement votre mot de passe.</p></div>`,
         });
         return { sent: true, channel: "email" as const, email: user.email! };

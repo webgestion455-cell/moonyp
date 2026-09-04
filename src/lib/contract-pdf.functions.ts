@@ -34,7 +34,7 @@ type PdfDict = {
 const PDF_DICT: Record<Lang, PdfDict> = {
   fr: {
     subtitle: "Crédit en ligne — Contrat officiel",
-    docTitle: "Contrat de prêt — BNP PARIBAS",
+    docTitle: "Contrat de prêt — MOONYP",
     docHint: "Document contractuel — à conserver précieusement",
     title: "Contrat de prêt personnel",
     partiesTitle: "1. Parties", lender: "Prêteur", borrower: "Emprunteur",
@@ -55,20 +55,20 @@ const PDF_DICT: Record<Lang, PdfDict> = {
       "compter de la signature du présent contrat (art. L312-19 du Code de la consommation).",
     ],
     signatureTitle: "4. Acceptation et signature",
-    lenderSig: "Signature du prêteur", lenderName: "BNP PARIBAS SAS",
+    lenderSig: "Signature du prêteur", lenderName: "MOONYP SAS",
     borrowerSig: "Signature de l'emprunteur",
     signMention: 'Faire précéder la signature de la mention "Lu et approuvé"',
     signedElectronically: "Signé électroniquement", certificate: "Certificat",
-    certificatePrefix: "BNP PARIBAS-eSign-",
+    certificatePrefix: "MOONYP-eSign-",
     refPrefix: "Réf.", issuedOn: "Émis le", page: "Page 1 / 1",
-    footer: "BNP PARIBAS SAS · support@bnpparibas.myinvest-capital.com",
+    footer: "MOONYP SAS · support@bnpparibas.myinvest-capital.com",
     sessionExpired: "Session expirée. Veuillez vous reconnecter.",
     loanNotFound: "Prêt introuvable", unauthorized: "Accès non autorisé à ce contrat",
     smallTitle: "Crédit en ligne",
   },
   en: {
     subtitle: "Online credit — Official contract",
-    docTitle: "Loan agreement — BNP PARIBAS",
+    docTitle: "Loan agreement — MOONYP",
     docHint: "Contractual document — please keep carefully",
     title: "Personal loan agreement",
     partiesTitle: "1. Parties", lender: "Lender", borrower: "Borrower",
@@ -89,20 +89,20 @@ const PDF_DICT: Record<Lang, PdfDict> = {
       "of this contract (art. L312-19 of the French Consumer Code).",
     ],
     signatureTitle: "4. Acceptance and signature",
-    lenderSig: "Lender signature", lenderName: "BNP PARIBAS SAS",
+    lenderSig: "Lender signature", lenderName: "MOONYP SAS",
     borrowerSig: "Borrower signature",
     signMention: 'Precede the signature with "Read and approved"',
     signedElectronically: "Electronically signed", certificate: "Certificate",
-    certificatePrefix: "BNP PARIBAS-eSign-",
+    certificatePrefix: "MOONYP-eSign-",
     refPrefix: "Ref.", issuedOn: "Issued on", page: "Page 1 / 1",
-    footer: "BNP PARIBAS SAS · support@bnpparibas.myinvest-capital.com",
+    footer: "MOONYP SAS · support@bnpparibas.myinvest-capital.com",
     sessionExpired: "Session expired. Please sign in again.",
     loanNotFound: "Loan not found", unauthorized: "Unauthorized access to this contract",
     smallTitle: "Online credit",
   },
   de: {
     subtitle: "Online-Kredit — Offizieller Vertrag",
-    docTitle: "Darlehensvertrag — BNP PARIBAS",
+    docTitle: "Darlehensvertrag — MOONYP",
     docHint: "Vertragsdokument — bitte sorgfältig aufbewahren",
     title: "Privatdarlehensvertrag",
     partiesTitle: "1. Parteien", lender: "Darlehensgeber", borrower: "Darlehensnehmer",
@@ -123,20 +123,20 @@ const PDF_DICT: Record<Lang, PdfDict> = {
       "der Unterzeichnung dieses Vertrags.",
     ],
     signatureTitle: "4. Annahme und Unterschrift",
-    lenderSig: "Unterschrift des Darlehensgebers", lenderName: "BNP PARIBAS SAS",
+    lenderSig: "Unterschrift des Darlehensgebers", lenderName: "MOONYP SAS",
     borrowerSig: "Unterschrift des Darlehensnehmers",
     signMention: 'Der Unterschrift "Gelesen und genehmigt" voranstellen',
     signedElectronically: "Elektronisch signiert", certificate: "Zertifikat",
-    certificatePrefix: "BNP PARIBAS-eSign-",
+    certificatePrefix: "MOONYP-eSign-",
     refPrefix: "Ref.", issuedOn: "Ausgestellt am", page: "Seite 1 / 1",
-    footer: "BNP PARIBAS SAS · support@bnpparibas.myinvest-capital.com",
+    footer: "MOONYP SAS · support@bnpparibas.myinvest-capital.com",
     sessionExpired: "Sitzung abgelaufen. Bitte erneut anmelden.",
     loanNotFound: "Darlehen nicht gefunden", unauthorized: "Unbefugter Zugriff auf diesen Vertrag",
     smallTitle: "Online-Kredit",
   },
   es: {
     subtitle: "Crédito en línea — Contrato oficial",
-    docTitle: "Contrato de préstamo — BNP PARIBAS",
+    docTitle: "Contrato de préstamo — MOONYP",
     docHint: "Documento contractual — consérvelo cuidadosamente",
     title: "Contrato de préstamo personal",
     partiesTitle: "1. Partes", lender: "Prestamista", borrower: "Prestatario",
@@ -157,20 +157,20 @@ const PDF_DICT: Record<Lang, PdfDict> = {
       "la firma del presente contrato.",
     ],
     signatureTitle: "4. Aceptación y firma",
-    lenderSig: "Firma del prestamista", lenderName: "BNP PARIBAS SAS",
+    lenderSig: "Firma del prestamista", lenderName: "MOONYP SAS",
     borrowerSig: "Firma del prestatario",
     signMention: 'Anteponga a la firma la mención "Leído y aprobado"',
     signedElectronically: "Firmado electrónicamente", certificate: "Certificado",
-    certificatePrefix: "BNP PARIBAS-eSign-",
+    certificatePrefix: "MOONYP-eSign-",
     refPrefix: "Ref.", issuedOn: "Emitido el", page: "Página 1 / 1",
-    footer: "BNP PARIBAS SAS · support@bnpparibas.myinvest-capital.com",
+    footer: "MOONYP SAS · support@bnpparibas.myinvest-capital.com",
     sessionExpired: "Sesión caducada. Por favor inicie sesión de nuevo.",
     loanNotFound: "Préstamo no encontrado", unauthorized: "Acceso no autorizado a este contrato",
     smallTitle: "Crédito en línea",
   },
   it: {
     subtitle: "Credito online — Contratto ufficiale",
-    docTitle: "Contratto di prestito — BNP PARIBAS",
+    docTitle: "Contratto di prestito — MOONYP",
     docHint: "Documento contrattuale — da conservare con cura",
     title: "Contratto di prestito personale",
     partiesTitle: "1. Parti", lender: "Prestatore", borrower: "Mutuatario",
@@ -191,20 +191,20 @@ const PDF_DICT: Record<Lang, PdfDict> = {
       "firma del presente contratto.",
     ],
     signatureTitle: "4. Accettazione e firma",
-    lenderSig: "Firma del prestatore", lenderName: "BNP PARIBAS SAS",
+    lenderSig: "Firma del prestatore", lenderName: "MOONYP SAS",
     borrowerSig: "Firma del mutuatario",
     signMention: 'Anteporre alla firma la dicitura "Letto e approvato"',
     signedElectronically: "Firmato elettronicamente", certificate: "Certificato",
-    certificatePrefix: "BNP PARIBAS-eSign-",
+    certificatePrefix: "MOONYP-eSign-",
     refPrefix: "Rif.", issuedOn: "Emesso il", page: "Pagina 1 / 1",
-    footer: "BNP PARIBAS SAS · support@bnpparibas.myinvest-capital.com",
+    footer: "MOONYP SAS · support@bnpparibas.myinvest-capital.com",
     sessionExpired: "Sessione scaduta. Effettuare nuovamente l'accesso.",
     loanNotFound: "Prestito non trovato", unauthorized: "Accesso non autorizzato a questo contratto",
     smallTitle: "Credito online",
   },
   nl: {
     subtitle: "Online krediet — Officieel contract",
-    docTitle: "Leningsovereenkomst — BNP PARIBAS",
+    docTitle: "Leningsovereenkomst — MOONYP",
     docHint: "Contractueel document — zorgvuldig bewaren",
     title: "Persoonlijke leningsovereenkomst",
     partiesTitle: "1. Partijen", lender: "Kredietverstrekker", borrower: "Kredietnemer",
@@ -225,20 +225,20 @@ const PDF_DICT: Record<Lang, PdfDict> = {
       "ondertekening van dit contract.",
     ],
     signatureTitle: "4. Aanvaarding en handtekening",
-    lenderSig: "Handtekening kredietverstrekker", lenderName: "BNP PARIBAS SAS",
+    lenderSig: "Handtekening kredietverstrekker", lenderName: "MOONYP SAS",
     borrowerSig: "Handtekening kredietnemer",
     signMention: 'Laat de handtekening voorafgaan door "Gelezen en goedgekeurd"',
     signedElectronically: "Elektronisch ondertekend", certificate: "Certificaat",
-    certificatePrefix: "BNP PARIBAS-eSign-",
+    certificatePrefix: "MOONYP-eSign-",
     refPrefix: "Ref.", issuedOn: "Uitgegeven op", page: "Pagina 1 / 1",
-    footer: "BNP PARIBAS SAS · support@bnpparibas.myinvest-capital.com",
+    footer: "MOONYP SAS · support@bnpparibas.myinvest-capital.com",
     sessionExpired: "Sessie verlopen. Log opnieuw in.",
     loanNotFound: "Lening niet gevonden", unauthorized: "Onbevoegde toegang tot dit contract",
     smallTitle: "Online krediet",
   },
   sl: {
     subtitle: "Spletni kredit — Uradna pogodba",
-    docTitle: "Posojilna pogodba — BNP PARIBAS",
+    docTitle: "Posojilna pogodba — MOONYP",
     docHint: "Pogodbeni dokument — skrbno shranite",
     title: "Pogodba o osebnem posojilu",
     partiesTitle: "1. Stranki", lender: "Posojilodajalec", borrower: "Posojilojemalec",
@@ -258,20 +258,20 @@ const PDF_DICT: Record<Lang, PdfDict> = {
       "Posojilojemalec ima zakonski rok za odstop 14 koledarskih dni od podpisa te pogodbe.",
     ],
     signatureTitle: "4. Sprejem in podpis",
-    lenderSig: "Podpis posojilodajalca", lenderName: "BNP PARIBAS SAS",
+    lenderSig: "Podpis posojilodajalca", lenderName: "MOONYP SAS",
     borrowerSig: "Podpis posojilojemalca",
     signMention: 'Pred podpisom dodajte "Prebrano in odobreno"',
     signedElectronically: "Elektronsko podpisano", certificate: "Potrdilo",
-    certificatePrefix: "BNP PARIBAS-eSign-",
+    certificatePrefix: "MOONYP-eSign-",
     refPrefix: "Ref.", issuedOn: "Izdano dne", page: "Stran 1 / 1",
-    footer: "BNP PARIBAS SAS · support@bnpparibas.myinvest-capital.com",
+    footer: "MOONYP SAS · support@bnpparibas.myinvest-capital.com",
     sessionExpired: "Seja je potekla. Prosimo, prijavite se znova.",
     loanNotFound: "Posojilo ni najdeno", unauthorized: "Nepooblaščen dostop do te pogodbe",
     smallTitle: "Spletni kredit",
   },
   bg: {
     subtitle: "Онлайн кредит — Официален договор",
-    docTitle: "Договор за заем — BNP PARIBAS",
+    docTitle: "Договор за заем — MOONYP",
     docHint: "Договорен документ — съхранявайте грижливо",
     title: "Договор за личен заем",
     partiesTitle: "1. Страни", lender: "Заемодател", borrower: "Заемополучател",
@@ -292,20 +292,20 @@ const PDF_DICT: Record<Lang, PdfDict> = {
       "подписването на този договор.",
     ],
     signatureTitle: "4. Приемане и подпис",
-    lenderSig: "Подпис на заемодателя", lenderName: "BNP PARIBAS SAS",
+    lenderSig: "Подпис на заемодателя", lenderName: "MOONYP SAS",
     borrowerSig: "Подпис на заемополучателя",
     signMention: 'Преди подписа добавете „Прочетено и одобрено"',
     signedElectronically: "Електронно подписано", certificate: "Сертификат",
-    certificatePrefix: "BNP PARIBAS-eSign-",
+    certificatePrefix: "MOONYP-eSign-",
     refPrefix: "Реф.", issuedOn: "Издадено на", page: "Страница 1 / 1",
-    footer: "BNP PARIBAS SAS · support@bnpparibas.myinvest-capital.com",
+    footer: "MOONYP SAS · support@bnpparibas.myinvest-capital.com",
     sessionExpired: "Сесията е изтекла. Моля, влезте отново.",
     loanNotFound: "Заемът не е намерен", unauthorized: "Неоторизиран достъп до този договор",
     smallTitle: "Онлайн кредит",
   },
   sk: {
     subtitle: "Online úver — Oficiálna zmluva",
-    docTitle: "Zmluva o úvere — BNP PARIBAS",
+    docTitle: "Zmluva o úvere — MOONYP",
     docHint: "Zmluvný dokument — starostlivo uschovajte",
     title: "Zmluva o osobnom úvere",
     partiesTitle: "1. Zmluvné strany", lender: "Veriteľ", borrower: "Dlžník",
@@ -325,13 +325,13 @@ const PDF_DICT: Record<Lang, PdfDict> = {
       "Dlžník má zákonnú lehotu na odstúpenie 14 kalendárnych dní od podpisu tejto zmluvy.",
     ],
     signatureTitle: "4. Prijatie a podpis",
-    lenderSig: "Podpis veriteľa", lenderName: "BNP PARIBAS SAS",
+    lenderSig: "Podpis veriteľa", lenderName: "MOONYP SAS",
     borrowerSig: "Podpis dlžníka",
     signMention: 'Pred podpis uveďte „Prečítané a schválené"',
     signedElectronically: "Elektronicky podpísané", certificate: "Certifikát",
-    certificatePrefix: "BNP PARIBAS-eSign-",
+    certificatePrefix: "MOONYP-eSign-",
     refPrefix: "Ref.", issuedOn: "Vydané dňa", page: "Strana 1 / 1",
-    footer: "BNP PARIBAS SAS · support@bnpparibas.myinvest-capital.com",
+    footer: "MOONYP SAS · support@bnpparibas.myinvest-capital.com",
     sessionExpired: "Relácia vypršala. Prihláste sa znova.",
     loanNotFound: "Úver nenájdený", unauthorized: "Neoprávnený prístup k tejto zmluve",
     smallTitle: "Online úver",
@@ -390,13 +390,12 @@ export const generateContractPdf = createServerFn({ method: "POST" })
     const isAdmin = roles?.some((r) => r.role === "admin") ?? false;
 
     const { data: loan, error } = await supabaseAdmin
-      .from("loans")
-      .select("id, user_id, full_name, email, address, amount, duration_months, monthly_income, purpose, status, created_at")
+      .from("loan_applications")
+      .select("id, first_name, last_name, email, address, amount, duration_months, monthly_income, purpose, status, created_at")
       .eq("id", data.loanId)
       .maybeSingle();
 
     if (error || !loan) throw new Error(T.loanNotFound);
-    if (!isAdmin && loan.user_id !== authData.user.id) throw new Error(T.unauthorized);
 
     const amount = Number(loan.amount);
     const months = Number(loan.duration_months);
@@ -407,9 +406,9 @@ export const generateContractPdf = createServerFn({ method: "POST" })
     // Build PDF
     const pdf = await PDFDocument.create();
     pdf.setTitle(`${T.docTitle} — ${loan.id.slice(0, 8)}`);
-    pdf.setAuthor("BNP PARIBAS");
-    pdf.setCreator("BNP PARIBAS");
-    pdf.setProducer("BNP PARIBAS Contract Generator");
+    pdf.setAuthor("MOONYP");
+    pdf.setCreator("MOONYP");
+    pdf.setProducer("MOONYP Contract Generator");
     pdf.setCreationDate(new Date());
 
     const helv = await pdf.embedFont(StandardFonts.Helvetica);
@@ -430,13 +429,13 @@ export const generateContractPdf = createServerFn({ method: "POST" })
     const margin = 50;
     let y = height - margin;
 
-    const bnpparibasRed = rgb(0.85, 0.0, 0.0);
+    const moonypRed = rgb(0.85, 0.0, 0.0);
     page.drawRectangle({ x: 0, y: height - 80, width, height: 80, color: rgb(0.98, 0.98, 0.97) });
     const lx = margin, ly = height - 60, ls = 32;
-    page.drawRectangle({ x: lx, y: ly, width: ls, height: ls, color: rgb(1, 1, 1), borderColor: bnpparibasRed, borderWidth: 1 });
-    page.drawRectangle({ x: lx, y: ly + ls / 2, width: ls / 2, height: ls / 2, color: bnpparibasRed });
-    page.drawRectangle({ x: lx + ls / 2, y: ly, width: ls / 2, height: ls / 2, color: bnpparibasRed });
-    page.drawText("BNP PARIBAS", { x: margin + 42, y: height - 47, size: 16, font: helvBold, color: bnpparibasRed });
+    page.drawRectangle({ x: lx, y: ly, width: ls, height: ls, color: rgb(1, 1, 1), borderColor: moonypRed, borderWidth: 1 });
+    page.drawRectangle({ x: lx, y: ly + ls / 2, width: ls / 2, height: ls / 2, color: moonypRed });
+    page.drawRectangle({ x: lx + ls / 2, y: ly, width: ls / 2, height: ls / 2, color: moonypRed });
+    page.drawText("MOONYP", { x: margin + 42, y: height - 47, size: 16, font: helvBold, color: moonypRed });
     page.drawText(T.subtitle, { x: margin + 42, y: height - 62, size: 8, font: helv, color: muted });
 
     const refText = sanitize(`${T.refPrefix} ${loan.id.slice(0, 8).toUpperCase()}`);
@@ -454,9 +453,9 @@ export const generateContractPdf = createServerFn({ method: "POST" })
 
     drawSectionTitle(page, helvBold, T.partiesTitle, margin, y, ink, accent);
     y -= 22;
-    drawKV(page, helv, helvBold, T.lender, sanitize("BNP PARIBAS SAS - 12 rue de la Finance, 75002 Paris"), margin, y, ink, muted);
+    drawKV(page, helv, helvBold, T.lender, sanitize("MOONYP SAS - 12 rue de la Finance, 75002 Paris"), margin, y, ink, muted);
     y -= 16;
-    drawKV(page, helv, helvBold, T.borrower, sanitize(`${loan.full_name} - ${loan.email}`), margin, y, ink, muted);
+    drawKV(page, helv, helvBold, T.borrower, sanitize(`${[loan.first_name, loan.last_name].filter(Boolean).join(" ")} - ${loan.email}`), margin, y, ink, muted);
     y -= 16;
     if ((loan as any).address) {
       drawKV(page, helv, helvBold, T.borrower + " (adresse)", sanitize(String((loan as any).address)), margin, y, ink, muted);
@@ -513,14 +512,14 @@ export const generateContractPdf = createServerFn({ method: "POST" })
     const stampCx = margin + sigW - 42;
     const stampCy = y - sigH / 2 - 4;
     const stampR = 32;
-    page.drawCircle({ x: stampCx, y: stampCy, size: stampR, borderColor: bnpparibasRed, borderWidth: 2, color: rgb(1, 1, 1) });
-    page.drawCircle({ x: stampCx, y: stampCy, size: stampR - 4, borderColor: bnpparibasRed, borderWidth: 0.6, color: rgb(1, 1, 1) });
+    page.drawCircle({ x: stampCx, y: stampCy, size: stampR, borderColor: moonypRed, borderWidth: 2, color: rgb(1, 1, 1) });
+    page.drawCircle({ x: stampCx, y: stampCy, size: stampR - 4, borderColor: moonypRed, borderWidth: 0.6, color: rgb(1, 1, 1) });
     const tw = 6;
-    page.drawRectangle({ x: stampCx - tw, y: stampCy + 4, width: tw, height: 6, color: bnpparibasRed });
-    page.drawRectangle({ x: stampCx, y: stampCy - 10, width: tw, height: 6, color: bnpparibasRed });
-    page.drawText("BNP PARIBAS", { x: stampCx - 12, y: stampCy + 14, size: 8, font: helvBold, color: bnpparibasRed });
-    page.drawText("BANK", { x: stampCx - 11, y: stampCy - 22, size: 7, font: helvBold, color: bnpparibasRed });
-    page.drawText("PARIS", { x: stampCx - 11, y: stampCy - 30, size: 6, font: helv, color: bnpparibasRed });
+    page.drawRectangle({ x: stampCx - tw, y: stampCy + 4, width: tw, height: 6, color: moonypRed });
+    page.drawRectangle({ x: stampCx, y: stampCy - 10, width: tw, height: 6, color: moonypRed });
+    page.drawText("MOONYP", { x: stampCx - 12, y: stampCy + 14, size: 8, font: helvBold, color: moonypRed });
+    page.drawText("BANK", { x: stampCx - 11, y: stampCy - 22, size: 7, font: helvBold, color: moonypRed });
+    page.drawText("PARIS", { x: stampCx - 11, y: stampCy - 30, size: 6, font: helv, color: moonypRed });
 
     page.drawText(T.lenderName, { x: margin + 14, y: y - sigH + 38, size: 14, font: helvBold, color: rgb(0.05, 0.18, 0.45) });
     page.drawLine({ start: { x: margin + 14, y: y - sigH + 34 }, end: { x: margin + 130, y: y - sigH + 34 }, thickness: 1, color: rgb(0.05, 0.18, 0.45) });
@@ -532,7 +531,7 @@ export const generateContractPdf = createServerFn({ method: "POST" })
     page.drawRectangle({ x: margin + sigW + 24, y: y - sigH, width: sigW, height: sigH, borderColor: line, borderWidth: 1, color: rgb(1, 1, 1) });
     page.drawText(T.borrowerSig, { x: margin + sigW + 34, y: y - 16, size: 9, font: helvBold, color: muted });
     page.drawText(T.signMention, { x: margin + sigW + 34, y: y - 30, size: 8, font: helv, color: muted });
-    page.drawText(loan.full_name, { x: margin + sigW + 34, y: y - sigH + 12, size: 9, font: helv, color: muted });
+    page.drawText([loan.first_name, loan.last_name].filter(Boolean).join(" "), { x: margin + sigW + 34, y: y - sigH + 12, size: 9, font: helv, color: muted });
 
     page.drawLine({ start: { x: margin, y: 60 }, end: { x: width - margin, y: 60 }, thickness: 0.5, color: line });
     page.drawText(T.footer, { x: margin, y: 46, size: 8, font: helv, color: muted });

@@ -87,7 +87,7 @@ export function LiveChat() {
       {open && (
         <div
           role="dialog"
-          aria-label="Live chat BNP PARIBAS"
+          aria-label="Live chat MOONYP"
           className="fixed z-40 inset-x-2 bottom-2 top-2 sm:inset-auto sm:top-auto sm:bottom-24 sm:right-6 sm:w-[min(400px,calc(100vw-3rem))] sm:h-[620px] sm:max-h-[85vh]"
         >
 
@@ -169,7 +169,7 @@ function GuestForm({
     >
       <header className="bg-[#00915A] text-white px-4 py-3 flex items-center justify-between">
         <div>
-          <p className="font-bold tracking-wide">BNP PARIBAS</p>
+          <p className="font-bold tracking-wide">MOONYP</p>
           <p className="text-[11px] opacity-90">{t("chat.guest.subtitle")}</p>
         </div>
         <button type="button" onClick={onCancel} aria-label="Fermer">

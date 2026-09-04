@@ -4,5 +4,5 @@ import i18n from "@/i18n";
 
 export const Route = createFileRoute("/legal/aml-kyc")({
   component: () => <LegalPage i18nKey="legal.amlKyc" updated="2026-06-22" />,
-  head: () => ({ meta: [{ title: `${i18n.t("legal.amlKyc.title")} — BNP PARIBAS` }] }),
+  head: () => ({ meta: [{ title: `${i18n.t("legal.amlKyc.title")} — MOONYP` }] }),
 });

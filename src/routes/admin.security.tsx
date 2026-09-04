@@ -15,7 +15,7 @@ import i18n from "@/i18n";
 
 export const Route = createFileRoute("/admin/security")({
   component: AdminSecurity,
-  head: () => ({ meta: [{ title: `${i18n.t("adminSec.metaTitle")} — BNP PARIBAS` }] }),
+  head: () => ({ meta: [{ title: `${i18n.t("adminSec.metaTitle")} — MOONYP` }] }),
 });
 
 interface SecurityLog {

@@ -14,7 +14,7 @@ const supabase: any = _sb;
 
 export const Route = createFileRoute("/admin/roles")({
   component: AdminRoles,
-  head: () => ({ meta: [{ title: "Matrice des permissions — Administration BNP PARIBAS" }] }),
+  head: () => ({ meta: [{ title: "Matrice des permissions — Administration MOONYP" }] }),
 });
 
 type Matrix = Record<StaffRole, Set<string>>;

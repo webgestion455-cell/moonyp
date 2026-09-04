@@ -1815,6 +1815,71 @@
         "dateRequired": "Bitte wählen Sie ein Zahlungsdatum.",
         "generic": "Aktion nicht möglich."
       }
+    },
+    "payment": {
+      "metaTitle": "Sichere Zahlung — MOONYP",
+      "metaDesc": "Begleichen Sie die Gebühren Ihres Moonyp-Finanzierungsantrags sicher.",
+      "title": "Sichere Zahlung",
+      "subtitle": "Vorgang",
+      "back": "Zurück zum Vorgang",
+      "due": "Fälliger Betrag",
+      "noDue": "Derzeit ist kein Betrag fällig.",
+      "methods": "Zahlungsmethoden",
+      "noMethods": "Derzeit ist keine Zahlungsmethode verfügbar.",
+      "notConfigured": "Dieser Anbieter ist nicht konfiguriert.",
+      "pay": "Bezahlen",
+      "redirecting": "Weiterleitung zum Anbieter…",
+      "created": "Zahlung erfasst",
+      "createdHint": "Ihre Zahlung wird nach tatsächlichem Geldeingang bestätigt.",
+      "instructions": "Zahlungsanweisungen",
+      "reference": "Referenz",
+      "copyReference": "Referenz kopieren",
+      "copied": "Kopiert",
+      "holder": "Kontoinhaber",
+      "bank": "Bank",
+      "address": "Adresse",
+      "network": "Netzwerk",
+      "history": "Zahlungsverlauf",
+      "noPaymentYet": "Keine Zahlung erfasst.",
+      "notice": "Geben Sie bei der Überweisung unbedingt die Referenz an, sonst kann die Zahlung nicht zugeordnet werden.",
+      "error": "Die Zahlung konnte nicht gestartet werden.",
+      "purpose": {
+        "guarantee_fee": "Garantiegebühr",
+        "insurance_fee": "Versicherungsgebühr",
+        "application_fee": "Bearbeitungsgebühr",
+        "installment": "Kreditrate",
+        "other": "Sonstiges"
+      },
+      "feeStatus": {
+        "pending": "Ausstehend",
+        "paid": "Bezahlt",
+        "not_required": "Nicht erforderlich",
+        "late": "Überfällig",
+        "cancelled": "Storniert"
+      },
+      "kind": {
+        "bank_transfer": "Banküberweisung",
+        "card": "Karte",
+        "qr": "QR-Code",
+        "crypto": "Krypto",
+        "other": "Sonstiges"
+      },
+      "status": {
+        "pending": "Ausstehend",
+        "processing": "In Bearbeitung",
+        "received": "Erhalten",
+        "failed": "Fehlgeschlagen",
+        "cancelled": "Storniert"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "Anstehend",
+        "paid": "Bezahlt",
+        "partially_paid": "Teilweise bezahlt",
+        "late": "Überfällig",
+        "cancelled": "Storniert"
+      }
     }
   },
   "products": {

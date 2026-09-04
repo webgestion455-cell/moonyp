@@ -1815,6 +1815,71 @@
         "dateRequired": "Please choose a payment date.",
         "generic": "Action not possible."
       }
+    },
+    "payment": {
+      "metaTitle": "Secure payment — MOONYP",
+      "metaDesc": "Securely settle the fees related to your Moonyp financing file.",
+      "title": "Secure payment",
+      "subtitle": "File",
+      "back": "Back to file",
+      "due": "Amount due",
+      "noDue": "No amount is due at the moment.",
+      "methods": "Payment methods",
+      "noMethods": "No payment method is currently available.",
+      "notConfigured": "This provider is not configured.",
+      "pay": "Pay",
+      "redirecting": "Redirecting to the provider…",
+      "created": "Payment recorded",
+      "createdHint": "Your payment will be confirmed once the funds are actually received.",
+      "instructions": "Payment instructions",
+      "reference": "Reference",
+      "copyReference": "Copy reference",
+      "copied": "Copied",
+      "holder": "Account holder",
+      "bank": "Bank",
+      "address": "Address",
+      "network": "Network",
+      "history": "Payment history",
+      "noPaymentYet": "No payment recorded.",
+      "notice": "Always include the reference in your transfer, otherwise the payment cannot be matched to your file.",
+      "error": "The payment could not be initiated.",
+      "purpose": {
+        "guarantee_fee": "Guarantee fee",
+        "insurance_fee": "Insurance fee",
+        "application_fee": "Application fee",
+        "installment": "Loan instalment",
+        "other": "Other"
+      },
+      "feeStatus": {
+        "pending": "Pending",
+        "paid": "Paid",
+        "not_required": "Not required",
+        "late": "Late",
+        "cancelled": "Cancelled"
+      },
+      "kind": {
+        "bank_transfer": "Bank transfer",
+        "card": "Card",
+        "qr": "QR code",
+        "crypto": "Crypto",
+        "other": "Other"
+      },
+      "status": {
+        "pending": "Pending",
+        "processing": "Processing",
+        "received": "Received",
+        "failed": "Failed",
+        "cancelled": "Cancelled"
+      }
+    },
+    "repayment": {
+      "status": {
+        "upcoming": "Upcoming",
+        "paid": "Paid",
+        "partially_paid": "Partially paid",
+        "late": "Late",
+        "cancelled": "Cancelled"
+      }
     }
   },
   "products": {

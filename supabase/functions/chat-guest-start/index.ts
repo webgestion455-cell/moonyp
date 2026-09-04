@@ -1,6 +1,6 @@
 /// <reference lib="deno.ns" />
 // -------------------------------------------------------------------------
-// BNP PARIBAS — Chat GUEST : démarrer une conversation sans compte
+// MOONYP — Chat GUEST : démarrer une conversation sans compte
 // Body: { name, email, phone?, whatsapp?, country?, subject?, message }
 // Répond: { conversationId, ticketNumber, guestToken }
 // -------------------------------------------------------------------------
@@ -91,13 +91,13 @@ serve(async (req) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: "BNP PARIBAS <no-reply@zenvoriax.com>",
+            from: "MOONYP <no-reply@zenvoriax.com>",
             to: [ADMIN_EMAIL],
             subject: `🟢 Nouveau ticket #${conv.ticket_number} — ${name}`,
             html: `
 <div style="font-family:Arial,sans-serif;max-width:640px;margin:auto;background:#0a0a0a;color:#fff;padding:24px;border-radius:12px">
   <div style="text-align:center;margin-bottom:16px">
-    <div style="display:inline-block;background:#00915A;padding:8px 16px;border-radius:6px;font-weight:700;letter-spacing:1px">BNP PARIBAS</div>
+    <div style="display:inline-block;background:#00915A;padding:8px 16px;border-radius:6px;font-weight:700;letter-spacing:1px">MOONYP</div>
   </div>
   <h2 style="color:#fff">Nouveau ticket visiteur</h2>
   <p><strong>N° :</strong> #${conv.ticket_number}</p>
