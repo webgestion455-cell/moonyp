@@ -41,3 +41,9 @@ enabled = true
 verify_jwt = true
 import_map = "./functions/chat-transcribe/deno.json"
 entrypoint = "./functions/chat-transcribe/index.ts"
+
+[functions.process-transactional-emails]
+enabled = true
+verify_jwt = false
+import_map = "./functions/process-transactional-emails/deno.json"
+entrypoint = "./functions/process-transactional-emails/index.ts"
