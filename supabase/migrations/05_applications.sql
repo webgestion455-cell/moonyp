@@ -1,7 +1,9 @@
 -- =====================================================================
 -- MOONYP — 05. Dossiers de demande : référence CR-AAAA-NNNNNN,
---              documents KYC, historique, évènements, OTP,
---              jetons d'accès sécurisés (portail sans compte).
+--              documents KYC, contrôles KYC, demandes d'information,
+--              historique append-only, évènements, jetons d'accès, OTP.
+-- Dépend de : 01_core.sql (enums, fonctions), 02_rbac_staff.sql
+--             (has_permission), 04_catalog.sql (loan_products).
 -- =====================================================================
 
 CREATE SEQUENCE IF NOT EXISTS public.loan_application_ref_seq START 1;
@@ -49,11 +51,28 @@ CREATE TABLE IF NOT EXISTS public.loan_applications (
   bank_name          TEXT,
   bank_iban          TEXT,
   bank_bic           TEXT,
+  bank_country       TEXT,
 
   -- Consentements
   consent_terms      BOOLEAN NOT NULL DEFAULT false,
   consent_privacy    BOOLEAN NOT NULL DEFAULT false,
   consent_marketing  BOOLEAN NOT NULL DEFAULT false,
+
+  -- Tarification calculée côté serveur (source de vérité)
+  monthly_payment    NUMERIC(12,2),
+  insurance_monthly  NUMERIC(12,2),
+  total_interest     NUMERIC(14,2),
+  total_cost         NUMERIC(14,2),
+  apr                NUMERIC(6,3),
+  fees               NUMERIC(12,2),
+  first_instalment_on DATE,
+  dti_percent        NUMERIC(6,2),
+
+  -- Conformité / KYC
+  kyc_status         TEXT NOT NULL DEFAULT 'pending',   -- pending | verifying | passed | failed
+  kyc_completed_at   TIMESTAMPTZ,
+  compliance_flags   JSONB NOT NULL DEFAULT '[]'::jsonb,
+  review_required    BOOLEAN NOT NULL DEFAULT false,
 
   current_step       INTEGER NOT NULL DEFAULT 1,
   admin_notes        TEXT,
@@ -68,8 +87,11 @@ CREATE TABLE IF NOT EXISTS public.loan_applications (
 CREATE INDEX IF NOT EXISTS idx_applications_status ON public.loan_applications(status);
 CREATE INDEX IF NOT EXISTS idx_applications_created ON public.loan_applications(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_applications_email ON public.loan_applications(lower(email));
+CREATE INDEX IF NOT EXISTS idx_applications_country ON public.loan_applications(country);
+CREATE INDEX IF NOT EXISTS idx_applications_product ON public.loan_applications(product_id);
 
--- Création et lecture publiques passent par des server functions (service_role).
+-- Création publique et lecture demandeur passent par des server functions
+-- (service_role) : aucun accès anon direct.
 GRANT SELECT, UPDATE ON public.loan_applications TO authenticated;
 GRANT ALL ON public.loan_applications TO service_role;
 ALTER TABLE public.loan_applications ENABLE ROW LEVEL SECURITY;
@@ -100,6 +122,7 @@ BEGIN
   RETURN NEW;
 END;
 $$;
+REVOKE EXECUTE ON FUNCTION public.set_application_reference() FROM PUBLIC;
 
 DROP TRIGGER IF EXISTS trg_application_reference ON public.loan_applications;
 CREATE TRIGGER trg_application_reference
@@ -107,7 +130,7 @@ CREATE TRIGGER trg_application_reference
   FOR EACH ROW EXECUTE FUNCTION public.set_application_reference();
 
 -- ---------------------------------------------------------------------
--- Historique de statut
+-- Historique de statut (append-only)
 -- ---------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.application_status_history (
   id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -117,6 +140,7 @@ CREATE TABLE IF NOT EXISTS public.application_status_history (
   changed_by      UUID REFERENCES auth.users(id) ON DELETE SET NULL,
   actor           TEXT NOT NULL DEFAULT 'system',  -- applicant | staff | system
   note            TEXT,
+  reason          TEXT,
   created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS idx_app_status_history_app ON public.application_status_history(application_id, created_at DESC);
@@ -129,10 +153,10 @@ DROP POLICY IF EXISTS "app_status_history_read_staff" ON public.application_stat
 CREATE POLICY "app_status_history_read_staff" ON public.application_status_history
   FOR SELECT TO authenticated USING (public.has_permission(auth.uid(), 'applications.view'));
 
--- Ordre du workflow : permet de purger l'historique en cas de régression
--- (un retour en arrière ne doit jamais "faire avancer" la chronologie).
+-- Ordre du workflow : un retour en arrière ne doit jamais laisser
+-- l'historique "en avance" sur l'état réel du dossier.
 CREATE OR REPLACE FUNCTION public.application_status_order(_s public.application_status)
-RETURNS INTEGER LANGUAGE sql IMMUTABLE AS $$
+RETURNS INTEGER LANGUAGE sql IMMUTABLE SET search_path = public AS $$
   SELECT CASE _s
     WHEN 'draft'                  THEN 0
     WHEN 'received'               THEN 1
@@ -145,16 +169,22 @@ RETURNS INTEGER LANGUAGE sql IMMUTABLE AS $$
     WHEN 'contract_sent'          THEN 6
     WHEN 'signature_pending'      THEN 7
     WHEN 'contract_signed'        THEN 8
-    WHEN 'disbursement_preparing' THEN 9
-    WHEN 'disbursed'              THEN 10
-    WHEN 'repaying'               THEN 11
-    WHEN 'late'                   THEN 11
-    WHEN 'repaid'                 THEN 12
+    WHEN 'guarantee_sent'         THEN 9
+    WHEN 'guarantee_signed'       THEN 10
+    WHEN 'insurance_pending'      THEN 11
+    WHEN 'insurance_validated'    THEN 12
+    WHEN 'disbursement_preparing' THEN 13
+    WHEN 'disbursed'              THEN 14
+    WHEN 'repaying'               THEN 15
+    WHEN 'late'                   THEN 15
+    WHEN 'repaid'                 THEN 16
     WHEN 'rejected'               THEN 99
     WHEN 'cancelled'              THEN 99
     ELSE 0
   END;
 $$;
+REVOKE EXECUTE ON FUNCTION public.application_status_order(public.application_status) FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION public.application_status_order(public.application_status) TO authenticated, service_role;
 
 CREATE OR REPLACE FUNCTION public.log_application_status()
 RETURNS TRIGGER LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$
@@ -174,7 +204,7 @@ BEGIN
     old_ord := public.application_status_order(OLD.status);
 
     IF new_ord < old_ord THEN
-      -- Régression : on supprime les évènements postérieurs au nouvel état.
+      -- Régression : on retire les évènements postérieurs au nouvel état.
       DELETE FROM public.application_status_history
        WHERE application_id = NEW.id
          AND public.application_status_order(new_status) > new_ord;
@@ -187,6 +217,7 @@ BEGIN
   RETURN NEW;
 END;
 $$;
+REVOKE EXECUTE ON FUNCTION public.log_application_status() FROM PUBLIC;
 
 DROP TRIGGER IF EXISTS trg_application_status_history_ins ON public.loan_applications;
 CREATE TRIGGER trg_application_status_history_ins
@@ -198,8 +229,27 @@ CREATE TRIGGER trg_application_status_history_upd
   AFTER UPDATE ON public.loan_applications
   FOR EACH ROW EXECUTE FUNCTION public.log_application_status();
 
+-- Immuabilité : le trigger de workflow (SECURITY DEFINER, propriétaire de la
+-- table) reste autorisé à purger une régression ; toute autre modification
+-- ou suppression est refusée.
+CREATE OR REPLACE FUNCTION public.prevent_history_mutation()
+RETURNS TRIGGER LANGUAGE plpgsql SET search_path = public AS $$
+BEGIN
+  IF pg_trigger_depth() > 1 THEN
+    RETURN COALESCE(NEW, OLD);
+  END IF;
+  RAISE EXCEPTION 'application_status_history is append-only';
+END;
+$$;
+REVOKE EXECUTE ON FUNCTION public.prevent_history_mutation() FROM PUBLIC;
+
+DROP TRIGGER IF EXISTS trg_app_history_immutable ON public.application_status_history;
+CREATE TRIGGER trg_app_history_immutable
+  BEFORE UPDATE OR DELETE ON public.application_status_history
+  FOR EACH ROW EXECUTE FUNCTION public.prevent_history_mutation();
+
 -- ---------------------------------------------------------------------
--- Documents KYC
+-- Documents KYC transmis
 -- ---------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.application_documents (
   id                  UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -235,6 +285,84 @@ CREATE POLICY "app_documents_review_staff" ON public.application_documents
 DROP TRIGGER IF EXISTS trg_app_documents_updated ON public.application_documents;
 CREATE TRIGGER trg_app_documents_updated
   BEFORE UPDATE ON public.application_documents
+  FOR EACH ROW EXECUTE FUNCTION public.update_updated_at_column();
+
+-- ---------------------------------------------------------------------
+-- Contrôles KYC séquentiels
+-- ---------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.application_kyc_checks (
+  id                  UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  application_id      UUID NOT NULL REFERENCES public.loan_applications(id) ON DELETE CASCADE,
+  step_key            TEXT NOT NULL,
+  category            TEXT NOT NULL DEFAULT 'identity',
+  document_type_slug  TEXT,
+  document_id         UUID REFERENCES public.application_documents(id) ON DELETE SET NULL,
+  status              TEXT NOT NULL DEFAULT 'pending',  -- pending | verifying | passed | failed
+  attempts            INTEGER NOT NULL DEFAULT 0,
+  provider            TEXT,
+  provider_reference  TEXT,
+  score               NUMERIC(6,2),
+  review_note         TEXT,
+  reviewed_by         UUID REFERENCES auth.users(id) ON DELETE SET NULL,
+  reviewed_at         TIMESTAMPTZ,
+  created_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE (application_id, step_key)
+);
+CREATE INDEX IF NOT EXISTS idx_kyc_checks_app ON public.application_kyc_checks(application_id);
+
+GRANT SELECT, UPDATE ON public.application_kyc_checks TO authenticated;
+GRANT ALL ON public.application_kyc_checks TO service_role;
+ALTER TABLE public.application_kyc_checks ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "kyc_checks_read_staff" ON public.application_kyc_checks;
+CREATE POLICY "kyc_checks_read_staff" ON public.application_kyc_checks
+  FOR SELECT TO authenticated USING (public.has_permission(auth.uid(), 'applications.view'));
+
+DROP POLICY IF EXISTS "kyc_checks_review_staff" ON public.application_kyc_checks;
+CREATE POLICY "kyc_checks_review_staff" ON public.application_kyc_checks
+  FOR UPDATE TO authenticated
+  USING (public.has_permission(auth.uid(), 'kyc.review'))
+  WITH CHECK (public.has_permission(auth.uid(), 'kyc.review'));
+
+DROP TRIGGER IF EXISTS trg_kyc_checks_updated ON public.application_kyc_checks;
+CREATE TRIGGER trg_kyc_checks_updated
+  BEFORE UPDATE ON public.application_kyc_checks
+  FOR EACH ROW EXECUTE FUNCTION public.update_updated_at_column();
+
+-- ---------------------------------------------------------------------
+-- Demandes d'informations complémentaires
+-- ---------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.application_info_requests (
+  id                  UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  application_id      UUID NOT NULL REFERENCES public.loan_applications(id) ON DELETE CASCADE,
+  kind                TEXT NOT NULL DEFAULT 'information',
+  document_type_slug  TEXT,
+  document_id         UUID REFERENCES public.application_documents(id) ON DELETE SET NULL,
+  message             TEXT NOT NULL,
+  status              TEXT NOT NULL DEFAULT 'open',   -- open | answered | closed
+  response_text       TEXT,
+  responded_at        TIMESTAMPTZ,
+  requested_by        UUID REFERENCES auth.users(id) ON DELETE SET NULL,
+  due_at              TIMESTAMPTZ,
+  created_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at          TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_info_requests_application ON public.application_info_requests(application_id, status);
+
+GRANT SELECT, INSERT, UPDATE ON public.application_info_requests TO authenticated;
+GRANT ALL ON public.application_info_requests TO service_role;
+ALTER TABLE public.application_info_requests ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "info_requests_staff" ON public.application_info_requests;
+CREATE POLICY "info_requests_staff" ON public.application_info_requests
+  FOR ALL TO authenticated
+  USING (public.has_permission(auth.uid(), 'applications.review'))
+  WITH CHECK (public.has_permission(auth.uid(), 'applications.review'));
+
+DROP TRIGGER IF EXISTS trg_info_requests_updated ON public.application_info_requests;
+CREATE TRIGGER trg_info_requests_updated
+  BEFORE UPDATE ON public.application_info_requests
   FOR EACH ROW EXECUTE FUNCTION public.update_updated_at_column();
 
 -- ---------------------------------------------------------------------
@@ -277,7 +405,6 @@ CREATE TABLE IF NOT EXISTS public.application_access_tokens (
 );
 CREATE INDEX IF NOT EXISTS idx_app_tokens_app ON public.application_access_tokens(application_id);
 
--- Jamais exposé au client : uniquement service_role.
 GRANT SELECT ON public.application_access_tokens TO authenticated;
 GRANT ALL ON public.application_access_tokens TO service_role;
 ALTER TABLE public.application_access_tokens ENABLE ROW LEVEL SECURITY;
@@ -301,6 +428,10 @@ CREATE TABLE IF NOT EXISTS public.application_otp_codes (
 );
 CREATE INDEX IF NOT EXISTS idx_app_otp_app ON public.application_otp_codes(application_id);
 
--- Aucun accès client : service_role seulement.
+REVOKE ALL ON public.application_otp_codes FROM anon, authenticated;
 GRANT ALL ON public.application_otp_codes TO service_role;
 ALTER TABLE public.application_otp_codes ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "otp_codes_no_client_access" ON public.application_otp_codes;
+CREATE POLICY "otp_codes_no_client_access" ON public.application_otp_codes
+  FOR ALL TO anon, authenticated USING (false) WITH CHECK (false);

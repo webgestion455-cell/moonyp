@@ -1,6 +1,8 @@
 -- =====================================================================
--- MOONYP — 02. RBAC granulaire, équipe interne, invitations, audit,
---              2FA administrateur.
+-- MOONYP — 02. RBAC granulaire, équipe interne, invitations, journal
+--              d'audit, codes 2FA administrateur.
+-- Dépend de : 01_core.sql (app_role, is_staff, is_super_admin,
+--                          update_updated_at_column).
 -- =====================================================================
 
 -- ---------------------------------------------------------------------
@@ -70,11 +72,10 @@ LANGUAGE sql STABLE SECURITY DEFINER SET search_path = public AS $$
   WHERE ur.user_id = auth.uid();
 $$;
 
-GRANT EXECUTE ON FUNCTION public.my_permissions() TO authenticated;
+REVOKE EXECUTE ON FUNCTION public.has_permission(UUID, TEXT) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.my_permissions() FROM PUBLIC;
 GRANT EXECUTE ON FUNCTION public.has_permission(UUID, TEXT) TO authenticated;
-GRANT EXECUTE ON FUNCTION public.has_role(UUID, public.app_role) TO authenticated;
-GRANT EXECUTE ON FUNCTION public.is_staff(UUID) TO authenticated;
-GRANT EXECUTE ON FUNCTION public.is_super_admin(UUID) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.my_permissions() TO authenticated;
 
 -- ---------------------------------------------------------------------
 -- Fiches équipe
@@ -121,12 +122,13 @@ CREATE TABLE IF NOT EXISTS public.staff_invitations (
   invited_by   UUID REFERENCES auth.users(id) ON DELETE SET NULL,
   expires_at   TIMESTAMPTZ NOT NULL,
   accepted_at  TIMESTAMPTZ,
+  declined_at  TIMESTAMPTZ,
   revoked_at   TIMESTAMPTZ,
   created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS idx_staff_invitations_email ON public.staff_invitations(email);
 
--- Écriture/lecture uniquement via server functions (service_role).
+-- Écriture uniquement via server functions (service_role).
 GRANT SELECT ON public.staff_invitations TO authenticated;
 GRANT ALL ON public.staff_invitations TO service_role;
 ALTER TABLE public.staff_invitations ENABLE ROW LEVEL SECURITY;
@@ -136,7 +138,7 @@ CREATE POLICY "staff_invitations_read_manage" ON public.staff_invitations
   FOR SELECT TO authenticated USING (public.has_permission(auth.uid(), 'staff.view'));
 
 -- ---------------------------------------------------------------------
--- Journal d'activité (audit métier)
+-- Journal d'activité (audit des actions staff)
 -- ---------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.activity_logs (
   id           UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -177,6 +179,13 @@ CREATE TABLE IF NOT EXISTS public.admin_verification_codes (
 );
 CREATE INDEX IF NOT EXISTS idx_admin_codes_user ON public.admin_verification_codes(user_id);
 
--- Aucune permission client : seul le service_role (server functions) y accède.
+-- Aucun accès client : seul le service_role (server functions) y accède.
+REVOKE ALL ON public.admin_verification_codes FROM anon, authenticated;
 GRANT ALL ON public.admin_verification_codes TO service_role;
 ALTER TABLE public.admin_verification_codes ENABLE ROW LEVEL SECURITY;
+
+-- Policy explicite de refus : RLS activée sans policy = table opaque,
+-- on rend l'intention lisible pour l'audit de sécurité.
+DROP POLICY IF EXISTS "admin_codes_no_client_access" ON public.admin_verification_codes;
+CREATE POLICY "admin_codes_no_client_access" ON public.admin_verification_codes
+  FOR ALL TO anon, authenticated USING (false) WITH CHECK (false);

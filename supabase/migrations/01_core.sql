@@ -1,18 +1,21 @@
 -- =====================================================================
 -- MOONYP — 01. Noyau : extensions, types, fonctions utilitaires,
---                      profils, rôles et RBAC de base.
--- Exécuter les fichiers de ce dossier DANS L'ORDRE (01 → 10).
+--                      profils, rôles et fonctions de sécurité de base.
+--
+-- ORDRE D'EXÉCUTION : 01 → 10 (voir supabase/sql/README.md).
+-- Ce fichier ne dépend d'aucun autre.
 -- =====================================================================
 
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 -- ---------------------------------------------------------------------
--- Types
+-- Types applicatifs (créés AVANT toute table qui les utilise)
 -- ---------------------------------------------------------------------
 DO $$ BEGIN
   CREATE TYPE public.app_role AS ENUM ('super_admin', 'admin', 'agent', 'user');
 EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 
+-- Cycle de vie complet d'un dossier de financement (phases 3 → 7).
 DO $$ BEGIN
   CREATE TYPE public.application_status AS ENUM (
     'draft',
@@ -27,6 +30,10 @@ DO $$ BEGIN
     'contract_sent',
     'signature_pending',
     'contract_signed',
+    'guarantee_sent',
+    'guarantee_signed',
+    'insurance_pending',
+    'insurance_validated',
     'disbursement_preparing',
     'disbursed',
     'repaying',
@@ -54,8 +61,10 @@ BEGIN
 END;
 $$;
 
+REVOKE EXECUTE ON FUNCTION public.update_updated_at_column() FROM PUBLIC;
+
 -- ---------------------------------------------------------------------
--- profiles (données applicatives des comptes internes / staff)
+-- profiles — données applicatives des comptes internes
 -- ---------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.profiles (
   id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -115,6 +124,13 @@ RETURNS BOOLEAN LANGUAGE sql STABLE SECURITY DEFINER SET search_path = public AS
   SELECT EXISTS (SELECT 1 FROM public.user_roles WHERE user_id = _user_id AND role = 'super_admin');
 $$;
 
+REVOKE EXECUTE ON FUNCTION public.has_role(UUID, public.app_role) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.is_staff(UUID) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.is_super_admin(UUID) FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION public.has_role(UUID, public.app_role) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.is_staff(UUID) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.is_super_admin(UUID) TO authenticated;
+
 -- ---------------------------------------------------------------------
 -- Policies profiles / user_roles
 -- ---------------------------------------------------------------------
@@ -166,6 +182,8 @@ BEGIN
   RETURN NEW;
 END;
 $$;
+
+REVOKE EXECUTE ON FUNCTION public.handle_new_user() FROM PUBLIC;
 
 DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
 CREATE TRIGGER on_auth_user_created
