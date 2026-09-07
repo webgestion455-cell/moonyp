@@ -18,7 +18,7 @@ function requestIp(): string | null {
 }
 
 function siteUrl(): string {
-  return process.env["PUBLIC_SITE_URL"] ?? "https://moonyp.com";
+  return process.env["PUBLIC_SITE_URL"] ?? "https://moonyp.webgestion95.workers.dev";
 }
 
 async function assertStaff(
