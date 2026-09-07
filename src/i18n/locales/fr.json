@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Pièces manquantes — dossier {{reference}}",
-      "body": "Bonjour {{firstName}}, il manque des pièces à votre dossier {{reference}}. Merci de les déposer depuis votre espace sécurisé. {{reason}}"
+      "body": "Bonjour {{firstName}}, il manque des pièces à votre dossier {{reference}}. Merci de les déposer depuis votre espace sécurisé. {{reason}}",
+      "details": "Le dépôt se fait en quelques secondes, directement depuis votre téléphone ou votre ordinateur."
     },
     "infoRequested": {
       "subject": "Informations complémentaires — dossier {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Votre demande {{reference}} est approuvée",
-      "body": "Bonjour {{firstName}}, votre demande {{reference}} est approuvée. Votre offre sera disponible dans votre espace sécurisé."
+      "body": "Bonjour {{firstName}}, votre demande {{reference}} est approuvée. Votre offre sera disponible dans votre espace sécurisé.",
+      "details": "Votre offre personnalisée puis votre contrat vous seront proposés dans votre espace sécurisé."
     },
     "rejected": {
       "subject": "Décision concernant votre demande {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Votre offre {{reference}} est disponible",
-      "body": "Bonjour {{firstName}}, votre offre de financement {{reference}} est disponible dans votre espace sécurisé."
+      "body": "Bonjour {{firstName}}, votre offre de financement {{reference}} est disponible dans votre espace sécurisé.",
+      "details": "Votre offre détaille le montant, la durée, le taux annuel, la mensualité, le coût total et les frais. Elle reste valable jusqu'à la date indiquée dans votre espace sécurisé."
     },
     "contractSent": {
       "subject": "Votre contrat {{reference}} vous attend",
-      "body": "Bonjour {{firstName}}, votre contrat {{reference}} est prêt à être signé depuis votre espace sécurisé."
+      "body": "Bonjour {{firstName}}, votre contrat {{reference}} est prêt à être signé depuis votre espace sécurisé.",
+      "details": "Votre contrat de financement est disponible en ligne. Vous pouvez le lire intégralement, le télécharger au format PDF, puis le signer électroniquement avec un code à usage unique envoyé par email. La signature est horodatée et archivée."
     },
     "disbursed": {
       "subject": "Fonds débloqués — dossier {{reference}}",
-      "body": "Bonjour {{firstName}}, les fonds de votre dossier {{reference}} ont été versés sur votre compte."
+      "body": "Bonjour {{firstName}}, les fonds de votre dossier {{reference}} ont été versés sur votre compte.",
+      "details": "Le virement est en route vers le compte que vous avez indiqué. Votre échéancier est disponible en ligne."
     },
     "signatureCode": {
       "subject": "Votre code de signature {{reference}}",
-      "body": "Bonjour {{firstName}}, votre code de signature est {{code}}. Il expire dans 10 minutes."
+      "body": "Bonjour {{firstName}}, votre code de signature est {{code}}. Il expire dans 10 minutes.",
+      "details": "Saisissez ce code sur la page de signature de votre contrat pour finaliser votre engagement. Le code expire au bout de 10 minutes et ne peut être utilisé qu'une seule fois."
     },
     "contractSigned": {
       "subject": "Contrat {{reference}} signé",
-      "body": "Bonjour {{firstName}}, votre contrat {{reference}} a bien été signé. Vous pouvez le télécharger depuis votre espace sécurisé."
+      "body": "Bonjour {{firstName}}, votre contrat {{reference}} a bien été signé. Vous pouvez le télécharger depuis votre espace sécurisé.",
+      "details": "Votre contrat signé est archivé et téléchargeable à tout moment depuis votre espace sécurisé. Les prochaines étapes (couverture, assurance, décaissement) y sont également suivies en temps réel."
     },
     "guaranteeSent": {
       "subject": "Frais de couverture — dossier {{reference}}",
-      "body": "Bonjour {{firstName}}, les frais de couverture du risque de crédit s'élèvent à {{amount}}. Choisissez votre option depuis votre espace sécurisé."
+      "body": "Bonjour {{firstName}}, les frais de couverture du risque de crédit s'élèvent à {{amount}}. Choisissez votre option depuis votre espace sécurisé.",
+      "details": "La couverture du risque de crédit conditionne le déblocage des fonds. Depuis votre espace sécurisé, vous pouvez régler immédiatement, programmer le paiement à une date choisie, ou renoncer au financement."
     },
     "guaranteePayNow": {
       "subject": "Paiement des frais {{reference}}",
-      "body": "Bonjour {{firstName}}, nous avons enregistré votre choix de payer {{amount}}. Les instructions de paiement vous seront communiquées après vérification."
+      "body": "Bonjour {{firstName}}, nous avons enregistré votre choix de payer {{amount}}. Les instructions de paiement vous seront communiquées après vérification.",
+      "details": "Les instructions de paiement (bénéficiaire, IBAN, BIC et référence à rappeler) sont disponibles sur la page de paiement de votre espace sécurisé. Le justificatif peut y être déposé."
     },
     "guaranteeDeclined": {
       "subject": "Demande {{reference}} annulée",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Paiement programmé {{reference}}",
-      "body": "Bonjour {{firstName}}, votre paiement de {{amount}} est programmé pour le {{date}}. Votre demande reste en attente."
+      "body": "Bonjour {{firstName}}, votre paiement de {{amount}} est programmé pour le {{date}}. Votre demande reste en attente.",
+      "details": "Votre dossier reste réservé jusqu'à la date choisie. Vous pouvez avancer le paiement à tout moment depuis votre espace sécurisé."
     },
     "guaranteePaymentValidated": {
       "subject": "Frais validés {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Assurance {{reference}}",
-      "body": "Bonjour {{firstName}}, une assurance de {{amount}} par mois est requise pour votre dossier."
+      "body": "Bonjour {{firstName}}, une assurance de {{amount}} par mois est requise pour votre dossier.",
+      "details": "L'assurance emprunteur couvre le décès, l'invalidité et la perte d'emploi selon les conditions du contrat. Retrouvez la garantie, la prime mensuelle et les modalités de règlement dans votre espace sécurisé."
     },
     "insuranceValidated": {
       "subject": "Assurance validée {{reference}}",
-      "body": "Bonjour {{firstName}}, votre assurance a été validée."
+      "body": "Bonjour {{firstName}}, votre assurance a été validée.",
+      "details": "Votre assurance est validée et attachée à votre contrat. L'attestation est téléchargeable depuis votre espace sécurisé."
+    },
+    "common": {
+      "summary": "Récapitulatif du dossier",
+      "reference": "Référence",
+      "amount": "Montant financé",
+      "duration": "Durée",
+      "monthly": "Mensualité estimée",
+      "status": "Statut du dossier",
+      "months": "mois",
+      "feeAmount": "Montant concerné",
+      "scheduledDate": "Date prévue",
+      "codeTitle": "Votre code de signature à usage unique",
+      "reasonTitle": "Précisions de nos équipes",
+      "secureNotice": "Ce lien est personnel, chiffré et révocable. Ne le transmettez à personne.",
+      "needHelp": "Une question ? Notre service client vous répond depuis votre espace sécurisé.",
+      "footerLegal": "Moonyp — financement responsable. Email envoyé dans le cadre du suivi de votre dossier.",
+      "autoMessage": "Message automatique — merci de ne pas répondre directement à cet email.",
+      "tagline": "Votre financement, en toute transparence"
+    },
+    "cta": {
+      "portal": "Consulter mon dossier",
+      "contract": "Lire et signer mon contrat",
+      "guarantee": "Choisir mon option de couverture",
+      "insurance": "Gérer mon assurance",
+      "payment": "Effectuer mon paiement",
+      "documents": "Déposer mes documents"
+    },
+    "installmentReminder": {
+      "subject": "Échéance à venir — dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, votre prochaine échéance de {{amount}} est prévue le {{date}}.",
+      "details": "Vous pouvez consulter votre tableau d'amortissement et régler votre échéance depuis votre espace sécurisé."
     }
   },
   "workflow": {

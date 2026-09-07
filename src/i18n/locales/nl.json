@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Ontbrekende documenten — dossier {{reference}}",
-      "body": "Hallo {{firstName}}, er ontbreken documenten in dossier {{reference}}. Upload ze via uw beveiligde omgeving. {{reason}}"
+      "body": "Hallo {{firstName}}, er ontbreken documenten in dossier {{reference}}. Upload ze via uw beveiligde omgeving. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Aanvullende informatie — dossier {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Uw aanvraag {{reference}} is goedgekeurd",
-      "body": "Hallo {{firstName}}, uw aanvraag {{reference}} is goedgekeurd. Uw aanbod verschijnt in uw beveiligde omgeving."
+      "body": "Hallo {{firstName}}, uw aanvraag {{reference}} is goedgekeurd. Uw aanbod verschijnt in uw beveiligde omgeving.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Beslissing over uw aanvraag {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Uw aanbod {{reference}} staat klaar",
-      "body": "Hallo {{firstName}}, uw financieringsaanbod {{reference}} staat klaar in uw beveiligde omgeving."
+      "body": "Hallo {{firstName}}, uw financieringsaanbod {{reference}} staat klaar in uw beveiligde omgeving.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Uw contract {{reference}} is klaar",
-      "body": "Hallo {{firstName}}, uw contract {{reference}} kan worden ondertekend in uw beveiligde omgeving."
+      "body": "Hallo {{firstName}}, uw contract {{reference}} kan worden ondertekend in uw beveiligde omgeving.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Bedrag uitbetaald — dossier {{reference}}",
-      "body": "Hallo {{firstName}}, het bedrag van dossier {{reference}} is naar uw rekening overgemaakt."
+      "body": "Hallo {{firstName}}, het bedrag van dossier {{reference}} is naar uw rekening overgemaakt.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Uw ondertekeningscode {{reference}}",
-      "body": "Hallo {{firstName}}, uw ondertekeningscode is {{code}}. Deze verloopt over 10 minuten."
+      "body": "Hallo {{firstName}}, uw ondertekeningscode is {{code}}. Deze verloopt over 10 minuten.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Contract {{reference}} ondertekend",
-      "body": "Hallo {{firstName}}, uw contract {{reference}} is ondertekend. U kunt het downloaden in uw beveiligde omgeving."
+      "body": "Hallo {{firstName}}, uw contract {{reference}} is ondertekend. U kunt het downloaden in uw beveiligde omgeving.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Dekkingskosten — dossier {{reference}}",
-      "body": "Hallo {{firstName}}, de kosten voor dekking van het kredietrisico bedragen {{amount}}. Kies uw optie in uw beveiligde omgeving."
+      "body": "Hallo {{firstName}}, de kosten voor dekking van het kredietrisico bedragen {{amount}}. Kies uw optie in uw beveiligde omgeving.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Betaling kosten {{reference}}",
-      "body": "Hallo {{firstName}}, we hebben uw keuze om {{amount}} te betalen geregistreerd. Instructies volgen na verificatie."
+      "body": "Hallo {{firstName}}, we hebben uw keuze om {{amount}} te betalen geregistreerd. Instructies volgen na verificatie.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Aanvraag {{reference}} geannuleerd",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Betaling gepland {{reference}}",
-      "body": "Hallo {{firstName}}, uw betaling van {{amount}} staat gepland op {{date}}. Uw aanvraag blijft in afwachting."
+      "body": "Hallo {{firstName}}, uw betaling van {{amount}} staat gepland op {{date}}. Uw aanvraag blijft in afwachting.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Kosten gevalideerd {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Verzekering {{reference}}",
-      "body": "Hallo {{firstName}}, een verzekering van {{amount}} per maand is vereist voor uw dossier."
+      "body": "Hallo {{firstName}}, een verzekering van {{amount}} per maand is vereist voor uw dossier.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Verzekering gevalideerd {{reference}}",
-      "body": "Hallo {{firstName}}, uw verzekering is gevalideerd."
+      "body": "Hallo {{firstName}}, uw verzekering is gevalideerd.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Samenvatting dossier",
+      "reference": "Referentie",
+      "amount": "Gefinancierd bedrag",
+      "duration": "Looptijd",
+      "monthly": "Geschatte termijn",
+      "status": "Status dossier",
+      "months": "maanden",
+      "feeAmount": "Betrokken bedrag",
+      "scheduledDate": "Geplande datum",
+      "codeTitle": "Uw eenmalige ondertekeningscode",
+      "reasonTitle": "Toelichting van ons team",
+      "secureNotice": "Deze link is persoonlijk, versleuteld en intrekbaar. Deel hem niet.",
+      "needHelp": "Vragen? Onze klantenservice antwoordt in uw beveiligde omgeving.",
+      "footerLegal": "Moonyp — verantwoord financieren. Deze e-mail betreft uw dossier.",
+      "autoMessage": "Automatisch bericht — antwoord hier niet rechtstreeks op.",
+      "tagline": "Uw financiering, volledig transparant"
+    },
+    "cta": {
+      "portal": "Mijn dossier bekijken",
+      "contract": "Contract lezen en ondertekenen",
+      "guarantee": "Dekkingsoptie kiezen",
+      "insurance": "Verzekering beheren",
+      "payment": "Betaling uitvoeren",
+      "documents": "Documenten uploaden"
+    },
+    "installmentReminder": {
+      "subject": "Komende termijn — dossier {{reference}}",
+      "body": "Hallo {{firstName}}, uw volgende termijn van {{amount}} vervalt op {{date}}.",
+      "details": "Aflossingsschema en betaling in uw beveiligde omgeving."
     }
   },
   "workflow": {

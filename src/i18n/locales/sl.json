@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Manjkajoči dokumenti — zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, v zadevi {{reference}} manjkajo dokumenti. Naložite jih v varnem območju. {{reason}}"
+      "body": "Pozdravljeni {{firstName}}, v zadevi {{reference}} manjkajo dokumenti. Naložite jih v varnem območju. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Dodatne informacije — zadeva {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Vloga {{reference}} je odobrena",
-      "body": "Pozdravljeni {{firstName}}, vloga {{reference}} je odobrena. Ponudba bo na voljo v varnem območju."
+      "body": "Pozdravljeni {{firstName}}, vloga {{reference}} je odobrena. Ponudba bo na voljo v varnem območju.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Odločitev o vlogi {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Vaša ponudba {{reference}} je na voljo",
-      "body": "Pozdravljeni {{firstName}}, ponudba financiranja {{reference}} je na voljo v varnem območju."
+      "body": "Pozdravljeni {{firstName}}, ponudba financiranja {{reference}} je na voljo v varnem območju.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Vaša pogodba {{reference}} je pripravljena",
-      "body": "Pozdravljeni {{firstName}}, pogodba {{reference}} je pripravljena za podpis v varnem območju."
+      "body": "Pozdravljeni {{firstName}}, pogodba {{reference}} je pripravljena za podpis v varnem območju.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Sredstva izplačana — zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, sredstva zadeve {{reference}} so nakazana na vaš račun."
+      "body": "Pozdravljeni {{firstName}}, sredstva zadeve {{reference}} so nakazana na vaš račun.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Vaša koda za podpis {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, vaša koda za podpis je {{code}}. Poteče čez 10 minut."
+      "body": "Pozdravljeni {{firstName}}, vaša koda za podpis je {{code}}. Poteče čez 10 minut.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Pogodba {{reference}} podpisana",
-      "body": "Pozdravljeni {{firstName}}, pogodba {{reference}} je podpisana. Prenesete jo lahko v varnem območju."
+      "body": "Pozdravljeni {{firstName}}, pogodba {{reference}} je podpisana. Prenesete jo lahko v varnem območju.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Nadomestilo za kritje — vloga {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, nadomestilo za kritje kreditnega tveganja znaša {{amount}}. Izberite možnost v varnem območju."
+      "body": "Pozdravljeni {{firstName}}, nadomestilo za kritje kreditnega tveganja znaša {{amount}}. Izberite možnost v varnem območju.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Plačilo nadomestila {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, zabeležili smo izbiro plačila {{amount}}. Navodila sledijo po preverjanju."
+      "body": "Pozdravljeni {{firstName}}, zabeležili smo izbiro plačila {{amount}}. Navodila sledijo po preverjanju.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Vloga {{reference}} preklicana",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Plačilo načrtovano {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} je načrtovano za {{date}}. Vloga ostaja v čakanju."
+      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} je načrtovano za {{date}}. Vloga ostaja v čakanju.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Nadomestilo potrjeno {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Zavarovanje {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, potrebno je zavarovanje {{amount}} na mesec."
+      "body": "Pozdravljeni {{firstName}}, potrebno je zavarovanje {{amount}} na mesec.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Zavarovanje potrjeno {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, vaše zavarovanje je potrjeno."
+      "body": "Pozdravljeni {{firstName}}, vaše zavarovanje je potrjeno.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Povzetek vloge",
+      "reference": "Sklic",
+      "amount": "Financirani znesek",
+      "duration": "Trajanje",
+      "monthly": "Ocenjeni obrok",
+      "status": "Status vloge",
+      "months": "mesecev",
+      "feeAmount": "Zadevni znesek",
+      "scheduledDate": "Načrtovani datum",
+      "codeTitle": "Vaša enkratna koda za podpis",
+      "reasonTitle": "Pojasnila naše ekipe",
+      "secureNotice": "Povezava je osebna, šifrirana in preklicljiva. Ne delite je.",
+      "needHelp": "Vprašanja? Podpora odgovarja v vašem varnem prostoru.",
+      "footerLegal": "Moonyp — odgovorno financiranje. E-pošta se nanaša na vašo vlogo.",
+      "autoMessage": "Samodejno sporočilo — nanj ne odgovarjajte.",
+      "tagline": "Vaše financiranje, popolnoma pregledno"
+    },
+    "cta": {
+      "portal": "Ogled moje vloge",
+      "contract": "Preberi in podpiši pogodbo",
+      "guarantee": "Izberi možnost kritja",
+      "insurance": "Upravljaj zavarovanje",
+      "payment": "Izvedi plačilo",
+      "documents": "Naloži dokumente"
+    },
+    "installmentReminder": {
+      "subject": "Prihajajoči obrok — vloga {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, naslednji obrok {{amount}} zapade {{date}}.",
+      "details": "Amortizacijski načrt in plačilo v vašem varnem prostoru."
     }
   },
   "workflow": {

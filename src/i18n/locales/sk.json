@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Chýbajúce dokumenty — spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, v spise {{reference}} chýbajú dokumenty. Nahrajte ich v zabezpečenej zóne. {{reason}}"
+      "body": "Dobrý deň {{firstName}}, v spise {{reference}} chýbajú dokumenty. Nahrajte ich v zabezpečenej zóne. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Doplňujúce informácie — spis {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Žiadosť {{reference}} bola schválená",
-      "body": "Dobrý deň {{firstName}}, žiadosť {{reference}} bola schválená. Ponuka bude dostupná v zabezpečenej zóne."
+      "body": "Dobrý deň {{firstName}}, žiadosť {{reference}} bola schválená. Ponuka bude dostupná v zabezpečenej zóne.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Rozhodnutie o žiadosti {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Vaša ponuka {{reference}} je dostupná",
-      "body": "Dobrý deň {{firstName}}, ponuka financovania {{reference}} je dostupná v zabezpečenej zóne."
+      "body": "Dobrý deň {{firstName}}, ponuka financovania {{reference}} je dostupná v zabezpečenej zóne.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Vaša zmluva {{reference}} je pripravená",
-      "body": "Dobrý deň {{firstName}}, zmluva {{reference}} je pripravená na podpis v zabezpečenej zóne."
+      "body": "Dobrý deň {{firstName}}, zmluva {{reference}} je pripravená na podpis v zabezpečenej zóne.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Prostriedky vyplatené — spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, prostriedky spisu {{reference}} boli poukázané na váš účet."
+      "body": "Dobrý deň {{firstName}}, prostriedky spisu {{reference}} boli poukázané na váš účet.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Váš kód na podpis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, váš kód na podpis je {{code}}. Platí 10 minút."
+      "body": "Dobrý deň {{firstName}}, váš kód na podpis je {{code}}. Platí 10 minút.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Zmluva {{reference}} podpísaná",
-      "body": "Dobrý deň {{firstName}}, zmluva {{reference}} bola podpísaná. Stiahnuť si ju môžete v zabezpečenej zóne."
+      "body": "Dobrý deň {{firstName}}, zmluva {{reference}} bola podpísaná. Stiahnuť si ju môžete v zabezpečenej zóne.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Poplatok za krytie — spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, poplatok za krytie úverového rizika je {{amount}}. Vyberte možnosť v zabezpečenej zóne."
+      "body": "Dobrý deň {{firstName}}, poplatok za krytie úverového rizika je {{amount}}. Vyberte možnosť v zabezpečenej zóne.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Platba poplatku {{reference}}",
-      "body": "Dobrý deň {{firstName}}, zaznamenali sme voľbu zaplatiť {{amount}}. Pokyny pošleme po overení."
+      "body": "Dobrý deň {{firstName}}, zaznamenali sme voľbu zaplatiť {{amount}}. Pokyny pošleme po overení.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Žiadosť {{reference}} zrušená",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Platba naplánovaná {{reference}}",
-      "body": "Dobrý deň {{firstName}}, platba {{amount}} je naplánovaná na {{date}}. Žiadosť zostáva čakajúca."
+      "body": "Dobrý deň {{firstName}}, platba {{amount}} je naplánovaná na {{date}}. Žiadosť zostáva čakajúca.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Poplatok potvrdený {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Poistenie {{reference}}",
-      "body": "Dobrý deň {{firstName}}, vyžaduje sa poistenie {{amount}} mesačne."
+      "body": "Dobrý deň {{firstName}}, vyžaduje sa poistenie {{amount}} mesačne.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Poistenie potvrdené {{reference}}",
-      "body": "Dobrý deň {{firstName}}, vaše poistenie bolo potvrdené."
+      "body": "Dobrý deň {{firstName}}, vaše poistenie bolo potvrdené.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Zhrnutie žiadosti",
+      "reference": "Referencia",
+      "amount": "Financovaná suma",
+      "duration": "Doba",
+      "monthly": "Odhadovaná splátka",
+      "status": "Stav žiadosti",
+      "months": "mesiacov",
+      "feeAmount": "Dotknutá suma",
+      "scheduledDate": "Plánovaný dátum",
+      "codeTitle": "Váš jednorazový podpisový kód",
+      "reasonTitle": "Spresnenia nášho tímu",
+      "secureNotice": "Odkaz je osobný, šifrovaný a odvolateľný. Nezdieľajte ho.",
+      "needHelp": "Otázky? Zákaznícky servis odpovedá vo vašej zabezpečenej zóne.",
+      "footerLegal": "Moonyp — zodpovedné financovanie. E-mail sa týka vašej žiadosti.",
+      "autoMessage": "Automatická správa — neodpovedajte priamo.",
+      "tagline": "Vaše financovanie, úplne transparentne"
+    },
+    "cta": {
+      "portal": "Zobraziť moju žiadosť",
+      "contract": "Prečítať a podpísať zmluvu",
+      "guarantee": "Vybrať možnosť krytia",
+      "insurance": "Spravovať poistenie",
+      "payment": "Vykonať platbu",
+      "documents": "Nahrať dokumenty"
+    },
+    "installmentReminder": {
+      "subject": "Blížiaca sa splátka — žiadosť {{reference}}",
+      "body": "Dobrý deň {{firstName}}, ďalšia splátka {{amount}} je splatná {{date}}.",
+      "details": "Splátkový kalendár a platba vo vašej zabezpečenej zóne."
     }
   },
   "workflow": {

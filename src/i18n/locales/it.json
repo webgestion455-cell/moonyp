@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Documenti mancanti — pratica {{reference}}",
-      "body": "Ciao {{firstName}}, mancano documenti nella pratica {{reference}}. Caricali dalla tua area sicura. {{reason}}"
+      "body": "Ciao {{firstName}}, mancano documenti nella pratica {{reference}}. Caricali dalla tua area sicura. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Informazioni aggiuntive — pratica {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "La tua richiesta {{reference}} è approvata",
-      "body": "Ciao {{firstName}}, la tua richiesta {{reference}} è approvata. L'offerta sarà disponibile nella tua area sicura."
+      "body": "Ciao {{firstName}}, la tua richiesta {{reference}} è approvata. L'offerta sarà disponibile nella tua area sicura.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Decisione sulla richiesta {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "La tua offerta {{reference}} è disponibile",
-      "body": "Ciao {{firstName}}, la tua offerta di finanziamento {{reference}} è disponibile nella tua area sicura."
+      "body": "Ciao {{firstName}}, la tua offerta di finanziamento {{reference}} è disponibile nella tua area sicura.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Il tuo contratto {{reference}} è pronto",
-      "body": "Ciao {{firstName}}, il contratto {{reference}} è pronto per la firma nella tua area sicura."
+      "body": "Ciao {{firstName}}, il contratto {{reference}} è pronto per la firma nella tua area sicura.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Fondi erogati — pratica {{reference}}",
-      "body": "Ciao {{firstName}}, i fondi della pratica {{reference}} sono stati accreditati sul tuo conto."
+      "body": "Ciao {{firstName}}, i fondi della pratica {{reference}} sono stati accreditati sul tuo conto.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Il tuo codice di firma {{reference}}",
-      "body": "Ciao {{firstName}}, il tuo codice di firma è {{code}}. Scade tra 10 minuti."
+      "body": "Ciao {{firstName}}, il tuo codice di firma è {{code}}. Scade tra 10 minuti.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Contratto {{reference}} firmato",
-      "body": "Ciao {{firstName}}, il contratto {{reference}} è stato firmato. Puoi scaricarlo dalla tua area sicura."
+      "body": "Ciao {{firstName}}, il contratto {{reference}} è stato firmato. Puoi scaricarlo dalla tua area sicura.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Spese di copertura — pratica {{reference}}",
-      "body": "Ciao {{firstName}}, le spese di copertura del rischio di credito sono di {{amount}}. Scegli la tua opzione nell'area sicura."
+      "body": "Ciao {{firstName}}, le spese di copertura del rischio di credito sono di {{amount}}. Scegli la tua opzione nell'area sicura.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Pagamento spese {{reference}}",
-      "body": "Ciao {{firstName}}, abbiamo registrato la scelta di pagare {{amount}}. Le istruzioni seguiranno dopo la verifica."
+      "body": "Ciao {{firstName}}, abbiamo registrato la scelta di pagare {{amount}}. Le istruzioni seguiranno dopo la verifica.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Richiesta {{reference}} annullata",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Pagamento programmato {{reference}}",
-      "body": "Ciao {{firstName}}, il pagamento di {{amount}} è previsto per il {{date}}. La richiesta resta in attesa."
+      "body": "Ciao {{firstName}}, il pagamento di {{amount}} è previsto per il {{date}}. La richiesta resta in attesa.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Spese convalidate {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Assicurazione {{reference}}",
-      "body": "Ciao {{firstName}}, è richiesta un'assicurazione di {{amount}} al mese per la pratica."
+      "body": "Ciao {{firstName}}, è richiesta un'assicurazione di {{amount}} al mese per la pratica.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Assicurazione convalidata {{reference}}",
-      "body": "Ciao {{firstName}}, la tua assicurazione è stata convalidata."
+      "body": "Ciao {{firstName}}, la tua assicurazione è stata convalidata.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Riepilogo della pratica",
+      "reference": "Riferimento",
+      "amount": "Importo finanziato",
+      "duration": "Durata",
+      "monthly": "Rata stimata",
+      "status": "Stato della pratica",
+      "months": "mesi",
+      "feeAmount": "Importo interessato",
+      "scheduledDate": "Data prevista",
+      "codeTitle": "Il tuo codice di firma monouso",
+      "reasonTitle": "Dettagli del nostro team",
+      "secureNotice": "Questo link è personale, cifrato e revocabile. Non condividerlo.",
+      "needHelp": "Domande? Il servizio clienti risponde dalla tua area sicura.",
+      "footerLegal": "Moonyp — finanziamento responsabile. Email relativa alla tua pratica.",
+      "autoMessage": "Messaggio automatico — non rispondere direttamente.",
+      "tagline": "Il tuo finanziamento, in piena trasparenza"
+    },
+    "cta": {
+      "portal": "Consulta la mia pratica",
+      "contract": "Leggi e firma il contratto",
+      "guarantee": "Scegli l'opzione di copertura",
+      "insurance": "Gestisci l'assicurazione",
+      "payment": "Effettua il pagamento",
+      "documents": "Carica i documenti"
+    },
+    "installmentReminder": {
+      "subject": "Prossima rata — pratica {{reference}}",
+      "body": "Ciao {{firstName}}, la prossima rata di {{amount}} scade il {{date}}.",
+      "details": "Piano di ammortamento e pagamento nella tua area sicura."
     }
   },
   "workflow": {

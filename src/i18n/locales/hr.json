@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Nedostaju dokumenti — predmet {{reference}}",
-      "body": "Pozdrav {{firstName}}, u predmetu {{reference}} nedostaju dokumenti. Učitajte ih u sigurnom prostoru. {{reason}}"
+      "body": "Pozdrav {{firstName}}, u predmetu {{reference}} nedostaju dokumenti. Učitajte ih u sigurnom prostoru. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Dodatne informacije — predmet {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Zahtjev {{reference}} je odobren",
-      "body": "Pozdrav {{firstName}}, zahtjev {{reference}} je odobren. Ponuda će biti dostupna u sigurnom prostoru."
+      "body": "Pozdrav {{firstName}}, zahtjev {{reference}} je odobren. Ponuda će biti dostupna u sigurnom prostoru.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Odluka o zahtjevu {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Vaša ponuda {{reference}} je dostupna",
-      "body": "Pozdrav {{firstName}}, ponuda financiranja {{reference}} dostupna je u sigurnom prostoru."
+      "body": "Pozdrav {{firstName}}, ponuda financiranja {{reference}} dostupna je u sigurnom prostoru.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Vaš ugovor {{reference}} je spreman",
-      "body": "Pozdrav {{firstName}}, ugovor {{reference}} spreman je za potpis u sigurnom prostoru."
+      "body": "Pozdrav {{firstName}}, ugovor {{reference}} spreman je za potpis u sigurnom prostoru.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Sredstva isplaćena — predmet {{reference}}",
-      "body": "Pozdrav {{firstName}}, sredstva predmeta {{reference}} doznačena su na vaš račun."
+      "body": "Pozdrav {{firstName}}, sredstva predmeta {{reference}} doznačena su na vaš račun.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Vaš kod za potpis {{reference}}",
-      "body": "Pozdrav {{firstName}}, vaš kod za potpis je {{code}}. Istječe za 10 minuta."
+      "body": "Pozdrav {{firstName}}, vaš kod za potpis je {{code}}. Istječe za 10 minuta.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Ugovor {{reference}} potpisan",
-      "body": "Pozdrav {{firstName}}, ugovor {{reference}} je potpisan. Možete ga preuzeti u sigurnom prostoru."
+      "body": "Pozdrav {{firstName}}, ugovor {{reference}} je potpisan. Možete ga preuzeti u sigurnom prostoru.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Naknada za pokriće — predmet {{reference}}",
-      "body": "Pozdrav {{firstName}}, naknada za pokriće kreditnog rizika iznosi {{amount}}. Odaberite opciju u sigurnom prostoru."
+      "body": "Pozdrav {{firstName}}, naknada za pokriće kreditnog rizika iznosi {{amount}}. Odaberite opciju u sigurnom prostoru.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Plaćanje naknade {{reference}}",
-      "body": "Pozdrav {{firstName}}, zabilježili smo odabir plaćanja {{amount}}. Upute slijede nakon provjere."
+      "body": "Pozdrav {{firstName}}, zabilježili smo odabir plaćanja {{amount}}. Upute slijede nakon provjere.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Zahtjev {{reference}} otkazan",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Plaćanje zakazano {{reference}}",
-      "body": "Pozdrav {{firstName}}, plaćanje od {{amount}} zakazano je za {{date}}. Zahtjev ostaje na čekanju."
+      "body": "Pozdrav {{firstName}}, plaćanje od {{amount}} zakazano je za {{date}}. Zahtjev ostaje na čekanju.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Naknada potvrđena {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Osiguranje {{reference}}",
-      "body": "Pozdrav {{firstName}}, potrebno je osiguranje od {{amount}} mjesečno."
+      "body": "Pozdrav {{firstName}}, potrebno je osiguranje od {{amount}} mjesečno.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Osiguranje potvrđeno {{reference}}",
-      "body": "Pozdrav {{firstName}}, vaše osiguranje je potvrđeno."
+      "body": "Pozdrav {{firstName}}, vaše osiguranje je potvrđeno.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Sažetak predmeta",
+      "reference": "Referenca",
+      "amount": "Financirani iznos",
+      "duration": "Trajanje",
+      "monthly": "Procijenjena rata",
+      "status": "Status predmeta",
+      "months": "mjeseci",
+      "feeAmount": "Predmetni iznos",
+      "scheduledDate": "Planirani datum",
+      "codeTitle": "Vaš jednokratni kod za potpis",
+      "reasonTitle": "Pojašnjenja našeg tima",
+      "secureNotice": "Poveznica je osobna, šifrirana i opoziva. Nemojte je dijeliti.",
+      "needHelp": "Pitanja? Korisnička služba odgovara u vašem sigurnom prostoru.",
+      "footerLegal": "Moonyp — odgovorno financiranje. E-pošta vezana uz vaš predmet.",
+      "autoMessage": "Automatska poruka — nemojte odgovarati izravno.",
+      "tagline": "Vaše financiranje, potpuno transparentno"
+    },
+    "cta": {
+      "portal": "Pogledaj moj predmet",
+      "contract": "Pročitaj i potpiši ugovor",
+      "guarantee": "Odaberi opciju pokrića",
+      "insurance": "Upravljaj osiguranjem",
+      "payment": "Izvrši plaćanje",
+      "documents": "Učitaj dokumente"
+    },
+    "installmentReminder": {
+      "subject": "Nadolazeća rata — predmet {{reference}}",
+      "body": "Pozdrav {{firstName}}, sljedeća rata od {{amount}} dospijeva {{date}}.",
+      "details": "Plan otplate i plaćanje u vašem sigurnom prostoru."
     }
   },
   "workflow": {

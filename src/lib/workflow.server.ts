@@ -6,7 +6,13 @@
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { canTransition, type WorkflowContext } from "@/lib/application-workflow";
 import type { ApplicationStatus } from "@/lib/application-status";
-import { logEvent } from "@/lib/applications.server";
+import { logEvent, issuePortalToken } from "@/lib/applications.server";
+import {
+  renderEmailHtml,
+  renderEmailText,
+  type EmailDetail,
+  type EmailTemplateInput,
+} from "@/lib/email-render.server";
 
 import bg from "@/i18n/locales/bg.json";
 import de from "@/i18n/locales/de.json";
@@ -43,7 +49,38 @@ export function tServer(locale: string | null | undefined, key: string, vars: Re
   return raw.replace(/\{\{(\w+)\}\}/g, (_m, name: string) => vars[name] ?? "");
 }
 
-/** Met un email en file d'attente, rédigé dans la langue du demandeur. */
+/** Destination de l'espace sécurisé selon le type d'email. */
+const CTA_BY_TEMPLATE: Record<string, { path: "" | "/contract" | "/payment"; label: string }> = {
+  applicationReceived: { path: "", label: "portal" },
+  documentsMissing: { path: "", label: "documents" },
+  infoRequested: { path: "", label: "documents" },
+  approved: { path: "", label: "portal" },
+  rejected: { path: "", label: "portal" },
+  offerAvailable: { path: "", label: "portal" },
+  contractSent: { path: "/contract", label: "contract" },
+  signatureCode: { path: "/contract", label: "contract" },
+  contractSigned: { path: "/contract", label: "contract" },
+  guaranteeSent: { path: "", label: "guarantee" },
+  guaranteePayNow: { path: "/payment", label: "payment" },
+  guaranteePayLater: { path: "", label: "portal" },
+  guaranteeDeclined: { path: "", label: "portal" },
+  guaranteePaymentValidated: { path: "", label: "portal" },
+  insurancePending: { path: "/payment", label: "insurance" },
+  insuranceValidated: { path: "", label: "portal" },
+  disbursed: { path: "", label: "portal" },
+  repaymentReminder: { path: "/payment", label: "payment" },
+  guaranteeReminder: { path: "/payment", label: "payment" },
+};
+
+function siteUrl(): string {
+  return (process.env["PUBLIC_SITE_URL"] ?? "https://moonyp.webgestion95.workers.dev").replace(/\/$/, "");
+}
+
+/**
+ * Met un email en file d'attente, rédigé dans la langue du demandeur et rendu
+ * en HTML responsive de niveau bancaire. Chaque email embarque un bouton vers
+ * l'espace sécurisé du client (lien personnel révocable).
+ */
 export async function queueEmail(options: {
   applicationId: string;
   to: string;
@@ -53,16 +90,95 @@ export async function queueEmail(options: {
 }): Promise<void> {
   const vars = options.vars ?? {};
   const locale = (options.locale ?? "en").slice(0, 2).toLowerCase();
-  await supabaseAdmin.from("transactional_emails").insert({
+  const template = options.template;
+  const T = (key: string, v: Record<string, string> = vars) => tServer(locale, key, v);
+
+  // Lien vers l'espace sécurisé : réutilise celui fourni, sinon en émet un.
+  const cta = CTA_BY_TEMPLATE[template] ?? { path: "" as const, label: "portal" };
+  let ctaUrl = vars.link ?? "";
+  if (!ctaUrl) {
+    try {
+      const token = await issuePortalToken(options.applicationId, "email");
+      ctaUrl = `${siteUrl()}/${locale}/secure/application/${token}${cta.path}`;
+    } catch (e) {
+      console.error("[queueEmail] portal token failed", e);
+    }
+  }
+
+  // Récapitulatif du dossier, pour un email réellement informatif.
+  const { data: app } = await supabaseAdmin
+    .from("loan_applications")
+    .select("reference, amount, duration_months, monthly_payment, status")
+    .eq("id", options.applicationId)
+    .maybeSingle();
+
+  const details: EmailDetail[] = [];
+  const push = (label: string, value: string | null | undefined) => {
+    if (value) details.push({ label, value });
+  };
+  push(T("emails.common.reference"), app?.reference ?? vars.reference);
+  push(T("emails.common.amount"), app?.amount != null ? `${Number(app.amount).toLocaleString(locale)} EUR` : null);
+  push(
+    T("emails.common.duration"),
+    app?.duration_months ? `${app.duration_months} ${T("emails.common.months")}` : null,
+  );
+  push(
+    T("emails.common.monthly"),
+    app?.monthly_payment != null ? `${Number(app.monthly_payment).toLocaleString(locale)} EUR` : null,
+  );
+  push(T("emails.common.status"), app?.status ? T(`finance.status.${app.status}`) : null);
+  if (vars.amount) push(T("emails.common.feeAmount"), vars.amount);
+  if (vars.date) push(T("emails.common.scheduledDate"), vars.date);
+
+  const subject = T(`emails.${template}.subject`);
+  const intro = T(`emails.${template}.body`);
+  const extra = tServer(locale, `emails.${template}.details`, vars);
+  const paragraphs = extra && extra !== `emails.${template}.details` ? [extra] : [];
+
+  const spec: EmailTemplateInput = {
+    title: subject,
+    intro,
+    paragraphs,
+    detailsTitle: T("emails.common.summary"),
+    details,
+    ctaLabel: T(`emails.cta.${cta.label}`),
+    ctaUrl,
+    ...(vars.code ? { code: vars.code, noticeTitle: T("emails.common.codeTitle") } : {}),
+    ...(!vars.code && vars.reason ? { noticeTitle: T("emails.common.reasonTitle"), noticeBody: vars.reason } : {}),
+    securityNotice: T("emails.common.secureNotice"),
+    helpText: T("emails.common.needHelp"),
+    legalText: T("emails.common.footerLegal"),
+    autoText: T("emails.common.autoMessage"),
+    tagline: T("emails.common.tagline"),
+    preheader: intro.slice(0, 140),
+  };
+
+  const { error: insertError } = await supabaseAdmin
+  .from("transactional_emails")
+  .insert({
     application_id: options.applicationId,
     to_email: options.to,
     locale,
-    template: options.template,
-    subject: tServer(locale, `emails.${options.template}.subject`, vars),
-    body: tServer(locale, `emails.${options.template}.body`, vars),
-    payload: vars as never,
+    template,
+    subject,
+    body: renderEmailHtml(spec),
+    payload: { ...vars, text: renderEmailText(spec), cta_url: ctaUrl } as never,
   } as never);
+
+if (insertError) {
+  console.error("[queueEmail] transactional_emails insert failed:", {
+    applicationId: options.applicationId,
+    to: options.to,
+    template,
+    error: insertError,
+  });
+
+  throw new Error(
+    `Impossible de mettre l'email en file d'attente: ${insertError.message}`,
+  );
 }
+}
+
 
 /** Notifie tous les administrateurs (une notification par compte staff). */
 export async function notifyAdmins(input: {

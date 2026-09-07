@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Hiányzó dokumentumok — ügy {{reference}}",
-      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügyből dokumentumok hiányoznak. Töltse fel a biztonságos felületen. {{reason}}"
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügyből dokumentumok hiányoznak. Töltse fel a biztonságos felületen. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "További információ — ügy {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "A(z) {{reference}} kérelem jóváhagyva",
-      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} kérelmét jóváhagytuk. Az ajánlat a biztonságos felületen lesz elérhető."
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} kérelmét jóváhagytuk. Az ajánlat a biztonságos felületen lesz elérhető.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Döntés a(z) {{reference}} kérelemről",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "A(z) {{reference}} ajánlata elérhető",
-      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} finanszírozási ajánlata elérhető a biztonságos felületen."
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} finanszírozási ajánlata elérhető a biztonságos felületen.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "A(z) {{reference}} szerződése kész",
-      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} szerződés aláírásra kész a biztonságos felületen."
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} szerződés aláírásra kész a biztonságos felületen.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Folyósítás megtörtént — ügy {{reference}}",
-      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügy összegét átutaltuk a számlájára."
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügy összegét átutaltuk a számlájára.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Aláírási kódja {{reference}}",
-      "body": "Üdv {{firstName}}, az aláírási kódja {{code}}. 10 perc múlva lejár."
+      "body": "Üdv {{firstName}}, az aláírási kódja {{code}}. 10 perc múlva lejár.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "{{reference}} szerződés aláírva",
-      "body": "Üdv {{firstName}}, a(z) {{reference}} szerződést aláírták. Letöltheti a biztonságos felületén."
+      "body": "Üdv {{firstName}}, a(z) {{reference}} szerződést aláírták. Letöltheti a biztonságos felületén.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Fedezeti díj — ügy {{reference}}",
-      "body": "Üdv {{firstName}}, a hitelkockázati fedezeti díj {{amount}}. Válasszon a biztonságos felületén."
+      "body": "Üdv {{firstName}}, a hitelkockázati fedezeti díj {{amount}}. Válasszon a biztonságos felületén.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Díjfizetés {{reference}}",
-      "body": "Üdv {{firstName}}, rögzítettük, hogy {{amount}} összeget fizet. Az utasítások ellenőrzés után érkeznek."
+      "body": "Üdv {{firstName}}, rögzítettük, hogy {{amount}} összeget fizet. Az utasítások ellenőrzés után érkeznek.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "{{reference}} kérelem törölve",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Fizetés ütemezve {{reference}}",
-      "body": "Üdv {{firstName}}, a(z) {{amount}} fizetés {{date}} napra van ütemezve. A kérelem függőben marad."
+      "body": "Üdv {{firstName}}, a(z) {{amount}} fizetés {{date}} napra van ütemezve. A kérelem függőben marad.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Díj jóváhagyva {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Biztosítás {{reference}}",
-      "body": "Üdv {{firstName}}, havi {{amount}} biztosítás szükséges az ügyéhez."
+      "body": "Üdv {{firstName}}, havi {{amount}} biztosítás szükséges az ügyéhez.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Biztosítás jóváhagyva {{reference}}",
-      "body": "Üdv {{firstName}}, a biztosítását jóváhagytuk."
+      "body": "Üdv {{firstName}}, a biztosítását jóváhagytuk.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Ügylet összefoglalója",
+      "reference": "Hivatkozás",
+      "amount": "Finanszírozott összeg",
+      "duration": "Futamidő",
+      "monthly": "Becsült törlesztő",
+      "status": "Ügylet státusza",
+      "months": "hónap",
+      "feeAmount": "Érintett összeg",
+      "scheduledDate": "Tervezett dátum",
+      "codeTitle": "Egyszeri aláírási kódja",
+      "reasonTitle": "Csapatunk pontosításai",
+      "secureNotice": "A link személyes, titkosított és visszavonható. Ne ossza meg.",
+      "needHelp": "Kérdése van? Ügyfélszolgálatunk a biztonságos felületén válaszol.",
+      "footerLegal": "Moonyp — felelős finanszírozás. Ez az e-mail az ügyletére vonatkozik.",
+      "autoMessage": "Automatikus üzenet — kérjük, ne válaszoljon rá.",
+      "tagline": "Az Ön finanszírozása, teljes átláthatósággal"
+    },
+    "cta": {
+      "portal": "Ügyletem megtekintése",
+      "contract": "Szerződés elolvasása és aláírása",
+      "guarantee": "Fedezeti opció választása",
+      "insurance": "Biztosítás kezelése",
+      "payment": "Fizetés végrehajtása",
+      "documents": "Dokumentumok feltöltése"
+    },
+    "installmentReminder": {
+      "subject": "Közelgő törlesztés — ügylet {{reference}}",
+      "body": "Üdvözöljük {{firstName}}, a következő {{amount}} törlesztés esedékessége {{date}}.",
+      "details": "Törlesztési terv és fizetés a biztonságos felületén."
     }
   },
   "workflow": {

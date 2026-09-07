@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Липсващи документи — досие {{reference}}",
-      "body": "Здравейте {{firstName}}, липсват документи по досие {{reference}}. Качете ги от защитената зона. {{reason}}"
+      "body": "Здравейте {{firstName}}, липсват документи по досие {{reference}}. Качете ги от защитената зона. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Допълнителна информация — досие {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Заявление {{reference}} е одобрено",
-      "body": "Здравейте {{firstName}}, заявление {{reference}} е одобрено. Офертата ще е достъпна в защитената зона."
+      "body": "Здравейте {{firstName}}, заявление {{reference}} е одобрено. Офертата ще е достъпна в защитената зона.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Решение по заявление {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Вашата оферта {{reference}} е налична",
-      "body": "Здравейте {{firstName}}, офертата за финансиране {{reference}} е достъпна в защитената зона."
+      "body": "Здравейте {{firstName}}, офертата за финансиране {{reference}} е достъпна в защитената зона.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Вашият договор {{reference}} е готов",
-      "body": "Здравейте {{firstName}}, договор {{reference}} е готов за подпис в защитената зона."
+      "body": "Здравейте {{firstName}}, договор {{reference}} е готов за подпис в защитената зона.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Средствата са преведени — досие {{reference}}",
-      "body": "Здравейте {{firstName}}, средствата по досие {{reference}} са преведени по сметката ви."
+      "body": "Здравейте {{firstName}}, средствата по досие {{reference}} са преведени по сметката ви.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Вашият код за подпис {{reference}}",
-      "body": "Здравейте {{firstName}}, кодът ви за подпис е {{code}}. Изтича след 10 минути."
+      "body": "Здравейте {{firstName}}, кодът ви за подпис е {{code}}. Изтича след 10 минути.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Договор {{reference}} подписан",
-      "body": "Здравейте {{firstName}}, договорът {{reference}} е подписан. Можете да го изтеглите от защитената зона."
+      "body": "Здравейте {{firstName}}, договорът {{reference}} е подписан. Можете да го изтеглите от защитената зона.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Такса за покритие — досие {{reference}}",
-      "body": "Здравейте {{firstName}}, таксата за покриване на кредитния риск е {{amount}}. Изберете опция в защитената зона."
+      "body": "Здравейте {{firstName}}, таксата за покриване на кредитния риск е {{amount}}. Изберете опция в защитената зона.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Плащане на такса {{reference}}",
-      "body": "Здравейте {{firstName}}, регистрирахме избора ви да платите {{amount}}. Инструкциите следват след проверка."
+      "body": "Здравейте {{firstName}}, регистрирахме избора ви да платите {{amount}}. Инструкциите следват след проверка.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Искане {{reference}} отменено",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Планирано плащане {{reference}}",
-      "body": "Здравейте {{firstName}}, плащането от {{amount}} е насрочено за {{date}}. Искането остава в изчакване."
+      "body": "Здравейте {{firstName}}, плащането от {{amount}} е насрочено за {{date}}. Искането остава в изчакване.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Таксата е потвърдена {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Застраховка {{reference}}",
-      "body": "Здравейте {{firstName}}, необходима е застраховка от {{amount}} на месец."
+      "body": "Здравейте {{firstName}}, необходима е застраховка от {{amount}} на месец.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Застраховката е потвърдена {{reference}}",
-      "body": "Здравейте {{firstName}}, застраховката ви е потвърдена."
+      "body": "Здравейте {{firstName}}, застраховката ви е потвърдена.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Обобщение на досието",
+      "reference": "Референция",
+      "amount": "Финансирана сума",
+      "duration": "Срок",
+      "monthly": "Прогнозна вноска",
+      "status": "Статус на досието",
+      "months": "месеца",
+      "feeAmount": "Съответна сума",
+      "scheduledDate": "Планирана дата",
+      "codeTitle": "Вашият еднократен код за подпис",
+      "reasonTitle": "Уточнения от нашия екип",
+      "secureNotice": "Връзката е лична, криптирана и отменяема. Не я споделяйте.",
+      "needHelp": "Въпроси? Обслужването на клиенти отговаря във вашата защитена зона.",
+      "footerLegal": "Moonyp — отговорно финансиране. Имейл относно вашето досие.",
+      "autoMessage": "Автоматично съобщение — моля, не отговаряйте директно.",
+      "tagline": "Вашето финансиране, напълно прозрачно"
+    },
+    "cta": {
+      "portal": "Виж моето досие",
+      "contract": "Прочети и подпиши договора",
+      "guarantee": "Избери опция за покритие",
+      "insurance": "Управление на застраховката",
+      "payment": "Извърши плащане",
+      "documents": "Качи документи"
+    },
+    "installmentReminder": {
+      "subject": "Предстояща вноска — досие {{reference}}",
+      "body": "Здравейте {{firstName}}, следващата вноска от {{amount}} е на {{date}}.",
+      "details": "Погасителен план и плащане във вашата защитена зона."
     }
   },
   "workflow": {

@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Documente lipsă — dosar {{reference}}",
-      "body": "Bună {{firstName}}, lipsesc documente din dosarul {{reference}}. Încărcați-le din spațiul securizat. {{reason}}"
+      "body": "Bună {{firstName}}, lipsesc documente din dosarul {{reference}}. Încărcați-le din spațiul securizat. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Informații suplimentare — dosar {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Cererea {{reference}} a fost aprobată",
-      "body": "Bună {{firstName}}, cererea {{reference}} a fost aprobată. Oferta va fi disponibilă în spațiul securizat."
+      "body": "Bună {{firstName}}, cererea {{reference}} a fost aprobată. Oferta va fi disponibilă în spațiul securizat.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Decizie privind cererea {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Oferta {{reference}} este disponibilă",
-      "body": "Bună {{firstName}}, oferta dvs. de finanțare {{reference}} este disponibilă în spațiul securizat."
+      "body": "Bună {{firstName}}, oferta dvs. de finanțare {{reference}} este disponibilă în spațiul securizat.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Contractul {{reference}} vă așteaptă",
-      "body": "Bună {{firstName}}, contractul {{reference}} este gata de semnat în spațiul securizat."
+      "body": "Bună {{firstName}}, contractul {{reference}} este gata de semnat în spațiul securizat.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Fonduri virate — dosar {{reference}}",
-      "body": "Bună {{firstName}}, fondurile dosarului {{reference}} au fost virate în contul dvs."
+      "body": "Bună {{firstName}}, fondurile dosarului {{reference}} au fost virate în contul dvs.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Codul dvs. de semnare {{reference}}",
-      "body": "Bună {{firstName}}, codul de semnare este {{code}}. Expiră în 10 minute."
+      "body": "Bună {{firstName}}, codul de semnare este {{code}}. Expiră în 10 minute.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Contract {{reference}} semnat",
-      "body": "Bună {{firstName}}, contractul {{reference}} a fost semnat. Îl puteți descărca din spațiul securizat."
+      "body": "Bună {{firstName}}, contractul {{reference}} a fost semnat. Îl puteți descărca din spațiul securizat.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Comision de acoperire — dosar {{reference}}",
-      "body": "Bună {{firstName}}, comisionul de acoperire a riscului de credit este {{amount}}. Alegeți opțiunea în spațiul securizat."
+      "body": "Bună {{firstName}}, comisionul de acoperire a riscului de credit este {{amount}}. Alegeți opțiunea în spațiul securizat.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Plata comisionului {{reference}}",
-      "body": "Bună {{firstName}}, am înregistrat alegerea de a plăti {{amount}}. Instrucțiunile urmează după verificare."
+      "body": "Bună {{firstName}}, am înregistrat alegerea de a plăti {{amount}}. Instrucțiunile urmează după verificare.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Cerere {{reference}} anulată",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Plată programată {{reference}}",
-      "body": "Bună {{firstName}}, plata de {{amount}} este programată pentru {{date}}. Cererea rămâne în așteptare."
+      "body": "Bună {{firstName}}, plata de {{amount}} este programată pentru {{date}}. Cererea rămâne în așteptare.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Comision validat {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Asigurare {{reference}}",
-      "body": "Bună {{firstName}}, este necesară o asigurare de {{amount}} pe lună."
+      "body": "Bună {{firstName}}, este necesară o asigurare de {{amount}} pe lună.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Asigurare validată {{reference}}",
-      "body": "Bună {{firstName}}, asigurarea dvs. a fost validată."
+      "body": "Bună {{firstName}}, asigurarea dvs. a fost validată.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Rezumatul dosarului",
+      "reference": "Referință",
+      "amount": "Sumă finanțată",
+      "duration": "Durată",
+      "monthly": "Rată estimată",
+      "status": "Statutul dosarului",
+      "months": "luni",
+      "feeAmount": "Sumă vizată",
+      "scheduledDate": "Dată programată",
+      "codeTitle": "Codul dvs. de semnătură unic",
+      "reasonTitle": "Detalii de la echipa noastră",
+      "secureNotice": "Acest link este personal, criptat și revocabil. Nu îl distribuiți.",
+      "needHelp": "Întrebări? Serviciul clienți răspunde din spațiul dvs. securizat.",
+      "footerLegal": "Moonyp — finanțare responsabilă. Email privind dosarul dumneavoastră.",
+      "autoMessage": "Mesaj automat — nu răspundeți direct.",
+      "tagline": "Finanțarea dvs., pe deplin transparentă"
+    },
+    "cta": {
+      "portal": "Vezi dosarul meu",
+      "contract": "Citește și semnează contractul",
+      "guarantee": "Alege opțiunea de acoperire",
+      "insurance": "Gestionează asigurarea",
+      "payment": "Efectuează plata",
+      "documents": "Încarcă documentele"
+    },
+    "installmentReminder": {
+      "subject": "Rată apropiată — dosar {{reference}}",
+      "body": "Bună {{firstName}}, următoarea rată de {{amount}} este scadentă la {{date}}.",
+      "details": "Graficul de rambursare și plata în spațiul securizat."
     }
   },
   "workflow": {

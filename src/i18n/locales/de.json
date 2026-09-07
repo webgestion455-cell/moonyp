@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Fehlende Unterlagen — Akte {{reference}}",
-      "body": "Hallo {{firstName}}, in Ihrer Akte {{reference}} fehlen Unterlagen. Bitte laden Sie diese in Ihrem sicheren Bereich hoch. {{reason}}"
+      "body": "Hallo {{firstName}}, in Ihrer Akte {{reference}} fehlen Unterlagen. Bitte laden Sie diese in Ihrem sicheren Bereich hoch. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Zusätzliche Informationen — Akte {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Ihr Antrag {{reference}} wurde genehmigt",
-      "body": "Hallo {{firstName}}, Ihr Antrag {{reference}} wurde genehmigt. Ihr Angebot finden Sie in Ihrem sicheren Bereich."
+      "body": "Hallo {{firstName}}, Ihr Antrag {{reference}} wurde genehmigt. Ihr Angebot finden Sie in Ihrem sicheren Bereich.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Entscheidung zu Ihrem Antrag {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Ihr Angebot {{reference}} ist verfügbar",
-      "body": "Hallo {{firstName}}, Ihr Finanzierungsangebot {{reference}} steht in Ihrem sicheren Bereich bereit."
+      "body": "Hallo {{firstName}}, Ihr Finanzierungsangebot {{reference}} steht in Ihrem sicheren Bereich bereit.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Ihr Vertrag {{reference}} ist bereit",
-      "body": "Hallo {{firstName}}, Ihr Vertrag {{reference}} kann in Ihrem sicheren Bereich unterzeichnet werden."
+      "body": "Hallo {{firstName}}, Ihr Vertrag {{reference}} kann in Ihrem sicheren Bereich unterzeichnet werden.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Auszahlung erfolgt — Akte {{reference}}",
-      "body": "Hallo {{firstName}}, die Mittel Ihrer Akte {{reference}} wurden auf Ihr Konto überwiesen."
+      "body": "Hallo {{firstName}}, die Mittel Ihrer Akte {{reference}} wurden auf Ihr Konto überwiesen.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Ihr Signaturcode {{reference}}",
-      "body": "Hallo {{firstName}}, Ihr Signaturcode lautet {{code}}. Er läuft in 10 Minuten ab."
+      "body": "Hallo {{firstName}}, Ihr Signaturcode lautet {{code}}. Er läuft in 10 Minuten ab.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Vertrag {{reference}} unterzeichnet",
-      "body": "Hallo {{firstName}}, Ihr Vertrag {{reference}} wurde unterzeichnet. Sie können ihn in Ihrem sicheren Bereich herunterladen."
+      "body": "Hallo {{firstName}}, Ihr Vertrag {{reference}} wurde unterzeichnet. Sie können ihn in Ihrem sicheren Bereich herunterladen.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Deckungsgebühr — Akte {{reference}}",
-      "body": "Hallo {{firstName}}, die Gebühr zur Deckung des Kreditrisikos beträgt {{amount}}. Wählen Sie Ihre Option im sicheren Bereich."
+      "body": "Hallo {{firstName}}, die Gebühr zur Deckung des Kreditrisikos beträgt {{amount}}. Wählen Sie Ihre Option im sicheren Bereich.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Gebührenzahlung {{reference}}",
-      "body": "Hallo {{firstName}}, wir haben Ihre Wahl erfasst, {{amount}} zu zahlen. Die Zahlungsanweisungen folgen nach Prüfung."
+      "body": "Hallo {{firstName}}, wir haben Ihre Wahl erfasst, {{amount}} zu zahlen. Die Zahlungsanweisungen folgen nach Prüfung.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Antrag {{reference}} storniert",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Zahlung geplant {{reference}}",
-      "body": "Hallo {{firstName}}, Ihre Zahlung von {{amount}} ist für den {{date}} geplant. Ihr Antrag bleibt offen."
+      "body": "Hallo {{firstName}}, Ihre Zahlung von {{amount}} ist für den {{date}} geplant. Ihr Antrag bleibt offen.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Gebühr bestätigt {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Versicherung {{reference}}",
-      "body": "Hallo {{firstName}}, für Ihre Akte ist eine Versicherung von {{amount}} pro Monat erforderlich."
+      "body": "Hallo {{firstName}}, für Ihre Akte ist eine Versicherung von {{amount}} pro Monat erforderlich.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Versicherung bestätigt {{reference}}",
-      "body": "Hallo {{firstName}}, Ihre Versicherung wurde bestätigt."
+      "body": "Hallo {{firstName}}, Ihre Versicherung wurde bestätigt.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Zusammenfassung des Antrags",
+      "reference": "Referenz",
+      "amount": "Finanzierter Betrag",
+      "duration": "Laufzeit",
+      "monthly": "Geschätzte Rate",
+      "status": "Antragsstatus",
+      "months": "Monate",
+      "feeAmount": "Betreffender Betrag",
+      "scheduledDate": "Geplantes Datum",
+      "codeTitle": "Ihr Einmal-Signaturcode",
+      "reasonTitle": "Hinweise unseres Teams",
+      "secureNotice": "Dieser Link ist persönlich, verschlüsselt und widerrufbar. Geben Sie ihn nicht weiter.",
+      "needHelp": "Fragen? Unser Kundenservice antwortet in Ihrem sicheren Bereich.",
+      "footerLegal": "Moonyp — verantwortungsvolle Finanzierung. Diese E-Mail betrifft Ihren Antrag.",
+      "autoMessage": "Automatische Nachricht — bitte antworten Sie nicht direkt.",
+      "tagline": "Ihre Finanzierung, vollkommen transparent"
+    },
+    "cta": {
+      "portal": "Meinen Antrag ansehen",
+      "contract": "Vertrag lesen und unterschreiben",
+      "guarantee": "Deckungsoption wählen",
+      "insurance": "Versicherung verwalten",
+      "payment": "Zahlung durchführen",
+      "documents": "Dokumente hochladen"
+    },
+    "installmentReminder": {
+      "subject": "Nächste Rate — Akte {{reference}}",
+      "body": "Hallo {{firstName}}, Ihre nächste Rate über {{amount}} ist am {{date}} fällig.",
+      "details": "Tilgungsplan und Zahlung finden Sie in Ihrem sicheren Bereich."
     }
   },
   "workflow": {

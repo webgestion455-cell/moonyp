@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Puuttuvat asiakirjat — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, hakemuksesta {{reference}} puuttuu asiakirjoja. Lataa ne turvallisessa palvelussa. {{reason}}"
+      "body": "Hei {{firstName}}, hakemuksesta {{reference}} puuttuu asiakirjoja. Lataa ne turvallisessa palvelussa. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Lisätiedot — hakemus {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Hakemuksesi {{reference}} on hyväksytty",
-      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on hyväksytty. Tarjous näkyy turvallisessa palvelussa."
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on hyväksytty. Tarjous näkyy turvallisessa palvelussa.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Päätös hakemuksesta {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Tarjouksesi {{reference}} on saatavilla",
-      "body": "Hei {{firstName}}, rahoitustarjouksesi {{reference}} on saatavilla turvallisessa palvelussa."
+      "body": "Hei {{firstName}}, rahoitustarjouksesi {{reference}} on saatavilla turvallisessa palvelussa.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Sopimuksesi {{reference}} on valmis",
-      "body": "Hei {{firstName}}, sopimus {{reference}} on allekirjoitettavissa turvallisessa palvelussa."
+      "body": "Hei {{firstName}}, sopimus {{reference}} on allekirjoitettavissa turvallisessa palvelussa.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Varat maksettu — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, hakemuksen {{reference}} varat on siirretty tilillesi."
+      "body": "Hei {{firstName}}, hakemuksen {{reference}} varat on siirretty tilillesi.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Allekirjoituskoodisi {{reference}}",
-      "body": "Hei {{firstName}}, allekirjoituskoodisi on {{code}}. Se vanhenee 10 minuutissa."
+      "body": "Hei {{firstName}}, allekirjoituskoodisi on {{code}}. Se vanhenee 10 minuutissa.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Sopimus {{reference}} allekirjoitettu",
-      "body": "Hei {{firstName}}, sopimuksesi {{reference}} on allekirjoitettu. Voit ladata sen turvallisesta tilastasi."
+      "body": "Hei {{firstName}}, sopimuksesi {{reference}} on allekirjoitettu. Voit ladata sen turvallisesta tilastasi.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Kattamismaksu — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, luottoriskin kattamismaksu on {{amount}}. Valitse vaihtoehtosi turvallisessa tilassa."
+      "body": "Hei {{firstName}}, luottoriskin kattamismaksu on {{amount}}. Valitse vaihtoehtosi turvallisessa tilassa.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Maksun valinta {{reference}}",
-      "body": "Hei {{firstName}}, kirjasimme valintasi maksaa {{amount}}. Maksuohjeet lähetetään tarkistuksen jälkeen."
+      "body": "Hei {{firstName}}, kirjasimme valintasi maksaa {{amount}}. Maksuohjeet lähetetään tarkistuksen jälkeen.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Hakemus {{reference}} peruttu",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Maksu ajoitettu {{reference}}",
-      "body": "Hei {{firstName}}, maksusi {{amount}} on ajoitettu {{date}}. Hakemus pysyy voimassa."
+      "body": "Hei {{firstName}}, maksusi {{amount}} on ajoitettu {{date}}. Hakemus pysyy voimassa.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Maksu vahvistettu {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Vakuutus {{reference}}",
-      "body": "Hei {{firstName}}, hakemuksesi edellyttää {{amount}} kuukausivakuutusta."
+      "body": "Hei {{firstName}}, hakemuksesi edellyttää {{amount}} kuukausivakuutusta.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Vakuutus vahvistettu {{reference}}",
-      "body": "Hei {{firstName}}, vakuutuksesi on vahvistettu."
+      "body": "Hei {{firstName}}, vakuutuksesi on vahvistettu.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Hakemuksen yhteenveto",
+      "reference": "Viite",
+      "amount": "Rahoitettu määrä",
+      "duration": "Kesto",
+      "monthly": "Arvioitu erä",
+      "status": "Hakemuksen tila",
+      "months": "kuukautta",
+      "feeAmount": "Kyseinen summa",
+      "scheduledDate": "Suunniteltu päivä",
+      "codeTitle": "Kertakäyttöinen allekirjoituskoodi",
+      "reasonTitle": "Tiimimme tarkennukset",
+      "secureNotice": "Linkki on henkilökohtainen, salattu ja peruutettavissa. Älä jaa sitä.",
+      "needHelp": "Kysyttävää? Asiakaspalvelu vastaa turvallisessa tilassasi.",
+      "footerLegal": "Moonyp — vastuullista rahoitusta. Sähköposti koskee hakemustasi.",
+      "autoMessage": "Automaattiviesti — älä vastaa suoraan.",
+      "tagline": "Rahoituksesi, täysin läpinäkyvästi"
+    },
+    "cta": {
+      "portal": "Katso hakemukseni",
+      "contract": "Lue ja allekirjoita sopimus",
+      "guarantee": "Valitse kattavuus",
+      "insurance": "Hallinnoi vakuutusta",
+      "payment": "Tee maksu",
+      "documents": "Lataa asiakirjat"
+    },
+    "installmentReminder": {
+      "subject": "Tuleva erä — hakemus {{reference}}",
+      "body": "Hei {{firstName}}, seuraava erä {{amount}} erääntyy {{date}}.",
+      "details": "Maksusuunnitelma ja maksaminen turvallisessa tilassasi."
     }
   },
   "workflow": {

@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Missing documents — file {{reference}}",
-      "body": "Hello {{firstName}}, documents are missing from your file {{reference}}. Please upload them from your secure area. {{reason}}"
+      "body": "Hello {{firstName}}, documents are missing from your file {{reference}}. Please upload them from your secure area. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Additional information — file {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Your application {{reference}} is approved",
-      "body": "Hello {{firstName}}, your application {{reference}} is approved. Your offer will be available in your secure area."
+      "body": "Hello {{firstName}}, your application {{reference}} is approved. Your offer will be available in your secure area.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Decision on your application {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Your offer {{reference}} is available",
-      "body": "Hello {{firstName}}, your financing offer {{reference}} is available in your secure area."
+      "body": "Hello {{firstName}}, your financing offer {{reference}} is available in your secure area.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Your contract {{reference}} is ready",
-      "body": "Hello {{firstName}}, your contract {{reference}} is ready to sign from your secure area."
+      "body": "Hello {{firstName}}, your contract {{reference}} is ready to sign from your secure area.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Funds released — file {{reference}}",
-      "body": "Hello {{firstName}}, the funds for your file {{reference}} have been transferred to your account."
+      "body": "Hello {{firstName}}, the funds for your file {{reference}} have been transferred to your account.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Your signature code {{reference}}",
-      "body": "Hello {{firstName}}, your signature code is {{code}}. It expires in 10 minutes."
+      "body": "Hello {{firstName}}, your signature code is {{code}}. It expires in 10 minutes.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Contract {{reference}} signed",
-      "body": "Hello {{firstName}}, your contract {{reference}} has been signed. You can download it from your secure area."
+      "body": "Hello {{firstName}}, your contract {{reference}} has been signed. You can download it from your secure area.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Coverage fee — file {{reference}}",
-      "body": "Hello {{firstName}}, the credit risk coverage fee is {{amount}}. Choose your option in your secure area."
+      "body": "Hello {{firstName}}, the credit risk coverage fee is {{amount}}. Choose your option in your secure area.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Fee payment {{reference}}",
-      "body": "Hello {{firstName}}, we recorded your choice to pay {{amount}}. Payment instructions will follow after verification."
+      "body": "Hello {{firstName}}, we recorded your choice to pay {{amount}}. Payment instructions will follow after verification.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Request {{reference}} cancelled",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Payment scheduled {{reference}}",
-      "body": "Hello {{firstName}}, your payment of {{amount}} is scheduled for {{date}}. Your request stays pending."
+      "body": "Hello {{firstName}}, your payment of {{amount}} is scheduled for {{date}}. Your request stays pending.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Fee validated {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Insurance {{reference}}",
-      "body": "Hello {{firstName}}, insurance of {{amount}} per month is required for your file."
+      "body": "Hello {{firstName}}, insurance of {{amount}} per month is required for your file.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Insurance validated {{reference}}",
-      "body": "Hello {{firstName}}, your insurance has been validated."
+      "body": "Hello {{firstName}}, your insurance has been validated.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Application summary",
+      "reference": "Reference",
+      "amount": "Financed amount",
+      "duration": "Term",
+      "monthly": "Estimated instalment",
+      "status": "Application status",
+      "months": "months",
+      "feeAmount": "Amount concerned",
+      "scheduledDate": "Scheduled date",
+      "codeTitle": "Your one-time signature code",
+      "reasonTitle": "Details from our team",
+      "secureNotice": "This link is personal, encrypted and revocable. Never share it with anyone.",
+      "needHelp": "Any questions? Our client service replies from your secure area.",
+      "footerLegal": "Moonyp — responsible financing. This email relates to the follow-up of your application.",
+      "autoMessage": "Automated message — please do not reply directly to this email.",
+      "tagline": "Your financing, fully transparent"
+    },
+    "cta": {
+      "portal": "View my application",
+      "contract": "Read and sign my contract",
+      "guarantee": "Choose my coverage option",
+      "insurance": "Manage my insurance",
+      "payment": "Make my payment",
+      "documents": "Upload my documents"
+    },
+    "installmentReminder": {
+      "subject": "Upcoming instalment — file {{reference}}",
+      "body": "Hello {{firstName}}, your next instalment of {{amount}} is due on {{date}}.",
+      "details": "You can review your amortisation schedule and settle the instalment from your secure area."
     }
   },
   "workflow": {

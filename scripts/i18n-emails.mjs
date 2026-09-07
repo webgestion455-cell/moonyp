@@ -1,0 +1,189 @@
+/**
+ * Injection des clés d'emails transactionnels (bloc commun, boutons d'action,
+ * paragraphes détaillés) dans les 15 locales. Idempotent : relançable.
+ */
+import fs from "node:fs";
+import path from "node:path";
+
+const DIR = "src/i18n/locales";
+
+const T = {
+  fr: {
+    common: {
+      summary: "Récapitulatif du dossier",
+      reference: "Référence",
+      amount: "Montant financé",
+      duration: "Durée",
+      monthly: "Mensualité estimée",
+      status: "Statut du dossier",
+      months: "mois",
+      feeAmount: "Montant concerné",
+      scheduledDate: "Date prévue",
+      codeTitle: "Votre code de signature à usage unique",
+      reasonTitle: "Précisions de nos équipes",
+      secureNotice: "Ce lien est personnel, chiffré et révocable. Ne le transmettez à personne.",
+      needHelp: "Une question ? Notre service client vous répond depuis votre espace sécurisé.",
+      footerLegal: "Moonyp — financement responsable. Email envoyé dans le cadre du suivi de votre dossier.",
+      autoMessage: "Message automatique — merci de ne pas répondre directement à cet email.",
+      tagline: "Votre financement, en toute transparence",
+    },
+    cta: {
+      portal: "Consulter mon dossier",
+      contract: "Lire et signer mon contrat",
+      guarantee: "Choisir mon option de couverture",
+      insurance: "Gérer mon assurance",
+      payment: "Effectuer mon paiement",
+      documents: "Déposer mes documents",
+    },
+    installmentReminder: {
+      subject: "Échéance à venir — dossier {{reference}}",
+      body: "Bonjour {{firstName}}, votre prochaine échéance de {{amount}} est prévue le {{date}}.",
+      details: "Vous pouvez consulter votre tableau d'amortissement et régler votre échéance depuis votre espace sécurisé.",
+    },
+    details: {
+      contractSent:
+        "Votre contrat de financement est disponible en ligne. Vous pouvez le lire intégralement, le télécharger au format PDF, puis le signer électroniquement avec un code à usage unique envoyé par email. La signature est horodatée et archivée.",
+      signatureCode:
+        "Saisissez ce code sur la page de signature de votre contrat pour finaliser votre engagement. Le code expire au bout de 10 minutes et ne peut être utilisé qu'une seule fois.",
+      contractSigned:
+        "Votre contrat signé est archivé et téléchargeable à tout moment depuis votre espace sécurisé. Les prochaines étapes (couverture, assurance, décaissement) y sont également suivies en temps réel.",
+      guaranteeSent:
+        "La couverture du risque de crédit conditionne le déblocage des fonds. Depuis votre espace sécurisé, vous pouvez régler immédiatement, programmer le paiement à une date choisie, ou renoncer au financement.",
+      guaranteePayNow:
+        "Les instructions de paiement (bénéficiaire, IBAN, BIC et référence à rappeler) sont disponibles sur la page de paiement de votre espace sécurisé. Le justificatif peut y être déposé.",
+      guaranteePayLater:
+        "Votre dossier reste réservé jusqu'à la date choisie. Vous pouvez avancer le paiement à tout moment depuis votre espace sécurisé.",
+      insurancePending:
+        "L'assurance emprunteur couvre le décès, l'invalidité et la perte d'emploi selon les conditions du contrat. Retrouvez la garantie, la prime mensuelle et les modalités de règlement dans votre espace sécurisé.",
+      insuranceValidated:
+        "Votre assurance est validée et attachée à votre contrat. L'attestation est téléchargeable depuis votre espace sécurisé.",
+      offerAvailable:
+        "Votre offre détaille le montant, la durée, le taux annuel, la mensualité, le coût total et les frais. Elle reste valable jusqu'à la date indiquée dans votre espace sécurisé.",
+      approved: "Votre offre personnalisée puis votre contrat vous seront proposés dans votre espace sécurisé.",
+      documentsMissing: "Le dépôt se fait en quelques secondes, directement depuis votre téléphone ou votre ordinateur.",
+      disbursed: "Le virement est en route vers le compte que vous avez indiqué. Votre échéancier est disponible en ligne.",
+    },
+  },
+  en: {
+    common: {
+      summary: "Application summary",
+      reference: "Reference",
+      amount: "Financed amount",
+      duration: "Term",
+      monthly: "Estimated instalment",
+      status: "Application status",
+      months: "months",
+      feeAmount: "Amount concerned",
+      scheduledDate: "Scheduled date",
+      codeTitle: "Your one-time signature code",
+      reasonTitle: "Details from our team",
+      secureNotice: "This link is personal, encrypted and revocable. Never share it with anyone.",
+      needHelp: "Any questions? Our client service replies from your secure area.",
+      footerLegal: "Moonyp — responsible financing. This email relates to the follow-up of your application.",
+      autoMessage: "Automated message — please do not reply directly to this email.",
+      tagline: "Your financing, fully transparent",
+    },
+    cta: {
+      portal: "View my application",
+      contract: "Read and sign my contract",
+      guarantee: "Choose my coverage option",
+      insurance: "Manage my insurance",
+      payment: "Make my payment",
+      documents: "Upload my documents",
+    },
+    installmentReminder: {
+      subject: "Upcoming instalment — file {{reference}}",
+      body: "Hello {{firstName}}, your next instalment of {{amount}} is due on {{date}}.",
+      details: "You can review your amortisation schedule and settle the instalment from your secure area.",
+    },
+    details: {
+      contractSent:
+        "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      signatureCode:
+        "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      contractSigned:
+        "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      guaranteeSent:
+        "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      guaranteePayNow:
+        "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      guaranteePayLater:
+        "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      insurancePending:
+        "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      insuranceValidated:
+        "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      offerAvailable:
+        "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      approved: "Your personalised offer and then your contract will be made available in your secure area.",
+      documentsMissing: "Uploading takes seconds, straight from your phone or computer.",
+      disbursed: "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+    },
+  },
+};
+
+// Traductions des 13 autres langues, alignées sur la structure ci-dessus.
+const OTHERS = {
+  de: ["Zusammenfassung des Antrags","Referenz","Finanzierter Betrag","Laufzeit","Geschätzte Rate","Antragsstatus","Monate","Betreffender Betrag","Geplantes Datum","Ihr Einmal-Signaturcode","Hinweise unseres Teams","Dieser Link ist persönlich, verschlüsselt und widerrufbar. Geben Sie ihn nicht weiter.","Fragen? Unser Kundenservice antwortet in Ihrem sicheren Bereich.","Moonyp — verantwortungsvolle Finanzierung. Diese E-Mail betrifft Ihren Antrag.","Automatische Nachricht — bitte antworten Sie nicht direkt.","Ihre Finanzierung, vollkommen transparent","Meinen Antrag ansehen","Vertrag lesen und unterschreiben","Deckungsoption wählen","Versicherung verwalten","Zahlung durchführen","Dokumente hochladen","Nächste Rate — Akte {{reference}}","Hallo {{firstName}}, Ihre nächste Rate über {{amount}} ist am {{date}} fällig.","Tilgungsplan und Zahlung finden Sie in Ihrem sicheren Bereich."],
+  es: ["Resumen del expediente","Referencia","Importe financiado","Duración","Cuota estimada","Estado del expediente","meses","Importe afectado","Fecha prevista","Su código de firma de un solo uso","Detalles de nuestro equipo","Este enlace es personal, cifrado y revocable. No lo comparta.","¿Dudas? Nuestro servicio al cliente responde desde su espacio seguro.","Moonyp — financiación responsable. Este correo se refiere al seguimiento de su expediente.","Mensaje automático — no responda directamente a este correo.","Su financiación, con total transparencia","Ver mi expediente","Leer y firmar mi contrato","Elegir mi opción de cobertura","Gestionar mi seguro","Realizar mi pago","Subir mis documentos","Próximo vencimiento — expediente {{reference}}","Hola {{firstName}}, su próximo vencimiento de {{amount}} está previsto el {{date}}.","Consulte su cuadro de amortización y pague desde su espacio seguro."],
+  it: ["Riepilogo della pratica","Riferimento","Importo finanziato","Durata","Rata stimata","Stato della pratica","mesi","Importo interessato","Data prevista","Il tuo codice di firma monouso","Dettagli del nostro team","Questo link è personale, cifrato e revocabile. Non condividerlo.","Domande? Il servizio clienti risponde dalla tua area sicura.","Moonyp — finanziamento responsabile. Email relativa alla tua pratica.","Messaggio automatico — non rispondere direttamente.","Il tuo finanziamento, in piena trasparenza","Consulta la mia pratica","Leggi e firma il contratto","Scegli l'opzione di copertura","Gestisci l'assicurazione","Effettua il pagamento","Carica i documenti","Prossima rata — pratica {{reference}}","Ciao {{firstName}}, la prossima rata di {{amount}} scade il {{date}}.","Piano di ammortamento e pagamento nella tua area sicura."],
+  nl: ["Samenvatting dossier","Referentie","Gefinancierd bedrag","Looptijd","Geschatte termijn","Status dossier","maanden","Betrokken bedrag","Geplande datum","Uw eenmalige ondertekeningscode","Toelichting van ons team","Deze link is persoonlijk, versleuteld en intrekbaar. Deel hem niet.","Vragen? Onze klantenservice antwoordt in uw beveiligde omgeving.","Moonyp — verantwoord financieren. Deze e-mail betreft uw dossier.","Automatisch bericht — antwoord hier niet rechtstreeks op.","Uw financiering, volledig transparant","Mijn dossier bekijken","Contract lezen en ondertekenen","Dekkingsoptie kiezen","Verzekering beheren","Betaling uitvoeren","Documenten uploaden","Komende termijn — dossier {{reference}}","Hallo {{firstName}}, uw volgende termijn van {{amount}} vervalt op {{date}}.","Aflossingsschema en betaling in uw beveiligde omgeving."],
+  pl: ["Podsumowanie wniosku","Numer","Kwota finansowania","Okres","Szacowana rata","Status wniosku","mies.","Kwota","Planowana data","Jednorazowy kod podpisu","Szczegóły od naszego zespołu","Ten link jest osobisty, szyfrowany i odwoływalny. Nie udostępniaj go.","Pytania? Obsługa klienta odpowie w Twojej bezpiecznej strefie.","Moonyp — odpowiedzialne finansowanie. Wiadomość dotyczy Twojego wniosku.","Wiadomość automatyczna — prosimy nie odpowiadać.","Twoje finansowanie, w pełnej przejrzystości","Zobacz mój wniosek","Przeczytaj i podpisz umowę","Wybierz opcję zabezpieczenia","Zarządzaj ubezpieczeniem","Wykonaj płatność","Prześlij dokumenty","Zbliżająca się rata — wniosek {{reference}}","Witaj {{firstName}}, kolejna rata {{amount}} przypada {{date}}.","Harmonogram spłat i płatność w bezpiecznej strefie."],
+  ro: ["Rezumatul dosarului","Referință","Sumă finanțată","Durată","Rată estimată","Statutul dosarului","luni","Sumă vizată","Dată programată","Codul dvs. de semnătură unic","Detalii de la echipa noastră","Acest link este personal, criptat și revocabil. Nu îl distribuiți.","Întrebări? Serviciul clienți răspunde din spațiul dvs. securizat.","Moonyp — finanțare responsabilă. Email privind dosarul dumneavoastră.","Mesaj automat — nu răspundeți direct.","Finanțarea dvs., pe deplin transparentă","Vezi dosarul meu","Citește și semnează contractul","Alege opțiunea de acoperire","Gestionează asigurarea","Efectuează plata","Încarcă documentele","Rată apropiată — dosar {{reference}}","Bună {{firstName}}, următoarea rată de {{amount}} este scadentă la {{date}}.","Graficul de rambursare și plata în spațiul securizat."],
+  el: ["Σύνοψη αίτησης","Αριθμός","Χρηματοδοτούμενο ποσό","Διάρκεια","Εκτιμώμενη δόση","Κατάσταση αίτησης","μήνες","Σχετικό ποσό","Προγραμματισμένη ημερομηνία","Ο μοναδικός κωδικός υπογραφής","Διευκρινίσεις της ομάδας μας","Ο σύνδεσμος είναι προσωπικός, κρυπτογραφημένος και ανακλητός. Μην τον κοινοποιείτε.","Ερωτήσεις; Η εξυπηρέτηση πελατών απαντά στον ασφαλή χώρο σας.","Moonyp — υπεύθυνη χρηματοδότηση. Email σχετικά με την αίτησή σας.","Αυτόματο μήνυμα — μην απαντάτε απευθείας.","Η χρηματοδότησή σας, με πλήρη διαφάνεια","Δείτε την αίτησή μου","Διαβάστε και υπογράψτε το συμβόλαιο","Επιλέξτε κάλυψη","Διαχείριση ασφάλισης","Πραγματοποιήστε πληρωμή","Ανεβάστε έγγραφα","Επερχόμενη δόση — αίτηση {{reference}}","Γεια σας {{firstName}}, η επόμενη δόση {{amount}} λήγει στις {{date}}.","Πίνακας αποπληρωμής και πληρωμή στον ασφαλή χώρο σας."],
+  bg: ["Обобщение на досието","Референция","Финансирана сума","Срок","Прогнозна вноска","Статус на досието","месеца","Съответна сума","Планирана дата","Вашият еднократен код за подпис","Уточнения от нашия екип","Връзката е лична, криптирана и отменяема. Не я споделяйте.","Въпроси? Обслужването на клиенти отговаря във вашата защитена зона.","Moonyp — отговорно финансиране. Имейл относно вашето досие.","Автоматично съобщение — моля, не отговаряйте директно.","Вашето финансиране, напълно прозрачно","Виж моето досие","Прочети и подпиши договора","Избери опция за покритие","Управление на застраховката","Извърши плащане","Качи документи","Предстояща вноска — досие {{reference}}","Здравейте {{firstName}}, следващата вноска от {{amount}} е на {{date}}.","Погасителен план и плащане във вашата защитена зона."],
+  fi: ["Hakemuksen yhteenveto","Viite","Rahoitettu määrä","Kesto","Arvioitu erä","Hakemuksen tila","kuukautta","Kyseinen summa","Suunniteltu päivä","Kertakäyttöinen allekirjoituskoodi","Tiimimme tarkennukset","Linkki on henkilökohtainen, salattu ja peruutettavissa. Älä jaa sitä.","Kysyttävää? Asiakaspalvelu vastaa turvallisessa tilassasi.","Moonyp — vastuullista rahoitusta. Sähköposti koskee hakemustasi.","Automaattiviesti — älä vastaa suoraan.","Rahoituksesi, täysin läpinäkyvästi","Katso hakemukseni","Lue ja allekirjoita sopimus","Valitse kattavuus","Hallinnoi vakuutusta","Tee maksu","Lataa asiakirjat","Tuleva erä — hakemus {{reference}}","Hei {{firstName}}, seuraava erä {{amount}} erääntyy {{date}}.","Maksusuunnitelma ja maksaminen turvallisessa tilassasi."],
+  hr: ["Sažetak predmeta","Referenca","Financirani iznos","Trajanje","Procijenjena rata","Status predmeta","mjeseci","Predmetni iznos","Planirani datum","Vaš jednokratni kod za potpis","Pojašnjenja našeg tima","Poveznica je osobna, šifrirana i opoziva. Nemojte je dijeliti.","Pitanja? Korisnička služba odgovara u vašem sigurnom prostoru.","Moonyp — odgovorno financiranje. E-pošta vezana uz vaš predmet.","Automatska poruka — nemojte odgovarati izravno.","Vaše financiranje, potpuno transparentno","Pogledaj moj predmet","Pročitaj i potpiši ugovor","Odaberi opciju pokrića","Upravljaj osiguranjem","Izvrši plaćanje","Učitaj dokumente","Nadolazeća rata — predmet {{reference}}","Pozdrav {{firstName}}, sljedeća rata od {{amount}} dospijeva {{date}}.","Plan otplate i plaćanje u vašem sigurnom prostoru."],
+  hu: ["Ügylet összefoglalója","Hivatkozás","Finanszírozott összeg","Futamidő","Becsült törlesztő","Ügylet státusza","hónap","Érintett összeg","Tervezett dátum","Egyszeri aláírási kódja","Csapatunk pontosításai","A link személyes, titkosított és visszavonható. Ne ossza meg.","Kérdése van? Ügyfélszolgálatunk a biztonságos felületén válaszol.","Moonyp — felelős finanszírozás. Ez az e-mail az ügyletére vonatkozik.","Automatikus üzenet — kérjük, ne válaszoljon rá.","Az Ön finanszírozása, teljes átláthatósággal","Ügyletem megtekintése","Szerződés elolvasása és aláírása","Fedezeti opció választása","Biztosítás kezelése","Fizetés végrehajtása","Dokumentumok feltöltése","Közelgő törlesztés — ügylet {{reference}}","Üdvözöljük {{firstName}}, a következő {{amount}} törlesztés esedékessége {{date}}.","Törlesztési terv és fizetés a biztonságos felületén."],
+  sk: ["Zhrnutie žiadosti","Referencia","Financovaná suma","Doba","Odhadovaná splátka","Stav žiadosti","mesiacov","Dotknutá suma","Plánovaný dátum","Váš jednorazový podpisový kód","Spresnenia nášho tímu","Odkaz je osobný, šifrovaný a odvolateľný. Nezdieľajte ho.","Otázky? Zákaznícky servis odpovedá vo vašej zabezpečenej zóne.","Moonyp — zodpovedné financovanie. E-mail sa týka vašej žiadosti.","Automatická správa — neodpovedajte priamo.","Vaše financovanie, úplne transparentne","Zobraziť moju žiadosť","Prečítať a podpísať zmluvu","Vybrať možnosť krytia","Spravovať poistenie","Vykonať platbu","Nahrať dokumenty","Blížiaca sa splátka — žiadosť {{reference}}","Dobrý deň {{firstName}}, ďalšia splátka {{amount}} je splatná {{date}}.","Splátkový kalendár a platba vo vašej zabezpečenej zóne."],
+  sl: ["Povzetek vloge","Sklic","Financirani znesek","Trajanje","Ocenjeni obrok","Status vloge","mesecev","Zadevni znesek","Načrtovani datum","Vaša enkratna koda za podpis","Pojasnila naše ekipe","Povezava je osebna, šifrirana in preklicljiva. Ne delite je.","Vprašanja? Podpora odgovarja v vašem varnem prostoru.","Moonyp — odgovorno financiranje. E-pošta se nanaša na vašo vlogo.","Samodejno sporočilo — nanj ne odgovarjajte.","Vaše financiranje, popolnoma pregledno","Ogled moje vloge","Preberi in podpiši pogodbo","Izberi možnost kritja","Upravljaj zavarovanje","Izvedi plačilo","Naloži dokumente","Prihajajoči obrok — vloga {{reference}}","Pozdravljeni {{firstName}}, naslednji obrok {{amount}} zapade {{date}}.","Amortizacijski načrt in plačilo v vašem varnem prostoru."],
+};
+
+const COMMON_ORDER = [
+  "summary","reference","amount","duration","monthly","status","months","feeAmount","scheduledDate",
+  "codeTitle","reasonTitle","secureNotice","needHelp","footerLegal","autoMessage","tagline",
+];
+const CTA_ORDER = ["portal","contract","guarantee","insurance","payment","documents"];
+
+function buildFromArray(arr) {
+  const common = {};
+  COMMON_ORDER.forEach((k, i) => (common[k] = arr[i]));
+  const cta = {};
+  CTA_ORDER.forEach((k, i) => (cta[k] = arr[COMMON_ORDER.length + i]));
+  const base = COMMON_ORDER.length + CTA_ORDER.length;
+  return {
+    common,
+    cta,
+    installmentReminder: { subject: arr[base], body: arr[base + 1], details: arr[base + 2] },
+  };
+}
+
+const DETAIL_KEYS = Object.keys(T.fr.details);
+
+for (const file of fs.readdirSync(DIR)) {
+  if (!file.endsWith(".json")) continue;
+  const lang = file.replace(".json", "");
+  const p = path.join(DIR, file);
+  const json = JSON.parse(fs.readFileSync(p, "utf8"));
+  json.emails ??= {};
+
+  let pack;
+  if (T[lang]) pack = { common: T[lang].common, cta: T[lang].cta, installmentReminder: T[lang].installmentReminder };
+  else if (OTHERS[lang]) pack = buildFromArray(OTHERS[lang]);
+  else pack = { common: T.en.common, cta: T.en.cta, installmentReminder: T.en.installmentReminder };
+
+  json.emails.common = { ...pack.common };
+  json.emails.cta = { ...pack.cta };
+  json.emails.installmentReminder = { ...pack.installmentReminder };
+
+  // Paragraphes détaillés : traduits pour fr/en, repli anglais ailleurs
+  // (le moteur serveur retombe déjà sur en puis fr si une clé manque).
+  const detailSource = lang === "fr" ? T.fr.details : T.en.details;
+  for (const k of DETAIL_KEYS) {
+    json.emails[k] ??= {};
+    json.emails[k].details = detailSource[k];
+  }
+
+  fs.writeFileSync(p, JSON.stringify(json, null, 2) + "\n");
+  console.log("updated", file);
+}

@@ -10,7 +10,8 @@ const resend = new Resend(resendApiKey);
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type",
 };
 
 Deno.serve(async (req: Request) => {
@@ -21,7 +22,7 @@ Deno.serve(async (req: Request) => {
   try {
     const { data: emails, error: fetchError } = await supabase
       .from("transactional_emails")
-      .select("id, application_id, to_email, subject, body, status")
+      .select("id, application_id, to_email, subject, body, payload, status")
       .is("sent_at", null)
       .is("error", null)
       .order("created_at", { ascending: true })
@@ -66,11 +67,20 @@ Deno.serve(async (req: Request) => {
           throw updateProcessingError;
         }
 
+        const payload =
+          email.payload && typeof email.payload === "object"
+            ? email.payload
+            : {};
+
+        const text =
+          typeof payload.text === "string" ? payload.text : undefined;
+
         const { data, error } = await resend.emails.send({
           from: "Moonyp <no-reply@zenvoriax.com>",
           to: [email.to_email],
           subject: email.subject,
-          html: email.body.replace(/\n/g, "<br>"),
+          html: email.body,
+          ...(text ? { text } : {}),
         });
 
         if (error) {
@@ -144,3 +154,4 @@ Deno.serve(async (req: Request) => {
     );
   }
 });
+

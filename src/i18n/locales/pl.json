@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Brakujące dokumenty — sprawa {{reference}}",
-      "body": "Cześć {{firstName}}, w sprawie {{reference}} brakuje dokumentów. Prześlij je w swojej bezpiecznej strefie. {{reason}}"
+      "body": "Cześć {{firstName}}, w sprawie {{reference}} brakuje dokumentów. Prześlij je w swojej bezpiecznej strefie. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Dodatkowe informacje — sprawa {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Twój wniosek {{reference}} został zatwierdzony",
-      "body": "Cześć {{firstName}}, Twój wniosek {{reference}} został zatwierdzony. Oferta pojawi się w bezpiecznej strefie."
+      "body": "Cześć {{firstName}}, Twój wniosek {{reference}} został zatwierdzony. Oferta pojawi się w bezpiecznej strefie.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Decyzja w sprawie wniosku {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Twoja oferta {{reference}} jest dostępna",
-      "body": "Cześć {{firstName}}, Twoja oferta finansowania {{reference}} jest dostępna w bezpiecznej strefie."
+      "body": "Cześć {{firstName}}, Twoja oferta finansowania {{reference}} jest dostępna w bezpiecznej strefie.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Twoja umowa {{reference}} czeka",
-      "body": "Cześć {{firstName}}, umowa {{reference}} jest gotowa do podpisu w bezpiecznej strefie."
+      "body": "Cześć {{firstName}}, umowa {{reference}} jest gotowa do podpisu w bezpiecznej strefie.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Środki wypłacone — sprawa {{reference}}",
-      "body": "Cześć {{firstName}}, środki ze sprawy {{reference}} zostały przelane na Twoje konto."
+      "body": "Cześć {{firstName}}, środki ze sprawy {{reference}} zostały przelane na Twoje konto.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Twój kod podpisu {{reference}}",
-      "body": "Cześć {{firstName}}, Twój kod podpisu to {{code}}. Wygasa za 10 minut."
+      "body": "Cześć {{firstName}}, Twój kod podpisu to {{code}}. Wygasa za 10 minut.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Umowa {{reference}} podpisana",
-      "body": "Cześć {{firstName}}, umowa {{reference}} została podpisana. Możesz ją pobrać w bezpiecznej strefie."
+      "body": "Cześć {{firstName}}, umowa {{reference}} została podpisana. Możesz ją pobrać w bezpiecznej strefie.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Opłata za pokrycie — wniosek {{reference}}",
-      "body": "Cześć {{firstName}}, opłata za pokrycie ryzyka kredytowego wynosi {{amount}}. Wybierz opcję w bezpiecznej strefie."
+      "body": "Cześć {{firstName}}, opłata za pokrycie ryzyka kredytowego wynosi {{amount}}. Wybierz opcję w bezpiecznej strefie.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Płatność opłaty {{reference}}",
-      "body": "Cześć {{firstName}}, zapisaliśmy wybór zapłaty {{amount}}. Instrukcje otrzymasz po weryfikacji."
+      "body": "Cześć {{firstName}}, zapisaliśmy wybór zapłaty {{amount}}. Instrukcje otrzymasz po weryfikacji.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Wniosek {{reference}} anulowany",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Płatność zaplanowana {{reference}}",
-      "body": "Cześć {{firstName}}, płatność {{amount}} zaplanowano na {{date}}. Wniosek pozostaje w toku."
+      "body": "Cześć {{firstName}}, płatność {{amount}} zaplanowano na {{date}}. Wniosek pozostaje w toku.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Opłata zatwierdzona {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Ubezpieczenie {{reference}}",
-      "body": "Cześć {{firstName}}, wymagane jest ubezpieczenie {{amount}} miesięcznie."
+      "body": "Cześć {{firstName}}, wymagane jest ubezpieczenie {{amount}} miesięcznie.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Ubezpieczenie zatwierdzone {{reference}}",
-      "body": "Cześć {{firstName}}, Twoje ubezpieczenie zostało zatwierdzone."
+      "body": "Cześć {{firstName}}, Twoje ubezpieczenie zostało zatwierdzone.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Podsumowanie wniosku",
+      "reference": "Numer",
+      "amount": "Kwota finansowania",
+      "duration": "Okres",
+      "monthly": "Szacowana rata",
+      "status": "Status wniosku",
+      "months": "mies.",
+      "feeAmount": "Kwota",
+      "scheduledDate": "Planowana data",
+      "codeTitle": "Jednorazowy kod podpisu",
+      "reasonTitle": "Szczegóły od naszego zespołu",
+      "secureNotice": "Ten link jest osobisty, szyfrowany i odwoływalny. Nie udostępniaj go.",
+      "needHelp": "Pytania? Obsługa klienta odpowie w Twojej bezpiecznej strefie.",
+      "footerLegal": "Moonyp — odpowiedzialne finansowanie. Wiadomość dotyczy Twojego wniosku.",
+      "autoMessage": "Wiadomość automatyczna — prosimy nie odpowiadać.",
+      "tagline": "Twoje finansowanie, w pełnej przejrzystości"
+    },
+    "cta": {
+      "portal": "Zobacz mój wniosek",
+      "contract": "Przeczytaj i podpisz umowę",
+      "guarantee": "Wybierz opcję zabezpieczenia",
+      "insurance": "Zarządzaj ubezpieczeniem",
+      "payment": "Wykonaj płatność",
+      "documents": "Prześlij dokumenty"
+    },
+    "installmentReminder": {
+      "subject": "Zbliżająca się rata — wniosek {{reference}}",
+      "body": "Witaj {{firstName}}, kolejna rata {{amount}} przypada {{date}}.",
+      "details": "Harmonogram spłat i płatność w bezpiecznej strefie."
     }
   },
   "workflow": {

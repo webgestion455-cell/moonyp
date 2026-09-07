@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Documentos faltantes — expediente {{reference}}",
-      "body": "Hola {{firstName}}, faltan documentos en su expediente {{reference}}. Súbalos desde su espacio seguro. {{reason}}"
+      "body": "Hola {{firstName}}, faltan documentos en su expediente {{reference}}. Súbalos desde su espacio seguro. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Información adicional — expediente {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Su solicitud {{reference}} ha sido aprobada",
-      "body": "Hola {{firstName}}, su solicitud {{reference}} ha sido aprobada. Su oferta estará disponible en su espacio seguro."
+      "body": "Hola {{firstName}}, su solicitud {{reference}} ha sido aprobada. Su oferta estará disponible en su espacio seguro.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Decisión sobre su solicitud {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Su oferta {{reference}} está disponible",
-      "body": "Hola {{firstName}}, su oferta de financiación {{reference}} está disponible en su espacio seguro."
+      "body": "Hola {{firstName}}, su oferta de financiación {{reference}} está disponible en su espacio seguro.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Su contrato {{reference}} le espera",
-      "body": "Hola {{firstName}}, su contrato {{reference}} está listo para firmar en su espacio seguro."
+      "body": "Hola {{firstName}}, su contrato {{reference}} está listo para firmar en su espacio seguro.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Fondos liberados — expediente {{reference}}",
-      "body": "Hola {{firstName}}, los fondos de su expediente {{reference}} han sido transferidos a su cuenta."
+      "body": "Hola {{firstName}}, los fondos de su expediente {{reference}} han sido transferidos a su cuenta.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Su código de firma {{reference}}",
-      "body": "Hola {{firstName}}, su código de firma es {{code}}. Caduca en 10 minutos."
+      "body": "Hola {{firstName}}, su código de firma es {{code}}. Caduca en 10 minutos.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Contrato {{reference}} firmado",
-      "body": "Hola {{firstName}}, su contrato {{reference}} ha sido firmado. Puede descargarlo desde su área segura."
+      "body": "Hola {{firstName}}, su contrato {{reference}} ha sido firmado. Puede descargarlo desde su área segura.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Gastos de cobertura — expediente {{reference}}",
-      "body": "Hola {{firstName}}, los gastos de cobertura del riesgo de crédito ascienden a {{amount}}. Elija su opción en su área segura."
+      "body": "Hola {{firstName}}, los gastos de cobertura del riesgo de crédito ascienden a {{amount}}. Elija su opción en su área segura.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Pago de gastos {{reference}}",
-      "body": "Hola {{firstName}}, hemos registrado su elección de pagar {{amount}}. Las instrucciones de pago llegarán tras la verificación."
+      "body": "Hola {{firstName}}, hemos registrado su elección de pagar {{amount}}. Las instrucciones de pago llegarán tras la verificación.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Solicitud {{reference}} anulada",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Pago programado {{reference}}",
-      "body": "Hola {{firstName}}, su pago de {{amount}} está previsto para el {{date}}. Su solicitud sigue en espera."
+      "body": "Hola {{firstName}}, su pago de {{amount}} está previsto para el {{date}}. Su solicitud sigue en espera.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Gastos validados {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Seguro {{reference}}",
-      "body": "Hola {{firstName}}, se requiere un seguro de {{amount}} al mes para su expediente."
+      "body": "Hola {{firstName}}, se requiere un seguro de {{amount}} al mes para su expediente.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Seguro validado {{reference}}",
-      "body": "Hola {{firstName}}, su seguro ha sido validado."
+      "body": "Hola {{firstName}}, su seguro ha sido validado.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Resumen del expediente",
+      "reference": "Referencia",
+      "amount": "Importe financiado",
+      "duration": "Duración",
+      "monthly": "Cuota estimada",
+      "status": "Estado del expediente",
+      "months": "meses",
+      "feeAmount": "Importe afectado",
+      "scheduledDate": "Fecha prevista",
+      "codeTitle": "Su código de firma de un solo uso",
+      "reasonTitle": "Detalles de nuestro equipo",
+      "secureNotice": "Este enlace es personal, cifrado y revocable. No lo comparta.",
+      "needHelp": "¿Dudas? Nuestro servicio al cliente responde desde su espacio seguro.",
+      "footerLegal": "Moonyp — financiación responsable. Este correo se refiere al seguimiento de su expediente.",
+      "autoMessage": "Mensaje automático — no responda directamente a este correo.",
+      "tagline": "Su financiación, con total transparencia"
+    },
+    "cta": {
+      "portal": "Ver mi expediente",
+      "contract": "Leer y firmar mi contrato",
+      "guarantee": "Elegir mi opción de cobertura",
+      "insurance": "Gestionar mi seguro",
+      "payment": "Realizar mi pago",
+      "documents": "Subir mis documentos"
+    },
+    "installmentReminder": {
+      "subject": "Próximo vencimiento — expediente {{reference}}",
+      "body": "Hola {{firstName}}, su próximo vencimiento de {{amount}} está previsto el {{date}}.",
+      "details": "Consulte su cuadro de amortización y pague desde su espacio seguro."
     }
   },
   "workflow": {

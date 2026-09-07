@@ -2098,7 +2098,8 @@
     },
     "documentsMissing": {
       "subject": "Ελλιπή έγγραφα — φάκελος {{reference}}",
-      "body": "Γεια σας {{firstName}}, λείπουν έγγραφα από τον φάκελο {{reference}}. Ανεβάστε τα από την ασφαλή περιοχή. {{reason}}"
+      "body": "Γεια σας {{firstName}}, λείπουν έγγραφα από τον φάκελο {{reference}}. Ανεβάστε τα από την ασφαλή περιοχή. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer."
     },
     "infoRequested": {
       "subject": "Πρόσθετες πληροφορίες — φάκελος {{reference}}",
@@ -2106,7 +2107,8 @@
     },
     "approved": {
       "subject": "Η αίτηση {{reference}} εγκρίθηκε",
-      "body": "Γεια σας {{firstName}}, η αίτηση {{reference}} εγκρίθηκε. Η προσφορά θα είναι διαθέσιμη στην ασφαλή περιοχή."
+      "body": "Γεια σας {{firstName}}, η αίτηση {{reference}} εγκρίθηκε. Η προσφορά θα είναι διαθέσιμη στην ασφαλή περιοχή.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area."
     },
     "rejected": {
       "subject": "Απόφαση για την αίτηση {{reference}}",
@@ -2114,31 +2116,38 @@
     },
     "offerAvailable": {
       "subject": "Η προσφορά σας {{reference}} είναι διαθέσιμη",
-      "body": "Γεια σας {{firstName}}, η προσφορά χρηματοδότησης {{reference}} είναι διαθέσιμη στην ασφαλή περιοχή."
+      "body": "Γεια σας {{firstName}}, η προσφορά χρηματοδότησης {{reference}} είναι διαθέσιμη στην ασφαλή περιοχή.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
     },
     "contractSent": {
       "subject": "Το συμβόλαιό σας {{reference}} είναι έτοιμο",
-      "body": "Γεια σας {{firstName}}, το συμβόλαιο {{reference}} είναι έτοιμο προς υπογραφή στην ασφαλή περιοχή."
+      "body": "Γεια σας {{firstName}}, το συμβόλαιο {{reference}} είναι έτοιμο προς υπογραφή στην ασφαλή περιοχή.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
     },
     "disbursed": {
       "subject": "Εκταμίευση — φάκελος {{reference}}",
-      "body": "Γεια σας {{firstName}}, τα κεφάλαια του φακέλου {{reference}} μεταφέρθηκαν στον λογαριασμό σας."
+      "body": "Γεια σας {{firstName}}, τα κεφάλαια του φακέλου {{reference}} μεταφέρθηκαν στον λογαριασμό σας.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
     },
     "signatureCode": {
       "subject": "Ο κωδικός υπογραφής σας {{reference}}",
-      "body": "Γεια σας {{firstName}}, ο κωδικός υπογραφής είναι {{code}}. Λήγει σε 10 λεπτά."
+      "body": "Γεια σας {{firstName}}, ο κωδικός υπογραφής είναι {{code}}. Λήγει σε 10 λεπτά.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
     },
     "contractSigned": {
       "subject": "Η σύμβαση {{reference}} υπογράφηκε",
-      "body": "Γεια σας {{firstName}}, η σύμβαση {{reference}} υπογράφηκε. Μπορείτε να τη λάβετε από τον ασφαλή χώρο σας."
+      "body": "Γεια σας {{firstName}}, η σύμβαση {{reference}} υπογράφηκε. Μπορείτε να τη λάβετε από τον ασφαλή χώρο σας.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
     },
     "guaranteeSent": {
       "subject": "Τέλος κάλυψης — φάκελος {{reference}}",
-      "body": "Γεια σας {{firstName}}, το τέλος κάλυψης πιστωτικού κινδύνου είναι {{amount}}. Επιλέξτε από τον ασφαλή χώρο σας."
+      "body": "Γεια σας {{firstName}}, το τέλος κάλυψης πιστωτικού κινδύνου είναι {{amount}}. Επιλέξτε από τον ασφαλή χώρο σας.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
     },
     "guaranteePayNow": {
       "subject": "Πληρωμή τέλους {{reference}}",
-      "body": "Γεια σας {{firstName}}, καταγράψαμε την επιλογή πληρωμής {{amount}}. Οι οδηγίες θα σταλούν μετά τον έλεγχο."
+      "body": "Γεια σας {{firstName}}, καταγράψαμε την επιλογή πληρωμής {{amount}}. Οι οδηγίες θα σταλούν μετά τον έλεγχο.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
     },
     "guaranteeDeclined": {
       "subject": "Το αίτημα {{reference}} ακυρώθηκε",
@@ -2146,7 +2155,8 @@
     },
     "guaranteePayLater": {
       "subject": "Προγραμματισμένη πληρωμή {{reference}}",
-      "body": "Γεια σας {{firstName}}, η πληρωμή {{amount}} έχει προγραμματιστεί για {{date}}. Το αίτημα παραμένει σε αναμονή."
+      "body": "Γεια σας {{firstName}}, η πληρωμή {{amount}} έχει προγραμματιστεί για {{date}}. Το αίτημα παραμένει σε αναμονή.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
     },
     "guaranteePaymentValidated": {
       "subject": "Τέλος επικυρώθηκε {{reference}}",
@@ -2158,11 +2168,44 @@
     },
     "insurancePending": {
       "subject": "Ασφάλιση {{reference}}",
-      "body": "Γεια σας {{firstName}}, απαιτείται ασφάλιση {{amount}} τον μήνα."
+      "body": "Γεια σας {{firstName}}, απαιτείται ασφάλιση {{amount}} τον μήνα.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
     },
     "insuranceValidated": {
       "subject": "Ασφάλιση επικυρώθηκε {{reference}}",
-      "body": "Γεια σας {{firstName}}, η ασφάλισή σας επικυρώθηκε."
+      "body": "Γεια σας {{firstName}}, η ασφάλισή σας επικυρώθηκε.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
+    },
+    "common": {
+      "summary": "Σύνοψη αίτησης",
+      "reference": "Αριθμός",
+      "amount": "Χρηματοδοτούμενο ποσό",
+      "duration": "Διάρκεια",
+      "monthly": "Εκτιμώμενη δόση",
+      "status": "Κατάσταση αίτησης",
+      "months": "μήνες",
+      "feeAmount": "Σχετικό ποσό",
+      "scheduledDate": "Προγραμματισμένη ημερομηνία",
+      "codeTitle": "Ο μοναδικός κωδικός υπογραφής",
+      "reasonTitle": "Διευκρινίσεις της ομάδας μας",
+      "secureNotice": "Ο σύνδεσμος είναι προσωπικός, κρυπτογραφημένος και ανακλητός. Μην τον κοινοποιείτε.",
+      "needHelp": "Ερωτήσεις; Η εξυπηρέτηση πελατών απαντά στον ασφαλή χώρο σας.",
+      "footerLegal": "Moonyp — υπεύθυνη χρηματοδότηση. Email σχετικά με την αίτησή σας.",
+      "autoMessage": "Αυτόματο μήνυμα — μην απαντάτε απευθείας.",
+      "tagline": "Η χρηματοδότησή σας, με πλήρη διαφάνεια"
+    },
+    "cta": {
+      "portal": "Δείτε την αίτησή μου",
+      "contract": "Διαβάστε και υπογράψτε το συμβόλαιο",
+      "guarantee": "Επιλέξτε κάλυψη",
+      "insurance": "Διαχείριση ασφάλισης",
+      "payment": "Πραγματοποιήστε πληρωμή",
+      "documents": "Ανεβάστε έγγραφα"
+    },
+    "installmentReminder": {
+      "subject": "Επερχόμενη δόση — αίτηση {{reference}}",
+      "body": "Γεια σας {{firstName}}, η επόμενη δόση {{amount}} λήγει στις {{date}}.",
+      "details": "Πίνακας αποπληρωμής και πληρωμή στον ασφαλή χώρο σας."
     }
   },
   "workflow": {
