@@ -18,7 +18,7 @@ function requestIp(): string | null {
 }
 
 function siteUrl(): string {
-  return process.env["PUBLIC_SITE_URL"] ?? "https://moonyp.webgestion95.workers.dev";
+  return process.env["PUBLIC_SITE_URL"] ?? "https://moonyp.com";
 }
 
 async function assertStaff(
@@ -378,6 +378,7 @@ export const requestContractSignature = createServerFn({ method: "POST" })
           reference: app.reference,
           firstName: app.first_name ?? "",
           code: created.outOfBandCode,
+          link: `${siteUrl()}/${(app.language ?? "en").slice(0, 2).toLowerCase()}/secure/application/${await server.issuePortalToken(applicationId, "contract")}/contract`,
           reason: "",
         },
       });
@@ -537,7 +538,12 @@ export const signContract = createServerFn({ method: "POST" })
         to: app.email,
         locale: app.language,
         template: "contractSigned",
-        vars: { reference: app.reference, firstName: app.first_name ?? "", reason: "" },
+        vars: {
+          reference: app.reference,
+          firstName: app.first_name ?? "",
+          link: `${siteUrl()}/${(app.language ?? "en").slice(0, 2).toLowerCase()}/secure/application/${await server.issuePortalToken(applicationId, "contract")}/contract`,
+          reason: "",
+        },
       });
     }
 

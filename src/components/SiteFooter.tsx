@@ -1,24 +1,26 @@
 import { Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/lib/use-lang";
 import { Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 import moonypLogo from "@/assets/moonyp-logo.png";
 
 const LEGAL_LINKS = [
-  { to: "/legal/privacy", key: "footer.privacy" },
-  { to: "/legal/terms", key: "footer.terms" },
-  { to: "/legal/cookies", key: "footer.cookies" },
-  { to: "/legal/mentions", key: "footer.mentions" },
+  { to: "/$lang/legal/privacy", key: "footer.privacy" },
+  { to: "/$lang/legal/terms", key: "footer.terms" },
+  { to: "/$lang/legal/cookies", key: "footer.cookies" },
+  { to: "/$lang/legal/mentions", key: "footer.mentions" },
 ] as const;
 
 const BANKING_LINKS = [
-  { to: "/legal/loan-terms", key: "footer.loanTerms" },
-  { to: "/legal/repayment", key: "footer.repayment" },
-  { to: "/legal/aml-kyc", key: "footer.aml" },
-  { to: "/legal/financial-privacy", key: "footer.finPriv" },
+  { to: "/$lang/legal/loan-terms", key: "footer.loanTerms" },
+  { to: "/$lang/legal/repayment", key: "footer.repayment" },
+  { to: "/$lang/legal/aml-kyc", key: "footer.aml" },
+  { to: "/$lang/legal/financial-privacy", key: "footer.finPriv" },
 ] as const;
 
 export function SiteFooter() {
   const { t } = useTranslation();
+  const lang = useLang();
   const year = new Date().getFullYear();
 
   return (
@@ -53,7 +55,7 @@ export function SiteFooter() {
             <ul className="mt-3 space-y-2 text-[12px] text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
               {LEGAL_LINKS.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="block break-words transition-colors hover:text-accent">
+                  <Link to={l.to} params={{ lang }} className="block break-words transition-colors hover:text-accent">
                     {t(l.key)}
                   </Link>
                 </li>
@@ -68,7 +70,7 @@ export function SiteFooter() {
             <ul className="mt-3 space-y-2 text-[12px] text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
               {BANKING_LINKS.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="block break-words transition-colors hover:text-accent">
+                  <Link to={l.to} params={{ lang }} className="block break-words transition-colors hover:text-accent">
                     {t(l.key)}
                   </Link>
                 </li>
@@ -82,7 +84,7 @@ export function SiteFooter() {
             </p>
             <ul className="mt-3 space-y-2 text-[12px] text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
               <li>
-                <Link to="/contact" className="block break-words transition-colors hover:text-accent">
+                <Link to="/$lang/contact" params={{ lang }} className="block break-words transition-colors hover:text-accent">
                   {t("footer.contactForm")}
                 </Link>
               </li>

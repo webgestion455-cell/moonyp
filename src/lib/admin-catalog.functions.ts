@@ -6,7 +6,7 @@ async function assertStaff(
   supabase: { rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown }> },
   userId: string,
 ) {
-  const { data } = await supabase.rpc("has_role", { _user_id: userId, _role: "admin" });
+  const { data } = await supabase.rpc("is_staff", { _user_id: userId });
   if (data !== true) throw new Error("forbidden");
 }
 

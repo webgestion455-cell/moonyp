@@ -69,6 +69,7 @@ const CTA_BY_TEMPLATE: Record<string, { path: "" | "/contract" | "/payment"; lab
   insuranceValidated: { path: "", label: "portal" },
   disbursed: { path: "", label: "portal" },
   repaymentReminder: { path: "/payment", label: "payment" },
+  installmentReminder: { path: "/payment", label: "payment" },
   guaranteeReminder: { path: "/payment", label: "payment" },
 };
 

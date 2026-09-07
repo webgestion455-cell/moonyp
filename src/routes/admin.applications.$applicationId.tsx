@@ -12,11 +12,13 @@ import { useTranslation } from "react-i18next";
 import { statusLabel, type ApplicationStatus } from "@/lib/application-status";
 import {
   nextStatuses,
+  DECISION_STATUSES,
   REASON_REQUIRED,
   INFO_REQUEST_KINDS,
   type InfoRequestKind,
   type WorkflowContext,
 } from "@/lib/application-workflow";
+
 import {
   adminAddInternalNote,
   adminCreateInfoRequest,
@@ -104,6 +106,17 @@ function ApplicationDetail() {
   const blockers = transitions.filter((tr) => !tr.check.ok && tr.check.reason?.startsWith("workflow.guard."))
     .map((tr) => tr.check.reason!)
     .filter((v, i, arr) => arr.indexOf(v) === i);
+
+  // Panneau hiérarchisé : action principale, décisions formelles, autres étapes.
+  const decisions = transitions.filter((tr) => DECISION_STATUSES.includes(tr.status));
+  const progress = transitions.filter((tr) => !DECISION_STATUSES.includes(tr.status));
+  const primary = progress.find((tr) => tr.check.ok) ?? progress[0] ?? null;
+  const secondary = progress.filter((tr) => tr.status !== primary?.status);
+  const isFinalised = data
+    ? ["approved", "rejected", "cancelled", "repaid"].includes(data.application.status) ||
+      transitions.length === 0
+    : false;
+
 
   async function confirmTransition() {
     if (!pending || busy) return;
@@ -283,41 +296,115 @@ function ApplicationDetail() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-primary/30">
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-semibold">Décision & workflow</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3">
-            <p className="text-xs text-muted-foreground">
-              Seules les transitions autorisées depuis « {statusLabel(a.status)} » sont proposées.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {transitions.length === 0 && (
-                <p className="text-xs text-muted-foreground">Statut terminal : aucune transition possible.</p>
-              )}
-              {transitions.map(({ status: s, check }) => (
-                <Button
-                  key={s}
-                  size="sm"
-                  variant="outline"
-                  disabled={busy || !check.ok}
-                  title={check.ok ? undefined : t(check.reason ?? "", { defaultValue: check.reason ?? "" })}
-                  onClick={() => setPending(s)}
-                  className="text-xs"
-                >
-                  {statusLabel(s)}
-                </Button>
-              ))}
+          <CardContent className="space-y-4">
+            <div className="rounded-lg bg-muted/50 p-3">
+              <p className="text-[11px] uppercase tracking-wide text-muted-foreground">Statut actuel</p>
+              <p className="text-sm font-semibold">{statusLabel(a.status)}</p>
             </div>
+
+            {transitions.length === 0 ? (
+              <p className="text-xs text-muted-foreground">Statut terminal : aucune action possible.</p>
+            ) : (
+              <>
+                {primary && (
+                  <div>
+                    <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                      Action recommandée
+                    </p>
+                    <Button
+                      className="w-full justify-center"
+                      disabled={busy || !primary.check.ok}
+                      onClick={() => setPending(primary.status)}
+                    >
+                      {statusLabel(primary.status)}
+                    </Button>
+                    {!primary.check.ok && primary.check.reason && (
+                      <p className="mt-1.5 text-xs text-amber-600">
+                        {t(primary.check.reason, { defaultValue: primary.check.reason })}
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                {decisions.length > 0 && (
+                  <div>
+                    <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                      Décisions formelles
+                    </p>
+                    <div className="grid gap-2">
+                      {decisions.map(({ status: s, check }) => (
+                        <div key={s}>
+                          <Button
+                            size="sm"
+                            variant={s === "approved" ? "default" : "outline"}
+                            className={`w-full justify-center ${s === "rejected" ? "border-destructive/50 text-destructive hover:bg-destructive/10" : ""}`}
+                            disabled={busy || !check.ok}
+                            onClick={() => setPending(s)}
+                          >
+                            {statusLabel(s)}
+                          </Button>
+                          {!check.ok && check.reason && (
+                            <p className="mt-1 text-[11px] text-amber-600">
+                              {t(check.reason, { defaultValue: check.reason })}
+                            </p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {!decisions.some((d) => d.status === "approved") && !isFinalised && (
+                  <p className="rounded-lg border border-border bg-muted/40 p-3 text-[11px] leading-relaxed text-muted-foreground">
+                    L'accord définitif se prononce depuis l'étape « {statusLabel("analysis")} ». Faites d'abord
+                    progresser le dossier jusqu'à cette étape pour voir apparaître « {statusLabel("approved")} ».
+                  </p>
+                )}
+
+                {secondary.length > 0 && (
+                  <div>
+                    <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                      Autres étapes
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {secondary.map(({ status: s, check }) => (
+                        <Button
+                          key={s}
+                          size="sm"
+                          variant="outline"
+                          disabled={busy || !check.ok}
+                          title={check.ok ? undefined : t(check.reason ?? "", { defaultValue: check.reason ?? "" })}
+                          onClick={() => setPending(s)}
+                          className="text-xs"
+                        >
+                          {statusLabel(s)}
+                        </Button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+
             {blockers.length > 0 && (
-              <ul className="list-inside list-disc rounded-lg border border-amber-500/40 bg-amber-500/5 p-3 text-xs text-amber-700">
-                {blockers.map((b) => (
-                  <li key={b}>{t(b, { defaultValue: b })}</li>
-                ))}
-              </ul>
+              <div className="rounded-lg border border-amber-500/40 bg-amber-500/5 p-3">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-amber-700">
+                  Conditions à lever
+                </p>
+                <ul className="mt-1.5 list-inside list-disc text-xs text-amber-700">
+                  {blockers.map((b) => (
+                    <li key={b}>{t(b, { defaultValue: b })}</li>
+                  ))}
+                </ul>
+              </div>
             )}
           </CardContent>
         </Card>
+
 
         <Card>
           <CardHeader className="pb-3">
