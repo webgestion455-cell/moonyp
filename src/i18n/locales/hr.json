@@ -1671,7 +1671,18 @@
       "downloadNotice": "Poveznice za preuzimanje istječu nakon dvije minute i bilježe se.",
       "downloadError": "Preuzimanje nije dostupno",
       "kycNone": "Još nema zabilježenih provjera.",
-      "viewContract": "Pogledaj moj ugovor"
+      "viewContract": "Pogledaj moj ugovor",
+      "upload": {
+        "attach": "Priloži datoteku",
+        "attached": "Privitak: {{name}}",
+        "chooseType": "Vrsta dokumenta",
+        "desc": "Dodajte dokument koji nedostaje ili zamijenite odbijeni.",
+        "error": "Slanje nije uspjelo",
+        "limits": "PDF, JPEG ili PNG — najviše {{size}} MB.",
+        "send": "Odaberi datoteku",
+        "success": "Dokument poslan",
+        "title": "Učitaj dokument"
+      }
     },
     "success": {
       "title": "Vaš zahtjev je zaprimljen",
@@ -2247,5 +2258,42 @@
         "justification": "Zatraženo obrazloženje"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Adresa",
+    "advancedNotice": "Napredni elektronicki potpis prema Uredbi (EU) 910/2014 (eIDAS), s vremenskim zigom i jedinstveno povezan s potpisnikom.",
+    "amount": "Iznos kredita",
+    "borrower": "Korisnik kredita",
+    "clause1": "Kreditor stavlja sredstva na raspolaganje nakon potpisa ovog ugovora i potpune provjere zahtjeva.",
+    "clause2": "Korisnik kredita obvezuje se placati navedene rate o svakom dospijecu do isteka ugovora.",
+    "clause3": "Korisnik kredita ima zakonsko pravo odustanka u roku od cetrnaest kalendarskih dana od potpisa.",
+    "commitmentsTitle": "Obveze ugovornih strana",
+    "documentHash": "Otisak dokumenta",
+    "duration": "Rok otplate",
+    "email": "E-posta",
+    "fees": "Naknada za obradu",
+    "footer": "MOONYP SAS - Elektronicki generiran dokument, valjan bez vlastorucnog potpisa.",
+    "insurance": "Mjesecno osiguranje",
+    "issuedOn": "Izdano dana",
+    "lender": "Kreditor",
+    "monthly": "Mjesecna rata",
+    "months": "mjeseci",
+    "notSpecified": "Nije navedeno",
+    "partiesTitle": "Ugovorne strane",
+    "pendingSignature": "Ovaj dokument je nacrt ugovora i proizvodi ucinke tek nakon elektronickog potpisa korisnika kredita.",
+    "provider": "Pruzatelj usluge",
+    "purpose": "Namjena financiranja",
+    "qualifiedNotice": "Kvalificirani elektronicki potpis prema Uredbi (EU) 910/2014 (eIDAS), jednakovrijedan vlastorucnom potpisu.",
+    "rate": "Efektivna kamatna stopa",
+    "reference": "Referenca",
+    "signatureRef": "Referenca potpisa",
+    "signatureTitle": "Elektronicki potpis",
+    "signedBy": "Potpisao",
+    "signedOn": "Potpisano dana",
+    "subtitle": "Ugovor o kreditu",
+    "termsTitle": "Financijski uvjeti",
+    "title": "Ugovor o osobnom kreditu",
+    "totalCost": "Ukupni trosak kredita",
+    "version": "Verzija"
   }
 }

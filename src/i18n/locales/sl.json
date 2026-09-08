@@ -1671,7 +1671,18 @@
       "downloadNotice": "Povezave za prenos potečejo po dveh minutah in se beležijo.",
       "downloadError": "Prenos ni na voljo",
       "kycNone": "Zaenkrat ni zabeleženih preverjanj.",
-      "viewContract": "Ogled moje pogodbe"
+      "viewContract": "Ogled moje pogodbe",
+      "upload": {
+        "attach": "Pripni datoteko",
+        "attached": "Priloga: {{name}}",
+        "chooseType": "Vrsta dokumenta",
+        "desc": "Dodajte manjkajoče dokazilo ali zamenjajte zavrnjeni dokument.",
+        "error": "Nalaganje ni uspelo",
+        "limits": "PDF, JPEG ali PNG — največ {{size}} MB.",
+        "send": "Izberi datoteko",
+        "success": "Dokument poslan",
+        "title": "Naloži dokument"
+      }
     },
     "success": {
       "title": "Vaša vloga je prejeta",
@@ -2247,5 +2258,42 @@
         "justification": "Zahtevana utemeljitev"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Naslov",
+    "advancedNotice": "Napredni elektronski podpis v skladu z Uredbo (EU) 910/2014 (eIDAS), casovno zigosan in enolicno povezan s podpisnikom.",
+    "amount": "Znesek posojila",
+    "borrower": "Posojilojemalec",
+    "clause1": "Posojilodajalec da sredstva na voljo po podpisu te pogodbe in celoviti preveritvi vloge.",
+    "clause2": "Posojilojemalec se zavezuje placevati navedene obroke ob vsaki zapadlosti do izteka pogodbe.",
+    "clause3": "Posojilojemalec ima zakonsko pravico do odstopa v stirinajstih koledarskih dneh od podpisa.",
+    "commitmentsTitle": "Obveznosti strank",
+    "documentHash": "Prstni odtis dokumenta",
+    "duration": "Doba",
+    "email": "E-posta",
+    "fees": "Stroski odobritve",
+    "footer": "MOONYP SAS - Elektronsko ustvarjen dokument, veljaven brez lastnorocnega podpisa.",
+    "insurance": "Mesecno zavarovanje",
+    "issuedOn": "Izdano dne",
+    "lender": "Posojilodajalec",
+    "monthly": "Mesecni obrok",
+    "months": "mesecev",
+    "notSpecified": "Ni doloceno",
+    "partiesTitle": "Pogodbeni stranki",
+    "pendingSignature": "Ta dokument je osnutek pogodbe in ucinkuje sele po elektronskem podpisu posojilojemalca.",
+    "provider": "Ponudnik",
+    "purpose": "Namen financiranja",
+    "qualifiedNotice": "Kvalificiran elektronski podpis v skladu z Uredbo (EU) 910/2014 (eIDAS), enakovreden lastnorocnemu podpisu.",
+    "rate": "Efektivna obrestna mera",
+    "reference": "Sklic",
+    "signatureRef": "Sklic podpisa",
+    "signatureTitle": "Elektronski podpis",
+    "signedBy": "Podpisal",
+    "signedOn": "Podpisano dne",
+    "subtitle": "Kreditna pogodba",
+    "termsTitle": "Financni pogoji",
+    "title": "Pogodba o osebnem posojilu",
+    "totalCost": "Skupni stroski kredita",
+    "version": "Razlicica"
   }
 }

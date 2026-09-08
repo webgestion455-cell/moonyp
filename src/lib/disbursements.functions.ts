@@ -202,20 +202,7 @@ export const adminConfirmDisbursement = createServerFn({ method: "POST" })
       note: data.admin_notes ?? null,
     });
 
-    const { data: app } = await supabaseAdmin
-      .from("loan_applications")
-      .select("reference, email, language, first_name")
-      .eq("id", data.application_id)
-      .maybeSingle();
-    if (app?.email) {
-      await queueEmail({
-        applicationId: data.application_id,
-        to: app.email,
-        locale: app.language,
-        template: "disbursed",
-        vars: { reference: app.reference, firstName: app.first_name ?? "", reason: "" },
-      });
-    }
+    // L'email « disbursed » est déjà émis par applyTransition (source unique).
 
     return { ok: true as const, transition };
   });

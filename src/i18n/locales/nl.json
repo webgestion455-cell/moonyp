@@ -1671,7 +1671,18 @@
       "downloadNotice": "Downloadlinks verlopen na twee minuten en worden gelogd.",
       "downloadError": "Download niet beschikbaar",
       "kycNone": "Nog geen controle geregistreerd.",
-      "viewContract": "Mijn contract bekijken"
+      "viewContract": "Mijn contract bekijken",
+      "upload": {
+        "attach": "Bestand toevoegen",
+        "attached": "Bijlage: {{name}}",
+        "chooseType": "Documenttype",
+        "desc": "Voeg een ontbrekend bewijsstuk toe of vervang een afgewezen document.",
+        "error": "Uploaden mislukt",
+        "limits": "PDF, JPEG of PNG — maximaal {{size}} MB.",
+        "send": "Bestand kiezen",
+        "success": "Document verzonden",
+        "title": "Document uploaden"
+      }
     },
     "success": {
       "title": "Uw aanvraag is ontvangen",
@@ -2247,5 +2258,42 @@
         "justification": "Motivering gevraagd"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Adres",
+    "advancedNotice": "Geavanceerde elektronische handtekening volgens Verordening (EU) 910/2014 (eIDAS), voorzien van tijdstempel en uniek verbonden met de ondertekenaar.",
+    "amount": "Leningbedrag",
+    "borrower": "Kredietnemer",
+    "clause1": "De kredietgever stelt de gelden ter beschikking na ondertekening van deze overeenkomst en volledige controle van het dossier.",
+    "clause2": "De kredietnemer verbindt zich ertoe de vermelde maandbedragen op elke vervaldag te betalen tot het einde van de looptijd.",
+    "clause3": "De kredietnemer beschikt over een wettelijk herroepingsrecht van veertien kalenderdagen vanaf de ondertekening.",
+    "commitmentsTitle": "Verbintenissen van partijen",
+    "documentHash": "Documentvingerafdruk",
+    "duration": "Looptijd",
+    "email": "E-mail",
+    "fees": "Dossierkosten",
+    "footer": "MOONYP SAS - Elektronisch gegenereerd document, geldig zonder handgeschreven handtekening.",
+    "insurance": "Maandelijkse verzekering",
+    "issuedOn": "Opgemaakt op",
+    "lender": "Kredietgever",
+    "monthly": "Maandlast",
+    "months": "maanden",
+    "notSpecified": "Niet opgegeven",
+    "partiesTitle": "Partijen bij de overeenkomst",
+    "pendingSignature": "Dit document is een ontwerpovereenkomst en heeft pas werking na elektronische ondertekening door de kredietnemer.",
+    "provider": "Dienstverlener",
+    "purpose": "Doel van de financiering",
+    "qualifiedNotice": "Gekwalificeerde elektronische handtekening volgens Verordening (EU) 910/2014 (eIDAS), gelijkwaardig aan een handgeschreven handtekening.",
+    "rate": "Jaarlijks kostenpercentage",
+    "reference": "Referentie",
+    "signatureRef": "Handtekeningreferentie",
+    "signatureTitle": "Elektronische handtekening",
+    "signedBy": "Ondertekend door",
+    "signedOn": "Ondertekend op",
+    "subtitle": "Kredietovereenkomst",
+    "termsTitle": "Financiele voorwaarden",
+    "title": "Overeenkomst persoonlijke lening",
+    "totalCost": "Totale kredietkosten",
+    "version": "Versie"
   }
 }

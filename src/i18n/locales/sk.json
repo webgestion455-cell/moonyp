@@ -1671,7 +1671,18 @@
       "downloadNotice": "Odkazy na stiahnutie vypršia po dvoch minútach a zaznamenávajú sa.",
       "downloadError": "Stiahnutie nie je dostupné",
       "kycNone": "Zatiaľ nie je zaznamenané žiadne overenie.",
-      "viewContract": "Zobraziť moju zmluvu"
+      "viewContract": "Zobraziť moju zmluvu",
+      "upload": {
+        "attach": "Priložiť súbor",
+        "attached": "Príloha: {{name}}",
+        "chooseType": "Typ dokumentu",
+        "desc": "Pridajte chýbajúci doklad alebo nahraďte zamietnutý.",
+        "error": "Nahranie zlyhalo",
+        "limits": "PDF, JPEG alebo PNG — maximálne {{size}} MB.",
+        "send": "Vybrať súbor",
+        "success": "Dokument odoslaný",
+        "title": "Nahrať dokument"
+      }
     },
     "success": {
       "title": "Vaša žiadosť bola prijatá",
@@ -2247,5 +2258,42 @@
         "justification": "Vyžiadané odôvodnenie"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Adresa",
+    "advancedNotice": "Zdokonaleny elektronicky podpis podla nariadenia (EU) 910/2014 (eIDAS), s casovou peciatkou a jednoznacne spojeny s podpisujucim.",
+    "amount": "Vyska uveru",
+    "borrower": "Dlznik",
+    "clause1": "Veritel poskytne prostriedky po podpise tejto zmluvy a uplnom overeni ziadosti.",
+    "clause2": "Dlznik sa zavazuje uhradit uvedene mesacne splatky k jednotlivym terminom splatnosti az do konca zmluvy.",
+    "clause3": "Dlznik ma zakonne pravo odstupit od zmluvy do strnastich kalendarnych dni od podpisu.",
+    "commitmentsTitle": "Zavazky zmluvnych stran",
+    "documentHash": "Odtlacok dokumentu",
+    "duration": "Doba splatnosti",
+    "email": "E-mail",
+    "fees": "Poplatok za spracovanie",
+    "footer": "MOONYP SAS - Elektronicky vygenerovany dokument, platny bez vlastnorucneho podpisu.",
+    "insurance": "Mesacne poistenie",
+    "issuedOn": "Vystavene dna",
+    "lender": "Veritel",
+    "monthly": "Mesacna splatka",
+    "months": "mesiacov",
+    "notSpecified": "Neuvedene",
+    "partiesTitle": "Zmluvne strany",
+    "pendingSignature": "Tento dokument je navrhom zmluvy a nadobuda ucinnost az po elektronickom podpise dlznika.",
+    "provider": "Poskytovatel",
+    "purpose": "Ucel financovania",
+    "qualifiedNotice": "Kvalifikovany elektronicky podpis podla nariadenia (EU) 910/2014 (eIDAS), rovnocenny vlastnorucnemu podpisu.",
+    "rate": "Rocna percentualna miera nakladov",
+    "reference": "Referencia",
+    "signatureRef": "Referencia podpisu",
+    "signatureTitle": "Elektronicky podpis",
+    "signedBy": "Podpisal",
+    "signedOn": "Podpisane dna",
+    "subtitle": "Zmluva o uvere",
+    "termsTitle": "Financne podmienky",
+    "title": "Zmluva o spotrebitelskom uvere",
+    "totalCost": "Celkove naklady na uver",
+    "version": "Verzia"
   }
 }

@@ -1671,7 +1671,18 @@
       "downloadNotice": "I link di download scadono dopo due minuti e vengono registrati.",
       "downloadError": "Download non disponibile",
       "kycNone": "Nessuna verifica registrata al momento.",
-      "viewContract": "Consulta il contratto"
+      "viewContract": "Consulta il contratto",
+      "upload": {
+        "attach": "Allega un file",
+        "attached": "Allegato: {{name}}",
+        "chooseType": "Tipo di documento",
+        "desc": "Aggiungi un giustificativo mancante o sostituisci un documento rifiutato.",
+        "error": "Invio non riuscito",
+        "limits": "PDF, JPEG o PNG — massimo {{size}} MB.",
+        "send": "Scegli un file",
+        "success": "Documento inviato",
+        "title": "Carica un documento"
+      }
     },
     "success": {
       "title": "La tua domanda è stata ricevuta",
@@ -2247,5 +2258,42 @@
         "justification": "Giustificazione richiesta"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Indirizzo",
+    "advancedNotice": "Firma elettronica avanzata ai sensi del Regolamento (UE) 910/2014 (eIDAS), con marca temporale e collegata in modo univoco al firmatario.",
+    "amount": "Importo del prestito",
+    "borrower": "Mutuatario",
+    "clause1": "Il finanziatore mette i fondi a disposizione del mutuatario dopo la firma del contratto e la verifica completa della pratica.",
+    "clause2": "Il mutuatario si impegna a pagare le rate indicate a ogni scadenza fino al termine del contratto.",
+    "clause3": "Il mutuatario dispone di un diritto legale di recesso di quattordici giorni di calendario dalla firma.",
+    "commitmentsTitle": "Impegni delle parti",
+    "documentHash": "Impronta del documento",
+    "duration": "Durata",
+    "email": "Email",
+    "fees": "Spese di istruttoria",
+    "footer": "MOONYP SAS - Documento generato elettronicamente, valido senza firma autografa.",
+    "insurance": "Assicurazione mensile",
+    "issuedOn": "Emesso il",
+    "lender": "Finanziatore",
+    "monthly": "Rata mensile",
+    "months": "mesi",
+    "notSpecified": "Non specificato",
+    "partiesTitle": "Parti del contratto",
+    "pendingSignature": "Questo documento e una bozza di contratto: produce effetti solo dopo la firma elettronica del mutuatario.",
+    "provider": "Fornitore",
+    "purpose": "Finalita del finanziamento",
+    "qualifiedNotice": "Firma elettronica qualificata ai sensi del Regolamento (UE) 910/2014 (eIDAS), equivalente alla firma autografa.",
+    "rate": "TAEG",
+    "reference": "Riferimento",
+    "signatureRef": "Riferimento della firma",
+    "signatureTitle": "Firma elettronica",
+    "signedBy": "Firmato da",
+    "signedOn": "Firmato il",
+    "subtitle": "Contratto di credito",
+    "termsTitle": "Condizioni economiche",
+    "title": "Contratto di prestito personale",
+    "totalCost": "Costo totale del credito",
+    "version": "Versione"
   }
 }

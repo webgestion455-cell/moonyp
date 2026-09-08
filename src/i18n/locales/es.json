@@ -1671,7 +1671,18 @@
       "downloadNotice": "Los enlaces de descarga caducan a los dos minutos y quedan registrados.",
       "downloadError": "Descarga no disponible",
       "kycNone": "Todavía no hay verificaciones registradas.",
-      "viewContract": "Consultar mi contrato"
+      "viewContract": "Consultar mi contrato",
+      "upload": {
+        "attach": "Adjuntar un archivo",
+        "attached": "Adjunto: {{name}}",
+        "chooseType": "Tipo de documento",
+        "desc": "Añada un justificante que falte o sustituya uno rechazado.",
+        "error": "No se pudo enviar",
+        "limits": "PDF, JPEG o PNG — máximo {{size}} MB.",
+        "send": "Elegir un archivo",
+        "success": "Documento enviado",
+        "title": "Subir un documento"
+      }
     },
     "success": {
       "title": "Hemos recibido su solicitud",
@@ -2247,5 +2258,42 @@
         "justification": "Justificación solicitada"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Direccion",
+    "advancedNotice": "Firma electronica avanzada conforme al Reglamento (UE) 910/2014 (eIDAS), con sello de tiempo y vinculada de forma univoca al firmante.",
+    "amount": "Importe del prestamo",
+    "borrower": "Prestatario",
+    "clause1": "El prestamista pone los fondos a disposicion del prestatario tras la firma del contrato y la verificacion completa del expediente.",
+    "clause2": "El prestatario se compromete a pagar las cuotas indicadas en cada vencimiento hasta el final del plazo.",
+    "clause3": "El prestatario dispone de un derecho legal de desistimiento de catorce dias naturales desde la firma.",
+    "commitmentsTitle": "Compromisos de las partes",
+    "documentHash": "Huella del documento",
+    "duration": "Plazo",
+    "email": "Correo electronico",
+    "fees": "Comision de apertura",
+    "footer": "MOONYP SAS - Documento generado electronicamente, valido sin firma manuscrita.",
+    "insurance": "Seguro mensual",
+    "issuedOn": "Emitido el",
+    "lender": "Prestamista",
+    "monthly": "Cuota mensual",
+    "months": "meses",
+    "notSpecified": "Sin especificar",
+    "partiesTitle": "Partes del contrato",
+    "pendingSignature": "Este documento es un borrador de contrato: solo surte efecto tras la firma electronica del prestatario.",
+    "provider": "Proveedor",
+    "purpose": "Finalidad de la financiacion",
+    "qualifiedNotice": "Firma electronica cualificada conforme al Reglamento (UE) 910/2014 (eIDAS), equivalente a la firma manuscrita.",
+    "rate": "Tasa anual equivalente",
+    "reference": "Referencia",
+    "signatureRef": "Referencia de la firma",
+    "signatureTitle": "Firma electronica",
+    "signedBy": "Firmado por",
+    "signedOn": "Firmado el",
+    "subtitle": "Contrato de credito",
+    "termsTitle": "Condiciones financieras",
+    "title": "Contrato de prestamo personal",
+    "totalCost": "Coste total del credito",
+    "version": "Version"
   }
 }

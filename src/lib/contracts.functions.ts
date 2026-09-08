@@ -197,15 +197,8 @@ export const adminSendContract = createServerFn({ method: "POST" })
       note: `contract v${contract.version}`,
     });
 
-    if (app?.email) {
-      await queueEmail({
-        applicationId: data.application_id,
-        to: app.email,
-        locale: app.language,
-        template: "contractSent",
-        vars: { reference: app.reference, firstName: app.first_name ?? "", link, reason: "" },
-      });
-    }
+    // L'email « contractSent » est déjà émis par applyTransition (source unique) :
+    // aucun second envoi ici, sous peine de doublon dans la file transactionnelle.
 
     await server.logEvent(data.application_id, "contract_sent", {
       actor: "staff",

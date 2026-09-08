@@ -1671,7 +1671,18 @@
       "downloadNotice": "A letöltési hivatkozások két perc után lejárnak, és naplózzuk őket.",
       "downloadError": "A letöltés nem érhető el",
       "kycNone": "Még nincs rögzített ellenőrzés.",
-      "viewContract": "Szerződésem megtekintése"
+      "viewContract": "Szerződésem megtekintése",
+      "upload": {
+        "attach": "Fájl csatolása",
+        "attached": "Melléklet: {{name}}",
+        "chooseType": "Dokumentum típusa",
+        "desc": "Töltse fel a hiányzó igazolást, vagy cserélje le az elutasítottat.",
+        "error": "A feltöltés nem sikerült",
+        "limits": "PDF, JPEG vagy PNG — legfeljebb {{size}} MB.",
+        "send": "Fájl kiválasztása",
+        "success": "Dokumentum elküldve",
+        "title": "Dokumentum feltöltése"
+      }
     },
     "success": {
       "title": "Igénylését megkaptuk",
@@ -2247,5 +2258,42 @@
         "justification": "Indoklás kérése"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Cim",
+    "advancedNotice": "Fokozott biztonsagu elektronikus alairas a 910/2014/EU (eIDAS) rendelet szerint, idobelyeggel es az alairohoz egyertelműen kotve.",
+    "amount": "Kolcson osszege",
+    "borrower": "Ados",
+    "clause1": "A hitelezo a szerzodes alairasat es a kerelem teljes ellenorzeset kovetoen bocsatja rendelkezesre az osszeget.",
+    "clause2": "Az ados vallalja, hogy a feltuntetett havi reszleteket minden esedekesseg napjan megfizeti a futamido vegeig.",
+    "clause3": "Az adost az alairastol szamitott tizennegy naptari napon belul torvenyes elallasi jog illeti meg.",
+    "commitmentsTitle": "A felek kotelezettsegei",
+    "documentHash": "Dokumentum lenyomata",
+    "duration": "Futamido",
+    "email": "E-mail",
+    "fees": "Folyositasi dij",
+    "footer": "MOONYP SAS - Elektronikusan eloallitott dokumentum, sajat kezu alairas nelkul is ervenyes.",
+    "insurance": "Havi biztositas",
+    "issuedOn": "Kiallitva",
+    "lender": "Hitelezo",
+    "monthly": "Havi torlesztes",
+    "months": "honap",
+    "notSpecified": "Nincs megadva",
+    "partiesTitle": "Szerzodo felek",
+    "pendingSignature": "Ez a dokumentum szerzodestervezet: kizarolag az ados elektronikus alairasat kovetoen valik hatalyossa.",
+    "provider": "Szolgaltato",
+    "purpose": "A finanszirozas celja",
+    "qualifiedNotice": "Minositett elektronikus alairas a 910/2014/EU (eIDAS) rendelet szerint, amely a sajat kezu alairassal egyenertekű.",
+    "rate": "Teljes hiteldij mutato",
+    "reference": "Hivatkozas",
+    "signatureRef": "Alairas azonositoja",
+    "signatureTitle": "Elektronikus alairas",
+    "signedBy": "Alairta",
+    "signedOn": "Alairas datuma",
+    "subtitle": "Hitelszerzodes",
+    "termsTitle": "Penzugyi feltetelek",
+    "title": "Szemelyi kolcsonszerzodes",
+    "totalCost": "A hitel teljes koltsege",
+    "version": "Valtozat"
   }
 }

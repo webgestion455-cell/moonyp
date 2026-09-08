@@ -93,7 +93,7 @@ export const adminSendGuarantee = createServerFn({ method: "POST" })
       note: `guarantee fee ${data.fee_amount} ${data.currency}`,
     });
 
-    if (app.email) {
+    if (transition.ok && app.email) {
       await queueEmail({
         applicationId: data.application_id,
         to: app.email,
@@ -269,7 +269,7 @@ export const adminValidateGuaranteePayment = createServerFn({ method: "POST" })
       .select("reference, email, language, first_name")
       .eq("id", data.application_id)
       .maybeSingle();
-    if (app?.email) {
+    if (transition.ok && app?.email) {
       await queueEmail({
         applicationId: data.application_id,
         to: app.email,
@@ -366,7 +366,7 @@ export const adminSendInsurance = createServerFn({ method: "POST" })
       .select("reference, email, language, first_name")
       .eq("id", data.application_id)
       .maybeSingle();
-    if (app?.email) {
+    if (transition.ok && app?.email) {
       await queueEmail({
         applicationId: data.application_id,
         to: app.email,
@@ -436,7 +436,7 @@ export const adminValidateInsurance = createServerFn({ method: "POST" })
       .select("reference, email, language, first_name")
       .eq("id", data.application_id)
       .maybeSingle();
-    if (app?.email) {
+    if (transition.ok && app?.email) {
       await queueEmail({
         applicationId: data.application_id,
         to: app.email,

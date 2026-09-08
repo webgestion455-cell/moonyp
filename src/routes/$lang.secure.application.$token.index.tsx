@@ -30,8 +30,10 @@ import { toast } from "sonner";
 import {
   getApplicationByToken,
   getSecureDocumentUrl,
+  listDocumentTypes,
   respondToInfoRequest,
 } from "@/lib/applications.functions";
+import { PortalUpload, type PortalDocumentType } from "@/components/finance/PortalUpload";
 import { chooseGuaranteeOption, type GuaranteeChoice } from "@/lib/guarantees.functions";
 import { formatMoney } from "@/lib/loan-math";
 import { documentLabel } from "@/lib/document-labels";
@@ -93,6 +95,8 @@ function SecurePortal() {
   const [replies, setReplies] = useState<Record<string, string>>({});
   const [sending, setSending] = useState(false);
   const [choice, setChoice] = useState<GuaranteeChoice | "">("");
+  const fetchDocTypes = useServerFn(listDocumentTypes);
+  const [docTypes, setDocTypes] = useState<PortalDocumentType[]>([]);
   const [payDate, setPayDate] = useState("");
 
   const load = useCallback(async () => {
@@ -111,6 +115,13 @@ function SecurePortal() {
   useEffect(() => {
     void load();
   }, [load]);
+
+  // Catalogue des pièces acceptées : même source que le parcours de souscription.
+  useEffect(() => {
+    void fetchDocTypes({})
+      .then((rows) => setDocTypes(rows as unknown as PortalDocumentType[]))
+      .catch(() => setDocTypes([]));
+  }, [fetchDocTypes]);
 
   async function sendReply(requestId: string) {
     const value = (replies[requestId] ?? "").trim();
@@ -464,13 +475,32 @@ function SecurePortal() {
                       maxLength={2000}
                       placeholder={t("finance.portal.requests.placeholder")}
                     />
-                    <Button
-                      size="sm"
-                      disabled={sending || (replies[r.id] ?? "").trim().length < 2}
-                      onClick={() => void sendReply(r.id)}
-                    >
-                      {t("finance.portal.requests.submit")}
-                    </Button>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Button
+                        size="sm"
+                        disabled={sending || (replies[r.id] ?? "").trim().length < 2}
+                        onClick={() => void sendReply(r.id)}
+                      >
+                        {t("finance.portal.requests.submit")}
+                      </Button>
+
+                      {/* Dépôt de la pièce demandée, sans quitter la réponse. */}
+                      <PortalUpload
+                        compact
+                        token={token}
+                        documentTypes={docTypes}
+                        fixedSlug={r.document_type_slug}
+                        onUploaded={async (fileName) => {
+                          setReplies((p) => ({
+                            ...p,
+                            [r.id]: `${(p[r.id] ?? "").trim()}\n${t("finance.portal.upload.attached", {
+                              name: fileName,
+                            })}`.trim(),
+                          }));
+                          await load();
+                        }}
+                      />
+                    </div>
                   </div>
                 ) : (
                   r.response_text && <p className="mt-2 rounded-md bg-muted p-3 text-sm">{r.response_text}</p>
@@ -531,6 +561,19 @@ function SecurePortal() {
             ))}
           </ul>
         )}
+        {/* Dépôt / remplacement d'une pièce manquante par le client. */}
+        <div className="mt-4 rounded-xl border border-dashed border-border p-4">
+          <p className="text-sm font-medium">{t("finance.portal.upload.title")}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{t("finance.portal.upload.desc")}</p>
+          <PortalUpload
+            token={token}
+            documentTypes={docTypes}
+            onUploaded={async () => {
+              await load();
+            }}
+          />
+        </div>
+
         <p className="mt-3 text-[11px] text-muted-foreground">{t("finance.portal.downloadNotice")}</p>
       </Card>
 

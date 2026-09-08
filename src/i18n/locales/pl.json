@@ -1671,7 +1671,18 @@
       "downloadNotice": "Linki do pobrania wygasają po dwóch minutach i są rejestrowane.",
       "downloadError": "Pobieranie niedostępne",
       "kycNone": "Brak zarejestrowanych weryfikacji.",
-      "viewContract": "Zobacz moją umowę"
+      "viewContract": "Zobacz moją umowę",
+      "upload": {
+        "attach": "Dołącz plik",
+        "attached": "Załącznik: {{name}}",
+        "chooseType": "Rodzaj dokumentu",
+        "desc": "Dodaj brakujący dokument lub zastąp odrzucony.",
+        "error": "Nie udało się przesłać",
+        "limits": "PDF, JPEG lub PNG — maksymalnie {{size}} MB.",
+        "send": "Wybierz plik",
+        "success": "Dokument przesłany",
+        "title": "Prześlij dokument"
+      }
     },
     "success": {
       "title": "Twój wniosek został przyjęty",
@@ -2247,5 +2258,42 @@
         "justification": "Wymagane uzasadnienie"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Adres",
+    "advancedNotice": "Zaawansowany podpis elektroniczny w rozumieniu rozporzadzenia (UE) 910/2014 (eIDAS), ze znacznikiem czasu i jednoznacznie powiazany z podpisujacym.",
+    "amount": "Kwota pozyczki",
+    "borrower": "Pozyczkobiorca",
+    "clause1": "Pozyczkodawca udostepnia srodki po podpisaniu niniejszej umowy i pelnej weryfikacji wniosku.",
+    "clause2": "Pozyczkobiorca zobowiazuje sie splacac wskazane raty w kazdym terminie platnosci az do konca okresu umowy.",
+    "clause3": "Pozyczkobiorcy przysluguje ustawowe prawo odstapienia w terminie czternastu dni kalendarzowych od podpisania.",
+    "commitmentsTitle": "Zobowiazania stron",
+    "documentHash": "Suma kontrolna dokumentu",
+    "duration": "Okres",
+    "email": "E-mail",
+    "fees": "Oplata przygotowawcza",
+    "footer": "MOONYP SAS - Dokument wygenerowany elektronicznie, wazny bez podpisu wlasnorecznego.",
+    "insurance": "Ubezpieczenie miesieczne",
+    "issuedOn": "Sporzadzono dnia",
+    "lender": "Pozyczkodawca",
+    "monthly": "Rata miesieczna",
+    "months": "miesiecy",
+    "notSpecified": "Nie podano",
+    "partiesTitle": "Strony umowy",
+    "pendingSignature": "Ten dokument jest projektem umowy i wywoluje skutki dopiero po elektronicznym podpisaniu przez pozyczkobiorce.",
+    "provider": "Dostawca",
+    "purpose": "Cel finansowania",
+    "qualifiedNotice": "Kwalifikowany podpis elektroniczny w rozumieniu rozporzadzenia (UE) 910/2014 (eIDAS), rownowazny podpisowi wlasnorecznemu.",
+    "rate": "Rzeczywista roczna stopa oprocentowania",
+    "reference": "Numer referencyjny",
+    "signatureRef": "Numer podpisu",
+    "signatureTitle": "Podpis elektroniczny",
+    "signedBy": "Podpisano przez",
+    "signedOn": "Data podpisu",
+    "subtitle": "Umowa kredytu",
+    "termsTitle": "Warunki finansowe",
+    "title": "Umowa pozyczki gotowkowej",
+    "totalCost": "Calkowity koszt kredytu",
+    "version": "Wersja"
   }
 }

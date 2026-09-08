@@ -25,12 +25,16 @@ const CSP = [
 ].join("; ");
 
 const securityHeaders = createMiddleware({ type: "request" }).server(async ({ next }) => {
-  setResponseHeaders({
-    "Content-Security-Policy": CSP,
-    "X-Content-Type-Options": "nosniff",
-    "Referrer-Policy": "strict-origin-when-cross-origin",
-    "Permissions-Policy": "geolocation=(self), microphone=(), camera=(self), payment=()",
-  });
+  // `setResponseHeaders` attend un objet `Headers` typé : on le construit
+  // explicitement, les en-têtes de sécurité n'étant pas dans la carte typée.
+  setResponseHeaders(
+    new Headers({
+      "Content-Security-Policy": CSP,
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Permissions-Policy": "geolocation=(self), microphone=(), camera=(self), payment=()",
+    }) as Parameters<typeof setResponseHeaders>[0],
+  );
   return next();
 });
 

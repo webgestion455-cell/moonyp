@@ -1671,7 +1671,18 @@
       "downloadNotice": "Latauslinkit vanhenevat kahdessa minuutissa ja ne kirjataan lokiin.",
       "downloadError": "Lataus ei ole käytettävissä",
       "kycNone": "Ei vielä kirjattuja tarkastuksia.",
-      "viewContract": "Näytä sopimukseni"
+      "viewContract": "Näytä sopimukseni",
+      "upload": {
+        "attach": "Liitä tiedosto",
+        "attached": "Liite: {{name}}",
+        "chooseType": "Asiakirjan tyyppi",
+        "desc": "Lisää puuttuva todistus tai korvaa hylätty asiakirja.",
+        "error": "Lähetys epäonnistui",
+        "limits": "PDF, JPEG tai PNG — enintään {{size}} Mt.",
+        "send": "Valitse tiedosto",
+        "success": "Asiakirja lähetetty",
+        "title": "Lataa asiakirja"
+      }
     },
     "success": {
       "title": "Hakemuksesi on vastaanotettu",
@@ -2247,5 +2258,42 @@
         "justification": "Perustelu pyydetty"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Osoite",
+    "advancedNotice": "Kehittynyt sahkoinen allekirjoitus asetuksen (EU) 910/2014 (eIDAS) mukaisesti, aikaleimattu ja yksiselitteisesti allekirjoittajaan liitetty.",
+    "amount": "Luoton maara",
+    "borrower": "Luotonsaaja",
+    "clause1": "Luotonantaja luovuttaa varat luotonsaajalle taman sopimuksen allekirjoittamisen ja hakemuksen taydellisen tarkistuksen jalkeen.",
+    "clause2": "Luotonsaaja sitoutuu maksamaan ilmoitetut kuukausierat jokaisena erapaivana laina-ajan loppuun asti.",
+    "clause3": "Luotonsaajalla on lakisaateinen neljantoista kalenteripaivan peruuttamisoikeus allekirjoituksesta lukien.",
+    "commitmentsTitle": "Osapuolten sitoumukset",
+    "documentHash": "Asiakirjan tiiviste",
+    "duration": "Laina-aika",
+    "email": "Sahkoposti",
+    "fees": "Jarjestelypalkkio",
+    "footer": "MOONYP SAS - Sahkoisesti luotu asiakirja, voimassa ilman omakatista allekirjoitusta.",
+    "insurance": "Kuukausivakuutus",
+    "issuedOn": "Laadittu",
+    "lender": "Luotonantaja",
+    "monthly": "Kuukausierä",
+    "months": "kuukautta",
+    "notSpecified": "Ei maaritelty",
+    "partiesTitle": "Sopimuksen osapuolet",
+    "pendingSignature": "Tama asiakirja on sopimusluonnos: se tulee voimaan vasta, kun luotonsaaja on allekirjoittanut sen sahkoisesti.",
+    "provider": "Palveluntarjoaja",
+    "purpose": "Rahoituksen kayttotarkoitus",
+    "qualifiedNotice": "Hyvaksytty sahkoinen allekirjoitus asetuksen (EU) 910/2014 (eIDAS) mukaisesti, vastaa omakatista allekirjoitusta.",
+    "rate": "Todellinen vuosikorko",
+    "reference": "Viite",
+    "signatureRef": "Allekirjoituksen viite",
+    "signatureTitle": "Sahkoinen allekirjoitus",
+    "signedBy": "Allekirjoittaja",
+    "signedOn": "Allekirjoitettu",
+    "subtitle": "Luottosopimus",
+    "termsTitle": "Taloudelliset ehdot",
+    "title": "Kulutusluottosopimus",
+    "totalCost": "Luoton kokonaiskustannus",
+    "version": "Versio"
   }
 }

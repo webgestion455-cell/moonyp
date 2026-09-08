@@ -1671,7 +1671,18 @@
       "downloadNotice": "Linkurile de descărcare expiră după două minute și sunt înregistrate.",
       "downloadError": "Descărcare indisponibilă",
       "kycNone": "Nicio verificare înregistrată încă.",
-      "viewContract": "Vezi contractul meu"
+      "viewContract": "Vezi contractul meu",
+      "upload": {
+        "attach": "Atașați un fișier",
+        "attached": "Atașament: {{name}}",
+        "chooseType": "Tip de document",
+        "desc": "Adăugați un document lipsă sau înlocuiți unul respins.",
+        "error": "Trimitere eșuată",
+        "limits": "PDF, JPEG sau PNG — maximum {{size}} MB.",
+        "send": "Alegeți un fișier",
+        "success": "Document trimis",
+        "title": "Încarcă un document"
+      }
     },
     "success": {
       "title": "Cererea dvs. a fost primită",
@@ -2247,5 +2258,42 @@
         "justification": "Justificare solicitată"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Adresa",
+    "advancedNotice": "Semnatura electronica avansata conform Regulamentului (UE) 910/2014 (eIDAS), cu marca temporala si legata univoc de semnatar.",
+    "amount": "Suma imprumutata",
+    "borrower": "Imprumutat",
+    "clause1": "Imprumutatorul pune fondurile la dispozitie dupa semnarea prezentului contract si verificarea completa a dosarului.",
+    "clause2": "Imprumutatul se obliga sa achite ratele indicate la fiecare scadenta, pana la finalul contractului.",
+    "clause3": "Imprumutatul beneficiaza de un drept legal de retragere de paisprezece zile calendaristice de la semnare.",
+    "commitmentsTitle": "Angajamentele partilor",
+    "documentHash": "Amprenta documentului",
+    "duration": "Durata",
+    "email": "E-mail",
+    "fees": "Comision de analiza",
+    "footer": "MOONYP SAS - Document generat electronic, valabil fara semnatura olografa.",
+    "insurance": "Asigurare lunara",
+    "issuedOn": "Emis la",
+    "lender": "Imprumutator",
+    "monthly": "Rata lunara",
+    "months": "luni",
+    "notSpecified": "Nespecificat",
+    "partiesTitle": "Partile contractante",
+    "pendingSignature": "Acest document este un proiect de contract si produce efecte doar dupa semnarea electronica de catre imprumutat.",
+    "provider": "Furnizor",
+    "purpose": "Scopul finantarii",
+    "qualifiedNotice": "Semnatura electronica calificata conform Regulamentului (UE) 910/2014 (eIDAS), echivalenta semnaturii olografe.",
+    "rate": "Dobanda anuala efectiva",
+    "reference": "Referinta",
+    "signatureRef": "Referinta semnaturii",
+    "signatureTitle": "Semnatura electronica",
+    "signedBy": "Semnat de",
+    "signedOn": "Semnat la",
+    "subtitle": "Contract de credit",
+    "termsTitle": "Conditii financiare",
+    "title": "Contract de imprumut personal",
+    "totalCost": "Costul total al creditului",
+    "version": "Versiune"
   }
 }

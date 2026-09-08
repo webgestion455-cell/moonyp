@@ -1671,7 +1671,18 @@
       "downloadNotice": "Download-Links laufen nach zwei Minuten ab und werden protokolliert.",
       "downloadError": "Download nicht verfügbar",
       "kycNone": "Noch keine Prüfung erfasst.",
-      "viewContract": "Meinen Vertrag ansehen"
+      "viewContract": "Meinen Vertrag ansehen",
+      "upload": {
+        "attach": "Datei anhängen",
+        "attached": "Anhang: {{name}}",
+        "chooseType": "Dokumentart",
+        "desc": "Fügen Sie einen fehlenden Nachweis hinzu oder ersetzen Sie ein abgelehntes Dokument.",
+        "error": "Upload fehlgeschlagen",
+        "limits": "PDF, JPEG oder PNG — maximal {{size}} MB.",
+        "send": "Datei auswählen",
+        "success": "Dokument übermittelt",
+        "title": "Dokument hochladen"
+      }
     },
     "success": {
       "title": "Ihr Antrag ist eingegangen",
@@ -2247,5 +2258,42 @@
         "justification": "Begründung angefordert"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Anschrift",
+    "advancedNotice": "Fortgeschrittene elektronische Signatur gemaess Verordnung (EU) 910/2014 (eIDAS), mit Zeitstempel und eindeutig dem Unterzeichner zugeordnet.",
+    "amount": "Kreditbetrag",
+    "borrower": "Kreditnehmer",
+    "clause1": "Der Kreditgeber stellt die Mittel nach Unterzeichnung dieses Vertrags und vollstaendiger Pruefung der Unterlagen bereit.",
+    "clause2": "Der Kreditnehmer verpflichtet sich, die angegebenen Monatsraten zu jedem Faelligkeitstermin bis zum Laufzeitende zu zahlen.",
+    "clause3": "Der Kreditnehmer hat ab Unterzeichnung ein gesetzliches Widerrufsrecht von vierzehn Kalendertagen.",
+    "commitmentsTitle": "Verpflichtungen der Parteien",
+    "documentHash": "Dokument-Pruefsumme",
+    "duration": "Laufzeit",
+    "email": "E-Mail",
+    "fees": "Bearbeitungsgebuehr",
+    "footer": "MOONYP SAS - Elektronisch erzeugtes Dokument, gueltig ohne handschriftliche Unterschrift.",
+    "insurance": "Monatliche Versicherung",
+    "issuedOn": "Erstellt am",
+    "lender": "Kreditgeber",
+    "monthly": "Monatsrate",
+    "months": "Monate",
+    "notSpecified": "Nicht angegeben",
+    "partiesTitle": "Vertragsparteien",
+    "pendingSignature": "Dieses Dokument ist ein Vertragsentwurf und wird erst mit der elektronischen Unterschrift des Kreditnehmers wirksam.",
+    "provider": "Anbieter",
+    "purpose": "Verwendungszweck",
+    "qualifiedNotice": "Qualifizierte elektronische Signatur gemaess Verordnung (EU) 910/2014 (eIDAS), einer handschriftlichen Unterschrift gleichgestellt.",
+    "rate": "Effektiver Jahreszins",
+    "reference": "Referenz",
+    "signatureRef": "Signaturreferenz",
+    "signatureTitle": "Elektronische Signatur",
+    "signedBy": "Unterzeichnet von",
+    "signedOn": "Unterzeichnet am",
+    "subtitle": "Kreditvertrag",
+    "termsTitle": "Finanzielle Bedingungen",
+    "title": "Vertrag ueber einen Privatkredit",
+    "totalCost": "Gesamtkosten des Kredits",
+    "version": "Version"
   }
 }

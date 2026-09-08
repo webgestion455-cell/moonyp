@@ -1671,7 +1671,18 @@
       "downloadNotice": "Les liens de téléchargement expirent après deux minutes et sont journalisés.",
       "downloadError": "Téléchargement indisponible",
       "kycNone": "Aucune vérification enregistrée pour le moment.",
-      "viewContract": "Consulter mon contrat"
+      "viewContract": "Consulter mon contrat",
+      "upload": {
+        "attach": "Joindre un fichier",
+        "attached": "Pièce jointe : {{name}}",
+        "chooseType": "Type de pièce",
+        "desc": "Ajoutez un justificatif manquant ou remplacez une pièce refusée.",
+        "error": "Envoi impossible",
+        "limits": "PDF, JPEG ou PNG — {{size}} Mo maximum.",
+        "send": "Choisir un fichier",
+        "success": "Document transmis",
+        "title": "Déposer une pièce"
+      }
     },
     "success": {
       "title": "Votre demande a bien été reçue",
@@ -2247,5 +2258,42 @@
         "justification": "Justification demandée"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Adresse",
+    "advancedNotice": "Signature electronique avancee au sens du reglement eIDAS 910/2014, horodatee et liee de maniere univoque au signataire.",
+    "amount": "Montant du pret",
+    "borrower": "Emprunteur",
+    "clause1": "Le preteur met les fonds a disposition de l'emprunteur apres signature du present contrat et verification complete du dossier.",
+    "clause2": "L'emprunteur s'engage a rembourser les mensualites indiquees a echeance fixe, jusqu'au terme du contrat.",
+    "clause3": "L'emprunteur dispose d'un delai legal de retractation de quatorze jours calendaires a compter de la signature.",
+    "commitmentsTitle": "Engagements des parties",
+    "documentHash": "Empreinte du document",
+    "duration": "Duree",
+    "email": "Courriel",
+    "fees": "Frais de dossier",
+    "footer": "MOONYP SAS - Document genere electroniquement, valable sans signature manuscrite.",
+    "insurance": "Assurance mensuelle",
+    "issuedOn": "Etabli le",
+    "lender": "Preteur",
+    "monthly": "Mensualite",
+    "months": "mois",
+    "notSpecified": "Non precise",
+    "partiesTitle": "Parties au contrat",
+    "pendingSignature": "Ce document est un projet de contrat : il ne produit d'effet qu'apres signature electronique par l'emprunteur.",
+    "provider": "Prestataire",
+    "purpose": "Objet du financement",
+    "qualifiedNotice": "Signature electronique qualifiee au sens du reglement eIDAS 910/2014, equivalente a une signature manuscrite.",
+    "rate": "Taux annuel effectif global",
+    "reference": "Reference",
+    "signatureRef": "Reference de signature",
+    "signatureTitle": "Signature electronique",
+    "signedBy": "Signe par",
+    "signedOn": "Signe le",
+    "subtitle": "Contrat de credit",
+    "termsTitle": "Conditions financieres",
+    "title": "Contrat de pret personnel",
+    "totalCost": "Cout total du credit",
+    "version": "Version"
   }
 }

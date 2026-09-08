@@ -1671,7 +1671,18 @@
       "downloadNotice": "Download links expire after two minutes and are logged.",
       "downloadError": "Download unavailable",
       "kycNone": "No verification recorded yet.",
-      "viewContract": "View my contract"
+      "viewContract": "View my contract",
+      "upload": {
+        "attach": "Attach a file",
+        "attached": "Attachment: {{name}}",
+        "chooseType": "Document type",
+        "desc": "Add a missing document or replace one that was rejected.",
+        "error": "Upload failed",
+        "limits": "PDF, JPEG or PNG — {{size}} MB maximum.",
+        "send": "Choose a file",
+        "success": "Document uploaded",
+        "title": "Upload a document"
+      }
     },
     "success": {
       "title": "Your application has been received",
@@ -2247,5 +2258,42 @@
         "justification": "Justification requested"
       }
     }
+  },
+  "contractDoc": {
+    "address": "Address",
+    "advancedNotice": "Advanced electronic signature under Regulation (EU) 910/2014 (eIDAS), time-stamped and uniquely linked to the signatory.",
+    "amount": "Loan amount",
+    "borrower": "Borrower",
+    "clause1": "The lender releases the funds to the borrower once this agreement is signed and the file has been fully verified.",
+    "clause2": "The borrower undertakes to repay the monthly instalments shown above on each due date until the end of the term.",
+    "clause3": "The borrower has a statutory right of withdrawal of fourteen calendar days from the date of signature.",
+    "commitmentsTitle": "Commitments of the parties",
+    "documentHash": "Document fingerprint",
+    "duration": "Term",
+    "email": "Email",
+    "fees": "Arrangement fee",
+    "footer": "MOONYP SAS - Electronically generated document, valid without a handwritten signature.",
+    "insurance": "Monthly insurance",
+    "issuedOn": "Issued on",
+    "lender": "Lender",
+    "monthly": "Monthly payment",
+    "months": "months",
+    "notSpecified": "Not specified",
+    "partiesTitle": "Contracting parties",
+    "pendingSignature": "This document is a draft agreement: it takes effect only once electronically signed by the borrower.",
+    "provider": "Provider",
+    "purpose": "Purpose of financing",
+    "qualifiedNotice": "Qualified electronic signature under Regulation (EU) 910/2014 (eIDAS), equivalent to a handwritten signature.",
+    "rate": "Annual percentage rate",
+    "reference": "Reference",
+    "signatureRef": "Signature reference",
+    "signatureTitle": "Electronic signature",
+    "signedBy": "Signed by",
+    "signedOn": "Signed on",
+    "subtitle": "Credit agreement",
+    "termsTitle": "Financial terms",
+    "title": "Personal loan agreement",
+    "totalCost": "Total cost of credit",
+    "version": "Version"
   }
 }
