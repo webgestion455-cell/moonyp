@@ -49,25 +49,35 @@ export function tServer(locale: string | null | undefined, key: string, vars: Re
   return raw.replace(/\{\{(\w+)\}\}/g, (_m, name: string) => vars[name] ?? "");
 }
 
-/** Destination de l'espace sécurisé selon le type d'email. */
-const CTA_BY_TEMPLATE: Record<string, { path: "" | "/contract" | "/payment"; label: string }> = {
+/**
+ * Destination de l'espace sécurisé selon le type d'email.
+ *
+ * `hash` cible la SECTION exacte concernée dans l'espace client (ancre posée
+ * sur la carte correspondante) : le client atterrit directement sur la pièce
+ * manquante, la demande d'information ou la garantie, sans avoir à parcourir
+ * la page.
+ */
+const CTA_BY_TEMPLATE: Record<
+  string,
+  { path: "" | "/contract" | "/payment"; label: string; hash?: string }
+> = {
   applicationReceived: { path: "", label: "portal" },
-  documentsMissing: { path: "", label: "documents" },
-  infoRequested: { path: "", label: "documents" },
-  approved: { path: "", label: "portal" },
+  documentsMissing: { path: "", label: "documents", hash: "documents" },
+  infoRequested: { path: "", label: "documents", hash: "info-requests" },
+  approved: { path: "", label: "portal", hash: "offer" },
   rejected: { path: "", label: "portal" },
-  offerAvailable: { path: "", label: "portal" },
+  offerAvailable: { path: "", label: "portal", hash: "offer" },
   contractSent: { path: "/contract", label: "contract" },
   signatureCode: { path: "/contract", label: "contract" },
   contractSigned: { path: "/contract", label: "contract" },
-  guaranteeSent: { path: "", label: "guarantee" },
+  guaranteeSent: { path: "", label: "guarantee", hash: "guarantee" },
   guaranteePayNow: { path: "/payment", label: "payment" },
-  guaranteePayLater: { path: "", label: "portal" },
-  guaranteeDeclined: { path: "", label: "portal" },
-  guaranteePaymentValidated: { path: "", label: "portal" },
+  guaranteePayLater: { path: "", label: "portal", hash: "guarantee" },
+  guaranteeDeclined: { path: "", label: "portal", hash: "guarantee" },
+  guaranteePaymentValidated: { path: "", label: "portal", hash: "guarantee" },
   insurancePending: { path: "/payment", label: "insurance" },
-  insuranceValidated: { path: "", label: "portal" },
-  disbursed: { path: "", label: "portal" },
+  insuranceValidated: { path: "", label: "portal", hash: "insurance" },
+  disbursed: { path: "", label: "portal", hash: "disbursement" },
   repaymentReminder: { path: "/payment", label: "payment" },
   installmentReminder: { path: "/payment", label: "payment" },
   guaranteeReminder: { path: "/payment", label: "payment" },
@@ -100,7 +110,7 @@ export async function queueEmail(options: {
   if (!ctaUrl) {
     try {
       const token = await issuePortalToken(options.applicationId, "email");
-      ctaUrl = `${siteUrl()}/${locale}/secure/application/${token}${cta.path}`;
+      ctaUrl = `${siteUrl()}/${locale}/secure/application/${token}${cta.path}${cta.hash ? `#${cta.hash}` : ""}`;
     } catch (e) {
       console.error("[queueEmail] portal token failed", e);
     }

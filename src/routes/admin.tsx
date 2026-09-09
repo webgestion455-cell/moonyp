@@ -102,9 +102,10 @@ function AdminLayout() {
   const adminName = profile?.full_name ?? user?.email?.split("@")[0] ?? "Membre";
 
   return (
-    <div className="min-h-screen bg-muted/20 flex">
-      <aside className="hidden lg:flex w-64 shrink-0 flex-col bg-card border-r border-border sticky top-0 h-screen">
-        <div className="px-5 py-5 border-b border-border">
+    <div className="flex h-[100dvh] overflow-hidden bg-muted/20">
+      {/* Colonne de navigation : hauteur fixe, ne défile jamais avec le contenu. */}
+      <aside className="hidden lg:flex w-64 shrink-0 flex-col bg-card border-r border-border h-full">
+        <div className="px-5 py-5 border-b border-border shrink-0">
           <div className="flex items-center gap-2">
             <div className="h-9 w-9 rounded-md bg-[#00915A] grid place-items-center text-white font-bold">B</div>
             <div className="min-w-0">
@@ -113,7 +114,7 @@ function AdminLayout() {
             </div>
           </div>
         </div>
-        <nav className="flex-1 overflow-y-auto p-3 space-y-1">
+        <nav className="flex-1 min-h-0 overflow-y-auto p-3 space-y-1">
           {nav.map((n) => {
             const active = n.match(pathname);
             const Icon = n.icon;
@@ -132,7 +133,7 @@ function AdminLayout() {
             );
           })}
         </nav>
-        <div className="p-3 border-t border-border">
+        <div className="p-3 border-t border-border shrink-0">
           <button
             onClick={async () => { await signOut?.(); navigate({ to: "/auth", replace: true }); }}
             className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-muted text-muted-foreground"
@@ -144,31 +145,46 @@ function AdminLayout() {
 
       {openMobile && (
         <div className="lg:hidden fixed inset-0 z-50 flex">
-          <div className="w-64 bg-card border-r border-border p-4 space-y-3 overflow-y-auto">
-            <div className="flex items-center justify-between">
+          <div className="w-[17rem] max-w-[85vw] bg-card border-r border-border flex flex-col">
+            <div className="flex items-center justify-between p-4 border-b border-border shrink-0">
               <p className="font-bold">Espace équipe</p>
-              <button onClick={() => setOpenMobile(false)}><X className="h-5 w-5" /></button>
+              <button onClick={() => setOpenMobile(false)} aria-label="Fermer"><X className="h-5 w-5" /></button>
             </div>
-            {nav.map((n) => {
-              const Icon = n.icon;
-              return (
-                <Link
-                  key={n.to}
-                  to={n.to}
-                  onClick={() => setOpenMobile(false)}
-                  className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm hover:bg-muted"
-                >
-                  <Icon className="h-4 w-4" /> {n.label}
-                </Link>
-              );
-            })}
+            <nav className="flex-1 min-h-0 overflow-y-auto p-3 space-y-1">
+              {nav.map((n) => {
+                const active = n.match(pathname);
+                const Icon = n.icon;
+                return (
+                  <Link
+                    key={n.to}
+                    to={n.to}
+                    onClick={() => setOpenMobile(false)}
+                    className={cn(
+                      "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition",
+                      active ? "bg-[#00915A] text-white font-semibold" : "hover:bg-muted",
+                    )}
+                  >
+                    <Icon className="h-4 w-4" /> {n.label}
+                  </Link>
+                );
+              })}
+            </nav>
+            <div className="p-3 border-t border-border shrink-0">
+              <button
+                onClick={async () => { setOpenMobile(false); await signOut?.(); navigate({ to: "/auth", replace: true }); }}
+                className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-muted text-muted-foreground"
+              >
+                <LogOut className="h-4 w-4" /> Déconnexion
+              </button>
+            </div>
           </div>
           <div className="flex-1 bg-black/40" onClick={() => setOpenMobile(false)} />
         </div>
       )}
 
-      <div className="flex-1 min-w-0 flex flex-col">
-        <header className="sticky top-0 z-30 bg-card/95 backdrop-blur border-b border-border">
+      <div className="flex-1 min-w-0 flex flex-col overflow-hidden">
+        {/* Barre supérieure ancrée : reste en place pendant le défilement. */}
+        <header className="shrink-0 z-30 bg-card border-b border-border">
           <div className="flex items-center gap-3 px-4 h-14">
             <button className="lg:hidden" onClick={() => setOpenMobile(true)} aria-label="Menu">
               <Menu className="h-5 w-5" />
@@ -191,7 +207,8 @@ function AdminLayout() {
           </div>
         </header>
 
-        <main className="flex-1 min-w-0">
+        {/* Zone de contenu : unique conteneur défilant du back-office. */}
+        <main className="flex-1 min-w-0 overflow-y-auto overscroll-contain">
           <Outlet />
         </main>
       </div>

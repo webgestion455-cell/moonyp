@@ -45,7 +45,10 @@ function AdminNotificationsPage() {
       await supabase.from("notifications").update({ read: true }).eq("id", n.id);
       setItems((prev) => prev.map((p) => (p.id === n.id ? { ...p, read: true } : p)));
     }
-    if (n.link) navigate({ to: n.link as never });
+    if (n.link) {
+      const [path, hash] = n.link.split("#");
+      navigate({ to: path as never, ...(hash ? { hash } : {}) });
+    }
   }
 
   async function markAllRead() {

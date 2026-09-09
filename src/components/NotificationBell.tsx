@@ -141,7 +141,11 @@ export function NotificationBell() {
       );
     }
 
-    if (n.link) navigate({ to: n.link as never });
+    if (n.link) {
+      // Le lien peut cibler une section précise (…/applications/x#documents).
+      const [path, hash] = n.link.split("#");
+      navigate({ to: path as never, ...(hash ? { hash } : {}) });
+    }
   }}
   className={`block w-full text-left border-b border-border/50 px-4 py-3 text-sm transition-colors hover:bg-secondary ${
     n.read ? "" : "bg-primary/5"

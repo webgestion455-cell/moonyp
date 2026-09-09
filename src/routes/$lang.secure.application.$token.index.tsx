@@ -123,6 +123,29 @@ function SecurePortal() {
       .catch(() => setDocTypes([]));
   }, [fetchDocTypes]);
 
+  /**
+   * Atterrissage précis : les boutons des emails pointent vers une ancre
+   * (#info-requests, #documents, #guarantee…). Une fois le dossier chargé, on
+   * amène le client exactement à la section concernée et on la met en avant,
+   * pour qu'il n'ait jamais à chercher dans la page.
+   */
+  useEffect(() => {
+    if (!data || typeof window === "undefined") return;
+    const id = window.location.hash.replace("#", "");
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    const timer = window.setTimeout(() => {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      target.classList.add("ring-2", "ring-primary", "ring-offset-2", "ring-offset-background");
+      window.setTimeout(
+        () => target.classList.remove("ring-2", "ring-primary", "ring-offset-2", "ring-offset-background"),
+        2600,
+      );
+    }, 180);
+    return () => window.clearTimeout(timer);
+  }, [data]);
+
   async function sendReply(requestId: string) {
     const value = (replies[requestId] ?? "").trim();
     if (value.length < 2 || sending) return;
@@ -451,7 +474,7 @@ function SecurePortal() {
 
       {/* ------------------ Informations demandées ----------------------- */}
       {infoRequests.length > 0 && (
-        <Card className="mt-5 p-5">
+        <Card id="info-requests" className="mt-5 scroll-mt-24 p-5">
           <h2 className="text-sm font-semibold">{t("finance.portal.requests.title")}</h2>
           <ul className="mt-4 space-y-3">
             {infoRequests.map((r) => (
@@ -512,7 +535,7 @@ function SecurePortal() {
       )}
 
       {/* ---------------------------- Documents -------------------------- */}
-      <Card className="mt-5 p-5">
+      <Card id="documents" className="mt-5 scroll-mt-24 p-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-sm font-semibold">{t("finance.portal.documents")}</h2>
           <span className="rounded-full bg-muted px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
@@ -578,7 +601,7 @@ function SecurePortal() {
       </Card>
 
       {/* ------------------------------- KYC ----------------------------- */}
-      <Card className="mt-5 p-5">
+      <Card id="kyc" className="mt-5 scroll-mt-24 p-5">
         <h2 className="text-sm font-semibold">{t("finance.portal.kycTitle")}</h2>
         {kycChecks.length === 0 ? (
           <p className="mt-4 text-sm text-muted-foreground">{t("finance.portal.kycNone")}</p>
@@ -611,7 +634,7 @@ function SecurePortal() {
 
       {/* ------------------------------ Offer ---------------------------- */}
       {offer && (
-        <Card className="mt-5 p-5">
+        <Card id="offer" className="mt-5 scroll-mt-24 p-5">
           <h2 className="flex items-center gap-2 text-sm font-semibold">
             <BadgeEuro className="h-4 w-4 text-primary" aria-hidden />
             {t("finance.portal.offer")}
@@ -629,7 +652,7 @@ function SecurePortal() {
 
       {/* ----------------------------- Contract -------------------------- */}
       {contract && (
-        <Card className="mt-5 p-5">
+        <Card id="contract" className="mt-5 scroll-mt-24 p-5">
           <h2 className="flex items-center gap-2 text-sm font-semibold">
             <FileSignature className="h-4 w-4 text-primary" aria-hidden />
             {t("finance.portal.contract")}
@@ -663,7 +686,7 @@ function SecurePortal() {
 
       {/* ----------------------------- Guarantee ------------------------- */}
       {guarantee && (
-        <Card className="mt-5 p-5">
+        <Card id="guarantee" className="mt-5 scroll-mt-24 p-5">
           <h2 className="flex items-center gap-2 text-sm font-semibold">
             <ShieldCheck className="h-4 w-4 text-primary" aria-hidden />
             {t("finance.portal.guarantee")}
@@ -755,7 +778,7 @@ function SecurePortal() {
 
       {/* ----------------------------- Insurance ------------------------- */}
       {insurance && (
-        <Card className="mt-5 p-5">
+        <Card id="insurance" className="mt-5 scroll-mt-24 p-5">
           <h2 className="flex items-center gap-2 text-sm font-semibold">
             <Umbrella className="h-4 w-4 text-primary" aria-hidden />
             {t("finance.portal.insurance")}
@@ -771,7 +794,7 @@ function SecurePortal() {
 
       {/* --------------------------- Disbursement ------------------------ */}
       {disbursement && (
-        <Card className="mt-5 p-5">
+        <Card id="disbursement" className="mt-5 scroll-mt-24 p-5">
           <h2 className="flex items-center gap-2 text-sm font-semibold">
             <Banknote className="h-4 w-4 text-primary" aria-hidden />
             {t("finance.portal.disbursement")}
@@ -787,7 +810,7 @@ function SecurePortal() {
 
       {/* ---------------------------- Repayments ------------------------- */}
       {repayments.length > 0 && (
-        <Card className="mt-5 p-5">
+        <Card id="repayments" className="mt-5 scroll-mt-24 p-5">
           <h2 className="text-sm font-semibold">{t("finance.portal.repayments")}</h2>
           <div className="mt-4 overflow-x-auto">
             <table className="w-full min-w-[520px] text-sm">
