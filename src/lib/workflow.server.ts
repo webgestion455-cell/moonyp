@@ -161,6 +161,9 @@ export async function queueEmail(options: {
     legalText: T("emails.common.footerLegal"),
     autoText: T("emails.common.autoMessage"),
     tagline: T("emails.common.tagline"),
+    // Logo de marque : URL ABSOLUE obligatoire (les clients de messagerie ne
+    // résolvent aucun chemin relatif). Le fichier est servi statiquement.
+    logoUrl: `${siteUrl()}/email/moonyp-mark.png`,
     preheader: intro.slice(0, 140),
   };
 

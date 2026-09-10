@@ -300,11 +300,106 @@ export const registerDocuments = createServerFn({ method: "POST" })
       .map((d) => ({ ...d, application_id: applicationId }));
     if (rows.length === 0) throw new Error("invalid_path");
 
+    /* ------------------------------------------------------------------
+     * REMPLACEMENT DE PIÈCE — périmètre strictement limité.
+     *
+     * Une pièce n'est remplacée (l'ancienne version disparaît réellement du
+     * dossier et du stockage) QUE lorsque le back-office a explicitement
+     * demandé un remplacement pour ce type de pièce, c'est-à-dire :
+     *   - une demande `application_info_requests` ouverte de type
+     *     `replace_document` portant ce `document_type_slug` ; ou
+     *   - une pièce déjà déposée de ce type marquée
+     *     `replacement_requested` lors de la revue documentaire.
+     *
+     * Tous les autres dépôts (pièce manquante, complément, nouvelle
+     * catégorie, pièce alternative) restent CUMULATIFS : rien n'est supprimé.
+     * ---------------------------------------------------------------- */
+    const uploadedSlugs = [...new Set(rows.map((r) => r.document_type_slug))];
+
+    const [{ data: replaceRequests }, { data: existingDocs }] = await Promise.all([
+      supabaseAdmin
+        .from("application_info_requests")
+        .select("id, document_type_slug")
+        .eq("application_id", applicationId)
+        .eq("kind", "replace_document")
+        .eq("status", "open")
+        .in("document_type_slug", uploadedSlugs),
+      supabaseAdmin
+        .from("application_documents")
+        .select("id, document_type_slug, status, storage_path")
+        .eq("application_id", applicationId)
+        .in("document_type_slug", uploadedSlugs),
+    ]);
+
+    const replaceSlugs = new Set<string>();
+    for (const r of replaceRequests ?? []) {
+      const slug = (r as { document_type_slug?: string | null }).document_type_slug;
+      if (slug) replaceSlugs.add(slug);
+    }
+    for (const d of existingDocs ?? []) {
+      if ((d as { status?: string | null }).status === "replacement_requested") {
+        replaceSlugs.add(d.document_type_slug);
+      }
+    }
+
     const { data: insertedDocs, error } = await supabaseAdmin
       .from("application_documents")
       .insert(rows)
       .select("id, document_type_slug");
     if (error) throw new Error(error.message);
+
+    // Purge des versions précédentes UNIQUEMENT pour les pièces réellement
+    // en remplacement. L'ordre compte : la nouvelle version est déjà en base,
+    // le dossier ne peut donc jamais se retrouver sans pièce.
+    const supersededDocs = (existingDocs ?? []).filter((d) =>
+      replaceSlugs.has(d.document_type_slug),
+    );
+    if (supersededDocs.length > 0) {
+      const supersededIds = supersededDocs.map((d) => d.id);
+      const paths = supersededDocs
+        .map((d) => (d as { storage_path?: string | null }).storage_path)
+        .filter((p): p is string => Boolean(p));
+
+      // Trace KYC de l'ancienne version : supprimée avec elle (append-only
+      // conservé côté journal d'activité ci-dessous).
+      await supabaseAdmin.from("application_kyc_checks").delete().in("document_id", supersededIds);
+      await supabaseAdmin
+        .from("application_documents")
+        .delete()
+        .eq("application_id", applicationId)
+        .in("id", supersededIds);
+      if (paths.length > 0) {
+        await supabaseAdmin.storage.from("kyc-documents").remove(paths);
+      }
+
+      // Les demandes de remplacement satisfaites sont clôturées : le client ne
+      // voit plus une demande déjà honorée.
+      const satisfied = (replaceRequests ?? [])
+        .filter((r) => {
+          const slug = (r as { document_type_slug?: string | null }).document_type_slug;
+          return slug ? uploadedSlugs.includes(slug) : false;
+        })
+        .map((r) => r.id);
+      if (satisfied.length > 0) {
+        await supabaseAdmin
+          .from("application_info_requests")
+          .update({
+            status: "answered",
+            responded_at: new Date().toISOString(),
+          } as never)
+          .in("id", satisfied);
+      }
+
+      await server.logEvent(applicationId, "document_replaced", {
+        actor: "applicant",
+        description: `Remplacement de ${supersededDocs.length} pièce(s)`,
+        metadata: {
+          slugs: [...replaceSlugs],
+          removed_documents: supersededIds,
+        },
+      });
+    }
+
 
     // Mirror every uploaded piece into the KYC verification trail so the
     // compliance officer sees one auditable row per check.
