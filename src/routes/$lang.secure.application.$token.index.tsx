@@ -291,7 +291,7 @@ function SecurePortal() {
   }>;
 
   return (
-    <div className="mx-auto w-full max-w-4xl px-4 pb-28 pt-8 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-4xl px-3 pb-20 pt-5 sm:px-6 sm:pb-24 sm:pt-8 lg:px-8">
       <div className="mb-4 flex justify-end">
         <LanguageSwitcher />
       </div>

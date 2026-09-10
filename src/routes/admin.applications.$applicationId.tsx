@@ -48,6 +48,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import { Input } from "@/components/ui/input";
+import { listDocumentTypes } from "@/lib/applications.functions";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AdminFinancePanel } from "@/components/admin/AdminFinancePanel";
 
@@ -113,6 +114,25 @@ function ApplicationDetail() {
     useState<InfoRequestKind>("missing_document");
   const [reqMessage, setReqMessage] = useState("");
   const [reqSlug, setReqSlug] = useState("");
+  // Catalogue réel des pièces : la demande cible une pièce précise, pas un texte libre.
+  const [docTypes, setDocTypes] = useState<
+    { slug: string; label_fr: string | null; category: string | null }[]
+  >([]);
+
+  useEffect(() => {
+    void (async () => {
+      try {
+        const res = (await listDocumentTypes()) as unknown as {
+          slug: string;
+          label_fr: string | null;
+          category: string | null;
+        }[];
+        setDocTypes(res ?? []);
+      } catch {
+        setDocTypes([]);
+      }
+    })();
+  }, []);
 
   const load = useCallback(async () => {
     const res = await get({ data: { id: applicationId } });
@@ -598,68 +618,103 @@ function ApplicationDetail() {
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="space-y-3">
-                <div className="grid gap-2 sm:grid-cols-2">
-                  <select
-                    value={reqKind}
-                    onChange={(e) =>
-                      setReqKind(
-                        e.target
-                          .value as InfoRequestKind,
-                      )
-                    }
-                    className="h-10 rounded-md border border-input bg-background px-3 text-sm"
-                  >
-                    {INFO_REQUEST_KINDS.map(
-                      (k) => (
-                        <option
-                          key={k}
-                          value={k}
-                        >
-                          {t(
-                            `workflow.requests.kinds.${k}`,
-                            {
-                              defaultValue: k,
-                            },
-                          )}
-                        </option>
-                      ),
-                    )}
-                  </select>
-
-                  <Input
-                    value={reqSlug}
-                    onChange={(e) =>
-                      setReqSlug(e.target.value)
-                    }
-                    placeholder="Type de document (optionnel)"
-                  />
+              <CardContent className="space-y-4">
+                {/* Étape 1 — nature de la demande */}
+                <div className="space-y-1.5">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                    1. Nature de la demande
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {INFO_REQUEST_KINDS.map((k) => (
+                      <button
+                        key={k}
+                        type="button"
+                        onClick={() => setReqKind(k as InfoRequestKind)}
+                        className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+                          reqKind === k
+                            ? "border-primary bg-primary text-primary-foreground"
+                            : "border-border hover:bg-muted"
+                        }`}
+                      >
+                        {t(`workflow.requests.kinds.${k}`, { defaultValue: k })}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                <Textarea
-                  value={reqMessage}
-                  onChange={(e) =>
-                    setReqMessage(e.target.value)
-                  }
-                  rows={3}
-                  maxLength={1000}
-                  placeholder="Message adressé au demandeur"
-                />
+                {/* Étape 2 — pièce concernée (catalogue réel) */}
+                <div className="space-y-1.5">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                    2. Pièce concernée
+                    {reqKind === "information" ? " (facultatif)" : ""}
+                  </p>
+                  {docTypes.length > 0 ? (
+                    <select
+                      value={reqSlug}
+                      onChange={(e) => setReqSlug(e.target.value)}
+                      className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm"
+                    >
+                      <option value="">— Aucune pièce précise —</option>
+                      {docTypes.map((d) => (
+                        <option key={d.slug} value={d.slug}>
+                          {(d.label_fr ?? d.slug) + (d.category ? ` · ${d.category}` : "")}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <Input
+                      value={reqSlug}
+                      onChange={(e) => setReqSlug(e.target.value)}
+                      placeholder="Identifiant de la pièce"
+                    />
+                  )}
+                  {reqSlug && (
+                    <p className="text-[11px] text-muted-foreground">
+                      Le client sera redirigé directement vers le dépôt de cette pièce.
+                    </p>
+                  )}
+                </div>
+
+                {/* Étape 3 — message client */}
+                <div className="space-y-1.5">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                    3. Message adressé au client
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {[
+                      "Merci de nous transmettre cette pièce en couleur, entièrement visible et non expirée.",
+                      "La pièce reçue est illisible : merci de la déposer à nouveau.",
+                      "Merci de préciser l'origine des fonds mentionnés sur votre relevé.",
+                    ].map((tpl) => (
+                      <button
+                        key={tpl}
+                        type="button"
+                        onClick={() => setReqMessage(tpl)}
+                        className="rounded-full border border-border px-2.5 py-1 text-[11px] text-muted-foreground hover:bg-muted"
+                      >
+                        {tpl.slice(0, 32)}…
+                      </button>
+                    ))}
+                  </div>
+                  <Textarea
+                    value={reqMessage}
+                    onChange={(e) => setReqMessage(e.target.value)}
+                    rows={3}
+                    maxLength={1000}
+                    placeholder="Message adressé au demandeur"
+                  />
+                  <p className="text-[11px] text-muted-foreground tabular-nums">
+                    {reqMessage.trim().length}/1000
+                  </p>
+                </div>
 
                 <Button
                   size="sm"
-                  disabled={
-                    busy ||
-                    reqMessage.trim()
-                      .length < 3
-                  }
-                  onClick={() =>
-                    void submitInfoRequest()
-                  }
+                  className="w-full sm:w-auto"
+                  disabled={busy || reqMessage.trim().length < 3}
+                  onClick={() => void submitInfoRequest()}
                 >
-                  {t(
-                    "workflow.requests.create",
-                  )}
+                  {t("workflow.requests.create")}
                 </Button>
 
                 <ul className="space-y-2">

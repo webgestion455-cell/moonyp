@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { PageHeader } from "@/components/admin/AdminUI";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -186,20 +187,18 @@ function AdminSettings() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6 px-4 py-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-bold">Moyens de paiement</h1>
-          <p className="text-sm text-muted-foreground">
-            Configurez les moyens de règlement visibles côté client. Les clés API restent côté serveur.
-          </p>
-        </div>
+    <div className="space-y-6">
+      <PageHeader
+        title="Moyens de paiement"
+        subtitle="Configurez les moyens de règlement visibles côté client. Les clés API restent côté serveur."
+        actions={<>
         {canManage && (
           <Button onClick={openNew}>
             <Plus className="mr-2 h-4 w-4" /> Nouveau moyen
           </Button>
         )}
-      </div>
+        </>}
+      />
 
       <Card>
         <CardHeader className="pb-3">

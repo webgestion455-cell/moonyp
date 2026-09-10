@@ -6,6 +6,7 @@ import { useAuth } from "@/lib/auth-context";
 import { supabase as _sb } from "@/integrations/supabase/client";
 const supabase: any = _sb;
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { PageHeader } from "@/components/admin/AdminUI";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -85,26 +86,19 @@ function AdminSecurity() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card">
-        <div className="container mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-4">
-          <div className="flex items-center gap-3">
-            <Link to="/admin" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-accent">
-              <ArrowLeft className="h-4 w-4" /> {t("adminSec.adminLink")}
-            </Link>
-            <span className="hidden text-sm text-muted-foreground sm:inline">/</span>
-            <span className="inline-flex items-center gap-2 font-serif text-lg font-medium">
-              <ShieldCheck className="h-5 w-5 text-emerald-600" /> {t("adminSec.center")}
-            </span>
-          </div>
+    <div className="space-y-6">
+      <PageHeader
+        title={t("adminSec.center")}
+        subtitle={t("adminSec.metaTitle")}
+        actions={
           <Button variant="outline" size="sm" onClick={load} disabled={loading}>
             <RefreshCw className={`mr-2 h-4 w-4 ${loading ? "animate-spin" : ""}`} /> {t("common.refresh")}
           </Button>
-        </div>
-      </header>
+        }
+      />
 
-      <main className="container mx-auto max-w-7xl space-y-6 px-4 py-8">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <div className="space-y-6">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           <StatCard icon={Activity} label={t("adminSec.kpi.totalEvents")} value={logs.length} tone="default" />
           <StatCard icon={Smartphone} label={t("adminSec.kpi.devicesTracked")} value={devices.length} tone="default" />
           <StatCard icon={AlertTriangle} label={t("adminSec.kpi.openAlerts")} value={totalAlerts} tone={totalAlerts > 0 ? "warning" : "default"} />
@@ -247,7 +241,7 @@ function AdminSecurity() {
             </CardContent>
           </Card>
         )}
-      </main>
+      </div>
     </div>
   );
 }

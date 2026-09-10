@@ -22,6 +22,7 @@ import { Button } from "@/components/ui/button";
 import { StatusBadge } from "@/components/StatusBadge";
 import { CenterLoader } from "@/components/ui/loader";
 import { AdminAnalytics, type MonthPoint } from "@/components/admin/AdminAnalytics";
+import { PageHeader, SectionTitle, StatTile, type StatTone } from "@/components/admin/AdminUI";
 import { adminApplicationStats, adminListApplications } from "@/lib/admin-applications.functions";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -32,6 +33,15 @@ export const Route = createFileRoute("/admin/")({
 type Stats = Awaited<ReturnType<typeof adminApplicationStats>> & { months: MonthPoint[] };
 
 type Row = Awaited<ReturnType<typeof adminListApplications>>[number];
+
+/** Traduit l'ancienne couleur d'icône en tonalité du système d'interface. */
+function toneOf(tone: string): StatTone {
+  if (tone.includes("emerald")) return "positive";
+  if (tone.includes("amber") || tone.includes("orange")) return "warning";
+  if (tone.includes("rose")) return "critical";
+  if (tone.includes("primary")) return "primary";
+  return "neutral";
+}
 
 function money(n: number) {
   return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
@@ -132,37 +142,34 @@ function AdminOverview() {
 
   return (
     <div className="space-y-6">
-      <header className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h1 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">Pilotage</h1>
-          <p className="text-sm text-muted-foreground">Vue temps réel des demandes de financement MOONYP.</p>
-        </div>
-        <Button asChild size="sm" className="rounded-full">
-          <Link to="/admin/applications" search={{ status: undefined, q: undefined }}>
-            Tous les dossiers
-            <ArrowUpRight className="ml-1.5 h-4 w-4" />
-          </Link>
-        </Button>
-      </header>
+      <PageHeader
+        title="Pilotage"
+        subtitle="Vue temps réel des demandes de financement MOONYP."
+        actions={
+          <Button asChild size="sm" className="rounded-full">
+            <Link to="/admin/applications" search={{ status: undefined, q: undefined }}>
+              Tous les dossiers
+              <ArrowUpRight className="ml-1.5 h-4 w-4" />
+            </Link>
+          </Button>
+        }
+      />
+
+      {/* Bandeau prioritaire : ce qu'un responsable regarde en premier. */}
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <StatTile size="lg" tone="primary" icon={FileText} label="Dossiers totaux" value={String(stats?.total ?? 0)} hint={`${stats?.newRequests ?? 0} nouvelle(s) demande(s)`} />
+        <StatTile size="lg" tone="warning" icon={Clock} label="À traiter" value={String((stats?.verification ?? 0) + (stats?.analysis ?? 0) + (stats?.documentsMissing ?? 0) + (stats?.infoRequested ?? 0))} hint="Vérification, analyse, pièces et infos" />
+        <StatTile size="lg" tone="positive" icon={Banknote} label="Montant décaissé" value={money(stats?.disbursedVolume ?? 0)} hint={`${stats?.activeLoans ?? 0} prêt(s) actif(s)`} />
+        <StatTile size="lg" tone="critical" icon={AlertTriangle} label="Dossiers en retard" value={String(stats?.lateLoans ?? 0)} hint={`${stats?.installmentsLate ?? 0} échéance(s) en retard`} />
+      </div>
 
       {groups.map((group) => (
-        <section key={group.title} className="space-y-3">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{group.title}</h2>
-          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 xl:grid-cols-6">
-            {group.items.map((k) => {
-              const Icon = k.icon;
-              return (
-                <Card key={k.label}>
-                  <CardContent className="p-4">
-                    <div className="flex items-center justify-between gap-2">
-                      <p className="text-[11px] uppercase tracking-wide text-muted-foreground">{k.label}</p>
-                      <Icon className={`h-4 w-4 shrink-0 ${k.tone}`} />
-                    </div>
-                    <p className="mt-2 break-words font-serif text-xl font-semibold sm:text-2xl">{k.value}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+        <section key={group.title} className="space-y-2.5">
+          <SectionTitle>{group.title}</SectionTitle>
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+            {group.items.map((k) => (
+              <StatTile key={k.label} label={k.label} value={k.value} icon={k.icon} tone={toneOf(k.tone)} />
+            ))}
           </div>
         </section>
       ))}

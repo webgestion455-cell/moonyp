@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
+import { PageHeader } from "@/components/admin/AdminUI";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -151,12 +152,11 @@ function AdminStaff() {
   const pendingInvites = invitations.filter((i) => !i.accepted_at && !i.revoked_at);
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8 space-y-6">
-      <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:flex-wrap sm:justify-between">
-        <div className="min-w-0">
-          <h1 className="truncate text-xl sm:text-2xl font-bold tracking-tight">Équipe & rôles</h1>
-          <p className="text-sm text-muted-foreground">Administrateurs, agents et invitations en attente</p>
-        </div>
+    <div className="space-y-6">
+      <PageHeader
+        title="Équipe & rôles"
+        subtitle="Administrateurs, agents et invitations en attente."
+        actions={<>
         {canManage && (
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
@@ -217,7 +217,8 @@ function AdminStaff() {
             </DialogContent>
           </Dialog>
         )}
-      </header>
+        </>}
+      />
 
       <div className="grid gap-4 sm:grid-cols-3">
         {[

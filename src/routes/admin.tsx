@@ -209,7 +209,10 @@ function AdminLayout() {
 
         {/* Zone de contenu : unique conteneur défilant du back-office. */}
         <main className="flex-1 min-w-0 overflow-y-auto overscroll-contain">
-          <Outlet />
+          {/* Gouttière homogène : même respiration sur mobile, tablette et grand écran. */}
+          <div className="mx-auto w-full max-w-[1600px] p-3 sm:p-5 lg:p-6 pb-16">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>

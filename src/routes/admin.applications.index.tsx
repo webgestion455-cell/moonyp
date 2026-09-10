@@ -2,11 +2,12 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Search } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { StatusBadge } from "@/components/StatusBadge";
 import { CenterLoader } from "@/components/ui/loader";
+import { EmptyState, ListCard, PageHeader } from "@/components/admin/AdminUI";
+import { FileText } from "lucide-react";
 import { APPLICATION_STATUS_ORDER, statusLabel } from "@/lib/application-status";
 import { adminListApplications } from "@/lib/admin-applications.functions";
 
@@ -48,10 +49,11 @@ function ApplicationsList() {
 
   return (
     <div className="space-y-5">
-      <header>
-        <h1 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">Dossiers de financement</h1>
-        <p className="text-sm text-muted-foreground">Instruction, décision et suivi des demandes clients.</p>
-      </header>
+      <PageHeader
+        title="Dossiers de financement"
+        subtitle="Instruction, décision et suivi des demandes clients."
+        actions={<span className="text-xs text-muted-foreground tabular-nums">{rows.length} dossier(s)</span>}
+      />
 
       <form
         className="flex flex-col gap-2 sm:flex-row"
@@ -101,14 +103,14 @@ function ApplicationsList() {
       {loading ? (
         <CenterLoader />
       ) : rows.length === 0 ? (
-        <Card>
-          <CardContent className="py-14 text-center text-sm text-muted-foreground">Aucun dossier trouvé.</CardContent>
-        </Card>
+        <EmptyState
+          icon={FileText}
+          title="Aucun dossier trouvé"
+          description="Modifiez le filtre de statut ou la recherche pour élargir les résultats."
+        />
       ) : (
-        <Card>
-          <CardContent className="p-0">
-            <ul className="divide-y divide-border">
-              {rows.map((r) => (
+        <ListCard>
+            {rows.map((r) => (
                 <li key={r.id}>
                   <Link
                     to="/admin/applications/$applicationId"
@@ -127,10 +129,8 @@ function ApplicationsList() {
                     <StatusBadge status={r.status} />
                   </Link>
                 </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
+            ))}
+        </ListCard>
       )}
     </div>
   );
