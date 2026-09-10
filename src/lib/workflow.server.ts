@@ -224,14 +224,33 @@ export interface ApplicationSnapshot {
   compliance_flags: unknown;
 }
 
-/** Charge le dossier + agrégats nécessaires à l'évaluation des gardes. */
+/**
+ * Charge le dossier + agrégats nécessaires à l'évaluation des gardes.
+ *
+ * ⚠️ Règle métier des pièces obligatoires — point historiquement défaillant.
+ * Le catalogue `document_types` propose PLUSIEURS pièces alternatives par
+ * catégorie (identité : CNI **ou** passeport **ou** titre de séjour…, domicile :
+ * électricité **ou** eau **ou** télécom…) et des pièces de revenus
+ * conditionnées à la situation professionnelle déclarée
+ * (`employment_statuses`).
+ *
+ * Compter « toutes les pièces marquées required non validées » revenait donc à
+ * exiger simultanément le passeport ET la carte d'identité ET le permis, plus
+ * les justificatifs de revenus de toutes les situations professionnelles : le
+ * compteur ne pouvait JAMAIS atteindre zéro, et le bouton « Approuver » restait
+ * définitivement inactif.
+ *
+ * La règle correcte, appliquée ici, est identique à celle du parcours client
+ * (`resolveKycPlan`) : une CATÉGORIE est satisfaite dès qu'UNE pièce applicable
+ * de cette catégorie est validée.
+ */
 export async function loadWorkflowContext(
   applicationId: string,
 ): Promise<{ application: ApplicationSnapshot; context: WorkflowContext } | null> {
   const { data: application } = await supabaseAdmin
     .from("loan_applications")
     .select(
-      "id, reference, status, language, email, first_name, last_name, amount, kyc_status, insurance_opted, bank_iban, compliance_flags",
+      "id, reference, status, language, email, first_name, last_name, amount, kyc_status, insurance_opted, bank_iban, compliance_flags, employment_status",
     )
     .eq("id", applicationId)
     .maybeSingle();
@@ -244,13 +263,47 @@ export async function loadWorkflowContext(
       .select("id")
       .eq("application_id", applicationId)
       .eq("status", "open"),
-    supabaseAdmin.from("document_types").select("slug").eq("active", true).eq("required", true),
+    supabaseAdmin
+      .from("document_types")
+      .select("slug, category, required, employment_statuses")
+      .eq("active", true)
+      .eq("required", true),
   ]);
 
   const approved = new Set(
     (documents ?? []).filter((d) => d.status === "approved").map((d) => d.document_type_slug),
   );
-  const pendingRequiredDocuments = (requiredTypes ?? []).filter((t) => !approved.has(t.slug)).length;
+  const submitted = new Set((documents ?? []).map((d) => d.document_type_slug));
+
+  const employment = (application as { employment_status?: string | null }).employment_status ?? "";
+
+  // Pièces applicables au dossier (filtre situation professionnelle).
+  const applicable = (requiredTypes ?? []).filter((t) => {
+    const statuses = (t as { employment_statuses?: string[] | null }).employment_statuses ?? [];
+    return statuses.length === 0 || (employment ? statuses.includes(employment) : false);
+  });
+
+  // Regroupement par catégorie : une pièce validée suffit par catégorie.
+  const byCategory = new Map<string, string[]>();
+  for (const type of applicable) {
+    const category = (type as { category?: string | null }).category ?? "other";
+    if (category === "other") continue;
+    byCategory.set(category, [...(byCategory.get(category) ?? []), type.slug]);
+  }
+
+  const missingCategories: string[] = [];
+  for (const [category, slugs] of byCategory) {
+    // Catégorie « revenus » : si le demandeur a déposé une pièce alternative
+    // hors plan (cas d'une situation professionnelle modifiée après dépôt),
+    // on considère la catégorie couverte dès qu'une pièce de cette catégorie
+    // est validée — la revue humaine reste souveraine.
+    const satisfied = slugs.some((slug) => approved.has(slug));
+    if (!satisfied) missingCategories.push(category);
+  }
+
+  // Une pièce déposée mais encore en attente ne bloque pas la catégorie si une
+  // autre pièce de la même catégorie est déjà validée : c'est déjà géré ci-dessus.
+  void submitted;
 
   const flags = Array.isArray(application.compliance_flags)
     ? (application.compliance_flags as Array<{ severity?: string }>)
@@ -260,7 +313,8 @@ export async function loadWorkflowContext(
     application: application as unknown as ApplicationSnapshot,
     context: {
       kycStatus: application.kyc_status,
-      pendingRequiredDocuments,
+      pendingRequiredDocuments: missingCategories.length,
+      missingDocumentCategories: missingCategories,
       openInfoRequests: (requests ?? []).length,
       blockingComplianceFlags: flags.filter((f) => f?.severity === "error").length,
       hasPayoutDetails: Boolean(application.bank_iban),

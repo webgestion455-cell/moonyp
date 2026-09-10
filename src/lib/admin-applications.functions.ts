@@ -464,12 +464,30 @@ async function refreshKycStatus(applicationId: string) {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
   const { data: checks } = await supabaseAdmin
     .from("application_kyc_checks")
-    .select("status")
+    .select("status, category")
     .eq("application_id", applicationId);
 
-  const rows = checks ?? [];
-  const failed = rows.some((c) => c.status === "failed");
-  const allPassed = rows.length > 0 && rows.every((c) => c.status === "passed");
+  // Agrégation PAR CATÉGORIE : le catalogue propose des pièces alternatives
+  // (CNI ou passeport, facture d'eau ou d'électricité…). Une catégorie est
+  // validée dès qu'UNE de ses pièces est acceptée ; elle n'est en échec que si
+  // TOUTES ses pièces ont été refusées. Sans cette règle, un simple document
+  // alternatif refusé bloquait définitivement le statut KYC du dossier.
+  const rows = (checks ?? []) as Array<{ status: string | null; category?: string | null }>;
+  const categories = new Map<string, string[]>();
+  for (const row of rows) {
+    const key = row.category ?? "other";
+    categories.set(key, [...(categories.get(key) ?? []), row.status ?? "verifying"]);
+  }
+
+  let failed = false;
+  let allPassed = categories.size > 0;
+  for (const [, statuses] of categories) {
+    const passed = statuses.some((s) => s === "passed");
+    if (passed) continue;
+    allPassed = false;
+    if (statuses.length > 0 && statuses.every((s) => s === "failed")) failed = true;
+  }
+
   const status = failed ? "failed" : allPassed ? "passed" : rows.length ? "verifying" : "pending";
 
   await supabaseAdmin

@@ -24,6 +24,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
 import { AddressField, type AddressValue } from "@/components/finance/AddressField";
+import { BirthDateField } from "@/components/finance/BirthDateField";
 import { CountrySelect } from "@/components/finance/CountrySelect";
 import { PhoneField, isValidPhone } from "@/components/finance/PhoneField";
 import { ProductPicker } from "@/components/finance/ProductPicker";
@@ -422,7 +423,12 @@ function ApplyPage() {
           <section className="grid gap-4 sm:grid-cols-2">
             {field("first_name", "finance.fields.firstName")}
             {field("last_name", "finance.fields.lastName")}
-            {field("birth_date", "finance.fields.birthDate", { type: "date" })}
+            <BirthDateField
+              value={String(form.birth_date ?? "")}
+              error={errors.birth_date}
+              label={t("finance.fields.birthDate")}
+              onChange={(value) => set("birth_date", value)}
+            />
             <CountrySelect
               id="nationality"
               label={t("finance.fields.nationality")}

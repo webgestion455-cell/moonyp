@@ -15,8 +15,10 @@ import type { ApplicationStatus } from "@/lib/application-status";
 export interface WorkflowContext {
   /** Statut agrégé KYC du dossier : pending | verifying | passed | failed */
   kycStatus?: string | null;
-  /** Nombre de pièces obligatoires encore non validées. */
+  /** Nombre de CATÉGORIES de pièces obligatoires encore non couvertes. */
   pendingRequiredDocuments?: number;
+  /** Catégories concernées (identity | address | selfie | bank | income). */
+  missingDocumentCategories?: string[];
   /** Nombre de demandes d'informations encore ouvertes. */
   openInfoRequests?: number;
   /** Le dossier porte-t-il des signaux de conformité bloquants ? */

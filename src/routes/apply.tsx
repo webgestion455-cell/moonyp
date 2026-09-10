@@ -23,6 +23,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
 import { AddressField, type AddressValue } from "@/components/finance/AddressField";
+import { BirthDateField } from "@/components/finance/BirthDateField";
 import { CountrySelect } from "@/components/finance/CountrySelect";
 import { PhoneField, isValidPhone } from "@/components/finance/PhoneField";
 import { ProductPicker } from "@/components/finance/ProductPicker";
@@ -95,138 +96,6 @@ const EMPTY: FormState = {
   bank_holder: "", bank_name: "", bank_iban: "", bank_bic: "",
   consent_terms: false, consent_privacy: false, consent_marketing: false,
 };
-
-function BirthDateField({
-  value,
-  error,
-  label,
-  onChange,
-}: {
-  value: string;
-  error?: string;
-  label: string;
-  onChange: (value: string) => void;
-}) {
-  const { t } = useTranslation();
-
-  const displayValue = useMemo(() => {
-    if (!value) return "";
-
-    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
-
-    return match ? `${match[3]}/${match[2]}/${match[1]}` : value;
-  }, [value]);
-
-  const [draft, setDraft] = useState(displayValue);
-
-  useEffect(() => {
-    setDraft(displayValue);
-  }, [displayValue]);
-
-  const commit = (raw: string) => {
-    const digits = raw.replace(/\D/g, "").slice(0, 8);
-
-    if (digits.length === 0) {
-      setDraft("");
-      onChange("");
-      return;
-    }
-
-    let formatted = digits;
-
-    if (digits.length > 2) {
-      formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
-    }
-
-    if (digits.length > 4) {
-      formatted = `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
-    }
-
-    setDraft(formatted);
-
-    if (digits.length !== 8) {
-      onChange("");
-      return;
-    }
-
-    const day = Number(digits.slice(0, 2));
-    const month = Number(digits.slice(2, 4));
-    const year = Number(digits.slice(4, 8));
-
-    const date = new Date(year, month - 1, day);
-
-    const valid =
-      date.getFullYear() === year &&
-      date.getMonth() === month - 1 &&
-      date.getDate() === day &&
-      year >= 1900 &&
-      date <= new Date();
-
-    if (!valid) {
-      onChange("");
-      return;
-    }
-
-    const iso = [
-      year.toString().padStart(4, "0"),
-      month.toString().padStart(2, "0"),
-      day.toString().padStart(2, "0"),
-    ].join("-");
-
-    onChange(iso);
-  };
-
-  return (
-    <div className="space-y-1.5">
-      <Label htmlFor="birth_date" className="text-sm">
-        {label}
-      </Label>
-
-      <div className="relative">
-        <Input
-          id="birth_date"
-          name="birth_date"
-          type="text"
-          inputMode="numeric"
-          autoComplete="bday"
-          placeholder="JJ/MM/AAAA"
-          value={draft}
-          onChange={(e) => commit(e.target.value)}
-          onBlur={() => {
-            if (draft && draft.length !== 10) {
-              onChange("");
-            }
-          }}
-          maxLength={10}
-          aria-invalid={Boolean(error)}
-          aria-describedby={error ? "birth_date-error" : "birth_date-hint"}
-          className={cn(
-            "h-11",
-            error && "border-destructive focus-visible:ring-destructive",
-          )}
-        />
-      </div>
-
-      {!error && (
-        <p id="birth_date-hint" className="text-xs text-muted-foreground">
-          {t("finance.fields.birthDateHint", {
-            defaultValue: "Format : JJ/MM/AAAA",
-          })}
-        </p>
-      )}
-
-      {error && (
-        <p
-          id="birth_date-error"
-          role="alert"
-          className="text-xs font-medium text-destructive"
-        >
-          {error}
-        </p>
-      )}
-    </div>
-  );
-}
 
 function ApplyPage() {
   const { products, documentTypes } = Route.useLoaderData() as {
