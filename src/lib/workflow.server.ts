@@ -62,26 +62,37 @@ const CTA_BY_TEMPLATE: Record<
   { path: "" | "/contract" | "/payment"; label: string; hash?: string }
 > = {
   applicationReceived: { path: "", label: "portal" },
+  applicationVerification: { path: "", label: "portal", hash: "documents" },
   documentsMissing: { path: "", label: "documents", hash: "documents" },
+  applicationAnalysis: { path: "", label: "portal" },
   infoRequested: { path: "", label: "documents", hash: "info-requests" },
   approved: { path: "", label: "portal", hash: "offer" },
   rejected: { path: "", label: "portal" },
   offerAvailable: { path: "", label: "portal", hash: "offer" },
   contractSent: { path: "/contract", label: "contract" },
+  signaturePending: { path: "/contract", label: "contract" },
   signatureCode: { path: "/contract", label: "contract" },
   contractSigned: { path: "/contract", label: "contract" },
   guaranteeSent: { path: "", label: "guarantee", hash: "guarantee" },
+  guaranteeSigned: { path: "", label: "portal", hash: "guarantee" },
   guaranteePayNow: { path: "/payment", label: "payment" },
   guaranteePayLater: { path: "", label: "portal", hash: "guarantee" },
   guaranteeDeclined: { path: "", label: "portal", hash: "guarantee" },
   guaranteePaymentValidated: { path: "", label: "portal", hash: "guarantee" },
   insurancePending: { path: "/payment", label: "insurance" },
   insuranceValidated: { path: "", label: "portal", hash: "insurance" },
+  disbursementPreparing: { path: "", label: "portal", hash: "disbursement" },
   disbursed: { path: "", label: "portal", hash: "disbursement" },
+  repaying: { path: "/payment", label: "schedule" },
+  repaymentReceived: { path: "/payment", label: "schedule" },
+  late: { path: "/payment", label: "payment" },
+  repaid: { path: "", label: "portal" },
+  cancelled: { path: "", label: "portal" },
   repaymentReminder: { path: "/payment", label: "payment" },
   installmentReminder: { path: "/payment", label: "payment" },
   guaranteeReminder: { path: "/payment", label: "payment" },
 };
+
 
 function siteUrl(): string {
   return (process.env["PUBLIC_SITE_URL"] ?? "https://moonyp.webgestion95.workers.dev").replace(/\/$/, "");
@@ -343,7 +354,15 @@ export async function applyTransition(input: {
   actor?: string;
   reason?: string | null;
   note?: string | null;
+  /**
+   * Neutralise UNIQUEMENT l'email automatique de changement de statut, lorsque
+   * l'appelant envoie immédiatement après un email plus riche portant le même
+   * sujet (code de signature, garantie envoyée, assurance...). Le client reçoit
+   * ainsi toujours un email, mais jamais deux fois le même.
+   */
+  skipEmail?: boolean;
 }): Promise<TransitionResult> {
+
   const loaded = await loadWorkflowContext(input.applicationId);
   if (!loaded) return { ok: false, reason: "workflow.error.notFound" };
 
@@ -388,32 +407,65 @@ export async function applyTransition(input: {
     category: "application",
   });
 
+  // Email client : CHAQUE étape du workflow notifie le demandeur dans sa langue.
   const template = EMAIL_TEMPLATE_BY_STATUS[input.to];
-  if (template && application.email) {
-    await queueEmail({
-      applicationId: application.id,
-      to: application.email,
-      locale: application.language,
-      template,
-      vars: {
-        reference: application.reference,
-        firstName: application.first_name ?? "",
-        reason: input.reason ?? "",
-      },
-    });
+  if (template && application.email && !input.skipEmail) {
+    try {
+      await queueEmail({
+        applicationId: application.id,
+        to: application.email,
+        locale: application.language,
+        template,
+        vars: {
+          reference: application.reference,
+          firstName: application.first_name ?? "",
+          reason: input.reason ?? "",
+        },
+      });
+    } catch (e) {
+      // Un échec de mise en file NE DOIT PAS annuler une transition déjà écrite
+      // en base : la transition est journalisée, l'email est relancé par la file.
+      console.error("[applyTransition] email queue failed", {
+        applicationId: application.id,
+        status: input.to,
+        template,
+        error: e,
+      });
+    }
   }
 
   return { ok: true, status: input.to };
 }
 
-/** Un statut peut déclencher un email transactionnel dédié. */
+/**
+ * Email transactionnel déclenché par l'ENTRÉE dans un statut.
+ *
+ * Couverture complète du cycle de vie : aucune étape ne reste silencieuse.
+ * Les seules exceptions volontaires sont `draft` (dossier non soumis, aucun
+ * engagement du demandeur) et les statuts pour lesquels l'appelant émet un
+ * email plus riche juste après la transition (il passe alors `skipEmail: true`).
+ */
 export const EMAIL_TEMPLATE_BY_STATUS: Partial<Record<ApplicationStatus, string>> = {
   received: "applicationReceived",
+  verification: "applicationVerification",
   documents_missing: "documentsMissing",
+  analysis: "applicationAnalysis",
   info_requested: "infoRequested",
   approved: "approved",
   rejected: "rejected",
   offer_available: "offerAvailable",
   contract_sent: "contractSent",
+  signature_pending: "signaturePending",
+  contract_signed: "contractSigned",
+  guarantee_sent: "guaranteeSent",
+  guarantee_signed: "guaranteeSigned",
+  insurance_pending: "insurancePending",
+  insurance_validated: "insuranceValidated",
+  disbursement_preparing: "disbursementPreparing",
   disbursed: "disbursed",
+  repaying: "repaying",
+  late: "late",
+  repaid: "repaid",
+  cancelled: "cancelled",
 };
+

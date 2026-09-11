@@ -2211,12 +2211,63 @@
       "guarantee": "Choose my coverage option",
       "insurance": "Manage my insurance",
       "payment": "Make my payment",
-      "documents": "Upload my documents"
+      "documents": "Upload my documents",
+      "schedule": "View my repayment schedule"
     },
     "installmentReminder": {
       "subject": "Upcoming instalment — file {{reference}}",
       "body": "Hello {{firstName}}, your next instalment of {{amount}} is due on {{date}}.",
       "details": "You can review your amortisation schedule and settle the instalment from your secure area."
+    },
+    "applicationVerification": {
+      "subject": "Application {{reference}} under verification",
+      "body": "Hello {{firstName}}, your application {{reference}} is currently being verified by our teams.",
+      "details": "We are checking the authenticity and legibility of your supporting documents. No action is required from you at this stage; you will be notified immediately if a document needs to be completed."
+    },
+    "applicationAnalysis": {
+      "subject": "Application {{reference}} under analysis",
+      "body": "Hello {{firstName}}, your application {{reference}} has entered the credit analysis stage.",
+      "details": "Our analysts are reviewing your repayment capacity, the consistency of your income and the requested amount. The outcome will be shared with you as soon as it is available in your secure area."
+    },
+    "signaturePending": {
+      "subject": "Signature pending — file {{reference}}",
+      "body": "Hello {{firstName}}, your contract {{reference}} is awaiting your electronic signature.",
+      "details": "Until the signature is completed, the file remains on hold and funds cannot be prepared. Signing takes place online with a one-time code, in under two minutes."
+    },
+    "guaranteeSigned": {
+      "subject": "Coverage confirmed — file {{reference}}",
+      "body": "Hello {{firstName}}, the credit risk coverage for your file {{reference}} is confirmed.",
+      "details": "With this step cleared, your file moves on to borrower insurance and then disbursement preparation. Every stage remains visible in real time in your secure area."
+    },
+    "disbursementPreparing": {
+      "subject": "Disbursement in preparation — file {{reference}}",
+      "body": "Hello {{firstName}}, the disbursement of your file {{reference}} is being prepared.",
+      "details": "Our finance team is performing a final check of your bank details before issuing the transfer. You will receive a confirmation as soon as the funds are sent."
+    },
+    "repaying": {
+      "subject": "Repayment under way — file {{reference}}",
+      "body": "Hello {{firstName}}, your file {{reference}} is entering the repayment stage.",
+      "details": "Your detailed schedule (principal, interest, outstanding balance) is available in your secure area. Every instalment received is recorded there and confirmed to you by email."
+    },
+    "repaymentReceived": {
+      "subject": "Payment received — file {{reference}}",
+      "body": "Hello {{firstName}}, we have received your payment of {{amount}} for file {{reference}}.",
+      "details": "The relevant instalment is marked as settled and your outstanding balance is updated in your secure area, where your schedule remains available for download."
+    },
+    "late": {
+      "subject": "Instalment overdue — file {{reference}}",
+      "body": "Hello {{firstName}}, an instalment on your file {{reference}} is overdue.",
+      "details": "Please settle this instalment as soon as possible to avoid late fees and reporting. If you are facing difficulties, contact us: an arrangement can be considered."
+    },
+    "repaid": {
+      "subject": "File {{reference}} fully repaid",
+      "body": "Hello {{firstName}}, your file {{reference}} has been fully repaid. Thank you for your trust.",
+      "details": "Your zero-balance certificate and the full history of your payments remain available in your secure area. You may submit a new application at any time."
+    },
+    "cancelled": {
+      "subject": "File {{reference}} cancelled",
+      "body": "Hello {{firstName}}, your file {{reference}} has been cancelled.",
+      "details": "No amount will be charged to you for this file. If this cancellation does not match your wishes, you can submit a new application from your secure area."
     }
   },
   "workflow": {

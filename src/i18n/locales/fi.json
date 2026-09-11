@@ -2211,12 +2211,63 @@
       "guarantee": "Valitse kattavuus",
       "insurance": "Hallinnoi vakuutusta",
       "payment": "Tee maksu",
-      "documents": "Lataa asiakirjat"
+      "documents": "Lataa asiakirjat",
+      "schedule": "Katso maksusuunnitelmani"
     },
     "installmentReminder": {
       "subject": "Tuleva erä — hakemus {{reference}}",
       "body": "Hei {{firstName}}, seuraava erä {{amount}} erääntyy {{date}}.",
       "details": "Maksusuunnitelma ja maksaminen turvallisessa tilassasi."
+    },
+    "applicationVerification": {
+      "subject": "Hakemus {{reference}} tarkistuksessa",
+      "body": "Hei {{firstName}}, hakemustasi {{reference}} tarkistetaan tiimeissämme.",
+      "details": "Tarkistamme liitteidesi aitouden ja luettavuuden. Tässä vaiheessa sinun ei tarvitse tehdä mitään; ilmoitamme heti, jos asiakirjaa on täydennettävä."
+    },
+    "applicationAnalysis": {
+      "subject": "Hakemus {{reference}} analyysissä",
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on siirtynyt luottoanalyysiin.",
+      "details": "Analyytikkomme arvioivat takaisinmaksukykyäsi, tulojesi johdonmukaisuutta ja haettua summaa. Tulos näkyy turvallisessa tilassasi heti, kun se on valmis."
+    },
+    "signaturePending": {
+      "subject": "Allekirjoitus odottaa — hakemus {{reference}}",
+      "body": "Hei {{firstName}}, sopimuksesi {{reference}} odottaa sähköistä allekirjoitustasi.",
+      "details": "Ennen allekirjoitusta hakemus odottaa eikä varoja voi valmistella. Allekirjoitus tehdään verkossa kertakäyttöisellä koodilla alle kahdessa minuutissa."
+    },
+    "guaranteeSigned": {
+      "subject": "Kattavuus vahvistettu — hakemus {{reference}}",
+      "body": "Hei {{firstName}}, hakemuksen {{reference}} luottoriskin kattavuus on vahvistettu.",
+      "details": "Tämän jälkeen hakemus siirtyy lainaturvavakuutukseen ja sitten maksatuksen valmisteluun. Jokainen vaihe näkyy reaaliajassa turvallisessa tilassasi."
+    },
+    "disbursementPreparing": {
+      "subject": "Maksatus valmistelussa — hakemus {{reference}}",
+      "body": "Hei {{firstName}}, hakemuksen {{reference}} maksatusta valmistellaan.",
+      "details": "Rahoitusosastomme tarkistaa pankkitietosi viimeisen kerran ennen tilisiirtoa. Saat vahvistuksen heti, kun varat on lähetetty."
+    },
+    "repaying": {
+      "subject": "Takaisinmaksu käynnissä — hakemus {{reference}}",
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} siirtyy takaisinmaksuvaiheeseen.",
+      "details": "Yksityiskohtainen maksusuunnitelma (pääoma, korot, jäljellä oleva velka) on turvallisessa tilassasi. Jokainen vastaanotettu erä kirjataan sinne ja vahvistetaan sähköpostilla."
+    },
+    "repaymentReceived": {
+      "subject": "Maksu vastaanotettu — hakemus {{reference}}",
+      "body": "Hei {{firstName}}, olemme vastaanottaneet {{amount}} maksusi hakemukseen {{reference}}.",
+      "details": "Kyseinen erä on merkitty maksetuksi ja jäljellä oleva velka päivitetty turvalliseen tilaasi, jossa maksusuunnitelma on ladattavissa."
+    },
+    "late": {
+      "subject": "Erä myöhässä — hakemus {{reference}}",
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} erä on maksamatta.",
+      "details": "Pyydämme maksamaan erän mahdollisimman pian viivästyskulujen ja merkinnän välttämiseksi. Jos sinulla on vaikeuksia, ota yhteyttä: järjestelyä voidaan harkita."
+    },
+    "repaid": {
+      "subject": "Hakemus {{reference}} maksettu kokonaan",
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on maksettu kokonaan. Kiitos luottamuksestasi.",
+      "details": "Todistus nollasaldosta ja koko maksuhistoria pysyvät turvallisessa tilassasi. Voit tehdä uuden hakemuksen milloin tahansa."
+    },
+    "cancelled": {
+      "subject": "Hakemus {{reference}} peruutettu",
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on peruutettu.",
+      "details": "Tästä hakemuksesta ei veloiteta mitään. Jos peruutus ei vastaa toivettasi, voit tehdä uuden hakemuksen turvallisessa tilassasi."
     }
   },
   "workflow": {

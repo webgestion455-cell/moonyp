@@ -2211,12 +2211,63 @@
       "guarantee": "Alege opțiunea de acoperire",
       "insurance": "Gestionează asigurarea",
       "payment": "Efectuează plata",
-      "documents": "Încarcă documentele"
+      "documents": "Încarcă documentele",
+      "schedule": "Vezi graficul meu de rambursare"
     },
     "installmentReminder": {
       "subject": "Rată apropiată — dosar {{reference}}",
       "body": "Bună {{firstName}}, următoarea rată de {{amount}} este scadentă la {{date}}.",
       "details": "Graficul de rambursare și plata în spațiul securizat."
+    },
+    "applicationVerification": {
+      "subject": "Dosarul {{reference}} în verificare",
+      "body": "Bună {{firstName}}, dosarul dumneavoastră {{reference}} este în curs de verificare de către echipele noastre.",
+      "details": "Verificăm autenticitatea și lizibilitatea documentelor. În această etapă nu trebuie să faceți nimic; vă anunțăm imediat dacă un document trebuie completat."
+    },
+    "applicationAnalysis": {
+      "subject": "Dosarul {{reference}} în analiză",
+      "body": "Bună {{firstName}}, dosarul {{reference}} a intrat în etapa de analiză a solvabilității.",
+      "details": "Analiștii noștri examinează capacitatea de rambursare, coerența veniturilor și suma solicitată. Rezultatul vă va fi comunicat imediat ce este disponibil în spațiul securizat."
+    },
+    "signaturePending": {
+      "subject": "Semnătură în așteptare — dosar {{reference}}",
+      "body": "Bună {{firstName}}, contractul {{reference}} așteaptă semnătura dumneavoastră electronică.",
+      "details": "Până la semnare, dosarul rămâne în așteptare și fondurile nu pot fi pregătite. Semnarea se face online, cu un cod unic, în mai puțin de două minute."
+    },
+    "guaranteeSigned": {
+      "subject": "Acoperire confirmată — dosar {{reference}}",
+      "body": "Bună {{firstName}}, acoperirea riscului de credit pentru dosarul {{reference}} este confirmată.",
+      "details": "După această etapă, dosarul continuă către asigurarea de credit și apoi pregătirea plății. Fiecare etapă este vizibilă în timp real în spațiul securizat."
+    },
+    "disbursementPreparing": {
+      "subject": "Plată în pregătire — dosar {{reference}}",
+      "body": "Bună {{firstName}}, plata fondurilor pentru dosarul {{reference}} este în pregătire.",
+      "details": "Departamentul financiar verifică o ultimă dată datele bancare înainte de emiterea transferului. Veți primi o confirmare imediat după trimiterea fondurilor."
+    },
+    "repaying": {
+      "subject": "Rambursare în curs — dosar {{reference}}",
+      "body": "Bună {{firstName}}, dosarul {{reference}} intră în etapa de rambursare.",
+      "details": "Graficul detaliat (principal, dobândă, sold rămas) este disponibil în spațiul securizat. Fiecare rată încasată este înregistrată acolo și confirmată prin email."
+    },
+    "repaymentReceived": {
+      "subject": "Plată primită — dosar {{reference}}",
+      "body": "Bună {{firstName}}, am primit plata de {{amount}} pentru dosarul {{reference}}.",
+      "details": "Rata vizată este marcată ca achitată, iar soldul rămas este actualizat în spațiul securizat, unde graficul rămâne disponibil pentru descărcare."
+    },
+    "late": {
+      "subject": "Rată restantă — dosar {{reference}}",
+      "body": "Bună {{firstName}}, o rată a dosarului {{reference}} este restantă.",
+      "details": "Vă rugăm să achitați rata cât mai repede pentru a evita penalitățile de întârziere și raportarea. Dacă întâmpinați dificultăți, contactați-ne: putem analiza o soluție."
+    },
+    "repaid": {
+      "subject": "Dosarul {{reference}} rambursat integral",
+      "body": "Bună {{firstName}}, dosarul {{reference}} este rambursat integral. Vă mulțumim pentru încredere.",
+      "details": "Adeverința de sold zero și istoricul complet al plăților rămân în spațiul securizat. Puteți depune o nouă cerere oricând."
+    },
+    "cancelled": {
+      "subject": "Dosarul {{reference}} anulat",
+      "body": "Bună {{firstName}}, dosarul {{reference}} a fost anulat.",
+      "details": "Nu vi se va percepe nicio sumă pentru acest dosar. Dacă anularea nu corespunde dorinței dumneavoastră, puteți depune o nouă cerere din spațiul securizat."
     }
   },
   "workflow": {

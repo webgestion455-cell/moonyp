@@ -2211,12 +2211,63 @@
       "guarantee": "Deckungsoption wählen",
       "insurance": "Versicherung verwalten",
       "payment": "Zahlung durchführen",
-      "documents": "Dokumente hochladen"
+      "documents": "Dokumente hochladen",
+      "schedule": "Meinen Tilgungsplan ansehen"
     },
     "installmentReminder": {
       "subject": "Nächste Rate — Akte {{reference}}",
       "body": "Hallo {{firstName}}, Ihre nächste Rate über {{amount}} ist am {{date}} fällig.",
       "details": "Tilgungsplan und Zahlung finden Sie in Ihrem sicheren Bereich."
+    },
+    "applicationVerification": {
+      "subject": "Antrag {{reference}} in Prüfung",
+      "body": "Hallo {{firstName}}, Ihr Antrag {{reference}} wird derzeit von unseren Teams geprüft.",
+      "details": "Wir prüfen die Echtheit und Lesbarkeit Ihrer Nachweise. In dieser Phase ist von Ihnen nichts zu tun; wir melden uns sofort, wenn ein Dokument ergänzt werden muss."
+    },
+    "applicationAnalysis": {
+      "subject": "Antrag {{reference}} in Analyse",
+      "body": "Hallo {{firstName}}, Ihr Antrag {{reference}} befindet sich in der Kreditanalyse.",
+      "details": "Unsere Analysten prüfen Ihre Rückzahlungsfähigkeit, die Plausibilität Ihrer Einkünfte und den beantragten Betrag. Das Ergebnis teilen wir Ihnen mit, sobald es in Ihrem sicheren Bereich vorliegt."
+    },
+    "signaturePending": {
+      "subject": "Unterschrift ausstehend — Akte {{reference}}",
+      "body": "Hallo {{firstName}}, Ihr Vertrag {{reference}} wartet auf Ihre elektronische Unterschrift.",
+      "details": "Solange die Unterschrift fehlt, bleibt die Akte offen und die Auszahlung kann nicht vorbereitet werden. Die Unterschrift erfolgt online mit einem Einmalcode in weniger als zwei Minuten."
+    },
+    "guaranteeSigned": {
+      "subject": "Deckung bestätigt — Akte {{reference}}",
+      "body": "Hallo {{firstName}}, die Kreditrisikodeckung Ihrer Akte {{reference}} ist bestätigt.",
+      "details": "Damit geht Ihre Akte weiter zur Kreditversicherung und anschließend zur Vorbereitung der Auszahlung. Jeden Schritt sehen Sie in Echtzeit in Ihrem sicheren Bereich."
+    },
+    "disbursementPreparing": {
+      "subject": "Auszahlung in Vorbereitung — Akte {{reference}}",
+      "body": "Hallo {{firstName}}, die Auszahlung Ihrer Akte {{reference}} wird vorbereitet.",
+      "details": "Unsere Finanzabteilung prüft Ihre Bankverbindung ein letztes Mal, bevor die Überweisung ausgeführt wird. Sie erhalten eine Bestätigung, sobald die Mittel versandt sind."
+    },
+    "repaying": {
+      "subject": "Rückzahlung läuft — Akte {{reference}}",
+      "body": "Hallo {{firstName}}, Ihre Akte {{reference}} tritt in die Rückzahlungsphase ein.",
+      "details": "Ihr detaillierter Tilgungsplan (Kapital, Zinsen, Restschuld) steht in Ihrem sicheren Bereich bereit. Jede eingegangene Rate wird dort erfasst und Ihnen per E-Mail bestätigt."
+    },
+    "repaymentReceived": {
+      "subject": "Zahlung erhalten — Akte {{reference}}",
+      "body": "Hallo {{firstName}}, wir haben Ihre Zahlung über {{amount}} für die Akte {{reference}} erhalten.",
+      "details": "Die betreffende Rate ist als beglichen markiert und Ihre Restschuld wurde in Ihrem sicheren Bereich aktualisiert, wo der Tilgungsplan jederzeit abrufbar bleibt."
+    },
+    "late": {
+      "subject": "Rate überfällig — Akte {{reference}}",
+      "body": "Hallo {{firstName}}, eine Rate Ihrer Akte {{reference}} ist überfällig.",
+      "details": "Bitte gleichen Sie diese Rate zeitnah aus, um Verzugskosten und eine Meldung zu vermeiden. Bei Schwierigkeiten sprechen Sie uns an: eine Anpassung kann geprüft werden."
+    },
+    "repaid": {
+      "subject": "Akte {{reference}} vollständig zurückgezahlt",
+      "body": "Hallo {{firstName}}, Ihre Akte {{reference}} ist vollständig zurückgezahlt. Vielen Dank für Ihr Vertrauen.",
+      "details": "Ihre Nullsaldo-Bescheinigung und die vollständige Zahlungshistorie bleiben in Ihrem sicheren Bereich verfügbar. Ein neuer Antrag ist jederzeit möglich."
+    },
+    "cancelled": {
+      "subject": "Akte {{reference}} storniert",
+      "body": "Hallo {{firstName}}, Ihre Akte {{reference}} wurde storniert.",
+      "details": "Für diese Akte wird Ihnen kein Betrag berechnet. Falls die Storno nicht Ihrem Wunsch entspricht, können Sie in Ihrem sicheren Bereich einen neuen Antrag stellen."
     }
   },
   "workflow": {

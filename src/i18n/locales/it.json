@@ -2211,12 +2211,63 @@
       "guarantee": "Scegli l'opzione di copertura",
       "insurance": "Gestisci l'assicurazione",
       "payment": "Effettua il pagamento",
-      "documents": "Carica i documenti"
+      "documents": "Carica i documenti",
+      "schedule": "Vedi il mio piano di ammortamento"
     },
     "installmentReminder": {
       "subject": "Prossima rata — pratica {{reference}}",
       "body": "Ciao {{firstName}}, la prossima rata di {{amount}} scade il {{date}}.",
       "details": "Piano di ammortamento e pagamento nella tua area sicura."
+    },
+    "applicationVerification": {
+      "subject": "Pratica {{reference}} in verifica",
+      "body": "Ciao {{firstName}}, la tua pratica {{reference}} è in corso di verifica da parte dei nostri team.",
+      "details": "Verifichiamo l'autenticità e la leggibilità dei tuoi documenti. In questa fase non devi fare nulla; ti avviseremo subito se un documento dovrà essere integrato."
+    },
+    "applicationAnalysis": {
+      "subject": "Pratica {{reference}} in analisi",
+      "body": "Ciao {{firstName}}, la tua pratica {{reference}} è entrata nella fase di analisi del merito creditizio.",
+      "details": "I nostri analisti valutano la tua capacità di rimborso, la coerenza dei redditi e l'importo richiesto. Ti comunicheremo l'esito appena sarà disponibile nella tua area sicura."
+    },
+    "signaturePending": {
+      "subject": "Firma in attesa — pratica {{reference}}",
+      "body": "Ciao {{firstName}}, il tuo contratto {{reference}} attende la tua firma elettronica.",
+      "details": "Fino alla firma la pratica resta sospesa e i fondi non possono essere predisposti. La firma avviene online con un codice monouso, in meno di due minuti."
+    },
+    "guaranteeSigned": {
+      "subject": "Copertura confermata — pratica {{reference}}",
+      "body": "Ciao {{firstName}}, la copertura del rischio di credito della pratica {{reference}} è confermata.",
+      "details": "Superata questa fase, la pratica prosegue verso l'assicurazione del mutuatario e poi la preparazione dell'erogazione. Ogni passaggio è visibile in tempo reale nella tua area sicura."
+    },
+    "disbursementPreparing": {
+      "subject": "Erogazione in preparazione — pratica {{reference}}",
+      "body": "Ciao {{firstName}}, l'erogazione della pratica {{reference}} è in preparazione.",
+      "details": "Il nostro ufficio finanziario effettua un ultimo controllo delle coordinate bancarie prima del bonifico. Riceverai una conferma appena i fondi saranno inviati."
+    },
+    "repaying": {
+      "subject": "Rimborso in corso — pratica {{reference}}",
+      "body": "Ciao {{firstName}}, la pratica {{reference}} entra nella fase di rimborso.",
+      "details": "Il piano di ammortamento dettagliato (capitale, interessi, debito residuo) è disponibile nella tua area sicura. Ogni rata incassata viene registrata e confermata via email."
+    },
+    "repaymentReceived": {
+      "subject": "Pagamento ricevuto — pratica {{reference}}",
+      "body": "Ciao {{firstName}}, abbiamo ricevuto il tuo pagamento di {{amount}} per la pratica {{reference}}.",
+      "details": "La rata interessata è contrassegnata come saldata e il debito residuo è aggiornato nella tua area sicura, dove il piano resta consultabile e scaricabile."
+    },
+    "late": {
+      "subject": "Rata scaduta — pratica {{reference}}",
+      "body": "Ciao {{firstName}}, una rata della pratica {{reference}} risulta insoluta.",
+      "details": "Ti invitiamo a regolarizzare la rata al più presto per evitare interessi di mora e segnalazioni. In caso di difficoltà contattaci: possiamo valutare una soluzione."
+    },
+    "repaid": {
+      "subject": "Pratica {{reference}} interamente rimborsata",
+      "body": "Ciao {{firstName}}, la pratica {{reference}} è interamente rimborsata. Grazie per la fiducia.",
+      "details": "L'attestazione di saldo zero e lo storico completo dei pagamenti restano disponibili nella tua area sicura. Puoi presentare una nuova richiesta quando vuoi."
+    },
+    "cancelled": {
+      "subject": "Pratica {{reference}} annullata",
+      "body": "Ciao {{firstName}}, la pratica {{reference}} è stata annullata.",
+      "details": "Nessun importo ti sarà addebitato per questa pratica. Se l'annullamento non corrisponde alla tua volontà, puoi presentare una nuova richiesta dalla tua area sicura."
     }
   },
   "workflow": {

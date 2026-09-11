@@ -340,8 +340,60 @@ export const adminRecordRepayment = createServerFn({ method: "POST" })
       metadata: { installment_no: installment.installment_no, amount: data.amount },
     });
 
+    const { applyTransition, queueEmail } = await import("@/lib/workflow.server");
+
+    const { data: app } = await supabaseAdmin
+      .from("loan_applications")
+      .select("reference, email, language, first_name, status")
+      .eq("id", data.application_id)
+      .maybeSingle();
+
+    // Le dossier entre en phase de remboursement dès le premier encaissement.
+    if (app?.status === "disbursed") {
+      await applyTransition({
+        applicationId: data.application_id,
+        to: "repaying",
+        actorId: context.userId,
+        actor: "staff",
+      });
+    }
+
+    // Reçu de paiement : le demandeur est informé de chaque encaissement.
+    if (app?.email) {
+      await queueEmail({
+        applicationId: data.application_id,
+        to: app.email,
+        locale: app.language,
+        template: "repaymentReceived",
+        vars: {
+          reference: app.reference,
+          firstName: app.first_name ?? "",
+          amount: `${data.amount.toFixed(2)} EUR`,
+          installment: String(installment.installment_no),
+          reason: "",
+        },
+      });
+    }
+
+    // Solde intégralement remboursé : clôture du dossier (email « Remboursé »).
+    const { count: outstanding } = await supabaseAdmin
+      .from("repayment_schedule")
+      .select("id", { count: "exact", head: true })
+      .eq("application_id", data.application_id)
+      .eq("paid", false);
+
+    if (complete && (outstanding ?? 0) === 0) {
+      await applyTransition({
+        applicationId: data.application_id,
+        to: "repaid",
+        actorId: context.userId,
+        actor: "staff",
+      });
+    }
+
     return { ok: true as const, complete };
   });
+
 
 /** Force le statut d'une échéance (retard, annulation…). */
 export const adminSetInstallmentStatus = createServerFn({ method: "POST" })

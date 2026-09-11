@@ -2211,12 +2211,63 @@
       "guarantee": "Wybierz opcję zabezpieczenia",
       "insurance": "Zarządzaj ubezpieczeniem",
       "payment": "Wykonaj płatność",
-      "documents": "Prześlij dokumenty"
+      "documents": "Prześlij dokumenty",
+      "schedule": "Zobacz harmonogram spłat"
     },
     "installmentReminder": {
       "subject": "Zbliżająca się rata — wniosek {{reference}}",
       "body": "Witaj {{firstName}}, kolejna rata {{amount}} przypada {{date}}.",
       "details": "Harmonogram spłat i płatność w bezpiecznej strefie."
+    },
+    "applicationVerification": {
+      "subject": "Wniosek {{reference}} w weryfikacji",
+      "body": "Witaj {{firstName}}, Twój wniosek {{reference}} jest obecnie weryfikowany przez nasze zespoły.",
+      "details": "Sprawdzamy autentyczność i czytelność Twoich dokumentów. Na tym etapie nie musisz nic robić; poinformujemy Cię natychmiast, jeśli któryś dokument trzeba będzie uzupełnić."
+    },
+    "applicationAnalysis": {
+      "subject": "Wniosek {{reference}} w analizie",
+      "body": "Witaj {{firstName}}, Twój wniosek {{reference}} wszedł w etap analizy zdolności kredytowej.",
+      "details": "Nasi analitycy badają Twoją zdolność spłaty, spójność dochodów oraz wnioskowaną kwotę. Wynik przekażemy, gdy tylko pojawi się w Twojej bezpiecznej strefie."
+    },
+    "signaturePending": {
+      "subject": "Oczekiwanie na podpis — wniosek {{reference}}",
+      "body": "Witaj {{firstName}}, Twoja umowa {{reference}} czeka na podpis elektroniczny.",
+      "details": "Dopóki podpis nie zostanie złożony, wniosek pozostaje wstrzymany, a środki nie mogą zostać przygotowane. Podpis składasz online jednorazowym kodem, w niecałe dwie minuty."
+    },
+    "guaranteeSigned": {
+      "subject": "Zabezpieczenie potwierdzone — wniosek {{reference}}",
+      "body": "Witaj {{firstName}}, zabezpieczenie ryzyka kredytowego wniosku {{reference}} zostało potwierdzone.",
+      "details": "Po tym etapie wniosek przechodzi do ubezpieczenia kredytobiorcy, a następnie do przygotowania wypłaty. Każdy krok widzisz na bieżąco w bezpiecznej strefie."
+    },
+    "disbursementPreparing": {
+      "subject": "Wypłata w przygotowaniu — wniosek {{reference}}",
+      "body": "Witaj {{firstName}}, wypłata środków dla wniosku {{reference}} jest przygotowywana.",
+      "details": "Nasz dział finansowy sprawdza ostatni raz Twoje dane bankowe przed zleceniem przelewu. Potwierdzenie otrzymasz, gdy środki zostaną wysłane."
+    },
+    "repaying": {
+      "subject": "Spłata w toku — wniosek {{reference}}",
+      "body": "Witaj {{firstName}}, Twój wniosek {{reference}} wchodzi w fazę spłaty.",
+      "details": "Szczegółowy harmonogram (kapitał, odsetki, saldo pozostałe) znajdziesz w bezpiecznej strefie. Każda zaksięgowana rata jest tam zapisywana i potwierdzana e-mailem."
+    },
+    "repaymentReceived": {
+      "subject": "Płatność otrzymana — wniosek {{reference}}",
+      "body": "Witaj {{firstName}}, otrzymaliśmy Twoją płatność {{amount}} dotyczącą wniosku {{reference}}.",
+      "details": "Odpowiednia rata została oznaczona jako zapłacona, a saldo pozostałe zaktualizowane w bezpiecznej strefie, gdzie harmonogram pozostaje dostępny do pobrania."
+    },
+    "late": {
+      "subject": "Rata przeterminowana — wniosek {{reference}}",
+      "body": "Witaj {{firstName}}, rata Twojego wniosku {{reference}} jest niezapłacona.",
+      "details": "Prosimy o uregulowanie raty jak najszybciej, aby uniknąć kosztów opóźnienia i zgłoszenia. W razie trudności skontaktuj się z nami — możemy rozważyć rozwiązanie."
+    },
+    "repaid": {
+      "subject": "Wniosek {{reference}} spłacony w całości",
+      "body": "Witaj {{firstName}}, Twój wniosek {{reference}} został spłacony w całości. Dziękujemy za zaufanie.",
+      "details": "Zaświadczenie o zerowym saldzie i pełna historia płatności pozostają w Twojej bezpiecznej strefie. Nowy wniosek możesz złożyć w każdej chwili."
+    },
+    "cancelled": {
+      "subject": "Wniosek {{reference}} anulowany",
+      "body": "Witaj {{firstName}}, Twój wniosek {{reference}} został anulowany.",
+      "details": "Za ten wniosek nie zostanie pobrana żadna kwota. Jeśli anulowanie nie jest zgodne z Twoją wolą, możesz złożyć nowy wniosek w bezpiecznej strefie."
     }
   },
   "workflow": {

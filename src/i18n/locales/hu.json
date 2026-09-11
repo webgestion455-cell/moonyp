@@ -2211,12 +2211,63 @@
       "guarantee": "Fedezeti opció választása",
       "insurance": "Biztosítás kezelése",
       "payment": "Fizetés végrehajtása",
-      "documents": "Dokumentumok feltöltése"
+      "documents": "Dokumentumok feltöltése",
+      "schedule": "Törlesztési tervem megtekintése"
     },
     "installmentReminder": {
       "subject": "Közelgő törlesztés — ügylet {{reference}}",
       "body": "Üdvözöljük {{firstName}}, a következő {{amount}} törlesztés esedékessége {{date}}.",
       "details": "Törlesztési terv és fizetés a biztonságos felületén."
+    },
+    "applicationVerification": {
+      "subject": "{{reference}} ügylet ellenőrzés alatt",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügyletét jelenleg csapataink ellenőrzik.",
+      "details": "Ellenőrizzük igazolásai eredetiségét és olvashatóságát. Ebben a szakaszban nincs tennivalója; azonnal jelezzük, ha egy dokumentumot pótolni kell."
+    },
+    "applicationAnalysis": {
+      "subject": "{{reference}} ügylet elemzés alatt",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügylete hitelelemzési szakaszba került.",
+      "details": "Elemzőink vizsgálják törlesztési képességét, jövedelmének összhangját és az igényelt összeget. Az eredmény a biztonságos felületén jelenik meg, amint elkészül."
+    },
+    "signaturePending": {
+      "subject": "Aláírásra vár — {{reference}} ügylet",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} szerződése az elektronikus aláírására vár.",
+      "details": "Az aláírásig az ügylet várakozik, és az összeg nem készíthető elő. Az aláírás online, egyszeri kóddal, két percen belül elvégezhető."
+    },
+    "guaranteeSigned": {
+      "subject": "Fedezet megerősítve — {{reference}} ügylet",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügylet hitelkockázati fedezete megerősítve.",
+      "details": "Ezt követően az ügylet a hitelfedezeti biztosításra, majd a kifizetés előkészítésére lép. Minden szakaszt valós időben követhet a biztonságos felületén."
+    },
+    "disbursementPreparing": {
+      "subject": "Kifizetés előkészítés alatt — {{reference}} ügylet",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügylet kifizetése előkészítés alatt áll.",
+      "details": "Pénzügyi osztályunk utolsó alkalommal ellenőrzi bankszámlaadatait az átutalás előtt. Az összeg elküldéséről visszaigazolást kap."
+    },
+    "repaying": {
+      "subject": "Törlesztés folyamatban — {{reference}} ügylet",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügylete törlesztési szakaszba lép.",
+      "details": "Részletes törlesztési terve (tőke, kamat, fennálló tartozás) a biztonságos felületén érhető el. Minden beérkezett részletet rögzítünk és e-mailben visszaigazolunk."
+    },
+    "repaymentReceived": {
+      "subject": "Fizetés beérkezett — {{reference}} ügylet",
+      "body": "Üdvözöljük {{firstName}}, megérkezett {{amount}} összegű fizetése a(z) {{reference}} ügylethez.",
+      "details": "Az érintett részlet rendezettként szerepel, fennálló tartozása pedig frissült a biztonságos felületén, ahol a törlesztési terv letölthető marad."
+    },
+    "late": {
+      "subject": "Késedelmes részlet — {{reference}} ügylet",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügylet egy részlete késedelmes.",
+      "details": "Kérjük, rendezze a részletet mielőbb, hogy elkerülje a késedelmi költségeket és a bejelentést. Nehézség esetén keressen minket: megoldás egyeztethető."
+    },
+    "repaid": {
+      "subject": "{{reference}} ügylet teljesen visszafizetve",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügylete teljes egészében visszafizetésre került. Köszönjük a bizalmát.",
+      "details": "A nulla egyenlegről szóló igazolás és a teljes fizetési előzmény a biztonságos felületén marad. Új kérelmet bármikor beadhat."
+    },
+    "cancelled": {
+      "subject": "{{reference}} ügylet törölve",
+      "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügylete törölve lett.",
+      "details": "Ezért az ügyletért semmilyen összeget nem számolunk fel. Ha a törlés nem az Ön szándéka, a biztonságos felületén új kérelmet indíthat."
     }
   },
   "workflow": {

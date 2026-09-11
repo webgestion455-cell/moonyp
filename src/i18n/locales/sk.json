@@ -2211,12 +2211,63 @@
       "guarantee": "Vybrať možnosť krytia",
       "insurance": "Spravovať poistenie",
       "payment": "Vykonať platbu",
-      "documents": "Nahrať dokumenty"
+      "documents": "Nahrať dokumenty",
+      "schedule": "Zobraziť môj splátkový kalendár"
     },
     "installmentReminder": {
       "subject": "Blížiaca sa splátka — žiadosť {{reference}}",
       "body": "Dobrý deň {{firstName}}, ďalšia splátka {{amount}} je splatná {{date}}.",
       "details": "Splátkový kalendár a platba vo vašej zabezpečenej zóne."
+    },
+    "applicationVerification": {
+      "subject": "Žiadosť {{reference}} v overovaní",
+      "body": "Dobrý deň {{firstName}}, vašu žiadosť {{reference}} práve overujú naše tímy.",
+      "details": "Kontrolujeme pravosť a čitateľnosť vašich dokladov. V tejto fáze nemusíte nič robiť; okamžite vás upozorníme, ak bude potrebné doplniť dokument."
+    },
+    "applicationAnalysis": {
+      "subject": "Žiadosť {{reference}} v analýze",
+      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} vstúpila do fázy úverovej analýzy.",
+      "details": "Naši analytici posudzujú vašu schopnosť splácať, súlad príjmov a požadovanú sumu. Výsledok uvidíte vo svojej bezpečnej zóne, len čo bude k dispozícii."
+    },
+    "signaturePending": {
+      "subject": "Čaká sa na podpis — žiadosť {{reference}}",
+      "body": "Dobrý deň {{firstName}}, vaša zmluva {{reference}} čaká na váš elektronický podpis.",
+      "details": "Do podpisu zostáva žiadosť pozastavená a prostriedky nemožno pripraviť. Podpis prebieha online jednorazovým kódom do dvoch minút."
+    },
+    "guaranteeSigned": {
+      "subject": "Krytie potvrdené — žiadosť {{reference}}",
+      "body": "Dobrý deň {{firstName}}, krytie úverového rizika žiadosti {{reference}} je potvrdené.",
+      "details": "Po tejto fáze žiadosť pokračuje k poisteniu dlžníka a potom k príprave vyplatenia. Každý krok vidíte v reálnom čase vo svojej bezpečnej zóne."
+    },
+    "disbursementPreparing": {
+      "subject": "Vyplatenie v príprave — žiadosť {{reference}}",
+      "body": "Dobrý deň {{firstName}}, vyplatenie prostriedkov k žiadosti {{reference}} sa pripravuje.",
+      "details": "Naše finančné oddelenie naposledy kontroluje vaše bankové údaje pred zadaním prevodu. Potvrdenie dostanete hneď po odoslaní prostriedkov."
+    },
+    "repaying": {
+      "subject": "Splácanie prebieha — žiadosť {{reference}}",
+      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} vstupuje do fázy splácania.",
+      "details": "Podrobný splátkový kalendár (istina, úroky, zostatok) je vo vašej bezpečnej zóne. Každá prijatá splátka sa tam zaznamená a potvrdíme ju e-mailom."
+    },
+    "repaymentReceived": {
+      "subject": "Platba prijatá — žiadosť {{reference}}",
+      "body": "Dobrý deň {{firstName}}, prijali sme vašu platbu {{amount}} k žiadosti {{reference}}.",
+      "details": "Príslušná splátka je označená ako uhradená a zostatok bol aktualizovaný vo vašej bezpečnej zóne, kde kalendár zostáva na stiahnutie."
+    },
+    "late": {
+      "subject": "Splátka po termíne — žiadosť {{reference}}",
+      "body": "Dobrý deň {{firstName}}, splátka vašej žiadosti {{reference}} je po termíne.",
+      "details": "Prosíme o úhradu splátky čo najskôr, aby ste sa vyhli nákladom z omeškania a nahláseniu. Pri ťažkostiach nás kontaktujte: riešenie je možné dohodnúť."
+    },
+    "repaid": {
+      "subject": "Žiadosť {{reference}} úplne splatená",
+      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} je úplne splatená. Ďakujeme za dôveru.",
+      "details": "Potvrdenie o nulovom zostatku a celú históriu platieb nájdete vo svojej bezpečnej zóne. Novú žiadosť môžete podať kedykoľvek."
+    },
+    "cancelled": {
+      "subject": "Žiadosť {{reference}} zrušená",
+      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} bola zrušená.",
+      "details": "Za túto žiadosť vám nebude nič účtované. Ak zrušenie nezodpovedá vášmu želaniu, môžete podať novú žiadosť vo svojej bezpečnej zóne."
     }
   },
   "workflow": {

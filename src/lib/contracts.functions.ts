@@ -354,11 +354,17 @@ export const requestContractSignature = createServerFn({ method: "POST" })
       .update({ status: "signing" } as never)
       .eq("id", contract.id);
 
+    // L'email « signature en attente » est porté par `signatureCode` (il embarque
+    // le code à usage unique) : on neutralise l'email générique pour ne pas
+    // envoyer deux messages identiques. Sans code hors bande, l'email de statut
+    // reprend la main.
+    const signatureCodeEmailed = Boolean(app?.email && created.outOfBandCode);
     await applyTransition({
       applicationId,
       to: "signature_pending",
       actor: "applicant",
       note: `signature request ${created.providerReference}`,
+      skipEmail: signatureCodeEmailed,
     });
 
     if (app?.email && created.outOfBandCode) {
@@ -516,6 +522,8 @@ export const signContract = createServerFn({ method: "POST" })
       to: "contract_signed",
       actor: "applicant",
       note: `signed v${contract.version}`,
+      // Email dédié `contractSigned` envoyé juste après (avec lien contrat).
+      skipEmail: true,
     });
 
     await notifyAdmins({

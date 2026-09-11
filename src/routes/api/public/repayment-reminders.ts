@@ -15,7 +15,7 @@ export const Route = createFileRoute("/api/public/repayment-reminders")({
         }
 
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-        const { queueEmail, notifyAdmins } = await import("@/lib/workflow.server");
+        const { queueEmail, notifyAdmins, applyTransition } = await import("@/lib/workflow.server");
 
         const today = new Date().toISOString().slice(0, 10);
         const horizon = new Date(Date.now() + 5 * 86_400_000).toISOString().slice(0, 10);
@@ -29,6 +29,10 @@ export const Route = createFileRoute("/api/public/repayment-reminders")({
           .in("status", ["upcoming", "partially_paid"])
           .limit(500);
 
+        // Un seul basculement de dossier en « retard » par demande, même si
+        // plusieurs échéances sont dépassées : le client reçoit UN email.
+        const escalated = new Set<string>();
+
         for (const row of overdue ?? []) {
           await supabaseAdmin
             .from("repayment_schedule")
@@ -40,7 +44,25 @@ export const Route = createFileRoute("/api/public/repayment-reminders")({
             link: `/admin/applications/${row.application_id}`,
             category: "repayment",
           });
+
+          if (!escalated.has(row.application_id)) {
+            escalated.add(row.application_id);
+            const { data: parent } = await supabaseAdmin
+              .from("loan_applications")
+              .select("status")
+              .eq("id", row.application_id)
+              .maybeSingle();
+            if (parent?.status === "repaying" || parent?.status === "disbursed") {
+              // Déclenche la transition « late » → email « paiement en retard ».
+              await applyTransition({
+                applicationId: row.application_id,
+                to: "late",
+                actor: "system",
+              });
+            }
+          }
         }
+
 
         // 2. Rappels des échéances à venir
         const { data: upcoming } = await supabaseAdmin

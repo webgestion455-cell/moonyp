@@ -2211,12 +2211,63 @@
       "guarantee": "Odaberi opciju pokrića",
       "insurance": "Upravljaj osiguranjem",
       "payment": "Izvrši plaćanje",
-      "documents": "Učitaj dokumente"
+      "documents": "Učitaj dokumente",
+      "schedule": "Pogledaj moj plan otplate"
     },
     "installmentReminder": {
       "subject": "Nadolazeća rata — predmet {{reference}}",
       "body": "Pozdrav {{firstName}}, sljedeća rata od {{amount}} dospijeva {{date}}.",
       "details": "Plan otplate i plaćanje u vašem sigurnom prostoru."
+    },
+    "applicationVerification": {
+      "subject": "Predmet {{reference}} u provjeri",
+      "body": "Pozdrav {{firstName}}, vaš predmet {{reference}} trenutno provjeravaju naši timovi.",
+      "details": "Provjeravamo vjerodostojnost i čitljivost vaših dokumenata. U ovoj fazi ne morate ništa učiniti; obavijestit ćemo vas odmah ako dokument treba dopuniti."
+    },
+    "applicationAnalysis": {
+      "subject": "Predmet {{reference}} u analizi",
+      "body": "Pozdrav {{firstName}}, vaš predmet {{reference}} ušao je u fazu kreditne analize.",
+      "details": "Naši analitičari procjenjuju vašu sposobnost otplate, dosljednost prihoda i traženi iznos. Rezultat ćete vidjeti u sigurnom prostoru odmah po dovršetku."
+    },
+    "signaturePending": {
+      "subject": "Potpis u očekivanju — predmet {{reference}}",
+      "body": "Pozdrav {{firstName}}, vaš ugovor {{reference}} čeka vaš elektronički potpis.",
+      "details": "Do potpisa predmet ostaje na čekanju i sredstva se ne mogu pripremiti. Potpisivanje je online, jednokratnim kodom, u manje od dvije minute."
+    },
+    "guaranteeSigned": {
+      "subject": "Pokriće potvrđeno — predmet {{reference}}",
+      "body": "Pozdrav {{firstName}}, pokriće kreditnog rizika za predmet {{reference}} je potvrđeno.",
+      "details": "Nakon ove faze predmet ide na osiguranje korisnika kredita, a zatim na pripremu isplate. Svaki korak vidljiv je u stvarnom vremenu u sigurnom prostoru."
+    },
+    "disbursementPreparing": {
+      "subject": "Isplata u pripremi — predmet {{reference}}",
+      "body": "Pozdrav {{firstName}}, isplata sredstava za predmet {{reference}} je u pripremi.",
+      "details": "Naša financijska služba posljednji put provjerava vaše bankovne podatke prije naloga za plaćanje. Potvrdu ćete dobiti odmah nakon slanja sredstava."
+    },
+    "repaying": {
+      "subject": "Otplata u tijeku — predmet {{reference}}",
+      "body": "Pozdrav {{firstName}}, vaš predmet {{reference}} ulazi u fazu otplate.",
+      "details": "Detaljan plan otplate (glavnica, kamate, preostali dug) dostupan je u sigurnom prostoru. Svaka primljena rata bilježi se tamo i potvrđuje e-poštom."
+    },
+    "repaymentReceived": {
+      "subject": "Plaćanje primljeno — predmet {{reference}}",
+      "body": "Pozdrav {{firstName}}, primili smo vaše plaćanje od {{amount}} za predmet {{reference}}.",
+      "details": "Odgovarajuća rata označena je kao plaćena, a preostali dug ažuriran je u sigurnom prostoru, gdje plan ostaje dostupan za preuzimanje."
+    },
+    "late": {
+      "subject": "Rata u dospijeću — predmet {{reference}}",
+      "body": "Pozdrav {{firstName}}, rata vašeg predmeta {{reference}} nije plaćena.",
+      "details": "Molimo podmirite ratu što prije kako biste izbjegli zatezne troškove i prijavu. Ako imate poteškoća, obratite nam se: moguće je dogovoriti rješenje."
+    },
+    "repaid": {
+      "subject": "Predmet {{reference}} u cijelosti otplaćen",
+      "body": "Pozdrav {{firstName}}, vaš predmet {{reference}} u cijelosti je otplaćen. Hvala na povjerenju.",
+      "details": "Potvrda o nultom saldu i cijela povijest plaćanja ostaju u sigurnom prostoru. Novi zahtjev možete podnijeti u svakom trenutku."
+    },
+    "cancelled": {
+      "subject": "Predmet {{reference}} otkazan",
+      "body": "Pozdrav {{firstName}}, vaš predmet {{reference}} je otkazan.",
+      "details": "Za ovaj predmet nećete biti ništa naplaćeni. Ako otkazivanje ne odgovara vašoj želji, možete podnijeti novi zahtjev iz sigurnog prostora."
     }
   },
   "workflow": {

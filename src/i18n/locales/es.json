@@ -2211,12 +2211,63 @@
       "guarantee": "Elegir mi opción de cobertura",
       "insurance": "Gestionar mi seguro",
       "payment": "Realizar mi pago",
-      "documents": "Subir mis documentos"
+      "documents": "Subir mis documentos",
+      "schedule": "Ver mi cuadro de amortización"
     },
     "installmentReminder": {
       "subject": "Próximo vencimiento — expediente {{reference}}",
       "body": "Hola {{firstName}}, su próximo vencimiento de {{amount}} está previsto el {{date}}.",
       "details": "Consulte su cuadro de amortización y pague desde su espacio seguro."
+    },
+    "applicationVerification": {
+      "subject": "Expediente {{reference}} en verificación",
+      "body": "Hola {{firstName}}, su expediente {{reference}} está siendo verificado por nuestros equipos.",
+      "details": "Comprobamos la autenticidad y la legibilidad de sus justificantes. En esta fase no debe hacer nada; le avisaremos de inmediato si falta completar algún documento."
+    },
+    "applicationAnalysis": {
+      "subject": "Expediente {{reference}} en análisis",
+      "body": "Hola {{firstName}}, su expediente {{reference}} ha entrado en la fase de análisis de solvencia.",
+      "details": "Nuestros analistas estudian su capacidad de reembolso, la coherencia de sus ingresos y el importe solicitado. Le comunicaremos el resultado en cuanto esté disponible en su espacio seguro."
+    },
+    "signaturePending": {
+      "subject": "Firma pendiente — expediente {{reference}}",
+      "body": "Hola {{firstName}}, su contrato {{reference}} está pendiente de su firma electrónica.",
+      "details": "Mientras la firma no se complete, el expediente permanece en espera y los fondos no pueden prepararse. La firma se realiza en línea con un código de un solo uso en menos de dos minutos."
+    },
+    "guaranteeSigned": {
+      "subject": "Cobertura confirmada — expediente {{reference}}",
+      "body": "Hola {{firstName}}, la cobertura del riesgo de crédito de su expediente {{reference}} está confirmada.",
+      "details": "Superada esta etapa, su expediente avanza hacia el seguro del prestatario y después a la preparación del desembolso. Puede seguir cada paso en tiempo real en su espacio seguro."
+    },
+    "disbursementPreparing": {
+      "subject": "Desembolso en preparación — expediente {{reference}}",
+      "body": "Hola {{firstName}}, el desembolso de su expediente {{reference}} está en preparación.",
+      "details": "Nuestro departamento financiero verifica por última vez sus datos bancarios antes de emitir la transferencia. Recibirá una confirmación cuando se envíen los fondos."
+    },
+    "repaying": {
+      "subject": "Reembolso en curso — expediente {{reference}}",
+      "body": "Hola {{firstName}}, su expediente {{reference}} entra en la fase de reembolso.",
+      "details": "Su cuadro de amortización detallado (capital, intereses, saldo pendiente) está disponible en su espacio seguro. Cada cuota cobrada se registra allí y se le confirma por correo."
+    },
+    "repaymentReceived": {
+      "subject": "Pago recibido — expediente {{reference}}",
+      "body": "Hola {{firstName}}, hemos recibido su pago de {{amount}} correspondiente al expediente {{reference}}.",
+      "details": "La cuota afectada queda marcada como pagada y su saldo pendiente se actualiza en su espacio seguro, donde su cuadro de amortización sigue disponible para descargar."
+    },
+    "late": {
+      "subject": "Cuota vencida — expediente {{reference}}",
+      "body": "Hola {{firstName}}, una cuota de su expediente {{reference}} está impagada.",
+      "details": "Le pedimos regularizar esta cuota lo antes posible para evitar gastos de demora y su comunicación a los registros. Si tiene dificultades, contáctenos: podemos estudiar una solución."
+    },
+    "repaid": {
+      "subject": "Expediente {{reference}} reembolsado por completo",
+      "body": "Hola {{firstName}}, su expediente {{reference}} está reembolsado íntegramente. Gracias por su confianza.",
+      "details": "Su certificado de saldo cero y el historial completo de pagos permanecen disponibles en su espacio seguro. Puede presentar una nueva solicitud cuando lo desee."
+    },
+    "cancelled": {
+      "subject": "Expediente {{reference}} anulado",
+      "body": "Hola {{firstName}}, su expediente {{reference}} ha sido anulado.",
+      "details": "No se le cobrará ningún importe por este expediente. Si esta anulación no corresponde a su voluntad, puede presentar una nueva solicitud desde su espacio seguro."
     }
   },
   "workflow": {

@@ -2211,12 +2211,63 @@
       "guarantee": "Izberi možnost kritja",
       "insurance": "Upravljaj zavarovanje",
       "payment": "Izvedi plačilo",
-      "documents": "Naloži dokumente"
+      "documents": "Naloži dokumente",
+      "schedule": "Ogled mojega načrta odplačil"
     },
     "installmentReminder": {
       "subject": "Prihajajoči obrok — vloga {{reference}}",
       "body": "Pozdravljeni {{firstName}}, naslednji obrok {{amount}} zapade {{date}}.",
       "details": "Amortizacijski načrt in plačilo v vašem varnem prostoru."
+    },
+    "applicationVerification": {
+      "subject": "Zadeva {{reference}} v preverjanju",
+      "body": "Pozdravljeni {{firstName}}, vašo zadevo {{reference}} trenutno preverjajo naše ekipe.",
+      "details": "Preverjamo pristnost in berljivost vaših dokazil. V tej fazi vam ni treba storiti ničesar; takoj vas obvestimo, če bo treba dokument dopolniti."
+    },
+    "applicationAnalysis": {
+      "subject": "Zadeva {{reference}} v analizi",
+      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} je vstopila v fazo kreditne analize.",
+      "details": "Naši analitiki presojajo vašo zmožnost odplačevanja, skladnost dohodkov in zaprošeni znesek. Izid boste videli v varnem prostoru, takoj ko bo pripravljen."
+    },
+    "signaturePending": {
+      "subject": "Podpis v pričakovanju — zadeva {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, vaša pogodba {{reference}} čaka na vaš elektronski podpis.",
+      "details": "Do podpisa zadeva ostaja v čakanju in sredstev ni mogoče pripraviti. Podpis poteka spletno z enkratno kodo, v manj kot dveh minutah."
+    },
+    "guaranteeSigned": {
+      "subject": "Kritje potrjeno — zadeva {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, kritje kreditnega tveganja za zadevo {{reference}} je potrjeno.",
+      "details": "Po tej fazi zadeva nadaljuje k zavarovanju kreditojemalca in nato k pripravi izplačila. Vsak korak spremljate v realnem času v varnem prostoru."
+    },
+    "disbursementPreparing": {
+      "subject": "Izplačilo v pripravi — zadeva {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, izplačilo sredstev za zadevo {{reference}} se pripravlja.",
+      "details": "Naša finančna služba še zadnjič preveri vaše bančne podatke pred izvedbo nakazila. Potrditev prejmete takoj po pošiljanju sredstev."
+    },
+    "repaying": {
+      "subject": "Odplačevanje poteka — zadeva {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} vstopa v fazo odplačevanja.",
+      "details": "Podroben načrt odplačil (glavnica, obresti, preostali dolg) je na voljo v varnem prostoru. Vsak prejeti obrok se tam zabeleži in potrdi po e-pošti."
+    },
+    "repaymentReceived": {
+      "subject": "Plačilo prejeto — zadeva {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, prejeli smo vaše plačilo {{amount}} za zadevo {{reference}}.",
+      "details": "Zadevni obrok je označen kot poravnan, preostali dolg pa posodobljen v varnem prostoru, kjer načrt ostaja na voljo za prenos."
+    },
+    "late": {
+      "subject": "Zapadli obrok — zadeva {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, obrok vaše zadeve {{reference}} je zapadel neplačan.",
+      "details": "Prosimo, obrok poravnajte čim prej, da se izognete zamudnim stroškom in prijavi. Ob težavah nas kontaktirajte: rešitev je mogoče dogovoriti."
+    },
+    "repaid": {
+      "subject": "Zadeva {{reference}} v celoti odplačana",
+      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} je v celoti odplačana. Hvala za zaupanje.",
+      "details": "Potrdilo o ničelnem stanju in celotna zgodovina plačil ostaneta v varnem prostoru. Novo prošnjo lahko oddate kadar koli."
+    },
+    "cancelled": {
+      "subject": "Zadeva {{reference}} preklicana",
+      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} je bila preklicana.",
+      "details": "Za to zadevo vam ne bo obračunan noben znesek. Če preklic ne ustreza vaši želji, lahko v varnem prostoru oddate novo prošnjo."
     }
   },
   "workflow": {

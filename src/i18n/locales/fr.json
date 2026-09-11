@@ -2211,12 +2211,63 @@
       "guarantee": "Choisir mon option de couverture",
       "insurance": "Gérer mon assurance",
       "payment": "Effectuer mon paiement",
-      "documents": "Déposer mes documents"
+      "documents": "Déposer mes documents",
+      "schedule": "Voir mon échéancier"
     },
     "installmentReminder": {
       "subject": "Échéance à venir — dossier {{reference}}",
       "body": "Bonjour {{firstName}}, votre prochaine échéance de {{amount}} est prévue le {{date}}.",
       "details": "Vous pouvez consulter votre tableau d'amortissement et régler votre échéance depuis votre espace sécurisé."
+    },
+    "applicationVerification": {
+      "subject": "Dossier {{reference}} en vérification",
+      "body": "Bonjour {{firstName}}, votre dossier {{reference}} est en cours de vérification par nos équipes.",
+      "details": "Nous contrôlons l'authenticité et la lisibilité de vos pièces justificatives. Aucune action n'est requise de votre part à ce stade ; vous serez averti immédiatement si un document doit être complété."
+    },
+    "applicationAnalysis": {
+      "subject": "Dossier {{reference}} en analyse",
+      "body": "Bonjour {{firstName}}, votre dossier {{reference}} est entré en phase d'analyse de solvabilité.",
+      "details": "Nos analystes étudient votre capacité de remboursement, la cohérence de vos revenus et le montant demandé. Le résultat de cette étude vous sera communiqué dès qu'il sera disponible dans votre espace sécurisé."
+    },
+    "signaturePending": {
+      "subject": "Signature en attente — dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, votre contrat {{reference}} attend votre signature électronique.",
+      "details": "Tant que la signature n'est pas finalisée, le dossier reste en attente et les fonds ne peuvent pas être préparés. La signature s'effectue en ligne, avec un code à usage unique, en moins de deux minutes."
+    },
+    "guaranteeSigned": {
+      "subject": "Couverture confirmée — dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, la couverture du risque de crédit de votre dossier {{reference}} est confirmée.",
+      "details": "Cette étape validée, votre dossier poursuit son parcours vers l'assurance emprunteur puis la préparation du décaissement. Chaque étape reste consultable en temps réel dans votre espace sécurisé."
+    },
+    "disbursementPreparing": {
+      "subject": "Décaissement en préparation — dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, le décaissement de votre dossier {{reference}} est en préparation.",
+      "details": "Nos services financiers vérifient une dernière fois vos coordonnées bancaires avant l'émission du virement. Vous recevrez une confirmation dès que les fonds seront envoyés."
+    },
+    "repaying": {
+      "subject": "Remboursement en cours — dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, votre dossier {{reference}} entre en phase de remboursement.",
+      "details": "Votre échéancier détaillé (capital, intérêts, solde restant dû) est disponible dans votre espace sécurisé. Chaque échéance encaissée y est enregistrée et vous est confirmée par email."
+    },
+    "repaymentReceived": {
+      "subject": "Paiement reçu — dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, nous avons bien reçu votre paiement de {{amount}} pour votre dossier {{reference}}.",
+      "details": "L'échéance concernée est marquée comme réglée et votre solde restant dû est mis à jour dans votre espace sécurisé, où votre échéancier reste consultable et téléchargeable."
+    },
+    "late": {
+      "subject": "Échéance en retard — dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, une échéance de votre dossier {{reference}} est en retard de paiement.",
+      "details": "Nous vous invitons à régulariser cette échéance dans les meilleurs délais afin d'éviter des frais de retard et un signalement. Si vous rencontrez une difficulté, contactez-nous : une solution d'aménagement peut être étudiée."
+    },
+    "repaid": {
+      "subject": "Dossier {{reference}} intégralement remboursé",
+      "body": "Bonjour {{firstName}}, votre dossier {{reference}} est intégralement remboursé. Nous vous remercions de votre confiance.",
+      "details": "Votre attestation de solde nul et l'historique complet de vos règlements restent disponibles dans votre espace sécurisé. Vous pouvez déposer une nouvelle demande à tout moment."
+    },
+    "cancelled": {
+      "subject": "Dossier {{reference}} annulé",
+      "body": "Bonjour {{firstName}}, votre dossier {{reference}} a été annulé.",
+      "details": "Aucune somme ne vous sera prélevée au titre de ce dossier. Si cette annulation ne correspond pas à votre souhait, vous pouvez déposer une nouvelle demande depuis votre espace sécurisé."
     }
   },
   "workflow": {

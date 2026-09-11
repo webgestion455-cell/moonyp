@@ -2211,12 +2211,63 @@
       "guarantee": "Dekkingsoptie kiezen",
       "insurance": "Verzekering beheren",
       "payment": "Betaling uitvoeren",
-      "documents": "Documenten uploaden"
+      "documents": "Documenten uploaden",
+      "schedule": "Mijn aflossingsschema bekijken"
     },
     "installmentReminder": {
       "subject": "Komende termijn — dossier {{reference}}",
       "body": "Hallo {{firstName}}, uw volgende termijn van {{amount}} vervalt op {{date}}.",
       "details": "Aflossingsschema en betaling in uw beveiligde omgeving."
+    },
+    "applicationVerification": {
+      "subject": "Dossier {{reference}} in verificatie",
+      "body": "Hallo {{firstName}}, uw dossier {{reference}} wordt momenteel door onze teams gecontroleerd.",
+      "details": "Wij controleren de echtheid en leesbaarheid van uw bewijsstukken. U hoeft nu niets te doen; wij laten het direct weten als een document moet worden aangevuld."
+    },
+    "applicationAnalysis": {
+      "subject": "Dossier {{reference}} in analyse",
+      "body": "Hallo {{firstName}}, uw dossier {{reference}} is in de kredietanalyse gekomen.",
+      "details": "Onze analisten beoordelen uw aflossingscapaciteit, de consistentie van uw inkomen en het gevraagde bedrag. Zodra de uitkomst beschikbaar is, ziet u die in uw beveiligde omgeving."
+    },
+    "signaturePending": {
+      "subject": "Ondertekening in afwachting — dossier {{reference}}",
+      "body": "Hallo {{firstName}}, uw contract {{reference}} wacht op uw elektronische ondertekening.",
+      "details": "Zolang de ondertekening niet is afgerond, blijft het dossier in afwachting en kunnen de middelen niet worden klaargezet. Ondertekenen gebeurt online met een eenmalige code, in minder dan twee minuten."
+    },
+    "guaranteeSigned": {
+      "subject": "Dekking bevestigd — dossier {{reference}}",
+      "body": "Hallo {{firstName}}, de dekking van het kredietrisico voor dossier {{reference}} is bevestigd.",
+      "details": "Na deze stap gaat uw dossier verder naar de kredietverzekering en daarna naar de voorbereiding van de uitbetaling. Elke stap volgt u live in uw beveiligde omgeving."
+    },
+    "disbursementPreparing": {
+      "subject": "Uitbetaling in voorbereiding — dossier {{reference}}",
+      "body": "Hallo {{firstName}}, de uitbetaling van dossier {{reference}} wordt voorbereid.",
+      "details": "Onze financiële afdeling controleert uw bankgegevens een laatste keer voordat de overboeking wordt uitgevoerd. U ontvangt een bevestiging zodra de middelen zijn verzonden."
+    },
+    "repaying": {
+      "subject": "Aflossing gestart — dossier {{reference}}",
+      "body": "Hallo {{firstName}}, uw dossier {{reference}} gaat de aflossingsfase in.",
+      "details": "Uw gedetailleerde aflossingsschema (hoofdsom, rente, restschuld) staat in uw beveiligde omgeving. Elke ontvangen termijn wordt daar vastgelegd en per e-mail bevestigd."
+    },
+    "repaymentReceived": {
+      "subject": "Betaling ontvangen — dossier {{reference}}",
+      "body": "Hallo {{firstName}}, wij hebben uw betaling van {{amount}} voor dossier {{reference}} ontvangen.",
+      "details": "De betreffende termijn staat als betaald en uw restschuld is bijgewerkt in uw beveiligde omgeving, waar uw schema beschikbaar blijft om te downloaden."
+    },
+    "late": {
+      "subject": "Termijn achterstallig — dossier {{reference}}",
+      "body": "Hallo {{firstName}}, een termijn van dossier {{reference}} is niet betaald.",
+      "details": "Betaal deze termijn zo snel mogelijk om achterstandskosten en registratie te voorkomen. Heeft u moeilijkheden? Neem contact met ons op: een regeling is bespreekbaar."
+    },
+    "repaid": {
+      "subject": "Dossier {{reference}} volledig afgelost",
+      "body": "Hallo {{firstName}}, uw dossier {{reference}} is volledig afgelost. Bedankt voor uw vertrouwen.",
+      "details": "Uw verklaring van nulstand en de volledige betalingshistorie blijven beschikbaar in uw beveiligde omgeving. U kunt altijd een nieuwe aanvraag indienen."
+    },
+    "cancelled": {
+      "subject": "Dossier {{reference}} geannuleerd",
+      "body": "Hallo {{firstName}}, uw dossier {{reference}} is geannuleerd.",
+      "details": "Voor dit dossier wordt niets in rekening gebracht. Als deze annulering niet uw bedoeling is, kunt u een nieuwe aanvraag indienen in uw beveiligde omgeving."
     }
   },
   "workflow": {

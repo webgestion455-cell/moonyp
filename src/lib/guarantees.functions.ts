@@ -88,6 +88,8 @@ export const adminSendGuarantee = createServerFn({ method: "POST" })
     const transition = await applyTransition({
       applicationId: data.application_id,
       to: "guarantee_sent",
+      // Email dédié `guaranteeSent` envoyé juste après (avec montant et options).
+      skipEmail: true,
       actorId: context.userId,
       actor: "staff",
       note: `guarantee fee ${data.fee_amount} ${data.currency}`,
@@ -259,6 +261,8 @@ export const adminValidateGuaranteePayment = createServerFn({ method: "POST" })
     const transition = await applyTransition({
       applicationId: data.application_id,
       to: "guarantee_signed",
+      // Email dédié `guaranteePaymentValidated` envoyé juste après.
+      skipEmail: true,
       actorId: context.userId,
       actor: "staff",
       note: data.note ?? null,
@@ -357,6 +361,8 @@ export const adminSendInsurance = createServerFn({ method: "POST" })
     const transition = await applyTransition({
       applicationId: data.application_id,
       to: "insurance_pending",
+      // Email dédié `insurancePending` envoyé juste après (avec prime mensuelle).
+      skipEmail: true,
       actorId: context.userId,
       actor: "staff",
     });
@@ -426,6 +432,8 @@ export const adminValidateInsurance = createServerFn({ method: "POST" })
     const transition = await applyTransition({
       applicationId: data.application_id,
       to: "insurance_validated",
+      // Email dédié `insuranceValidated` envoyé juste après.
+      skipEmail: true,
       actorId: context.userId,
       actor: "staff",
       note: data.admin_notes ?? null,
