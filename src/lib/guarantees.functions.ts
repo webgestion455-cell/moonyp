@@ -456,3 +456,171 @@ export const adminValidateInsurance = createServerFn({ method: "POST" })
 
     return { ok: true as const, transition };
   });
+
+/* ---------------------------------------------------------------------------
+ * ASSURANCE — étape distincte de la garantie, avec ses propres frais, choix
+ * client, validations et rappels. Même règle de sécurité : un clic client
+ * n'emporte JAMAIS paiement ; seul un administrateur valide l'encaissement.
+ * ------------------------------------------------------------------------- */
+
+export const INSURANCE_CHOICES = ["pay_now", "decline", "pay_later"] as const;
+export type InsuranceChoice = (typeof INSURANCE_CHOICES)[number];
+
+/** Choix exclusif du client sur les frais d'assurance (aucun paiement ici). */
+export const chooseInsuranceOption = createServerFn({ method: "POST" })
+  .inputValidator((input) =>
+    z
+      .object({
+        token: z.string().min(20).max(200),
+        insurance_id: z.string().uuid(),
+        choice: z.enum(INSURANCE_CHOICES),
+        scheduled_payment_date: z.string().date().optional(),
+      })
+      .parse(input),
+  )
+  .handler(async ({ data }) => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const server = await import("@/lib/applications.server");
+    const { queueEmail, notifyAdmins } = await import("@/lib/workflow.server");
+
+    const applicationId = await server.resolveToken(data.token);
+    if (!applicationId) throw new Error("invalid_token");
+    if (data.choice === "pay_later" && !data.scheduled_payment_date) {
+      return { ok: false as const, reason: "finance.insurance.error.dateRequired" };
+    }
+    if (
+      data.scheduled_payment_date &&
+      new Date(data.scheduled_payment_date).getTime() < Date.now() - 86_400_000
+    ) {
+      return { ok: false as const, reason: "finance.insurance.error.datePast" };
+    }
+
+    const { data: insurance } = await supabaseAdmin
+      .from("application_insurances")
+      .select("id, payment_status, currency, fee_amount")
+      .eq("id", data.insurance_id)
+      .eq("application_id", applicationId)
+      .maybeSingle();
+    if (!insurance) throw new Error("insurance_not_found");
+    if (insurance.payment_status === "paid") return { ok: true as const, alreadyPaid: true as const };
+
+    const now = new Date().toISOString();
+    await supabaseAdmin
+      .from("application_insurances")
+      .update({
+        client_choice: data.choice,
+        choice_at: now,
+        scheduled_payment_date: data.choice === "pay_later" ? data.scheduled_payment_date : null,
+        payment_status: data.choice === "decline" ? "waived" : "awaiting_payment",
+        status: data.choice === "decline" ? "declined" : "accepted",
+      } as never)
+      .eq("id", insurance.id);
+
+    await server.logEvent(applicationId, `insurance_choice_${data.choice}`, {
+      actor: "applicant",
+      description: data.choice,
+      metadata: {
+        insurance_id: insurance.id,
+        scheduled_payment_date: data.scheduled_payment_date ?? null,
+      },
+      ip: requestIp(),
+    });
+
+    const { data: app } = await supabaseAdmin
+      .from("loan_applications")
+      .select("reference, email, language, first_name")
+      .eq("id", applicationId)
+      .maybeSingle();
+
+    await notifyAdmins({
+      title: app?.reference ?? "Dossier",
+      message: `Assurance · choix du client : ${data.choice}`,
+      link: `/admin/applications/${applicationId}`,
+      category: "insurance",
+    });
+
+    const template =
+      data.choice === "pay_now"
+        ? "insurancePayNow"
+        : data.choice === "decline"
+          ? "insuranceDeclined"
+          : "insurancePayLater";
+
+    if (app?.email) {
+      await queueEmail({
+        applicationId,
+        to: app.email,
+        locale: app.language,
+        template,
+        vars: {
+          reference: app.reference,
+          firstName: app.first_name ?? "",
+          amount: `${Number(insurance.fee_amount ?? 0)} ${insurance.currency ?? "EUR"}`,
+          date: data.scheduled_payment_date ?? "",
+          reason: "",
+        },
+      });
+    }
+
+    return { ok: true as const, alreadyPaid: false as const };
+  });
+
+/** Validation administrative du paiement des frais d'assurance. */
+export const adminValidateInsurancePayment = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input) =>
+    z
+      .object({
+        insurance_id: z.string().uuid(),
+        application_id: z.string().uuid(),
+        payment_reference: z.string().max(120).optional(),
+        note: z.string().max(500).optional(),
+      })
+      .parse(input),
+  )
+  .handler(async ({ data, context }) => {
+    await assertStaff(context.supabase as never, context.userId);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { queueEmail } = await import("@/lib/workflow.server");
+    const server = await import("@/lib/applications.server");
+
+    const now = new Date().toISOString();
+    const { error } = await supabaseAdmin
+      .from("application_insurances")
+      .update({
+        payment_status: "paid",
+        payment_reference: data.payment_reference ?? null,
+        payment_validated_at: now,
+        payment_validated_by: context.userId,
+      } as never)
+      .eq("id", data.insurance_id)
+      .eq("application_id", data.application_id);
+    if (error) throw new Error(error.message);
+
+    await server.logEvent(data.application_id, "insurance_payment_validated", {
+      actor: "staff",
+      actorId: context.userId,
+      description: data.note ?? undefined,
+      metadata: {
+        insurance_id: data.insurance_id,
+        payment_reference: data.payment_reference ?? null,
+      },
+    });
+
+    const { data: app } = await supabaseAdmin
+      .from("loan_applications")
+      .select("reference, email, language, first_name")
+      .eq("id", data.application_id)
+      .maybeSingle();
+    if (app?.email) {
+      await queueEmail({
+        applicationId: data.application_id,
+        to: app.email,
+        locale: app.language,
+        template: "insurancePaymentValidated",
+        vars: { reference: app.reference, firstName: app.first_name ?? "", reason: "" },
+      });
+    }
+
+    return { ok: true as const };
+  });
