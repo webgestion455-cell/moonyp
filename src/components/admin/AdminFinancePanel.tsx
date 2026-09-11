@@ -6,7 +6,6 @@ import {
   Banknote,
   CalendarClock,
   FileSignature,
-  ShieldCheck,
 } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -31,9 +30,6 @@ import {
   adminSetInstallmentStatus,
 } from "@/lib/disbursements.functions";
 
-import {
-  adminSendInsurance,
-} from "@/lib/guarantees.functions";
 
 import {
   adminListContracts,
@@ -109,8 +105,6 @@ export function AdminFinancePanel({
   const record = useServerFn(adminRecordRepayment);
   const setInstallment = useServerFn(adminSetInstallmentStatus);
 
-  const sendInsurance = useServerFn(adminSendInsurance);
-
   // Contrats
   const listContracts = useServerFn(adminListContracts);
   const prepareContract = useServerFn(adminPrepareContract);
@@ -127,14 +121,6 @@ export function AdminFinancePanel({
   const [payoutNotes, setPayoutNotes] = useState("");
   const [firstDue, setFirstDue] = useState("");
 
-  const [insurance, setInsurance] = useState({
-    provider: "",
-    coverage: "",
-    monthly_premium: "",
-    fee_amount: "",
-    fee_description: "",
-    due_date: "",
-  });
 
   const locale = i18n.language;
 
@@ -591,163 +577,11 @@ export function AdminFinancePanel({
         </CardContent>
       </Card>
 
-      {/* ============================================================
-          ASSURANCE
-      ============================================================ */}
-      <Card>
-        <CardHeader className="pb-3">
-          <CardTitle className="flex items-center gap-2 text-sm font-semibold">
-            <ShieldCheck className="h-4 w-4" />
-            Assurance — prime et frais
-          </CardTitle>
-        </CardHeader>
+      {/* L'étape Assurance est portée par le panneau unique
+          « Garantie & assurance » (CoveragePanel) dans l'onglet
+          « Informations & décision » : aucun doublon ici. */}
 
-        <CardContent className="grid gap-3 sm:grid-cols-2">
-          <div>
-            <Label className="text-xs">Assureur</Label>
-            <Input
-              className="mt-1.5"
-              value={insurance.provider}
-              onChange={(e) =>
-                setInsurance({
-                  ...insurance,
-                  provider: e.target.value,
-                })
-              }
-            />
-          </div>
 
-          <div>
-            <Label className="text-xs">
-              Garanties couvertes
-            </Label>
-            <Input
-              className="mt-1.5"
-              value={insurance.coverage}
-              onChange={(e) =>
-                setInsurance({
-                  ...insurance,
-                  coverage: e.target.value,
-                })
-              }
-              placeholder="Décès, PTIA, ITT…"
-            />
-          </div>
-
-          <div>
-            <Label className="text-xs">
-              Prime mensuelle (€)
-            </Label>
-            <Input
-              className="mt-1.5"
-              type="number"
-              min={0}
-              step="0.01"
-              value={insurance.monthly_premium}
-              onChange={(e) =>
-                setInsurance({
-                  ...insurance,
-                  monthly_premium: e.target.value,
-                })
-              }
-            />
-          </div>
-
-          <div>
-            <Label className="text-xs">
-              Frais de mise en place (€)
-            </Label>
-            <Input
-              className="mt-1.5"
-              type="number"
-              min={0}
-              step="0.01"
-              value={insurance.fee_amount}
-              onChange={(e) =>
-                setInsurance({
-                  ...insurance,
-                  fee_amount: e.target.value,
-                })
-              }
-            />
-          </div>
-
-          <div className="sm:col-span-2">
-            <Label className="text-xs">
-              Détail des frais (visible client)
-            </Label>
-            <Textarea
-              className="mt-1.5"
-              rows={2}
-              maxLength={500}
-              value={insurance.fee_description}
-              onChange={(e) =>
-                setInsurance({
-                  ...insurance,
-                  fee_description: e.target.value,
-                })
-              }
-            />
-          </div>
-
-          <div>
-            <Label className="text-xs">
-              Échéance de règlement
-            </Label>
-            <Input
-              className="mt-1.5"
-              type="date"
-              value={insurance.due_date}
-              onChange={(e) =>
-                setInsurance({
-                  ...insurance,
-                  due_date: e.target.value,
-                })
-              }
-            />
-          </div>
-
-          <div className="flex items-end">
-            <Button
-              size="sm"
-              disabled={
-                busy ||
-                insurance.monthly_premium === ""
-              }
-              onClick={() =>
-                run(
-                  () =>
-                    sendInsurance({
-                      data: {
-                        application_id: applicationId,
-                        provider:
-                          insurance.provider || undefined,
-                        coverage:
-                          insurance.coverage || undefined,
-                        monthly_premium: Number(
-                          insurance.monthly_premium || 0,
-                        ),
-                        fee_amount: Number(
-                          insurance.fee_amount || 0,
-                        ),
-                        fee_description:
-                          insurance.fee_description ||
-                          undefined,
-                        due_date:
-                          insurance.due_date || undefined,
-                        currency: "EUR",
-                        required: true,
-                      },
-                    }),
-                  "Étape assurance envoyée au client",
-                )
-              }
-            >
-              Envoyer l'assurance
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
 
       {/* ============================================================
           DÉCAISSEMENT
