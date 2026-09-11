@@ -1891,6 +1891,49 @@
         "late": "Atrasada",
         "cancelled": "Cancelada"
       }
+    },
+    "insurance": {
+      "fee": "Gastos de contratación del seguro",
+      "paymentStatus": "Estado del pago",
+      "payment": {
+        "unpaid": "No pagado",
+        "not_required": "Sin gastos",
+        "pending": "Pendiente",
+        "awaiting_payment": "Pendiente de pago",
+        "paid": "Pagado",
+        "waived": "Renunciado",
+        "failed": "Fallido"
+      },
+      "dueDate": "Fecha de vencimiento",
+      "scheduledDate": "Fecha de pago programada",
+      "paidNotice": "Sus gastos de seguro han sido validados por nuestro equipo.",
+      "chosen": {
+        "pay_now": "Ha elegido pagar ahora.",
+        "decline": "Ha renunciado al seguro.",
+        "pay_later": "Ha elegido pagar más tarde."
+      },
+      "instructions": "Instrucciones de pago",
+      "validationNotice": "Un pago solo se considera recibido tras la validación de nuestro equipo.",
+      "question": "¿Desea pagar los gastos de seguro?",
+      "options": {
+        "pay_now": "Sí, pagar ahora",
+        "decline": "No, renunciar al seguro",
+        "pay_later": "Sí, pagar más tarde"
+      },
+      "optionsHint": {
+        "pay_now": "Recibirá las instrucciones de pago.",
+        "decline": "Su expediente se revisará sin seguro.",
+        "pay_later": "Elija una fecha: recibirá recordatorios."
+      },
+      "pickDate": "Fecha de pago deseada",
+      "confirmChoice": "Confirmar mi elección",
+      "noPaymentNotice": "Esta elección no realiza ningún pago: se confirma solo tras la validación de nuestro equipo.",
+      "choiceSaved": "Elección guardada",
+      "error": {
+        "dateRequired": "Elija una fecha de pago.",
+        "datePast": "La fecha elegida ya ha pasado.",
+        "generic": "Acción imposible."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "Expediente {{reference}} anulado",
       "body": "Hola {{firstName}}, su expediente {{reference}} ha sido anulado.",
       "details": "No se le cobrará ningún importe por este expediente. Si esta anulación no corresponde a su voluntad, puede presentar una nueva solicitud desde su espacio seguro."
+    },
+    "insurancePayNow": {
+      "subject": "Seguro — pago inmediato · expediente {{reference}}",
+      "body": "Hola {{firstName}}, ha elegido pagar ahora los gastos de seguro de {{amount}}.",
+      "details": "Las instrucciones de pago (beneficiario, IBAN, BIC y referencia) están en su espacio seguro. Un pago solo se considera recibido tras la validación de nuestro equipo."
+    },
+    "insurancePayLater": {
+      "subject": "Seguro — pago programado · expediente {{reference}}",
+      "body": "Hola {{firstName}}, su pago de {{amount}} está previsto para el {{date}}.",
+      "details": "Su expediente queda reservado hasta la fecha elegida. Puede adelantar el pago en cualquier momento; recibirá recordatorios antes del vencimiento."
+    },
+    "insuranceDeclined": {
+      "subject": "Seguro — renuncia registrada · expediente {{reference}}",
+      "body": "Hola {{firstName}}, hemos registrado su renuncia al seguro de prestatario.",
+      "details": "Sin seguro, su expediente puede volver a ser examinado por nuestro comité. Puede cambiar esta decisión mientras no se hayan liberado los fondos."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Seguro — pago validado · expediente {{reference}}",
+      "body": "Hola {{firstName}}, confirmamos la recepción de los gastos de seguro.",
+      "details": "Su cobertura se está activando. El certificado y el número de póliza estarán disponibles en su espacio seguro tras la validación."
+    },
+    "insuranceReminder": {
+      "subject": "Recordatorio — gastos de seguro · expediente {{reference}}",
+      "body": "Hola {{firstName}}, su pago de {{amount}} vence el {{date}}.",
+      "details": "Este recordatorio automático se envía antes de la fecha que eligió. Encontrará las instrucciones de pago en su espacio seguro."
     }
   },
   "workflow": {

@@ -1891,6 +1891,49 @@
         "late": "Késedelmes",
         "cancelled": "Törölve"
       }
+    },
+    "insurance": {
+      "fee": "Biztosítás létrehozási díja",
+      "paymentStatus": "Fizetés állapota",
+      "payment": {
+        "unpaid": "Nincs fizetve",
+        "not_required": "Díjmentes",
+        "pending": "Függőben",
+        "awaiting_payment": "Fizetésre vár",
+        "paid": "Kifizetve",
+        "waived": "Lemondva",
+        "failed": "Sikertelen"
+      },
+      "dueDate": "Fizetési határidő",
+      "scheduledDate": "Ütemezett fizetési dátum",
+      "paidNotice": "Biztosítási díját csapatunk jóváhagyta.",
+      "chosen": {
+        "pay_now": "Az azonnali fizetést választotta.",
+        "decline": "Lemondott a biztosításról.",
+        "pay_later": "A későbbi fizetést választotta."
+      },
+      "instructions": "Fizetési adatok",
+      "validationNotice": "A fizetés csak csapatunk jóváhagyása után minősül beérkezettnek.",
+      "question": "Kifizeti a biztosítási díjat?",
+      "options": {
+        "pay_now": "Igen, fizetés most",
+        "decline": "Nem, lemondok a biztosításról",
+        "pay_later": "Igen, később fizetek"
+      },
+      "optionsHint": {
+        "pay_now": "Megkapja a fizetési adatokat.",
+        "decline": "Ügyét biztosítás nélkül vizsgáljuk.",
+        "pay_later": "Válasszon dátumot: emlékeztetőket küldünk."
+      },
+      "pickDate": "Kívánt fizetési dátum",
+      "confirmChoice": "Választás megerősítése",
+      "noPaymentNotice": "Ez a választás nem indít fizetést: csak csapatunk ellenőrzése után válik véglegessé.",
+      "choiceSaved": "Választás mentve",
+      "error": {
+        "dateRequired": "Válasszon fizetési dátumot.",
+        "datePast": "A választott dátum már elmúlt.",
+        "generic": "A művelet nem lehetséges."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "{{reference}} ügylet törölve",
       "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügylete törölve lett.",
       "details": "Ezért az ügyletért semmilyen összeget nem számolunk fel. Ha a törlés nem az Ön szándéka, a biztonságos felületén új kérelmet indíthat."
+    },
+    "insurancePayNow": {
+      "subject": "Biztosítás — azonnali fizetés · ügyszám {{reference}}",
+      "body": "Jó napot {{firstName}}, úgy döntött, hogy a {{amount}} biztosítási díjat azonnal kifizeti.",
+      "details": "A fizetési adatok (kedvezményezett, IBAN, BIC és közlemény) a biztonságos felületén érhetők el. A fizetés csak csapatunk jóváhagyása után minősül beérkezettnek."
+    },
+    "insurancePayLater": {
+      "subject": "Biztosítás — ütemezett fizetés · ügyszám {{reference}}",
+      "body": "Jó napot {{firstName}}, a {{amount}} összegű fizetés {{date}} napra van ütemezve.",
+      "details": "Ügye a választott dátumig fenntartva marad. Korábban is fizethet; a határidő előtt emlékeztetőket küldünk."
+    },
+    "insuranceDeclined": {
+      "subject": "Biztosítás — lemondás rögzítve · ügyszám {{reference}}",
+      "body": "Jó napot {{firstName}}, rögzítettük a hitelfedezeti biztosításról való lemondását.",
+      "details": "Biztosítás nélkül ügyét bizottságunk újra megvizsgálhatja. A folyósításig módosíthatja döntését."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Biztosítás — fizetés jóváhagyva · ügyszám {{reference}}",
+      "body": "Jó napot {{firstName}}, visszaigazoljuk a biztosítási díj beérkezését.",
+      "details": "A fedezet beállítása folyamatban van. Az igazolás és a kötvényszám a jóváhagyás után elérhető a biztonságos felületen."
+    },
+    "insuranceReminder": {
+      "subject": "Emlékeztető — biztosítási díj · ügyszám {{reference}}",
+      "body": "Jó napot {{firstName}}, a {{amount}} összegű fizetés esedékessége {{date}}.",
+      "details": "Ez az automatikus emlékeztető a választott dátum előtt érkezik. A fizetési adatok a biztonságos felületen találhatók."
     }
   },
   "workflow": {

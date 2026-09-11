@@ -1891,6 +1891,49 @@
         "late": "Te laat",
         "cancelled": "Geannuleerd"
       }
+    },
+    "insurance": {
+      "fee": "Opstartkosten van de verzekering",
+      "paymentStatus": "Betaalstatus",
+      "payment": {
+        "unpaid": "Niet betaald",
+        "not_required": "Geen kosten",
+        "pending": "In behandeling",
+        "awaiting_payment": "In afwachting van betaling",
+        "paid": "Betaald",
+        "waived": "Afgezien",
+        "failed": "Mislukt"
+      },
+      "dueDate": "Vervaldatum",
+      "scheduledDate": "Geplande betaaldatum",
+      "paidNotice": "Uw verzekeringskosten zijn door ons team gevalideerd.",
+      "chosen": {
+        "pay_now": "U betaalt nu.",
+        "decline": "U hebt afgezien van de verzekering.",
+        "pay_later": "U betaalt later."
+      },
+      "instructions": "Betaalinstructies",
+      "validationNotice": "Een betaling geldt pas als ontvangen na validatie door ons team.",
+      "question": "Wilt u de verzekeringskosten betalen?",
+      "options": {
+        "pay_now": "Ja, nu betalen",
+        "decline": "Nee, afzien van de verzekering",
+        "pay_later": "Ja, later betalen"
+      },
+      "optionsHint": {
+        "pay_now": "U ontvangt de betaalinstructies.",
+        "decline": "Uw dossier wordt zonder verzekering beoordeeld.",
+        "pay_later": "Kies een datum: u ontvangt herinneringen."
+      },
+      "pickDate": "Gewenste betaaldatum",
+      "confirmChoice": "Mijn keuze bevestigen",
+      "noPaymentNotice": "Deze keuze verricht geen betaling: zij wordt pas bevestigd na validatie door ons team.",
+      "choiceSaved": "Keuze opgeslagen",
+      "error": {
+        "dateRequired": "Kies een betaaldatum.",
+        "datePast": "De gekozen datum ligt in het verleden.",
+        "generic": "Actie niet mogelijk."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "Dossier {{reference}} geannuleerd",
       "body": "Hallo {{firstName}}, uw dossier {{reference}} is geannuleerd.",
       "details": "Voor dit dossier wordt niets in rekening gebracht. Als deze annulering niet uw bedoeling is, kunt u een nieuwe aanvraag indienen in uw beveiligde omgeving."
+    },
+    "insurancePayNow": {
+      "subject": "Verzekering — directe betaling · dossier {{reference}}",
+      "body": "Hallo {{firstName}}, u betaalt de verzekeringskosten van {{amount}} nu.",
+      "details": "De betaalinstructies (begunstigde, IBAN, BIC en referentie) staan in uw beveiligde omgeving. Een betaling geldt pas als ontvangen na validatie door ons team."
+    },
+    "insurancePayLater": {
+      "subject": "Verzekering — betaling gepland · dossier {{reference}}",
+      "body": "Hallo {{firstName}}, uw betaling van {{amount}} staat gepland op {{date}}.",
+      "details": "Uw dossier blijft gereserveerd tot de gekozen datum. U kunt eerder betalen; u ontvangt herinneringen vóór de vervaldatum."
+    },
+    "insuranceDeclined": {
+      "subject": "Verzekering — afstand geregistreerd · dossier {{reference}}",
+      "body": "Hallo {{firstName}}, wij hebben uw afstand van de verzekering geregistreerd.",
+      "details": "Zonder verzekering kan uw dossier opnieuw worden beoordeeld. Zolang de fondsen niet zijn vrijgegeven, kunt u uw keuze wijzigen."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Verzekering — betaling gevalideerd · dossier {{reference}}",
+      "body": "Hallo {{firstName}}, wij bevestigen de ontvangst van de verzekeringskosten.",
+      "details": "Uw dekking wordt opgestart. Het certificaat en polisnummer verschijnen na validatie in uw beveiligde omgeving."
+    },
+    "insuranceReminder": {
+      "subject": "Herinnering — verzekeringskosten · dossier {{reference}}",
+      "body": "Hallo {{firstName}}, uw betaling van {{amount}} vervalt op {{date}}.",
+      "details": "Deze automatische herinnering wordt vóór de door u gekozen datum verstuurd. De betaalinstructies staan in uw beveiligde omgeving."
     }
   },
   "workflow": {

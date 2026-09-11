@@ -1891,6 +1891,49 @@
         "late": "Zaległa",
         "cancelled": "Anulowana"
       }
+    },
+    "insurance": {
+      "fee": "Opłata za uruchomienie ubezpieczenia",
+      "paymentStatus": "Status płatności",
+      "payment": {
+        "unpaid": "Niezapłacone",
+        "not_required": "Bez opłaty",
+        "pending": "Oczekuje",
+        "awaiting_payment": "Oczekuje na płatność",
+        "paid": "Zapłacone",
+        "waived": "Zrezygnowano",
+        "failed": "Niepowodzenie"
+      },
+      "dueDate": "Termin płatności",
+      "scheduledDate": "Zaplanowana data płatności",
+      "paidNotice": "Opłata ubezpieczeniowa została zatwierdzona przez nasz zespół.",
+      "chosen": {
+        "pay_now": "Wybrano płatność natychmiastową.",
+        "decline": "Zrezygnowano z ubezpieczenia.",
+        "pay_later": "Wybrano płatność późniejszą."
+      },
+      "instructions": "Instrukcje płatności",
+      "validationNotice": "Płatność uznaje się za otrzymaną dopiero po weryfikacji przez nasz zespół.",
+      "question": "Czy chcesz opłacić ubezpieczenie?",
+      "options": {
+        "pay_now": "Tak, zapłać teraz",
+        "decline": "Nie, rezygnuję z ubezpieczenia",
+        "pay_later": "Tak, zapłacę później"
+      },
+      "optionsHint": {
+        "pay_now": "Otrzymasz instrukcje płatności.",
+        "decline": "Wniosek zostanie rozpatrzony bez ubezpieczenia.",
+        "pay_later": "Wybierz datę: wyślemy przypomnienia."
+      },
+      "pickDate": "Preferowana data płatności",
+      "confirmChoice": "Potwierdzam wybór",
+      "noPaymentNotice": "Ten wybór nie realizuje płatności: jest potwierdzany dopiero po weryfikacji przez nasz zespół.",
+      "choiceSaved": "Wybór zapisany",
+      "error": {
+        "dateRequired": "Wybierz datę płatności.",
+        "datePast": "Wybrana data już minęła.",
+        "generic": "Operacja niemożliwa."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "Wniosek {{reference}} anulowany",
       "body": "Witaj {{firstName}}, Twój wniosek {{reference}} został anulowany.",
       "details": "Za ten wniosek nie zostanie pobrana żadna kwota. Jeśli anulowanie nie jest zgodne z Twoją wolą, możesz złożyć nowy wniosek w bezpiecznej strefie."
+    },
+    "insurancePayNow": {
+      "subject": "Ubezpieczenie — płatność natychmiastowa · sprawa {{reference}}",
+      "body": "Dzień dobry {{firstName}}, wybrano natychmiastową zapłatę opłaty ubezpieczeniowej {{amount}}.",
+      "details": "Instrukcje płatności (odbiorca, IBAN, BIC i tytuł przelewu) znajdują się w strefie bezpiecznej. Płatność uznaje się za otrzymaną dopiero po weryfikacji przez nasz zespół."
+    },
+    "insurancePayLater": {
+      "subject": "Ubezpieczenie — płatność zaplanowana · sprawa {{reference}}",
+      "body": "Dzień dobry {{firstName}}, płatność {{amount}} zaplanowano na {{date}}.",
+      "details": "Wniosek pozostaje zarezerwowany do wybranej daty. Można zapłacić wcześniej; przed terminem wyślemy przypomnienia."
+    },
+    "insuranceDeclined": {
+      "subject": "Ubezpieczenie — rezygnacja zapisana · sprawa {{reference}}",
+      "body": "Dzień dobry {{firstName}}, zapisaliśmy rezygnację z ubezpieczenia kredytobiorcy.",
+      "details": "Bez ubezpieczenia wniosek może zostać ponownie oceniony. Do czasu wypłaty środków można zmienić tę decyzję w strefie bezpiecznej."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Ubezpieczenie — płatność potwierdzona · sprawa {{reference}}",
+      "body": "Dzień dobry {{firstName}}, potwierdzamy wpływ opłaty ubezpieczeniowej.",
+      "details": "Ochrona jest uruchamiana. Certyfikat i numer polisy pojawią się w strefie bezpiecznej po zatwierdzeniu polisy."
+    },
+    "insuranceReminder": {
+      "subject": "Przypomnienie — opłata ubezpieczeniowa · sprawa {{reference}}",
+      "body": "Dzień dobry {{firstName}}, płatność {{amount}} przypada {{date}}.",
+      "details": "To automatyczne przypomnienie przed wybraną datą. Instrukcje płatności znajdują się w strefie bezpiecznej."
     }
   },
   "workflow": {

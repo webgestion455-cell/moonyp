@@ -553,7 +553,7 @@ export const getApplicationByToken = createServerFn({ method: "POST" })
         .maybeSingle(),
       supabaseAdmin
         .from("application_insurances")
-        .select("id, provider, policy_number, coverage, monthly_premium, currency, status, starts_on, validated_at, fee_amount, fee_description, payment_status, scheduled_payment_date")
+        .select("id, provider, policy_number, coverage, monthly_premium, currency, status, starts_on, due_date, validated_at, sent_at, fee_amount, fee_description, payment_instructions, payment_status, client_choice, choice_at, scheduled_payment_date, payment_validated_at")
         .eq("application_id", applicationId)
         .order("created_at", { ascending: false })
         .limit(1)

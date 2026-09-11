@@ -1891,6 +1891,49 @@
         "late": "Po splatnosti",
         "cancelled": "Zrušená"
       }
+    },
+    "insurance": {
+      "fee": "Poplatok za zriadenie poistenia",
+      "paymentStatus": "Stav platby",
+      "payment": {
+        "unpaid": "Nezaplatené",
+        "not_required": "Bez poplatku",
+        "pending": "Čaká sa",
+        "awaiting_payment": "Čaká na platbu",
+        "paid": "Zaplatené",
+        "waived": "Vzdanie sa",
+        "failed": "Zlyhalo"
+      },
+      "dueDate": "Dátum splatnosti",
+      "scheduledDate": "Naplánovaný dátum platby",
+      "paidNotice": "Váš poplatok za poistenie overil náš tím.",
+      "chosen": {
+        "pay_now": "Zvolili ste okamžitú platbu.",
+        "decline": "Vzdali ste sa poistenia.",
+        "pay_later": "Zvolili ste platbu neskôr."
+      },
+      "instructions": "Pokyny na platbu",
+      "validationNotice": "Platba sa považuje za prijatú až po overení naším tímom.",
+      "question": "Chcete uhradiť poplatok za poistenie?",
+      "options": {
+        "pay_now": "Áno, zaplatiť teraz",
+        "decline": "Nie, vzdávam sa poistenia",
+        "pay_later": "Áno, zaplatiť neskôr"
+      },
+      "optionsHint": {
+        "pay_now": "Dostanete pokyny na platbu.",
+        "decline": "Spis sa posúdi bez poistenia.",
+        "pay_later": "Vyberte dátum: pošleme pripomienky."
+      },
+      "pickDate": "Želaný dátum platby",
+      "confirmChoice": "Potvrdiť voľbu",
+      "noPaymentNotice": "Táto voľba nevykonáva platbu: potvrdzuje sa až po overení naším tímom.",
+      "choiceSaved": "Voľba uložená",
+      "error": {
+        "dateRequired": "Vyberte dátum platby.",
+        "datePast": "Zvolený dátum už uplynul.",
+        "generic": "Akcia nie je možná."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "Žiadosť {{reference}} zrušená",
       "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} bola zrušená.",
       "details": "Za túto žiadosť vám nebude nič účtované. Ak zrušenie nezodpovedá vášmu želaniu, môžete podať novú žiadosť vo svojej bezpečnej zóne."
+    },
+    "insurancePayNow": {
+      "subject": "Poistenie — okamžitá platba · spis {{reference}}",
+      "body": "Dobrý deň {{firstName}}, rozhodli ste sa uhradiť poplatok za poistenie {{amount}} ihneď.",
+      "details": "Pokyny na platbu (príjemca, IBAN, BIC a variabilný symbol) nájdete vo svojej zabezpečenej zóne. Platba sa považuje za prijatú až po overení naším tímom."
+    },
+    "insurancePayLater": {
+      "subject": "Poistenie — naplánovaná platba · spis {{reference}}",
+      "body": "Dobrý deň {{firstName}}, platba {{amount}} je naplánovaná na {{date}}.",
+      "details": "Spis zostáva rezervovaný do zvoleného dátumu. Môžete zaplatiť skôr; pred splatnosťou pošleme pripomienky."
+    },
+    "insuranceDeclined": {
+      "subject": "Poistenie — vzdanie sa zaznamenané · spis {{reference}}",
+      "body": "Dobrý deň {{firstName}}, zaznamenali sme vzdanie sa poistenia.",
+      "details": "Bez poistenia môže byť spis znovu posúdený. Do vyplatenia prostriedkov môžete svoje rozhodnutie zmeniť."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Poistenie — platba overená · spis {{reference}}",
+      "body": "Dobrý deň {{firstName}}, potvrdzujeme prijatie poplatku za poistenie.",
+      "details": "Krytie sa aktivuje. Potvrdenie a číslo poistky budú dostupné v zabezpečenej zóne po overení."
+    },
+    "insuranceReminder": {
+      "subject": "Pripomienka — poplatok za poistenie · spis {{reference}}",
+      "body": "Dobrý deň {{firstName}}, platba {{amount}} je splatná {{date}}.",
+      "details": "Táto automatická pripomienka sa odosiela pred vami zvoleným dátumom. Pokyny na platbu nájdete v zabezpečenej zóne."
     }
   },
   "workflow": {

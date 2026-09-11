@@ -34,7 +34,12 @@ import {
   respondToInfoRequest,
 } from "@/lib/applications.functions";
 import { PortalUpload, type PortalDocumentType } from "@/components/finance/PortalUpload";
-import { chooseGuaranteeOption, type GuaranteeChoice } from "@/lib/guarantees.functions";
+import {
+  chooseGuaranteeOption,
+  chooseInsuranceOption,
+  type GuaranteeChoice,
+  type InsuranceChoice,
+} from "@/lib/guarantees.functions";
 import { formatMoney } from "@/lib/loan-math";
 import { documentLabel } from "@/lib/document-labels";
 import { isTerminal, statusLabel, type ApplicationStatus } from "@/lib/application-status";
@@ -87,6 +92,7 @@ function SecurePortal() {
   const fetchFile = useServerFn(getApplicationByToken);
   const fetchDocUrl = useServerFn(getSecureDocumentUrl);
   const chooseGuarantee = useServerFn(chooseGuaranteeOption);
+  const chooseInsurance = useServerFn(chooseInsuranceOption);
 
   const [data, setData] = useState<Payload | null>(null);
   const [loading, setLoading] = useState(true);
@@ -98,6 +104,9 @@ function SecurePortal() {
   const fetchDocTypes = useServerFn(listDocumentTypes);
   const [docTypes, setDocTypes] = useState<PortalDocumentType[]>([]);
   const [payDate, setPayDate] = useState("");
+  /* Choix du client sur les frais d'assurance (étape distincte de la garantie). */
+  const [insChoice, setInsChoice] = useState<InsuranceChoice | "">("");
+  const [insDate, setInsDate] = useState("");
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -193,6 +202,42 @@ function SecurePortal() {
   }
 
 
+
+  /**
+   * Choix du client sur les frais d'assurance emprunteur.
+   * Comme pour la garantie, ce choix n'emporte JAMAIS paiement : seule une
+   * validation administrative fait basculer le statut en « payé ».
+   */
+  async function submitInsuranceChoice(insuranceId: string) {
+    if (!insChoice || sending) return;
+    if (insChoice === "pay_later" && !insDate) {
+      toast.error(t("finance.insurance.error.dateRequired"));
+      return;
+    }
+    setSending(true);
+    try {
+      const res = await chooseInsurance({
+        data: {
+          token,
+          insurance_id: insuranceId,
+          choice: insChoice,
+          scheduled_payment_date: insChoice === "pay_later" ? insDate : undefined,
+        },
+      });
+      if (!res.ok) {
+        toast.error(
+          t((res as { reason: string }).reason, { defaultValue: t("finance.insurance.error.generic") }),
+        );
+        return;
+      }
+      toast.success(t("finance.insurance.choiceSaved"));
+      await load();
+    } catch {
+      toast.error(t("finance.insurance.error.generic"));
+    } finally {
+      setSending(false);
+    }
+  }
 
   /** Ouvre une URL signée éphémère (2 min), jamais un chemin de stockage. */
   async function openDocument(kind: "document" | "contract" | "signed_contract", documentId?: string) {
@@ -787,8 +832,102 @@ function SecurePortal() {
             <Row label={t("finance.portal.provider")} value={insurance.provider ?? "—"} />
             <Row label={t("finance.portal.policy")} value={insurance.policy_number ?? "—"} />
             <Row label={t("finance.portal.premium")} value={money(insurance.monthly_premium, insurance.currency)} />
+            <Row label={t("finance.insurance.fee")} value={money(insurance.fee_amount, insurance.currency)} />
+            <Row
+              label={t("finance.insurance.paymentStatus")}
+              value={t(`finance.insurance.payment.${insurance.payment_status ?? "unpaid"}`, {
+                defaultValue: String(insurance.payment_status ?? "—"),
+              })}
+            />
+            {insurance.due_date && (
+              <Row label={t("finance.insurance.dueDate")} value={date(insurance.due_date)} />
+            )}
+            {insurance.scheduled_payment_date && (
+              <Row
+                label={t("finance.insurance.scheduledDate")}
+                value={date(insurance.scheduled_payment_date)}
+              />
+            )}
             <Row label={t("finance.portal.signedOn")} value={date(insurance.validated_at)} />
           </dl>
+          {insurance.fee_description && (
+            <p className="mt-3 text-sm text-muted-foreground">{insurance.fee_description}</p>
+          )}
+
+          {insurance.payment_status === "paid" ? (
+            <p className="mt-4 rounded-lg bg-success/10 p-3 text-sm text-success">
+              {t("finance.insurance.paidNotice")}
+            </p>
+          ) : Number(insurance.fee_amount ?? 0) <= 0 ? null : insurance.client_choice ? (
+            <div className="mt-4 space-y-3">
+              <p className="rounded-lg bg-muted/50 p-3 text-sm">
+                {t(`finance.insurance.chosen.${insurance.client_choice}`, {
+                  defaultValue: insurance.client_choice,
+                })}
+              </p>
+              {insurance.client_choice !== "decline" && insurance.payment_instructions && (
+                <div className="rounded-lg border border-border p-3">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    {t("finance.insurance.instructions")}
+                  </p>
+                  <p className="mt-1 whitespace-pre-line text-sm">{insurance.payment_instructions}</p>
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    {t("finance.insurance.validationNotice")}
+                  </p>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="mt-4 space-y-3">
+              <p className="text-sm font-medium">{t("finance.insurance.question")}</p>
+              <div className="space-y-2">
+                {(["pay_now", "decline", "pay_later"] as InsuranceChoice[]).map((option) => (
+                  <label
+                    key={option}
+                    className={cn(
+                      "flex cursor-pointer items-start gap-3 rounded-xl border p-3 text-sm transition-colors",
+                      insChoice === option ? "border-primary bg-primary/5" : "border-border hover:bg-muted/40",
+                    )}
+                  >
+                    <input
+                      type="radio"
+                      name="insurance-choice"
+                      className="mt-1"
+                      checked={insChoice === option}
+                      onChange={() => setInsChoice(option)}
+                    />
+                    <span>
+                      <span className="block font-medium">{t(`finance.insurance.options.${option}`)}</span>
+                      <span className="block text-xs text-muted-foreground">
+                        {t(`finance.insurance.optionsHint.${option}`)}
+                      </span>
+                    </span>
+                  </label>
+                ))}
+              </div>
+              {insChoice === "pay_later" && (
+                <label className="block text-sm">
+                  <span className="mb-1.5 block font-medium">{t("finance.insurance.pickDate")}</span>
+                  <input
+                    type="date"
+                    className="h-10 rounded-md border border-input bg-background px-3 text-sm"
+                    value={insDate}
+                    min={new Date().toISOString().slice(0, 10)}
+                    max={insurance.due_date ? String(insurance.due_date) : undefined}
+                    onChange={(e) => setInsDate(e.target.value)}
+                  />
+                </label>
+              )}
+              <Button
+                size="sm"
+                disabled={sending || !insChoice}
+                onClick={() => void submitInsuranceChoice(insurance.id)}
+              >
+                {t("finance.insurance.confirmChoice")}
+              </Button>
+              <p className="text-xs text-muted-foreground">{t("finance.insurance.noPaymentNotice")}</p>
+            </div>
+          )}
         </Card>
       )}
 

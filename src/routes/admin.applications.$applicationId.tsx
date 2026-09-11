@@ -51,6 +51,7 @@ import { Input } from "@/components/ui/input";
 import { listDocumentTypes } from "@/lib/applications.functions";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AdminFinancePanel } from "@/components/admin/AdminFinancePanel";
+import { CoveragePanel, COVERAGE_STEPS } from "@/components/admin/CoveragePanel";
 
 export const Route = createFileRoute("/admin/applications/$applicationId")({
   component: ApplicationDetail,
@@ -109,6 +110,19 @@ function ApplicationDetail() {
   const [note, setNote] = useState("");
   const [busy, setBusy] = useState(false);
   const [pending, setPending] = useState<ApplicationStatus | null>(null);
+  /*
+   * Onglet actif contrôlé : les étapes « garantie & assurance » ouvrent
+   * automatiquement l'onglet financier pour y saisir les montants.
+   */
+  const [tab, setTab] = useState("dossier");
+  /*
+   * Étape demandée depuis « Informations & décision » et interceptée par
+   * CoveragePanel : garantie envoyée, garantie validée, assurance demandée,
+   * assurance validée. Ces quatre étapes exigent un formulaire (montant des
+   * frais, référence de paiement, police) et ne peuvent donc pas passer par
+   * la simple confirmation de changement de statut.
+   */
+  const [coverageStep, setCoverageStep] = useState<ApplicationStatus | null>(null);
   const [reason, setReason] = useState("");
   const [reqKind, setReqKind] =
     useState<InfoRequestKind>("missing_document");
@@ -461,7 +475,7 @@ function ApplicationDetail() {
         </div>
       </div>
 
-      <Tabs defaultValue="dossier" className="space-y-5">
+      <Tabs value={tab} onValueChange={setTab} className="space-y-5">
         <TabsList className="flex h-auto w-full flex-wrap justify-start gap-1">
           <TabsTrigger value="dossier">
             Informations & décision
@@ -608,7 +622,21 @@ function ApplicationDetail() {
               transitions={transitions}
               lastTransitionAt={data.history[data.history.length - 1]?.created_at ?? null}
               busy={busy}
-              onSelect={(s: ApplicationStatus) => setPending(s)}
+              onSelect={(s: ApplicationStatus) => {
+                /*
+                 * Interception des quatre étapes de couverture : au lieu
+                 * d'une confirmation sèche, on ouvre le formulaire guidé de
+                 * CoveragePanel (montant des frais, devise, instructions,
+                 * référence de paiement, numéro de police). Les autres
+                 * étapes conservent le dialogue de confirmation existant.
+                 */
+                if (COVERAGE_STEPS.includes(s)) {
+                  setCoverageStep(s);
+                  setTab("finance");
+                  return;
+                }
+                setPending(s);
+              }}
             />
 
             <Card>
@@ -1267,6 +1295,13 @@ function ApplicationDetail() {
           value="finance"
           className="space-y-5"
         >
+          <CoveragePanel
+            applicationId={applicationId}
+            requestedStep={coverageStep}
+            onStepHandled={() => setCoverageStep(null)}
+            onChanged={() => void load()}
+          />
+
           <AdminFinancePanel
             applicationId={applicationId}
             onChanged={() => void load()}

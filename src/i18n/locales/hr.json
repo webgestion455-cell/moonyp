@@ -1891,6 +1891,49 @@
         "late": "U kašnjenju",
         "cancelled": "Otkazana"
       }
+    },
+    "insurance": {
+      "fee": "Trošak ugovaranja osiguranja",
+      "paymentStatus": "Status plaćanja",
+      "payment": {
+        "unpaid": "Neplaćeno",
+        "not_required": "Bez troška",
+        "pending": "U tijeku",
+        "awaiting_payment": "Čeka plaćanje",
+        "paid": "Plaćeno",
+        "waived": "Odustalo se",
+        "failed": "Neuspjelo"
+      },
+      "dueDate": "Datum dospijeća",
+      "scheduledDate": "Zakazani datum plaćanja",
+      "paidNotice": "Vaš trošak osiguranja potvrdio je naš tim.",
+      "chosen": {
+        "pay_now": "Odabrali ste platiti odmah.",
+        "decline": "Odrekli ste se osiguranja.",
+        "pay_later": "Odabrali ste platiti kasnije."
+      },
+      "instructions": "Upute za plaćanje",
+      "validationNotice": "Plaćanje se smatra zaprimljenim tek nakon potvrde našeg tima.",
+      "question": "Želite li platiti trošak osiguranja?",
+      "options": {
+        "pay_now": "Da, platiti odmah",
+        "decline": "Ne, odričem se osiguranja",
+        "pay_later": "Da, platiti kasnije"
+      },
+      "optionsHint": {
+        "pay_now": "Primit ćete upute za plaćanje.",
+        "decline": "Predmet će se razmatrati bez osiguranja.",
+        "pay_later": "Odaberite datum: šaljemo podsjetnike."
+      },
+      "pickDate": "Željeni datum plaćanja",
+      "confirmChoice": "Potvrdi odabir",
+      "noPaymentNotice": "Ovaj odabir ne izvršava plaćanje: potvrđuje se tek nakon provjere našeg tima.",
+      "choiceSaved": "Odabir spremljen",
+      "error": {
+        "dateRequired": "Odaberite datum plaćanja.",
+        "datePast": "Odabrani datum je već prošao.",
+        "generic": "Radnja nije moguća."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "Predmet {{reference}} otkazan",
       "body": "Pozdrav {{firstName}}, vaš predmet {{reference}} je otkazan.",
       "details": "Za ovaj predmet nećete biti ništa naplaćeni. Ako otkazivanje ne odgovara vašoj želji, možete podnijeti novi zahtjev iz sigurnog prostora."
+    },
+    "insurancePayNow": {
+      "subject": "Osiguranje — trenutno plaćanje · predmet {{reference}}",
+      "body": "Poštovani {{firstName}}, odabrali ste odmah platiti trošak osiguranja od {{amount}}.",
+      "details": "Upute za plaćanje (primatelj, IBAN, BIC i poziv na broj) nalaze se u vašem sigurnom prostoru. Plaćanje se smatra zaprimljenim tek nakon potvrde našeg tima."
+    },
+    "insurancePayLater": {
+      "subject": "Osiguranje — plaćanje zakazano · predmet {{reference}}",
+      "body": "Poštovani {{firstName}}, plaćanje od {{amount}} zakazano je za {{date}}.",
+      "details": "Predmet ostaje rezerviran do odabranog datuma. Možete platiti ranije; prije dospijeća šaljemo podsjetnike."
+    },
+    "insuranceDeclined": {
+      "subject": "Osiguranje — odricanje zabilježeno · predmet {{reference}}",
+      "body": "Poštovani {{firstName}}, zabilježili smo vaše odricanje od osiguranja.",
+      "details": "Bez osiguranja predmet može biti ponovno razmotren. Odluku možete promijeniti dok sredstva nisu isplaćena."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Osiguranje — plaćanje potvrđeno · predmet {{reference}}",
+      "body": "Poštovani {{firstName}}, potvrđujemo primitak troška osiguranja.",
+      "details": "Pokriće se aktivira. Potvrda i broj police bit će dostupni u sigurnom prostoru nakon validacije."
+    },
+    "insuranceReminder": {
+      "subject": "Podsjetnik — trošak osiguranja · predmet {{reference}}",
+      "body": "Poštovani {{firstName}}, plaćanje od {{amount}} dospijeva {{date}}.",
+      "details": "Ovaj automatski podsjetnik šalje se prije datuma koji ste odabrali. Upute za plaćanje su u sigurnom prostoru."
     }
   },
   "workflow": {

@@ -1891,6 +1891,49 @@
         "late": "Myöhässä",
         "cancelled": "Peruutettu"
       }
+    },
+    "insurance": {
+      "fee": "Vakuutuksen aloitusmaksu",
+      "paymentStatus": "Maksun tila",
+      "payment": {
+        "unpaid": "Maksamatta",
+        "not_required": "Ei maksua",
+        "pending": "Odottaa",
+        "awaiting_payment": "Odottaa maksua",
+        "paid": "Maksettu",
+        "waived": "Luovuttu",
+        "failed": "Epäonnistui"
+      },
+      "dueDate": "Eräpäivä",
+      "scheduledDate": "Ajastettu maksupäivä",
+      "paidNotice": "Vakuutusmaksusi on vahvistettu tiimimme toimesta.",
+      "chosen": {
+        "pay_now": "Valitsit maksaa heti.",
+        "decline": "Luovuit vakuutuksesta.",
+        "pay_later": "Valitsit maksaa myöhemmin."
+      },
+      "instructions": "Maksuohjeet",
+      "validationNotice": "Maksu katsotaan vastaanotetuksi vasta tiimimme vahvistuksen jälkeen.",
+      "question": "Haluatko maksaa vakuutusmaksun?",
+      "options": {
+        "pay_now": "Kyllä, maksan nyt",
+        "decline": "Ei, luovun vakuutuksesta",
+        "pay_later": "Kyllä, maksan myöhemmin"
+      },
+      "optionsHint": {
+        "pay_now": "Saat maksuohjeet.",
+        "decline": "Hakemus käsitellään ilman vakuutusta.",
+        "pay_later": "Valitse päivä: lähetämme muistutuksia."
+      },
+      "pickDate": "Toivottu maksupäivä",
+      "confirmChoice": "Vahvista valintani",
+      "noPaymentNotice": "Tämä valinta ei suorita maksua: se vahvistetaan vasta tiimimme tarkistuksen jälkeen.",
+      "choiceSaved": "Valinta tallennettu",
+      "error": {
+        "dateRequired": "Valitse maksupäivä.",
+        "datePast": "Valittu päivä on jo mennyt.",
+        "generic": "Toiminto ei ole mahdollinen."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "Hakemus {{reference}} peruutettu",
       "body": "Hei {{firstName}}, hakemuksesi {{reference}} on peruutettu.",
       "details": "Tästä hakemuksesta ei veloiteta mitään. Jos peruutus ei vastaa toivettasi, voit tehdä uuden hakemuksen turvallisessa tilassasi."
+    },
+    "insurancePayNow": {
+      "subject": "Vakuutus — välitön maksu · hakemus {{reference}}",
+      "body": "Hei {{firstName}}, valitsit maksaa vakuutusmaksun {{amount}} heti.",
+      "details": "Maksuohjeet (saaja, IBAN, BIC ja viite) löytyvät suojatusta palvelustasi. Maksu katsotaan vastaanotetuksi vasta tiimimme vahvistuksen jälkeen."
+    },
+    "insurancePayLater": {
+      "subject": "Vakuutus — maksu ajastettu · hakemus {{reference}}",
+      "body": "Hei {{firstName}}, {{amount}} maksu on ajastettu {{date}}.",
+      "details": "Hakemuksesi pysyy varattuna valittuun päivään asti. Voit maksaa aiemmin; lähetämme muistutuksia ennen eräpäivää."
+    },
+    "insuranceDeclined": {
+      "subject": "Vakuutus — luopuminen kirjattu · hakemus {{reference}}",
+      "body": "Hei {{firstName}}, olemme kirjanneet luopumisesi lainaturvavakuutuksesta.",
+      "details": "Ilman vakuutusta hakemus voidaan arvioida uudelleen. Voit muuttaa valintaasi ennen varojen maksamista."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Vakuutus — maksu vahvistettu · hakemus {{reference}}",
+      "body": "Hei {{firstName}}, vahvistamme vakuutusmaksun vastaanoton.",
+      "details": "Vakuutusturvaa otetaan käyttöön. Todistus ja vakuutusnumero näkyvät suojatussa palvelussa vahvistuksen jälkeen."
+    },
+    "insuranceReminder": {
+      "subject": "Muistutus — vakuutusmaksu · hakemus {{reference}}",
+      "body": "Hei {{firstName}}, {{amount}} maksu erääntyy {{date}}.",
+      "details": "Tämä automaattinen muistutus lähetetään ennen valitsemaasi päivää. Maksuohjeet löytyvät suojatusta palvelusta."
     }
   },
   "workflow": {

@@ -1891,6 +1891,49 @@
         "late": "V zamudi",
         "cancelled": "Preklican"
       }
+    },
+    "insurance": {
+      "fee": "Strošek sklenitve zavarovanja",
+      "paymentStatus": "Stanje plačila",
+      "payment": {
+        "unpaid": "Neplačano",
+        "not_required": "Brez stroška",
+        "pending": "V obdelavi",
+        "awaiting_payment": "Čaka na plačilo",
+        "paid": "Plačano",
+        "waived": "Odpovedano",
+        "failed": "Neuspešno"
+      },
+      "dueDate": "Datum zapadlosti",
+      "scheduledDate": "Načrtovani datum plačila",
+      "paidNotice": "Vaš strošek zavarovanja je potrdila naša ekipa.",
+      "chosen": {
+        "pay_now": "Izbrali ste takojšnje plačilo.",
+        "decline": "Odpovedali ste se zavarovanju.",
+        "pay_later": "Izbrali ste poznejše plačilo."
+      },
+      "instructions": "Navodila za plačilo",
+      "validationNotice": "Plačilo velja za prejeto šele po potrditvi naše ekipe.",
+      "question": "Želite plačati strošek zavarovanja?",
+      "options": {
+        "pay_now": "Da, plačam zdaj",
+        "decline": "Ne, odpovedujem se zavarovanju",
+        "pay_later": "Da, plačam pozneje"
+      },
+      "optionsHint": {
+        "pay_now": "Prejeli boste navodila za plačilo.",
+        "decline": "Zadeva bo obravnavana brez zavarovanja.",
+        "pay_later": "Izberite datum: poslali bomo opomnike."
+      },
+      "pickDate": "Želeni datum plačila",
+      "confirmChoice": "Potrdi izbiro",
+      "noPaymentNotice": "Ta izbira ne izvede plačila: potrjena je šele po preveritvi naše ekipe.",
+      "choiceSaved": "Izbira shranjena",
+      "error": {
+        "dateRequired": "Izberite datum plačila.",
+        "datePast": "Izbrani datum je že mimo.",
+        "generic": "Dejanje ni mogoče."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "Zadeva {{reference}} preklicana",
       "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} je bila preklicana.",
       "details": "Za to zadevo vam ne bo obračunan noben znesek. Če preklic ne ustreza vaši želji, lahko v varnem prostoru oddate novo prošnjo."
+    },
+    "insurancePayNow": {
+      "subject": "Zavarovanje — takojšnje plačilo · zadeva {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, izbrali ste takojšnje plačilo stroška zavarovanja {{amount}}.",
+      "details": "Navodila za plačilo (prejemnik, IBAN, BIC in sklic) so v vašem varnem območju. Plačilo velja za prejeto šele po potrditvi naše ekipe."
+    },
+    "insurancePayLater": {
+      "subject": "Zavarovanje — načrtovano plačilo · zadeva {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} je načrtovano za {{date}}.",
+      "details": "Zadeva ostane rezervirana do izbranega datuma. Plačate lahko prej; pred zapadlostjo pošljemo opomnike."
+    },
+    "insuranceDeclined": {
+      "subject": "Zavarovanje — odpoved zabeležena · zadeva {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, zabeležili smo vašo odpoved zavarovanju.",
+      "details": "Brez zavarovanja se zadeva lahko ponovno presodi. Odločitev lahko spremenite do izplačila sredstev."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Zavarovanje — plačilo potrjeno · zadeva {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, potrjujemo prejem stroška zavarovanja.",
+      "details": "Kritje se vzpostavlja. Potrdilo in številka police bosta po potrditvi na voljo v varnem območju."
+    },
+    "insuranceReminder": {
+      "subject": "Opomnik — strošek zavarovanja · zadeva {{reference}}",
+      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} zapade {{date}}.",
+      "details": "Ta samodejni opomnik je poslan pred izbranim datumom. Navodila za plačilo so v varnem območju."
     }
   },
   "workflow": {

@@ -1891,6 +1891,49 @@
         "late": "Überfällig",
         "cancelled": "Storniert"
       }
+    },
+    "insurance": {
+      "fee": "Einrichtungsgebühr der Versicherung",
+      "paymentStatus": "Zahlungsstatus",
+      "payment": {
+        "unpaid": "Nicht bezahlt",
+        "not_required": "Ohne Gebühr",
+        "pending": "Ausstehend",
+        "awaiting_payment": "Zahlung ausstehend",
+        "paid": "Bezahlt",
+        "waived": "Verzichtet",
+        "failed": "Fehlgeschlagen"
+      },
+      "dueDate": "Fälligkeitsdatum",
+      "scheduledDate": "Geplantes Zahlungsdatum",
+      "paidNotice": "Ihre Versicherungsgebühr wurde von unserem Team bestätigt.",
+      "chosen": {
+        "pay_now": "Sie zahlen sofort.",
+        "decline": "Sie haben auf die Versicherung verzichtet.",
+        "pay_later": "Sie zahlen später."
+      },
+      "instructions": "Zahlungsanweisungen",
+      "validationNotice": "Eine Zahlung gilt erst nach Prüfung durch unser Team als eingegangen.",
+      "question": "Möchten Sie die Versicherungsgebühr bezahlen?",
+      "options": {
+        "pay_now": "Ja, jetzt bezahlen",
+        "decline": "Nein, auf die Versicherung verzichten",
+        "pay_later": "Ja, später bezahlen"
+      },
+      "optionsHint": {
+        "pay_now": "Sie erhalten die Zahlungsanweisungen.",
+        "decline": "Ihre Akte wird ohne Versicherung geprüft.",
+        "pay_later": "Datum wählen: Sie erhalten Erinnerungen."
+      },
+      "pickDate": "Gewünschtes Zahlungsdatum",
+      "confirmChoice": "Auswahl bestätigen",
+      "noPaymentNotice": "Diese Auswahl löst keine Zahlung aus: Sie gilt erst nach Bestätigung durch unser Team.",
+      "choiceSaved": "Auswahl gespeichert",
+      "error": {
+        "dateRequired": "Bitte wählen Sie ein Zahlungsdatum.",
+        "datePast": "Das gewählte Datum liegt in der Vergangenheit.",
+        "generic": "Aktion nicht möglich."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "Akte {{reference}} storniert",
       "body": "Hallo {{firstName}}, Ihre Akte {{reference}} wurde storniert.",
       "details": "Für diese Akte wird Ihnen kein Betrag berechnet. Falls die Storno nicht Ihrem Wunsch entspricht, können Sie in Ihrem sicheren Bereich einen neuen Antrag stellen."
+    },
+    "insurancePayNow": {
+      "subject": "Versicherung — sofortige Zahlung · Akte {{reference}}",
+      "body": "Guten Tag {{firstName}}, Sie zahlen die Versicherungsgebühr von {{amount}} sofort.",
+      "details": "Die Zahlungsanweisungen (Empfänger, IBAN, BIC und Referenz) finden Sie in Ihrem sicheren Bereich. Eine Zahlung gilt erst nach Prüfung durch unser Team als eingegangen."
+    },
+    "insurancePayLater": {
+      "subject": "Versicherung — Zahlung geplant · Akte {{reference}}",
+      "body": "Guten Tag {{firstName}}, Ihre Zahlung von {{amount}} ist für den {{date}} geplant.",
+      "details": "Ihre Akte bleibt bis zum gewählten Datum reserviert. Sie können jederzeit früher zahlen; vor dem Fälligkeitstag erhalten Sie Erinnerungen."
+    },
+    "insuranceDeclined": {
+      "subject": "Versicherung — Verzicht erfasst · Akte {{reference}}",
+      "body": "Guten Tag {{firstName}}, wir haben Ihren Verzicht auf die Restkreditversicherung erfasst.",
+      "details": "Ohne Versicherung kann Ihre Akte erneut geprüft werden. Solange die Auszahlung nicht erfolgt ist, können Sie Ihre Wahl im sicheren Bereich ändern."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Versicherung — Zahlung bestätigt · Akte {{reference}}",
+      "body": "Guten Tag {{firstName}}, wir bestätigen den Eingang Ihrer Versicherungsgebühr.",
+      "details": "Ihr Versicherungsschutz wird eingerichtet. Bescheinigung und Policennummer erscheinen nach Validierung im sicheren Bereich."
+    },
+    "insuranceReminder": {
+      "subject": "Erinnerung — Versicherungsgebühr · Akte {{reference}}",
+      "body": "Guten Tag {{firstName}}, Ihre Zahlung von {{amount}} ist am {{date}} fällig.",
+      "details": "Diese automatische Erinnerung wird vor dem von Ihnen gewählten Datum gesendet. Die Zahlungsanweisungen finden Sie im sicheren Bereich."
     }
   },
   "workflow": {

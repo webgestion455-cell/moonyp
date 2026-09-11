@@ -1891,6 +1891,49 @@
         "late": "En retard",
         "cancelled": "Annulé"
       }
+    },
+    "insurance": {
+      "fee": "Frais de mise en place de l'assurance",
+      "paymentStatus": "Statut du paiement",
+      "payment": {
+        "unpaid": "Non payé",
+        "not_required": "Sans frais",
+        "pending": "En attente",
+        "awaiting_payment": "En attente de paiement",
+        "paid": "Payé",
+        "waived": "Renoncé",
+        "failed": "Échec"
+      },
+      "dueDate": "Échéance de paiement",
+      "scheduledDate": "Date de paiement programmée",
+      "paidNotice": "Vos frais d'assurance ont été validés par nos équipes.",
+      "chosen": {
+        "pay_now": "Vous avez choisi de payer immédiatement.",
+        "decline": "Vous avez renoncé à l'assurance.",
+        "pay_later": "Vous avez choisi de payer ultérieurement."
+      },
+      "instructions": "Instructions de paiement",
+      "validationNotice": "Un paiement n'est réputé reçu qu'après validation par nos équipes.",
+      "question": "Souhaitez-vous régler les frais d'assurance ?",
+      "options": {
+        "pay_now": "Oui, payer maintenant",
+        "decline": "Non, renoncer à l'assurance",
+        "pay_later": "Oui, payer plus tard"
+      },
+      "optionsHint": {
+        "pay_now": "Vous recevrez les instructions de paiement.",
+        "decline": "Votre dossier sera réexaminé sans assurance.",
+        "pay_later": "Choisissez une date : des rappels vous seront envoyés."
+      },
+      "pickDate": "Date de paiement souhaitée",
+      "confirmChoice": "Confirmer mon choix",
+      "noPaymentNotice": "Ce choix n'emporte aucun paiement : il n'est confirmé qu'après validation par nos équipes.",
+      "choiceSaved": "Choix enregistré",
+      "error": {
+        "dateRequired": "Veuillez choisir une date de paiement.",
+        "datePast": "La date choisie est déjà passée.",
+        "generic": "Action impossible."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "Dossier {{reference}} annulé",
       "body": "Bonjour {{firstName}}, votre dossier {{reference}} a été annulé.",
       "details": "Aucune somme ne vous sera prélevée au titre de ce dossier. Si cette annulation ne correspond pas à votre souhait, vous pouvez déposer une nouvelle demande depuis votre espace sécurisé."
+    },
+    "insurancePayNow": {
+      "subject": "Assurance — paiement immédiat · dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, vous avez choisi de régler immédiatement les frais d'assurance de {{amount}}.",
+      "details": "Les instructions de paiement (bénéficiaire, IBAN, BIC et référence à rappeler) sont disponibles dans votre espace sécurisé. Le paiement n'est réputé reçu qu'après validation par nos équipes."
+    },
+    "insurancePayLater": {
+      "subject": "Assurance — paiement programmé · dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, votre paiement de {{amount}} est programmé le {{date}}.",
+      "details": "Votre dossier reste réservé jusqu'à la date choisie. Vous pouvez avancer le paiement à tout moment depuis votre espace sécurisé ; des rappels vous seront adressés avant l'échéance."
+    },
+    "insuranceDeclined": {
+      "subject": "Assurance — renonciation enregistrée · dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, nous avons enregistré votre renonciation à l'assurance emprunteur.",
+      "details": "Sans assurance, la poursuite du dossier peut être réexaminée par notre comité. Vous pouvez revenir sur ce choix depuis votre espace sécurisé tant que le financement n'est pas débloqué."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Assurance — paiement validé · dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, nous confirmons la réception des frais d'assurance.",
+      "details": "Votre couverture est en cours de mise en place. L'attestation et le numéro de police seront disponibles dans votre espace sécurisé dès validation de la police."
+    },
+    "insuranceReminder": {
+      "subject": "Rappel — frais d'assurance · dossier {{reference}}",
+      "body": "Bonjour {{firstName}}, votre paiement de {{amount}} est attendu le {{date}}.",
+      "details": "Ce rappel automatique vous est adressé avant l'échéance que vous avez choisie. Retrouvez les instructions de paiement dans votre espace sécurisé."
     }
   },
   "workflow": {

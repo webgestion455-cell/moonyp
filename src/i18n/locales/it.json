@@ -1891,6 +1891,49 @@
         "late": "In ritardo",
         "cancelled": "Annullata"
       }
+    },
+    "insurance": {
+      "fee": "Spese di attivazione dell'assicurazione",
+      "paymentStatus": "Stato del pagamento",
+      "payment": {
+        "unpaid": "Non pagato",
+        "not_required": "Senza spese",
+        "pending": "In attesa",
+        "awaiting_payment": "In attesa di pagamento",
+        "paid": "Pagato",
+        "waived": "Rinunciato",
+        "failed": "Fallito"
+      },
+      "dueDate": "Data di scadenza",
+      "scheduledDate": "Data di pagamento programmata",
+      "paidNotice": "Le spese assicurative sono state convalidate dal nostro team.",
+      "chosen": {
+        "pay_now": "Ha scelto di pagare subito.",
+        "decline": "Ha rinunciato all'assicurazione.",
+        "pay_later": "Ha scelto di pagare più tardi."
+      },
+      "instructions": "Istruzioni di pagamento",
+      "validationNotice": "Un pagamento risulta ricevuto solo dopo la convalida del nostro team.",
+      "question": "Desidera pagare le spese assicurative?",
+      "options": {
+        "pay_now": "Sì, pagare subito",
+        "decline": "No, rinunciare all'assicurazione",
+        "pay_later": "Sì, pagare più tardi"
+      },
+      "optionsHint": {
+        "pay_now": "Riceverà le istruzioni di pagamento.",
+        "decline": "La pratica sarà riesaminata senza assicurazione.",
+        "pay_later": "Scelga una data: riceverà promemoria."
+      },
+      "pickDate": "Data di pagamento desiderata",
+      "confirmChoice": "Confermo la mia scelta",
+      "noPaymentNotice": "Questa scelta non comporta alcun pagamento: è confermata solo dopo la convalida del nostro team.",
+      "choiceSaved": "Scelta registrata",
+      "error": {
+        "dateRequired": "Scelga una data di pagamento.",
+        "datePast": "La data scelta è già passata.",
+        "generic": "Azione non possibile."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "Pratica {{reference}} annullata",
       "body": "Ciao {{firstName}}, la pratica {{reference}} è stata annullata.",
       "details": "Nessun importo ti sarà addebitato per questa pratica. Se l'annullamento non corrisponde alla tua volontà, puoi presentare una nuova richiesta dalla tua area sicura."
+    },
+    "insurancePayNow": {
+      "subject": "Assicurazione — pagamento immediato · pratica {{reference}}",
+      "body": "Buongiorno {{firstName}}, ha scelto di pagare subito le spese assicurative di {{amount}}.",
+      "details": "Le istruzioni di pagamento (beneficiario, IBAN, BIC e riferimento) sono disponibili nella sua area sicura. Il pagamento risulta ricevuto solo dopo la convalida del nostro team."
+    },
+    "insurancePayLater": {
+      "subject": "Assicurazione — pagamento programmato · pratica {{reference}}",
+      "body": "Buongiorno {{firstName}}, il pagamento di {{amount}} è previsto per il {{date}}.",
+      "details": "La pratica resta riservata fino alla data scelta. Può anticipare il pagamento in qualsiasi momento; riceverà promemoria prima della scadenza."
+    },
+    "insuranceDeclined": {
+      "subject": "Assicurazione — rinuncia registrata · pratica {{reference}}",
+      "body": "Buongiorno {{firstName}}, abbiamo registrato la sua rinuncia all'assicurazione.",
+      "details": "Senza assicurazione la pratica può essere riesaminata dal nostro comitato. Può modificare la scelta finché i fondi non sono erogati."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Assicurazione — pagamento convalidato · pratica {{reference}}",
+      "body": "Buongiorno {{firstName}}, confermiamo la ricezione delle spese assicurative.",
+      "details": "La copertura è in fase di attivazione. Certificato e numero di polizza saranno disponibili nella sua area sicura dopo la convalida."
+    },
+    "insuranceReminder": {
+      "subject": "Promemoria — spese assicurative · pratica {{reference}}",
+      "body": "Buongiorno {{firstName}}, il pagamento di {{amount}} scade il {{date}}.",
+      "details": "Questo promemoria automatico precede la data da lei scelta. Le istruzioni di pagamento sono nella sua area sicura."
     }
   },
   "workflow": {

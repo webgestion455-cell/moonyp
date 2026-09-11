@@ -1891,6 +1891,49 @@
         "late": "Late",
         "cancelled": "Cancelled"
       }
+    },
+    "insurance": {
+      "fee": "Insurance set-up fee",
+      "paymentStatus": "Payment status",
+      "payment": {
+        "unpaid": "Unpaid",
+        "not_required": "No fee",
+        "pending": "Pending",
+        "awaiting_payment": "Awaiting payment",
+        "paid": "Paid",
+        "waived": "Waived",
+        "failed": "Failed"
+      },
+      "dueDate": "Payment due date",
+      "scheduledDate": "Scheduled payment date",
+      "paidNotice": "Your insurance fee has been validated by our team.",
+      "chosen": {
+        "pay_now": "You chose to pay now.",
+        "decline": "You waived the insurance.",
+        "pay_later": "You chose to pay later."
+      },
+      "instructions": "Payment instructions",
+      "validationNotice": "A payment is only considered received once validated by our team.",
+      "question": "Would you like to pay the insurance fee?",
+      "options": {
+        "pay_now": "Yes, pay now",
+        "decline": "No, waive the insurance",
+        "pay_later": "Yes, pay later"
+      },
+      "optionsHint": {
+        "pay_now": "You will receive payment instructions.",
+        "decline": "Your file will be reviewed without insurance.",
+        "pay_later": "Pick a date: reminders will be sent."
+      },
+      "pickDate": "Preferred payment date",
+      "confirmChoice": "Confirm my choice",
+      "noPaymentNotice": "This choice does not make any payment: it is confirmed only after validation by our team.",
+      "choiceSaved": "Choice saved",
+      "error": {
+        "dateRequired": "Please choose a payment date.",
+        "datePast": "The chosen date is already in the past.",
+        "generic": "Action not possible."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "File {{reference}} cancelled",
       "body": "Hello {{firstName}}, your file {{reference}} has been cancelled.",
       "details": "No amount will be charged to you for this file. If this cancellation does not match your wishes, you can submit a new application from your secure area."
+    },
+    "insurancePayNow": {
+      "subject": "Insurance — immediate payment · file {{reference}}",
+      "body": "Hello {{firstName}}, you chose to pay the insurance fee of {{amount}} now.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and reference) are available in your secure area. A payment is only considered received once validated by our team."
+    },
+    "insurancePayLater": {
+      "subject": "Insurance — payment scheduled · file {{reference}}",
+      "body": "Hello {{firstName}}, your payment of {{amount}} is scheduled for {{date}}.",
+      "details": "Your file stays reserved until the chosen date. You may pay earlier at any time from your secure area; reminders will be sent before the due date."
+    },
+    "insuranceDeclined": {
+      "subject": "Insurance — waiver recorded · file {{reference}}",
+      "body": "Hello {{firstName}}, we recorded your decision to waive borrower insurance.",
+      "details": "Without insurance, your file may be reviewed again by our committee. You can change this choice from your secure area as long as funds have not been released."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Insurance — payment validated · file {{reference}}",
+      "body": "Hello {{firstName}}, we confirm receipt of your insurance fee.",
+      "details": "Your cover is being set up. The certificate and policy number will appear in your secure area once the policy is validated."
+    },
+    "insuranceReminder": {
+      "subject": "Reminder — insurance fee · file {{reference}}",
+      "body": "Hello {{firstName}}, your payment of {{amount}} is due on {{date}}.",
+      "details": "This automatic reminder is sent before the date you chose. Payment instructions are available in your secure area."
     }
   },
   "workflow": {

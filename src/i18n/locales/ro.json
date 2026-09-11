@@ -1891,6 +1891,49 @@
         "late": "Întârziată",
         "cancelled": "Anulată"
       }
+    },
+    "insurance": {
+      "fee": "Taxă de activare a asigurării",
+      "paymentStatus": "Starea plății",
+      "payment": {
+        "unpaid": "Neplătit",
+        "not_required": "Fără taxă",
+        "pending": "În așteptare",
+        "awaiting_payment": "În așteptarea plății",
+        "paid": "Plătit",
+        "waived": "Renunțat",
+        "failed": "Eșuat"
+      },
+      "dueDate": "Data scadenței",
+      "scheduledDate": "Data de plată programată",
+      "paidNotice": "Taxa de asigurare a fost validată de echipa noastră.",
+      "chosen": {
+        "pay_now": "Ați ales să plătiți imediat.",
+        "decline": "Ați renunțat la asigurare.",
+        "pay_later": "Ați ales să plătiți mai târziu."
+      },
+      "instructions": "Instrucțiuni de plată",
+      "validationNotice": "O plată este considerată primită doar după validarea echipei noastre.",
+      "question": "Doriți să achitați taxa de asigurare?",
+      "options": {
+        "pay_now": "Da, plătesc acum",
+        "decline": "Nu, renunț la asigurare",
+        "pay_later": "Da, plătesc mai târziu"
+      },
+      "optionsHint": {
+        "pay_now": "Veți primi instrucțiunile de plată.",
+        "decline": "Dosarul va fi analizat fără asigurare.",
+        "pay_later": "Alegeți o dată: veți primi memento-uri."
+      },
+      "pickDate": "Data de plată dorită",
+      "confirmChoice": "Confirm alegerea",
+      "noPaymentNotice": "Această alegere nu efectuează nicio plată: este confirmată doar după validarea echipei noastre.",
+      "choiceSaved": "Alegere înregistrată",
+      "error": {
+        "dateRequired": "Alegeți o dată de plată.",
+        "datePast": "Data aleasă este deja trecută.",
+        "generic": "Acțiune imposibilă."
+      }
     }
   },
   "products": {
@@ -2268,6 +2311,31 @@
       "subject": "Dosarul {{reference}} anulat",
       "body": "Bună {{firstName}}, dosarul {{reference}} a fost anulat.",
       "details": "Nu vi se va percepe nicio sumă pentru acest dosar. Dacă anularea nu corespunde dorinței dumneavoastră, puteți depune o nouă cerere din spațiul securizat."
+    },
+    "insurancePayNow": {
+      "subject": "Asigurare — plată imediată · dosar {{reference}}",
+      "body": "Bună ziua {{firstName}}, ați ales să achitați imediat taxa de asigurare de {{amount}}.",
+      "details": "Instrucțiunile de plată (beneficiar, IBAN, BIC și referință) sunt în spațiul dvs. securizat. O plată este considerată primită doar după validarea echipei noastre."
+    },
+    "insurancePayLater": {
+      "subject": "Asigurare — plată programată · dosar {{reference}}",
+      "body": "Bună ziua {{firstName}}, plata de {{amount}} este programată pe {{date}}.",
+      "details": "Dosarul rămâne rezervat până la data aleasă. Puteți plăti mai devreme; veți primi memento-uri înainte de scadență."
+    },
+    "insuranceDeclined": {
+      "subject": "Asigurare — renunțare înregistrată · dosar {{reference}}",
+      "body": "Bună ziua {{firstName}}, am înregistrat renunțarea dvs. la asigurare.",
+      "details": "Fără asigurare, dosarul poate fi reanalizat de comitetul nostru. Puteți schimba această alegere până la deblocarea fondurilor."
+    },
+    "insurancePaymentValidated": {
+      "subject": "Asigurare — plată validată · dosar {{reference}}",
+      "body": "Bună ziua {{firstName}}, confirmăm primirea taxei de asigurare.",
+      "details": "Acoperirea este în curs de activare. Certificatul și numărul poliței vor apărea în spațiul securizat după validare."
+    },
+    "insuranceReminder": {
+      "subject": "Memento — taxă de asigurare · dosar {{reference}}",
+      "body": "Bună ziua {{firstName}}, plata de {{amount}} este scadentă pe {{date}}.",
+      "details": "Acest memento automat este trimis înainte de data aleasă. Instrucțiunile de plată sunt în spațiul securizat."
     }
   },
   "workflow": {
