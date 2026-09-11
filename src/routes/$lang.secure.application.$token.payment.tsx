@@ -97,13 +97,16 @@ function PaymentPage() {
       toast.success(t("finance.payment.created"));
       await refresh();
     } catch (error) {
-      const reason = error instanceof Error ? error.message : "error";
-      toast.error(
-        reason === "provider_not_configured"
-          ? t("finance.payment.notConfigured")
-          : t("finance.payment.error"),
-      );
-    } finally {
+  const reason = error instanceof Error ? error.message : "error";
+
+  console.error("[PAYMENT INIT ERROR]", error);
+
+  toast.error(
+    reason === "provider_not_configured"
+      ? t("finance.payment.notConfigured")
+      : `Erreur paiement : ${reason}`,
+  );
+} finally {
       setBusy(false);
     }
   }
