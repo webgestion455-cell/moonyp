@@ -14,12 +14,16 @@ import {
   Lock,
   RefreshCw,
   ScanFace,
+  ScanLine,
   ShieldCheck,
   Trash2,
-  Upload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CameraCapture, type CaptureFrame } from "@/components/finance/CameraCapture";
+import { DocumentScanner, type ScanShape } from "@/components/finance/DocumentScanner";
+import { DocumentSource } from "@/components/finance/DocumentSource";
+import { LivenessCheck } from "@/components/finance/LivenessCheck";
+import type { CaptureEvidence } from "@/lib/kyc/image-analysis";
+import type { LivenessSessionEvidence } from "@/lib/kyc/liveness-engine";
 import { cn } from "@/lib/utils";
 
 export interface KycDocumentType {
@@ -42,10 +46,15 @@ export interface KycDocumentType {
 export type KycStatus =
   | "todo" | "in_progress" | "capturing" | "verifying" | "passed" | "failed" | "retry" | "manual_review";
 
+/** Preuve de capture réelle attachée à chaque pièce (revalidée côté serveur). */
+export type KycEvidence = CaptureEvidence | LivenessSessionEvidence;
+
 export interface KycCaptureFile {
   file: File;
   preview: string;
   side: number;
+  /** Mesures produites par le scanner, l'import mesuré ou la session de vivacité. */
+  evidence?: KycEvidence;
 }
 
 export type KycFiles = Record<string, KycCaptureFile[]>;
@@ -71,12 +80,14 @@ const CATEGORY_ICON: Record<KycCategory, React.ComponentType<{ className?: strin
   income: FileText,
 };
 
-const FRAME_BY_MODE: Record<KycDocumentType["capture_mode"], CaptureFrame> = {
-  scan: "document",
-  scan_double: "card",
-  selfie: "face",
-  upload: "document",
-};
+/**
+ * Gabarit de visée du scanner : le passeport se présente ouvert (format plus
+ * allongé), les autres pièces d'identité sont au format carte.
+ */
+function scanShape(doc: KycDocumentType): ScanShape {
+  if (doc.category !== "identity") return "a4";
+  return doc.slug.includes("passport") ? "passport" : "card";
+}
 
 export function docLabel(d: KycDocumentType, t: (k: string) => string): string {
   return documentLabel(t as never, d.slug, d.i18n_key, d.label);
@@ -170,10 +181,11 @@ export function KycFlow({
     patch({ choices: { ...state.choices, [category]: slug }, files });
   };
 
-  const addCapture = (slug: string, side: number, file: File) => {
+  const addCapture = (slug: string, side: number, file: File, evidence?: KycEvidence) => {
     const preview = URL.createObjectURL(file);
     const current = state.files[slug] ?? [];
-    const next = current.filter((f) => f.side !== side).concat({ file, preview, side });
+    current.filter((f) => f.side === side).forEach((f) => URL.revokeObjectURL(f.preview));
+    const next = current.filter((f) => f.side !== side).concat({ file, preview, side, evidence });
     next.sort((a, b) => a.side - b.side);
     patch({ files: { ...state.files, [slug]: next } });
     setCapturing(null);
@@ -241,21 +253,54 @@ export function KycFlow({
     );
   }
 
-  /* ------------------------- Active capture screen ---------------------- */
+  /* ------------------------- Active capture screen ----------------------
+   *
+   * Trois chemins distincts, jamais interchangeables :
+   *   - pièce d'identité  : scanner caméra arrière, déclenchement automatique,
+   *                         recto/verso uniquement si la pièce l'exige ;
+   *   - vivacité          : caméra frontale imposée, aucun import possible ;
+   *   - justificatifs     : import depuis les fichiers OU scan caméra.
+   * -------------------------------------------------------------------- */
   if (active && capturing) {
     const doc = plan[active].find((d) => d.slug === capturing.slug);
     if (doc) {
-      const sideKey = doc.capture_mode === "scan_double" ? (capturing.side === 1 ? "front" : "back") : "single";
+      const twoSided = doc.capture_mode === "scan_double" && doc.sides > 1;
+      const sideKey = twoSided ? (capturing.side === 1 ? "front" : "back") : "single";
+      const label = twoSided ? `${docLabel(doc, t)} — ${t(`kyc.side.${sideKey}`)}` : docLabel(doc, t);
+      const close = () => setCapturing(null);
+
+      if (doc.capture_mode === "selfie") {
+        return (
+          <LivenessCheck
+            title={label}
+            hint={t("kyc.hint.selfie")}
+            onCapture={(file, evidence) => addCapture(doc.slug, capturing.side, file, evidence)}
+            onCancel={close}
+          />
+        );
+      }
+
+      if (doc.capture_mode === "upload") {
+        return (
+          <DocumentSource
+            title={label}
+            hint={t("kyc.hint.upload")}
+            accept={doc.allowed_mime}
+            maxSizeMb={doc.max_size_mb}
+            onCapture={(file, evidence) => addCapture(doc.slug, capturing.side, file, evidence)}
+            onCancel={close}
+          />
+        );
+      }
+
       return (
-        <CameraCapture
-          frame={FRAME_BY_MODE[doc.capture_mode]}
-          facing={doc.capture_mode === "selfie" ? "user" : "environment"}
-          accept={doc.allowed_mime.filter((m) => m.startsWith("image/"))}
-          maxSizeMb={doc.max_size_mb}
-          title={`${docLabel(doc, t)} — ${t(`kyc.side.${sideKey}`)}`}
+        <DocumentScanner
+          shape={scanShape(doc)}
+          profile="identity"
+          title={label}
           hint={t(`kyc.hint.${doc.capture_mode}`)}
-          onCapture={(file) => addCapture(doc.slug, capturing.side, file)}
-          onCancel={() => setCapturing(null)}
+          onCapture={(file, evidence) => addCapture(doc.slug, capturing.side, file, evidence)}
+          onCancel={close}
         />
       );
     }
@@ -395,8 +440,13 @@ export function KycFlow({
               return (
                 <div key={side} className="overflow-hidden rounded-lg border border-border">
                   <div className="relative aspect-[1.586/1] bg-muted/60">
-                    {shot ? (
+                    {shot && shot.file.type.startsWith("image/") ? (
                       <img src={shot.preview} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                    ) : shot ? (
+                      <div className="absolute inset-0 grid place-items-center gap-1 text-muted-foreground">
+                        <FileText className="h-6 w-6" aria-hidden />
+                        <span className="max-w-[85%] truncate px-2 text-[11px]">{shot.file.name}</span>
+                      </div>
                     ) : (
                       <div className="absolute inset-0 grid place-items-center text-muted-foreground">
                         <CircleDashed className="h-6 w-6" aria-hidden />
@@ -412,8 +462,20 @@ export function KycFlow({
                         variant={shot ? "outline" : "default"}
                         onClick={() => setCapturing({ slug: doc.slug, side })}
                       >
-                        {shot ? <RefreshCw className="h-3.5 w-3.5" aria-hidden /> : <Upload className="h-3.5 w-3.5" aria-hidden />}
-                        {shot ? t("kyc.retake") : t("kyc.capture")}
+                        {shot ? (
+                          <RefreshCw className="h-3.5 w-3.5" aria-hidden />
+                        ) : doc.capture_mode === "selfie" ? (
+                          <ScanFace className="h-3.5 w-3.5" aria-hidden />
+                        ) : (
+                          <ScanLine className="h-3.5 w-3.5" aria-hidden />
+                        )}
+                        {shot
+                          ? t("kyc.retake")
+                          : doc.capture_mode === "selfie"
+                            ? t("kyc.startLiveness")
+                            : doc.capture_mode === "upload"
+                              ? t("kyc.addDocument")
+                              : t("kyc.scan")}
                       </Button>
                       {shot && (
                         <button

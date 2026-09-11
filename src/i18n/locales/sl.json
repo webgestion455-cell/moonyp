@@ -1,2382 +1,600 @@
 {
-  "common": {
-    "loading": "Nalaganje…",
-    "save": "Shrani",
-    "cancel": "Prekliči",
-    "close": "Zapri",
-    "back": "Nazaj",
-    "open": "Odpri",
-    "search": "Iskanje",
-    "actions": "Dejanja",
-    "yes": "Da",
-    "no": "Ne",
-    "all": "Vse",
-    "none": "Brez",
-    "language": "Jezik",
-    "submit": "Pošlji",
-    "send": "Pošlji",
-    "confirm": "Potrdi",
-    "delete": "Izbriši",
-    "edit": "Uredi",
-    "view": "Prikaži",
-    "download": "Prenesi",
-    "upload": "Naloži",
-    "next": "Naprej",
-    "previous": "Nazaj",
-    "from": "Od",
-    "to": "Za",
-    "amount": "Znesek",
-    "date": "Datum",
-    "status": "Status",
-    "details": "Podrobnosti",
-    "optional": "neobvezno",
-    "required": "obvezno",
-    "refresh": "Osveži",
-    "viewAll": "Prikaži vse",
-    "new": "Novo",
-    "saving": "Shranjevanje…",
-    "sending": "Pošiljanje…",
-    "updating": "Posodabljanje…",
-    "loadError": "Napaka pri nalaganju",
-    "sessionExpired": "Seja je potekla zaradi neaktivnosti",
-    "notFound": "Stran ni najdena",
-    "notFoundDesc": "Iskane strani ni ali pa je bila premaknjena.",
-    "backHome": "Nazaj domov",
-    "errorRetry": "Poskusi znova",
-    "noResults": "Ni rezultatov",
-    "continue": "Nadaljuj"
-  },
-  "header": {
-    "myLoans": "Moja posojila",
-    "newLoan": "Zaprosi za posojilo",
-    "dashboard": "Nadzorna plošča",
-    "admin": "Skrbnik",
-    "settings": "Nastavitve",
-    "signOut": "Odjava",
-    "signIn": "Prijava",
-    "contact": "Stik",
-    "menu": "Meni"
-  },
-  "notifications": {
-    "title": "Obvestila",
-    "empty": "Ni obvestil",
-    "markAllRead": "Označi vse prebrano",
-    "pageTitle": "Vsa obvestila",
-    "noLink": "Brez povezave",
-    "allRead": "Vse prebrano",
-    "viewAll": "Prikaži vsa obvestila"
-  },
-  "auth": {
-    "title": "Območje stranke",
-    "signIn": "Prijava",
-    "signUp": "Ustvari račun",
-    "email": "E-pošta",
-    "password": "Geslo",
-    "fullName": "Polno ime",
-    "phone": "Telefon",
-    "forgotPassword": "Pozabljeno geslo?",
-    "noAccount": "Še nimate računa?",
-    "hasAccount": "Že imate račun?",
-    "createAccount": "Ustvari račun",
-    "loginSuccess": "Uspešna prijava",
-    "signupSuccess": "Račun ustvarjen · preverite e-pošto",
-    "backHome": "Nazaj na domačo stran",
-    "brandBadge": "Varna digitalna banka",
-    "creating": "Ustvarjanje računa…",
-    "decision": "Odločitev v 24 delovnih urah",
-    "google": "Nadaljuj z Google",
-    "googleError": "Prijava z Google ni uspela",
-    "googleLoading": "Prijava z Google…",
-    "minPasswordHint": "Najmanj 8 znakov.",
-    "mobileHint": "Prijavite se ali ustvarite račun",
-    "rgpd": "Skladno z GDPR",
-    "signingIn": "Prijavljanje…",
-    "terms": "Z nadaljevanjem sprejemate naše Pogoje in Pravilnik o zasebnosti.",
-    "tls": "Šifriranje TLS 1.3",
-    "welcomeDesc": "Varno dostopajte do svojih kreditov, nakazil in vrhunskih storitev.",
-    "welcomeTitle": "Dobrodošli v",
-    "nameShort": "Ime je prekratko",
-    "phoneInvalid": "Neveljavna telefonska številka",
-    "emailInvalid": "Neveljaven e-naslov",
-    "passwordMin": "Geslo mora imeti vsaj 8 znakov",
-    "passwordRequired": "Geslo je obvezno",
-    "invalidCredentials": "Neveljavni podatki za prijavo",
-    "connectedToast": "Uspešno prijavljeni",
-    "emailAlreadyUsed": "E-naslov je že v uporabi",
-    "accountCreated": "Račun uspešno ustvarjen",
-    "emailLabel": "E-naslov",
-    "passwordLabel": "Geslo",
-    "fullNameLabel": "Polno ime",
-    "phoneLabel": "Telefon",
-    "tabSignin": "Prijava",
-    "tabSignup": "Ustvari račun",
-    "forgotLink": "Ste pozabili geslo?",
-    "forgotTitle": "Ponastavi geslo",
-    "forgotDesc": "Vnesite svoj e-naslov. Poslali vam bomo varno povezavo za novo geslo.",
-    "forgotSend": "Pošlji povezavo",
-    "forgotSent": "Če račun obstaja, smo poslali e-pošto.",
-    "resetTitle": "Nastavi novo geslo",
-    "resetWaiting": "Preverjanje povezave…",
-    "resetSuccess": "Geslo posodobljeno.",
-    "newPassword": "Novo geslo",
-    "confirmNewPassword": "Potrdi geslo",
-    "updatePassword": "Posodobi geslo"
-  },
-  "dashboard": {
-    "title": "Moja nadzorna plošča",
-    "welcome": "Pozdravljeni",
-    "balance": "Razpoložljivo stanje",
-    "showBalance": "Pokaži stanje",
-    "hideBalance": "Skrij stanje",
-    "newLoan": "Novo posojilo",
-    "withdraw": "Dvigni",
-    "transfer": "Izvedi nakazilo",
-    "myLoans": "Moja posojila",
-    "transferHistory": "Zgodovina nakazil",
-    "noLoans": "Trenutno nimate posojila",
-    "startApplication": "Začni vlogo",
-    "noTransfers": "Ni nakazil",
-    "viewLoan": "Ogled vloge",
-    "needHelp": "Potrebujete pomoč?",
-    "contactSupport": "Kontaktirajte podporo",
-    "metaTitle": "Moja nadzorna plošča — MOONYP",
-    "sessionExpired": "Seja je potekla zaradi neaktivnosti",
-    "loadError": "Napaka pri nalaganju",
-    "welcomeNamed": "Dobrodošli, {{name}}",
-    "welcomeAnon": "Dobrodošli",
-    "totalAvailable": "Skupno razpoložljivo stanje",
-    "fundedOutOf": "od {{amount}} financiranih",
-    "withdrawnAmount": "{{amount}} dvignjeno",
-    "newShort": "+ Novo",
-    "activeLoans": "Aktivna posojila",
-    "totalFunded": "Skupno financirano",
-    "transfers": "Nakazila",
-    "loading": "Nalaganje…",
-    "firstLoanTitle": "Začnite prvo zahtevo",
-    "firstLoanDesc": "Financirajte projekte v nekaj minutah: avto, prenova, likvidnost ali drugo.",
-    "apply": "Zaprosi zdaj",
-    "loanDurationCreated": "{{months}} mesecev · Prošnja z dne {{date}}",
-    "disbursedRemaining": "Izplačano: {{disbursed}} · Preostanek: {{remaining}}",
-    "recentActivity": "Nedavna aktivnost",
-    "viewAll": "Prikaži vse",
-    "noRecentTransfers": "Še ni nakazil",
-    "status": {
-      "en_traitement": "V obdelavi",
-      "envoye": "Poslano",
-      "rejete": "Zavrnjeno"
-    },
-    "welcomeShort": "Dobrodošli",
-    "myDashboard": "Moja nadzorna plošča",
-    "newRequest": "Nova zahteva",
-    "fundedOf": "od {{amount}} financiranih",
-    "makeTransfer": "Izvedi nakazilo",
-    "transfersKpi": "Nakazila",
-    "applyCta": "Oddaj zahtevo",
-    "monthsSince": "{{months}} mesecev · Zahteva z dne {{date}}",
-    "details": "Podrobnosti",
-    "noTransfersYet": "Še ni nakazil"
-  },
-  "loanForm": {
-    "title": "Nova vloga za posojilo",
-    "subtitle": "Izpolnite obrazec in priložite dokazila.",
-    "fullName": "Polno ime",
-    "email": "E-pošta",
-    "address": "Popoln poštni naslov",
-    "addressPlaceholder": "Začnite vnašati svoj naslov…",
-    "addressHint": "Izberite predlog ali ročno vnesite svoj poln naslov.",
-    "addressRequired": "Prosimo, vnesite svoj poln poštni naslov",
-    "amount": "Želeni znesek (€)",
-    "duration": "Trajanje (meseci)",
-    "monthlyIncome": "Mesečni neto prihodek (€)",
-    "purpose": "Namen posojila (neobvezno)",
-    "purposePlaceholder": "Prenova, avto, osebni projekt…",
-    "documents": "Zahtevana dokazila (največ 5, vsako 5 MB)",
-    "uploadHint": "Kliknite za dodajanje (PDF, JPG, PNG)",
-    "submit": "Oddaj vlogo",
-    "submitting": "Pošiljanje…",
-    "success": "Vloga oddana!",
-    "requiredDocs": "Zahtevani dokumenti za pregled",
-    "requiredDocsHint": "Naložite čitljive PDF, JPG ali PNG datoteke za hitrejšo odobritev.",
-    "doc1": "Veljaven osebni dokument ali vozniško dovoljenje (obe strani) — ali potni list (samo prednja stran)",
-    "doc2": "Aktualno potrdilo o naslovu",
-    "doc3": "Zadnje tri plačilne liste ali dokazilo o dohodku",
-    "doc4": "Zadnji bančni izpisek ali IBAN na ime prosilca",
-    "back": "Nazaj",
-    "newRequestShort": "Nova zahteva",
-    "newRequestDesc": "Oddajte zahtevo za posojilo",
-    "amountMin": "Najmanj 500 €",
-    "amountMax": "Največ 100.000 €",
-    "fileTooLarge": "{{name}} presega 5 MB",
-    "createError": "Napaka pri ustvarjanju zahteve",
-    "uploadFailed": "Nalaganje ni uspelo: {{name}}",
-    "adminNotifTitle": "Nova zahteva za posojilo",
-    "adminNotifMsg": "{{name}} prosi za {{amount}} € na {{months}} mesecev",
-    "successToast": "Zahteva je bila uspešno poslana",
-    "loading": "Nalaganje…",
-    "docsRequiredExact": "Naložiti morate točno {{count}} dokumentov.",
-    "uploadHintExact": "Naložite točno {{count}} dokumentov (PDF, JPG, PNG — največ 5 MB)."
-  },
-  "transfer": {
-    "title": "Izvedi nakazilo",
-    "subtitle": "Izberite vrsto, vnesite podatke prejemnika in potrdite.",
-    "kindInstant": "Takojšnje (SEPA Instant)",
-    "kindInstantHint": "Takojšnje nakazilo prejemniku (24/7).",
-    "kindClassic": "Standardni (SEPA)",
-    "kindClassicHint": "Nakazano v 1 delovnem dnevu · možno načrtovanje.",
-    "sourceLoan": "Izvorno posojilo",
-    "amount": "Znesek (€)",
-    "available": "Razpoložljivo stanje",
-    "beneficiary": "Prejemnik",
-    "beneficiaryPlaceholder": "Ime in priimek",
-    "iban": "IBAN",
-    "bic": "BIC / SWIFT",
-    "bankName": "Banka",
-    "bankNamePlaceholder": "Ime banke",
-    "reference": "Sklic",
-    "referencePlaceholder": "Samodejno, če je prazno",
-    "schedule": "Načrtuj (neobvezno)",
-    "scheduleHint": "Pustite prazno za naslednji delovni dan.",
-    "reason": "Razlog (neobvezno)",
-    "reasonPlaceholder": "Najemnina, nakup, vračilo…",
-    "secureInstant": "Šifrirani podatki · takojšnja izvedba",
-    "secureClassic": "Šifrirani podatki · 1 delovni dan",
-    "executeInstant": "Izvedi nakazilo",
-    "confirmClassic": "Potrdi nakazilo",
-    "successInstant": "Takojšnje nakazilo izvedeno",
-    "successScheduled": "Nakazilo načrtovano",
-    "successClassic": "Naročilo nakazila zabeleženo",
-    "errorEmit": "Napaka pri izvedbi",
-    "noLoanSelected": "Ni izbranega posojila",
-    "amountInvalid": "Neveljaven znesek",
-    "ibanInvalid": "Neveljaven IBAN",
-    "bicInvalid": "Neveljaven BIC/SWIFT",
-    "beneficiaryRequired": "Prejemnik je obvezen",
-    "bankRequired": "Banka je obvezna",
-    "scheduleFuture": "Načrtovani datum mora biti v prihodnosti"
-  },
-  "contact": {
-    "title": "Kontaktirajte podporo strankam",
-    "subtitle": "Odgovorimo v 24 delovnih urah · zaupnost zagotovljena.",
-    "infoTitle": "Kontaktni podatki",
-    "phoneLabel": "Podpora strankam",
-    "phoneHours": "Pon-Pet · 8h-20h",
-    "emailLabel": "E-pošta",
-    "addressLabel": "Sedež",
-    "secureNote": "Vaša sporočila so šifrirana in zaupno obravnavana s strani naše skladnostne ekipe.",
-    "formTitle": "Pošlji sporočilo",
-    "fullName": "Polno ime",
-    "email": "E-pošta",
-    "subject": "Zadeva",
-    "message": "Sporočilo",
-    "messagePlaceholder": "Podrobno opišite vašo zahtevo…",
-    "send": "Pošlji sporočilo",
-    "success": "Sporočilo poslano · odgovorimo v 24 urah",
-    "error": "Napaka pri pošiljanju",
-    "subjects": {
-      "account": "Vprašanje o mojem računu",
-      "loan": "Vprašanje o posojilu",
-      "transfer": "Težava z nakazilom",
-      "complaint": "Pritožba",
-      "appointment": "Zahteva za sestanek",
-      "other": "Drugo"
-    },
-    "metaTitle": "Kontakt — Storitve za stranke MOONYP",
-    "metaDesc": "Obrnite se na službo za stranke MOONYPAS za vprašanja o vašem računu, kreditih ali nakazilih.",
-    "nameRequired": "Ime je obvezno",
-    "emailInvalid": "Neveljaven e-naslov",
-    "messageTooShort": "Sporočilo je prekratko (najmanj 10 znakov)",
-    "defaultNamePlaceholder": "Janez Novak",
-    "defaultEmailPlaceholder": "vi@primer.si",
-    "back": "Nazaj",
-    "phoneTitle": "Pomoč strankam",
-    "address": "103 avenue des Champs-Élysées",
-    "addressCity": "75008 Pariz, Francija",
-    "sending": "Pošiljanje…",
-    "successQueued": "Vaše sporočilo je zabeleženo. Kmalu vam odgovorimo."
-  },
-  "admin": {
-    "title": "Skrbniška nadzorna plošča",
-    "subtitle": "Pregled bančne dejavnosti.",
-    "kpis": {
-      "total": "Skupaj vlog",
-      "pending": "V čakanju",
-      "accepted": "Sprejete",
-      "refused": "Zavrnjene"
-    },
-    "amounts": {
-      "requested": "Skupaj zaprošeno",
-      "accepted": "Skupaj sprejeto",
-      "disbursed": "Izplačana sredstva"
-    },
-    "recent": {
-      "title": "Nedavna dejavnost",
-      "empty": "Ni nedavne dejavnosti",
-      "open": "Odpri"
-    },
-    "quickActions": {
-      "title": "Hitra dejanja",
-      "subtitle": "Najprej obravnavajte čakajoče vloge.",
-      "toStudy": "Vloge za pregled",
-      "signedContracts": "Podpisane pogodbe",
-      "manageClients": "Upravljaj stranke"
-    },
-    "loansPage": {
-      "title": "Vse vloge za posojilo",
-      "subtitle": "Podroben in filtriran pregled.",
-      "client": "Stranka",
-      "amount": "Znesek",
-      "status": "Status",
-      "date": "Datum",
-      "documents": "Dok.",
-      "duration": "Trajanje"
-    },
-    "clientsPage": {
-      "title": "Stranke",
-      "subtitle": "Računi strank in stanje dostopa.",
-      "client": "Stranka",
-      "phone": "Telefon",
-      "loans": "Posojila",
-      "totalBorrowed": "Skupaj izposojeno",
-      "joined": "Pridruženo",
-      "status": "Status",
-      "active": "Aktivno",
-      "blocked": "Blokirano"
-    },
-    "clientDetail": {
-      "title": "Profil stranke",
-      "personalInfo": "Osebni podatki",
-      "summary": "Povzetek",
-      "loans": "Posojila stranke",
-      "withdrawals": "Nakazila",
-      "noLoans": "Ta stranka še nima vlog.",
-      "noWithdrawals": "Ni nakazil.",
-      "blockBtn": "Blokiraj račun",
-      "unblockBtn": "Odblokiraj račun",
-      "blockTitle": "Blokiraj račun stranke",
-      "blockReason": "Razlog blokade",
-      "blockReasonPlaceholder": "Npr.: sum prevare, KYC neskladen…",
-      "blockedSince": "Blokirano od",
-      "blockedReason": "Razlog",
-      "confirm": "Potrdi"
-    },
-    "stages": {
-      "title": "Pristojbine in kode",
-      "planSaved": "Načrt shranjen",
-      "planFirst": "Najprej določite pristojbine",
-      "codeSent": "Koda poslana za fazo {{stage}}%",
-      "unlocked": "Odklenjeno",
-      "codeSentBadge": "Koda poslana",
-      "fee": "Pristojbina (€)",
-      "sentAt": "Poslano",
-      "genAndSend": "Ustvari & pošlji",
-      "regenAndSend": "Ponovno ustvari & pošlji",
-      "savePlan": "Shrani načrt"
-    },
-    "transfer": {
-      "title": "Izvedi prenos za stranko",
-      "subtitle": "Ustvarite takojšen ali standardni bančni nakazilo v imenu stranke.",
-      "kind": "Vrsta nakazila",
-      "instant": "Takojšen",
-      "instantHint": "Pripisano takoj 24/7.",
-      "classic": "Standardni",
-      "classicHint": "Pripisano v 1 delovnem dnevu.",
-      "client": "Stranka",
-      "selectClient": "Izberite stranko",
-      "loan": "Izvorni kredit",
-      "selectLoan": "Izberite kredit",
-      "amount": "Znesek (€)",
-      "beneficiary": "Prejemnik",
-      "bankName": "Banka prejemnika",
-      "iban": "IBAN",
-      "bic": "BIC / SWIFT",
-      "reference": "Sklic",
-      "submit": "Izvedi nakazilo",
-      "success": "Nakazilo uspešno izvedeno",
-      "error": "Nakazila ni bilo mogoče izvesti"
-    }
-  },
-  "blocked": {
-    "title": "Račun je začasno blokiran",
-    "message": "Vaš račun je bil začasno blokiran s strani naše skladnostne ekipe.",
-    "reasonLabel": "Razlog",
-    "contact": "Za več informacij se obrnite na podporo.",
-    "signOut": "Odjava"
-  },
-  "status": {
-    "en_attente": "V čakanju",
-    "accepte": "Sprejeto",
-    "refuse": "Zavrnjeno",
-    "contrat_envoye": "Pogodba poslana",
-    "contrat_signe": "Pogodba podpisana",
-    "en_traitement": "V obdelavi",
-    "fonds_disponibles": "Sredstva na voljo",
-    "envoye": "Poslano",
-    "rejete": "Zavrnjeno"
-  },
-  "client": {
-    "stages": {
-      "title": "Tekoči nakazila",
-      "blockedTitle": "Nakazilo blokirano pri {{stage}}%",
-      "blockedDesc": "Pristojbina: {{fee}}. Po potrditvi prejmete kodo.",
-      "codePlaceholder": "Koda za sprostitev",
-      "unlock": "Odkleni",
-      "enterCode": "Vnesite kodo",
-      "invalidCode": "Neveljavna koda",
-      "unlocked": "Faza odklenjena",
-      "awaitCode": "Čakanje na kodo skrbnika",
-      "codeReceivedTitle": "Koda {{stage}}%",
-      "codeReceivedMsg": "Vaša koda: {{code}} (pristojbina {{fee}})"
-    }
-  },
-  "adminCodes": {
-    "title": "Kode za odklep",
-    "help": "Upravljajte kode napredka prenosa.",
-    "step": "Korak",
-    "released": "Sproščeno",
-    "fee": "Pristojbina (€)",
-    "code": "Koda",
-    "generate": "Ustvari",
-    "regenerate": "Ponovno ustvari",
-    "send": "Pošlji",
-    "generateAndSend": "Ustvari in pošlji",
-    "regenerateAndSend": "Ponovno ustvari in pošlji",
-    "noCode": "Ni kode",
-    "created": "Koda ustvarjena",
-    "updated": "Koda posodobljena",
-    "error": "Napaka",
-    "success": "Uspeh",
-    "sectionTitle": "Konfiguracija korakov prenosa",
-    "sectionHelp": "Nastavite pristojbine in plačilni naslov za vsak korak, potrdite potrdilo in pošljite kodo.",
-    "gatedTitle": "Konfiguracija zaklenjena",
-    "gatedDesc": "Konfiguracija bo na voljo po odobritvi posojila.",
-    "address": "Plačilni naslov",
-    "saved": "Konfiguracija shranjena",
-    "invalidFee": "Neveljavna pristojbina",
-    "codeSent": "Koda ustvarjena in poslana",
-    "consumed": "Uporabljeno",
-    "receiptUploaded": "Potrdilo naloženo",
-    "pending": "V čakanju",
-    "approved": "Odobreno",
-    "rejected": "Zavrnjeno",
-    "approve": "Odobri",
-    "reject": "Zavrni",
-    "receiptApproved": "Potrdilo odobreno",
-    "receiptRejected": "Potrdilo zavrnjeno",
-    "invalidates": "Ponovno ustvarjanje samodejno razveljavi prejšnjo kodo.",
-    "notifTitle": "Koda za odklep {{p}}%",
-    "notifMsg": "Vaša koda: {{code}} (pristojbina {{fee}})",
-    "notifApprovedTitle": "Potrdilo odobreno — korak {{p}}%",
-    "notifApprovedMsg": "Vaše plačilo je bilo potrjeno. Koda bo poslana.",
-    "notifRejectedTitle": "Potrdilo zavrnjeno — korak {{p}}%",
-    "notifRejectedMsg": "Pošljite veljavno potrdilo.",
-    "holder": "Imetnik računa",
-    "iban": "IBAN",
-    "bic": "BIC / SWIFT",
-    "description": "Namen / Opis"
-  },
-  "transferSteps": {
-    "title": "Varen prenos",
-    "subtitle": "Bančni napredek v 3 korakih: 63% · 88% · 100%.",
-    "progress": "Napredek",
-    "completed": "Prenos zaključen",
-    "completedDesc": "Sredstva so bila nakazana prejemniku.",
-    "blockedTitle": "Prenos blokiran pri {{p}}%",
-    "blockedDesc": "Zaradi bančne skladnosti odklep koraka {{p}}% zahteva plačilo pristojbine in potrditev potrdila.",
-    "awaitingConfig": "Konfiguracija v teku",
-    "awaitingConfigDesc": "Naša ekipa dokončuje ta korak. Boste obveščeni.",
-    "feeFor": "Pristojbina korak {{p}}%",
-    "paymentAddress": "Plačilni naslov",
-    "paymentHelp": "Plačajte na ta naslov in naložite potrdilo.",
-    "receipt": "Plačilno potrdilo",
-    "receiptPending": "Čaka na potrditev",
-    "receiptApproved": "Odobreno",
-    "receiptRejected": "Zavrnjeno — pošljite znova",
-    "uploadReceipt": "Naloži potrdilo",
-    "replaceReceipt": "Zamenjaj potrdilo",
-    "receiptSent": "Potrdilo poslano v potrditev",
-    "fileTooBig": "Datoteka prevelika (največ 10 MB)",
-    "enterCode": "Vnesite kodo za odklep",
-    "unlock": "Odkleni korak {{p}}%",
-    "awaitingCode": "Čaka na kodo",
-    "awaitingCodeDesc": "Koda bo poslana, ko skrbnik potrdi vaše potrdilo.",
-    "invalidCode": "Neveljavna koda",
-    "advanced": "Korak {{p}}% odklenjen",
-    "successFinal": "Prenos uspešno zaključen",
-    "notifAdminTitle": "Prejeto potrdilo — korak {{p}}%",
-    "notifAdminMsg": "Stranka je naložila potrdilo v potrditev.",
-    "stepNotReached": "Korak še ni dosežen"
-  },
-  "transfersPage": {
-    "metaTitle": "Moja nakazila — MOONYP",
-    "eyebrow": "Območje nakazil",
-    "title": "Moja nakazila",
-    "subtitle": "Spremljanje SEPA nakazil, skladnostnih korakov in potrdil.",
-    "newTransfer": "Novo nakazilo",
-    "beneficiary": "Prejemnik:",
-    "issuedAt": "Izdano {{date}}",
-    "reference": "sklic {{reference}}",
-    "emptyTitle": "Ni nakazil",
-    "emptyDesc": "Vaša nakazila se bodo prikazala tukaj po ustvarjanju.",
-    "filters": {
-      "all": "Vsa",
-      "active": "V teku",
-      "blocked": "Blokirana",
-      "done": "Zaključena"
-    },
-    "status": {
-      "final": "Potrjeno",
-      "rejected": "Zavrnjeno",
-      "blocked": "Zahtevano preverjanje",
-      "processing": "Bančna obdelava"
-    }
-  },
-  "landing": {
-    "metaTitle": "MOONYP — Takojšnji spletni krediti",
-    "metaDesc": "Financirajte svoje projekte z zaupanjem. Hitri osebni krediti od 1.000 € do 50.000 €. Odločitev v 24h, sredstva v 72h.",
-    "badge": "Odločitev v manj kot 24 urah",
-    "heroTitleA": "Financirajte svoje projekte",
-    "heroTitleB": "z zaupanjem.",
-    "heroDesc": "MOONYP je del najboljše generacije evropskih bank, ki ponujajo hitre, pregledne in varne osebne kredite.",
-    "ctaPrimary": "Zaprosite za kredit",
-    "ctaSecondary": "Simuliraj moj kredit",
-    "trust1": "Šifrirani podatki",
-    "trust2": "100% varno",
-    "trust3": "Brez skritih stroškov",
-    "values": {
-      "response": {
-        "title": "Odgovor v 24h",
-        "desc": "Naša ekipa strokovnjakov hitro pregleda vašo vlogo. Konec neskončnega čakanja."
-      },
-      "secure": {
-        "title": "100% Varno",
-        "desc": "Vaši podatki so popolnoma šifrirani. Spoštujemo najstrožje bančne standarde."
-      },
-      "nofees": {
-        "title": "Brez skritih stroškov",
-        "desc": "Oglaševana obrestna mera je uporabljena obrestna mera. Brez presenečenj pri obrokih."
-      }
-    },
-    "how": {
-      "title": "Kako deluje?",
-      "s1t": "Simulirajte kredit",
-      "s1d": "Izberite znesek in trajanje, ki vam ustrezata. Takoj izračunamo vaš ocenjeni mesečni obrok.",
-      "s2t": "Dokončajte vlogo",
-      "s2d": "Izpolnite obrazec v 5 minutah in naložite dokazila (osebni dokument, dokazilo o naslovu, plačilne liste).",
-      "s3t": "Podpišite pogodbo",
-      "s3d": "Po odobritvi naše ekipe varno elektronsko podpišite pogodbo.",
-      "s4t": "Prejmite sredstva",
-      "s4d": "Po izteku zakonskega roka so sredstva na voljo v vaši denarnici MOONYP in pripravljena za dvig."
-    },
-    "partners": {
-      "eyebrow": "Naše partnerske banke",
-      "title": "Zaupanja vredna bančna mreža",
-      "desc": "Sodelujemo z vodilnimi evropskimi finančnimi institucijami za hitra in varna nakazila."
-    },
-    "finalCta": {
-      "title": "Pripravljeni uresničiti svoje projekte?",
-      "desc": "Vlogo oddajte v nekaj minutah – brez računa in brez papirologije.",
-      "button": "Začni vlogo"
-    },
-    "footer": {
-      "rights": "Vse pravice pridržane.",
-      "legal": "Kredit vas zavezuje in mora biti vrnjen. Pred sklenitvijo preverite svoje zmožnosti odplačila."
-    },
-    "slides": {
-      "s1t": "Bančništvo, oblikovano za vas",
-      "s1d": "Vloga v nekaj minutah, brez računa in papirologije.",
-      "s2t": "Upravljajte finance v realnem času",
-      "s2d": "Pregledna nadzorna plošča, analize in pametna opozorila.",
-      "s3t": "Vaša banka v vašem žepu",
-      "s3d": "Varna mobilna aplikacija, na voljo 24/7.",
-      "s4t": "Bančna varnost najvišje ravni",
-      "s4d": "Šifriranje od konca do konca in močna avtentikacija."
-    },
-    "kpis": {
-      "clients": "Aktivnih strank",
-      "countries": "Pokritih držav",
-      "assets": "Upravljanih sredstev",
-      "uptime": "Razpoložljivost"
-    },
-    "security": {
-      "eyebrow": "Varnost in skladnost",
-      "title": "Vrhunska bančna zaščita",
-      "desc": "Naši sistemi izpolnjujejo najstrožje evropske bančne standarde.",
-      "f1t": "Šifriranje AES-256",
-      "f1d": "Vaši podatki so zaščiteni z vojaškim standardom.",
-      "f2t": "Skladnost s PSD2 in GDPR",
-      "f2d": "Evropski predpisi se dosledno uveljavljajo.",
-      "f3t": "Močna avtentikacija",
-      "f3d": "Dvojna potrditev za vsako občutljivo operacijo.",
-      "f4t": "Podpora 24/7",
-      "f4d": "Predani svetovalci so na voljo ves čas."
-    },
-    "testi": {
-      "eyebrow": "Mnenja",
-      "title": "Zaupajo nam",
-      "t1n": "Marie Dubois",
-      "t1r": "Finančna direktorica",
-      "t1q": "Gladka in profesionalna bančna izkušnja. Podpora je izjemna.",
-      "t2n": "Jean Martin",
-      "t2r": "Podjetnik",
-      "t2q": "Mednarodna nakazila so hitra in varnost je brezhibna.",
-      "t3n": "Sophie Laurent",
-      "t3r": "Odvetnica",
-      "t3q": "Končno digitalna banka, ki združuje preprostost in institucionalno resnost."
-    },
-    "mobile": {
-      "eyebrow": "Mobilna aplikacija",
-      "title": "Vaša celotna banka v dlani",
-      "desc": "Spremljajte vlogo, naložite dokumente in podpišite pogodbo s telefonom.",
-      "b1": "Spremljanje transakcij v realnem času",
-      "b2": "Takojšnja mednarodna nakazila",
-      "b3": "Biometrija Face ID in prstni odtis"
-    },
-    "faq": {
-      "title": "Pogosta vprašanja",
-      "q1": "Ali moram ustvariti račun?",
-      "a1": "Ne. Vlogo oddate in ji sledite prek varne povezave, ki jo pošljemo po e-pošti.",
-      "q2": "Kakšne so provizije?",
-      "a2": "Naš standardni paket nima skritih stroškov. Vsakdanje operacije so brezplačne.",
-      "q3": "Ali so moja sredstva zaščitena?",
-      "a3": "Vloge so zajamčene do 100.000 € s strani Jamstvenega sklada za vloge.",
-      "q4": "Kako stopim v stik s podporo?",
-      "a4": "Naša ekipa je na voljo 24/7 prek varnega klepeta, e-pošte ali telefona."
-    }
-  },
-  "transferProcess": {
-    "progress": "Varen napredek",
-    "rejectedBadge": "Nakazilo zavrnjeno",
-    "validatedBadge": "Nakazilo potrjeno",
-    "complianceBadge": "Preverjanje skladnosti",
-    "processingBadge": "Bančna obdelava",
-    "rejectedTitle": "To nakazilo je bilo zavrnjeno",
-    "rejectedDesc": "Sredstva so bila samodejno vrnjena na vaš račun.",
-    "finalTitle": "Nakazilo uspešno izvedeno",
-    "finalDesc": "Prejemnik bo sredstva prejel v običajnem medbančnem roku.",
-    "animatingTitle": "Bančno usmerjanje v teku",
-    "animatingDesc": "Vaše nakazilo poteka prek naših varnih kanalov. Ukrepanje ni potrebno.",
-    "blockedTitle": "Zahtevano preverjanje skladnosti",
-    "blockedDesc": "Za dokončanje tega koraka plačajte spodnjo pristojbino za skladnost in vnesite prejeto kodo.",
-    "configTitle": "Konfiguracija v teku",
-    "configDesc": "Svetovalec MOONYPPARIBAS pripravlja plačilo za skladnost. Navodila prejmete kmalu.",
-    "fee": "Zapadla pristojbina za skladnost",
-    "bankOrder": "Bančni podatki MOONYPPARIBAS",
-    "accountHolder": "Imetnik računa",
-    "reason": "Razlog nakazila",
-    "receiptLabel": "Dokazilo o plačilu",
-    "receiptPending": "V pregledu",
-    "receiptApproved": "Odobreno",
-    "receiptRejected": "Zavrnjeno",
-    "replaceReceipt": "Zamenjaj potrdilo",
-    "uploadReceipt": "Naloži potrdilo",
-    "unlockCodeReceived": "Koda za odklep prejeta",
-    "codePlaceholder": "Vnesite kodo (npr. ABC-1234)",
-    "validateAndContinue": "Potrdi in nadaljuj",
-    "waitingCodeTitle": "Čakanje na kodo za odklep",
-    "waitingCodeDesc": "Ko bo vaše potrdilo potrjeno, vam bo svetovalec poslal 6-mestno kodo.",
-    "fileTooBig": "Datoteka presega 10 MB.",
-    "invalidCode": "Neveljavna ali že uporabljena koda.",
-    "successFinal": "Nakazilo zaključeno.",
-    "advanced": "Korak potrjen.",
-    "copied": "{{label}} kopirano v odložišče.",
-    "receiptSent": "Potrdilo poslano svetovalcu.",
-    "adminValidationTitle": "Nakazilo čaka na potrditev",
-    "adminValidationMessage": "Stranka je dosegla korak skladnosti in čaka na sprostitev kode.",
-    "adminReceiptTitle": "Novo potrdilo za pregled",
-    "adminReceiptMessage": "Stranka je naložila potrdilo o plačilu za skladnost."
-  },
-  "transferStepDialog": {
-    "title": "Korak skladnosti",
-    "subtitle": "Spremljajte napredek in varno potrdite vsak mejnik."
-  },
-  "transferDetail": {
-    "metaTitle": "Podrobnosti nakazila — MOONYP",
-    "backAll": "Vsa nakazila",
-    "header": "MOONYP · Nalog za nakazilo",
-    "amount": "Znesek",
-    "beneficiary": "Prejemnik",
-    "bank": "Banka",
-    "reference": "Sklic",
-    "iban": "IBAN",
-    "bic": "BIC",
-    "issuedAt": "Izdano",
-    "tracking": "Sledenje nakazilu",
-    "history": "Zgodovina",
-    "notFound": "Nakazilo ni najdeno.",
-    "badge": {
-      "validated": "Nakazilo potrjeno",
-      "rejected": "Nakazilo zavrnjeno",
-      "compliance": "Preverjanje skladnosti",
-      "processing": "Bančna obdelava"
-    },
-    "rejected": {
-      "title": "To nakazilo je bilo zavrnjeno",
-      "desc": "Sredstva so bila samodejno vrnjena na vaš račun MOONYP.",
-      "reason": "Razlog"
-    },
-    "timeline": {
-      "issued": "Nalog za nakazilo izdan",
-      "issuedDesc": "Za {{beneficiary}} ({{amount}})",
-      "compliance": "Korak skladnosti potrjen",
-      "complianceDesc": "Koda za odklep uspešno vnesena.",
-      "enhanced": "Okrepljeno preverjanje potrjeno",
-      "enhancedDesc": "Nakazilo nadaljuje pot do prejemnika.",
-      "executed": "Nakazilo izvedeno",
-      "executedDesc": "Sredstva so bila knjižena.",
-      "rejected": "Nakazilo zavrnjeno",
-      "rejectedDesc": "Stanje je bilo samodejno vrnjeno.",
-      "now": "Pravkar"
-    },
-    "receipt": {
-      "title": "Bančno potrdilo na voljo",
-      "desc": "Prenesite uradni povzetek MOONYP tega naloga za nakazilo.",
-      "download": "Prenesi potrdilo"
-    }
-  },
-  "receipt": {
-    "metaTitle": "Potrdilo o nakazilu — MOONYP",
-    "download": "Prenesi PDF",
-    "subBrand": "Together we thrive",
-    "documentLabel": "Uradni dokument",
-    "documentTitle": "Potrdilo o nakazilu",
-    "title": "Bančno potrdilo o nakazilu",
-    "subtitle": "Izdano {{date}}",
-    "amount": "Nakazani znesek",
-    "statusExecuted": "Nakazilo izvedeno",
-    "statusPending": "Nakazilo v obdelavi",
-    "beneficiary": "Prejemnik",
-    "bank": "Banka prejemnika",
-    "iban": "IBAN",
-    "bic": "BIC / SWIFT",
-    "reference": "Sklic",
-    "issuedAt": "Datum izdaje",
-    "footerSecurity": "Dokument ustvarjen z varnimi sistemi MOONYP.",
-    "footerLegal": "To potrdilo potrjuje bančno operacijo in se lahko predloži pristojnemu organu.",
-    "generating": "Ustvarjanje PDF…",
-    "downloaded": "Potrdilo uspešno preneseno",
-    "downloadError": "Potrdila ni mogoče prenesti",
-    "sessionExpired": "Seja je potekla. Prijavite se znova.",
-    "serverSessionExpired": "Seja je potekla. Ponovno se prijavite.",
-    "serverNotFound": "Nakazilo ni najdeno",
-    "serverUnauthorized": "Nepooblaščen dostop do tega potrdila",
-    "serverUnavailable": "Potrdilo je na voljo šele po potrditvi nakazila",
-    "serverSubtitle": "Uradno bančno potrdilo",
-    "serverSecure": "Varni dokument",
-    "serverTitle": "Potrdilo o nakazilu",
-    "serverIssued": "Izdano {{date}}",
-    "serverAmount": "Nakazani znesek",
-    "serverStatus": "Status",
-    "serverExecuted": "Nakazilo izvedeno",
-    "serverBeneficiary": "Prejemnik",
-    "serverBank": "Banka prejemnika",
-    "serverIban": "IBAN",
-    "serverBic": "BIC / SWIFT",
-    "serverReference": "Sklic",
-    "serverExecutedAt": "Datum izvedbe",
-    "serverSecurity": "Dokument je ustvarjen z varnimi sistemi MOONYP.",
-    "serverLegal": "To potrdilo dokazuje bančno transakcijo in se lahko predloži pristojnemu organu."
-  },
-  "notif": {
-    "transfer": {
-      "instantTitle": "Takojšnje nakazilo prejeto",
-      "classicTitle": "Nakazilo v teku",
-      "instantMsg": "{{amount}} knjiženo na račun {{iban4}}…{{ibanLast}} (sklic {{ref}})",
-      "classicMsg": "Standardno nakazilo {{amount}} je bilo sproženo (knjiženje v 1 delovnem dnevu, sklic {{ref}})",
-      "adminInitTitle": "Novo nakazilo sproženo",
-      "adminInitMsg": "{{amount}} → {{beneficiary}} (sklic {{ref}})"
-    },
-    "transferProcess": {
-      "adminValidationTitle": "Potrdilo za validacijo",
-      "adminValidationMsg": "Stranka je naložila potrdilo o plačilu za validacijo.",
-      "adminReceiptTitle": "Prejeto novo potrdilo",
-      "adminReceiptMsg": "Naloženo je bilo novo potrdilo o plačilu stroškov."
-    },
-    "adminCodes": {
-      "codeTitle": "Koda za odklepanje {{p}}%",
-      "codeMsg": "Vaša koda: {{code}} (stroški {{fee}})",
-      "rejectedTitle": "Potrdilo zavrnjeno",
-      "rejectedMsg": "Naložite veljavno potrdilo.",
-      "manualCodeTitle": "Koda za odklepanje {{p}}%",
-      "manualCodeMsg": "Vaša koda za odklepanje je: {{code}}"
-    },
-    "loan": {
-      "newRequestAdminTitle": "Nova prošnja za posojilo",
-      "newRequestAdminMsg": "{{name}} prosi za {{amount}} € na {{months}} mesecev",
-      "statusTitle": "Status vaše vloge je posodobljen",
-      "statusMsg": "Vaša vloga za {{amount}} je zdaj: $t(status.{{statusKey}})",
-      "signedReceivedTitle": "Prejeta podpisana pogodba",
-      "signedReceivedMsg": "{{name}} je podpisal pogodbo (vloga {{id}})"
-    },
-    "withdrawal": {
-      "sentTitle": "Nakazilo izvedeno",
-      "sentMsg": "{{amount}} je bilo poslano na {{iban4}}…{{ibanLast}} (sklic {{ref}})",
-      "rejectedTitle": "Nakazilo zavrnjeno · sredstva vrnjena",
-      "rejectedMsg": "Vaše nakazilo {{amount}} je bilo zavrnjeno. Stanje je bilo samodejno vrnjeno."
-    }
-  },
-  "settings": {
-    "metaTitle": "Nastavitve — MOONYP",
-    "title": "Nastavitve",
-    "subtitleDesktop": "Upravljajte svoje osebne podatke in varnost",
-    "subtitleMobile": "Upravljajte svoj račun in varnost",
-    "profile": "Profile",
-    "fullName": "Polno ime",
-    "phone": "Telefon",
-    "currentEmail": "Trenutni e-naslov",
-    "saveProfile": "Shrani profil",
-    "emailSection": "E-poštni naslov",
-    "newEmail": "Nov e-poštni naslov",
-    "emailHint": "Na nov naslov bo poslana potrditvena e-pošta.",
-    "updateEmail": "Posodobi e-pošto",
-    "passwordSection": "Password",
-    "currentPassword": "Trenutno geslo",
-    "newPassword": "Novo geslo",
-    "confirmPassword": "Potrdi",
-    "changePassword": "Spremeni geslo",
-    "adminAccount": "Skrbniški račun",
-    "adminDesc": "Imate pravice za upravljanje strank in operacij.",
-    "loadProfileError": "Profila ni mogoče naložiti",
-    "saveError": "Napaka pri shranjevanju",
-    "profileUpdated": "Profil posodobljen",
-    "emailUpdated": "E-pošta posodobljena. Preverite nabiralnik za potrditev.",
-    "passwordTooShort": "Geslo mora vsebovati vsaj 8 znakov",
-    "passwordMismatch": "Gesli se ne ujemata",
-    "currentPasswordWrong": "Trenutno geslo ni pravilno",
-    "passwordUpdated": "Geslo posodobljeno",
-    "back": "Nazaj",
-    "accessAdmin": "Odpri skrbniško ploščo",
-    "goBack": "Nazaj",
-    "languageSection": "Jezik",
-    "languageDesc": "Izberite jezik vmesnika. Vaša izbira se shrani in sinhronizira z računom.",
-    "languageSaved": "Jezik posodobljen"
-  },
-  "loanDetail": {
-    "metaTitle": "Podrobnosti posojila — MOONYP",
-    "downloadImpossible": "Prenos ni mogoč",
-    "contractGenerating": "Ustvarjanje pogodbe PDF…",
-    "sessionExpired": "Seja je potekla. Ponovno se prijavite.",
-    "contractDownloaded": "Pogodba prenesena",
-    "generationImpossible": "Ustvarjanje ni uspelo: {{message}}",
-    "unknownError": "Neznana napaka",
-    "fileTooHeavy": "Datoteka je prevelika (največ 10 MB)",
-    "uploadFailed": "Nalaganje ni uspelo",
-    "updateError": "Napaka pri posodobitvi",
-    "signedSent": "Podpisana pogodba poslana!",
-    "signedReceivedTitle": "Prejeta podpisana pogodba",
-    "signedReceivedMessage": "{{name}} je podpisal/a pogodbo (prošnja {{id}})",
-    "loading": "Nalaganje…",
-    "notFound": "Kredit ni najden",
-    "back": "Nazaj na moje kredite",
-    "fileNumber": "Zadeva #{{id}}",
-    "title": "Podrobnosti kredita",
-    "refusedTitle": "Prošnja zavrnjena",
-    "refusedDesc": "Po pregledu vaše prošnje žal ne moremo ugoditi vaši prošnji za financiranje.",
-    "reason": "Razlog",
-    "summaryTitle": "Povzetek prošnje",
-    "amount": "Znesek",
-    "duration": "Trajanje",
-    "durationMonths": "{{count}} mesecev",
-    "monthlyPayment": "Ocenjeni mesečni obrok",
-    "monthlyIncome": "Mesečni dohodek",
-    "purpose": "Namen",
-    "documentsTitle": "Predloženi dokumenti",
-    "addedOn": "Dodano {{date}}",
-    "availableBalance": "Razpoložljivo stanje",
-    "alreadyWithdrawn": "Že dvignjeno: {{withdrawn}} od {{total}}",
-    "makeTransfer": "Izvedi nakazilo",
-    "contractTitle": "Pogodba",
-    "downloadContract": "Prenesi pogodbo",
-    "signInstruction": "Podpišite pogodbo in jo naložite spodaj za potrditev.",
-    "sendSignedContract": "Pošlji podpisano pogodbo",
-    "signedContractReceived": "Prejeta podpisana pogodba",
-    "historyTitle": "Zgodovina dejanj",
-    "noAction": "Še ni dejanj.",
-    "requestSubmitted": "Prošnja oddana",
-    "requestRefused": "Prošnja zavrnjena",
-    "withdraw": "Dvigni",
-    "details": "Details",
-    "loanDescription": {
-      "en_attente": "Vaša prošnja se obravnava",
-      "accepte": "Vaša prošnja je bila sprejeta",
-      "refuse": "Prošnja ni bila uspešna",
-      "contrat_envoye": "Pogodba je bila poslana v podpis",
-      "contrat_signe": "Prejeta podpisana pogodba, sprostitev v pripravi",
-      "en_traitement": "Sredstva na voljo v 72 urah",
-      "fonds_disponibles": "Vaša sredstva so na voljo"
-    },
-    "steps": {
-      "en_attente": "Prošnja oddana",
-      "accepte": "Sprejeto",
-      "contrat_envoye": "Pogodba poslana",
-      "contrat_signe": "Pogodba podpisana",
-      "en_traitement": "V obdelavi",
-      "fonds_disponibles": "Sredstva na voljo"
-    }
-  },
-  "nav": {
-    "home": "Domov",
-    "transfers": "Nakazila",
-    "request": "Zahteva",
-    "primary": "Glavna navigacija",
-    "support": "Podpora",
-    "apply": "Oddaj vlogo",
-    "language": "Jezik",
-    "menu": "Meni",
-    "solutions": "Rešitve",
-    "simulation": "Kalkulator",
-    "contact": "Kontakt",
-    "about": "O nas"
-  },
-  "mobileHome": {
-    "title": "Dobrodošli pri MOONYP",
-    "subtitle": "Vaša banka, v vašem žepu.",
-    "description": "Upravljajte svoja posojila, nakazila in račune varno, kjer koli ste.",
-    "cta": "Začni",
-    "tagline": "Evropska bančna varnost",
-    "feature1": "Varno",
-    "feature2": "Šifriranje od konca do konca",
-    "feature3": "Premium izkušnja"
-  },
-  "authPending": {
-    "title": "Preverite e-pošto",
-    "description": "Poslali smo potrditveno povezavo.",
-    "instruction": "Kliknite povezavo za aktivacijo računa.",
-    "loading": "Čakanje na potrditev...",
-    "footer": "Nikoli ne delite svojih podatkov."
-  },
-  "password": {
-    "show": "Pokaži geslo",
-    "hide": "Skrij geslo",
-    "veryWeak": "Zelo šibko",
-    "weak": "Šibko",
-    "fair": "Srednje",
-    "good": "Dobro",
-    "strong": "Močno",
-    "excellent": "Odlično",
-    "ruleLength": "Vsaj 10 znakov",
-    "ruleUpper": "Velika črka",
-    "ruleLower": "Mala črka",
-    "ruleDigit": "Številka",
-    "ruleSpecial": "Poseben znak",
-    "notStrong": "Geslo ne izpolnjuje vseh varnostnih pravil."
-  },
-  "livechat": {
-    "open": "Odpri klepet",
-    "close": "Zapri",
-    "title": "MOONYP svetovalec",
-    "online": "Na zvezi",
-    "placeholder": "Napišite sporočilo…",
-    "greeting": "Pozdravljeni 👋! Kako vam lahko pomagam?",
-    "faq": {
-      "loan": "Za posojilo izberite »Novo posojilo« v nadzorni plošči. Odločitev v 24 h, sredstva v 72 h.",
-      "password": "Geslo lahko ponastavite na strani za prijavo prek »Pozabljeno geslo?«.",
-      "transfer": "Vaši prenosi so v razdelku »Prenosi« v nadzorni plošči.",
-      "contact": "Ekipa je dosegljiva na +39 350 036 6867 ali prek strani Kontakt.",
-      "thanks": "Z veseljem! Vprašajte še, če potrebujete.",
-      "default": "Svetovalec MOONYP se vam bo kmalu javil. Lahko nas tudi kontaktirate prek strani Kontakt."
-    }
-  },
-  "legal": {
-    "badge": "Pravno",
-    "lastUpdated": "Zadnja posodobitev",
-    "home": "Domov",
-    "privacy": {
-      "title": "Politika zasebnosti",
-      "subtitle": "Vaša zasebnost je temelj bančnega zaupanja.",
-      "sections": [
-        {
-          "h": "1. Zbrani podatki",
-          "p": "Identiteta, stiki, finančni, tehnični in vedenjski podatki."
-        },
-        {
-          "h": "2. Nameni",
-          "p": "Vodenje računa, ocena posojila, preprečevanje goljufij in pranja denarja."
-        },
-        {
-          "h": "3. Pravna podlaga (GDPR)",
-          "p": "Pogodba, zakoniti interes, zakonska obveznost, soglasje."
-        },
-        {
-          "h": "4. Deljenje",
-          "p": "Le z preverjenimi obdelovalci in pristojnimi organi."
-        },
-        {
-          "h": "5. Hramba",
-          "p": "Podatki računa: razmerje + 10 let. Varnostni dnevniki: 24 mesecev."
-        },
-        {
-          "h": "6. Vaše pravice",
-          "p": "Dostop, popravek, izbris, omejitev, prenosljivost, ugovor."
-        },
-        {
-          "h": "7. Varnost",
-          "p": "Šifriranje, fingerprint, zaznavanje anomalij, MFA, 24/7 odziv."
-        }
-      ]
-    },
-    "terms": {
-      "title": "Pogoji storitve",
-      "subtitle": "Z uporabo MOONYP sprejemate te pogoje.",
-      "sections": [
-        {
-          "h": "1. Pogoji",
-          "p": "18 let, prebivalec dovoljene države."
-        },
-        {
-          "h": "2. Račun",
-          "p": "Točni podatki in zaupne prijavne podatke."
-        },
-        {
-          "h": "3. Sprejemljiva uporaba",
-          "p": "Brez goljufij, pranja denarja, financiranja terorizma."
-        },
-        {
-          "h": "4. Tarife",
-          "p": "Pred vsako operacijo; spremembe s 30-dnevno odpovedjo."
-        },
-        {
-          "h": "5. Odgovornost",
-          "p": "Neposredna škoda pri hudi malomarnosti."
-        },
-        {
-          "h": "6. Začasna ustavitev",
-          "p": "Ob sumu goljufije ali AML."
-        },
-        {
-          "h": "7. Pravo",
-          "p": "Francosko pravo, ob potrošniški varnosti."
-        }
-      ]
-    },
-    "cookies": {
-      "title": "Politika piškotkov",
-      "sections": [
-        {
-          "h": "Kar uporabljamo",
-          "list": [
-            "<strong>Nujno potrebni</strong>",
-            "<strong>Funkcionalni</strong>",
-            "<strong>Varnostni</strong>",
-            "<strong>Analitični</strong> — le z dovoljenjem."
-          ]
-        },
-        {
-          "h": "Upravljanje",
-          "p": "Piškotke lahko izbrišete v brskalniku."
-        }
-      ]
-    },
-    "mentions": {
-      "title": "Pravna obvestila",
-      "sections": [
-        {
-          "h": "Izdajatelj",
-          "p": "MOONYP — SAS, kapital 1.000.000 EUR — sedež: 1 Centenary Square, Birmingham, Združeno kraljestvo."
-        },
-        {
-          "h": "Odgovorni",
-          "p": "Skladnost MOONYP."
-        },
-        {
-          "h": "Gostovanje",
-          "p": "Cloudflare Workers — San Francisco, ZDA."
-        },
-        {
-          "h": "Stik",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
-        },
-        {
-          "h": "Intelektualna lastnina",
-          "p": "Vse znamke in vsebina pripadajo MOONYP."
-        }
-      ]
-    },
-    "amlKyc": {
-      "title": "Politika AML / KYC",
-      "sections": [
-        {
-          "h": "Zavezanost",
-          "p": "Ničelna toleranca do pranja denarja in financiranja terorizma."
-        },
-        {
-          "h": "Skrbni pregled",
-          "p": "Identiteta, naslov, vir sredstev, stalni nadzor."
-        },
-        {
-          "h": "Razširjeni pregled",
-          "p": "PEP, tvegane jurisdikcije."
-        },
-        {
-          "h": "Sankcije",
-          "p": "Sproten pregled seznamov EU, ZN, OFAC, UK."
-        },
-        {
-          "h": "Poročanje",
-          "p": "Poročila pristojni FIU."
-        },
-        {
-          "h": "Usposabljanje",
-          "p": "Letno usposabljanje; neodvisni MLRO."
-        }
-      ]
-    },
-    "finPriv": {
-      "title": "Finančna zasebnost in varnost",
-      "sections": [
-        {
-          "h": "Zaščita denarja",
-          "p": "TLS 1.3, AES-256, HSM, ločitev strankinih sredstev."
-        },
-        {
-          "h": "Avtentikacija",
-          "p": "SCA PSD2: geslo + naprava + OTP."
-        },
-        {
-          "h": "Spremljanje goljufij",
-          "p": "24/7 zaznavanje anomalij."
-        },
-        {
-          "h": "Zaupnost",
-          "p": "Bančna tajnost."
-        },
-        {
-          "h": "Vaša vloga",
-          "p": "Varujte poverilnice, registrirajte zaupanja vredne naprave."
-        }
-      ]
-    },
-    "loanTerms": {
-      "title": "Pogoji posojila",
-      "subtitle": "Posojilo vas zavezuje; preverite zmožnost odplačila.",
-      "sections": [
-        {
-          "h": "1. Pogoji",
-          "p": "Preverjena identiteta, stabilni prihodki."
-        },
-        {
-          "h": "2. Zneski in trajanje",
-          "p": "Od 1.000 EUR do 500.000 EUR, 12 do 120 mesecev."
-        },
-        {
-          "h": "3. Obrestna mera",
-          "p": "Fiksna mera v ponudbi."
-        },
-        {
-          "h": "4. Izplačilo",
-          "p": "Po podpisu in preverjanju. > 50.000 EUR stopenjsko."
-        },
-        {
-          "h": "5. Odplačilo",
-          "p": "Mesečno bremenjenje."
-        },
-        {
-          "h": "6. Zamuda",
-          "p": "Obresti, stroški in možna izterjava."
-        },
-        {
-          "h": "7. Odstop",
-          "p": "14 koledarskih dni od podpisa."
-        }
-      ]
-    },
-    "repayment": {
-      "title": "Politika odplačil in zamud",
-      "sections": [
-        {
-          "h": "Načrt",
-          "p": "Mesečni obroki na dogovorjeni dan."
-        },
-        {
-          "h": "Predčasno odplačilo",
-          "p": "Vedno dovoljeno."
-        },
-        {
-          "h": "Zamuda",
-          "list": [
-            "Dan 1–7: opomin.",
-            "Dan 8–30: stroški + obresti.",
-            "Od dneva 31: opomin pred izterjavo."
-          ]
-        },
-        {
-          "h": "Izterjava",
-          "p": "Najprej sporazumno."
-        },
-        {
-          "h": "Težave",
-          "p": "Kontaktirajte nas: odlog ali reprogramiranje."
-        }
-      ]
-    }
-  },
-  "adminSec": {
-    "metaTitle": "Varnost · Admin",
-    "unauthorized": "Ni pooblastila",
-    "adminLink": "Admin",
-    "center": "Varnostni center",
-    "ok": "ok",
-    "fail": "napaka",
-    "user": "uporabnik",
-    "kpi": {
-      "totalEvents": "Skupno dogodkov",
-      "devicesTracked": "Spremljane naprave",
-      "openAlerts": "Odprta opozorila",
-      "highRisk": "Tvegani uporabniki"
-    },
-    "tab": {
-      "logs": "Dnevniki",
-      "alerts": "Opozorila",
-      "devices": "Naprave",
-      "risk": "Tveganje"
-    },
-    "logs": {
-      "title": "Varnostni dnevniki",
-      "searchPh": "Iskanje uporabnik, IP, država…",
-      "action": "Dejanje",
-      "allActions": "Vsa dejanja",
-      "when": "Kdaj",
-      "user": "Uporabnik",
-      "ipCountry": "IP / Država",
-      "device": "Naprava",
-      "status": "Stanje",
-      "empty": "Ni dnevnikov."
-    },
-    "alerts": {
-      "title": "Varnostna opozorila",
-      "empty": "Ni opozoril.",
-      "resolved": "rešeno",
-      "resolve": "Reši"
-    },
-    "devices": {
-      "title": "Zaupanja vredne naprave",
-      "label": "Oznaka",
-      "country": "Država",
-      "lastSeen": "Zadnji ogled",
-      "trusted": "Zaupanje",
-      "trustedBadge": "zaupanja vredno",
-      "pending": "v čakanju",
-      "empty": "Ni naprav."
-    },
-    "risk": {
-      "title": "Ocene tveganja",
-      "risk": "Tveganje",
-      "sessions": "Seje",
-      "sensitive": "Občutljivo",
-      "empty": "Ni podatkov."
-    }
-  },
-  "footer": {
-    "legal": "Pravno",
-    "privacy": "Zasebnost",
-    "terms": "Pogoji",
-    "cookies": "Piškotki",
-    "mentions": "Pravno obvestilo",
-    "banking": "Bančništvo",
-    "loanTerms": "Pogoji posojila",
-    "repayment": "Odplačilo in zamuda",
-    "aml": "AML / KYC",
-    "finPriv": "Finančna zasebnost",
-    "contact": "Stik",
-    "tagline": "Evropska kreditna platforma. Hitre odločitve, pregledni pogoji, bančna varnost.",
-    "regulated": "Regulirano in skladno z GDPR",
-    "contactForm": "Kontaktni obrazec",
-    "disclaimer": "Kredit vas zavezuje in ga je treba vrniti. Pred oddajo vloge preverite svojo zmožnost odplačevanja. Vsaka ponudba je predmet odobritve in preverjanja identitete.",
-    "rights": "Vse pravice pridržane."
-  },
-  "chat": {
-    "loading": "Nalaganje",
-    "notFound": "Stran ni najdena",
-    "notFoundDesc": "Ta stran ne obstaja.",
-    "backHome": "Nazaj na domov",
-    "assistant": "asistentka",
-    "typing": "tipka",
-    "today": "Danes",
-    "yesterday": "Včeraj",
-    "pageTitle": "Podpora v živo",
-    "pageDesc": "Klepetajte z našo ekipo ali Anno, našo virtualno pomočnico.",
-    "closed": "Pogovor zaprt",
-    "closeTicket": "Zapri pogovor",
-    "close": "Zapri",
-    "compose": {
-      "placeholder": "Vnesite sporočilo…"
-    },
-    "rt": {
-      "bold": "Krepko",
-      "italic": "Ležeče",
-      "link": "Povezava",
-      "linkPrompt": "Vnesite URL (https://...)"
-    },
-    "handoff": {
-      "question": "Ali želite govoriti s svetovalcem?",
-      "yes": "Da, govoriti s svetovalcem",
-      "no": "Ne, hvala",
-      "pending": "Vaša zahteva se obdeluje, svetovalec se pridruži v 1-2 minutah…"
-    },
-    "agent": {
-      "joined": "se je pridružil pogovoru",
-      "joinedYou": "Pridružili ste se pogovoru",
-      "notAssigned": "Ni dodeljenega agenta",
-      "join": "Pridruži se",
-      "defaultName": "Svetovalec",
-      "brandName": "Svetovalec MOONYP"
-    },
-    "status": {
-      "online": "Na spletu",
-      "agent": "Svetovalec na spletu",
-      "open": "Odprto",
-      "waiting_agent": "Čaka na agenta",
-      "assigned": "V teku",
-      "closed": "Zaprto"
-    },
-    "admin": {
-      "empty": "Ni pogovorov.",
-      "selectHint": "Izberite pogovor na levi.",
-      "folders": "Datoteke strank",
-      "tickets": "Vstopnice",
-      "searchPlaceholder": "Poiščite stranko, vstopnico, e-pošto ...",
-      "filter": {
-        "all": "Vse",
-        "waiting": "Na čakanju",
-        "mine": "Dodeljeno meni",
-        "closed": "Zaprto",
-        "guests": "Obiskovalci"
-      },
-      "info": {
-        "title": "Podatki o zahtevku",
-        "none": "Ni podatkov"
-      },
-      "close": "Zapri zahtevek",
-      "reopen": "Ponovno odpri zahtevek",
-      "updated": "Zahtevek posodobljen"
-    },
-    "banner": {
-      "top": "MOONYP — Varna storitev za stranke",
-      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris"
-    },
-    "loginRequired": {
-      "title": "Prijavite se za klepet",
-      "desc": "Za dostop do podpore morate biti prijavljeni.",
-      "cta": "Prijava"
-    },
-    "nav": "Podpora",
-    "guest": {
-      "subtitle": "Pomoč obiskovalcem",
-      "intro": "Izpolnite ta obrazec, svetovalec MOONYP se bo hitro odzval. Dobili boste številko vstopnice.",
-      "name": "Polno ime *",
-      "email": "E-pošta *",
-      "phone": "Telefon",
-      "whatsapp": "WhatsApp",
-      "country": "Država prebivališča",
-      "subject": "Predmet",
-      "message": "Vaše sporočilo *",
-      "submit": "Odpri mojo vozovnico",
-      "privacy": "Vaše podatke obravnavamo zaupno (GDPR).",
-      "created": "Vstopnica #{{ticket}} ustvarjena!",
-      "errors": {
-        "required": "Zahtevani so ime, e-pošta in sporočilo.",
-        "fail": "Pošiljanje ni uspelo, poskusite znova."
-      }
-    },
-    "ticket": "Vstopnica",
-    "archived": "Arhivi",
-    "open": "Odpri",
-    "welcome": {
-      "greeting": "Pozdravljeni 👋 Sem Anna, vaša pomočnica MOONYP.",
-      "help": "Kako vam lahko danes pomagam?"
-    },
-    "tickets": {
-      "title": "Moji pogovori",
-      "new": "Nov pogovor",
-      "open": "Odprti",
-      "closed": "Zaprti",
-      "empty": "Zaenkrat ni pogovorov.",
-      "back": "Nazaj",
-      "one": "Pogovor"
-    },
-    "system": "Sistem",
-    "closedNotice": "Pogovor zaprt.",
-    "joinedNotice": "{{name}} se je pridružil pogovoru.",
-    "sendError": "Pošiljanje ni uspelo",
-    "genericError": "Prišlo je do napake",
-    "agentTitle": "Strokovnjak za pomoč strankam",
-    "you": "Vi"
-  },
-  "adminDash": {
-    "title": "Armaturna plošča — MOONYP",
-    "overview": "Pregled",
-    "clients": "Stranke",
-    "loans": "Posojila",
-    "transfers": "Prestopi",
-    "chat": "Klepet v živo",
-    "security": "Varnost",
-    "notifications": "Obvestila",
-    "kpis": {
-      "clients": "Aktivne stranke",
-      "loansPending": "Posojila v teku",
-      "transfersBlocked": "Prenosi so blokirani",
-      "ticketsOpen": "Odprte vstopnice",
-      "newToday": "Novo danes"
-    },
-    "recentActivity": "Nedavna dejavnost",
-    "quickActions": "Hitra dejanja",
-    "staff": "Team & roles",
-    "roles": "Permissions",
-    "logs": "Activity log"
-  },
-  "finance": {
-    "sim": {
-      "product": "Kreditni produkt",
-      "amount": "Znesek",
-      "duration": "Doba",
-      "months": "mesecev",
-      "monthly": "Ocenjeni mesečni obrok",
-      "rate": "Obrestna mera",
-      "apr": "EOM",
-      "borrowed": "Izposojeni znesek",
-      "interest": "Ocenjene obresti",
-      "interestShort": "Obresti",
-      "fees": "Stroški",
-      "insurance": "Zavarovanje kreditojemalca",
-      "insuranceHint": "Neobvezno kritje, dodano vsakemu obroku.",
-      "insuranceCost": "Strošek zavarovanja",
-      "totalCost": "Skupni strošek kredita",
-      "totalRepaid": "Skupno odplačilo",
-      "capital": "Glavnica",
-      "balance": "Preostala glavnica",
-      "showSchedule": "Prikaži amortizacijski načrt",
-      "hideSchedule": "Skrij načrt",
-      "disclaimer": "Ta izračun je zgolj informativen in ne pomeni kreditne ponudbe. Končni pogoji so odvisni od presoje vaše vloge.",
-      "instalment": "Mesečni obrok",
-      "perMonth": "/mesec",
-      "aprLabel": "EOM",
-      "monthsShort": "mes.",
-      "rateFrom": "od {{rate}} %",
-      "range": "Med {{min}} in {{max}}",
-      "legalNotice": "Najem kredita predstavlja obveznost, ki jo je treba izpolniti. Pred sklenitvijo preverite svojo odplačilno sposobnost."
-    },
-    "simPage": {
-      "metaTitle": "Kreditni kalkulator — MOONYP",
-      "metaDesc": "V nekaj sekundah izračunajte obrok, obresti in skupni strošek.",
-      "badge": "Kalkulator",
-      "title": "Izračunajte svoje financiranje",
-      "subtitle": "Prilagodite znesek in dobo ter takoj vidite ocenjeni obrok.",
-      "cta": "Oddaj vlogo pod temi pogoji",
-      "seeProducts": "Oglejte si rešitve",
-      "noProducts": "Trenutno ni na voljo nobenega kreditnega produkta."
-    },
-    "solutions": {
-      "metaTitle": "Rešitve financiranja — MOONYP",
-      "metaDesc": "Osebni, avtomobilski, stanovanjski in poslovni krediti.",
-      "badge": "Naše rešitve",
-      "title": "Financiranje za vaš projekt",
-      "subtitle": "Izberite ustrezen produkt in ga izračunajte v enem kliku.",
-      "amountRange": "Znesek",
-      "durationRange": "Doba",
-      "rateFrom": "Obrestna mera od",
-      "simulate": "Izračunaj"
-    },
-    "apply": {
-      "metaTitle": "Vloga za kredit — MOONYP",
-      "metaDesc": "Izpolnite vlogo na spletu v 6 varnih korakih.",
-      "title": "Vaša vloga za kredit",
-      "subtitle": "Šest korakov, nekaj minut. Napredek je shranjen v tej napravi.",
-      "next": "Naprej",
-      "previous": "Nazaj",
-      "submit": "Oddaj vlogo",
-      "submitError": "Vloge ni bilo mogoče poslati. Poskusite znova.",
-      "rateLimited": "Preveč poskusov. Poskusite čez nekaj minut.",
-      "fixErrors": "Popravite označena polja.",
-      "documentsIntro": "Naložite jasne in berljive dokumente. Oblike: PDF, JPG ali PNG.",
-      "documentsMissing": "Manjka en ali več obveznih dokumentov.",
-      "chooseFile": "Izberi datoteko",
-      "takePhoto": "Fotografiraj",
-      "maxSize": "Največja velikost",
-      "badMime": "Oblika datoteke ni podprta.",
-      "fileTooLarge": "Ta datoteka je prevelika.",
-      "fileCount": "izbranih datotek",
-      "bankNotice": "Vaši bančni podatki so šifrirani in uporabljeni le za izplačilo.",
-      "consentTerms": "Sprejemam splošne pogoje.",
-      "consentPrivacy": "Sprejemam politiko zasebnosti in obdelavo mojih podatkov.",
-      "consentMarketing": "Želim prejemati informacije o ponudbah MOONYP.",
-      "steps": {
-        "identity": "Identiteta",
-        "employment": "Zaposlitev",
-        "request": "Vloga",
-        "payout": "Izplačilo",
-        "documents": "Dokumenti",
-        "review": "Povzetek"
-      },
-      "stepOf": "Korak {{current}} od {{total}}",
-      "uploading": "Pošiljanje dokumentacije ({{done}}/{{total}})",
-      "holderHint": "Se mora ujemati z imenom vlagatelja",
-      "reviewFlag": "Ta podatek bo preverjen ročno",
-      "reviewTitle": "Vaš obrok",
-      "dti": "Razmerje med dolgom in prihodki (DTI)",
-      "finalNotice": "Z oddajo potrjujete, da so navedeni podatki točni. Vašo vlogo bo pregledala naša kreditna služba; varna povezava za spremljanje postopka vam bo poslana na e-poštni naslov."
-    },
-    "fields": {
-      "firstName": "Ime",
-      "lastName": "Priimek",
-      "birthDate": "Datum rojstva",
-      "nationality": "Državljanstvo",
-      "address": "Naslov",
-      "postalCode": "Poštna številka",
-      "city": "Kraj",
-      "country": "Država",
-      "phone": "Telefon",
-      "email": "E-pošta",
-      "employmentStatus": "Zaposlitveni status",
-      "profession": "Poklic",
-      "employer": "Delodajalec",
-      "seniority": "Delovna doba (meseci)",
-      "income": "Neto mesečni dohodek",
-      "charges": "Mesečni stroški",
-      "otherIncome": "Drugi dohodki",
-      "household": "Število v gospodinjstvu",
-      "purpose": "Namen kredita",
-      "bankHolder": "Imetnik računa",
-      "bankName": "Banka",
-      "iban": "IBAN",
-      "bic": "BIC / SWIFT",
-      "choose": "Izberite…",
-      "chooseCountry": "Izberite državo",
-      "searchCountry": "Iskanje države",
-      "phoneCountry": "Klicna koda države",
-      "addressPlaceholder": "Vnesite naslov ulice",
-      "addressNoMatch": "Naslova ni mogoče najti – vnesite ga ročno"
-    },
-    "employment": {
-      "employee": "Zaposlen",
-      "civil_servant": "Javni uslužbenec",
-      "self_employed": "Samozaposlen",
-      "business_owner": "Podjetnik",
-      "retired": "Upokojen",
-      "student": "Študent",
-      "unemployed": "Brezposeln",
-      "other": "Drugo"
-    },
-    "status": {
-      "draft": "Osnutek",
-      "received": "Vloga prejeta",
-      "verification": "V preverjanju",
-      "documents_missing": "Manjkajo dokumenti",
-      "analysis": "V obravnavi",
-      "info_requested": "Zahtevane informacije",
-      "approved": "Odobreno",
-      "rejected": "Zavrnjeno",
-      "offer_available": "Ponudba na voljo",
-      "contract_sent": "Pogodba poslana",
-      "signature_pending": "Čaka na podpis",
-      "contract_signed": "Pogodba podpisana",
-      "disbursement_preparing": "Priprava izplačila",
-      "disbursed": "Izplačano",
-      "repaying": "Odplačevanje poteka",
-      "late": "Zamuda",
-      "repaid": "V celoti odplačano",
-      "cancelled": "Preklicano",
-      "unknown": "Neznan status",
-      "guarantee_sent": "Jamstvo poslano",
-      "guarantee_signed": "Jamstvo podpisano",
-      "insurance_pending": "Zavarovanje v teku",
-      "insurance_validated": "Zavarovanje potrjeno"
-    },
-    "portal": {
-      "metaTitle": "Vaša kreditna vloga — MOONYP",
-      "metaDesc": "Varno spremljajte svojo vlogo za kredit.",
-      "reference": "Referenca vloge",
-      "secure": "Varen dostop",
-      "summary": "Povzetek",
-      "status": "Status",
-      "timeline": "Zgodovina",
-      "invalidTitle": "Povezava ni veljavna ali je potekla",
-      "invalidDesc": "Ta varna povezava ni več veljavna. Zaprosite za novo pri naši ekipi.",
-      "progress": "Napredek vloge",
-      "submittedOn": "Oddano dne",
-      "monthly": "Mesečni obrok",
-      "apr": "EOM",
-      "product": "Finančni produkt",
-      "insurance": "Zavarovanje kreditojemalca",
-      "totalCost": "Skupni stroški kredita",
-      "interest": "Skupne obresti",
-      "fees": "Stroški odobritve",
-      "documents": "Dokazila",
-      "noDocuments": "Dokumentacija še ni bila prejeta.",
-      "help": "Stran se osvežuje v realnem času. Kreditna služba vas bo o vsakem ključnem koraku obvestila po e-pošti. Te varne povezave ne delite z drugimi.",
-      "kyc": {
-        "pending": "Preverjanje na čakanju",
-        "verifying": "Preverjanje v teku",
-        "passed": "Identiteta potrjena",
-        "failed": "Preverjanje neuspešno",
-        "manual_review": "Ročni pregled"
-      },
-      "doc": {
-        "pending": "V obdelavi",
-        "approved": "Odobreno",
-        "rejected": "Zavrnjeno",
-        "replacement_requested": "Potrebna zamenjava"
-      },
-      "requests": {
-        "title": "Zahtevane informacije",
-        "desc": "Naša ekipa potrebuje dodatne podatke za nadaljevanje obravnave.",
-        "none": "Ni odprtih zahtev.",
-        "open": "V čakanju",
-        "answered": "Obravnavano",
-        "respondLabel": "Vaš odgovor",
-        "placeholder": "Vnesite odgovor…",
-        "submit": "Pošlji odgovor",
-        "success": "Odgovor poslan",
-        "error": "Pošiljanje ni uspelo",
-        "kindMissingDocument": "Manjkajoč dokument",
-        "kindReplaceDocument": "Zamenjava dokumenta",
-        "kindInformation": "Dodatna informacija",
-        "kindJustification": "Zahtevana utemeljitev",
-        "answeredAt": "Odgovorjeno"
-      },
-      "stages": {
-        "received": "Vloga prejeta",
-        "study": "Vloga v obravnavi",
-        "approved": "Vloga odobrena",
-        "contract": "Pogodba",
-        "guarantee": "Zavarovanje terjatve",
-        "insurance": "Zavarovanje",
-        "disbursement": "Izplačilo",
-        "repayment": "Odplačevanje"
-      },
-      "offer": "Ponudba kredita",
-      "contract": "Pogodba",
-      "guarantee": "Zavarovanje terjatve",
-      "insurance2": "Zavarovanje kreditojemalca",
-      "disbursement": "Izplačilo",
-      "repayments": "Načrt odplačevanja",
-      "kycTitle": "Preverjanje istovetnosti",
-      "validUntil": "Veljavna do",
-      "sentOn": "Poslano",
-      "signedOn": "Podpisano",
-      "acceptedOn": "Sprejeto",
-      "download": "Prenesi",
-      "downloadContract": "Prenesi pogodbo",
-      "downloadSigned": "Prenesi podpisano pogodbo",
-      "guarantor": "Porok",
-      "provider": "Zavarovalnica",
-      "policy": "Številka police",
-      "premium": "Mesečna premija",
-      "beneficiary": "Prejemnik",
-      "paidOn": "Plačano",
-      "installment": "Obrok",
-      "dueDate": "Zapadlost",
-      "remaining": "Preostali saldo",
-      "paid": "Plačano",
-      "unpaid": "Prihajajoče",
-      "none": "Še ni na voljo",
-      "downloadNotice": "Povezave za prenos potečejo po dveh minutah in se beležijo.",
-      "downloadError": "Prenos ni na voljo",
-      "kycNone": "Zaenkrat ni zabeleženih preverjanj.",
-      "viewContract": "Ogled moje pogodbe",
-      "upload": {
-        "attach": "Pripni datoteko",
-        "attached": "Priloga: {{name}}",
-        "chooseType": "Vrsta dokumenta",
-        "desc": "Dodajte manjkajoče dokazilo ali zamenjajte zavrnjeni dokument.",
-        "error": "Nalaganje ni uspelo",
-        "limits": "PDF, JPEG ali PNG — največ {{size}} MB.",
-        "send": "Izberi datoteko",
-        "success": "Dokument poslan",
-        "title": "Naloži dokument"
-      }
-    },
-    "success": {
-      "title": "Vaša vloga je prejeta",
-      "subtitle": "Naša ekipa pregleduje vašo vlogo. O vsakem koraku vas obvestimo po e-pošti.",
-      "reference": "Referenca vloge",
-      "openFile": "Odpri mojo vlogo",
-      "linkNotice": "Shranite to povezavo: omogoča varen dostop do vaše vloge.",
-      "step1": "Preverjanje podatkov in dokumentov",
-      "step2": "Obravnava in odločitev, običajno v 48 delovnih urah",
-      "step3": "Ponudba, pogodba in izplačilo po odobritvi"
-    },
-    "validation": {
-      "required": "To polje je obvezno.",
-      "iban": {
-        "empty": "Vnesite svojo številko IBAN",
-        "charset": "Številka IBAN vsebuje neveljavne znake",
-        "country": "Koda države ni vključena v register IBAN",
-        "length": "Dolžina številke IBAN ne ustreza izbrani državi",
-        "checksum": "Številka IBAN je neveljavna (kontrolna vsota ni ustrezna)",
-        "valid": "Veljaven IBAN — {{country}}"
-      },
-      "bic": {
-        "format": "Neveljavna koda BIC/SWIFT",
-        "countryMismatch": "Koda BIC se ne ujema z državo številke IBAN"
-      },
-      "holder": {
-        "required": "Vnesite imetnika računa",
-        "mismatch": "Imetnik računa se razlikuje od vlagatelja",
-        "partial": "Ime imetnika se razlikuje od vlagateljevega"
-      },
-      "bank": {
-        "countryMismatch": "Navedena država banke se ne ujema s številko IBAN",
-        "crossBorder": "Račun je odprt zunaj vaše države stalnega prebivališča",
-        "nonSepa": "Račun je zunaj območja SEPA"
-      },
-      "risk": {
-        "dtiAbove40": "Stopnja zadolženosti presega 40 %"
-      },
-      "phoneValid": "Veljavna številka",
-      "phoneIncomplete": "Nepopolna številka"
-    },
-    "address": {
-      "placeholder": "Začnite vpisovati naslov (po vsem svetu)…",
-      "hint": "Izberite predlog ali vnesite naslov ročno.",
-      "manual": "Ročni vnos",
-      "hideManual": "Skrij podrobnosti"
-    },
-    "schedule": {
-      "title": "Amortizacijski načrt",
-      "period": "Obdobje",
-      "number": "Št.",
-      "dueDate": "Datum zapadlosti",
-      "payment": "Obrok",
-      "principal": "Glavnica",
-      "interest": "Obresti",
-      "insurance": "Zavarovanje",
-      "balance": "Preostanek dolga",
-      "total": "Skupaj",
-      "export": "Izvozi v CSV"
-    },
-    "contract": {
-      "metaTitle": "Vaša pogodba — MOONYP",
-      "metaDesc": "Preglejte in varno podpišite svojo pogodbo o financiranju.",
-      "backToFile": "Nazaj na vlogo",
-      "offerSummary": "Povzetek ponudbe",
-      "rate": "Letna obrestna mera",
-      "document": "Pogodbeni dokument",
-      "version": "Različica",
-      "state": "Stanje",
-      "hash": "Prstni odtis dokumenta",
-      "providerLabel": "Mehanizem podpisa",
-      "signTitle": "Podpišite pogodbo",
-      "legalNotice": "Gre za napredni elektronski podpis z dokazno vrednostjo (enkratna koda, časovni žig, zgoščena vrednost dokumenta). Ni kvalificirani elektronski podpis po eIDAS.",
-      "fullName": "Polno ime podpisnika",
-      "startSignature": "Pošlji mojo kodo za podpis",
-      "code": "Koda za podpis",
-      "codeHint": "Enkratna koda je bila poslana na e-naslov iz vloge.",
-      "consent": "Potrjujem, da sem prebral pogodbo, in soglašam z elektronskim podpisom.",
-      "confirmSignature": "Potrdi podpis",
-      "resendCode": "Ponovno pošlji kodo",
-      "history": "Zgodovina pogodbe",
-      "important": "Shranite kopijo podpisane pogodbe. Naša podpora vam je na voljo.",
-      "notAvailable": "Pogodba še ni na voljo.",
-      "alreadySigned": "Ta pogodba je že podpisana.",
-      "codeSent": "Koda poslana",
-      "startError": "Podpisa ni bilo mogoče začeti.",
-      "signError": "Podpis ni uspel.",
-      "signed": "Pogodba podpisana",
-      "states": {
-        "draft": "Osnutek",
-        "ready": "Pripravljeno",
-        "sent": "Poslano",
-        "viewed": "Ogledano",
-        "signed": "Podpisano",
-        "cancelled": "Preklicano"
-      },
-      "events": {
-        "contract_created": "Pogodba ustvarjena",
-        "contract_sent": "Pogodba poslana",
-        "contract_viewed": "Pogodba ogledana",
-        "signature_requested": "Zahtevan podpis",
-        "signature_completed": "Podpis zaključen",
-        "contract_downloaded": "Pogodba prenesena"
-      }
-    },
-    "guarantee": {
-      "fee": "Nadomestilo za kritje kreditnega tveganja",
-      "paymentStatus": "Stanje plačila",
-      "payment": {
-        "unpaid": "Neplačano",
-        "awaiting_payment": "Čaka na plačilo",
-        "paid": "Plačano",
-        "waived": "Odpovedano",
-        "failed": "Neuspešno"
-      },
-      "scheduledDate": "Načrtovani datum plačila",
-      "paidNotice": "Naša ekipa je potrdila vaše nadomestilo.",
-      "chosen": {
-        "pay_now": "Izbrali ste plačilo takoj.",
-        "decline": "Odpovedali ste se vlogi za posojilo.",
-        "pay_later": "Izbrali ste plačilo pozneje."
-      },
-      "instructions": "Navodila za plačilo",
-      "validationNotice": "Plačilo velja za prejeto šele po potrditvi naše ekipe.",
-      "question": "Želite plačati nadomestilo za kritje?",
-      "options": {
-        "pay_now": "Da, plačam in prejmem posojilo",
-        "decline": "Ne, ne plačam in se odpovem vlogi",
-        "pay_later": "Da, plačam pozneje in vlogo ohranim v čakanju"
-      },
-      "optionsHint": {
-        "pay_now": "Prejeli boste navodila za plačilo.",
-        "decline": "Vaša vloga bo zaprta.",
-        "pay_later": "Izberite datum plačila, poslali vam bomo opomnike."
-      },
-      "pickDate": "Želeni datum plačila",
-      "confirmChoice": "Potrdi izbiro",
-      "noPaymentNotice": "Ta izbira ne izvede plačila: potrjeno bo po preverjanju naše ekipe.",
-      "choiceSaved": "Izbira shranjena",
-      "error": {
-        "dateRequired": "Navedite datum plačila.",
-        "generic": "Dejanje ni mogoče."
-      }
-    },
-    "payment": {
-      "metaTitle": "Varno plačilo — MOONYP",
-      "metaDesc": "Varno poravnajte stroške svoje vloge za financiranje Moonyp.",
-      "title": "Varno plačilo",
-      "subtitle": "Zadeva",
-      "back": "Nazaj na zadevo",
-      "due": "Znesek za plačilo",
-      "noDue": "Trenutno ni zneska za plačilo.",
-      "methods": "Načini plačila",
-      "noMethods": "Trenutno ni na voljo noben način plačila.",
-      "notConfigured": "Ta ponudnik ni konfiguriran.",
-      "pay": "Plačaj",
-      "redirecting": "Preusmerjanje k ponudniku…",
-      "created": "Plačilo zabeleženo",
-      "createdHint": "Plačilo bo potrjeno po dejanskem prejemu sredstev.",
-      "instructions": "Navodila za plačilo",
-      "reference": "Sklic",
-      "copyReference": "Kopiraj sklic",
-      "copied": "Kopirano",
-      "holder": "Imetnik računa",
-      "bank": "Banka",
-      "address": "Naslov",
-      "network": "Omrežje",
-      "history": "Zgodovina plačil",
-      "noPaymentYet": "Ni zabeleženih plačil.",
-      "notice": "Pri nakazilu vedno navedite sklic, sicer plačila ne bo mogoče povezati z vašo zadevo.",
-      "error": "Plačila ni bilo mogoče začeti.",
-      "purpose": {
-        "guarantee_fee": "Stroški jamstva",
-        "insurance_fee": "Stroški zavarovanja",
-        "application_fee": "Stroški obdelave",
-        "installment": "Obrok kredita",
-        "other": "Drugo"
-      },
-      "feeStatus": {
-        "pending": "V čakanju",
-        "paid": "Plačano",
-        "not_required": "Ni potrebno",
-        "late": "Zamuda",
-        "cancelled": "Preklicano"
-      },
-      "kind": {
-        "bank_transfer": "Bančno nakazilo",
-        "card": "Kartica",
-        "qr": "Koda QR",
-        "crypto": "Kripto",
-        "other": "Drugo"
-      },
-      "status": {
-        "pending": "V čakanju",
-        "processing": "V obdelavi",
-        "received": "Prejeto",
-        "failed": "Neuspešno",
-        "cancelled": "Preklicano"
-      }
-    },
-    "repayment": {
-      "status": {
-        "upcoming": "Prihajajoči",
-        "paid": "Plačan",
-        "partially_paid": "Delno plačan",
-        "late": "V zamudi",
-        "cancelled": "Preklican"
-      }
-    },
-    "insurance": {
-      "fee": "Strošek sklenitve zavarovanja",
-      "paymentStatus": "Stanje plačila",
-      "payment": {
-        "unpaid": "Neplačano",
-        "not_required": "Brez stroška",
-        "pending": "V obdelavi",
-        "awaiting_payment": "Čaka na plačilo",
-        "paid": "Plačano",
-        "waived": "Odpovedano",
-        "failed": "Neuspešno"
-      },
-      "dueDate": "Datum zapadlosti",
-      "scheduledDate": "Načrtovani datum plačila",
-      "paidNotice": "Vaš strošek zavarovanja je potrdila naša ekipa.",
-      "chosen": {
-        "pay_now": "Izbrali ste takojšnje plačilo.",
-        "decline": "Odpovedali ste se zavarovanju.",
-        "pay_later": "Izbrali ste poznejše plačilo."
-      },
-      "instructions": "Navodila za plačilo",
-      "validationNotice": "Plačilo velja za prejeto šele po potrditvi naše ekipe.",
-      "question": "Želite plačati strošek zavarovanja?",
-      "options": {
-        "pay_now": "Da, plačam zdaj",
-        "decline": "Ne, odpovedujem se zavarovanju",
-        "pay_later": "Da, plačam pozneje"
-      },
-      "optionsHint": {
-        "pay_now": "Prejeli boste navodila za plačilo.",
-        "decline": "Zadeva bo obravnavana brez zavarovanja.",
-        "pay_later": "Izberite datum: poslali bomo opomnike."
-      },
-      "pickDate": "Želeni datum plačila",
-      "confirmChoice": "Potrdi izbiro",
-      "noPaymentNotice": "Ta izbira ne izvede plačila: potrjena je šele po preveritvi naše ekipe.",
-      "choiceSaved": "Izbira shranjena",
-      "error": {
-        "dateRequired": "Izberite datum plačila.",
-        "datePast": "Izbrani datum je že mimo.",
-        "generic": "Dejanje ni mogoče."
-      }
-    }
-  },
-  "products": {
-    "personal": {
-      "name": "Osebni kredit",
-      "desc": "Financirajte svoje načrte s fiksno obrestno mero in jasnimi obroki."
-    },
-    "auto": {
-      "name": "Avtomobilski kredit",
-      "desc": "Novo ali rabljeno vozilo po ugodni obrestni meri."
-    },
-    "mortgage": {
-      "name": "Stanovanjski kredit",
-      "desc": "Nakup, gradnja ali prenova z dolgoročnim financiranjem."
-    },
-    "business": {
-      "name": "Poslovni kredit",
-      "desc": "Podprite rast, opremo ali likvidnost."
-    }
-  },
-  "documents": {
-    "identity": "Osebni dokument",
-    "proofAddress": "Dokazilo o naslovu",
-    "income": "Dokazila o dohodkih",
-    "bankStatement": "Bančni izpiski",
-    "rib": "Bančni podatki (IBAN)",
-    "other": "Drug dokument"
-  },
-  "contactSection": {
-    "eyebrow": "Kontakt",
-    "title": "Pogovorite se s svetovalcem",
-    "desc": "Naša ekipa odgovarja na vprašanja o financiranju, dokumentih in poteku vloge.",
-    "cta": "Kontaktirajte nas"
-  },
-  "apply": {
-    "steps": {
-      "identity": "Identiteta",
-      "employment": "Zaposlitev",
-      "request": "Vloga",
-      "payout": "Izplačilo",
-      "documents": "Dokumenti",
-      "review": "Povzetek"
-    }
-  },
   "about": {
-    "metaTitle": "O MOONYP — evropska kreditna platforma",
-    "metaDesc": "Kdo smo, kako financiramo projekte in kateri standardi varujejo vaše podatke in denar.",
-    "eyebrow": "O nas",
-    "title": "Sodobna kreditna hiša z bančno disciplino.",
-    "intro": "MOONYP financira posameznike in podjetja po vsej Evropi z eno obljubo: jasna odločitev, poštena obrestna mera in brez skritih stroškov.",
-    "intro2": "Naše ekipe združujejo kreditno analizo, skladnost in tehnologijo ter počasen papirnat postopek spreminjajo v varno digitalno pot — od simulacije do izplačila.",
+    "cta": {
+      "button": "Začni vlogo",
+      "desc": "Simulirajte v minuti, oddajte vlogo v šestih korakih in prejmite odločitev v manj kot 24 urah.",
+      "title": "Pripravljeni financirati svoj projekt?"
+    },
     "ctaPrimary": "Oddaj vlogo",
     "ctaSecondary": "Pogovorite se s svetovalcem",
-    "hqAlt": "Avla sedeža MOONYP",
-    "missionAlt": "Vmesnik kreditne analize MOONYP",
+    "eyebrow": "O nas",
+    "governance": {
+      "desc": "Naš operativni okvir izpolnjuje zahteve evropskih posojilodajalcev: ločevanje nalog, sledljivost vsake odločitve in stalen nadzor tveganj.",
+      "eyebrow": "Upravljanje in skladnost",
+      "g1d": "Kreditna dejavnost poteka z licenciranimi bančnimi partnerji.",
+      "g1t": "Reguliran okvir",
+      "g2d": "Skladnost z GDPR, šifriranje v mirovanju in prenosu, strogi roki hrambe.",
+      "g2t": "Varstvo podatkov",
+      "g3d": "Kontrole, usklajene z ISO 27001, in letne neodvisne revizije.",
+      "g3t": "Certificirani procesi",
+      "g4d": "Kreditni odbor in odbor za tveganja politike pregledata vsako četrtletje.",
+      "g4t": "Neodvisen nadzor",
+      "title": "Standardi, ki jih je mogoče revidirati."
+    },
     "governanceAlt": "Varnost podatkov MOONYP",
+    "hqAlt": "Avla sedeža MOONYP",
+    "intro": "MOONYP financira posameznike in podjetja po vsej Evropi z eno obljubo: jasna odločitev, poštena obrestna mera in brez skritih stroškov.",
+    "intro2": "Naše ekipe združujejo kreditno analizo, skladnost in tehnologijo ter počasen papirnat postopek spreminjajo v varno digitalno pot — od simulacije do izplačila.",
     "kpis": {
       "clients": "Financirane stranke",
       "countries": "Pokrite države",
       "financed": "Financirano od leta 2016",
       "uptime": "Razpoložljivost platforme"
     },
+    "metaDesc": "Kdo smo, kako financiramo projekte in kateri standardi varujejo vaše podatke in denar.",
+    "metaTitle": "O MOONYP — evropska kreditna platforma",
     "mission": {
       "eyebrow": "Naše poslanstvo",
-      "title": "Kredit, ki spoštuje vaš čas in proračun.",
       "p1": "Vsako vlogo presojamo po enakih objektivnih merilih: sposobnost odplačevanja, stabilnost dohodkov in skladnost projekta. Brez nepreglednega točkovanja in samovoljnih zavrnitev.",
-      "p2": "Vlogo spremljate v realnem času prek varne povezave, vsak dokument prejmete v svojem jeziku in podpišete elektronsko s polno pravno veljavo."
+      "p2": "Vlogo spremljate v realnem času prek varne povezave, vsak dokument prejmete v svojem jeziku in podpišete elektronsko s polno pravno veljavo.",
+      "title": "Kredit, ki spoštuje vaš čas in proračun."
     },
+    "missionAlt": "Vmesnik kreditne analize MOONYP",
+    "timeline": {
+      "title": "Naša zgodba",
+      "y1d": "Trije kreditni strokovnjaki ustanovijo MOONYP, da skrajšajo odločanje s tednov na ure.",
+      "y1t": "Ustanovitev v Parizu",
+      "y2d": "Odprtje na enajstih trgih in popolna lokalizacija pogodb ter komunikacije.",
+      "y2t": "Evropska širitev",
+      "y3d": "Popolnoma brezpapirna pot s certificiranim podpisom in samodejnim preverjanjem identitete.",
+      "y3t": "Elektronski podpis in takojšen KYC",
+      "y4d": "Vlagatelj spremlja vlogo prek varne osebne povezave, brez gesla.",
+      "y4t": "Izkušnja brez računa"
+    },
+    "title": "Sodobna kreditna hiša z bančno disciplino.",
     "values": {
       "eyebrow": "Naše vrednote",
       "title": "Štiri načela, brez izjem.",
-      "v1t": "Najprej varnost",
       "v1d": "Šifrirani podatki, strog nadzor dostopa in stalno spremljanje.",
-      "v2t": "Popolna jasnost",
+      "v1t": "Najprej varnost",
       "v2d": "Obrestna mera, zavarovanje, stroški in skupni znesek so prikazani pred vsako zavezo.",
-      "v3t": "Človeška podpora",
+      "v2t": "Popolna jasnost",
       "v3d": "Namenski svetovalec v vsaki ključni fazi vaše vloge.",
-      "v4t": "Evropski doseg",
-      "v4d": "Ena platforma, 15 jezikov in finančni partnerji po vsej celini."
-    },
-    "timeline": {
-      "title": "Naša zgodba",
-      "y1t": "Ustanovitev v Parizu",
-      "y1d": "Trije kreditni strokovnjaki ustanovijo MOONYP, da skrajšajo odločanje s tednov na ure.",
-      "y2t": "Evropska širitev",
-      "y2d": "Odprtje na enajstih trgih in popolna lokalizacija pogodb ter komunikacije.",
-      "y3t": "Elektronski podpis in takojšen KYC",
-      "y3d": "Popolnoma brezpapirna pot s certificiranim podpisom in samodejnim preverjanjem identitete.",
-      "y4t": "Izkušnja brez računa",
-      "y4d": "Vlagatelj spremlja vlogo prek varne osebne povezave, brez gesla."
-    },
-    "governance": {
-      "eyebrow": "Upravljanje in skladnost",
-      "title": "Standardi, ki jih je mogoče revidirati.",
-      "desc": "Naš operativni okvir izpolnjuje zahteve evropskih posojilodajalcev: ločevanje nalog, sledljivost vsake odločitve in stalen nadzor tveganj.",
-      "g1t": "Reguliran okvir",
-      "g1d": "Kreditna dejavnost poteka z licenciranimi bančnimi partnerji.",
-      "g2t": "Varstvo podatkov",
-      "g2d": "Skladnost z GDPR, šifriranje v mirovanju in prenosu, strogi roki hrambe.",
-      "g3t": "Certificirani procesi",
-      "g3d": "Kontrole, usklajene z ISO 27001, in letne neodvisne revizije.",
-      "g4t": "Neodvisen nadzor",
-      "g4d": "Kreditni odbor in odbor za tveganja politike pregledata vsako četrtletje."
-    },
-    "cta": {
-      "title": "Pripravljeni financirati svoj projekt?",
-      "desc": "Simulirajte v minuti, oddajte vlogo v šestih korakih in prejmite odločitev v manj kot 24 urah.",
-      "button": "Začni vlogo"
+      "v3t": "Človeška podpora",
+      "v4d": "Ena platforma, 15 jezikov in finančni partnerji po vsej celini.",
+      "v4t": "Evropski doseg"
     }
   },
-  "validation": {
-    "phone": "Vnesite veljavno telefonsko številko"
-  },
-  "kyc": {
-    "capture": "Zajemi",
-    "retake": "Ponovi",
-    "chooseDocument": "Izberite svoj dokument",
-    "nothingRequired": "V tej fazi dokumenti niso potrebni",
-    "storageNotice": "Vaši dokumenti so šifrirani, shranjeni v zasebnem prostoru in dostopni izključno naši službi za skladnost poslovanja.",
-    "intro": {
-      "title": "Preverjanje identitete",
-      "why": "Evropska zakonodaja od nas zahteva, da pred sprostitvijo sredstev preverimo vašo identiteto. Postopek traja približno tri minute.",
-      "camera": "Uporabite kamero pri dobri osvetlitvi — datoteko lahko tudi uvozite.",
-      "privacy": "Vaši dokumenti so šifrirani in nikoli deljeni s tretjimi osebami.",
-      "start": "Začni preverjanje"
+  "admin": {
+    "amounts": {
+      "accepted": "Skupaj sprejeto",
+      "disbursed": "Izplačana sredstva",
+      "requested": "Skupaj zaprošeno"
     },
-    "category": {
-      "identity": {
-        "title": "Identifikacijski dokument",
-        "desc": "Potni list, osebna izkaznica ali dovoljenje za prebivanje"
-      },
-      "address": {
-        "title": "Dokazilo o naslovu",
-        "desc": "Staro največ tri mesece"
-      },
-      "selfie": {
-        "title": "Preverjanje prisotnosti",
-        "desc": "Hiter sebni posnetek za ujemanje z vašim dokumentom"
-      },
-      "bank": {
-        "title": "Bančni podatki",
-        "desc": "Izpisek, na katerem je razviden vaš IBAN"
-      },
-      "income": {
-        "title": "Dokazilo o dohodku",
-        "desc": "Odvisno od vašega zaposlitvenega statusa"
-      }
+    "clientDetail": {
+      "blockBtn": "Blokiraj račun",
+      "blockedReason": "Razlog",
+      "blockedSince": "Blokirano od",
+      "blockReason": "Razlog blokade",
+      "blockReasonPlaceholder": "Npr.: sum prevare, KYC neskladen…",
+      "blockTitle": "Blokiraj račun stranke",
+      "confirm": "Potrdi",
+      "loans": "Posojila stranke",
+      "noLoans": "Ta stranka še nima vlog.",
+      "noWithdrawals": "Ni nakazil.",
+      "personalInfo": "Osebni podatki",
+      "summary": "Povzetek",
+      "title": "Profil stranke",
+      "unblockBtn": "Odblokiraj račun",
+      "withdrawals": "Nakazila"
     },
-    "side": {
-      "front": "Sprednja stran",
-      "back": "Zadnja stran",
-      "single": "Dokument"
+    "clientsPage": {
+      "active": "Aktivno",
+      "blocked": "Blokirano",
+      "client": "Stranka",
+      "joined": "Pridruženo",
+      "loans": "Posojila",
+      "phone": "Telefon",
+      "status": "Status",
+      "subtitle": "Računi strank in stanje dostopa.",
+      "title": "Stranke",
+      "totalBorrowed": "Skupaj izposojeno"
     },
-    "hint": {
-      "scan": "Dokument položite na ravno površino, popolnoma znotraj okvirja in brez bleščanja.",
-      "scan_double": "Zajemite obe strani zaporedoma, pri čemer morajo biti vidni vsi štirje koti.",
-      "selfie": "Glejte naravnost v kamero, brez pokrival ali sončnih očal.",
-      "upload": "Podprti formati: PDF, JPEG, PNG."
+    "kpis": {
+      "accepted": "Sprejete",
+      "pending": "V čakanju",
+      "refused": "Zavrnjene",
+      "total": "Skupaj vlog"
     },
-    "status": {
-      "todo": "Za opraviti",
-      "in_progress": "V teku",
-      "capturing": "Nepopolno",
-      "verifying": "Preverjanje",
-      "passed": "Predloženo",
-      "failed": "Zavrnjeno",
-      "retry": "Ponovi",
-      "manual_review": "V pregledu"
-    },
-    "camera": {
-      "ready": "Kamera je pripravljena",
-      "start": "Odpri kamero",
-      "shoot": "Posnemi fotografijo",
-      "retake": "Ponovi",
-      "use": "Uporabi to fotografijo",
-      "importInstead": "Uvozi datoteko",
-      "denied": "Kamera ni na voljo ali pa je dostop zavrnjen.",
-      "unsupported": "Vaš brskalnik ne podpira zajema s kamero.",
-      "badFormat": "Nepodprt format datoteke",
-      "tooLarge": "Datoteka presega velikost {{size}} MB",
-      "quality": {
-        "ok": "Dobra kakovost — dokument je čitljiv.",
-        "dark": "Fotografija je pretemna: premaknite se na svetlejše mesto.",
-        "bright": "Fotografija je preosvetljena: izogibajte se neposredni svetlobi in bleščanju.",
-        "blurry": "Zamegljena fotografija: ne premikajte naprave in ponovno izostrite."
-      }
-    },
-    "stepOf": "Korak {{current}} od {{total}}",
-    "finish": "Dokončaj",
-    "done": {
-      "title": "Identifikacija zaključena",
-      "desc": "Vsi zahtevani dokumenti so zajeti. Pred oddajo vloge jih lahko pregledate ali zamenjate."
-    },
-    "docs": {
-      "bankStatement": "Bančni izpisek (zadnji 3 meseci)",
-      "benefits": "Potrdilo o nadomestilu",
-      "drivingLicence": "Vozniško dovoljenje",
-      "electricity": "Račun za elektriko",
-      "hosting": "Potrdilo o nastanitvi",
-      "kbis": "Izpisek iz poslovnega registra",
-      "nationalId": "Osebna izkaznica",
-      "passport": "Potni list",
-      "payslip": "Plačilne liste (zadnji 3 meseci)",
-      "pension": "Potrdilo o pokojnini",
-      "residencePermit": "Dovoljenje za prebivanje",
-      "selfie": "Preverjanje obraza",
-      "taxReturn": "Odločba o odmeri dohodnine",
-      "telecom": "Račun za telefon / internet",
-      "water": "Račun za vodo"
-    }
-  },
-  "emails": {
-    "applicationReceived": {
-      "subject": "Prejeli smo vašo vlogo {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, prejeli smo vlogo {{reference}}. Naša ekipa jo obravnava in vas bo obveščala o vsakem koraku."
-    },
-    "documentsMissing": {
-      "subject": "Manjkajoči dokumenti — zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, v zadevi {{reference}} manjkajo dokumenti. Naložite jih v varnem območju. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer."
-    },
-    "infoRequested": {
-      "subject": "Dodatne informacije — zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, potrebujemo dodatne informacije za zadevo {{reference}}. {{reason}}"
-    },
-    "approved": {
-      "subject": "Vloga {{reference}} je odobrena",
-      "body": "Pozdravljeni {{firstName}}, vloga {{reference}} je odobrena. Ponudba bo na voljo v varnem območju.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area."
-    },
-    "rejected": {
-      "subject": "Odločitev o vlogi {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, po pregledu vloge {{reference}} nismo mogli sprejeti. Razlog: {{reason}}"
-    },
-    "offerAvailable": {
-      "subject": "Vaša ponudba {{reference}} je na voljo",
-      "body": "Pozdravljeni {{firstName}}, ponudba financiranja {{reference}} je na voljo v varnem območju.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
-    },
-    "contractSent": {
-      "subject": "Vaša pogodba {{reference}} je pripravljena",
-      "body": "Pozdravljeni {{firstName}}, pogodba {{reference}} je pripravljena za podpis v varnem območju.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
-    },
-    "disbursed": {
-      "subject": "Sredstva izplačana — zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, sredstva zadeve {{reference}} so nakazana na vaš račun.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
-    },
-    "signatureCode": {
-      "subject": "Vaša koda za podpis {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, vaša koda za podpis je {{code}}. Poteče čez 10 minut.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
-    },
-    "contractSigned": {
-      "subject": "Pogodba {{reference}} podpisana",
-      "body": "Pozdravljeni {{firstName}}, pogodba {{reference}} je podpisana. Prenesete jo lahko v varnem območju.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
-    },
-    "guaranteeSent": {
-      "subject": "Nadomestilo za kritje — vloga {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, nadomestilo za kritje kreditnega tveganja znaša {{amount}}. Izberite možnost v varnem območju.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
-    },
-    "guaranteePayNow": {
-      "subject": "Plačilo nadomestila {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, zabeležili smo izbiro plačila {{amount}}. Navodila sledijo po preverjanju.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
-    },
-    "guaranteeDeclined": {
-      "subject": "Vloga {{reference}} preklicana",
-      "body": "Pozdravljeni {{firstName}}, zabeležili smo vašo odpoved. Vloga {{reference}} bo zaprta."
-    },
-    "guaranteePayLater": {
-      "subject": "Plačilo načrtovano {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} je načrtovano za {{date}}. Vloga ostaja v čakanju.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
-    },
-    "guaranteePaymentValidated": {
-      "subject": "Nadomestilo potrjeno {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, plačilo je potrjeno. Vloga se nadaljuje."
-    },
-    "guaranteeReminder": {
-      "subject": "Opomnik za plačilo {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} zapade {{date}}."
-    },
-    "insurancePending": {
-      "subject": "Zavarovanje {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, potrebno je zavarovanje {{amount}} na mesec.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
-    },
-    "insuranceValidated": {
-      "subject": "Zavarovanje potrjeno {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, vaše zavarovanje je potrjeno.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
-    },
-    "common": {
-      "summary": "Povzetek vloge",
-      "reference": "Sklic",
-      "amount": "Financirani znesek",
+    "loansPage": {
+      "amount": "Znesek",
+      "client": "Stranka",
+      "date": "Datum",
+      "documents": "Dok.",
       "duration": "Trajanje",
-      "monthly": "Ocenjeni obrok",
-      "status": "Status vloge",
-      "months": "mesecev",
-      "feeAmount": "Zadevni znesek",
-      "scheduledDate": "Načrtovani datum",
-      "codeTitle": "Vaša enkratna koda za podpis",
-      "reasonTitle": "Pojasnila naše ekipe",
-      "secureNotice": "Povezava je osebna, šifrirana in preklicljiva. Ne delite je.",
-      "needHelp": "Vprašanja? Podpora odgovarja v vašem varnem prostoru.",
-      "footerLegal": "Moonyp — odgovorno financiranje. E-pošta se nanaša na vašo vlogo.",
-      "autoMessage": "Samodejno sporočilo — nanj ne odgovarjajte.",
-      "tagline": "Vaše financiranje, popolnoma pregledno"
+      "status": "Status",
+      "subtitle": "Podroben in filtriran pregled.",
+      "title": "Vse vloge za posojilo"
     },
-    "cta": {
-      "portal": "Ogled moje vloge",
-      "contract": "Preberi in podpiši pogodbo",
-      "guarantee": "Izberi možnost kritja",
-      "insurance": "Upravljaj zavarovanje",
-      "payment": "Izvedi plačilo",
-      "documents": "Naloži dokumente",
-      "schedule": "Ogled mojega načrta odplačil"
+    "quickActions": {
+      "manageClients": "Upravljaj stranke",
+      "signedContracts": "Podpisane pogodbe",
+      "subtitle": "Najprej obravnavajte čakajoče vloge.",
+      "title": "Hitra dejanja",
+      "toStudy": "Vloge za pregled"
     },
-    "installmentReminder": {
-      "subject": "Prihajajoči obrok — vloga {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, naslednji obrok {{amount}} zapade {{date}}.",
-      "details": "Amortizacijski načrt in plačilo v vašem varnem prostoru."
+    "recent": {
+      "empty": "Ni nedavne dejavnosti",
+      "open": "Odpri",
+      "title": "Nedavna dejavnost"
     },
-    "applicationVerification": {
-      "subject": "Zadeva {{reference}} v preverjanju",
-      "body": "Pozdravljeni {{firstName}}, vašo zadevo {{reference}} trenutno preverjajo naše ekipe.",
-      "details": "Preverjamo pristnost in berljivost vaših dokazil. V tej fazi vam ni treba storiti ničesar; takoj vas obvestimo, če bo treba dokument dopolniti."
+    "stages": {
+      "codeSent": "Koda poslana za fazo {{stage}}%",
+      "codeSentBadge": "Koda poslana",
+      "fee": "Pristojbina (€)",
+      "genAndSend": "Ustvari & pošlji",
+      "planFirst": "Najprej določite pristojbine",
+      "planSaved": "Načrt shranjen",
+      "regenAndSend": "Ponovno ustvari & pošlji",
+      "savePlan": "Shrani načrt",
+      "sentAt": "Poslano",
+      "title": "Pristojbine in kode",
+      "unlocked": "Odklenjeno"
     },
-    "applicationAnalysis": {
-      "subject": "Zadeva {{reference}} v analizi",
-      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} je vstopila v fazo kreditne analize.",
-      "details": "Naši analitiki presojajo vašo zmožnost odplačevanja, skladnost dohodkov in zaprošeni znesek. Izid boste videli v varnem prostoru, takoj ko bo pripravljen."
-    },
-    "signaturePending": {
-      "subject": "Podpis v pričakovanju — zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, vaša pogodba {{reference}} čaka na vaš elektronski podpis.",
-      "details": "Do podpisa zadeva ostaja v čakanju in sredstev ni mogoče pripraviti. Podpis poteka spletno z enkratno kodo, v manj kot dveh minutah."
-    },
-    "guaranteeSigned": {
-      "subject": "Kritje potrjeno — zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, kritje kreditnega tveganja za zadevo {{reference}} je potrjeno.",
-      "details": "Po tej fazi zadeva nadaljuje k zavarovanju kreditojemalca in nato k pripravi izplačila. Vsak korak spremljate v realnem času v varnem prostoru."
-    },
-    "disbursementPreparing": {
-      "subject": "Izplačilo v pripravi — zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, izplačilo sredstev za zadevo {{reference}} se pripravlja.",
-      "details": "Naša finančna služba še zadnjič preveri vaše bančne podatke pred izvedbo nakazila. Potrditev prejmete takoj po pošiljanju sredstev."
-    },
-    "repaying": {
-      "subject": "Odplačevanje poteka — zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} vstopa v fazo odplačevanja.",
-      "details": "Podroben načrt odplačil (glavnica, obresti, preostali dolg) je na voljo v varnem prostoru. Vsak prejeti obrok se tam zabeleži in potrdi po e-pošti."
-    },
-    "repaymentReceived": {
-      "subject": "Plačilo prejeto — zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, prejeli smo vaše plačilo {{amount}} za zadevo {{reference}}.",
-      "details": "Zadevni obrok je označen kot poravnan, preostali dolg pa posodobljen v varnem prostoru, kjer načrt ostaja na voljo za prenos."
-    },
-    "late": {
-      "subject": "Zapadli obrok — zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, obrok vaše zadeve {{reference}} je zapadel neplačan.",
-      "details": "Prosimo, obrok poravnajte čim prej, da se izognete zamudnim stroškom in prijavi. Ob težavah nas kontaktirajte: rešitev je mogoče dogovoriti."
-    },
-    "repaid": {
-      "subject": "Zadeva {{reference}} v celoti odplačana",
-      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} je v celoti odplačana. Hvala za zaupanje.",
-      "details": "Potrdilo o ničelnem stanju in celotna zgodovina plačil ostaneta v varnem prostoru. Novo prošnjo lahko oddate kadar koli."
-    },
-    "cancelled": {
-      "subject": "Zadeva {{reference}} preklicana",
-      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} je bila preklicana.",
-      "details": "Za to zadevo vam ne bo obračunan noben znesek. Če preklic ne ustreza vaši želji, lahko v varnem prostoru oddate novo prošnjo."
-    },
-    "insurancePayNow": {
-      "subject": "Zavarovanje — takojšnje plačilo · zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, izbrali ste takojšnje plačilo stroška zavarovanja {{amount}}.",
-      "details": "Navodila za plačilo (prejemnik, IBAN, BIC in sklic) so v vašem varnem območju. Plačilo velja za prejeto šele po potrditvi naše ekipe."
-    },
-    "insurancePayLater": {
-      "subject": "Zavarovanje — načrtovano plačilo · zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} je načrtovano za {{date}}.",
-      "details": "Zadeva ostane rezervirana do izbranega datuma. Plačate lahko prej; pred zapadlostjo pošljemo opomnike."
-    },
-    "insuranceDeclined": {
-      "subject": "Zavarovanje — odpoved zabeležena · zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, zabeležili smo vašo odpoved zavarovanju.",
-      "details": "Brez zavarovanja se zadeva lahko ponovno presodi. Odločitev lahko spremenite do izplačila sredstev."
-    },
-    "insurancePaymentValidated": {
-      "subject": "Zavarovanje — plačilo potrjeno · zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, potrjujemo prejem stroška zavarovanja.",
-      "details": "Kritje se vzpostavlja. Potrdilo in številka police bosta po potrditvi na voljo v varnem območju."
-    },
-    "insuranceReminder": {
-      "subject": "Opomnik — strošek zavarovanja · zadeva {{reference}}",
-      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} zapade {{date}}.",
-      "details": "Ta samodejni opomnik je poslan pred izbranim datumom. Navodila za plačilo so v varnem območju."
+    "subtitle": "Pregled bančne dejavnosti.",
+    "title": "Skrbniška nadzorna plošča",
+    "transfer": {
+      "amount": "Znesek (€)",
+      "bankName": "Banka prejemnika",
+      "beneficiary": "Prejemnik",
+      "bic": "BIC / SWIFT",
+      "classic": "Standardni",
+      "classicHint": "Pripisano v 1 delovnem dnevu.",
+      "client": "Stranka",
+      "error": "Nakazila ni bilo mogoče izvesti",
+      "iban": "IBAN",
+      "instant": "Takojšen",
+      "instantHint": "Pripisano takoj 24/7.",
+      "kind": "Vrsta nakazila",
+      "loan": "Izvorni kredit",
+      "reference": "Sklic",
+      "selectClient": "Izberite stranko",
+      "selectLoan": "Izberite kredit",
+      "submit": "Izvedi nakazilo",
+      "subtitle": "Ustvarite takojšen ali standardni bančni nakazilo v imenu stranke.",
+      "success": "Nakazilo uspešno izvedeno",
+      "title": "Izvedi prenos za stranko"
     }
   },
-  "workflow": {
-    "guard": {
-      "kycNotPassed": "KYC checks not passed",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "noInsurance": "No insurance subscribed on this file",
-      "missingPayout": "Payout details missing",
-      "complianceBlocking": "Blocking compliance alert"
+  "adminCodes": {
+    "address": "Plačilni naslov",
+    "approve": "Odobri",
+    "approved": "Odobreno",
+    "bic": "BIC / SWIFT",
+    "code": "Koda",
+    "codeSent": "Koda ustvarjena in poslana",
+    "consumed": "Uporabljeno",
+    "created": "Koda ustvarjena",
+    "description": "Namen / Opis",
+    "error": "Napaka",
+    "fee": "Pristojbina (€)",
+    "gatedDesc": "Konfiguracija bo na voljo po odobritvi posojila.",
+    "gatedTitle": "Konfiguracija zaklenjena",
+    "generate": "Ustvari",
+    "generateAndSend": "Ustvari in pošlji",
+    "help": "Upravljajte kode napredka prenosa.",
+    "holder": "Imetnik računa",
+    "iban": "IBAN",
+    "invalidates": "Ponovno ustvarjanje samodejno razveljavi prejšnjo kodo.",
+    "invalidFee": "Neveljavna pristojbina",
+    "noCode": "Ni kode",
+    "notifApprovedMsg": "Vaše plačilo je bilo potrjeno. Koda bo poslana.",
+    "notifApprovedTitle": "Potrdilo odobreno — korak {{p}}%",
+    "notifMsg": "Vaša koda: {{code}} (pristojbina {{fee}})",
+    "notifRejectedMsg": "Pošljite veljavno potrdilo.",
+    "notifRejectedTitle": "Potrdilo zavrnjeno — korak {{p}}%",
+    "notifTitle": "Koda za odklep {{p}}%",
+    "pending": "V čakanju",
+    "receiptApproved": "Potrdilo odobreno",
+    "receiptRejected": "Potrdilo zavrnjeno",
+    "receiptUploaded": "Potrdilo naloženo",
+    "regenerate": "Ponovno ustvari",
+    "regenerateAndSend": "Ponovno ustvari in pošlji",
+    "reject": "Zavrni",
+    "rejected": "Zavrnjeno",
+    "released": "Sproščeno",
+    "saved": "Konfiguracija shranjena",
+    "sectionHelp": "Nastavite pristojbine in plačilni naslov za vsak korak, potrdite potrdilo in pošljite kodo.",
+    "sectionTitle": "Konfiguracija korakov prenosa",
+    "send": "Pošlji",
+    "step": "Korak",
+    "success": "Uspeh",
+    "title": "Kode za odklep",
+    "updated": "Koda posodobljena"
+  },
+  "adminDash": {
+    "chat": "Klepet v živo",
+    "clients": "Stranke",
+    "kpis": {
+      "clients": "Aktivne stranke",
+      "loansPending": "Posojila v teku",
+      "newToday": "Novo danes",
+      "ticketsOpen": "Odprte vstopnice",
+      "transfersBlocked": "Prenosi so blokirani"
     },
-    "error": {
-      "sameStatus": "The file already has this status",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "forbidden": "Action not allowed"
+    "loans": "Posojila",
+    "logs": "Activity log",
+    "notifications": "Obvestila",
+    "overview": "Pregled",
+    "quickActions": "Hitra dejanja",
+    "recentActivity": "Nedavna dejavnost",
+    "roles": "Permissions",
+    "security": "Varnost",
+    "staff": "Team & roles",
+    "title": "Armaturna plošča — MOONYP",
+    "transfers": "Prestopi"
+  },
+  "adminSec": {
+    "adminLink": "Admin",
+    "alerts": {
+      "empty": "Ni opozoril.",
+      "resolve": "Reši",
+      "resolved": "rešeno",
+      "title": "Varnostna opozorila"
     },
-    "confirmTitle": "Confirm the decision",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "reasonLabel": "Reason shared with the applicant",
-    "noteLabel": "Internal note",
-    "confirm": "Confirm",
-    "cancel": "Cancel",
-    "requests": {
-      "title": "Information requests",
-      "kind": "Request type",
-      "message": "Message sent to the applicant",
-      "create": "Send request",
-      "none": "No information request.",
-      "close": "Close",
-      "open": "Pending",
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "kinds": {
-        "missing_document": "Manjkajoč dokument",
-        "replace_document": "Zamenjava dokumenta",
-        "information": "Dodatna informacija",
-        "justification": "Zahtevana utemeljitev"
-      }
+    "center": "Varnostni center",
+    "devices": {
+      "country": "Država",
+      "empty": "Ni naprav.",
+      "label": "Oznaka",
+      "lastSeen": "Zadnji ogled",
+      "pending": "v čakanju",
+      "title": "Zaupanja vredne naprave",
+      "trusted": "Zaupanje",
+      "trustedBadge": "zaupanja vredno"
+    },
+    "fail": "napaka",
+    "kpi": {
+      "devicesTracked": "Spremljane naprave",
+      "highRisk": "Tvegani uporabniki",
+      "openAlerts": "Odprta opozorila",
+      "totalEvents": "Skupno dogodkov"
+    },
+    "logs": {
+      "action": "Dejanje",
+      "allActions": "Vsa dejanja",
+      "device": "Naprava",
+      "empty": "Ni dnevnikov.",
+      "ipCountry": "IP / Država",
+      "searchPh": "Iskanje uporabnik, IP, država…",
+      "status": "Stanje",
+      "title": "Varnostni dnevniki",
+      "user": "Uporabnik",
+      "when": "Kdaj"
+    },
+    "metaTitle": "Varnost · Admin",
+    "ok": "ok",
+    "risk": {
+      "empty": "Ni podatkov.",
+      "risk": "Tveganje",
+      "sensitive": "Občutljivo",
+      "sessions": "Seje",
+      "title": "Ocene tveganja"
+    },
+    "tab": {
+      "alerts": "Opozorila",
+      "devices": "Naprave",
+      "logs": "Dnevniki",
+      "risk": "Tveganje"
+    },
+    "unauthorized": "Ni pooblastila",
+    "user": "uporabnik"
+  },
+  "apply": {
+    "steps": {
+      "documents": "Dokumenti",
+      "employment": "Zaposlitev",
+      "identity": "Identiteta",
+      "payout": "Izplačilo",
+      "request": "Vloga",
+      "review": "Povzetek"
     }
+  },
+  "auth": {
+    "accountCreated": "Račun uspešno ustvarjen",
+    "backHome": "Nazaj na domačo stran",
+    "brandBadge": "Varna digitalna banka",
+    "confirmNewPassword": "Potrdi geslo",
+    "connectedToast": "Uspešno prijavljeni",
+    "createAccount": "Ustvari račun",
+    "creating": "Ustvarjanje računa…",
+    "decision": "Odločitev v 24 delovnih urah",
+    "email": "E-pošta",
+    "emailAlreadyUsed": "E-naslov je že v uporabi",
+    "emailInvalid": "Neveljaven e-naslov",
+    "emailLabel": "E-naslov",
+    "forgotDesc": "Vnesite svoj e-naslov. Poslali vam bomo varno povezavo za novo geslo.",
+    "forgotLink": "Ste pozabili geslo?",
+    "forgotPassword": "Pozabljeno geslo?",
+    "forgotSend": "Pošlji povezavo",
+    "forgotSent": "Če račun obstaja, smo poslali e-pošto.",
+    "forgotTitle": "Ponastavi geslo",
+    "fullName": "Polno ime",
+    "fullNameLabel": "Polno ime",
+    "google": "Nadaljuj z Google",
+    "googleError": "Prijava z Google ni uspela",
+    "googleLoading": "Prijava z Google…",
+    "hasAccount": "Že imate račun?",
+    "invalidCredentials": "Neveljavni podatki za prijavo",
+    "loginSuccess": "Uspešna prijava",
+    "minPasswordHint": "Najmanj 8 znakov.",
+    "mobileHint": "Prijavite se ali ustvarite račun",
+    "nameShort": "Ime je prekratko",
+    "newPassword": "Novo geslo",
+    "noAccount": "Še nimate računa?",
+    "password": "Geslo",
+    "passwordLabel": "Geslo",
+    "passwordMin": "Geslo mora imeti vsaj 8 znakov",
+    "passwordRequired": "Geslo je obvezno",
+    "phone": "Telefon",
+    "phoneInvalid": "Neveljavna telefonska številka",
+    "phoneLabel": "Telefon",
+    "resetSuccess": "Geslo posodobljeno.",
+    "resetTitle": "Nastavi novo geslo",
+    "resetWaiting": "Preverjanje povezave…",
+    "rgpd": "Skladno z GDPR",
+    "signIn": "Prijava",
+    "signingIn": "Prijavljanje…",
+    "signUp": "Ustvari račun",
+    "signupSuccess": "Račun ustvarjen · preverite e-pošto",
+    "tabSignin": "Prijava",
+    "tabSignup": "Ustvari račun",
+    "terms": "Z nadaljevanjem sprejemate naše Pogoje in Pravilnik o zasebnosti.",
+    "title": "Območje stranke",
+    "tls": "Šifriranje TLS 1.3",
+    "updatePassword": "Posodobi geslo",
+    "welcomeDesc": "Varno dostopajte do svojih kreditov, nakazil in vrhunskih storitev.",
+    "welcomeTitle": "Dobrodošli v"
+  },
+  "authPending": {
+    "description": "Poslali smo potrditveno povezavo.",
+    "footer": "Nikoli ne delite svojih podatkov.",
+    "instruction": "Kliknite povezavo za aktivacijo računa.",
+    "loading": "Čakanje na potrditev...",
+    "title": "Preverite e-pošto"
+  },
+  "blocked": {
+    "contact": "Za več informacij se obrnite na podporo.",
+    "message": "Vaš račun je bil začasno blokiran s strani naše skladnostne ekipe.",
+    "reasonLabel": "Razlog",
+    "signOut": "Odjava",
+    "title": "Račun je začasno blokiran"
+  },
+  "chat": {
+    "admin": {
+      "close": "Zapri zahtevek",
+      "empty": "Ni pogovorov.",
+      "filter": {
+        "all": "Vse",
+        "closed": "Zaprto",
+        "guests": "Obiskovalci",
+        "mine": "Dodeljeno meni",
+        "waiting": "Na čakanju"
+      },
+      "folders": "Datoteke strank",
+      "info": {
+        "none": "Ni podatkov",
+        "title": "Podatki o zahtevku"
+      },
+      "reopen": "Ponovno odpri zahtevek",
+      "searchPlaceholder": "Poiščite stranko, vstopnico, e-pošto ...",
+      "selectHint": "Izberite pogovor na levi.",
+      "tickets": "Vstopnice",
+      "updated": "Zahtevek posodobljen"
+    },
+    "agent": {
+      "brandName": "Svetovalec MOONYP",
+      "defaultName": "Svetovalec",
+      "join": "Pridruži se",
+      "joined": "se je pridružil pogovoru",
+      "joinedYou": "Pridružili ste se pogovoru",
+      "notAssigned": "Ni dodeljenega agenta"
+    },
+    "agentTitle": "Strokovnjak za pomoč strankam",
+    "archived": "Arhivi",
+    "assistant": "asistentka",
+    "backHome": "Nazaj na domov",
+    "banner": {
+      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris",
+      "top": "MOONYP — Varna storitev za stranke"
+    },
+    "close": "Zapri",
+    "closed": "Pogovor zaprt",
+    "closedNotice": "Pogovor zaprt.",
+    "closeTicket": "Zapri pogovor",
+    "compose": {
+      "placeholder": "Vnesite sporočilo…"
+    },
+    "genericError": "Prišlo je do napake",
+    "guest": {
+      "country": "Država prebivališča",
+      "created": "Vstopnica #{{ticket}} ustvarjena!",
+      "email": "E-pošta *",
+      "errors": {
+        "fail": "Pošiljanje ni uspelo, poskusite znova.",
+        "required": "Zahtevani so ime, e-pošta in sporočilo."
+      },
+      "intro": "Izpolnite ta obrazec, svetovalec MOONYP se bo hitro odzval. Dobili boste številko vstopnice.",
+      "message": "Vaše sporočilo *",
+      "name": "Polno ime *",
+      "phone": "Telefon",
+      "privacy": "Vaše podatke obravnavamo zaupno (GDPR).",
+      "subject": "Predmet",
+      "submit": "Odpri mojo vozovnico",
+      "subtitle": "Pomoč obiskovalcem",
+      "whatsapp": "WhatsApp"
+    },
+    "handoff": {
+      "no": "Ne, hvala",
+      "pending": "Vaša zahteva se obdeluje, svetovalec se pridruži v 1-2 minutah…",
+      "question": "Ali želite govoriti s svetovalcem?",
+      "yes": "Da, govoriti s svetovalcem"
+    },
+    "joinedNotice": "{{name}} se je pridružil pogovoru.",
+    "loading": "Nalaganje",
+    "loginRequired": {
+      "cta": "Prijava",
+      "desc": "Za dostop do podpore morate biti prijavljeni.",
+      "title": "Prijavite se za klepet"
+    },
+    "nav": "Podpora",
+    "notFound": "Stran ni najdena",
+    "notFoundDesc": "Ta stran ne obstaja.",
+    "open": "Odpri",
+    "pageDesc": "Klepetajte z našo ekipo ali Anno, našo virtualno pomočnico.",
+    "pageTitle": "Podpora v živo",
+    "rt": {
+      "bold": "Krepko",
+      "italic": "Ležeče",
+      "link": "Povezava",
+      "linkPrompt": "Vnesite URL (https://...)"
+    },
+    "sendError": "Pošiljanje ni uspelo",
+    "status": {
+      "agent": "Svetovalec na spletu",
+      "assigned": "V teku",
+      "closed": "Zaprto",
+      "online": "Na spletu",
+      "open": "Odprto",
+      "waiting_agent": "Čaka na agenta"
+    },
+    "system": "Sistem",
+    "ticket": "Vstopnica",
+    "tickets": {
+      "back": "Nazaj",
+      "closed": "Zaprti",
+      "empty": "Zaenkrat ni pogovorov.",
+      "new": "Nov pogovor",
+      "one": "Pogovor",
+      "open": "Odprti",
+      "title": "Moji pogovori"
+    },
+    "today": "Danes",
+    "typing": "tipka",
+    "welcome": {
+      "greeting": "Pozdravljeni 👋 Sem Anna, vaša pomočnica MOONYP.",
+      "help": "Kako vam lahko danes pomagam?"
+    },
+    "yesterday": "Včeraj",
+    "you": "Vi"
+  },
+  "client": {
+    "stages": {
+      "awaitCode": "Čakanje na kodo skrbnika",
+      "blockedDesc": "Pristojbina: {{fee}}. Po potrditvi prejmete kodo.",
+      "blockedTitle": "Nakazilo blokirano pri {{stage}}%",
+      "codePlaceholder": "Koda za sprostitev",
+      "codeReceivedMsg": "Vaša koda: {{code}} (pristojbina {{fee}})",
+      "codeReceivedTitle": "Koda {{stage}}%",
+      "enterCode": "Vnesite kodo",
+      "invalidCode": "Neveljavna koda",
+      "title": "Tekoči nakazila",
+      "unlock": "Odkleni",
+      "unlocked": "Faza odklenjena"
+    }
+  },
+  "common": {
+    "actions": "Dejanja",
+    "all": "Vse",
+    "amount": "Znesek",
+    "back": "Nazaj",
+    "backHome": "Nazaj domov",
+    "cancel": "Prekliči",
+    "close": "Zapri",
+    "confirm": "Potrdi",
+    "continue": "Nadaljuj",
+    "date": "Datum",
+    "delete": "Izbriši",
+    "details": "Podrobnosti",
+    "download": "Prenesi",
+    "edit": "Uredi",
+    "errorRetry": "Poskusi znova",
+    "from": "Od",
+    "language": "Jezik",
+    "loadError": "Napaka pri nalaganju",
+    "loading": "Nalaganje…",
+    "new": "Novo",
+    "next": "Naprej",
+    "no": "Ne",
+    "none": "Brez",
+    "noResults": "Ni rezultatov",
+    "notFound": "Stran ni najdena",
+    "notFoundDesc": "Iskane strani ni ali pa je bila premaknjena.",
+    "open": "Odpri",
+    "optional": "neobvezno",
+    "previous": "Nazaj",
+    "refresh": "Osveži",
+    "required": "obvezno",
+    "save": "Shrani",
+    "saving": "Shranjevanje…",
+    "search": "Iskanje",
+    "send": "Pošlji",
+    "sending": "Pošiljanje…",
+    "sessionExpired": "Seja je potekla zaradi neaktivnosti",
+    "status": "Status",
+    "submit": "Pošlji",
+    "to": "Za",
+    "updating": "Posodabljanje…",
+    "upload": "Naloži",
+    "view": "Prikaži",
+    "viewAll": "Prikaži vse",
+    "yes": "Da"
+  },
+  "contact": {
+    "address": "103 avenue des Champs-Élysées",
+    "addressCity": "75008 Pariz, Francija",
+    "addressLabel": "Sedež",
+    "back": "Nazaj",
+    "defaultEmailPlaceholder": "vi@primer.si",
+    "defaultNamePlaceholder": "Janez Novak",
+    "email": "E-pošta",
+    "emailInvalid": "Neveljaven e-naslov",
+    "emailLabel": "E-pošta",
+    "error": "Napaka pri pošiljanju",
+    "formTitle": "Pošlji sporočilo",
+    "fullName": "Polno ime",
+    "infoTitle": "Kontaktni podatki",
+    "message": "Sporočilo",
+    "messagePlaceholder": "Podrobno opišite vašo zahtevo…",
+    "messageTooShort": "Sporočilo je prekratko (najmanj 10 znakov)",
+    "metaDesc": "Obrnite se na službo za stranke MOONYPAS za vprašanja o vašem računu, kreditih ali nakazilih.",
+    "metaTitle": "Kontakt — Storitve za stranke MOONYP",
+    "nameRequired": "Ime je obvezno",
+    "phoneHours": "Pon-Pet · 8h-20h",
+    "phoneLabel": "Podpora strankam",
+    "phoneTitle": "Pomoč strankam",
+    "secureNote": "Vaša sporočila so šifrirana in zaupno obravnavana s strani naše skladnostne ekipe.",
+    "send": "Pošlji sporočilo",
+    "sending": "Pošiljanje…",
+    "subject": "Zadeva",
+    "subjects": {
+      "account": "Vprašanje o mojem računu",
+      "appointment": "Zahteva za sestanek",
+      "complaint": "Pritožba",
+      "loan": "Vprašanje o posojilu",
+      "other": "Drugo",
+      "transfer": "Težava z nakazilom"
+    },
+    "subtitle": "Odgovorimo v 24 delovnih urah · zaupnost zagotovljena.",
+    "success": "Sporočilo poslano · odgovorimo v 24 urah",
+    "successQueued": "Vaše sporočilo je zabeleženo. Kmalu vam odgovorimo.",
+    "title": "Kontaktirajte podporo strankam"
+  },
+  "contactSection": {
+    "cta": "Kontaktirajte nas",
+    "desc": "Naša ekipa odgovarja na vprašanja o financiranju, dokumentih in poteku vloge.",
+    "eyebrow": "Kontakt",
+    "title": "Pogovorite se s svetovalcem"
   },
   "contractDoc": {
     "address": "Naslov",
@@ -2414,5 +632,1854 @@
     "title": "Pogodba o osebnem posojilu",
     "totalCost": "Skupni stroski kredita",
     "version": "Razlicica"
+  },
+  "dashboard": {
+    "activeLoans": "Aktivna posojila",
+    "apply": "Zaprosi zdaj",
+    "applyCta": "Oddaj zahtevo",
+    "balance": "Razpoložljivo stanje",
+    "contactSupport": "Kontaktirajte podporo",
+    "details": "Podrobnosti",
+    "disbursedRemaining": "Izplačano: {{disbursed}} · Preostanek: {{remaining}}",
+    "firstLoanDesc": "Financirajte projekte v nekaj minutah: avto, prenova, likvidnost ali drugo.",
+    "firstLoanTitle": "Začnite prvo zahtevo",
+    "fundedOf": "od {{amount}} financiranih",
+    "fundedOutOf": "od {{amount}} financiranih",
+    "hideBalance": "Skrij stanje",
+    "loadError": "Napaka pri nalaganju",
+    "loading": "Nalaganje…",
+    "loanDurationCreated": "{{months}} mesecev · Prošnja z dne {{date}}",
+    "makeTransfer": "Izvedi nakazilo",
+    "metaTitle": "Moja nadzorna plošča — MOONYP",
+    "monthsSince": "{{months}} mesecev · Zahteva z dne {{date}}",
+    "myDashboard": "Moja nadzorna plošča",
+    "myLoans": "Moja posojila",
+    "needHelp": "Potrebujete pomoč?",
+    "newLoan": "Novo posojilo",
+    "newRequest": "Nova zahteva",
+    "newShort": "+ Novo",
+    "noLoans": "Trenutno nimate posojila",
+    "noRecentTransfers": "Še ni nakazil",
+    "noTransfers": "Ni nakazil",
+    "noTransfersYet": "Še ni nakazil",
+    "recentActivity": "Nedavna aktivnost",
+    "sessionExpired": "Seja je potekla zaradi neaktivnosti",
+    "showBalance": "Pokaži stanje",
+    "startApplication": "Začni vlogo",
+    "status": {
+      "en_traitement": "V obdelavi",
+      "envoye": "Poslano",
+      "rejete": "Zavrnjeno"
+    },
+    "title": "Moja nadzorna plošča",
+    "totalAvailable": "Skupno razpoložljivo stanje",
+    "totalFunded": "Skupno financirano",
+    "transfer": "Izvedi nakazilo",
+    "transferHistory": "Zgodovina nakazil",
+    "transfers": "Nakazila",
+    "transfersKpi": "Nakazila",
+    "viewAll": "Prikaži vse",
+    "viewLoan": "Ogled vloge",
+    "welcome": "Pozdravljeni",
+    "welcomeAnon": "Dobrodošli",
+    "welcomeNamed": "Dobrodošli, {{name}}",
+    "welcomeShort": "Dobrodošli",
+    "withdraw": "Dvigni",
+    "withdrawnAmount": "{{amount}} dvignjeno"
+  },
+  "documents": {
+    "bankStatement": "Bančni izpiski",
+    "identity": "Osebni dokument",
+    "income": "Dokazila o dohodkih",
+    "other": "Drug dokument",
+    "proofAddress": "Dokazilo o naslovu",
+    "rib": "Bančni podatki (IBAN)"
+  },
+  "emails": {
+    "applicationAnalysis": {
+      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} je vstopila v fazo kreditne analize.",
+      "details": "Naši analitiki presojajo vašo zmožnost odplačevanja, skladnost dohodkov in zaprošeni znesek. Izid boste videli v varnem prostoru, takoj ko bo pripravljen.",
+      "subject": "Zadeva {{reference}} v analizi"
+    },
+    "applicationReceived": {
+      "body": "Pozdravljeni {{firstName}}, prejeli smo vlogo {{reference}}. Naša ekipa jo obravnava in vas bo obveščala o vsakem koraku.",
+      "subject": "Prejeli smo vašo vlogo {{reference}}"
+    },
+    "applicationVerification": {
+      "body": "Pozdravljeni {{firstName}}, vašo zadevo {{reference}} trenutno preverjajo naše ekipe.",
+      "details": "Preverjamo pristnost in berljivost vaših dokazil. V tej fazi vam ni treba storiti ničesar; takoj vas obvestimo, če bo treba dokument dopolniti.",
+      "subject": "Zadeva {{reference}} v preverjanju"
+    },
+    "approved": {
+      "body": "Pozdravljeni {{firstName}}, vloga {{reference}} je odobrena. Ponudba bo na voljo v varnem območju.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "subject": "Vloga {{reference}} je odobrena"
+    },
+    "cancelled": {
+      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} je bila preklicana.",
+      "details": "Za to zadevo vam ne bo obračunan noben znesek. Če preklic ne ustreza vaši želji, lahko v varnem prostoru oddate novo prošnjo.",
+      "subject": "Zadeva {{reference}} preklicana"
+    },
+    "common": {
+      "amount": "Financirani znesek",
+      "autoMessage": "Samodejno sporočilo — nanj ne odgovarjajte.",
+      "codeTitle": "Vaša enkratna koda za podpis",
+      "duration": "Trajanje",
+      "feeAmount": "Zadevni znesek",
+      "footerLegal": "Moonyp — odgovorno financiranje. E-pošta se nanaša na vašo vlogo.",
+      "monthly": "Ocenjeni obrok",
+      "months": "mesecev",
+      "needHelp": "Vprašanja? Podpora odgovarja v vašem varnem prostoru.",
+      "reasonTitle": "Pojasnila naše ekipe",
+      "reference": "Sklic",
+      "scheduledDate": "Načrtovani datum",
+      "secureNotice": "Povezava je osebna, šifrirana in preklicljiva. Ne delite je.",
+      "status": "Status vloge",
+      "summary": "Povzetek vloge",
+      "tagline": "Vaše financiranje, popolnoma pregledno"
+    },
+    "contractSent": {
+      "body": "Pozdravljeni {{firstName}}, pogodba {{reference}} je pripravljena za podpis v varnem območju.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "subject": "Vaša pogodba {{reference}} je pripravljena"
+    },
+    "contractSigned": {
+      "body": "Pozdravljeni {{firstName}}, pogodba {{reference}} je podpisana. Prenesete jo lahko v varnem območju.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "subject": "Pogodba {{reference}} podpisana"
+    },
+    "cta": {
+      "contract": "Preberi in podpiši pogodbo",
+      "documents": "Naloži dokumente",
+      "guarantee": "Izberi možnost kritja",
+      "insurance": "Upravljaj zavarovanje",
+      "payment": "Izvedi plačilo",
+      "portal": "Ogled moje vloge",
+      "schedule": "Ogled mojega načrta odplačil"
+    },
+    "disbursed": {
+      "body": "Pozdravljeni {{firstName}}, sredstva zadeve {{reference}} so nakazana na vaš račun.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "subject": "Sredstva izplačana — zadeva {{reference}}"
+    },
+    "disbursementPreparing": {
+      "body": "Pozdravljeni {{firstName}}, izplačilo sredstev za zadevo {{reference}} se pripravlja.",
+      "details": "Naša finančna služba še zadnjič preveri vaše bančne podatke pred izvedbo nakazila. Potrditev prejmete takoj po pošiljanju sredstev.",
+      "subject": "Izplačilo v pripravi — zadeva {{reference}}"
+    },
+    "documentsMissing": {
+      "body": "Pozdravljeni {{firstName}}, v zadevi {{reference}} manjkajo dokumenti. Naložite jih v varnem območju. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "subject": "Manjkajoči dokumenti — zadeva {{reference}}"
+    },
+    "guaranteeDeclined": {
+      "body": "Pozdravljeni {{firstName}}, zabeležili smo vašo odpoved. Vloga {{reference}} bo zaprta.",
+      "subject": "Vloga {{reference}} preklicana"
+    },
+    "guaranteePayLater": {
+      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} je načrtovano za {{date}}. Vloga ostaja v čakanju.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "subject": "Plačilo načrtovano {{reference}}"
+    },
+    "guaranteePaymentValidated": {
+      "body": "Pozdravljeni {{firstName}}, plačilo je potrjeno. Vloga se nadaljuje.",
+      "subject": "Nadomestilo potrjeno {{reference}}"
+    },
+    "guaranteePayNow": {
+      "body": "Pozdravljeni {{firstName}}, zabeležili smo izbiro plačila {{amount}}. Navodila sledijo po preverjanju.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "subject": "Plačilo nadomestila {{reference}}"
+    },
+    "guaranteeReminder": {
+      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} zapade {{date}}.",
+      "subject": "Opomnik za plačilo {{reference}}"
+    },
+    "guaranteeSent": {
+      "body": "Pozdravljeni {{firstName}}, nadomestilo za kritje kreditnega tveganja znaša {{amount}}. Izberite možnost v varnem območju.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "subject": "Nadomestilo za kritje — vloga {{reference}}"
+    },
+    "guaranteeSigned": {
+      "body": "Pozdravljeni {{firstName}}, kritje kreditnega tveganja za zadevo {{reference}} je potrjeno.",
+      "details": "Po tej fazi zadeva nadaljuje k zavarovanju kreditojemalca in nato k pripravi izplačila. Vsak korak spremljate v realnem času v varnem prostoru.",
+      "subject": "Kritje potrjeno — zadeva {{reference}}"
+    },
+    "infoRequested": {
+      "body": "Pozdravljeni {{firstName}}, potrebujemo dodatne informacije za zadevo {{reference}}. {{reason}}",
+      "subject": "Dodatne informacije — zadeva {{reference}}"
+    },
+    "installmentReminder": {
+      "body": "Pozdravljeni {{firstName}}, naslednji obrok {{amount}} zapade {{date}}.",
+      "details": "Amortizacijski načrt in plačilo v vašem varnem prostoru.",
+      "subject": "Prihajajoči obrok — vloga {{reference}}"
+    },
+    "insuranceDeclined": {
+      "body": "Pozdravljeni {{firstName}}, zabeležili smo vašo odpoved zavarovanju.",
+      "details": "Brez zavarovanja se zadeva lahko ponovno presodi. Odločitev lahko spremenite do izplačila sredstev.",
+      "subject": "Zavarovanje — odpoved zabeležena · zadeva {{reference}}"
+    },
+    "insurancePayLater": {
+      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} je načrtovano za {{date}}.",
+      "details": "Zadeva ostane rezervirana do izbranega datuma. Plačate lahko prej; pred zapadlostjo pošljemo opomnike.",
+      "subject": "Zavarovanje — načrtovano plačilo · zadeva {{reference}}"
+    },
+    "insurancePaymentValidated": {
+      "body": "Pozdravljeni {{firstName}}, potrjujemo prejem stroška zavarovanja.",
+      "details": "Kritje se vzpostavlja. Potrdilo in številka police bosta po potrditvi na voljo v varnem območju.",
+      "subject": "Zavarovanje — plačilo potrjeno · zadeva {{reference}}"
+    },
+    "insurancePayNow": {
+      "body": "Pozdravljeni {{firstName}}, izbrali ste takojšnje plačilo stroška zavarovanja {{amount}}.",
+      "details": "Navodila za plačilo (prejemnik, IBAN, BIC in sklic) so v vašem varnem območju. Plačilo velja za prejeto šele po potrditvi naše ekipe.",
+      "subject": "Zavarovanje — takojšnje plačilo · zadeva {{reference}}"
+    },
+    "insurancePending": {
+      "body": "Pozdravljeni {{firstName}}, potrebno je zavarovanje {{amount}} na mesec.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "subject": "Zavarovanje {{reference}}"
+    },
+    "insuranceReminder": {
+      "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} zapade {{date}}.",
+      "details": "Ta samodejni opomnik je poslan pred izbranim datumom. Navodila za plačilo so v varnem območju.",
+      "subject": "Opomnik — strošek zavarovanja · zadeva {{reference}}"
+    },
+    "insuranceValidated": {
+      "body": "Pozdravljeni {{firstName}}, vaše zavarovanje je potrjeno.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "subject": "Zavarovanje potrjeno {{reference}}"
+    },
+    "late": {
+      "body": "Pozdravljeni {{firstName}}, obrok vaše zadeve {{reference}} je zapadel neplačan.",
+      "details": "Prosimo, obrok poravnajte čim prej, da se izognete zamudnim stroškom in prijavi. Ob težavah nas kontaktirajte: rešitev je mogoče dogovoriti.",
+      "subject": "Zapadli obrok — zadeva {{reference}}"
+    },
+    "offerAvailable": {
+      "body": "Pozdravljeni {{firstName}}, ponudba financiranja {{reference}} je na voljo v varnem območju.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "subject": "Vaša ponudba {{reference}} je na voljo"
+    },
+    "rejected": {
+      "body": "Pozdravljeni {{firstName}}, po pregledu vloge {{reference}} nismo mogli sprejeti. Razlog: {{reason}}",
+      "subject": "Odločitev o vlogi {{reference}}"
+    },
+    "repaid": {
+      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} je v celoti odplačana. Hvala za zaupanje.",
+      "details": "Potrdilo o ničelnem stanju in celotna zgodovina plačil ostaneta v varnem prostoru. Novo prošnjo lahko oddate kadar koli.",
+      "subject": "Zadeva {{reference}} v celoti odplačana"
+    },
+    "repaying": {
+      "body": "Pozdravljeni {{firstName}}, vaša zadeva {{reference}} vstopa v fazo odplačevanja.",
+      "details": "Podroben načrt odplačil (glavnica, obresti, preostali dolg) je na voljo v varnem prostoru. Vsak prejeti obrok se tam zabeleži in potrdi po e-pošti.",
+      "subject": "Odplačevanje poteka — zadeva {{reference}}"
+    },
+    "repaymentReceived": {
+      "body": "Pozdravljeni {{firstName}}, prejeli smo vaše plačilo {{amount}} za zadevo {{reference}}.",
+      "details": "Zadevni obrok je označen kot poravnan, preostali dolg pa posodobljen v varnem prostoru, kjer načrt ostaja na voljo za prenos.",
+      "subject": "Plačilo prejeto — zadeva {{reference}}"
+    },
+    "signatureCode": {
+      "body": "Pozdravljeni {{firstName}}, vaša koda za podpis je {{code}}. Poteče čez 10 minut.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "subject": "Vaša koda za podpis {{reference}}"
+    },
+    "signaturePending": {
+      "body": "Pozdravljeni {{firstName}}, vaša pogodba {{reference}} čaka na vaš elektronski podpis.",
+      "details": "Do podpisa zadeva ostaja v čakanju in sredstev ni mogoče pripraviti. Podpis poteka spletno z enkratno kodo, v manj kot dveh minutah.",
+      "subject": "Podpis v pričakovanju — zadeva {{reference}}"
+    }
+  },
+  "finance": {
+    "address": {
+      "hideManual": "Skrij podrobnosti",
+      "hint": "Izberite predlog ali vnesite naslov ročno.",
+      "manual": "Ročni vnos",
+      "placeholder": "Začnite vpisovati naslov (po vsem svetu)…"
+    },
+    "apply": {
+      "badMime": "Oblika datoteke ni podprta.",
+      "bankNotice": "Vaši bančni podatki so šifrirani in uporabljeni le za izplačilo.",
+      "chooseFile": "Izberi datoteko",
+      "consentMarketing": "Želim prejemati informacije o ponudbah MOONYP.",
+      "consentPrivacy": "Sprejemam politiko zasebnosti in obdelavo mojih podatkov.",
+      "consentTerms": "Sprejemam splošne pogoje.",
+      "documentsIntro": "Naložite jasne in berljive dokumente. Oblike: PDF, JPG ali PNG.",
+      "documentsMissing": "Manjka en ali več obveznih dokumentov.",
+      "dti": "Razmerje med dolgom in prihodki (DTI)",
+      "fileCount": "izbranih datotek",
+      "fileTooLarge": "Ta datoteka je prevelika.",
+      "finalNotice": "Z oddajo potrjujete, da so navedeni podatki točni. Vašo vlogo bo pregledala naša kreditna služba; varna povezava za spremljanje postopka vam bo poslana na e-poštni naslov.",
+      "fixErrors": "Popravite označena polja.",
+      "holderHint": "Se mora ujemati z imenom vlagatelja",
+      "maxSize": "Največja velikost",
+      "metaDesc": "Izpolnite vlogo na spletu v 6 varnih korakih.",
+      "metaTitle": "Vloga za kredit — MOONYP",
+      "next": "Naprej",
+      "previous": "Nazaj",
+      "rateLimited": "Preveč poskusov. Poskusite čez nekaj minut.",
+      "reviewFlag": "Ta podatek bo preverjen ročno",
+      "reviewTitle": "Vaš obrok",
+      "stepOf": "Korak {{current}} od {{total}}",
+      "steps": {
+        "documents": "Dokumenti",
+        "employment": "Zaposlitev",
+        "identity": "Identiteta",
+        "payout": "Izplačilo",
+        "request": "Vloga",
+        "review": "Povzetek"
+      },
+      "submit": "Oddaj vlogo",
+      "submitError": "Vloge ni bilo mogoče poslati. Poskusite znova.",
+      "subtitle": "Šest korakov, nekaj minut. Napredek je shranjen v tej napravi.",
+      "takePhoto": "Fotografiraj",
+      "title": "Vaša vloga za kredit",
+      "uploading": "Pošiljanje dokumentacije ({{done}}/{{total}})"
+    },
+    "contract": {
+      "alreadySigned": "Ta pogodba je že podpisana.",
+      "backToFile": "Nazaj na vlogo",
+      "code": "Koda za podpis",
+      "codeHint": "Enkratna koda je bila poslana na e-naslov iz vloge.",
+      "codeSent": "Koda poslana",
+      "confirmSignature": "Potrdi podpis",
+      "consent": "Potrjujem, da sem prebral pogodbo, in soglašam z elektronskim podpisom.",
+      "document": "Pogodbeni dokument",
+      "events": {
+        "contract_created": "Pogodba ustvarjena",
+        "contract_downloaded": "Pogodba prenesena",
+        "contract_sent": "Pogodba poslana",
+        "contract_viewed": "Pogodba ogledana",
+        "signature_completed": "Podpis zaključen",
+        "signature_requested": "Zahtevan podpis"
+      },
+      "fullName": "Polno ime podpisnika",
+      "hash": "Prstni odtis dokumenta",
+      "history": "Zgodovina pogodbe",
+      "important": "Shranite kopijo podpisane pogodbe. Naša podpora vam je na voljo.",
+      "legalNotice": "Gre za napredni elektronski podpis z dokazno vrednostjo (enkratna koda, časovni žig, zgoščena vrednost dokumenta). Ni kvalificirani elektronski podpis po eIDAS.",
+      "metaDesc": "Preglejte in varno podpišite svojo pogodbo o financiranju.",
+      "metaTitle": "Vaša pogodba — MOONYP",
+      "notAvailable": "Pogodba še ni na voljo.",
+      "offerSummary": "Povzetek ponudbe",
+      "providerLabel": "Mehanizem podpisa",
+      "rate": "Letna obrestna mera",
+      "resendCode": "Ponovno pošlji kodo",
+      "signed": "Pogodba podpisana",
+      "signError": "Podpis ni uspel.",
+      "signTitle": "Podpišite pogodbo",
+      "startError": "Podpisa ni bilo mogoče začeti.",
+      "startSignature": "Pošlji mojo kodo za podpis",
+      "state": "Stanje",
+      "states": {
+        "cancelled": "Preklicano",
+        "draft": "Osnutek",
+        "ready": "Pripravljeno",
+        "sent": "Poslano",
+        "signed": "Podpisano",
+        "viewed": "Ogledano"
+      },
+      "version": "Različica"
+    },
+    "employment": {
+      "business_owner": "Podjetnik",
+      "civil_servant": "Javni uslužbenec",
+      "employee": "Zaposlen",
+      "other": "Drugo",
+      "retired": "Upokojen",
+      "self_employed": "Samozaposlen",
+      "student": "Študent",
+      "unemployed": "Brezposeln"
+    },
+    "fields": {
+      "address": "Naslov",
+      "addressNoMatch": "Naslova ni mogoče najti – vnesite ga ročno",
+      "addressPlaceholder": "Vnesite naslov ulice",
+      "bankHolder": "Imetnik računa",
+      "bankName": "Banka",
+      "bic": "BIC / SWIFT",
+      "birthDate": "Datum rojstva",
+      "charges": "Mesečni stroški",
+      "choose": "Izberite…",
+      "chooseCountry": "Izberite državo",
+      "city": "Kraj",
+      "country": "Država",
+      "email": "E-pošta",
+      "employer": "Delodajalec",
+      "employmentStatus": "Zaposlitveni status",
+      "firstName": "Ime",
+      "household": "Število v gospodinjstvu",
+      "iban": "IBAN",
+      "income": "Neto mesečni dohodek",
+      "lastName": "Priimek",
+      "nationality": "Državljanstvo",
+      "otherIncome": "Drugi dohodki",
+      "phone": "Telefon",
+      "phoneCountry": "Klicna koda države",
+      "postalCode": "Poštna številka",
+      "profession": "Poklic",
+      "purpose": "Namen kredita",
+      "searchCountry": "Iskanje države",
+      "seniority": "Delovna doba (meseci)"
+    },
+    "guarantee": {
+      "choiceSaved": "Izbira shranjena",
+      "chosen": {
+        "decline": "Odpovedali ste se vlogi za posojilo.",
+        "pay_later": "Izbrali ste plačilo pozneje.",
+        "pay_now": "Izbrali ste plačilo takoj."
+      },
+      "confirmChoice": "Potrdi izbiro",
+      "error": {
+        "dateRequired": "Navedite datum plačila.",
+        "generic": "Dejanje ni mogoče."
+      },
+      "fee": "Nadomestilo za kritje kreditnega tveganja",
+      "instructions": "Navodila za plačilo",
+      "noPaymentNotice": "Ta izbira ne izvede plačila: potrjeno bo po preverjanju naše ekipe.",
+      "options": {
+        "decline": "Ne, ne plačam in se odpovem vlogi",
+        "pay_later": "Da, plačam pozneje in vlogo ohranim v čakanju",
+        "pay_now": "Da, plačam in prejmem posojilo"
+      },
+      "optionsHint": {
+        "decline": "Vaša vloga bo zaprta.",
+        "pay_later": "Izberite datum plačila, poslali vam bomo opomnike.",
+        "pay_now": "Prejeli boste navodila za plačilo."
+      },
+      "paidNotice": "Naša ekipa je potrdila vaše nadomestilo.",
+      "payment": {
+        "awaiting_payment": "Čaka na plačilo",
+        "failed": "Neuspešno",
+        "paid": "Plačano",
+        "unpaid": "Neplačano",
+        "waived": "Odpovedano"
+      },
+      "paymentStatus": "Stanje plačila",
+      "pickDate": "Želeni datum plačila",
+      "question": "Želite plačati nadomestilo za kritje?",
+      "scheduledDate": "Načrtovani datum plačila",
+      "validationNotice": "Plačilo velja za prejeto šele po potrditvi naše ekipe."
+    },
+    "insurance": {
+      "choiceSaved": "Izbira shranjena",
+      "chosen": {
+        "decline": "Odpovedali ste se zavarovanju.",
+        "pay_later": "Izbrali ste poznejše plačilo.",
+        "pay_now": "Izbrali ste takojšnje plačilo."
+      },
+      "confirmChoice": "Potrdi izbiro",
+      "dueDate": "Datum zapadlosti",
+      "error": {
+        "datePast": "Izbrani datum je že mimo.",
+        "dateRequired": "Izberite datum plačila.",
+        "generic": "Dejanje ni mogoče."
+      },
+      "fee": "Strošek sklenitve zavarovanja",
+      "instructions": "Navodila za plačilo",
+      "noPaymentNotice": "Ta izbira ne izvede plačila: potrjena je šele po preveritvi naše ekipe.",
+      "options": {
+        "decline": "Ne, odpovedujem se zavarovanju",
+        "pay_later": "Da, plačam pozneje",
+        "pay_now": "Da, plačam zdaj"
+      },
+      "optionsHint": {
+        "decline": "Zadeva bo obravnavana brez zavarovanja.",
+        "pay_later": "Izberite datum: poslali bomo opomnike.",
+        "pay_now": "Prejeli boste navodila za plačilo."
+      },
+      "paidNotice": "Vaš strošek zavarovanja je potrdila naša ekipa.",
+      "payment": {
+        "awaiting_payment": "Čaka na plačilo",
+        "failed": "Neuspešno",
+        "not_required": "Brez stroška",
+        "paid": "Plačano",
+        "pending": "V obdelavi",
+        "unpaid": "Neplačano",
+        "waived": "Odpovedano"
+      },
+      "paymentStatus": "Stanje plačila",
+      "pickDate": "Želeni datum plačila",
+      "question": "Želite plačati strošek zavarovanja?",
+      "scheduledDate": "Načrtovani datum plačila",
+      "validationNotice": "Plačilo velja za prejeto šele po potrditvi naše ekipe."
+    },
+    "payment": {
+      "address": "Naslov",
+      "back": "Nazaj na zadevo",
+      "bank": "Banka",
+      "copied": "Kopirano",
+      "copyReference": "Kopiraj sklic",
+      "created": "Plačilo zabeleženo",
+      "createdHint": "Plačilo bo potrjeno po dejanskem prejemu sredstev.",
+      "due": "Znesek za plačilo",
+      "error": "Plačila ni bilo mogoče začeti.",
+      "feeStatus": {
+        "cancelled": "Preklicano",
+        "late": "Zamuda",
+        "not_required": "Ni potrebno",
+        "paid": "Plačano",
+        "pending": "V čakanju"
+      },
+      "history": "Zgodovina plačil",
+      "holder": "Imetnik računa",
+      "instructions": "Navodila za plačilo",
+      "kind": {
+        "bank_transfer": "Bančno nakazilo",
+        "card": "Kartica",
+        "crypto": "Kripto",
+        "other": "Drugo",
+        "qr": "Koda QR"
+      },
+      "metaDesc": "Varno poravnajte stroške svoje vloge za financiranje Moonyp.",
+      "metaTitle": "Varno plačilo — MOONYP",
+      "methods": "Načini plačila",
+      "network": "Omrežje",
+      "noDue": "Trenutno ni zneska za plačilo.",
+      "noMethods": "Trenutno ni na voljo noben način plačila.",
+      "noPaymentYet": "Ni zabeleženih plačil.",
+      "notConfigured": "Ta ponudnik ni konfiguriran.",
+      "notice": "Pri nakazilu vedno navedite sklic, sicer plačila ne bo mogoče povezati z vašo zadevo.",
+      "pay": "Plačaj",
+      "purpose": {
+        "application_fee": "Stroški obdelave",
+        "guarantee_fee": "Stroški jamstva",
+        "installment": "Obrok kredita",
+        "insurance_fee": "Stroški zavarovanja",
+        "other": "Drugo"
+      },
+      "redirecting": "Preusmerjanje k ponudniku…",
+      "reference": "Sklic",
+      "status": {
+        "cancelled": "Preklicano",
+        "failed": "Neuspešno",
+        "pending": "V čakanju",
+        "processing": "V obdelavi",
+        "received": "Prejeto"
+      },
+      "subtitle": "Zadeva",
+      "title": "Varno plačilo"
+    },
+    "portal": {
+      "acceptedOn": "Sprejeto",
+      "apr": "EOM",
+      "beneficiary": "Prejemnik",
+      "contract": "Pogodba",
+      "disbursement": "Izplačilo",
+      "doc": {
+        "approved": "Odobreno",
+        "pending": "V obdelavi",
+        "rejected": "Zavrnjeno",
+        "replacement_requested": "Potrebna zamenjava"
+      },
+      "documents": "Dokazila",
+      "download": "Prenesi",
+      "downloadContract": "Prenesi pogodbo",
+      "downloadError": "Prenos ni na voljo",
+      "downloadNotice": "Povezave za prenos potečejo po dveh minutah in se beležijo.",
+      "downloadSigned": "Prenesi podpisano pogodbo",
+      "dueDate": "Zapadlost",
+      "fees": "Stroški odobritve",
+      "guarantee": "Zavarovanje terjatve",
+      "guarantor": "Porok",
+      "help": "Stran se osvežuje v realnem času. Kreditna služba vas bo o vsakem ključnem koraku obvestila po e-pošti. Te varne povezave ne delite z drugimi.",
+      "installment": "Obrok",
+      "insurance": "Zavarovanje kreditojemalca",
+      "insurance2": "Zavarovanje kreditojemalca",
+      "interest": "Skupne obresti",
+      "invalidDesc": "Ta varna povezava ni več veljavna. Zaprosite za novo pri naši ekipi.",
+      "invalidTitle": "Povezava ni veljavna ali je potekla",
+      "kyc": {
+        "failed": "Preverjanje neuspešno",
+        "manual_review": "Ročni pregled",
+        "passed": "Identiteta potrjena",
+        "pending": "Preverjanje na čakanju",
+        "verifying": "Preverjanje v teku"
+      },
+      "kycNone": "Zaenkrat ni zabeleženih preverjanj.",
+      "kycTitle": "Preverjanje istovetnosti",
+      "metaDesc": "Varno spremljajte svojo vlogo za kredit.",
+      "metaTitle": "Vaša kreditna vloga — MOONYP",
+      "monthly": "Mesečni obrok",
+      "noDocuments": "Dokumentacija še ni bila prejeta.",
+      "none": "Še ni na voljo",
+      "offer": "Ponudba kredita",
+      "paid": "Plačano",
+      "paidOn": "Plačano",
+      "policy": "Številka police",
+      "premium": "Mesečna premija",
+      "product": "Finančni produkt",
+      "progress": "Napredek vloge",
+      "provider": "Zavarovalnica",
+      "reference": "Referenca vloge",
+      "remaining": "Preostali saldo",
+      "repayments": "Načrt odplačevanja",
+      "requests": {
+        "answered": "Obravnavano",
+        "answeredAt": "Odgovorjeno",
+        "desc": "Naša ekipa potrebuje dodatne podatke za nadaljevanje obravnave.",
+        "error": "Pošiljanje ni uspelo",
+        "kindInformation": "Dodatna informacija",
+        "kindJustification": "Zahtevana utemeljitev",
+        "kindMissingDocument": "Manjkajoč dokument",
+        "kindReplaceDocument": "Zamenjava dokumenta",
+        "none": "Ni odprtih zahtev.",
+        "open": "V čakanju",
+        "placeholder": "Vnesite odgovor…",
+        "respondLabel": "Vaš odgovor",
+        "submit": "Pošlji odgovor",
+        "success": "Odgovor poslan",
+        "title": "Zahtevane informacije"
+      },
+      "secure": "Varen dostop",
+      "sentOn": "Poslano",
+      "signedOn": "Podpisano",
+      "stages": {
+        "approved": "Vloga odobrena",
+        "contract": "Pogodba",
+        "disbursement": "Izplačilo",
+        "guarantee": "Zavarovanje terjatve",
+        "insurance": "Zavarovanje",
+        "received": "Vloga prejeta",
+        "repayment": "Odplačevanje",
+        "study": "Vloga v obravnavi"
+      },
+      "status": "Status",
+      "submittedOn": "Oddano dne",
+      "summary": "Povzetek",
+      "timeline": "Zgodovina",
+      "totalCost": "Skupni stroški kredita",
+      "unpaid": "Prihajajoče",
+      "upload": {
+        "attach": "Pripni datoteko",
+        "attached": "Priloga: {{name}}",
+        "chooseType": "Vrsta dokumenta",
+        "desc": "Dodajte manjkajoče dokazilo ali zamenjajte zavrnjeni dokument.",
+        "error": "Nalaganje ni uspelo",
+        "limits": "PDF, JPEG ali PNG — največ {{size}} MB.",
+        "send": "Izberi datoteko",
+        "success": "Dokument poslan",
+        "title": "Naloži dokument"
+      },
+      "validUntil": "Veljavna do",
+      "viewContract": "Ogled moje pogodbe"
+    },
+    "repayment": {
+      "status": {
+        "cancelled": "Preklican",
+        "late": "V zamudi",
+        "paid": "Plačan",
+        "partially_paid": "Delno plačan",
+        "upcoming": "Prihajajoči"
+      }
+    },
+    "schedule": {
+      "balance": "Preostanek dolga",
+      "dueDate": "Datum zapadlosti",
+      "export": "Izvozi v CSV",
+      "insurance": "Zavarovanje",
+      "interest": "Obresti",
+      "number": "Št.",
+      "payment": "Obrok",
+      "period": "Obdobje",
+      "principal": "Glavnica",
+      "title": "Amortizacijski načrt",
+      "total": "Skupaj"
+    },
+    "sim": {
+      "amount": "Znesek",
+      "apr": "EOM",
+      "aprLabel": "EOM",
+      "balance": "Preostala glavnica",
+      "borrowed": "Izposojeni znesek",
+      "capital": "Glavnica",
+      "disclaimer": "Ta izračun je zgolj informativen in ne pomeni kreditne ponudbe. Končni pogoji so odvisni od presoje vaše vloge.",
+      "duration": "Doba",
+      "fees": "Stroški",
+      "hideSchedule": "Skrij načrt",
+      "instalment": "Mesečni obrok",
+      "insurance": "Zavarovanje kreditojemalca",
+      "insuranceCost": "Strošek zavarovanja",
+      "insuranceHint": "Neobvezno kritje, dodano vsakemu obroku.",
+      "interest": "Ocenjene obresti",
+      "interestShort": "Obresti",
+      "legalNotice": "Najem kredita predstavlja obveznost, ki jo je treba izpolniti. Pred sklenitvijo preverite svojo odplačilno sposobnost.",
+      "monthly": "Ocenjeni mesečni obrok",
+      "months": "mesecev",
+      "monthsShort": "mes.",
+      "perMonth": "/mesec",
+      "product": "Kreditni produkt",
+      "range": "Med {{min}} in {{max}}",
+      "rate": "Obrestna mera",
+      "rateFrom": "od {{rate}} %",
+      "showSchedule": "Prikaži amortizacijski načrt",
+      "totalCost": "Skupni strošek kredita",
+      "totalRepaid": "Skupno odplačilo"
+    },
+    "simPage": {
+      "badge": "Kalkulator",
+      "cta": "Oddaj vlogo pod temi pogoji",
+      "metaDesc": "V nekaj sekundah izračunajte obrok, obresti in skupni strošek.",
+      "metaTitle": "Kreditni kalkulator — MOONYP",
+      "noProducts": "Trenutno ni na voljo nobenega kreditnega produkta.",
+      "seeProducts": "Oglejte si rešitve",
+      "subtitle": "Prilagodite znesek in dobo ter takoj vidite ocenjeni obrok.",
+      "title": "Izračunajte svoje financiranje"
+    },
+    "solutions": {
+      "amountRange": "Znesek",
+      "badge": "Naše rešitve",
+      "durationRange": "Doba",
+      "metaDesc": "Osebni, avtomobilski, stanovanjski in poslovni krediti.",
+      "metaTitle": "Rešitve financiranja — MOONYP",
+      "rateFrom": "Obrestna mera od",
+      "simulate": "Izračunaj",
+      "subtitle": "Izberite ustrezen produkt in ga izračunajte v enem kliku.",
+      "title": "Financiranje za vaš projekt"
+    },
+    "status": {
+      "analysis": "V obravnavi",
+      "approved": "Odobreno",
+      "cancelled": "Preklicano",
+      "contract_sent": "Pogodba poslana",
+      "contract_signed": "Pogodba podpisana",
+      "disbursed": "Izplačano",
+      "disbursement_preparing": "Priprava izplačila",
+      "documents_missing": "Manjkajo dokumenti",
+      "draft": "Osnutek",
+      "guarantee_sent": "Jamstvo poslano",
+      "guarantee_signed": "Jamstvo podpisano",
+      "info_requested": "Zahtevane informacije",
+      "insurance_pending": "Zavarovanje v teku",
+      "insurance_validated": "Zavarovanje potrjeno",
+      "late": "Zamuda",
+      "offer_available": "Ponudba na voljo",
+      "received": "Vloga prejeta",
+      "rejected": "Zavrnjeno",
+      "repaid": "V celoti odplačano",
+      "repaying": "Odplačevanje poteka",
+      "signature_pending": "Čaka na podpis",
+      "unknown": "Neznan status",
+      "verification": "V preverjanju"
+    },
+    "success": {
+      "linkNotice": "Shranite to povezavo: omogoča varen dostop do vaše vloge.",
+      "openFile": "Odpri mojo vlogo",
+      "reference": "Referenca vloge",
+      "step1": "Preverjanje podatkov in dokumentov",
+      "step2": "Obravnava in odločitev, običajno v 48 delovnih urah",
+      "step3": "Ponudba, pogodba in izplačilo po odobritvi",
+      "subtitle": "Naša ekipa pregleduje vašo vlogo. O vsakem koraku vas obvestimo po e-pošti.",
+      "title": "Vaša vloga je prejeta"
+    },
+    "validation": {
+      "bank": {
+        "countryMismatch": "Navedena država banke se ne ujema s številko IBAN",
+        "crossBorder": "Račun je odprt zunaj vaše države stalnega prebivališča",
+        "nonSepa": "Račun je zunaj območja SEPA"
+      },
+      "bic": {
+        "countryMismatch": "Koda BIC se ne ujema z državo številke IBAN",
+        "format": "Neveljavna koda BIC/SWIFT"
+      },
+      "holder": {
+        "mismatch": "Imetnik računa se razlikuje od vlagatelja",
+        "partial": "Ime imetnika se razlikuje od vlagateljevega",
+        "required": "Vnesite imetnika računa"
+      },
+      "iban": {
+        "charset": "Številka IBAN vsebuje neveljavne znake",
+        "checksum": "Številka IBAN je neveljavna (kontrolna vsota ni ustrezna)",
+        "country": "Koda države ni vključena v register IBAN",
+        "empty": "Vnesite svojo številko IBAN",
+        "length": "Dolžina številke IBAN ne ustreza izbrani državi",
+        "valid": "Veljaven IBAN — {{country}}"
+      },
+      "phoneIncomplete": "Nepopolna številka",
+      "phoneValid": "Veljavna številka",
+      "required": "To polje je obvezno.",
+      "risk": {
+        "dtiAbove40": "Stopnja zadolženosti presega 40 %"
+      }
+    }
+  },
+  "footer": {
+    "aml": "AML / KYC",
+    "banking": "Bančništvo",
+    "contact": "Stik",
+    "contactForm": "Kontaktni obrazec",
+    "cookies": "Piškotki",
+    "disclaimer": "Kredit vas zavezuje in ga je treba vrniti. Pred oddajo vloge preverite svojo zmožnost odplačevanja. Vsaka ponudba je predmet odobritve in preverjanja identitete.",
+    "finPriv": "Finančna zasebnost",
+    "legal": "Pravno",
+    "loanTerms": "Pogoji posojila",
+    "mentions": "Pravno obvestilo",
+    "privacy": "Zasebnost",
+    "regulated": "Regulirano in skladno z GDPR",
+    "repayment": "Odplačilo in zamuda",
+    "rights": "Vse pravice pridržane.",
+    "tagline": "Evropska kreditna platforma. Hitre odločitve, pregledni pogoji, bančna varnost.",
+    "terms": "Pogoji"
+  },
+  "header": {
+    "admin": "Skrbnik",
+    "contact": "Stik",
+    "dashboard": "Nadzorna plošča",
+    "menu": "Meni",
+    "myLoans": "Moja posojila",
+    "newLoan": "Zaprosi za posojilo",
+    "settings": "Nastavitve",
+    "signIn": "Prijava",
+    "signOut": "Odjava"
+  },
+  "kyc": {
+    "addDocument": "Dodaj dokument",
+    "camera": {
+      "badFormat": "Nepodprt format datoteke",
+      "tooLarge": "Datoteka presega velikost {{size}} MB"
+    },
+    "category": {
+      "address": {
+        "desc": "Staro največ tri mesece",
+        "title": "Dokazilo o naslovu"
+      },
+      "bank": {
+        "desc": "Izpisek, na katerem je razviden vaš IBAN",
+        "title": "Bančni podatki"
+      },
+      "identity": {
+        "desc": "Potni list, osebna izkaznica ali dovoljenje za prebivanje",
+        "title": "Identifikacijski dokument"
+      },
+      "income": {
+        "desc": "Odvisno od vašega zaposlitvenega statusa",
+        "title": "Dokazilo o dohodku"
+      },
+      "selfie": {
+        "desc": "Hiter sebni posnetek za ujemanje z vašim dokumentom",
+        "title": "Preverjanje prisotnosti"
+      }
+    },
+    "chooseDocument": "Izberite svoj dokument",
+    "docs": {
+      "bankStatement": "Bančni izpisek (zadnji 3 meseci)",
+      "benefits": "Potrdilo o nadomestilu",
+      "drivingLicence": "Vozniško dovoljenje",
+      "electricity": "Račun za elektriko",
+      "hosting": "Potrdilo o nastanitvi",
+      "kbis": "Izpisek iz poslovnega registra",
+      "nationalId": "Osebna izkaznica",
+      "passport": "Potni list",
+      "payslip": "Plačilne liste (zadnji 3 meseci)",
+      "pension": "Potrdilo o pokojnini",
+      "residencePermit": "Dovoljenje za prebivanje",
+      "selfie": "Preverjanje obraza",
+      "taxReturn": "Odločba o odmeri dohodnine",
+      "telecom": "Račun za telefon / internet",
+      "water": "Račun za vodo"
+    },
+    "done": {
+      "desc": "Vsi zahtevani dokumenti so zajeti. Pred oddajo vloge jih lahko pregledate ali zamenjate.",
+      "title": "Identifikacija zaključena"
+    },
+    "finish": "Dokončaj",
+    "hint": {
+      "scan": "Dokument položite na ravno površino, popolnoma znotraj okvirja in brez bleščanja.",
+      "scan_double": "Zajemite obe strani zaporedoma, pri čemer morajo biti vidni vsi štirje koti.",
+      "selfie": "Glejte naravnost v kamero, brez pokrival ali sončnih očal.",
+      "upload": "Naložite datoteko z naprave ali skenirajte dokument s kamero."
+    },
+    "intro": {
+      "camera": "Osebni dokument skeniramo s kamero naprave, na dobro osvetljenem mestu. Druga dokazila lahko naložite ali skenirate.",
+      "privacy": "Vaši dokumenti so šifrirani in nikoli deljeni s tretjimi osebami.",
+      "start": "Začni preverjanje",
+      "title": "Preverjanje identitete",
+      "why": "Evropska zakonodaja od nas zahteva, da pred sprostitvijo sredstev preverimo vašo identiteto. Postopek traja približno tri minute."
+    },
+    "liveness": {
+      "challenge": {
+        "blink": "Počasi pomežiknite",
+        "open_mouth": "Odprite usta",
+        "smile": "Nasmehnite se",
+        "turn_left": "Obrnite glavo v levo",
+        "turn_right": "Obrnite glavo v desno"
+      },
+      "denied": "Sprednja kamera ni na voljo ali je dovoljenje zavrnjeno.",
+      "engineError": "Preverjanja obraza ni bilo mogoče zagnati. Preverite povezavo in poskusite znova.",
+      "guidance": {
+        "bright": "Presvetlo — izogibajte se svetlobi za hrbtom.",
+        "dark": "Pretemno — premaknite se na svetlejše mesto.",
+        "flat": "Fotografija ali natisnjen obraz nista sprejeta.",
+        "multiple_faces": "V okvirju je lahko samo ena oseba.",
+        "no_face": "Obraz postavite v oval.",
+        "not_frontal": "Glejte naravnost v kamero.",
+        "off_center": "Obraz poravnajte na sredino ovala.",
+        "ready": "Odlično — ostanite tako.",
+        "screen": "Obraz, prikazan na zaslonu, ni sprejet.",
+        "too_close": "Nekoliko se odmaknite.",
+        "too_far": "Približajte se kameri."
+      },
+      "loading": "Pripravljamo preverjanje obraza…",
+      "notice": "Samo sprednja kamera. V tem koraku ni mogoče naložiti fotografije ali videoposnetka.",
+      "passed": "Preverjanje živosti uspešno",
+      "restart": "Začni znova",
+      "retry": "Poskusi znova",
+      "short": {
+        "blink": "Mežik",
+        "open_mouth": "Usta",
+        "smile": "Nasmeh",
+        "turn_left": "Levo",
+        "turn_right": "Desno"
+      },
+      "unsupported": "Ta brskalnik nima dostopa do sprednje kamere.",
+      "validate": "Naprej"
+    },
+    "nothingRequired": "V tej fazi dokumenti niso potrebni",
+    "retake": "Ponovi",
+    "scan": "Skeniraj",
+    "scanner": {
+      "autoNotice": "Zajem je samodejen — ne premikajte se, ko okvir postane zelen.",
+      "captured": "Dokument zajet",
+      "check": {
+        "frame": "Kadriranje",
+        "light": "Osvetlitev",
+        "sharpness": "Ostrina",
+        "stability": "Stabilnost"
+      },
+      "denied": "Kamera ni na voljo ali je dovoljenje zavrnjeno. Dovolite dostop in poskusite znova.",
+      "guidance": {
+        "blurry": "Zamegljeno — držite mirno in počakajte na izostritev.",
+        "bright": "Presvetlo — izogibajte se neposredni svetlobi.",
+        "dark": "Pretemno — poiščite boljšo svetlobo.",
+        "glare": "Zaznan odsev — dokument rahlo nagnite.",
+        "no_document": "Dokument postavite v okvir.",
+        "off_center": "Dokument poravnajte na sredino okvirja.",
+        "ready": "Ne premikajte se — zajemanje poteka.",
+        "screen": "Fotografija zaslona ni sprejeta.",
+        "skewed": "Kamero držite vzporedno z dokumentom.",
+        "too_close": "Nekoliko se odmaknite.",
+        "too_far": "Približajte se dokumentu.",
+        "unstable": "Napravo držite mirno."
+      },
+      "rescan": "Skeniraj znova",
+      "retry": "Poskusi znova",
+      "torch": "Osvetlitev",
+      "unsupported": "Ta brskalnik nima dostopa do kamere. Stran odprite na telefonu.",
+      "validate": "Uporabi ta posnetek"
+    },
+    "side": {
+      "back": "Zadnja stran",
+      "front": "Sprednja stran",
+      "single": "Dokument"
+    },
+    "source": {
+      "badFormat": "Ta oblika datoteke ni sprejeta.",
+      "chooseMethod": "Kako želite predložiti ta dokument?",
+      "formats": "PDF, JPEG ali PNG — do {{size}} MB.",
+      "import": "Naloži datoteko",
+      "importDesc": "Izberite PDF ali fotografijo, ki je že shranjena v napravi.",
+      "scan": "Skeniraj s kamero",
+      "scanDesc": "Dokument položite ravno: posnetek se sproži sam, ko je berljiv.",
+      "scanHint": "Dokument položite ravno, vsi štirje vogali v okvirju, brez sence.",
+      "tooLarge": "Datoteka večja od {{size}} MB."
+    },
+    "startLiveness": "Začni preverjanje",
+    "status": {
+      "capturing": "Nepopolno",
+      "failed": "Zavrnjeno",
+      "in_progress": "V teku",
+      "manual_review": "V pregledu",
+      "passed": "Predloženo",
+      "retry": "Ponovi",
+      "todo": "Za opraviti",
+      "verifying": "Preverjanje"
+    },
+    "stepOf": "Korak {{current}} od {{total}}",
+    "storageNotice": "Vaši dokumenti so šifrirani, shranjeni v zasebnem prostoru in dostopni izključno naši službi za skladnost poslovanja."
+  },
+  "landing": {
+    "badge": "Odločitev v manj kot 24 urah",
+    "ctaPrimary": "Zaprosite za kredit",
+    "ctaSecondary": "Simuliraj moj kredit",
+    "faq": {
+      "a1": "Ne. Vlogo oddate in ji sledite prek varne povezave, ki jo pošljemo po e-pošti.",
+      "a2": "Naš standardni paket nima skritih stroškov. Vsakdanje operacije so brezplačne.",
+      "a3": "Vloge so zajamčene do 100.000 € s strani Jamstvenega sklada za vloge.",
+      "a4": "Naša ekipa je na voljo 24/7 prek varnega klepeta, e-pošte ali telefona.",
+      "q1": "Ali moram ustvariti račun?",
+      "q2": "Kakšne so provizije?",
+      "q3": "Ali so moja sredstva zaščitena?",
+      "q4": "Kako stopim v stik s podporo?",
+      "title": "Pogosta vprašanja"
+    },
+    "finalCta": {
+      "button": "Začni vlogo",
+      "desc": "Vlogo oddajte v nekaj minutah – brez računa in brez papirologije.",
+      "title": "Pripravljeni uresničiti svoje projekte?"
+    },
+    "footer": {
+      "legal": "Kredit vas zavezuje in mora biti vrnjen. Pred sklenitvijo preverite svoje zmožnosti odplačila.",
+      "rights": "Vse pravice pridržane."
+    },
+    "heroDesc": "MOONYP je del najboljše generacije evropskih bank, ki ponujajo hitre, pregledne in varne osebne kredite.",
+    "heroTitleA": "Financirajte svoje projekte",
+    "heroTitleB": "z zaupanjem.",
+    "how": {
+      "s1d": "Izberite znesek in trajanje, ki vam ustrezata. Takoj izračunamo vaš ocenjeni mesečni obrok.",
+      "s1t": "Simulirajte kredit",
+      "s2d": "Izpolnite obrazec v 5 minutah in naložite dokazila (osebni dokument, dokazilo o naslovu, plačilne liste).",
+      "s2t": "Dokončajte vlogo",
+      "s3d": "Po odobritvi naše ekipe varno elektronsko podpišite pogodbo.",
+      "s3t": "Podpišite pogodbo",
+      "s4d": "Po izteku zakonskega roka so sredstva na voljo v vaši denarnici MOONYP in pripravljena za dvig.",
+      "s4t": "Prejmite sredstva",
+      "title": "Kako deluje?"
+    },
+    "kpis": {
+      "assets": "Upravljanih sredstev",
+      "clients": "Aktivnih strank",
+      "countries": "Pokritih držav",
+      "uptime": "Razpoložljivost"
+    },
+    "metaDesc": "Financirajte svoje projekte z zaupanjem. Hitri osebni krediti od 1.000 € do 50.000 €. Odločitev v 24h, sredstva v 72h.",
+    "metaTitle": "MOONYP — Takojšnji spletni krediti",
+    "mobile": {
+      "b1": "Spremljanje transakcij v realnem času",
+      "b2": "Takojšnja mednarodna nakazila",
+      "b3": "Biometrija Face ID in prstni odtis",
+      "desc": "Spremljajte vlogo, naložite dokumente in podpišite pogodbo s telefonom.",
+      "eyebrow": "Mobilna aplikacija",
+      "title": "Vaša celotna banka v dlani"
+    },
+    "partners": {
+      "desc": "Sodelujemo z vodilnimi evropskimi finančnimi institucijami za hitra in varna nakazila.",
+      "eyebrow": "Naše partnerske banke",
+      "title": "Zaupanja vredna bančna mreža"
+    },
+    "security": {
+      "desc": "Naši sistemi izpolnjujejo najstrožje evropske bančne standarde.",
+      "eyebrow": "Varnost in skladnost",
+      "f1d": "Vaši podatki so zaščiteni z vojaškim standardom.",
+      "f1t": "Šifriranje AES-256",
+      "f2d": "Evropski predpisi se dosledno uveljavljajo.",
+      "f2t": "Skladnost s PSD2 in GDPR",
+      "f3d": "Dvojna potrditev za vsako občutljivo operacijo.",
+      "f3t": "Močna avtentikacija",
+      "f4d": "Predani svetovalci so na voljo ves čas.",
+      "f4t": "Podpora 24/7",
+      "title": "Vrhunska bančna zaščita"
+    },
+    "slides": {
+      "s1d": "Vloga v nekaj minutah, brez računa in papirologije.",
+      "s1t": "Bančništvo, oblikovano za vas",
+      "s2d": "Pregledna nadzorna plošča, analize in pametna opozorila.",
+      "s2t": "Upravljajte finance v realnem času",
+      "s3d": "Varna mobilna aplikacija, na voljo 24/7.",
+      "s3t": "Vaša banka v vašem žepu",
+      "s4d": "Šifriranje od konca do konca in močna avtentikacija.",
+      "s4t": "Bančna varnost najvišje ravni"
+    },
+    "testi": {
+      "eyebrow": "Mnenja",
+      "t1n": "Marie Dubois",
+      "t1q": "Gladka in profesionalna bančna izkušnja. Podpora je izjemna.",
+      "t1r": "Finančna direktorica",
+      "t2n": "Jean Martin",
+      "t2q": "Mednarodna nakazila so hitra in varnost je brezhibna.",
+      "t2r": "Podjetnik",
+      "t3n": "Sophie Laurent",
+      "t3q": "Končno digitalna banka, ki združuje preprostost in institucionalno resnost.",
+      "t3r": "Odvetnica",
+      "title": "Zaupajo nam"
+    },
+    "trust1": "Šifrirani podatki",
+    "trust2": "100% varno",
+    "trust3": "Brez skritih stroškov",
+    "values": {
+      "nofees": {
+        "desc": "Oglaševana obrestna mera je uporabljena obrestna mera. Brez presenečenj pri obrokih.",
+        "title": "Brez skritih stroškov"
+      },
+      "response": {
+        "desc": "Naša ekipa strokovnjakov hitro pregleda vašo vlogo. Konec neskončnega čakanja.",
+        "title": "Odgovor v 24h"
+      },
+      "secure": {
+        "desc": "Vaši podatki so popolnoma šifrirani. Spoštujemo najstrožje bančne standarde.",
+        "title": "100% Varno"
+      }
+    }
+  },
+  "legal": {
+    "amlKyc": {
+      "sections": [
+        {
+          "h": "Zavezanost",
+          "p": "Ničelna toleranca do pranja denarja in financiranja terorizma."
+        },
+        {
+          "h": "Skrbni pregled",
+          "p": "Identiteta, naslov, vir sredstev, stalni nadzor."
+        },
+        {
+          "h": "Razširjeni pregled",
+          "p": "PEP, tvegane jurisdikcije."
+        },
+        {
+          "h": "Sankcije",
+          "p": "Sproten pregled seznamov EU, ZN, OFAC, UK."
+        },
+        {
+          "h": "Poročanje",
+          "p": "Poročila pristojni FIU."
+        },
+        {
+          "h": "Usposabljanje",
+          "p": "Letno usposabljanje; neodvisni MLRO."
+        }
+      ],
+      "title": "Politika AML / KYC"
+    },
+    "badge": "Pravno",
+    "cookies": {
+      "sections": [
+        {
+          "h": "Kar uporabljamo",
+          "list": [
+            "<strong>Nujno potrebni</strong>",
+            "<strong>Funkcionalni</strong>",
+            "<strong>Varnostni</strong>",
+            "<strong>Analitični</strong> — le z dovoljenjem."
+          ]
+        },
+        {
+          "h": "Upravljanje",
+          "p": "Piškotke lahko izbrišete v brskalniku."
+        }
+      ],
+      "title": "Politika piškotkov"
+    },
+    "finPriv": {
+      "sections": [
+        {
+          "h": "Zaščita denarja",
+          "p": "TLS 1.3, AES-256, HSM, ločitev strankinih sredstev."
+        },
+        {
+          "h": "Avtentikacija",
+          "p": "SCA PSD2: geslo + naprava + OTP."
+        },
+        {
+          "h": "Spremljanje goljufij",
+          "p": "24/7 zaznavanje anomalij."
+        },
+        {
+          "h": "Zaupnost",
+          "p": "Bančna tajnost."
+        },
+        {
+          "h": "Vaša vloga",
+          "p": "Varujte poverilnice, registrirajte zaupanja vredne naprave."
+        }
+      ],
+      "title": "Finančna zasebnost in varnost"
+    },
+    "home": "Domov",
+    "lastUpdated": "Zadnja posodobitev",
+    "loanTerms": {
+      "sections": [
+        {
+          "h": "1. Pogoji",
+          "p": "Preverjena identiteta, stabilni prihodki."
+        },
+        {
+          "h": "2. Zneski in trajanje",
+          "p": "Od 1.000 EUR do 500.000 EUR, 12 do 120 mesecev."
+        },
+        {
+          "h": "3. Obrestna mera",
+          "p": "Fiksna mera v ponudbi."
+        },
+        {
+          "h": "4. Izplačilo",
+          "p": "Po podpisu in preverjanju. > 50.000 EUR stopenjsko."
+        },
+        {
+          "h": "5. Odplačilo",
+          "p": "Mesečno bremenjenje."
+        },
+        {
+          "h": "6. Zamuda",
+          "p": "Obresti, stroški in možna izterjava."
+        },
+        {
+          "h": "7. Odstop",
+          "p": "14 koledarskih dni od podpisa."
+        }
+      ],
+      "subtitle": "Posojilo vas zavezuje; preverite zmožnost odplačila.",
+      "title": "Pogoji posojila"
+    },
+    "mentions": {
+      "sections": [
+        {
+          "h": "Izdajatelj",
+          "p": "MOONYP — SAS, kapital 1.000.000 EUR — sedež: 1 Centenary Square, Birmingham, Združeno kraljestvo."
+        },
+        {
+          "h": "Odgovorni",
+          "p": "Skladnost MOONYP."
+        },
+        {
+          "h": "Gostovanje",
+          "p": "Cloudflare Workers — San Francisco, ZDA."
+        },
+        {
+          "h": "Stik",
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
+        },
+        {
+          "h": "Intelektualna lastnina",
+          "p": "Vse znamke in vsebina pripadajo MOONYP."
+        }
+      ],
+      "title": "Pravna obvestila"
+    },
+    "privacy": {
+      "sections": [
+        {
+          "h": "1. Zbrani podatki",
+          "p": "Identiteta, stiki, finančni, tehnični in vedenjski podatki."
+        },
+        {
+          "h": "2. Nameni",
+          "p": "Vodenje računa, ocena posojila, preprečevanje goljufij in pranja denarja."
+        },
+        {
+          "h": "3. Pravna podlaga (GDPR)",
+          "p": "Pogodba, zakoniti interes, zakonska obveznost, soglasje."
+        },
+        {
+          "h": "4. Deljenje",
+          "p": "Le z preverjenimi obdelovalci in pristojnimi organi."
+        },
+        {
+          "h": "5. Hramba",
+          "p": "Podatki računa: razmerje + 10 let. Varnostni dnevniki: 24 mesecev."
+        },
+        {
+          "h": "6. Vaše pravice",
+          "p": "Dostop, popravek, izbris, omejitev, prenosljivost, ugovor."
+        },
+        {
+          "h": "7. Varnost",
+          "p": "Šifriranje, fingerprint, zaznavanje anomalij, MFA, 24/7 odziv."
+        }
+      ],
+      "subtitle": "Vaša zasebnost je temelj bančnega zaupanja.",
+      "title": "Politika zasebnosti"
+    },
+    "repayment": {
+      "sections": [
+        {
+          "h": "Načrt",
+          "p": "Mesečni obroki na dogovorjeni dan."
+        },
+        {
+          "h": "Predčasno odplačilo",
+          "p": "Vedno dovoljeno."
+        },
+        {
+          "h": "Zamuda",
+          "list": [
+            "Dan 1–7: opomin.",
+            "Dan 8–30: stroški + obresti.",
+            "Od dneva 31: opomin pred izterjavo."
+          ]
+        },
+        {
+          "h": "Izterjava",
+          "p": "Najprej sporazumno."
+        },
+        {
+          "h": "Težave",
+          "p": "Kontaktirajte nas: odlog ali reprogramiranje."
+        }
+      ],
+      "title": "Politika odplačil in zamud"
+    },
+    "terms": {
+      "sections": [
+        {
+          "h": "1. Pogoji",
+          "p": "18 let, prebivalec dovoljene države."
+        },
+        {
+          "h": "2. Račun",
+          "p": "Točni podatki in zaupne prijavne podatke."
+        },
+        {
+          "h": "3. Sprejemljiva uporaba",
+          "p": "Brez goljufij, pranja denarja, financiranja terorizma."
+        },
+        {
+          "h": "4. Tarife",
+          "p": "Pred vsako operacijo; spremembe s 30-dnevno odpovedjo."
+        },
+        {
+          "h": "5. Odgovornost",
+          "p": "Neposredna škoda pri hudi malomarnosti."
+        },
+        {
+          "h": "6. Začasna ustavitev",
+          "p": "Ob sumu goljufije ali AML."
+        },
+        {
+          "h": "7. Pravo",
+          "p": "Francosko pravo, ob potrošniški varnosti."
+        }
+      ],
+      "subtitle": "Z uporabo MOONYP sprejemate te pogoje.",
+      "title": "Pogoji storitve"
+    }
+  },
+  "livechat": {
+    "close": "Zapri",
+    "faq": {
+      "contact": "Ekipa je dosegljiva na +39 350 036 6867 ali prek strani Kontakt.",
+      "default": "Svetovalec MOONYP se vam bo kmalu javil. Lahko nas tudi kontaktirate prek strani Kontakt.",
+      "loan": "Za posojilo izberite »Novo posojilo« v nadzorni plošči. Odločitev v 24 h, sredstva v 72 h.",
+      "password": "Geslo lahko ponastavite na strani za prijavo prek »Pozabljeno geslo?«.",
+      "thanks": "Z veseljem! Vprašajte še, če potrebujete.",
+      "transfer": "Vaši prenosi so v razdelku »Prenosi« v nadzorni plošči."
+    },
+    "greeting": "Pozdravljeni 👋! Kako vam lahko pomagam?",
+    "online": "Na zvezi",
+    "open": "Odpri klepet",
+    "placeholder": "Napišite sporočilo…",
+    "title": "MOONYP svetovalec"
+  },
+  "loanDetail": {
+    "addedOn": "Dodano {{date}}",
+    "alreadyWithdrawn": "Že dvignjeno: {{withdrawn}} od {{total}}",
+    "amount": "Znesek",
+    "availableBalance": "Razpoložljivo stanje",
+    "back": "Nazaj na moje kredite",
+    "contractDownloaded": "Pogodba prenesena",
+    "contractGenerating": "Ustvarjanje pogodbe PDF…",
+    "contractTitle": "Pogodba",
+    "details": "Details",
+    "documentsTitle": "Predloženi dokumenti",
+    "downloadContract": "Prenesi pogodbo",
+    "downloadImpossible": "Prenos ni mogoč",
+    "duration": "Trajanje",
+    "durationMonths": "{{count}} mesecev",
+    "fileNumber": "Zadeva #{{id}}",
+    "fileTooHeavy": "Datoteka je prevelika (največ 10 MB)",
+    "generationImpossible": "Ustvarjanje ni uspelo: {{message}}",
+    "historyTitle": "Zgodovina dejanj",
+    "loading": "Nalaganje…",
+    "loanDescription": {
+      "accepte": "Vaša prošnja je bila sprejeta",
+      "contrat_envoye": "Pogodba je bila poslana v podpis",
+      "contrat_signe": "Prejeta podpisana pogodba, sprostitev v pripravi",
+      "en_attente": "Vaša prošnja se obravnava",
+      "en_traitement": "Sredstva na voljo v 72 urah",
+      "fonds_disponibles": "Vaša sredstva so na voljo",
+      "refuse": "Prošnja ni bila uspešna"
+    },
+    "makeTransfer": "Izvedi nakazilo",
+    "metaTitle": "Podrobnosti posojila — MOONYP",
+    "monthlyIncome": "Mesečni dohodek",
+    "monthlyPayment": "Ocenjeni mesečni obrok",
+    "noAction": "Še ni dejanj.",
+    "notFound": "Kredit ni najden",
+    "purpose": "Namen",
+    "reason": "Razlog",
+    "refusedDesc": "Po pregledu vaše prošnje žal ne moremo ugoditi vaši prošnji za financiranje.",
+    "refusedTitle": "Prošnja zavrnjena",
+    "requestRefused": "Prošnja zavrnjena",
+    "requestSubmitted": "Prošnja oddana",
+    "sendSignedContract": "Pošlji podpisano pogodbo",
+    "sessionExpired": "Seja je potekla. Ponovno se prijavite.",
+    "signedContractReceived": "Prejeta podpisana pogodba",
+    "signedReceivedMessage": "{{name}} je podpisal/a pogodbo (prošnja {{id}})",
+    "signedReceivedTitle": "Prejeta podpisana pogodba",
+    "signedSent": "Podpisana pogodba poslana!",
+    "signInstruction": "Podpišite pogodbo in jo naložite spodaj za potrditev.",
+    "steps": {
+      "accepte": "Sprejeto",
+      "contrat_envoye": "Pogodba poslana",
+      "contrat_signe": "Pogodba podpisana",
+      "en_attente": "Prošnja oddana",
+      "en_traitement": "V obdelavi",
+      "fonds_disponibles": "Sredstva na voljo"
+    },
+    "summaryTitle": "Povzetek prošnje",
+    "title": "Podrobnosti kredita",
+    "unknownError": "Neznana napaka",
+    "updateError": "Napaka pri posodobitvi",
+    "uploadFailed": "Nalaganje ni uspelo",
+    "withdraw": "Dvigni"
+  },
+  "loanForm": {
+    "address": "Popoln poštni naslov",
+    "addressHint": "Izberite predlog ali ročno vnesite svoj poln naslov.",
+    "addressPlaceholder": "Začnite vnašati svoj naslov…",
+    "addressRequired": "Prosimo, vnesite svoj poln poštni naslov",
+    "adminNotifMsg": "{{name}} prosi za {{amount}} € na {{months}} mesecev",
+    "adminNotifTitle": "Nova zahteva za posojilo",
+    "amount": "Želeni znesek (€)",
+    "amountMax": "Največ 100.000 €",
+    "amountMin": "Najmanj 500 €",
+    "back": "Nazaj",
+    "createError": "Napaka pri ustvarjanju zahteve",
+    "doc1": "Veljaven osebni dokument ali vozniško dovoljenje (obe strani) — ali potni list (samo prednja stran)",
+    "doc2": "Aktualno potrdilo o naslovu",
+    "doc3": "Zadnje tri plačilne liste ali dokazilo o dohodku",
+    "doc4": "Zadnji bančni izpisek ali IBAN na ime prosilca",
+    "docsRequiredExact": "Naložiti morate točno {{count}} dokumentov.",
+    "documents": "Zahtevana dokazila (največ 5, vsako 5 MB)",
+    "duration": "Trajanje (meseci)",
+    "email": "E-pošta",
+    "fileTooLarge": "{{name}} presega 5 MB",
+    "fullName": "Polno ime",
+    "loading": "Nalaganje…",
+    "monthlyIncome": "Mesečni neto prihodek (€)",
+    "newRequestDesc": "Oddajte zahtevo za posojilo",
+    "newRequestShort": "Nova zahteva",
+    "purpose": "Namen posojila (neobvezno)",
+    "purposePlaceholder": "Prenova, avto, osebni projekt…",
+    "requiredDocs": "Zahtevani dokumenti za pregled",
+    "requiredDocsHint": "Naložite čitljive PDF, JPG ali PNG datoteke za hitrejšo odobritev.",
+    "submit": "Oddaj vlogo",
+    "submitting": "Pošiljanje…",
+    "subtitle": "Izpolnite obrazec in priložite dokazila.",
+    "success": "Vloga oddana!",
+    "successToast": "Zahteva je bila uspešno poslana",
+    "title": "Nova vloga za posojilo",
+    "uploadFailed": "Nalaganje ni uspelo: {{name}}",
+    "uploadHint": "Kliknite za dodajanje (PDF, JPG, PNG)",
+    "uploadHintExact": "Naložite točno {{count}} dokumentov (PDF, JPG, PNG — največ 5 MB)."
+  },
+  "mobileHome": {
+    "cta": "Začni",
+    "description": "Upravljajte svoja posojila, nakazila in račune varno, kjer koli ste.",
+    "feature1": "Varno",
+    "feature2": "Šifriranje od konca do konca",
+    "feature3": "Premium izkušnja",
+    "subtitle": "Vaša banka, v vašem žepu.",
+    "tagline": "Evropska bančna varnost",
+    "title": "Dobrodošli pri MOONYP"
+  },
+  "nav": {
+    "about": "O nas",
+    "apply": "Oddaj vlogo",
+    "contact": "Kontakt",
+    "home": "Domov",
+    "language": "Jezik",
+    "menu": "Meni",
+    "primary": "Glavna navigacija",
+    "request": "Zahteva",
+    "simulation": "Kalkulator",
+    "solutions": "Rešitve",
+    "support": "Podpora",
+    "transfers": "Nakazila"
+  },
+  "notif": {
+    "adminCodes": {
+      "codeMsg": "Vaša koda: {{code}} (stroški {{fee}})",
+      "codeTitle": "Koda za odklepanje {{p}}%",
+      "manualCodeMsg": "Vaša koda za odklepanje je: {{code}}",
+      "manualCodeTitle": "Koda za odklepanje {{p}}%",
+      "rejectedMsg": "Naložite veljavno potrdilo.",
+      "rejectedTitle": "Potrdilo zavrnjeno"
+    },
+    "loan": {
+      "newRequestAdminMsg": "{{name}} prosi za {{amount}} € na {{months}} mesecev",
+      "newRequestAdminTitle": "Nova prošnja za posojilo",
+      "signedReceivedMsg": "{{name}} je podpisal pogodbo (vloga {{id}})",
+      "signedReceivedTitle": "Prejeta podpisana pogodba",
+      "statusMsg": "Vaša vloga za {{amount}} je zdaj: $t(status.{{statusKey}})",
+      "statusTitle": "Status vaše vloge je posodobljen"
+    },
+    "transfer": {
+      "adminInitMsg": "{{amount}} → {{beneficiary}} (sklic {{ref}})",
+      "adminInitTitle": "Novo nakazilo sproženo",
+      "classicMsg": "Standardno nakazilo {{amount}} je bilo sproženo (knjiženje v 1 delovnem dnevu, sklic {{ref}})",
+      "classicTitle": "Nakazilo v teku",
+      "instantMsg": "{{amount}} knjiženo na račun {{iban4}}…{{ibanLast}} (sklic {{ref}})",
+      "instantTitle": "Takojšnje nakazilo prejeto"
+    },
+    "transferProcess": {
+      "adminReceiptMsg": "Naloženo je bilo novo potrdilo o plačilu stroškov.",
+      "adminReceiptTitle": "Prejeto novo potrdilo",
+      "adminValidationMsg": "Stranka je naložila potrdilo o plačilu za validacijo.",
+      "adminValidationTitle": "Potrdilo za validacijo"
+    },
+    "withdrawal": {
+      "rejectedMsg": "Vaše nakazilo {{amount}} je bilo zavrnjeno. Stanje je bilo samodejno vrnjeno.",
+      "rejectedTitle": "Nakazilo zavrnjeno · sredstva vrnjena",
+      "sentMsg": "{{amount}} je bilo poslano na {{iban4}}…{{ibanLast}} (sklic {{ref}})",
+      "sentTitle": "Nakazilo izvedeno"
+    }
+  },
+  "notifications": {
+    "allRead": "Vse prebrano",
+    "empty": "Ni obvestil",
+    "markAllRead": "Označi vse prebrano",
+    "noLink": "Brez povezave",
+    "pageTitle": "Vsa obvestila",
+    "title": "Obvestila",
+    "viewAll": "Prikaži vsa obvestila"
+  },
+  "password": {
+    "excellent": "Odlično",
+    "fair": "Srednje",
+    "good": "Dobro",
+    "hide": "Skrij geslo",
+    "notStrong": "Geslo ne izpolnjuje vseh varnostnih pravil.",
+    "ruleDigit": "Številka",
+    "ruleLength": "Vsaj 10 znakov",
+    "ruleLower": "Mala črka",
+    "ruleSpecial": "Poseben znak",
+    "ruleUpper": "Velika črka",
+    "show": "Pokaži geslo",
+    "strong": "Močno",
+    "veryWeak": "Zelo šibko",
+    "weak": "Šibko"
+  },
+  "products": {
+    "auto": {
+      "desc": "Novo ali rabljeno vozilo po ugodni obrestni meri.",
+      "name": "Avtomobilski kredit"
+    },
+    "business": {
+      "desc": "Podprite rast, opremo ali likvidnost.",
+      "name": "Poslovni kredit"
+    },
+    "mortgage": {
+      "desc": "Nakup, gradnja ali prenova z dolgoročnim financiranjem.",
+      "name": "Stanovanjski kredit"
+    },
+    "personal": {
+      "desc": "Financirajte svoje načrte s fiksno obrestno mero in jasnimi obroki.",
+      "name": "Osebni kredit"
+    }
+  },
+  "receipt": {
+    "amount": "Nakazani znesek",
+    "bank": "Banka prejemnika",
+    "beneficiary": "Prejemnik",
+    "bic": "BIC / SWIFT",
+    "documentLabel": "Uradni dokument",
+    "documentTitle": "Potrdilo o nakazilu",
+    "download": "Prenesi PDF",
+    "downloaded": "Potrdilo uspešno preneseno",
+    "downloadError": "Potrdila ni mogoče prenesti",
+    "footerLegal": "To potrdilo potrjuje bančno operacijo in se lahko predloži pristojnemu organu.",
+    "footerSecurity": "Dokument ustvarjen z varnimi sistemi MOONYP.",
+    "generating": "Ustvarjanje PDF…",
+    "iban": "IBAN",
+    "issuedAt": "Datum izdaje",
+    "metaTitle": "Potrdilo o nakazilu — MOONYP",
+    "reference": "Sklic",
+    "serverAmount": "Nakazani znesek",
+    "serverBank": "Banka prejemnika",
+    "serverBeneficiary": "Prejemnik",
+    "serverBic": "BIC / SWIFT",
+    "serverExecuted": "Nakazilo izvedeno",
+    "serverExecutedAt": "Datum izvedbe",
+    "serverIban": "IBAN",
+    "serverIssued": "Izdano {{date}}",
+    "serverLegal": "To potrdilo dokazuje bančno transakcijo in se lahko predloži pristojnemu organu.",
+    "serverNotFound": "Nakazilo ni najdeno",
+    "serverReference": "Sklic",
+    "serverSecure": "Varni dokument",
+    "serverSecurity": "Dokument je ustvarjen z varnimi sistemi MOONYP.",
+    "serverSessionExpired": "Seja je potekla. Ponovno se prijavite.",
+    "serverStatus": "Status",
+    "serverSubtitle": "Uradno bančno potrdilo",
+    "serverTitle": "Potrdilo o nakazilu",
+    "serverUnauthorized": "Nepooblaščen dostop do tega potrdila",
+    "serverUnavailable": "Potrdilo je na voljo šele po potrditvi nakazila",
+    "sessionExpired": "Seja je potekla. Prijavite se znova.",
+    "statusExecuted": "Nakazilo izvedeno",
+    "statusPending": "Nakazilo v obdelavi",
+    "subBrand": "Together we thrive",
+    "subtitle": "Izdano {{date}}",
+    "title": "Bančno potrdilo o nakazilu"
+  },
+  "settings": {
+    "accessAdmin": "Odpri skrbniško ploščo",
+    "adminAccount": "Skrbniški račun",
+    "adminDesc": "Imate pravice za upravljanje strank in operacij.",
+    "back": "Nazaj",
+    "changePassword": "Spremeni geslo",
+    "confirmPassword": "Potrdi",
+    "currentEmail": "Trenutni e-naslov",
+    "currentPassword": "Trenutno geslo",
+    "currentPasswordWrong": "Trenutno geslo ni pravilno",
+    "emailHint": "Na nov naslov bo poslana potrditvena e-pošta.",
+    "emailSection": "E-poštni naslov",
+    "emailUpdated": "E-pošta posodobljena. Preverite nabiralnik za potrditev.",
+    "fullName": "Polno ime",
+    "goBack": "Nazaj",
+    "languageDesc": "Izberite jezik vmesnika. Vaša izbira se shrani in sinhronizira z računom.",
+    "languageSaved": "Jezik posodobljen",
+    "languageSection": "Jezik",
+    "loadProfileError": "Profila ni mogoče naložiti",
+    "metaTitle": "Nastavitve — MOONYP",
+    "newEmail": "Nov e-poštni naslov",
+    "newPassword": "Novo geslo",
+    "passwordMismatch": "Gesli se ne ujemata",
+    "passwordSection": "Password",
+    "passwordTooShort": "Geslo mora vsebovati vsaj 8 znakov",
+    "passwordUpdated": "Geslo posodobljeno",
+    "phone": "Telefon",
+    "profile": "Profile",
+    "profileUpdated": "Profil posodobljen",
+    "saveError": "Napaka pri shranjevanju",
+    "saveProfile": "Shrani profil",
+    "subtitleDesktop": "Upravljajte svoje osebne podatke in varnost",
+    "subtitleMobile": "Upravljajte svoj račun in varnost",
+    "title": "Nastavitve",
+    "updateEmail": "Posodobi e-pošto"
+  },
+  "status": {
+    "accepte": "Sprejeto",
+    "contrat_envoye": "Pogodba poslana",
+    "contrat_signe": "Pogodba podpisana",
+    "en_attente": "V čakanju",
+    "en_traitement": "V obdelavi",
+    "envoye": "Poslano",
+    "fonds_disponibles": "Sredstva na voljo",
+    "refuse": "Zavrnjeno",
+    "rejete": "Zavrnjeno"
+  },
+  "transfer": {
+    "amount": "Znesek (€)",
+    "amountInvalid": "Neveljaven znesek",
+    "available": "Razpoložljivo stanje",
+    "bankName": "Banka",
+    "bankNamePlaceholder": "Ime banke",
+    "bankRequired": "Banka je obvezna",
+    "beneficiary": "Prejemnik",
+    "beneficiaryPlaceholder": "Ime in priimek",
+    "beneficiaryRequired": "Prejemnik je obvezen",
+    "bic": "BIC / SWIFT",
+    "bicInvalid": "Neveljaven BIC/SWIFT",
+    "confirmClassic": "Potrdi nakazilo",
+    "errorEmit": "Napaka pri izvedbi",
+    "executeInstant": "Izvedi nakazilo",
+    "iban": "IBAN",
+    "ibanInvalid": "Neveljaven IBAN",
+    "kindClassic": "Standardni (SEPA)",
+    "kindClassicHint": "Nakazano v 1 delovnem dnevu · možno načrtovanje.",
+    "kindInstant": "Takojšnje (SEPA Instant)",
+    "kindInstantHint": "Takojšnje nakazilo prejemniku (24/7).",
+    "noLoanSelected": "Ni izbranega posojila",
+    "reason": "Razlog (neobvezno)",
+    "reasonPlaceholder": "Najemnina, nakup, vračilo…",
+    "reference": "Sklic",
+    "referencePlaceholder": "Samodejno, če je prazno",
+    "schedule": "Načrtuj (neobvezno)",
+    "scheduleFuture": "Načrtovani datum mora biti v prihodnosti",
+    "scheduleHint": "Pustite prazno za naslednji delovni dan.",
+    "secureClassic": "Šifrirani podatki · 1 delovni dan",
+    "secureInstant": "Šifrirani podatki · takojšnja izvedba",
+    "sourceLoan": "Izvorno posojilo",
+    "subtitle": "Izberite vrsto, vnesite podatke prejemnika in potrdite.",
+    "successClassic": "Naročilo nakazila zabeleženo",
+    "successInstant": "Takojšnje nakazilo izvedeno",
+    "successScheduled": "Nakazilo načrtovano",
+    "title": "Izvedi nakazilo"
+  },
+  "transferDetail": {
+    "amount": "Znesek",
+    "backAll": "Vsa nakazila",
+    "badge": {
+      "compliance": "Preverjanje skladnosti",
+      "processing": "Bančna obdelava",
+      "rejected": "Nakazilo zavrnjeno",
+      "validated": "Nakazilo potrjeno"
+    },
+    "bank": "Banka",
+    "beneficiary": "Prejemnik",
+    "bic": "BIC",
+    "header": "MOONYP · Nalog za nakazilo",
+    "history": "Zgodovina",
+    "iban": "IBAN",
+    "issuedAt": "Izdano",
+    "metaTitle": "Podrobnosti nakazila — MOONYP",
+    "notFound": "Nakazilo ni najdeno.",
+    "receipt": {
+      "desc": "Prenesite uradni povzetek MOONYP tega naloga za nakazilo.",
+      "download": "Prenesi potrdilo",
+      "title": "Bančno potrdilo na voljo"
+    },
+    "reference": "Sklic",
+    "rejected": {
+      "desc": "Sredstva so bila samodejno vrnjena na vaš račun MOONYP.",
+      "reason": "Razlog",
+      "title": "To nakazilo je bilo zavrnjeno"
+    },
+    "timeline": {
+      "compliance": "Korak skladnosti potrjen",
+      "complianceDesc": "Koda za odklep uspešno vnesena.",
+      "enhanced": "Okrepljeno preverjanje potrjeno",
+      "enhancedDesc": "Nakazilo nadaljuje pot do prejemnika.",
+      "executed": "Nakazilo izvedeno",
+      "executedDesc": "Sredstva so bila knjižena.",
+      "issued": "Nalog za nakazilo izdan",
+      "issuedDesc": "Za {{beneficiary}} ({{amount}})",
+      "now": "Pravkar",
+      "rejected": "Nakazilo zavrnjeno",
+      "rejectedDesc": "Stanje je bilo samodejno vrnjeno."
+    },
+    "tracking": "Sledenje nakazilu"
+  },
+  "transferProcess": {
+    "accountHolder": "Imetnik računa",
+    "adminReceiptMessage": "Stranka je naložila potrdilo o plačilu za skladnost.",
+    "adminReceiptTitle": "Novo potrdilo za pregled",
+    "adminValidationMessage": "Stranka je dosegla korak skladnosti in čaka na sprostitev kode.",
+    "adminValidationTitle": "Nakazilo čaka na potrditev",
+    "advanced": "Korak potrjen.",
+    "animatingDesc": "Vaše nakazilo poteka prek naših varnih kanalov. Ukrepanje ni potrebno.",
+    "animatingTitle": "Bančno usmerjanje v teku",
+    "bankOrder": "Bančni podatki MOONYPPARIBAS",
+    "blockedDesc": "Za dokončanje tega koraka plačajte spodnjo pristojbino za skladnost in vnesite prejeto kodo.",
+    "blockedTitle": "Zahtevano preverjanje skladnosti",
+    "codePlaceholder": "Vnesite kodo (npr. ABC-1234)",
+    "complianceBadge": "Preverjanje skladnosti",
+    "configDesc": "Svetovalec MOONYPPARIBAS pripravlja plačilo za skladnost. Navodila prejmete kmalu.",
+    "configTitle": "Konfiguracija v teku",
+    "copied": "{{label}} kopirano v odložišče.",
+    "fee": "Zapadla pristojbina za skladnost",
+    "fileTooBig": "Datoteka presega 10 MB.",
+    "finalDesc": "Prejemnik bo sredstva prejel v običajnem medbančnem roku.",
+    "finalTitle": "Nakazilo uspešno izvedeno",
+    "invalidCode": "Neveljavna ali že uporabljena koda.",
+    "processingBadge": "Bančna obdelava",
+    "progress": "Varen napredek",
+    "reason": "Razlog nakazila",
+    "receiptApproved": "Odobreno",
+    "receiptLabel": "Dokazilo o plačilu",
+    "receiptPending": "V pregledu",
+    "receiptRejected": "Zavrnjeno",
+    "receiptSent": "Potrdilo poslano svetovalcu.",
+    "rejectedBadge": "Nakazilo zavrnjeno",
+    "rejectedDesc": "Sredstva so bila samodejno vrnjena na vaš račun.",
+    "rejectedTitle": "To nakazilo je bilo zavrnjeno",
+    "replaceReceipt": "Zamenjaj potrdilo",
+    "successFinal": "Nakazilo zaključeno.",
+    "unlockCodeReceived": "Koda za odklep prejeta",
+    "uploadReceipt": "Naloži potrdilo",
+    "validateAndContinue": "Potrdi in nadaljuj",
+    "validatedBadge": "Nakazilo potrjeno",
+    "waitingCodeDesc": "Ko bo vaše potrdilo potrjeno, vam bo svetovalec poslal 6-mestno kodo.",
+    "waitingCodeTitle": "Čakanje na kodo za odklep"
+  },
+  "transfersPage": {
+    "beneficiary": "Prejemnik:",
+    "emptyDesc": "Vaša nakazila se bodo prikazala tukaj po ustvarjanju.",
+    "emptyTitle": "Ni nakazil",
+    "eyebrow": "Območje nakazil",
+    "filters": {
+      "active": "V teku",
+      "all": "Vsa",
+      "blocked": "Blokirana",
+      "done": "Zaključena"
+    },
+    "issuedAt": "Izdano {{date}}",
+    "metaTitle": "Moja nakazila — MOONYP",
+    "newTransfer": "Novo nakazilo",
+    "reference": "sklic {{reference}}",
+    "status": {
+      "blocked": "Zahtevano preverjanje",
+      "final": "Potrjeno",
+      "processing": "Bančna obdelava",
+      "rejected": "Zavrnjeno"
+    },
+    "subtitle": "Spremljanje SEPA nakazil, skladnostnih korakov in potrdil.",
+    "title": "Moja nakazila"
+  },
+  "transferStepDialog": {
+    "subtitle": "Spremljajte napredek in varno potrdite vsak mejnik.",
+    "title": "Korak skladnosti"
+  },
+  "transferSteps": {
+    "advanced": "Korak {{p}}% odklenjen",
+    "awaitingCode": "Čaka na kodo",
+    "awaitingCodeDesc": "Koda bo poslana, ko skrbnik potrdi vaše potrdilo.",
+    "awaitingConfig": "Konfiguracija v teku",
+    "awaitingConfigDesc": "Naša ekipa dokončuje ta korak. Boste obveščeni.",
+    "blockedDesc": "Zaradi bančne skladnosti odklep koraka {{p}}% zahteva plačilo pristojbine in potrditev potrdila.",
+    "blockedTitle": "Prenos blokiran pri {{p}}%",
+    "completed": "Prenos zaključen",
+    "completedDesc": "Sredstva so bila nakazana prejemniku.",
+    "enterCode": "Vnesite kodo za odklep",
+    "feeFor": "Pristojbina korak {{p}}%",
+    "fileTooBig": "Datoteka prevelika (največ 10 MB)",
+    "invalidCode": "Neveljavna koda",
+    "notifAdminMsg": "Stranka je naložila potrdilo v potrditev.",
+    "notifAdminTitle": "Prejeto potrdilo — korak {{p}}%",
+    "paymentAddress": "Plačilni naslov",
+    "paymentHelp": "Plačajte na ta naslov in naložite potrdilo.",
+    "progress": "Napredek",
+    "receipt": "Plačilno potrdilo",
+    "receiptApproved": "Odobreno",
+    "receiptPending": "Čaka na potrditev",
+    "receiptRejected": "Zavrnjeno — pošljite znova",
+    "receiptSent": "Potrdilo poslano v potrditev",
+    "replaceReceipt": "Zamenjaj potrdilo",
+    "stepNotReached": "Korak še ni dosežen",
+    "subtitle": "Bančni napredek v 3 korakih: 63% · 88% · 100%.",
+    "successFinal": "Prenos uspešno zaključen",
+    "title": "Varen prenos",
+    "unlock": "Odkleni korak {{p}}%",
+    "uploadReceipt": "Naloži potrdilo"
+  },
+  "validation": {
+    "phone": "Vnesite veljavno telefonsko številko"
+  },
+  "workflow": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "confirmTitle": "Confirm the decision",
+    "error": {
+      "forbidden": "Action not allowed",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "sameStatus": "The file already has this status"
+    },
+    "guard": {
+      "complianceBlocking": "Blocking compliance alert",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "kycNotPassed": "KYC checks not passed",
+      "missingPayout": "Payout details missing",
+      "noInsurance": "No insurance subscribed on this file"
+    },
+    "noteLabel": "Internal note",
+    "reasonLabel": "Reason shared with the applicant",
+    "requests": {
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "close": "Close",
+      "create": "Send request",
+      "kind": "Request type",
+      "kinds": {
+        "information": "Dodatna informacija",
+        "justification": "Zahtevana utemeljitev",
+        "missing_document": "Manjkajoč dokument",
+        "replace_document": "Zamenjava dokumenta"
+      },
+      "message": "Message sent to the applicant",
+      "none": "No information request.",
+      "open": "Pending",
+      "title": "Information requests"
+    }
   }
 }

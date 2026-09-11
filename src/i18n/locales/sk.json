@@ -1,2382 +1,600 @@
 {
-  "common": {
-    "loading": "Načítava sa…",
-    "save": "Uložiť",
-    "cancel": "Zrušiť",
-    "close": "Zavrieť",
-    "back": "Späť",
-    "open": "Otvoriť",
-    "search": "Hľadať",
-    "actions": "Akcie",
-    "yes": "Áno",
-    "no": "Nie",
-    "all": "Všetky",
-    "none": "Žiadne",
-    "language": "Jazyk",
-    "submit": "Odoslať",
-    "send": "Odoslať",
-    "confirm": "Potvrdiť",
-    "delete": "Vymazať",
-    "edit": "Upraviť",
-    "view": "Zobraziť",
-    "download": "Stiahnuť",
-    "upload": "Nahrať",
-    "next": "Ďalej",
-    "previous": "Späť",
-    "from": "Od",
-    "to": "Pre",
-    "amount": "Suma",
-    "date": "Dátum",
-    "status": "Stav",
-    "details": "Podrobnosti",
-    "optional": "voliteľné",
-    "required": "povinné",
-    "refresh": "Obnoviť",
-    "viewAll": "Zobraziť všetko",
-    "new": "Nové",
-    "saving": "Ukladá sa…",
-    "sending": "Odosielanie…",
-    "updating": "Aktualizácia…",
-    "loadError": "Chyba pri načítaní",
-    "sessionExpired": "Relácia vypršala z dôvodu nečinnosti",
-    "notFound": "Stránka sa nenašla",
-    "notFoundDesc": "Hľadaná stránka neexistuje alebo bola presunutá.",
-    "backHome": "Späť na domov",
-    "errorRetry": "Skúsiť znova",
-    "noResults": "Žiadne výsledky",
-    "continue": "Pokračovať"
-  },
-  "header": {
-    "myLoans": "Moje úvery",
-    "newLoan": "Požiadať o úver",
-    "dashboard": "Prehľad",
-    "admin": "Admin",
-    "settings": "Nastavenia",
-    "signOut": "Odhlásiť sa",
-    "signIn": "Prihlásiť sa",
-    "contact": "Kontakt",
-    "menu": "Menu"
-  },
-  "notifications": {
-    "title": "Upozornenia",
-    "empty": "Žiadne upozornenia",
-    "markAllRead": "Označiť všetky ako prečítané",
-    "pageTitle": "Všetky upozornenia",
-    "noLink": "Bez odkazu",
-    "allRead": "Všetko je prečítané",
-    "viewAll": "Zobraziť všetky upozornenia"
-  },
-  "auth": {
-    "title": "Zóna klienta",
-    "signIn": "Prihlásenie",
-    "signUp": "Vytvoriť účet",
-    "email": "E-mail",
-    "password": "Heslo",
-    "fullName": "Celé meno",
-    "phone": "Telefón",
-    "forgotPassword": "Zabudnuté heslo?",
-    "noAccount": "Ešte nemáte účet?",
-    "hasAccount": "Už máte účet?",
-    "createAccount": "Vytvoriť účet",
-    "loginSuccess": "Úspešné prihlásenie",
-    "signupSuccess": "Účet vytvorený · skontrolujte e-mail",
-    "backHome": "Späť na domov",
-    "brandBadge": "Bezpečná digitálna banka",
-    "creating": "Vytváranie účtu…",
-    "decision": "Rozhodnutie do 24 pracovných hodín",
-    "google": "Pokračovať s Google",
-    "googleError": "Prihlásenie cez Google zlyhalo",
-    "googleLoading": "Prihlasovanie cez Google…",
-    "minPasswordHint": "Minimálne 8 znakov.",
-    "mobileHint": "Prihláste sa alebo si vytvorte účet",
-    "rgpd": "V súlade s GDPR",
-    "signingIn": "Prihlasovanie…",
-    "terms": "Pokračovaním súhlasíte s našimi Podmienkami a Zásadami ochrany osobných údajov.",
-    "tls": "Šifrovanie TLS 1.3",
-    "welcomeDesc": "Bezpečný prístup k vašim úverom, prevodom a prémiovým službám.",
-    "welcomeTitle": "Vitajte v",
-    "nameShort": "Meno je príliš krátke",
-    "phoneInvalid": "Neplatné telefónne číslo",
-    "emailInvalid": "Neplatný e-mail",
-    "passwordMin": "Heslo musí mať aspoň 8 znakov",
-    "passwordRequired": "Heslo je povinné",
-    "invalidCredentials": "Neplatné prihlasovacie údaje",
-    "connectedToast": "Úspešne prihlásený",
-    "emailAlreadyUsed": "E-mail sa už používa",
-    "accountCreated": "Účet úspešne vytvorený",
-    "emailLabel": "E-mail",
-    "passwordLabel": "Heslo",
-    "fullNameLabel": "Celé meno",
-    "phoneLabel": "Telefón",
-    "tabSignin": "Prihlásenie",
-    "tabSignup": "Vytvoriť účet",
-    "forgotLink": "Zabudli ste heslo?",
-    "forgotTitle": "Obnoviť heslo",
-    "forgotDesc": "Zadajte e-mail. Pošleme vám bezpečný odkaz na nastavenie nového hesla.",
-    "forgotSend": "Odoslať odkaz",
-    "forgotSent": "Ak účet existuje, e-mail bol odoslaný.",
-    "resetTitle": "Nastaviť nové heslo",
-    "resetWaiting": "Overovanie odkazu…",
-    "resetSuccess": "Heslo bolo aktualizované.",
-    "newPassword": "Nové heslo",
-    "confirmNewPassword": "Potvrdiť heslo",
-    "updatePassword": "Aktualizovať heslo"
-  },
-  "dashboard": {
-    "title": "Môj prehľad",
-    "welcome": "Dobrý deň",
-    "balance": "Disponibilný zostatok",
-    "showBalance": "Zobraziť zostatok",
-    "hideBalance": "Skryť zostatok",
-    "newLoan": "Nový úver",
-    "withdraw": "Vybrať",
-    "transfer": "Vykonať prevod",
-    "myLoans": "Moje úvery",
-    "transferHistory": "História prevodov",
-    "noLoans": "Zatiaľ nemáte úver",
-    "startApplication": "Začať žiadosť",
-    "noTransfers": "Žiadne prevody",
-    "viewLoan": "Zobraziť spis",
-    "needHelp": "Potrebujete pomoc?",
-    "contactSupport": "Kontaktovať podporu",
-    "metaTitle": "Môj panel — MOONYPAS",
-    "sessionExpired": "Relácia vypršala z dôvodu nečinnosti",
-    "loadError": "Chyba pri načítaní",
-    "welcomeNamed": "Vitajte, {{name}}",
-    "welcomeAnon": "Vitajte",
-    "totalAvailable": "Celkový dostupný zostatok",
-    "fundedOutOf": "z {{amount}} financovaných",
-    "withdrawnAmount": "{{amount}} vybratých",
-    "newShort": "+ Nový",
-    "activeLoans": "Aktívne úvery",
-    "totalFunded": "Celkom financované",
-    "transfers": "Prevody",
-    "loading": "Načítavanie…",
-    "firstLoanTitle": "Začnite prvú žiadosť",
-    "firstLoanDesc": "Financujte projekty za pár minút: auto, rekonštrukcia, likvidita a iné.",
-    "apply": "Požiadať teraz",
-    "loanDurationCreated": "{{months}} mesiacov · Žiadosť z {{date}}",
-    "disbursedRemaining": "Vyplatené: {{disbursed}} · Zostatok: {{remaining}}",
-    "recentActivity": "Posledná aktivita",
-    "viewAll": "Zobraziť všetky",
-    "noRecentTransfers": "Zatiaľ žiadne prevody",
-    "status": {
-      "en_traitement": "Spracováva sa",
-      "envoye": "Odoslané",
-      "rejete": "Zamietnuté"
-    },
-    "welcomeShort": "Vitajte",
-    "myDashboard": "Môj prehľad",
-    "newRequest": "Nová žiadosť",
-    "fundedOf": "z {{amount}} financovaných",
-    "makeTransfer": "Vykonať prevod",
-    "transfersKpi": "Prevody",
-    "applyCta": "Podať žiadosť",
-    "monthsSince": "{{months}} mesiacov · Žiadosť z {{date}}",
-    "details": "Detaily",
-    "noTransfersYet": "Zatiaľ žiadne prevody"
-  },
-  "loanForm": {
-    "title": "Nová žiadosť o úver",
-    "subtitle": "Vyplňte formulár a priložte doklady.",
-    "fullName": "Celé meno",
-    "email": "E-mail",
-    "address": "Úplná poštová adresa",
-    "addressPlaceholder": "Začnite písať svoju adresu…",
-    "addressHint": "Vyberte návrh alebo zadajte celú adresu ručne.",
-    "addressRequired": "Uveďte prosím svoju úplnú poštovú adresu",
-    "amount": "Požadovaná suma (€)",
-    "duration": "Doba (mesiace)",
-    "monthlyIncome": "Mesačný čistý príjem (€)",
-    "purpose": "Účel úveru (voliteľné)",
-    "purposePlaceholder": "Rekonštrukcia, auto, osobný projekt…",
-    "documents": "Požadované doklady (max. 5, po 5 MB)",
-    "uploadHint": "Kliknite pre pridanie (PDF, JPG, PNG)",
-    "submit": "Odoslať žiadosť",
-    "submitting": "Odosielanie…",
-    "success": "Žiadosť odoslaná!",
-    "requiredDocs": "Doklady potrebné na posúdenie",
-    "requiredDocsHint": "Nahrajte čitateľné PDF, JPG alebo PNG súbory pre rýchlejšie schválenie.",
-    "doc1": "Platný doklad totožnosti alebo vodičský preukaz (obe strany) — alebo cestovný pas (iba predná strana)",
-    "doc2": "Aktuálne potvrdenie o adrese",
-    "doc3": "Posledné tri výplatné pásky alebo potvrdenie o príjme",
-    "doc4": "Posledný bankový výpis alebo IBAN na meno žiadateľa",
-    "back": "Späť",
-    "newRequestShort": "Nová žiadosť",
-    "newRequestDesc": "Podajte žiadosť o úver",
-    "amountMin": "Minimálne 500 €",
-    "amountMax": "Maximálne 100 000 €",
-    "fileTooLarge": "{{name}} presahuje 5 MB",
-    "createError": "Chyba pri vytváraní žiadosti",
-    "uploadFailed": "Nahrávanie zlyhalo: {{name}}",
-    "adminNotifTitle": "Nová žiadosť o úver",
-    "adminNotifMsg": "{{name}} žiada {{amount}} € na {{months}} mesiacov",
-    "successToast": "Vaša žiadosť bola úspešne odoslaná",
-    "loading": "Načítavanie…",
-    "docsRequiredExact": "Musíte nahrať presne {{count}} dokumentov.",
-    "uploadHintExact": "Nahrajte presne {{count}} dokumentov (PDF, JPG, PNG — max. 5 MB)."
-  },
-  "transfer": {
-    "title": "Vykonať prevod",
-    "subtitle": "Vyberte typ, zadajte údaje príjemcu a potvrďte.",
-    "kindInstant": "Okamžitý (SEPA Instant)",
-    "kindInstantHint": "Pripísané príjemcovi okamžite (24/7).",
-    "kindClassic": "Štandardný (SEPA)",
-    "kindClassicHint": "Pripísané do 1 pracovného dňa · možnosť plánovania.",
-    "sourceLoan": "Zdrojový úver",
-    "amount": "Suma (€)",
-    "available": "Disponibilný zostatok",
-    "beneficiary": "Príjemca",
-    "beneficiaryPlaceholder": "Meno a priezvisko",
-    "iban": "IBAN",
-    "bic": "BIC / SWIFT",
-    "bankName": "Banka",
-    "bankNamePlaceholder": "Názov banky",
-    "reference": "Referencia",
-    "referencePlaceholder": "Automaticky ak prázdne",
-    "schedule": "Naplánovať (voliteľné)",
-    "scheduleHint": "Nechajte prázdne pre nasledujúci pracovný deň.",
-    "reason": "Dôvod (voliteľné)",
-    "reasonPlaceholder": "Nájom, nákup, splátka…",
-    "secureInstant": "Šifrované údaje · okamžité vykonanie",
-    "secureClassic": "Šifrované údaje · 1 pracovný deň",
-    "executeInstant": "Vykonať prevod",
-    "confirmClassic": "Potvrdiť prevod",
-    "successInstant": "Okamžitý prevod vykonaný",
-    "successScheduled": "Prevod naplánovaný",
-    "successClassic": "Príkaz na prevod zaznamenaný",
-    "errorEmit": "Chyba pri vykonávaní",
-    "noLoanSelected": "Nie je vybraný úver",
-    "amountInvalid": "Neplatná suma",
-    "ibanInvalid": "Neplatný IBAN",
-    "bicInvalid": "Neplatný BIC/SWIFT",
-    "beneficiaryRequired": "Príjemca je povinný",
-    "bankRequired": "Banka je povinná",
-    "scheduleFuture": "Plánovaný dátum musí byť v budúcnosti"
-  },
-  "contact": {
-    "title": "Kontaktovať zákaznícky servis",
-    "subtitle": "Odpovedáme do 24 pracovných hodín · zaručená dôvernosť.",
-    "infoTitle": "Kontaktné údaje",
-    "phoneLabel": "Zákaznícky servis",
-    "phoneHours": "Po-Pia · 8h-20h",
-    "emailLabel": "E-mail",
-    "addressLabel": "Sídlo",
-    "secureNote": "Vaše správy sú šifrované a dôverne spracovávané naším tímom pre súlad.",
-    "formTitle": "Odoslať správu",
-    "fullName": "Celé meno",
-    "email": "E-mail",
-    "subject": "Predmet",
-    "message": "Správa",
-    "messagePlaceholder": "Podrobne opíšte svoju požiadavku…",
-    "send": "Odoslať správu",
-    "success": "Správa odoslaná · odpovieme do 24 hodín",
-    "error": "Odoslanie zlyhalo",
-    "subjects": {
-      "account": "Otázka o mojom účte",
-      "loan": "Otázka o úvere",
-      "transfer": "Problém s prevodom",
-      "complaint": "Sťažnosť",
-      "appointment": "Žiadosť o stretnutie",
-      "other": "Iné"
-    },
-    "metaTitle": "Kontakt — Zákaznícky servis MOONYP",
-    "metaDesc": "Kontaktujte zákaznícky servis MOONYP pre otázky o vašom účte, úveroch alebo prevodoch.",
-    "nameRequired": "Meno je povinné",
-    "emailInvalid": "Neplatný e-mail",
-    "messageTooShort": "Správa je príliš krátka (minimálne 10 znakov)",
-    "defaultNamePlaceholder": "Ján Novák",
-    "defaultEmailPlaceholder": "vy@priklad.sk",
-    "back": "Späť",
-    "phoneTitle": "Zákaznícka podpora",
-    "address": "103 avenue des Champs-Élysées",
-    "addressCity": "75008 Paríž, Francúzsko",
-    "sending": "Odosielanie…",
-    "successQueued": "Správa bola uložená. Ozveme sa čoskoro."
-  },
-  "admin": {
-    "title": "Admin prehľad",
-    "subtitle": "Prehľad bankovej aktivity.",
-    "kpis": {
-      "total": "Celkový počet žiadostí",
-      "pending": "Čakajúce",
-      "accepted": "Schválené",
-      "refused": "Zamietnuté"
-    },
-    "amounts": {
-      "requested": "Celková žiadaná suma",
-      "accepted": "Celková schválená suma",
-      "disbursed": "Vyplatené prostriedky"
-    },
-    "recent": {
-      "title": "Nedávna aktivita",
-      "empty": "Žiadna nedávna aktivita",
-      "open": "Otvoriť"
-    },
-    "quickActions": {
-      "title": "Rýchle akcie",
-      "subtitle": "Najprv spracujte čakajúce spisy.",
-      "toStudy": "Spisy na preskúmanie",
-      "signedContracts": "Podpísané zmluvy",
-      "manageClients": "Spravovať klientov"
-    },
-    "loansPage": {
-      "title": "Všetky úverové spisy",
-      "subtitle": "Podrobný a filtrovateľný prehľad.",
-      "client": "Klient",
-      "amount": "Suma",
-      "status": "Stav",
-      "date": "Dátum",
-      "documents": "Dok.",
-      "duration": "Trvanie"
-    },
-    "clientsPage": {
-      "title": "Klienti",
-      "subtitle": "Klientske účty a stav prístupu.",
-      "client": "Klient",
-      "phone": "Telefón",
-      "loans": "Úvery",
-      "totalBorrowed": "Celkom požičané",
-      "joined": "Registrovaný",
-      "status": "Stav",
-      "active": "Aktívny",
-      "blocked": "Zablokovaný"
-    },
-    "clientDetail": {
-      "title": "Profil klienta",
-      "personalInfo": "Osobné údaje",
-      "summary": "Zhrnutie",
-      "loans": "Úvery klienta",
-      "withdrawals": "Prevody",
-      "noLoans": "Tento klient zatiaľ nemá žiadne spisy.",
-      "noWithdrawals": "Žiadne prevody.",
-      "blockBtn": "Zablokovať účet",
-      "unblockBtn": "Odblokovať účet",
-      "blockTitle": "Zablokovať účet klienta",
-      "blockReason": "Dôvod zablokovania",
-      "blockReasonPlaceholder": "Napr.: podozrenie z podvodu, KYC nezhoda…",
-      "blockedSince": "Zablokované od",
-      "blockedReason": "Dôvod",
-      "confirm": "Potvrdiť"
-    },
-    "stages": {
-      "title": "Poplatky a kódy",
-      "planSaved": "Plán uložený",
-      "planFirst": "Najprv nastavte poplatky",
-      "codeSent": "Kód odoslaný pre fázu {{stage}}%",
-      "unlocked": "Odomknuté",
-      "codeSentBadge": "Kód odoslaný",
-      "fee": "Poplatok (€)",
-      "sentAt": "Odoslané",
-      "genAndSend": "Vygenerovať a odoslať",
-      "regenAndSend": "Znova vygenerovať a odoslať",
-      "savePlan": "Uložiť plán"
-    },
-    "transfer": {
-      "title": "Vykonať klientský prevod",
-      "subtitle": "Vytvorte okamžitý alebo štandardný prevod v mene klienta.",
-      "kind": "Typ prevodu",
-      "instant": "Okamžitý",
-      "instantHint": "Pripísané okamžite 24/7.",
-      "classic": "Štandardný",
-      "classicHint": "Pripísané do 1 pracovného dňa.",
-      "client": "Klient",
-      "selectClient": "Vybrať klienta",
-      "loan": "Zdrojový úver",
-      "selectLoan": "Vybrať úver",
-      "amount": "Suma (€)",
-      "beneficiary": "Príjemca",
-      "bankName": "Banka príjemcu",
-      "iban": "IBAN",
-      "bic": "BIC / SWIFT",
-      "reference": "Referencia",
-      "submit": "Vykonať prevod",
-      "success": "Prevod úspešne vykonaný",
-      "error": "Prevod sa nepodarilo vykonať"
-    }
-  },
-  "blocked": {
-    "title": "Účet pozastavený",
-    "message": "Váš účet bol dočasne pozastavený naším tímom pre súlad.",
-    "reasonLabel": "Dôvod",
-    "contact": "Pre viac informácií kontaktujte podporu.",
-    "signOut": "Odhlásiť sa"
-  },
-  "status": {
-    "en_attente": "Čakajúce",
-    "accepte": "Schválené",
-    "refuse": "Zamietnuté",
-    "contrat_envoye": "Zmluva odoslaná",
-    "contrat_signe": "Zmluva podpísaná",
-    "en_traitement": "Spracováva sa",
-    "fonds_disponibles": "Prostriedky dostupné",
-    "envoye": "Odoslané",
-    "rejete": "Zamietnuté"
-  },
-  "client": {
-    "stages": {
-      "title": "Prebiehajúce prevody",
-      "blockedTitle": "Prevod zablokovaný pri {{stage}}%",
-      "blockedDesc": "Poplatok: {{fee}}. Po overení dostanete kód.",
-      "codePlaceholder": "Odblokovací kód",
-      "unlock": "Odomknúť",
-      "enterCode": "Zadajte kód",
-      "invalidCode": "Neplatný kód",
-      "unlocked": "Fáza odomknutá",
-      "awaitCode": "Čaká sa na kód správcu",
-      "codeReceivedTitle": "Kód {{stage}}%",
-      "codeReceivedMsg": "Váš kód: {{code}} (poplatok {{fee}})"
-    }
-  },
-  "adminCodes": {
-    "title": "Odblokovacie kódy",
-    "help": "Spravujte kódy postupu prevodu.",
-    "step": "Krok",
-    "released": "Uvoľnené",
-    "fee": "Poplatok (€)",
-    "code": "Kód",
-    "generate": "Generovať",
-    "regenerate": "Regenerovať",
-    "send": "Odoslať",
-    "generateAndSend": "Generovať a odoslať",
-    "regenerateAndSend": "Regenerovať a odoslať",
-    "noCode": "Žiadny kód",
-    "created": "Kód vytvorený",
-    "updated": "Kód aktualizovaný",
-    "error": "Chyba",
-    "success": "Úspech",
-    "sectionTitle": "Konfigurácia krokov prevodu",
-    "sectionHelp": "Nastavte poplatky a platobnú adresu pre každý krok, overte potvrdenku a odošlite kód.",
-    "gatedTitle": "Konfigurácia je uzamknutá",
-    "gatedDesc": "Konfigurácia bude dostupná po schválení úveru.",
-    "address": "Platobná adresa",
-    "saved": "Konfigurácia uložená",
-    "invalidFee": "Neplatný poplatok",
-    "codeSent": "Kód vygenerovaný a odoslaný",
-    "consumed": "Použité",
-    "receiptUploaded": "Potvrdenka nahraná",
-    "pending": "Čaká",
-    "approved": "Schválené",
-    "rejected": "Zamietnuté",
-    "approve": "Schváliť",
-    "reject": "Zamietnuť",
-    "receiptApproved": "Potvrdenka schválená",
-    "receiptRejected": "Potvrdenka zamietnutá",
-    "invalidates": "Regenerácia automaticky zruší platnosť predchádzajúceho kódu.",
-    "notifTitle": "Odblokovací kód {{p}}%",
-    "notifMsg": "Váš kód: {{code}} (poplatok {{fee}})",
-    "notifApprovedTitle": "Potvrdenka schválená — krok {{p}}%",
-    "notifApprovedMsg": "Vaša platba bola overená. Kód bude odoslaný.",
-    "notifRejectedTitle": "Potvrdenka zamietnutá — krok {{p}}%",
-    "notifRejectedMsg": "Pošlite prosím platnú potvrdenku.",
-    "holder": "Držiteľ účtu",
-    "iban": "IBAN",
-    "bic": "BIC / SWIFT",
-    "description": "Účel / Popis"
-  },
-  "transferSteps": {
-    "title": "Bezpečný prevod",
-    "subtitle": "Bankový postup v 3 krokoch: 63% · 88% · 100%.",
-    "progress": "Postup",
-    "completed": "Prevod dokončený",
-    "completedDesc": "Prostriedky boli pripísané príjemcovi.",
-    "blockedTitle": "Prevod zablokovaný na {{p}}%",
-    "blockedDesc": "Z dôvodu bankovej zhody si odblokovanie kroku {{p}}% vyžaduje úhradu poplatku a overenie potvrdenky.",
-    "awaitingConfig": "Konfigurácia prebieha",
-    "awaitingConfigDesc": "Náš tím dokončuje tento krok. Budete informovaní.",
-    "feeFor": "Poplatok krok {{p}}%",
-    "paymentAddress": "Platobná adresa",
-    "paymentHelp": "Uhraďte na túto adresu a nahrajte potvrdenku.",
-    "receipt": "Platobná potvrdenka",
-    "receiptPending": "Čaká na overenie",
-    "receiptApproved": "Schválené",
-    "receiptRejected": "Zamietnuté — pošlite znova",
-    "uploadReceipt": "Nahrať potvrdenku",
-    "replaceReceipt": "Nahradiť potvrdenku",
-    "receiptSent": "Potvrdenka odoslaná na overenie",
-    "fileTooBig": "Súbor je príliš veľký (max. 10 MB)",
-    "enterCode": "Zadajte odblokovací kód",
-    "unlock": "Odblokovať krok {{p}}%",
-    "awaitingCode": "Čaká sa na kód",
-    "awaitingCodeDesc": "Kód bude odoslaný po overení potvrdenky administrátorom.",
-    "invalidCode": "Neplatný kód",
-    "advanced": "Krok {{p}}% odblokovaný",
-    "successFinal": "Prevod úspešne dokončený",
-    "notifAdminTitle": "Prijatá potvrdenka — krok {{p}}%",
-    "notifAdminMsg": "Klient nahral potvrdenku na overenie.",
-    "stepNotReached": "Etapa ešte nedosiahnutá"
-  },
-  "transfersPage": {
-    "metaTitle": "Moje prevody — MOONYP",
-    "eyebrow": "Zóna prevodov",
-    "title": "Moje prevody",
-    "subtitle": "Sledovanie SEPA prevodov, krokov súladu a potvrdeniek.",
-    "newTransfer": "Nový prevod",
-    "beneficiary": "Príjemca:",
-    "issuedAt": "Vydané {{date}}",
-    "reference": "ref. {{reference}}",
-    "emptyTitle": "Žiadne prevody",
-    "emptyDesc": "Vaše prevody sa zobrazia po vytvorení.",
-    "filters": {
-      "all": "Všetky",
-      "active": "Prebiehajúce",
-      "blocked": "Blokované",
-      "done": "Dokončené"
-    },
-    "status": {
-      "final": "Potvrdené",
-      "rejected": "Zamietnuté",
-      "blocked": "Vyžaduje overenie",
-      "processing": "Bankové spracovanie"
-    }
-  },
-  "landing": {
-    "metaTitle": "MOONYP — Okamžité online pôžičky",
-    "metaDesc": "Financujte svoje projekty s dôverou. Rýchle osobné pôžičky od 1 000 € do 50 000 €. Rozhodnutie do 24h, prostriedky do 72h.",
-    "badge": "Rozhodnutie do 24 hodín",
-    "heroTitleA": "Financujte svoje projekty",
-    "heroTitleB": "s dôverou.",
-    "heroDesc": "MOONYP patrí k najlepšej generácii európskych bánk ponúkajúcich rýchle, transparentné a bezpečné osobné pôžičky.",
-    "ctaPrimary": "Požiadať o pôžičku",
-    "ctaSecondary": "Simulovať moju pôžičku",
-    "trust1": "Šifrované údaje",
-    "trust2": "100% bezpečné",
-    "trust3": "Bez skrytých poplatkov",
-    "values": {
-      "response": {
-        "title": "Odpoveď do 24h",
-        "desc": "Náš tím expertov rýchlo posúdi vašu žiadosť. Žiadne nekonečné čakanie."
-      },
-      "secure": {
-        "title": "100% Bezpečné",
-        "desc": "Vaše údaje sú šifrované od konca po koniec. Dodržiavame najprísnejšie bankové štandardy."
-      },
-      "nofees": {
-        "title": "Bez skrytých poplatkov",
-        "desc": "Uvedená sadzba je aplikovaná sadzba. Žiadne prekvapenia pri splátkach."
-      }
-    },
-    "how": {
-      "title": "Ako to funguje?",
-      "s1t": "Simulujte pôžičku",
-      "s1d": "Vyberte vhodnú sumu a dobu splácania. Okamžite vypočítame odhadovanú mesačnú splátku.",
-      "s2t": "Doplňte žiadosť",
-      "s2d": "Vyplňte formulár za 5 minút a nahrajte doklady (občiansky preukaz, doklad o bydlisku, výplatné pásky).",
-      "s3t": "Podpíšte zmluvu",
-      "s3d": "Po schválení naším tímom podpíšte zmluvu elektronicky a bezpečne.",
-      "s4t": "Prijmite prostriedky",
-      "s4d": "Po uplynutí zákonnej lehoty sú prostriedky dostupné vo vašej peňaženke MOONYP, pripravené na výber."
-    },
-    "partners": {
-      "eyebrow": "Naše partnerské banky",
-      "title": "Dôveryhodná bankovná sieť",
-      "desc": "Spolupracujeme s hlavnými európskymi finančnými inštitúciami pre rýchle a bezpečné prevody."
-    },
-    "finalCta": {
-      "title": "Pripravení uskutočniť svoje projekty?",
-      "desc": "Žiadosť podáte za pár minút – bez účtu a bez papierovania.",
-      "button": "Začať žiadosť"
-    },
-    "footer": {
-      "rights": "Všetky práva vyhradené.",
-      "legal": "Úver vás zaväzuje a musí byť splatený. Pred záväzkom si overte schopnosť splácania."
-    },
-    "slides": {
-      "s1t": "Bankovníctvo navrhnuté pre vás",
-      "s1d": "Žiadosť za pár minút, bez účtu a papierovania.",
-      "s2t": "Spravujte svoje financie v reálnom čase",
-      "s2d": "Prehľadný panel, analýzy a inteligentné upozornenia.",
-      "s3t": "Vaša banka vo vrecku",
-      "s3d": "Bezpečná mobilná aplikácia dostupná 24/7.",
-      "s4t": "Bezpečnosť na bankovej úrovni",
-      "s4d": "Šifrovanie z konca na koniec a silná autentifikácia."
-    },
-    "kpis": {
-      "clients": "Aktívni klienti",
-      "countries": "Krajiny",
-      "assets": "Spravované aktíva",
-      "uptime": "Dostupnosť"
-    },
-    "security": {
-      "eyebrow": "Bezpečnosť a súlad",
-      "title": "Špičková banková ochrana",
-      "desc": "Naše systémy spĺňajú najprísnejšie európske bankové štandardy.",
-      "f1t": "Šifrovanie AES-256",
-      "f1d": "Vaše údaje sú chránené vojenským štandardom.",
-      "f2t": "Súlad s PSD2 a GDPR",
-      "f2d": "Európske predpisy sa prísne uplatňujú.",
-      "f3t": "Silná autentifikácia",
-      "f3d": "Dvojstupňová validácia pre každú citlivú operáciu.",
-      "f4t": "Podpora 24/7",
-      "f4d": "Dedikovaní poradcovia dostupní kedykoľvek."
-    },
-    "testi": {
-      "eyebrow": "Referencie",
-      "title": "Dôverujú nám",
-      "t1n": "Marie Dubois",
-      "t1r": "Finančná riaditeľka",
-      "t1q": "Plynulý a profesionálny bankový zážitok. Podpora je výnimočná.",
-      "t2n": "Jean Martin",
-      "t2r": "Podnikateľ",
-      "t2q": "Medzinárodné prevody sú rýchle a bezpečnosť je bezchybná.",
-      "t3n": "Sophie Laurent",
-      "t3r": "Advokátka",
-      "t3q": "Konečne digitálna banka, ktorá spája jednoduchosť s inštitucionálnou vážnosťou."
-    },
-    "mobile": {
-      "eyebrow": "Mobilná aplikácia",
-      "title": "Celá vaša banka na dlani",
-      "desc": "Sledujte žiadosť, nahrajte dokumenty a podpíšte zmluvu z telefónu.",
-      "b1": "Sledovanie transakcií v reálnom čase",
-      "b2": "Okamžité medzinárodné prevody",
-      "b3": "Biometria Face ID a odtlačok prsta"
-    },
-    "faq": {
-      "title": "Často kladené otázky",
-      "q1": "Musím si vytvoriť účet?",
-      "a1": "Nie. Podáte žiadosť a sledujete ju cez bezpečný odkaz zaslaný e-mailom.",
-      "q2": "Aké sú poplatky?",
-      "a2": "Náš štandardný plán nemá skryté poplatky. Bežné operácie sú zadarmo.",
-      "q3": "Sú moje prostriedky chránené?",
-      "a3": "Vklady sú zaručené do 100 000 € Fondom ochrany vkladov.",
-      "q4": "Ako kontaktovať podporu?",
-      "a4": "Náš tím je k dispozícii 24/7 cez zabezpečený chat, e-mail alebo telefón."
-    }
-  },
-  "transferProcess": {
-    "progress": "Bezpečný postup",
-    "rejectedBadge": "Prevod zamietnutý",
-    "validatedBadge": "Prevod potvrdený",
-    "complianceBadge": "Kontrola súladu",
-    "processingBadge": "Bankové spracovanie",
-    "rejectedTitle": "Tento prevod bol zamietnutý",
-    "rejectedDesc": "Prostriedky boli automaticky pripísané späť na váš účet.",
-    "finalTitle": "Prevod úspešne vykonaný",
-    "finalDesc": "Príjemca dostane prostriedky v štandardnej medzibankovej lehote.",
-    "animatingTitle": "Bankové smerovanie prebieha",
-    "animatingDesc": "Váš prevod prechádza našimi zabezpečenými kanálmi. Nie je potrebná žiadna akcia.",
-    "blockedTitle": "Vyžaduje sa kontrola súladu",
-    "blockedDesc": "Na dokončenie tohto kroku uhradte nižšie uvedený poplatok za súlad a zadajte prijatý kód.",
-    "configTitle": "Konfigurácia prebieha",
-    "configDesc": "Poradca MOONYPPARIBAS pripravuje platbu za súlad. Pokyny dostanete čoskoro.",
-    "fee": "Splatný poplatok za súlad",
-    "bankOrder": "Bankové údaje MOONYP",
-    "accountHolder": "Majiteľ účtu",
-    "reason": "Dôvod prevodu",
-    "receiptLabel": "Doklad o platbe",
-    "receiptPending": "Prebieha kontrola",
-    "receiptApproved": "Schválené",
-    "receiptRejected": "Zamietnuté",
-    "replaceReceipt": "Nahradiť potvrdenku",
-    "uploadReceipt": "Nahrať potvrdenku",
-    "unlockCodeReceived": "Odblokovací kód prijatý",
-    "codePlaceholder": "Zadajte kód (napr. ABC-1234)",
-    "validateAndContinue": "Potvrdiť a pokračovať",
-    "waitingCodeTitle": "Čaká sa na odblokovací kód",
-    "waitingCodeDesc": "Po overení potvrdenky vám poradca pošle 6-miestny kód.",
-    "fileTooBig": "Súbor presahuje 10 MB.",
-    "invalidCode": "Neplatný alebo už použitý kód.",
-    "successFinal": "Prevod dokončený.",
-    "advanced": "Krok potvrdený.",
-    "copied": "{{label}} skopírované do schránky.",
-    "receiptSent": "Potvrdenka odoslaná poradcovi.",
-    "adminValidationTitle": "Prevod čaká na overenie",
-    "adminValidationMessage": "Klient dosiahol krok súladu a čaká na uvoľnenie kódu.",
-    "adminReceiptTitle": "Nová potvrdenka na kontrolu",
-    "adminReceiptMessage": "Klient nahral potvrdenku o platbe za súlad."
-  },
-  "transferStepDialog": {
-    "title": "Krok súladu",
-    "subtitle": "Sledujte postup a bezpečne potvrďte každý míľnik."
-  },
-  "transferDetail": {
-    "metaTitle": "Detail prevodu — MOONYP",
-    "backAll": "Všetky prevody",
-    "header": "MOONYP · Príkaz na prevod",
-    "amount": "Suma",
-    "beneficiary": "Príjemca",
-    "bank": "Banka",
-    "reference": "Referencia",
-    "iban": "IBAN",
-    "bic": "BIC",
-    "issuedAt": "Vydané",
-    "tracking": "Sledovanie prevodu",
-    "history": "História",
-    "notFound": "Prevod sa nenašiel.",
-    "badge": {
-      "validated": "Prevod potvrdený",
-      "rejected": "Prevod zamietnutý",
-      "compliance": "Kontrola súladu",
-      "processing": "Bankové spracovanie"
-    },
-    "rejected": {
-      "title": "Tento prevod bol zamietnutý",
-      "desc": "Prostriedky boli automaticky pripísané späť na váš účet MOONYP.",
-      "reason": "Dôvod"
-    },
-    "timeline": {
-      "issued": "Príkaz na prevod vydaný",
-      "issuedDesc": "Pre {{beneficiary}} ({{amount}})",
-      "compliance": "Krok súladu potvrdený",
-      "complianceDesc": "Odblokovací kód úspešne zadaný.",
-      "enhanced": "Rozšírené overenie potvrdené",
-      "enhancedDesc": "Prevod pokračuje k príjemcovi.",
-      "executed": "Prevod vykonaný",
-      "executedDesc": "Prostriedky boli pripísané.",
-      "rejected": "Prevod zamietnutý",
-      "rejectedDesc": "Zostatok bol automaticky pripísaný späť.",
-      "now": "Práve teraz"
-    },
-    "receipt": {
-      "title": "Bankový doklad dostupný",
-      "desc": "Stiahnite si oficiálne zhrnutie MOONYP k tomuto príkazu na prevod.",
-      "download": "Stiahnuť doklad"
-    }
-  },
-  "receipt": {
-    "metaTitle": "Doklad o prevode — MOONYP",
-    "download": "Stiahnuť PDF",
-    "subBrand": "Together we thrive",
-    "documentLabel": "Oficiálny dokument",
-    "documentTitle": "Doklad o prevode",
-    "title": "Bankový doklad o prevode",
-    "subtitle": "Vydané {{date}}",
-    "amount": "Prevedená suma",
-    "statusExecuted": "Prevod vykonaný",
-    "statusPending": "Prevod sa spracováva",
-    "beneficiary": "Príjemca",
-    "bank": "Banka príjemcu",
-    "iban": "IBAN",
-    "bic": "BIC / SWIFT",
-    "reference": "Referencia",
-    "issuedAt": "Dátum vydania",
-    "footerSecurity": "Dokument vygenerovaný zabezpečenými systémami MOONYP.",
-    "footerLegal": "Tento doklad potvrdzuje bankovú operáciu a môže byť predložený príslušnému orgánu.",
-    "generating": "Generuje sa PDF…",
-    "downloaded": "Doklad úspešne stiahnutý",
-    "downloadError": "Doklad sa nepodarilo stiahnuť",
-    "sessionExpired": "Relácia vypršala. Prihláste sa znova.",
-    "serverSessionExpired": "Relácia vypršala. Prihláste sa znova.",
-    "serverNotFound": "Prevod sa nenašiel",
-    "serverUnauthorized": "Neoprávnený prístup k tomuto potvrdeniu",
-    "serverUnavailable": "Potvrdenie je dostupné až po overení prevodu",
-    "serverSubtitle": "Oficiálne bankové potvrdenie",
-    "serverSecure": "Zabezpečený dokument",
-    "serverTitle": "Potvrdenie o prevode",
-    "serverIssued": "Vystavené dňa {{date}}",
-    "serverAmount": "Prevedená suma",
-    "serverStatus": "Status",
-    "serverExecuted": "Prevod vykonaný",
-    "serverBeneficiary": "Príjemca",
-    "serverBank": "Banka príjemcu",
-    "serverIban": "IBAN",
-    "serverBic": "BIC / SWIFT",
-    "serverReference": "Referencia",
-    "serverExecutedAt": "Dátum vykonania",
-    "serverSecurity": "Dokument vygenerovaný zabezpečenými systémami MOONYP.",
-    "serverLegal": "Tento doklad slúži ako potvrdenie bankovej operácie a možno ho predložiť ktorémukoľvek príslušnému orgánu."
-  },
-  "notif": {
-    "transfer": {
-      "instantTitle": "Prijatý okamžitý prevod",
-      "classicTitle": "Prevod prebieha",
-      "instantMsg": "{{amount}} pripísané na účet {{iban4}}…{{ibanLast}} (ref. {{ref}})",
-      "classicMsg": "Bol spustený štandardný prevod {{amount}} (pripísanie do 1 pracovného dňa, ref. {{ref}})",
-      "adminInitTitle": "Nový prevod spustený",
-      "adminInitMsg": "{{amount}} → {{beneficiary}} (ref. {{ref}})"
-    },
-    "transferProcess": {
-      "adminValidationTitle": "Potvrdenie na overenie",
-      "adminValidationMsg": "Klient nahral potvrdenie o platbe na overenie.",
-      "adminReceiptTitle": "Prijaté nové potvrdenie",
-      "adminReceiptMsg": "Bolo nahrané nové potvrdenie o platbe poplatku."
-    },
-    "adminCodes": {
-      "codeTitle": "Odblokovací kód {{p}}%",
-      "codeMsg": "Váš kód: {{code}} (poplatok {{fee}})",
-      "rejectedTitle": "Potvrdenie zamietnuté",
-      "rejectedMsg": "Nahrajte platné potvrdenie.",
-      "manualCodeTitle": "Odblokovací kód {{p}}%",
-      "manualCodeMsg": "Váš odblokovací kód je: {{code}}"
-    },
-    "loan": {
-      "newRequestAdminTitle": "Nová žiadosť o úver",
-      "newRequestAdminMsg": "{{name}} žiada {{amount}} € na {{months}} mesiacov",
-      "statusTitle": "Stav vašej žiadosti bol aktualizovaný",
-      "statusMsg": "Vaša žiadosť o {{amount}} je teraz: $t(status.{{statusKey}})",
-      "signedReceivedTitle": "Prijatá podpísaná zmluva",
-      "signedReceivedMsg": "{{name}} podpísal zmluvu (žiadosť {{id}})"
-    },
-    "withdrawal": {
-      "sentTitle": "Prevod vykonaný",
-      "sentMsg": "{{amount}} bolo odoslaných na {{iban4}}…{{ibanLast}} (ref. {{ref}})",
-      "rejectedTitle": "Prevod zamietnutý · prostriedky vrátené",
-      "rejectedMsg": "Váš prevod {{amount}} bol zamietnutý. Zostatok bol automaticky vrátený."
-    }
-  },
-  "settings": {
-    "metaTitle": "Nastavenia — MOONYP",
-    "title": "Nastavenia",
-    "subtitleDesktop": "Spravujte svoje osobné údaje a bezpečnosť",
-    "subtitleMobile": "Spravujte svoj účet a bezpečnosť",
-    "profile": "Profile",
-    "fullName": "Celé meno",
-    "phone": "Telefón",
-    "currentEmail": "Aktuálny e-mail",
-    "saveProfile": "Uložiť profil",
-    "emailSection": "E-mailová adresa",
-    "newEmail": "Nová e-mailová adresa",
-    "emailHint": "Na novú adresu bude odoslaný potvrdzovací e-mail.",
-    "updateEmail": "Aktualizovať e-mail",
-    "passwordSection": "Password",
-    "currentPassword": "Aktuálne heslo",
-    "newPassword": "Nové heslo",
-    "confirmPassword": "Potvrdiť",
-    "changePassword": "Zmeniť heslo",
-    "adminAccount": "Účet administrátora",
-    "adminDesc": "Máte oprávnenia na správu klientskych spisov a operácií.",
-    "loadProfileError": "Nie je možné načítať profil",
-    "saveError": "Chyba pri ukladaní",
-    "profileUpdated": "Profil aktualizovaný",
-    "emailUpdated": "E-mail aktualizovaný. Skontrolujte schránku pre potvrdenie.",
-    "passwordTooShort": "Heslo musí mať aspoň 8 znakov",
-    "passwordMismatch": "Heslá sa nezhodujú",
-    "currentPasswordWrong": "Aktuálne heslo je nesprávne",
-    "passwordUpdated": "Heslo aktualizované",
-    "back": "Späť",
-    "accessAdmin": "Otvoriť admin panel",
-    "goBack": "Späť",
-    "languageSection": "Jazyk",
-    "languageDesc": "Vyberte jazyk rozhrania. Vaša voľba sa uloží a synchronizuje s vaším účtom.",
-    "languageSaved": "Jazyk aktualizovaný"
-  },
-  "loanDetail": {
-    "metaTitle": "Detail pôžičky — MOONYP",
-    "downloadImpossible": "Stiahnutie nie je dostupné",
-    "contractGenerating": "Generuje sa PDF zmluva…",
-    "sessionExpired": "Relácia vypršala. Prihláste sa znova.",
-    "contractDownloaded": "Zmluva stiahnutá",
-    "generationImpossible": "Generovanie zlyhalo: {{message}}",
-    "unknownError": "Neznáma chyba",
-    "fileTooHeavy": "Súbor je príliš veľký (max. 10 MB)",
-    "uploadFailed": "Nahrávanie zlyhalo",
-    "updateError": "Chyba aktualizácie",
-    "signedSent": "Podpísaná zmluva odoslaná!",
-    "signedReceivedTitle": "Prijatá podpísaná zmluva",
-    "signedReceivedMessage": "{{name}} podpísal/a zmluvu (žiadosť {{id}})",
-    "loading": "Načítava sa…",
-    "notFound": "Úver sa nenašiel",
-    "back": "Späť na moje úvery",
-    "fileNumber": "Spis #{{id}}",
-    "title": "Detail úveru",
-    "refusedTitle": "Žiadosť zamietnutá",
-    "refusedDesc": "Po preskúmaní vašej žiadosti, žiaľ, nemôžeme vyhovieť vašej žiadosti o financovanie.",
-    "reason": "Dôvod",
-    "summaryTitle": "Súhrn žiadosti",
-    "amount": "Suma",
-    "duration": "Doba",
-    "durationMonths": "{{count}} mesiacov",
-    "monthlyPayment": "Odhadovaná mesačná splátka",
-    "monthlyIncome": "Mesačný príjem",
-    "purpose": "Účel",
-    "documentsTitle": "Poskytnuté dokumenty",
-    "addedOn": "Pridané dňa {{date}}",
-    "availableBalance": "Dostupný zostatok",
-    "alreadyWithdrawn": "Už vybraté: {{withdrawn}} z {{total}}",
-    "makeTransfer": "Vykonať prevod",
-    "contractTitle": "Zmluva",
-    "downloadContract": "Stiahnuť zmluvu",
-    "signInstruction": "Podpíšte zmluvu a nahrajte ju nižšie na overenie.",
-    "sendSignedContract": "Odoslať podpísanú zmluvu",
-    "signedContractReceived": "Prijatá podpísaná zmluva",
-    "historyTitle": "História akcií",
-    "noAction": "Zatiaľ žiadna akcia.",
-    "requestSubmitted": "Žiadosť odoslaná",
-    "requestRefused": "Žiadosť zamietnutá",
-    "withdraw": "Vybrať",
-    "details": "Details",
-    "loanDescription": {
-      "en_attente": "Vaša žiadosť sa posudzuje",
-      "accepte": "Vaša žiadosť bola schválená",
-      "refuse": "Žiadosť neúspešná",
-      "contrat_envoye": "Zmluva bola odoslaná na podpis",
-      "contrat_signe": "Prijatá podpísaná zmluva, uvoľnenie sa pripravuje",
-      "en_traitement": "Sprístupnenie prostriedkov do 72 hodín",
-      "fonds_disponibles": "Vaše prostriedky sú k dispozícii"
-    },
-    "steps": {
-      "en_attente": "Žiadosť odoslaná",
-      "accepte": "Schválené",
-      "contrat_envoye": "Zmluva odoslaná",
-      "contrat_signe": "Zmluva podpísaná",
-      "en_traitement": "Spracováva sa",
-      "fonds_disponibles": "Prostriedky k dispozícii"
-    }
-  },
-  "nav": {
-    "home": "Domov",
-    "transfers": "Prevody",
-    "request": "Žiadosť",
-    "primary": "Hlavná navigácia",
-    "support": "Podpora",
-    "apply": "Požiadať",
-    "language": "Jazyk",
-    "menu": "Menu",
-    "solutions": "Riešenia",
-    "simulation": "Kalkulačka",
-    "contact": "Kontakt",
-    "about": "O nás"
-  },
-  "mobileHome": {
-    "title": "Vitajte v MOONYP",
-    "subtitle": "Vaša banka, vo vašom vrecku.",
-    "description": "Spravujte svoje úvery, prevody a účty bezpečne, kdekoľvek ste.",
-    "cta": "Začať",
-    "tagline": "Európska banková bezpečnosť",
-    "feature1": "Bezpečné",
-    "feature2": "Šifrovanie end-to-end",
-    "feature3": "Prémiový zážitok"
-  },
-  "authPending": {
-    "title": "Skontrolujte e-mail",
-    "description": "Odoslali sme potvrdzovací odkaz.",
-    "instruction": "Kliknite na odkaz na aktiváciu účtu.",
-    "loading": "Čakanie na potvrdenie...",
-    "footer": "Nikdy nezdieľajte svoje údaje."
-  },
-  "password": {
-    "show": "Zobraziť heslo",
-    "hide": "Skryť heslo",
-    "veryWeak": "Veľmi slabé",
-    "weak": "Slabé",
-    "fair": "Priemerné",
-    "good": "Dobré",
-    "strong": "Silné",
-    "excellent": "Vynikajúce",
-    "ruleLength": "Aspoň 10 znakov",
-    "ruleUpper": "Veľké písmeno",
-    "ruleLower": "Malé písmeno",
-    "ruleDigit": "Číslica",
-    "ruleSpecial": "Špeciálny znak",
-    "notStrong": "Heslo nespĺňa všetky bezpečnostné pravidlá."
-  },
-  "livechat": {
-    "open": "Otvoriť chat",
-    "close": "Zavrieť",
-    "title": "MOONYP poradca",
-    "online": "Online",
-    "placeholder": "Napíšte správu…",
-    "greeting": "Dobrý deň 👋! Ako vám môžem pomôcť?",
-    "faq": {
-      "loan": "Pre žiadosť o úver vyberte „Nový úver\" na nástenke. Rozhodnutie do 24 h, prostriedky do 72 h.",
-      "password": "Heslo môžete obnoviť na prihlasovacej stránke cez „Zabudli ste heslo?\".",
-      "transfer": "Vaše prevody nájdete v sekcii „Prevody\" na nástenke.",
-      "contact": "Tím je dostupný na +39 350 036 6867 alebo cez stránku Kontakt.",
-      "thanks": "Rado sa stalo! Pokojne sa pýtajte ďalej.",
-      "default": "Poradca MOONYP sa vám čoskoro ozve. Kontaktovať nás môžete aj cez stránku Kontakt."
-    }
-  },
-  "legal": {
-    "badge": "Právne",
-    "lastUpdated": "Posledná aktualizácia",
-    "home": "Domov",
-    "privacy": {
-      "title": "Zásady ochrany súkromia",
-      "subtitle": "Vaše súkromie je základom dôvery v banku.",
-      "sections": [
-        {
-          "h": "1. Zbierané údaje",
-          "p": "Identita, kontakt, finančné, technické a behaviorálne údaje."
-        },
-        {
-          "h": "2. Účely",
-          "p": "Vedenie účtu, posúdenie úveru, prevencia podvodov a prania."
-        },
-        {
-          "h": "3. Právny základ (GDPR)",
-          "p": "Zmluva, oprávnený záujem, zákonná povinnosť, súhlas."
-        },
-        {
-          "h": "4. Zdieľanie",
-          "p": "Iba s preverenými spracovateľmi a orgánmi."
-        },
-        {
-          "h": "5. Uchovávanie",
-          "p": "Účet: vzťah + 10 rokov. Logy: 24 mesiacov."
-        },
-        {
-          "h": "6. Vaše práva",
-          "p": "Prístup, oprava, výmaz, obmedzenie, prenosnosť, námietka."
-        },
-        {
-          "h": "7. Bezpečnosť",
-          "p": "TLS, fingerprint, detekcia anomálií, MFA, 24/7 reakcia."
-        }
-      ]
-    },
-    "terms": {
-      "title": "Obchodné podmienky",
-      "subtitle": "Používaním MOONYP súhlasíte s týmito podmienkami.",
-      "sections": [
-        {
-          "h": "1. Podmienky",
-          "p": "Min. 18 rokov, rezident povolenej krajiny."
-        },
-        {
-          "h": "2. Účet",
-          "p": "Pravdivé údaje a dôverné prihlásenia."
-        },
-        {
-          "h": "3. Prijateľné použitie",
-          "p": "Bez podvodov, prania, financovania terorizmu."
-        },
-        {
-          "h": "4. Poplatky",
-          "p": "Zobrazené pred operáciou; zmeny s 30 dní vopred."
-        },
-        {
-          "h": "5. Zodpovednosť",
-          "p": "Priame škody pri hrubej nedbanlivosti."
-        },
-        {
-          "h": "6. Pozastavenie",
-          "p": "Okamžité pri podozrení."
-        },
-        {
-          "h": "7. Právny poriadok",
-          "p": "Francúzske právo s ochranou spotrebiteľa."
-        }
-      ]
-    },
-    "cookies": {
-      "title": "Politika cookies",
-      "sections": [
-        {
-          "h": "Čo používame",
-          "list": [
-            "<strong>Nevyhnutné</strong>",
-            "<strong>Funkčné</strong>",
-            "<strong>Bezpečnostné</strong>",
-            "<strong>Analytické</strong> — len so súhlasom."
-          ]
-        },
-        {
-          "h": "Správa",
-          "p": "Cookies môžete vymazať v prehliadači."
-        }
-      ]
-    },
-    "mentions": {
-      "title": "Právne oznámenia",
-      "sections": [
-        {
-          "h": "Vydavateľ",
-          "p": "MOONYP — SAS, kapitál 1 000 000 EUR — sídlo: 1 Centenary Square, Birmingham, Spojené kráľovstvo."
-        },
-        {
-          "h": "Riaditeľ",
-          "p": "Compliance MOONYP."
-        },
-        {
-          "h": "Hosting",
-          "p": "Cloudflare Workers — San Francisco, USA."
-        },
-        {
-          "h": "Kontakt",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
-        },
-        {
-          "h": "Duševné vlastníctvo",
-          "p": "Značky a obsah patria MOONYP."
-        }
-      ]
-    },
-    "amlKyc": {
-      "title": "AML / KYC politika",
-      "sections": [
-        {
-          "h": "Záväzok",
-          "p": "Nulová tolerancia voči praniu a financovaniu terorizmu."
-        },
-        {
-          "h": "Dôkladná identifikácia",
-          "p": "Identita, adresa, zdroj prostriedkov, sústavný monitoring."
-        },
-        {
-          "h": "Zvýšená",
-          "p": "PEP, vysokorizikové krajiny."
-        },
-        {
-          "h": "Sankcie",
-          "p": "Skríning voči zoznamom EÚ, OSN, OFAC, UK."
-        },
-        {
-          "h": "Hlásenia",
-          "p": "Hlásenia FIU; zákaz tipping-off."
-        },
-        {
-          "h": "Školenie",
-          "p": "Ročné školenie; nezávislý MLRO."
-        }
-      ]
-    },
-    "finPriv": {
-      "title": "Finančné súkromie a bezpečnosť",
-      "sections": [
-        {
-          "h": "Ochrana peňazí",
-          "p": "TLS 1.3, AES-256, HSM, oddelené prostriedky klientov."
-        },
-        {
-          "h": "Autentifikácia",
-          "p": "SCA PSD2: heslo + zariadenie + OTP."
-        },
-        {
-          "h": "Monitorovanie",
-          "p": "24/7 detekcia anomálií."
-        },
-        {
-          "h": "Dôvernosť",
-          "p": "Bankové tajomstvo."
-        },
-        {
-          "h": "Vaša rola",
-          "p": "Chráňte prihlásenia, registrujte dôveryhodné zariadenia."
-        }
-      ]
-    },
-    "loanTerms": {
-      "title": "Podmienky úveru",
-      "subtitle": "Úver vás zaväzuje; overte si schopnosť splácať.",
-      "sections": [
-        {
-          "h": "1. Podmienky",
-          "p": "Overená identita, stabilný príjem."
-        },
-        {
-          "h": "2. Sumy a doba",
-          "p": "Od 1 000 EUR do 500 000 EUR, 12 až 120 mesiacov."
-        },
-        {
-          "h": "3. Úrok / RPMN",
-          "p": "Pevný úrok uvedený v ponuke."
-        },
-        {
-          "h": "4. Vyplatenie",
-          "p": "Po podpise a overení."
-        },
-        {
-          "h": "5. Splácanie",
-          "p": "Mesačné inkaso."
-        },
-        {
-          "h": "6. Omeškanie",
-          "p": "Úroky, poplatky a možná zosplatnenie."
-        },
-        {
-          "h": "7. Odstúpenie",
-          "p": "14 kalendárnych dní od podpisu."
-        }
-      ]
-    },
-    "repayment": {
-      "title": "Politika splácania",
-      "sections": [
-        {
-          "h": "Splátkový kalendár",
-          "p": "Mesačné splátky v dohodnutý deň."
-        },
-        {
-          "h": "Predčasné splatenie",
-          "p": "Vždy povolené."
-        },
-        {
-          "h": "Omeškanie",
-          "list": [
-            "Deň 1–7: upozornenie.",
-            "Deň 8–30: poplatky + úrok z omeškania.",
-            "Od dňa 31: výzva."
-          ]
-        },
-        {
-          "h": "Vymáhanie",
-          "p": "Najprv zmierne riešenie."
-        },
-        {
-          "h": "Ťažkosti",
-          "p": "Kontaktujte nás kvôli odkladu."
-        }
-      ]
-    }
-  },
-  "adminSec": {
-    "metaTitle": "Bezpečnosť · Admin",
-    "unauthorized": "Neoprávnené",
-    "adminLink": "Admin",
-    "center": "Centrum bezpečnosti",
-    "ok": "ok",
-    "fail": "chyba",
-    "user": "používateľ",
-    "kpi": {
-      "totalEvents": "Celkom udalostí",
-      "devicesTracked": "Sledované zariadenia",
-      "openAlerts": "Otvorené upozornenia",
-      "highRisk": "Rizikoví používatelia"
-    },
-    "tab": {
-      "logs": "Záznamy",
-      "alerts": "Upozornenia",
-      "devices": "Zariadenia",
-      "risk": "Riziko"
-    },
-    "logs": {
-      "title": "Bezpečnostné záznamy",
-      "searchPh": "Hľadať používateľ, IP, krajina…",
-      "action": "Akcia",
-      "allActions": "Všetky akcie",
-      "when": "Kedy",
-      "user": "Používateľ",
-      "ipCountry": "IP / Krajina",
-      "device": "Zariadenie",
-      "status": "Stav",
-      "empty": "Žiadne záznamy."
-    },
-    "alerts": {
-      "title": "Bezpečnostné upozornenia",
-      "empty": "Žiadne upozornenia.",
-      "resolved": "vyriešené",
-      "resolve": "Vyriešiť"
-    },
-    "devices": {
-      "title": "Dôveryhodné zariadenia",
-      "label": "Štítok",
-      "country": "Krajina",
-      "lastSeen": "Naposledy videné",
-      "trusted": "Dôvera",
-      "trustedBadge": "dôveryhodné",
-      "pending": "čaká",
-      "empty": "Žiadne zariadenia."
-    },
-    "risk": {
-      "title": "Skóre rizika",
-      "risk": "Riziko",
-      "sessions": "Relácie",
-      "sensitive": "Citlivé",
-      "empty": "Žiadne údaje."
-    }
-  },
-  "footer": {
-    "legal": "Právne",
-    "privacy": "Súkromie",
-    "terms": "Podmienky",
-    "cookies": "Cookies",
-    "mentions": "Právne upozornenie",
-    "banking": "Bankovníctvo",
-    "loanTerms": "Podmienky úveru",
-    "repayment": "Splácanie a omeškanie",
-    "aml": "AML / KYC",
-    "finPriv": "Finančné súkromie",
-    "contact": "Kontakt",
-    "tagline": "Európska úverová platforma. Rýchle rozhodnutia, transparentné podmienky, banková bezpečnosť.",
-    "regulated": "Regulované a v súlade s GDPR",
-    "contactForm": "Kontaktný formulár",
-    "disclaimer": "Úver zaväzuje a musí byť splatený. Pred podaním žiadosti si overte svoju schopnosť splácať. Každá ponuka podlieha schváleniu a overeniu totožnosti.",
-    "rights": "Všetky práva vyhradené."
-  },
-  "chat": {
-    "loading": "Načítava",
-    "notFound": "Stránka nenájdená",
-    "notFoundDesc": "Táto stránka neexistuje.",
-    "backHome": "Späť domov",
-    "assistant": "asistentka",
-    "typing": "píše",
-    "today": "Dnes",
-    "yesterday": "Včera",
-    "pageTitle": "Živá podpora",
-    "pageDesc": "Chatujte s naším tímom alebo s Annou, našou virtuálnou asistentkou.",
-    "closed": "Konverzácia zatvorená",
-    "closeTicket": "Zatvoriť konverzáciu",
-    "close": "Zatvoriť",
-    "compose": {
-      "placeholder": "Napíšte správu…"
-    },
-    "rt": {
-      "bold": "Tučné",
-      "italic": "Kurzíva",
-      "link": "Odkaz",
-      "linkPrompt": "Zadajte URL (https://...)"
-    },
-    "handoff": {
-      "question": "Chcete hovoriť s poradcom?",
-      "yes": "Áno, hovoriť s poradcom",
-      "no": "Nie, ďakujem",
-      "pending": "Vaša požiadavka sa spracúva, poradca sa pripojí za 1-2 minúty…"
-    },
-    "agent": {
-      "joined": "sa pripojil ku konverzácii",
-      "joinedYou": "Pripojili ste sa ku konverzácii",
-      "notAssigned": "Žiadny priradený agent",
-      "join": "Pripojiť sa",
-      "defaultName": "Poradca",
-      "brandName": "Poradca MOONYP"
-    },
-    "status": {
-      "online": "Online",
-      "agent": "Poradca online",
-      "open": "Otvorené",
-      "waiting_agent": "Čaká na agenta",
-      "assigned": "Prebieha",
-      "closed": "Zatvorené"
-    },
-    "admin": {
-      "empty": "Žiadne konverzácie.",
-      "selectHint": "Vyberte konverzáciu vľavo.",
-      "folders": "Súbory zákazníkov",
-      "tickets": "Vstupenky",
-      "searchPlaceholder": "Vyhľadajte zákazníka, lístok, e-mail…",
-      "filter": {
-        "all": "Všetky",
-        "waiting": "Podržané",
-        "mine": "Pridelené mne",
-        "closed": "ZATVORENÉ",
-        "guests": "Návštevníci"
-      },
-      "info": {
-        "title": "Informácie o tikete",
-        "none": "Žiadne informácie"
-      },
-      "close": "Zavrieť tiket",
-      "reopen": "Znovu otvoriť tiket",
-      "updated": "Tiket aktualizovaný"
-    },
-    "banner": {
-      "top": "MOONYP — Bezpečný zákaznícky servis",
-      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris"
-    },
-    "loginRequired": {
-      "title": "Prihláste sa na chat",
-      "desc": "Na použitie podpory musíte byť prihlásený.",
-      "cta": "Prihlásiť sa"
-    },
-    "nav": "Podpora",
-    "guest": {
-      "subtitle": "Pomoc návštevníkom",
-      "intro": "Vyplňte tento formulár a poradca MOONYP rýchlo odpovie. Dostanete číslo lístka.",
-      "name": "Celé meno *",
-      "email": "E-mail *",
-      "phone": "Telefón",
-      "whatsapp": "WhatsApp",
-      "country": "Krajina pobytu",
-      "subject": "Predmet",
-      "message": "Vaša správa *",
-      "submit": "Otvor môj lístok",
-      "privacy": "S vašimi údajmi sa zaobchádza dôverne (GDPR).",
-      "created": "Vstupenka #{{ticket}} vytvorená!",
-      "errors": {
-        "required": "Vyžaduje sa meno, e-mail a správa.",
-        "fail": "Odosielanie zlyhalo, skúste to znova."
-      }
-    },
-    "ticket": "Lístok",
-    "archived": "Archívy",
-    "open": "OTVORENÉ",
-    "welcome": {
-      "greeting": "Dobrý deň 👋 Som Anna, vaša asistentka MOONYP.",
-      "help": "Ako vám dnes môžem pomôcť?"
-    },
-    "tickets": {
-      "title": "Moje konverzácie",
-      "new": "Nová konverzácia",
-      "open": "Otvorené",
-      "closed": "Zatvorené",
-      "empty": "Zatiaľ žiadne konverzácie.",
-      "back": "Späť",
-      "one": "Konverzácia"
-    },
-    "system": "Systém",
-    "closedNotice": "Konverzácia je uzavretá.",
-    "joinedNotice": "{{name}} sa pripojil ku konverzácii.",
-    "sendError": "Odoslanie zlyhalo",
-    "genericError": "Vyskytla sa chyba",
-    "agentTitle": "Špecialista zákazníckeho servisu",
-    "you": "Vy"
-  },
-  "adminDash": {
-    "title": "Prístrojová doska — MOONYP",
-    "overview": "Prehľad",
-    "clients": "zákazníkov",
-    "loans": "Pôžičky",
-    "transfers": "Prestupy",
-    "chat": "Živý rozhovor",
-    "security": "Bezpečnosť",
-    "notifications": "Upozornenia",
-    "kpis": {
-      "clients": "Aktívni zákazníci",
-      "loansPending": "Čakajúce úvery",
-      "transfersBlocked": "Prevody sú zablokované",
-      "ticketsOpen": "Otvorené lístky",
-      "newToday": "Dnes nové"
-    },
-    "recentActivity": "Nedávna aktivita",
-    "quickActions": "Rýchle akcie",
-    "staff": "Team & roles",
-    "roles": "Permissions",
-    "logs": "Activity log"
-  },
-  "finance": {
-    "sim": {
-      "product": "Úverový produkt",
-      "amount": "Suma",
-      "duration": "Doba splatnosti",
-      "months": "mesiacov",
-      "monthly": "Odhadovaná mesačná splátka",
-      "rate": "Úroková sadzba",
-      "apr": "RPMN",
-      "borrowed": "Požičaná suma",
-      "interest": "Odhadované úroky",
-      "interestShort": "Úroky",
-      "fees": "Poplatky",
-      "insurance": "Poistenie dlžníka",
-      "insuranceHint": "Voliteľné krytie pripočítané ku každej splátke.",
-      "insuranceCost": "Náklady na poistenie",
-      "totalCost": "Celkové náklady úveru",
-      "totalRepaid": "Celkovo splatené",
-      "capital": "Istina",
-      "balance": "Zostatok istiny",
-      "showSchedule": "Zobraziť splátkový kalendár",
-      "hideSchedule": "Skryť kalendár",
-      "disclaimer": "Táto simulácia je len informatívna a nie je ponukou úveru. Konečné podmienky závisia od posúdenia žiadosti.",
-      "instalment": "Mesačná splátka",
-      "perMonth": "/mes.",
-      "aprLabel": "RPMN",
-      "monthsShort": "mes.",
-      "rateFrom": "od {{rate}} %",
-      "range": "Medzi {{min}} a {{max}}",
-      "legalNotice": "Pôžička je záväzkom a musí byť splatená. Pred uzavretím zmluvy si preverte svoju schopnosť splácať."
-    },
-    "simPage": {
-      "metaTitle": "Úverová kalkulačka — MOONYP",
-      "metaDesc": "Vypočítajte splátku, úroky a celkové náklady za pár sekúnd.",
-      "badge": "Kalkulačka",
-      "title": "Simulujte svoje financovanie",
-      "subtitle": "Upravte sumu a dobu a ihneď uvidíte odhadovanú splátku.",
-      "cta": "Požiadať za týchto podmienok",
-      "seeProducts": "Pozrieť naše riešenia",
-      "noProducts": "Momentálne nie je dostupný žiadny úverový produkt."
-    },
-    "solutions": {
-      "metaTitle": "Riešenia financovania — MOONYP",
-      "metaDesc": "Spotrebné, autoúvery, hypotéky a podnikateľské úvery.",
-      "badge": "Naše riešenia",
-      "title": "Financovanie pre váš projekt",
-      "subtitle": "Vyberte vhodný produkt a simulujte ho jedným klikom.",
-      "amountRange": "Suma",
-      "durationRange": "Doba",
-      "rateFrom": "Sadzba od",
-      "simulate": "Simulovať"
-    },
-    "apply": {
-      "metaTitle": "Žiadosť o úver — MOONYP",
-      "metaDesc": "Vyplňte žiadosť online v 6 bezpečných krokoch.",
-      "title": "Vaša žiadosť o úver",
-      "subtitle": "Šesť krokov, pár minút. Postup sa ukladá v tomto zariadení.",
-      "next": "Pokračovať",
-      "previous": "Späť",
-      "submit": "Odoslať žiadosť",
-      "submitError": "Žiadosť sa nepodarilo odoslať. Skúste to znova.",
-      "rateLimited": "Príliš veľa pokusov. Skúste to o niekoľko minút.",
-      "fixErrors": "Opravte označené polia.",
-      "documentsIntro": "Nahrajte ostré a čitateľné dokumenty. Formáty: PDF, JPG alebo PNG.",
-      "documentsMissing": "Chýba jeden alebo viac povinných dokumentov.",
-      "chooseFile": "Vybrať súbor",
-      "takePhoto": "Odfotiť",
-      "maxSize": "Max. veľkosť",
-      "badMime": "Nepodporovaný formát súboru.",
-      "fileTooLarge": "Tento súbor je príliš veľký.",
-      "fileCount": "vybraných súborov",
-      "bankNotice": "Vaše bankové údaje sú šifrované a použité len na vyplatenie úveru.",
-      "consentTerms": "Súhlasím so všeobecnými podmienkami.",
-      "consentPrivacy": "Súhlasím so zásadami ochrany súkromia a spracovaním údajov.",
-      "consentMarketing": "Súhlasím so zasielaním informácií o ponukách MOONYP.",
-      "steps": {
-        "identity": "Totožnosť",
-        "employment": "Zamestnanie",
-        "request": "Žiadosť",
-        "payout": "Výplata",
-        "documents": "Dokumenty",
-        "review": "Súhrn"
-      },
-      "stepOf": "Krok {{current}} z {{total}}",
-      "uploading": "Odosielanie dokumentov ({{done}}/{{total}})",
-      "holderHint": "Musí sa zhodovať s menom žiadateľa",
-      "reviewFlag": "Tento bod bude overený manuálne",
-      "reviewTitle": "Vaša splátka",
-      "dti": "Ukazovateľ dlhovej služby (DTI)",
-      "finalNotice": "Odoslaním potvrdzujete, že uvedené informácie sú správne. Vašu žiadosť analyzuje náš úverový tím; zabezpečený odkaz na sledovanie každého kroku vám bude zaslaný e-mailom."
-    },
-    "fields": {
-      "firstName": "Meno",
-      "lastName": "Priezvisko",
-      "birthDate": "Dátum narodenia",
-      "nationality": "Štátna príslušnosť",
-      "address": "Adresa",
-      "postalCode": "PSČ",
-      "city": "Mesto",
-      "country": "Krajina",
-      "phone": "Telefón",
-      "email": "E-mail",
-      "employmentStatus": "Pracovný status",
-      "profession": "Povolanie",
-      "employer": "Zamestnávateľ",
-      "seniority": "Dĺžka zamestnania (mesiace)",
-      "income": "Čistý mesačný príjem",
-      "charges": "Mesačné výdavky",
-      "otherIncome": "Iné príjmy",
-      "household": "Počet osôb v domácnosti",
-      "purpose": "Účel úveru",
-      "bankHolder": "Majiteľ účtu",
-      "bankName": "Banka",
-      "iban": "IBAN",
-      "bic": "BIC / SWIFT",
-      "choose": "Vyberte…",
-      "chooseCountry": "Vyberte krajinu",
-      "searchCountry": "Vyhľadať krajinu",
-      "phoneCountry": "Predvoľba krajiny",
-      "addressPlaceholder": "Začnite písať názov ulice",
-      "addressNoMatch": "Adresa sa nenašla – zadajte ju manuálne"
-    },
-    "employment": {
-      "employee": "Zamestnanec",
-      "civil_servant": "Štátny zamestnanec",
-      "self_employed": "Živnostník",
-      "business_owner": "Podnikateľ",
-      "retired": "Dôchodca",
-      "student": "Študent",
-      "unemployed": "Nezamestnaný",
-      "other": "Iné"
-    },
-    "status": {
-      "draft": "Koncept",
-      "received": "Žiadosť prijatá",
-      "verification": "Overovanie",
-      "documents_missing": "Chýbajú dokumenty",
-      "analysis": "Posudzovanie",
-      "info_requested": "Vyžiadané informácie",
-      "approved": "Schválená",
-      "rejected": "Zamietnutá",
-      "offer_available": "Ponuka k dispozícii",
-      "contract_sent": "Zmluva odoslaná",
-      "signature_pending": "Čaká na podpis",
-      "contract_signed": "Zmluva podpísaná",
-      "disbursement_preparing": "Príprava výplaty",
-      "disbursed": "Vyplatené",
-      "repaying": "Prebieha splácanie",
-      "late": "Po splatnosti",
-      "repaid": "Úplne splatené",
-      "cancelled": "Zrušená",
-      "unknown": "Neznámy stav",
-      "guarantee_sent": "Záruka odoslaná",
-      "guarantee_signed": "Záruka podpísaná",
-      "insurance_pending": "Poistenie čaká",
-      "insurance_validated": "Poistenie schválené"
-    },
-    "portal": {
-      "metaTitle": "Váš úverový spis — MOONYP",
-      "metaDesc": "Bezpečne sledujte svoju žiadosť o úver.",
-      "reference": "Referencia spisu",
-      "secure": "Bezpečný prístup",
-      "summary": "Súhrn",
-      "status": "Stav",
-      "timeline": "História",
-      "invalidTitle": "Neplatný alebo expirovaný odkaz",
-      "invalidDesc": "Tento bezpečný odkaz už nie je platný. Požiadajte náš tím o nový.",
-      "progress": "Stav spracovania žiadosti",
-      "submittedOn": "Odoslané dňa",
-      "monthly": "Mesačná splátka",
-      "apr": "RPMN",
-      "product": "Finančný produkt",
-      "insurance": "Poistenie dlžníka",
-      "totalCost": "Celkové náklady na úver",
-      "interest": "Celkový úrok",
-      "fees": "Poplatky za spracovanie",
-      "documents": "Podkladové dokumenty",
-      "noDocuments": "Zatiaľ neboli prijaté žiadne dokumenty.",
-      "help": "Táto stránka je aktualizovaná v reálnom čase. Náš úverový tím vás bude kontaktovať e-mailom pri každom kľúčovom kroku. Tento zabezpečený odkaz nikdy s nikým nezdieľajte.",
-      "kyc": {
-        "pending": "Čaká na overenie",
-        "verifying": "Prebieha overovanie",
-        "passed": "Identita overená",
-        "failed": "Overenie zlyhalo",
-        "manual_review": "Manuálna kontrola"
-      },
-      "doc": {
-        "pending": "Čakajúci",
-        "approved": "Schválený",
-        "rejected": "Zamietnutý",
-        "replacement_requested": "Vyžaduje sa náhrada"
-      },
-      "requests": {
-        "title": "Požadované informácie",
-        "desc": "Náš tím potrebuje ďalšie údaje na pokračovanie posudzovania.",
-        "none": "Žiadna otvorená požiadavka.",
-        "open": "Čaká",
-        "answered": "Vybavené",
-        "respondLabel": "Vaša odpoveď",
-        "placeholder": "Napíšte odpoveď…",
-        "submit": "Odoslať odpoveď",
-        "success": "Odpoveď odoslaná",
-        "error": "Odoslanie zlyhalo",
-        "kindMissingDocument": "Chýbajúci dokument",
-        "kindReplaceDocument": "Výmena dokumentu",
-        "kindInformation": "Doplňujúca informácia",
-        "kindJustification": "Vyžiadané odôvodnenie",
-        "answeredAt": "Odpovedané"
-      },
-      "stages": {
-        "received": "Žiadosť prijatá",
-        "study": "Spis sa posudzuje",
-        "approved": "Žiadosť schválená",
-        "contract": "Zmluva",
-        "guarantee": "Zabezpečenie",
-        "insurance": "Poistenie",
-        "disbursement": "Vyplatenie",
-        "repayment": "Splácanie"
-      },
-      "offer": "Ponuka úveru",
-      "contract": "Zmluva",
-      "guarantee": "Zabezpečenie",
-      "insurance2": "Poistenie dlžníka",
-      "disbursement": "Vyplatenie",
-      "repayments": "Splátkový kalendár",
-      "kycTitle": "Overenie totožnosti",
-      "validUntil": "Platná do",
-      "sentOn": "Odoslané",
-      "signedOn": "Podpísané",
-      "acceptedOn": "Prijaté",
-      "download": "Stiahnuť",
-      "downloadContract": "Stiahnuť zmluvu",
-      "downloadSigned": "Stiahnuť podpísanú zmluvu",
-      "guarantor": "Ručiteľ",
-      "provider": "Poisťovateľ",
-      "policy": "Číslo poistky",
-      "premium": "Mesačné poistné",
-      "beneficiary": "Príjemca",
-      "paidOn": "Zaplatené",
-      "installment": "Splátka",
-      "dueDate": "Splatnosť",
-      "remaining": "Zostatok",
-      "paid": "Zaplatená",
-      "unpaid": "Nadchádzajúca",
-      "none": "Zatiaľ nedostupné",
-      "downloadNotice": "Odkazy na stiahnutie vypršia po dvoch minútach a zaznamenávajú sa.",
-      "downloadError": "Stiahnutie nie je dostupné",
-      "kycNone": "Zatiaľ nie je zaznamenané žiadne overenie.",
-      "viewContract": "Zobraziť moju zmluvu",
-      "upload": {
-        "attach": "Priložiť súbor",
-        "attached": "Príloha: {{name}}",
-        "chooseType": "Typ dokumentu",
-        "desc": "Pridajte chýbajúci doklad alebo nahraďte zamietnutý.",
-        "error": "Nahranie zlyhalo",
-        "limits": "PDF, JPEG alebo PNG — maximálne {{size}} MB.",
-        "send": "Vybrať súbor",
-        "success": "Dokument odoslaný",
-        "title": "Nahrať dokument"
-      }
-    },
-    "success": {
-      "title": "Vaša žiadosť bola prijatá",
-      "subtitle": "Náš tím posudzuje váš spis. O každom kroku vás budeme informovať e-mailom.",
-      "reference": "Referencia spisu",
-      "openFile": "Otvoriť môj spis",
-      "linkNotice": "Uschovajte tento odkaz: poskytuje bezpečný prístup k vášmu spisu.",
-      "step1": "Overenie údajov a dokumentov",
-      "step2": "Posúdenie a rozhodnutie, zvyčajne do 48 pracovných hodín",
-      "step3": "Ponuka, zmluva a výplata po schválení"
-    },
-    "validation": {
-      "required": "Toto pole je povinné.",
-      "iban": {
-        "empty": "Zadajte váš IBAN",
-        "charset": "Tento IBAN obsahuje neplatné znaky",
-        "country": "Tento kód krajiny nie je súčasťou registra IBAN",
-        "length": "Tento IBAN má nesprávnu dĺžku pre danú krajinu",
-        "checksum": "Tento IBAN je neplatný (kontrolný súčet zlyhal)",
-        "valid": "Platný IBAN — {{country}}"
-      },
-      "bic": {
-        "format": "Neplatný kód BIC/SWIFT",
-        "countryMismatch": "Kód BIC nezodpovedá krajine IBAN"
-      },
-      "holder": {
-        "required": "Zadajte majiteľa účtu",
-        "mismatch": "Majiteľ účtu sa nezhoduje so žiadateľom",
-        "partial": "Meno majiteľa účtu sa nezhoduje so žiadateľom"
-      },
-      "bank": {
-        "countryMismatch": "Deklarovaná krajina banky nezodpovedá kódu IBAN",
-        "crossBorder": "Účet je vedený mimo vašej krajiny pobytu",
-        "nonSepa": "Účet mimo oblasti SEPA"
-      },
-      "risk": {
-        "dtiAbove40": "Miera zadlženosti nad 40 %"
-      },
-      "phoneValid": "Platné číslo",
-      "phoneIncomplete": "Neúplné číslo"
-    },
-    "address": {
-      "placeholder": "Začnite písať svoju adresu (celý svet)…",
-      "hint": "Vyberte návrh alebo zadajte adresu manuálne.",
-      "manual": "Zadať manuálne",
-      "hideManual": "Skryť podrobnosti"
-    },
-    "schedule": {
-      "title": "Splátkový kalendár",
-      "period": "Obdobie",
-      "number": "Č.",
-      "dueDate": "Dátum splatnosti",
-      "payment": "Splátka",
-      "principal": "Istina",
-      "interest": "Úrok",
-      "insurance": "Poistenie",
-      "balance": "Zostatok istiny",
-      "total": "Celkom",
-      "export": "Exportovať CSV"
-    },
-    "contract": {
-      "metaTitle": "Vaša zmluva — MOONYP",
-      "metaDesc": "Prezrite si a bezpečne podpíšte svoju zmluvu o financovaní.",
-      "backToFile": "Späť na spis",
-      "offerSummary": "Zhrnutie ponuky",
-      "rate": "Ročná sadzba",
-      "document": "Zmluvný dokument",
-      "version": "Verzia",
-      "state": "Stav",
-      "hash": "Odtlačok dokumentu",
-      "providerLabel": "Mechanizmus podpisu",
-      "signTitle": "Podpísať zmluvu",
-      "legalNotice": "Ide o zdokonalený elektronický podpis s dôkaznou hodnotou (jednorazový kód, časová pečiatka, odtlačok dokumentu). Nejde o kvalifikovaný elektronický podpis podľa eIDAS.",
-      "fullName": "Celé meno podpisujúceho",
-      "startSignature": "Poslať kód na podpis",
-      "code": "Kód na podpis",
-      "codeHint": "Jednorazový kód bol odoslaný na e-mail uvedený v spise.",
-      "consent": "Potvrdzujem, že som si zmluvu prečítal a súhlasím s jej elektronickým podpisom.",
-      "confirmSignature": "Potvrdiť podpis",
-      "resendCode": "Poslať kód znova",
-      "history": "História zmluvy",
-      "important": "Uschovajte si kópiu podpísanej zmluvy. Naša podpora je vám k dispozícii.",
-      "notAvailable": "Zmluva zatiaľ nie je k dispozícii.",
-      "alreadySigned": "Táto zmluva je už podpísaná.",
-      "codeSent": "Kód odoslaný",
-      "startError": "Podpis sa nepodarilo spustiť.",
-      "signError": "Podpis zlyhal.",
-      "signed": "Zmluva podpísaná",
-      "states": {
-        "draft": "Koncept",
-        "ready": "Pripravené",
-        "sent": "Odoslané",
-        "viewed": "Zobrazené",
-        "signed": "Podpísané",
-        "cancelled": "Zrušené"
-      },
-      "events": {
-        "contract_created": "Zmluva vytvorená",
-        "contract_sent": "Zmluva odoslaná",
-        "contract_viewed": "Zmluva zobrazená",
-        "signature_requested": "Podpis vyžiadaný",
-        "signature_completed": "Podpis dokončený",
-        "contract_downloaded": "Zmluva stiahnutá"
-      }
-    },
-    "guarantee": {
-      "fee": "Poplatok za krytie úverového rizika",
-      "paymentStatus": "Stav platby",
-      "payment": {
-        "unpaid": "Nezaplatené",
-        "awaiting_payment": "Čaká na platbu",
-        "paid": "Zaplatené",
-        "waived": "Vzdané",
-        "failed": "Zlyhalo"
-      },
-      "scheduledDate": "Plánovaný dátum platby",
-      "paidNotice": "Náš tím potvrdil váš poplatok.",
-      "chosen": {
-        "pay_now": "Zvolili ste zaplatiť teraz.",
-        "decline": "Vzdali ste sa žiadosti o úver.",
-        "pay_later": "Zvolili ste zaplatiť neskôr."
-      },
-      "instructions": "Pokyny na platbu",
-      "validationNotice": "Platba sa považuje za prijatú až po potvrdení naším tímom.",
-      "question": "Chcete zaplatiť poplatok za krytie?",
-      "options": {
-        "pay_now": "Áno, zaplatiť a získať úver",
-        "decline": "Nie, nezaplatiť a vzdať sa žiadosti",
-        "pay_later": "Áno, zaplatiť neskôr a ponechať žiadosť čakajúcu"
-      },
-      "optionsHint": {
-        "pay_now": "Dostanete pokyny na platbu.",
-        "decline": "Váš spis bude uzavretý.",
-        "pay_later": "Vyberte dátum platby, pošleme pripomienky."
-      },
-      "pickDate": "Želaný dátum platby",
-      "confirmChoice": "Potvrdiť voľbu",
-      "noPaymentNotice": "Táto voľba nevykonáva platbu: potvrdí sa až po overení naším tímom.",
-      "choiceSaved": "Voľba uložená",
-      "error": {
-        "dateRequired": "Zadajte dátum platby.",
-        "generic": "Akcia nie je možná."
-      }
-    },
-    "payment": {
-      "metaTitle": "Bezpečná platba — MOONYP",
-      "metaDesc": "Bezpečne uhraďte poplatky súvisiace s vašou žiadosťou o financovanie Moonyp.",
-      "title": "Bezpečná platba",
-      "subtitle": "Spis",
-      "back": "Späť na spis",
-      "due": "Suma na úhradu",
-      "noDue": "Momentálne nie je nič na úhradu.",
-      "methods": "Spôsoby platby",
-      "noMethods": "Momentálne nie je dostupný žiadny spôsob platby.",
-      "notConfigured": "Tento poskytovateľ nie je nakonfigurovaný.",
-      "pay": "Zaplatiť",
-      "redirecting": "Presmerovanie k poskytovateľovi…",
-      "created": "Platba zaznamenaná",
-      "createdHint": "Platba bude potvrdená po skutočnom prijatí prostriedkov.",
-      "instructions": "Pokyny na platbu",
-      "reference": "Referencia",
-      "copyReference": "Kopírovať referenciu",
-      "copied": "Skopírované",
-      "holder": "Majiteľ účtu",
-      "bank": "Banka",
-      "address": "Adresa",
-      "network": "Sieť",
-      "history": "História platieb",
-      "noPaymentYet": "Žiadna zaznamenaná platba.",
-      "notice": "Pri prevode vždy uveďte referenciu, inak nebude možné platbu priradiť k vášmu spisu.",
-      "error": "Platbu sa nepodarilo spustiť.",
-      "purpose": {
-        "guarantee_fee": "Poplatok za záruku",
-        "insurance_fee": "Poplatok za poistenie",
-        "application_fee": "Poplatok za spracovanie",
-        "installment": "Splátka úveru",
-        "other": "Iné"
-      },
-      "feeStatus": {
-        "pending": "Čaká sa",
-        "paid": "Zaplatené",
-        "not_required": "Nevyžaduje sa",
-        "late": "Po splatnosti",
-        "cancelled": "Zrušené"
-      },
-      "kind": {
-        "bank_transfer": "Bankový prevod",
-        "card": "Karta",
-        "qr": "QR kód",
-        "crypto": "Krypto",
-        "other": "Iné"
-      },
-      "status": {
-        "pending": "Čaká sa",
-        "processing": "Prebieha",
-        "received": "Prijaté",
-        "failed": "Zlyhalo",
-        "cancelled": "Zrušené"
-      }
-    },
-    "repayment": {
-      "status": {
-        "upcoming": "Nadchádzajúca",
-        "paid": "Zaplatená",
-        "partially_paid": "Čiastočne zaplatená",
-        "late": "Po splatnosti",
-        "cancelled": "Zrušená"
-      }
-    },
-    "insurance": {
-      "fee": "Poplatok za zriadenie poistenia",
-      "paymentStatus": "Stav platby",
-      "payment": {
-        "unpaid": "Nezaplatené",
-        "not_required": "Bez poplatku",
-        "pending": "Čaká sa",
-        "awaiting_payment": "Čaká na platbu",
-        "paid": "Zaplatené",
-        "waived": "Vzdanie sa",
-        "failed": "Zlyhalo"
-      },
-      "dueDate": "Dátum splatnosti",
-      "scheduledDate": "Naplánovaný dátum platby",
-      "paidNotice": "Váš poplatok za poistenie overil náš tím.",
-      "chosen": {
-        "pay_now": "Zvolili ste okamžitú platbu.",
-        "decline": "Vzdali ste sa poistenia.",
-        "pay_later": "Zvolili ste platbu neskôr."
-      },
-      "instructions": "Pokyny na platbu",
-      "validationNotice": "Platba sa považuje za prijatú až po overení naším tímom.",
-      "question": "Chcete uhradiť poplatok za poistenie?",
-      "options": {
-        "pay_now": "Áno, zaplatiť teraz",
-        "decline": "Nie, vzdávam sa poistenia",
-        "pay_later": "Áno, zaplatiť neskôr"
-      },
-      "optionsHint": {
-        "pay_now": "Dostanete pokyny na platbu.",
-        "decline": "Spis sa posúdi bez poistenia.",
-        "pay_later": "Vyberte dátum: pošleme pripomienky."
-      },
-      "pickDate": "Želaný dátum platby",
-      "confirmChoice": "Potvrdiť voľbu",
-      "noPaymentNotice": "Táto voľba nevykonáva platbu: potvrdzuje sa až po overení naším tímom.",
-      "choiceSaved": "Voľba uložená",
-      "error": {
-        "dateRequired": "Vyberte dátum platby.",
-        "datePast": "Zvolený dátum už uplynul.",
-        "generic": "Akcia nie je možná."
-      }
-    }
-  },
-  "products": {
-    "personal": {
-      "name": "Spotrebný úver",
-      "desc": "Financujte svoje plány s fixnou sadzbou a jasnými splátkami."
-    },
-    "auto": {
-      "name": "Autoúver",
-      "desc": "Nové alebo jazdené vozidlo za zvýhodnenú sadzbu."
-    },
-    "mortgage": {
-      "name": "Hypotéka",
-      "desc": "Kúpte, postavte alebo zrekonštruujte s dlhodobým financovaním."
-    },
-    "business": {
-      "name": "Podnikateľský úver",
-      "desc": "Podporte rast, vybavenie alebo prevádzkový kapitál."
-    }
-  },
-  "documents": {
-    "identity": "Doklad totožnosti",
-    "proofAddress": "Doklad o adrese",
-    "income": "Doklady o príjme",
-    "bankStatement": "Bankové výpisy",
-    "rib": "Bankové údaje (IBAN)",
-    "other": "Iný dokument"
-  },
-  "contactSection": {
-    "eyebrow": "Kontakt",
-    "title": "Hovorte s poradcom",
-    "desc": "Náš tím odpovie na otázky o financovaní, dokumentoch a stave žiadosti.",
-    "cta": "Kontaktujte nás"
-  },
-  "apply": {
-    "steps": {
-      "identity": "Totožnosť",
-      "employment": "Zamestnanie",
-      "request": "Žiadosť",
-      "payout": "Výplata",
-      "documents": "Dokumenty",
-      "review": "Súhrn"
-    }
-  },
   "about": {
-    "metaTitle": "O MOONYP — európska úverová platforma",
-    "metaDesc": "Kto sme, ako financujeme projekty a aké štandardy chránia vaše údaje a peniaze.",
-    "eyebrow": "O nás",
-    "title": "Moderný úverový dom s bankovou disciplínou.",
-    "intro": "MOONYP financuje jednotlivcov aj firmy v celej Európe s jedným sľubom: jasné rozhodnutie, férová sadzba a žiadne skryté poplatky.",
-    "intro2": "Naše tímy spájajú úverovú analýzu, compliance a technológie a menia pomalý papierový proces na bezpečnú digitálnu cestu — od simulácie po vyplatenie.",
+    "cta": {
+      "button": "Začať žiadosť",
+      "desc": "Simulácia za minútu, žiadosť v šiestich krokoch a rozhodnutie do 24 hodín.",
+      "title": "Pripravení financovať svoj projekt?"
+    },
     "ctaPrimary": "Podať žiadosť",
     "ctaSecondary": "Hovoriť s poradcom",
-    "hqAlt": "Vstupná hala centrály MOONYP",
-    "missionAlt": "Rozhranie úverovej analýzy MOONYP",
+    "eyebrow": "O nás",
+    "governance": {
+      "desc": "Náš operačný rámec spĺňa požiadavky európskych veriteľov: oddelenie právomocí, sledovateľnosť každého rozhodnutia a trvalá kontrola rizík.",
+      "eyebrow": "Riadenie a compliance",
+      "g1d": "Úverová činnosť sa vykonáva s licencovanými bankovými partnermi.",
+      "g1t": "Regulovaný rámec",
+      "g2d": "Súlad s GDPR, šifrovanie v pokoji aj pri prenose, prísne lehoty uchovávania.",
+      "g2t": "Ochrana údajov",
+      "g3d": "Kontroly podľa ISO 27001 a každoročné nezávislé audity.",
+      "g3t": "Certifikované procesy",
+      "g4d": "Úverový a rizikový výbor reviduje politiky každý štvrťrok.",
+      "g4t": "Nezávislý dohľad",
+      "title": "Auditovateľné štandardy."
+    },
     "governanceAlt": "Bezpečnosť údajov MOONYP",
+    "hqAlt": "Vstupná hala centrály MOONYP",
+    "intro": "MOONYP financuje jednotlivcov aj firmy v celej Európe s jedným sľubom: jasné rozhodnutie, férová sadzba a žiadne skryté poplatky.",
+    "intro2": "Naše tímy spájajú úverovú analýzu, compliance a technológie a menia pomalý papierový proces na bezpečnú digitálnu cestu — od simulácie po vyplatenie.",
     "kpis": {
       "clients": "Financovaní klienti",
       "countries": "Pokryté krajiny",
       "financed": "Financované od roku 2016",
       "uptime": "Dostupnosť platformy"
     },
+    "metaDesc": "Kto sme, ako financujeme projekty a aké štandardy chránia vaše údaje a peniaze.",
+    "metaTitle": "O MOONYP — európska úverová platforma",
     "mission": {
       "eyebrow": "Naše poslanie",
-      "title": "Úver, ktorý rešpektuje váš čas aj rozpočet.",
       "p1": "Každú žiadosť posudzujeme podľa rovnakých objektívnych kritérií: schopnosť splácať, stabilita príjmu a súlad projektu. Žiadny nepriehľadný scoring, žiadne svojvoľné zamietnutia.",
-      "p2": "Svoju žiadosť sledujete v reálnom čase cez zabezpečený odkaz, každý dokument dostanete vo svojom jazyku a podpisujete elektronicky s plnou právnou platnosťou."
+      "p2": "Svoju žiadosť sledujete v reálnom čase cez zabezpečený odkaz, každý dokument dostanete vo svojom jazyku a podpisujete elektronicky s plnou právnou platnosťou.",
+      "title": "Úver, ktorý rešpektuje váš čas aj rozpočet."
     },
+    "missionAlt": "Rozhranie úverovej analýzy MOONYP",
+    "timeline": {
+      "title": "Náš príbeh",
+      "y1d": "Traja úveroví špecialisti zakladajú MOONYP, aby skrátili rozhodnutia z týždňov na hodiny.",
+      "y1t": "Založenie v Paríži",
+      "y2d": "Vstup na jedenásť trhov a úplná lokalizácia zmlúv a komunikácie.",
+      "y2t": "Európska expanzia",
+      "y3d": "Úplne bezpapierový proces s certifikovaným podpisom a automatizovaným overením totožnosti.",
+      "y3t": "Elektronický podpis a okamžité KYC",
+      "y4d": "Žiadateľ sleduje svoj spis cez zabezpečený osobný odkaz, bez hesla.",
+      "y4t": "Skúsenosť bez účtu"
+    },
+    "title": "Moderný úverový dom s bankovou disciplínou.",
     "values": {
       "eyebrow": "Naše hodnoty",
       "title": "Štyri zásady, bez výnimky.",
-      "v1t": "Bezpečnosť na prvom mieste",
       "v1d": "Šifrované údaje, prísna kontrola prístupu a nepretržité monitorovanie.",
-      "v2t": "Úplná zrozumiteľnosť",
+      "v1t": "Bezpečnosť na prvom mieste",
       "v2d": "Sadzba, poistenie, poplatky a celkové náklady zobrazíme pred akýmkoľvek záväzkom.",
-      "v3t": "Ľudská podpora",
+      "v2t": "Úplná zrozumiteľnosť",
       "v3d": "Vyhradený poradca v každej kľúčovej fáze vašej žiadosti.",
-      "v4t": "Európsky dosah",
-      "v4d": "Jedna platforma, 15 jazykov a finančných partnerov naprieč kontinentom."
-    },
-    "timeline": {
-      "title": "Náš príbeh",
-      "y1t": "Založenie v Paríži",
-      "y1d": "Traja úveroví špecialisti zakladajú MOONYP, aby skrátili rozhodnutia z týždňov na hodiny.",
-      "y2t": "Európska expanzia",
-      "y2d": "Vstup na jedenásť trhov a úplná lokalizácia zmlúv a komunikácie.",
-      "y3t": "Elektronický podpis a okamžité KYC",
-      "y3d": "Úplne bezpapierový proces s certifikovaným podpisom a automatizovaným overením totožnosti.",
-      "y4t": "Skúsenosť bez účtu",
-      "y4d": "Žiadateľ sleduje svoj spis cez zabezpečený osobný odkaz, bez hesla."
-    },
-    "governance": {
-      "eyebrow": "Riadenie a compliance",
-      "title": "Auditovateľné štandardy.",
-      "desc": "Náš operačný rámec spĺňa požiadavky európskych veriteľov: oddelenie právomocí, sledovateľnosť každého rozhodnutia a trvalá kontrola rizík.",
-      "g1t": "Regulovaný rámec",
-      "g1d": "Úverová činnosť sa vykonáva s licencovanými bankovými partnermi.",
-      "g2t": "Ochrana údajov",
-      "g2d": "Súlad s GDPR, šifrovanie v pokoji aj pri prenose, prísne lehoty uchovávania.",
-      "g3t": "Certifikované procesy",
-      "g3d": "Kontroly podľa ISO 27001 a každoročné nezávislé audity.",
-      "g4t": "Nezávislý dohľad",
-      "g4d": "Úverový a rizikový výbor reviduje politiky každý štvrťrok."
-    },
-    "cta": {
-      "title": "Pripravení financovať svoj projekt?",
-      "desc": "Simulácia za minútu, žiadosť v šiestich krokoch a rozhodnutie do 24 hodín.",
-      "button": "Začať žiadosť"
+      "v3t": "Ľudská podpora",
+      "v4d": "Jedna platforma, 15 jazykov a finančných partnerov naprieč kontinentom.",
+      "v4t": "Európsky dosah"
     }
   },
-  "validation": {
-    "phone": "Zadajte platné telefónne číslo"
-  },
-  "kyc": {
-    "capture": "Snímať",
-    "retake": "Zopakovať",
-    "chooseDocument": "Vyberte si doklad",
-    "nothingRequired": "V tejto fáze nie sú potrebné žiadne doklady",
-    "storageNotice": "Vaše dokumenty sú šifrované, uložené v súkromnom priestore a prístupné výhradne nášmu oddeleniu kontroly zhody.",
-    "intro": {
-      "title": "Overenie identity",
-      "why": "Európska regulácia vyžaduje, aby sme pred uvoľnením akýchkoľvek prostriedkov overili vašu totožnosť. Trvá to približne tri minúty.",
-      "camera": "Použite fotoaparát pri dobrom osvetlení – môžete tiež importovať súbor.",
-      "privacy": "Vaše dokumenty sú šifrované a nikdy nie sú zdieľané s tretími stranami.",
-      "start": "Začať overovanie"
+  "admin": {
+    "amounts": {
+      "accepted": "Celková schválená suma",
+      "disbursed": "Vyplatené prostriedky",
+      "requested": "Celková žiadaná suma"
     },
-    "category": {
-      "identity": {
-        "title": "Doklad totožnosti",
-        "desc": "Cestovný pas, občiansky preukaz alebo povolenie na pobyt"
-      },
-      "address": {
-        "title": "Doklad o adrese",
-        "desc": "Nie starší ako tri mesiace"
-      },
-      "selfie": {
-        "title": "Overenie živosti",
-        "desc": "Rýchla selfie na porovnanie s vaším dokladom"
-      },
-      "bank": {
-        "title": "Bankové údaje",
-        "desc": "Výpis z účtu s uvedeným IBAN"
-      },
-      "income": {
-        "title": "Doklad o príjme",
-        "desc": "Závisí od vašej pracovnej situácie"
-      }
+    "clientDetail": {
+      "blockBtn": "Zablokovať účet",
+      "blockedReason": "Dôvod",
+      "blockedSince": "Zablokované od",
+      "blockReason": "Dôvod zablokovania",
+      "blockReasonPlaceholder": "Napr.: podozrenie z podvodu, KYC nezhoda…",
+      "blockTitle": "Zablokovať účet klienta",
+      "confirm": "Potvrdiť",
+      "loans": "Úvery klienta",
+      "noLoans": "Tento klient zatiaľ nemá žiadne spisy.",
+      "noWithdrawals": "Žiadne prevody.",
+      "personalInfo": "Osobné údaje",
+      "summary": "Zhrnutie",
+      "title": "Profil klienta",
+      "unblockBtn": "Odblokovať účet",
+      "withdrawals": "Prevody"
     },
-    "side": {
-      "front": "Predná strana",
-      "back": "Zadná strana",
-      "single": "Dokument"
+    "clientsPage": {
+      "active": "Aktívny",
+      "blocked": "Zablokovaný",
+      "client": "Klient",
+      "joined": "Registrovaný",
+      "loans": "Úvery",
+      "phone": "Telefón",
+      "status": "Stav",
+      "subtitle": "Klientske účty a stav prístupu.",
+      "title": "Klienti",
+      "totalBorrowed": "Celkom požičané"
     },
-    "hint": {
-      "scan": "Umiestnite dokument na rovný povrch, plne do rámu a bez odleskov.",
-      "scan_double": "Nasnímajte obe strany jednu po druhej, so všetkými štyrmi viditeľnými rohmi.",
-      "selfie": "Pozerajte sa priamo do fotoaparátu, bez pokrývky hlavy alebo slnečných okuliarov.",
-      "upload": "Akceptované formáty: PDF, JPEG, PNG."
+    "kpis": {
+      "accepted": "Schválené",
+      "pending": "Čakajúce",
+      "refused": "Zamietnuté",
+      "total": "Celkový počet žiadostí"
     },
-    "status": {
-      "todo": "Na vybavenie",
-      "in_progress": "Prebieha",
-      "capturing": "Neúplné",
-      "verifying": "Kontroluje sa",
-      "passed": "Poskytnuté",
-      "failed": "Odmietnuté",
-      "retry": "Zopakovať",
-      "manual_review": "V procese posudzovania"
+    "loansPage": {
+      "amount": "Suma",
+      "client": "Klient",
+      "date": "Dátum",
+      "documents": "Dok.",
+      "duration": "Trvanie",
+      "status": "Stav",
+      "subtitle": "Podrobný a filtrovateľný prehľad.",
+      "title": "Všetky úverové spisy"
     },
-    "camera": {
-      "ready": "Fotoaparát je pripravený",
-      "start": "Otvoriť fotoaparát",
-      "shoot": "Odfotiť",
-      "retake": "Zopakovať",
-      "use": "Použiť túto fotku",
-      "importInstead": "Importovať súbor",
-      "denied": "Fotoaparát nie je k dispozícii alebo prístup bol zamietnutý.",
-      "unsupported": "Váš prehliadač nepodporuje snímanie cez fotoaparát.",
-      "badFormat": "Nepodporovaný formát súboru",
-      "tooLarge": "Súbor je väčší ako {{size}} MB",
-      "quality": {
-        "ok": "Dobrá kvalita – dokument je čitateľný.",
-        "dark": "Fotografia je príliš tmavá: presuňte sa na svetlejšie miesto.",
-        "bright": "Fotografia je preexponovaná: vyhnite sa priamemu svetlu a odleskom.",
-        "blurry": "Fotografia je rozmazaná: držte zariadenie nehybne a znova zaostrite."
-      }
+    "quickActions": {
+      "manageClients": "Spravovať klientov",
+      "signedContracts": "Podpísané zmluvy",
+      "subtitle": "Najprv spracujte čakajúce spisy.",
+      "title": "Rýchle akcie",
+      "toStudy": "Spisy na preskúmanie"
     },
-    "stepOf": "Krok {{current}} z {{total}}",
-    "finish": "Dokončiť",
-    "done": {
-      "title": "Overenie dokončené",
-      "desc": "Všetky požadované dokumenty boli nasnímané. Pred odoslaním žiadosti si ich môžete skontrolovať alebo nahradiť."
+    "recent": {
+      "empty": "Žiadna nedávna aktivita",
+      "open": "Otvoriť",
+      "title": "Nedávna aktivita"
     },
-    "docs": {
-      "bankStatement": "Bankový výpis (posledné 3 mesiace)",
-      "benefits": "Potvrdenie o dávkach",
-      "drivingLicence": "Vodičský preukaz",
-      "electricity": "Faktúra za elektrinu",
-      "hosting": "Potvrdenie o ubytovaní",
-      "kbis": "Výpis z obchodného registra",
-      "nationalId": "Občiansky preukaz",
-      "passport": "Cestovný pas",
-      "payslip": "Výplatné pásky (posledné 3 mesiace)",
-      "pension": "Potvrdenie o dôchodku",
-      "residencePermit": "Povolenie na pobyt",
-      "selfie": "Overenie tváre",
-      "taxReturn": "Daňové priznanie",
-      "telecom": "Faktúra za telefón / internet",
-      "water": "Faktúra za vodu"
-    }
-  },
-  "emails": {
-    "applicationReceived": {
-      "subject": "Prijali sme vašu žiadosť {{reference}}",
-      "body": "Dobrý deň {{firstName}}, prijali sme žiadosť {{reference}}. Náš tím ju posudzuje a bude vás informovať v každom kroku."
+    "stages": {
+      "codeSent": "Kód odoslaný pre fázu {{stage}}%",
+      "codeSentBadge": "Kód odoslaný",
+      "fee": "Poplatok (€)",
+      "genAndSend": "Vygenerovať a odoslať",
+      "planFirst": "Najprv nastavte poplatky",
+      "planSaved": "Plán uložený",
+      "regenAndSend": "Znova vygenerovať a odoslať",
+      "savePlan": "Uložiť plán",
+      "sentAt": "Odoslané",
+      "title": "Poplatky a kódy",
+      "unlocked": "Odomknuté"
     },
-    "documentsMissing": {
-      "subject": "Chýbajúce dokumenty — spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, v spise {{reference}} chýbajú dokumenty. Nahrajte ich v zabezpečenej zóne. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer."
-    },
-    "infoRequested": {
-      "subject": "Doplňujúce informácie — spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, potrebujeme doplňujúce informácie k spisu {{reference}}. {{reason}}"
-    },
-    "approved": {
-      "subject": "Žiadosť {{reference}} bola schválená",
-      "body": "Dobrý deň {{firstName}}, žiadosť {{reference}} bola schválená. Ponuka bude dostupná v zabezpečenej zóne.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area."
-    },
-    "rejected": {
-      "subject": "Rozhodnutie o žiadosti {{reference}}",
-      "body": "Dobrý deň {{firstName}}, po posúdení nebolo možné žiadosť {{reference}} prijať. Dôvod: {{reason}}"
-    },
-    "offerAvailable": {
-      "subject": "Vaša ponuka {{reference}} je dostupná",
-      "body": "Dobrý deň {{firstName}}, ponuka financovania {{reference}} je dostupná v zabezpečenej zóne.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
-    },
-    "contractSent": {
-      "subject": "Vaša zmluva {{reference}} je pripravená",
-      "body": "Dobrý deň {{firstName}}, zmluva {{reference}} je pripravená na podpis v zabezpečenej zóne.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
-    },
-    "disbursed": {
-      "subject": "Prostriedky vyplatené — spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, prostriedky spisu {{reference}} boli poukázané na váš účet.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
-    },
-    "signatureCode": {
-      "subject": "Váš kód na podpis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, váš kód na podpis je {{code}}. Platí 10 minút.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
-    },
-    "contractSigned": {
-      "subject": "Zmluva {{reference}} podpísaná",
-      "body": "Dobrý deň {{firstName}}, zmluva {{reference}} bola podpísaná. Stiahnuť si ju môžete v zabezpečenej zóne.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
-    },
-    "guaranteeSent": {
-      "subject": "Poplatok za krytie — spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, poplatok za krytie úverového rizika je {{amount}}. Vyberte možnosť v zabezpečenej zóne.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
-    },
-    "guaranteePayNow": {
-      "subject": "Platba poplatku {{reference}}",
-      "body": "Dobrý deň {{firstName}}, zaznamenali sme voľbu zaplatiť {{amount}}. Pokyny pošleme po overení.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
-    },
-    "guaranteeDeclined": {
-      "subject": "Žiadosť {{reference}} zrušená",
-      "body": "Dobrý deň {{firstName}}, zaznamenali sme vaše vzdanie sa. Spis {{reference}} bude uzavretý."
-    },
-    "guaranteePayLater": {
-      "subject": "Platba naplánovaná {{reference}}",
-      "body": "Dobrý deň {{firstName}}, platba {{amount}} je naplánovaná na {{date}}. Žiadosť zostáva čakajúca.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
-    },
-    "guaranteePaymentValidated": {
-      "subject": "Poplatok potvrdený {{reference}}",
-      "body": "Dobrý deň {{firstName}}, platba bola potvrdená. Spis pokračuje."
-    },
-    "guaranteeReminder": {
-      "subject": "Pripomienka platby {{reference}}",
-      "body": "Dobrý deň {{firstName}}, platba {{amount}} je splatná {{date}}."
-    },
-    "insurancePending": {
-      "subject": "Poistenie {{reference}}",
-      "body": "Dobrý deň {{firstName}}, vyžaduje sa poistenie {{amount}} mesačne.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
-    },
-    "insuranceValidated": {
-      "subject": "Poistenie potvrdené {{reference}}",
-      "body": "Dobrý deň {{firstName}}, vaše poistenie bolo potvrdené.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
-    },
-    "common": {
-      "summary": "Zhrnutie žiadosti",
+    "subtitle": "Prehľad bankovej aktivity.",
+    "title": "Admin prehľad",
+    "transfer": {
+      "amount": "Suma (€)",
+      "bankName": "Banka príjemcu",
+      "beneficiary": "Príjemca",
+      "bic": "BIC / SWIFT",
+      "classic": "Štandardný",
+      "classicHint": "Pripísané do 1 pracovného dňa.",
+      "client": "Klient",
+      "error": "Prevod sa nepodarilo vykonať",
+      "iban": "IBAN",
+      "instant": "Okamžitý",
+      "instantHint": "Pripísané okamžite 24/7.",
+      "kind": "Typ prevodu",
+      "loan": "Zdrojový úver",
       "reference": "Referencia",
-      "amount": "Financovaná suma",
-      "duration": "Doba",
-      "monthly": "Odhadovaná splátka",
-      "status": "Stav žiadosti",
-      "months": "mesiacov",
-      "feeAmount": "Dotknutá suma",
-      "scheduledDate": "Plánovaný dátum",
-      "codeTitle": "Váš jednorazový podpisový kód",
-      "reasonTitle": "Spresnenia nášho tímu",
-      "secureNotice": "Odkaz je osobný, šifrovaný a odvolateľný. Nezdieľajte ho.",
-      "needHelp": "Otázky? Zákaznícky servis odpovedá vo vašej zabezpečenej zóne.",
-      "footerLegal": "Moonyp — zodpovedné financovanie. E-mail sa týka vašej žiadosti.",
-      "autoMessage": "Automatická správa — neodpovedajte priamo.",
-      "tagline": "Vaše financovanie, úplne transparentne"
-    },
-    "cta": {
-      "portal": "Zobraziť moju žiadosť",
-      "contract": "Prečítať a podpísať zmluvu",
-      "guarantee": "Vybrať možnosť krytia",
-      "insurance": "Spravovať poistenie",
-      "payment": "Vykonať platbu",
-      "documents": "Nahrať dokumenty",
-      "schedule": "Zobraziť môj splátkový kalendár"
-    },
-    "installmentReminder": {
-      "subject": "Blížiaca sa splátka — žiadosť {{reference}}",
-      "body": "Dobrý deň {{firstName}}, ďalšia splátka {{amount}} je splatná {{date}}.",
-      "details": "Splátkový kalendár a platba vo vašej zabezpečenej zóne."
-    },
-    "applicationVerification": {
-      "subject": "Žiadosť {{reference}} v overovaní",
-      "body": "Dobrý deň {{firstName}}, vašu žiadosť {{reference}} práve overujú naše tímy.",
-      "details": "Kontrolujeme pravosť a čitateľnosť vašich dokladov. V tejto fáze nemusíte nič robiť; okamžite vás upozorníme, ak bude potrebné doplniť dokument."
-    },
-    "applicationAnalysis": {
-      "subject": "Žiadosť {{reference}} v analýze",
-      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} vstúpila do fázy úverovej analýzy.",
-      "details": "Naši analytici posudzujú vašu schopnosť splácať, súlad príjmov a požadovanú sumu. Výsledok uvidíte vo svojej bezpečnej zóne, len čo bude k dispozícii."
-    },
-    "signaturePending": {
-      "subject": "Čaká sa na podpis — žiadosť {{reference}}",
-      "body": "Dobrý deň {{firstName}}, vaša zmluva {{reference}} čaká na váš elektronický podpis.",
-      "details": "Do podpisu zostáva žiadosť pozastavená a prostriedky nemožno pripraviť. Podpis prebieha online jednorazovým kódom do dvoch minút."
-    },
-    "guaranteeSigned": {
-      "subject": "Krytie potvrdené — žiadosť {{reference}}",
-      "body": "Dobrý deň {{firstName}}, krytie úverového rizika žiadosti {{reference}} je potvrdené.",
-      "details": "Po tejto fáze žiadosť pokračuje k poisteniu dlžníka a potom k príprave vyplatenia. Každý krok vidíte v reálnom čase vo svojej bezpečnej zóne."
-    },
-    "disbursementPreparing": {
-      "subject": "Vyplatenie v príprave — žiadosť {{reference}}",
-      "body": "Dobrý deň {{firstName}}, vyplatenie prostriedkov k žiadosti {{reference}} sa pripravuje.",
-      "details": "Naše finančné oddelenie naposledy kontroluje vaše bankové údaje pred zadaním prevodu. Potvrdenie dostanete hneď po odoslaní prostriedkov."
-    },
-    "repaying": {
-      "subject": "Splácanie prebieha — žiadosť {{reference}}",
-      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} vstupuje do fázy splácania.",
-      "details": "Podrobný splátkový kalendár (istina, úroky, zostatok) je vo vašej bezpečnej zóne. Každá prijatá splátka sa tam zaznamená a potvrdíme ju e-mailom."
-    },
-    "repaymentReceived": {
-      "subject": "Platba prijatá — žiadosť {{reference}}",
-      "body": "Dobrý deň {{firstName}}, prijali sme vašu platbu {{amount}} k žiadosti {{reference}}.",
-      "details": "Príslušná splátka je označená ako uhradená a zostatok bol aktualizovaný vo vašej bezpečnej zóne, kde kalendár zostáva na stiahnutie."
-    },
-    "late": {
-      "subject": "Splátka po termíne — žiadosť {{reference}}",
-      "body": "Dobrý deň {{firstName}}, splátka vašej žiadosti {{reference}} je po termíne.",
-      "details": "Prosíme o úhradu splátky čo najskôr, aby ste sa vyhli nákladom z omeškania a nahláseniu. Pri ťažkostiach nás kontaktujte: riešenie je možné dohodnúť."
-    },
-    "repaid": {
-      "subject": "Žiadosť {{reference}} úplne splatená",
-      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} je úplne splatená. Ďakujeme za dôveru.",
-      "details": "Potvrdenie o nulovom zostatku a celú históriu platieb nájdete vo svojej bezpečnej zóne. Novú žiadosť môžete podať kedykoľvek."
-    },
-    "cancelled": {
-      "subject": "Žiadosť {{reference}} zrušená",
-      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} bola zrušená.",
-      "details": "Za túto žiadosť vám nebude nič účtované. Ak zrušenie nezodpovedá vášmu želaniu, môžete podať novú žiadosť vo svojej bezpečnej zóne."
-    },
-    "insurancePayNow": {
-      "subject": "Poistenie — okamžitá platba · spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, rozhodli ste sa uhradiť poplatok za poistenie {{amount}} ihneď.",
-      "details": "Pokyny na platbu (príjemca, IBAN, BIC a variabilný symbol) nájdete vo svojej zabezpečenej zóne. Platba sa považuje za prijatú až po overení naším tímom."
-    },
-    "insurancePayLater": {
-      "subject": "Poistenie — naplánovaná platba · spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, platba {{amount}} je naplánovaná na {{date}}.",
-      "details": "Spis zostáva rezervovaný do zvoleného dátumu. Môžete zaplatiť skôr; pred splatnosťou pošleme pripomienky."
-    },
-    "insuranceDeclined": {
-      "subject": "Poistenie — vzdanie sa zaznamenané · spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, zaznamenali sme vzdanie sa poistenia.",
-      "details": "Bez poistenia môže byť spis znovu posúdený. Do vyplatenia prostriedkov môžete svoje rozhodnutie zmeniť."
-    },
-    "insurancePaymentValidated": {
-      "subject": "Poistenie — platba overená · spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, potvrdzujeme prijatie poplatku za poistenie.",
-      "details": "Krytie sa aktivuje. Potvrdenie a číslo poistky budú dostupné v zabezpečenej zóne po overení."
-    },
-    "insuranceReminder": {
-      "subject": "Pripomienka — poplatok za poistenie · spis {{reference}}",
-      "body": "Dobrý deň {{firstName}}, platba {{amount}} je splatná {{date}}.",
-      "details": "Táto automatická pripomienka sa odosiela pred vami zvoleným dátumom. Pokyny na platbu nájdete v zabezpečenej zóne."
+      "selectClient": "Vybrať klienta",
+      "selectLoan": "Vybrať úver",
+      "submit": "Vykonať prevod",
+      "subtitle": "Vytvorte okamžitý alebo štandardný prevod v mene klienta.",
+      "success": "Prevod úspešne vykonaný",
+      "title": "Vykonať klientský prevod"
     }
   },
-  "workflow": {
-    "guard": {
-      "kycNotPassed": "KYC checks not passed",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "noInsurance": "No insurance subscribed on this file",
-      "missingPayout": "Payout details missing",
-      "complianceBlocking": "Blocking compliance alert"
+  "adminCodes": {
+    "address": "Platobná adresa",
+    "approve": "Schváliť",
+    "approved": "Schválené",
+    "bic": "BIC / SWIFT",
+    "code": "Kód",
+    "codeSent": "Kód vygenerovaný a odoslaný",
+    "consumed": "Použité",
+    "created": "Kód vytvorený",
+    "description": "Účel / Popis",
+    "error": "Chyba",
+    "fee": "Poplatok (€)",
+    "gatedDesc": "Konfigurácia bude dostupná po schválení úveru.",
+    "gatedTitle": "Konfigurácia je uzamknutá",
+    "generate": "Generovať",
+    "generateAndSend": "Generovať a odoslať",
+    "help": "Spravujte kódy postupu prevodu.",
+    "holder": "Držiteľ účtu",
+    "iban": "IBAN",
+    "invalidates": "Regenerácia automaticky zruší platnosť predchádzajúceho kódu.",
+    "invalidFee": "Neplatný poplatok",
+    "noCode": "Žiadny kód",
+    "notifApprovedMsg": "Vaša platba bola overená. Kód bude odoslaný.",
+    "notifApprovedTitle": "Potvrdenka schválená — krok {{p}}%",
+    "notifMsg": "Váš kód: {{code}} (poplatok {{fee}})",
+    "notifRejectedMsg": "Pošlite prosím platnú potvrdenku.",
+    "notifRejectedTitle": "Potvrdenka zamietnutá — krok {{p}}%",
+    "notifTitle": "Odblokovací kód {{p}}%",
+    "pending": "Čaká",
+    "receiptApproved": "Potvrdenka schválená",
+    "receiptRejected": "Potvrdenka zamietnutá",
+    "receiptUploaded": "Potvrdenka nahraná",
+    "regenerate": "Regenerovať",
+    "regenerateAndSend": "Regenerovať a odoslať",
+    "reject": "Zamietnuť",
+    "rejected": "Zamietnuté",
+    "released": "Uvoľnené",
+    "saved": "Konfigurácia uložená",
+    "sectionHelp": "Nastavte poplatky a platobnú adresu pre každý krok, overte potvrdenku a odošlite kód.",
+    "sectionTitle": "Konfigurácia krokov prevodu",
+    "send": "Odoslať",
+    "step": "Krok",
+    "success": "Úspech",
+    "title": "Odblokovacie kódy",
+    "updated": "Kód aktualizovaný"
+  },
+  "adminDash": {
+    "chat": "Živý rozhovor",
+    "clients": "zákazníkov",
+    "kpis": {
+      "clients": "Aktívni zákazníci",
+      "loansPending": "Čakajúce úvery",
+      "newToday": "Dnes nové",
+      "ticketsOpen": "Otvorené lístky",
+      "transfersBlocked": "Prevody sú zablokované"
     },
-    "error": {
-      "sameStatus": "The file already has this status",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "forbidden": "Action not allowed"
+    "loans": "Pôžičky",
+    "logs": "Activity log",
+    "notifications": "Upozornenia",
+    "overview": "Prehľad",
+    "quickActions": "Rýchle akcie",
+    "recentActivity": "Nedávna aktivita",
+    "roles": "Permissions",
+    "security": "Bezpečnosť",
+    "staff": "Team & roles",
+    "title": "Prístrojová doska — MOONYP",
+    "transfers": "Prestupy"
+  },
+  "adminSec": {
+    "adminLink": "Admin",
+    "alerts": {
+      "empty": "Žiadne upozornenia.",
+      "resolve": "Vyriešiť",
+      "resolved": "vyriešené",
+      "title": "Bezpečnostné upozornenia"
     },
-    "confirmTitle": "Confirm the decision",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "reasonLabel": "Reason shared with the applicant",
-    "noteLabel": "Internal note",
-    "confirm": "Confirm",
-    "cancel": "Cancel",
-    "requests": {
-      "title": "Information requests",
-      "kind": "Request type",
-      "message": "Message sent to the applicant",
-      "create": "Send request",
-      "none": "No information request.",
-      "close": "Close",
-      "open": "Pending",
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "kinds": {
-        "missing_document": "Chýbajúci dokument",
-        "replace_document": "Výmena dokumentu",
-        "information": "Doplňujúca informácia",
-        "justification": "Vyžiadané odôvodnenie"
-      }
+    "center": "Centrum bezpečnosti",
+    "devices": {
+      "country": "Krajina",
+      "empty": "Žiadne zariadenia.",
+      "label": "Štítok",
+      "lastSeen": "Naposledy videné",
+      "pending": "čaká",
+      "title": "Dôveryhodné zariadenia",
+      "trusted": "Dôvera",
+      "trustedBadge": "dôveryhodné"
+    },
+    "fail": "chyba",
+    "kpi": {
+      "devicesTracked": "Sledované zariadenia",
+      "highRisk": "Rizikoví používatelia",
+      "openAlerts": "Otvorené upozornenia",
+      "totalEvents": "Celkom udalostí"
+    },
+    "logs": {
+      "action": "Akcia",
+      "allActions": "Všetky akcie",
+      "device": "Zariadenie",
+      "empty": "Žiadne záznamy.",
+      "ipCountry": "IP / Krajina",
+      "searchPh": "Hľadať používateľ, IP, krajina…",
+      "status": "Stav",
+      "title": "Bezpečnostné záznamy",
+      "user": "Používateľ",
+      "when": "Kedy"
+    },
+    "metaTitle": "Bezpečnosť · Admin",
+    "ok": "ok",
+    "risk": {
+      "empty": "Žiadne údaje.",
+      "risk": "Riziko",
+      "sensitive": "Citlivé",
+      "sessions": "Relácie",
+      "title": "Skóre rizika"
+    },
+    "tab": {
+      "alerts": "Upozornenia",
+      "devices": "Zariadenia",
+      "logs": "Záznamy",
+      "risk": "Riziko"
+    },
+    "unauthorized": "Neoprávnené",
+    "user": "používateľ"
+  },
+  "apply": {
+    "steps": {
+      "documents": "Dokumenty",
+      "employment": "Zamestnanie",
+      "identity": "Totožnosť",
+      "payout": "Výplata",
+      "request": "Žiadosť",
+      "review": "Súhrn"
     }
+  },
+  "auth": {
+    "accountCreated": "Účet úspešne vytvorený",
+    "backHome": "Späť na domov",
+    "brandBadge": "Bezpečná digitálna banka",
+    "confirmNewPassword": "Potvrdiť heslo",
+    "connectedToast": "Úspešne prihlásený",
+    "createAccount": "Vytvoriť účet",
+    "creating": "Vytváranie účtu…",
+    "decision": "Rozhodnutie do 24 pracovných hodín",
+    "email": "E-mail",
+    "emailAlreadyUsed": "E-mail sa už používa",
+    "emailInvalid": "Neplatný e-mail",
+    "emailLabel": "E-mail",
+    "forgotDesc": "Zadajte e-mail. Pošleme vám bezpečný odkaz na nastavenie nového hesla.",
+    "forgotLink": "Zabudli ste heslo?",
+    "forgotPassword": "Zabudnuté heslo?",
+    "forgotSend": "Odoslať odkaz",
+    "forgotSent": "Ak účet existuje, e-mail bol odoslaný.",
+    "forgotTitle": "Obnoviť heslo",
+    "fullName": "Celé meno",
+    "fullNameLabel": "Celé meno",
+    "google": "Pokračovať s Google",
+    "googleError": "Prihlásenie cez Google zlyhalo",
+    "googleLoading": "Prihlasovanie cez Google…",
+    "hasAccount": "Už máte účet?",
+    "invalidCredentials": "Neplatné prihlasovacie údaje",
+    "loginSuccess": "Úspešné prihlásenie",
+    "minPasswordHint": "Minimálne 8 znakov.",
+    "mobileHint": "Prihláste sa alebo si vytvorte účet",
+    "nameShort": "Meno je príliš krátke",
+    "newPassword": "Nové heslo",
+    "noAccount": "Ešte nemáte účet?",
+    "password": "Heslo",
+    "passwordLabel": "Heslo",
+    "passwordMin": "Heslo musí mať aspoň 8 znakov",
+    "passwordRequired": "Heslo je povinné",
+    "phone": "Telefón",
+    "phoneInvalid": "Neplatné telefónne číslo",
+    "phoneLabel": "Telefón",
+    "resetSuccess": "Heslo bolo aktualizované.",
+    "resetTitle": "Nastaviť nové heslo",
+    "resetWaiting": "Overovanie odkazu…",
+    "rgpd": "V súlade s GDPR",
+    "signIn": "Prihlásenie",
+    "signingIn": "Prihlasovanie…",
+    "signUp": "Vytvoriť účet",
+    "signupSuccess": "Účet vytvorený · skontrolujte e-mail",
+    "tabSignin": "Prihlásenie",
+    "tabSignup": "Vytvoriť účet",
+    "terms": "Pokračovaním súhlasíte s našimi Podmienkami a Zásadami ochrany osobných údajov.",
+    "title": "Zóna klienta",
+    "tls": "Šifrovanie TLS 1.3",
+    "updatePassword": "Aktualizovať heslo",
+    "welcomeDesc": "Bezpečný prístup k vašim úverom, prevodom a prémiovým službám.",
+    "welcomeTitle": "Vitajte v"
+  },
+  "authPending": {
+    "description": "Odoslali sme potvrdzovací odkaz.",
+    "footer": "Nikdy nezdieľajte svoje údaje.",
+    "instruction": "Kliknite na odkaz na aktiváciu účtu.",
+    "loading": "Čakanie na potvrdenie...",
+    "title": "Skontrolujte e-mail"
+  },
+  "blocked": {
+    "contact": "Pre viac informácií kontaktujte podporu.",
+    "message": "Váš účet bol dočasne pozastavený naším tímom pre súlad.",
+    "reasonLabel": "Dôvod",
+    "signOut": "Odhlásiť sa",
+    "title": "Účet pozastavený"
+  },
+  "chat": {
+    "admin": {
+      "close": "Zavrieť tiket",
+      "empty": "Žiadne konverzácie.",
+      "filter": {
+        "all": "Všetky",
+        "closed": "ZATVORENÉ",
+        "guests": "Návštevníci",
+        "mine": "Pridelené mne",
+        "waiting": "Podržané"
+      },
+      "folders": "Súbory zákazníkov",
+      "info": {
+        "none": "Žiadne informácie",
+        "title": "Informácie o tikete"
+      },
+      "reopen": "Znovu otvoriť tiket",
+      "searchPlaceholder": "Vyhľadajte zákazníka, lístok, e-mail…",
+      "selectHint": "Vyberte konverzáciu vľavo.",
+      "tickets": "Vstupenky",
+      "updated": "Tiket aktualizovaný"
+    },
+    "agent": {
+      "brandName": "Poradca MOONYP",
+      "defaultName": "Poradca",
+      "join": "Pripojiť sa",
+      "joined": "sa pripojil ku konverzácii",
+      "joinedYou": "Pripojili ste sa ku konverzácii",
+      "notAssigned": "Žiadny priradený agent"
+    },
+    "agentTitle": "Špecialista zákazníckeho servisu",
+    "archived": "Archívy",
+    "assistant": "asistentka",
+    "backHome": "Späť domov",
+    "banner": {
+      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris",
+      "top": "MOONYP — Bezpečný zákaznícky servis"
+    },
+    "close": "Zatvoriť",
+    "closed": "Konverzácia zatvorená",
+    "closedNotice": "Konverzácia je uzavretá.",
+    "closeTicket": "Zatvoriť konverzáciu",
+    "compose": {
+      "placeholder": "Napíšte správu…"
+    },
+    "genericError": "Vyskytla sa chyba",
+    "guest": {
+      "country": "Krajina pobytu",
+      "created": "Vstupenka #{{ticket}} vytvorená!",
+      "email": "E-mail *",
+      "errors": {
+        "fail": "Odosielanie zlyhalo, skúste to znova.",
+        "required": "Vyžaduje sa meno, e-mail a správa."
+      },
+      "intro": "Vyplňte tento formulár a poradca MOONYP rýchlo odpovie. Dostanete číslo lístka.",
+      "message": "Vaša správa *",
+      "name": "Celé meno *",
+      "phone": "Telefón",
+      "privacy": "S vašimi údajmi sa zaobchádza dôverne (GDPR).",
+      "subject": "Predmet",
+      "submit": "Otvor môj lístok",
+      "subtitle": "Pomoc návštevníkom",
+      "whatsapp": "WhatsApp"
+    },
+    "handoff": {
+      "no": "Nie, ďakujem",
+      "pending": "Vaša požiadavka sa spracúva, poradca sa pripojí za 1-2 minúty…",
+      "question": "Chcete hovoriť s poradcom?",
+      "yes": "Áno, hovoriť s poradcom"
+    },
+    "joinedNotice": "{{name}} sa pripojil ku konverzácii.",
+    "loading": "Načítava",
+    "loginRequired": {
+      "cta": "Prihlásiť sa",
+      "desc": "Na použitie podpory musíte byť prihlásený.",
+      "title": "Prihláste sa na chat"
+    },
+    "nav": "Podpora",
+    "notFound": "Stránka nenájdená",
+    "notFoundDesc": "Táto stránka neexistuje.",
+    "open": "OTVORENÉ",
+    "pageDesc": "Chatujte s naším tímom alebo s Annou, našou virtuálnou asistentkou.",
+    "pageTitle": "Živá podpora",
+    "rt": {
+      "bold": "Tučné",
+      "italic": "Kurzíva",
+      "link": "Odkaz",
+      "linkPrompt": "Zadajte URL (https://...)"
+    },
+    "sendError": "Odoslanie zlyhalo",
+    "status": {
+      "agent": "Poradca online",
+      "assigned": "Prebieha",
+      "closed": "Zatvorené",
+      "online": "Online",
+      "open": "Otvorené",
+      "waiting_agent": "Čaká na agenta"
+    },
+    "system": "Systém",
+    "ticket": "Lístok",
+    "tickets": {
+      "back": "Späť",
+      "closed": "Zatvorené",
+      "empty": "Zatiaľ žiadne konverzácie.",
+      "new": "Nová konverzácia",
+      "one": "Konverzácia",
+      "open": "Otvorené",
+      "title": "Moje konverzácie"
+    },
+    "today": "Dnes",
+    "typing": "píše",
+    "welcome": {
+      "greeting": "Dobrý deň 👋 Som Anna, vaša asistentka MOONYP.",
+      "help": "Ako vám dnes môžem pomôcť?"
+    },
+    "yesterday": "Včera",
+    "you": "Vy"
+  },
+  "client": {
+    "stages": {
+      "awaitCode": "Čaká sa na kód správcu",
+      "blockedDesc": "Poplatok: {{fee}}. Po overení dostanete kód.",
+      "blockedTitle": "Prevod zablokovaný pri {{stage}}%",
+      "codePlaceholder": "Odblokovací kód",
+      "codeReceivedMsg": "Váš kód: {{code}} (poplatok {{fee}})",
+      "codeReceivedTitle": "Kód {{stage}}%",
+      "enterCode": "Zadajte kód",
+      "invalidCode": "Neplatný kód",
+      "title": "Prebiehajúce prevody",
+      "unlock": "Odomknúť",
+      "unlocked": "Fáza odomknutá"
+    }
+  },
+  "common": {
+    "actions": "Akcie",
+    "all": "Všetky",
+    "amount": "Suma",
+    "back": "Späť",
+    "backHome": "Späť na domov",
+    "cancel": "Zrušiť",
+    "close": "Zavrieť",
+    "confirm": "Potvrdiť",
+    "continue": "Pokračovať",
+    "date": "Dátum",
+    "delete": "Vymazať",
+    "details": "Podrobnosti",
+    "download": "Stiahnuť",
+    "edit": "Upraviť",
+    "errorRetry": "Skúsiť znova",
+    "from": "Od",
+    "language": "Jazyk",
+    "loadError": "Chyba pri načítaní",
+    "loading": "Načítava sa…",
+    "new": "Nové",
+    "next": "Ďalej",
+    "no": "Nie",
+    "none": "Žiadne",
+    "noResults": "Žiadne výsledky",
+    "notFound": "Stránka sa nenašla",
+    "notFoundDesc": "Hľadaná stránka neexistuje alebo bola presunutá.",
+    "open": "Otvoriť",
+    "optional": "voliteľné",
+    "previous": "Späť",
+    "refresh": "Obnoviť",
+    "required": "povinné",
+    "save": "Uložiť",
+    "saving": "Ukladá sa…",
+    "search": "Hľadať",
+    "send": "Odoslať",
+    "sending": "Odosielanie…",
+    "sessionExpired": "Relácia vypršala z dôvodu nečinnosti",
+    "status": "Stav",
+    "submit": "Odoslať",
+    "to": "Pre",
+    "updating": "Aktualizácia…",
+    "upload": "Nahrať",
+    "view": "Zobraziť",
+    "viewAll": "Zobraziť všetko",
+    "yes": "Áno"
+  },
+  "contact": {
+    "address": "103 avenue des Champs-Élysées",
+    "addressCity": "75008 Paríž, Francúzsko",
+    "addressLabel": "Sídlo",
+    "back": "Späť",
+    "defaultEmailPlaceholder": "vy@priklad.sk",
+    "defaultNamePlaceholder": "Ján Novák",
+    "email": "E-mail",
+    "emailInvalid": "Neplatný e-mail",
+    "emailLabel": "E-mail",
+    "error": "Odoslanie zlyhalo",
+    "formTitle": "Odoslať správu",
+    "fullName": "Celé meno",
+    "infoTitle": "Kontaktné údaje",
+    "message": "Správa",
+    "messagePlaceholder": "Podrobne opíšte svoju požiadavku…",
+    "messageTooShort": "Správa je príliš krátka (minimálne 10 znakov)",
+    "metaDesc": "Kontaktujte zákaznícky servis MOONYP pre otázky o vašom účte, úveroch alebo prevodoch.",
+    "metaTitle": "Kontakt — Zákaznícky servis MOONYP",
+    "nameRequired": "Meno je povinné",
+    "phoneHours": "Po-Pia · 8h-20h",
+    "phoneLabel": "Zákaznícky servis",
+    "phoneTitle": "Zákaznícka podpora",
+    "secureNote": "Vaše správy sú šifrované a dôverne spracovávané naším tímom pre súlad.",
+    "send": "Odoslať správu",
+    "sending": "Odosielanie…",
+    "subject": "Predmet",
+    "subjects": {
+      "account": "Otázka o mojom účte",
+      "appointment": "Žiadosť o stretnutie",
+      "complaint": "Sťažnosť",
+      "loan": "Otázka o úvere",
+      "other": "Iné",
+      "transfer": "Problém s prevodom"
+    },
+    "subtitle": "Odpovedáme do 24 pracovných hodín · zaručená dôvernosť.",
+    "success": "Správa odoslaná · odpovieme do 24 hodín",
+    "successQueued": "Správa bola uložená. Ozveme sa čoskoro.",
+    "title": "Kontaktovať zákaznícky servis"
+  },
+  "contactSection": {
+    "cta": "Kontaktujte nás",
+    "desc": "Náš tím odpovie na otázky o financovaní, dokumentoch a stave žiadosti.",
+    "eyebrow": "Kontakt",
+    "title": "Hovorte s poradcom"
   },
   "contractDoc": {
     "address": "Adresa",
@@ -2414,5 +632,1854 @@
     "title": "Zmluva o spotrebitelskom uvere",
     "totalCost": "Celkove naklady na uver",
     "version": "Verzia"
+  },
+  "dashboard": {
+    "activeLoans": "Aktívne úvery",
+    "apply": "Požiadať teraz",
+    "applyCta": "Podať žiadosť",
+    "balance": "Disponibilný zostatok",
+    "contactSupport": "Kontaktovať podporu",
+    "details": "Detaily",
+    "disbursedRemaining": "Vyplatené: {{disbursed}} · Zostatok: {{remaining}}",
+    "firstLoanDesc": "Financujte projekty za pár minút: auto, rekonštrukcia, likvidita a iné.",
+    "firstLoanTitle": "Začnite prvú žiadosť",
+    "fundedOf": "z {{amount}} financovaných",
+    "fundedOutOf": "z {{amount}} financovaných",
+    "hideBalance": "Skryť zostatok",
+    "loadError": "Chyba pri načítaní",
+    "loading": "Načítavanie…",
+    "loanDurationCreated": "{{months}} mesiacov · Žiadosť z {{date}}",
+    "makeTransfer": "Vykonať prevod",
+    "metaTitle": "Môj panel — MOONYPAS",
+    "monthsSince": "{{months}} mesiacov · Žiadosť z {{date}}",
+    "myDashboard": "Môj prehľad",
+    "myLoans": "Moje úvery",
+    "needHelp": "Potrebujete pomoc?",
+    "newLoan": "Nový úver",
+    "newRequest": "Nová žiadosť",
+    "newShort": "+ Nový",
+    "noLoans": "Zatiaľ nemáte úver",
+    "noRecentTransfers": "Zatiaľ žiadne prevody",
+    "noTransfers": "Žiadne prevody",
+    "noTransfersYet": "Zatiaľ žiadne prevody",
+    "recentActivity": "Posledná aktivita",
+    "sessionExpired": "Relácia vypršala z dôvodu nečinnosti",
+    "showBalance": "Zobraziť zostatok",
+    "startApplication": "Začať žiadosť",
+    "status": {
+      "en_traitement": "Spracováva sa",
+      "envoye": "Odoslané",
+      "rejete": "Zamietnuté"
+    },
+    "title": "Môj prehľad",
+    "totalAvailable": "Celkový dostupný zostatok",
+    "totalFunded": "Celkom financované",
+    "transfer": "Vykonať prevod",
+    "transferHistory": "História prevodov",
+    "transfers": "Prevody",
+    "transfersKpi": "Prevody",
+    "viewAll": "Zobraziť všetky",
+    "viewLoan": "Zobraziť spis",
+    "welcome": "Dobrý deň",
+    "welcomeAnon": "Vitajte",
+    "welcomeNamed": "Vitajte, {{name}}",
+    "welcomeShort": "Vitajte",
+    "withdraw": "Vybrať",
+    "withdrawnAmount": "{{amount}} vybratých"
+  },
+  "documents": {
+    "bankStatement": "Bankové výpisy",
+    "identity": "Doklad totožnosti",
+    "income": "Doklady o príjme",
+    "other": "Iný dokument",
+    "proofAddress": "Doklad o adrese",
+    "rib": "Bankové údaje (IBAN)"
+  },
+  "emails": {
+    "applicationAnalysis": {
+      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} vstúpila do fázy úverovej analýzy.",
+      "details": "Naši analytici posudzujú vašu schopnosť splácať, súlad príjmov a požadovanú sumu. Výsledok uvidíte vo svojej bezpečnej zóne, len čo bude k dispozícii.",
+      "subject": "Žiadosť {{reference}} v analýze"
+    },
+    "applicationReceived": {
+      "body": "Dobrý deň {{firstName}}, prijali sme žiadosť {{reference}}. Náš tím ju posudzuje a bude vás informovať v každom kroku.",
+      "subject": "Prijali sme vašu žiadosť {{reference}}"
+    },
+    "applicationVerification": {
+      "body": "Dobrý deň {{firstName}}, vašu žiadosť {{reference}} práve overujú naše tímy.",
+      "details": "Kontrolujeme pravosť a čitateľnosť vašich dokladov. V tejto fáze nemusíte nič robiť; okamžite vás upozorníme, ak bude potrebné doplniť dokument.",
+      "subject": "Žiadosť {{reference}} v overovaní"
+    },
+    "approved": {
+      "body": "Dobrý deň {{firstName}}, žiadosť {{reference}} bola schválená. Ponuka bude dostupná v zabezpečenej zóne.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "subject": "Žiadosť {{reference}} bola schválená"
+    },
+    "cancelled": {
+      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} bola zrušená.",
+      "details": "Za túto žiadosť vám nebude nič účtované. Ak zrušenie nezodpovedá vášmu želaniu, môžete podať novú žiadosť vo svojej bezpečnej zóne.",
+      "subject": "Žiadosť {{reference}} zrušená"
+    },
+    "common": {
+      "amount": "Financovaná suma",
+      "autoMessage": "Automatická správa — neodpovedajte priamo.",
+      "codeTitle": "Váš jednorazový podpisový kód",
+      "duration": "Doba",
+      "feeAmount": "Dotknutá suma",
+      "footerLegal": "Moonyp — zodpovedné financovanie. E-mail sa týka vašej žiadosti.",
+      "monthly": "Odhadovaná splátka",
+      "months": "mesiacov",
+      "needHelp": "Otázky? Zákaznícky servis odpovedá vo vašej zabezpečenej zóne.",
+      "reasonTitle": "Spresnenia nášho tímu",
+      "reference": "Referencia",
+      "scheduledDate": "Plánovaný dátum",
+      "secureNotice": "Odkaz je osobný, šifrovaný a odvolateľný. Nezdieľajte ho.",
+      "status": "Stav žiadosti",
+      "summary": "Zhrnutie žiadosti",
+      "tagline": "Vaše financovanie, úplne transparentne"
+    },
+    "contractSent": {
+      "body": "Dobrý deň {{firstName}}, zmluva {{reference}} je pripravená na podpis v zabezpečenej zóne.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "subject": "Vaša zmluva {{reference}} je pripravená"
+    },
+    "contractSigned": {
+      "body": "Dobrý deň {{firstName}}, zmluva {{reference}} bola podpísaná. Stiahnuť si ju môžete v zabezpečenej zóne.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "subject": "Zmluva {{reference}} podpísaná"
+    },
+    "cta": {
+      "contract": "Prečítať a podpísať zmluvu",
+      "documents": "Nahrať dokumenty",
+      "guarantee": "Vybrať možnosť krytia",
+      "insurance": "Spravovať poistenie",
+      "payment": "Vykonať platbu",
+      "portal": "Zobraziť moju žiadosť",
+      "schedule": "Zobraziť môj splátkový kalendár"
+    },
+    "disbursed": {
+      "body": "Dobrý deň {{firstName}}, prostriedky spisu {{reference}} boli poukázané na váš účet.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "subject": "Prostriedky vyplatené — spis {{reference}}"
+    },
+    "disbursementPreparing": {
+      "body": "Dobrý deň {{firstName}}, vyplatenie prostriedkov k žiadosti {{reference}} sa pripravuje.",
+      "details": "Naše finančné oddelenie naposledy kontroluje vaše bankové údaje pred zadaním prevodu. Potvrdenie dostanete hneď po odoslaní prostriedkov.",
+      "subject": "Vyplatenie v príprave — žiadosť {{reference}}"
+    },
+    "documentsMissing": {
+      "body": "Dobrý deň {{firstName}}, v spise {{reference}} chýbajú dokumenty. Nahrajte ich v zabezpečenej zóne. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "subject": "Chýbajúce dokumenty — spis {{reference}}"
+    },
+    "guaranteeDeclined": {
+      "body": "Dobrý deň {{firstName}}, zaznamenali sme vaše vzdanie sa. Spis {{reference}} bude uzavretý.",
+      "subject": "Žiadosť {{reference}} zrušená"
+    },
+    "guaranteePayLater": {
+      "body": "Dobrý deň {{firstName}}, platba {{amount}} je naplánovaná na {{date}}. Žiadosť zostáva čakajúca.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "subject": "Platba naplánovaná {{reference}}"
+    },
+    "guaranteePaymentValidated": {
+      "body": "Dobrý deň {{firstName}}, platba bola potvrdená. Spis pokračuje.",
+      "subject": "Poplatok potvrdený {{reference}}"
+    },
+    "guaranteePayNow": {
+      "body": "Dobrý deň {{firstName}}, zaznamenali sme voľbu zaplatiť {{amount}}. Pokyny pošleme po overení.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "subject": "Platba poplatku {{reference}}"
+    },
+    "guaranteeReminder": {
+      "body": "Dobrý deň {{firstName}}, platba {{amount}} je splatná {{date}}.",
+      "subject": "Pripomienka platby {{reference}}"
+    },
+    "guaranteeSent": {
+      "body": "Dobrý deň {{firstName}}, poplatok za krytie úverového rizika je {{amount}}. Vyberte možnosť v zabezpečenej zóne.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "subject": "Poplatok za krytie — spis {{reference}}"
+    },
+    "guaranteeSigned": {
+      "body": "Dobrý deň {{firstName}}, krytie úverového rizika žiadosti {{reference}} je potvrdené.",
+      "details": "Po tejto fáze žiadosť pokračuje k poisteniu dlžníka a potom k príprave vyplatenia. Každý krok vidíte v reálnom čase vo svojej bezpečnej zóne.",
+      "subject": "Krytie potvrdené — žiadosť {{reference}}"
+    },
+    "infoRequested": {
+      "body": "Dobrý deň {{firstName}}, potrebujeme doplňujúce informácie k spisu {{reference}}. {{reason}}",
+      "subject": "Doplňujúce informácie — spis {{reference}}"
+    },
+    "installmentReminder": {
+      "body": "Dobrý deň {{firstName}}, ďalšia splátka {{amount}} je splatná {{date}}.",
+      "details": "Splátkový kalendár a platba vo vašej zabezpečenej zóne.",
+      "subject": "Blížiaca sa splátka — žiadosť {{reference}}"
+    },
+    "insuranceDeclined": {
+      "body": "Dobrý deň {{firstName}}, zaznamenali sme vzdanie sa poistenia.",
+      "details": "Bez poistenia môže byť spis znovu posúdený. Do vyplatenia prostriedkov môžete svoje rozhodnutie zmeniť.",
+      "subject": "Poistenie — vzdanie sa zaznamenané · spis {{reference}}"
+    },
+    "insurancePayLater": {
+      "body": "Dobrý deň {{firstName}}, platba {{amount}} je naplánovaná na {{date}}.",
+      "details": "Spis zostáva rezervovaný do zvoleného dátumu. Môžete zaplatiť skôr; pred splatnosťou pošleme pripomienky.",
+      "subject": "Poistenie — naplánovaná platba · spis {{reference}}"
+    },
+    "insurancePaymentValidated": {
+      "body": "Dobrý deň {{firstName}}, potvrdzujeme prijatie poplatku za poistenie.",
+      "details": "Krytie sa aktivuje. Potvrdenie a číslo poistky budú dostupné v zabezpečenej zóne po overení.",
+      "subject": "Poistenie — platba overená · spis {{reference}}"
+    },
+    "insurancePayNow": {
+      "body": "Dobrý deň {{firstName}}, rozhodli ste sa uhradiť poplatok za poistenie {{amount}} ihneď.",
+      "details": "Pokyny na platbu (príjemca, IBAN, BIC a variabilný symbol) nájdete vo svojej zabezpečenej zóne. Platba sa považuje za prijatú až po overení naším tímom.",
+      "subject": "Poistenie — okamžitá platba · spis {{reference}}"
+    },
+    "insurancePending": {
+      "body": "Dobrý deň {{firstName}}, vyžaduje sa poistenie {{amount}} mesačne.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "subject": "Poistenie {{reference}}"
+    },
+    "insuranceReminder": {
+      "body": "Dobrý deň {{firstName}}, platba {{amount}} je splatná {{date}}.",
+      "details": "Táto automatická pripomienka sa odosiela pred vami zvoleným dátumom. Pokyny na platbu nájdete v zabezpečenej zóne.",
+      "subject": "Pripomienka — poplatok za poistenie · spis {{reference}}"
+    },
+    "insuranceValidated": {
+      "body": "Dobrý deň {{firstName}}, vaše poistenie bolo potvrdené.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "subject": "Poistenie potvrdené {{reference}}"
+    },
+    "late": {
+      "body": "Dobrý deň {{firstName}}, splátka vašej žiadosti {{reference}} je po termíne.",
+      "details": "Prosíme o úhradu splátky čo najskôr, aby ste sa vyhli nákladom z omeškania a nahláseniu. Pri ťažkostiach nás kontaktujte: riešenie je možné dohodnúť.",
+      "subject": "Splátka po termíne — žiadosť {{reference}}"
+    },
+    "offerAvailable": {
+      "body": "Dobrý deň {{firstName}}, ponuka financovania {{reference}} je dostupná v zabezpečenej zóne.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "subject": "Vaša ponuka {{reference}} je dostupná"
+    },
+    "rejected": {
+      "body": "Dobrý deň {{firstName}}, po posúdení nebolo možné žiadosť {{reference}} prijať. Dôvod: {{reason}}",
+      "subject": "Rozhodnutie o žiadosti {{reference}}"
+    },
+    "repaid": {
+      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} je úplne splatená. Ďakujeme za dôveru.",
+      "details": "Potvrdenie o nulovom zostatku a celú históriu platieb nájdete vo svojej bezpečnej zóne. Novú žiadosť môžete podať kedykoľvek.",
+      "subject": "Žiadosť {{reference}} úplne splatená"
+    },
+    "repaying": {
+      "body": "Dobrý deň {{firstName}}, vaša žiadosť {{reference}} vstupuje do fázy splácania.",
+      "details": "Podrobný splátkový kalendár (istina, úroky, zostatok) je vo vašej bezpečnej zóne. Každá prijatá splátka sa tam zaznamená a potvrdíme ju e-mailom.",
+      "subject": "Splácanie prebieha — žiadosť {{reference}}"
+    },
+    "repaymentReceived": {
+      "body": "Dobrý deň {{firstName}}, prijali sme vašu platbu {{amount}} k žiadosti {{reference}}.",
+      "details": "Príslušná splátka je označená ako uhradená a zostatok bol aktualizovaný vo vašej bezpečnej zóne, kde kalendár zostáva na stiahnutie.",
+      "subject": "Platba prijatá — žiadosť {{reference}}"
+    },
+    "signatureCode": {
+      "body": "Dobrý deň {{firstName}}, váš kód na podpis je {{code}}. Platí 10 minút.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "subject": "Váš kód na podpis {{reference}}"
+    },
+    "signaturePending": {
+      "body": "Dobrý deň {{firstName}}, vaša zmluva {{reference}} čaká na váš elektronický podpis.",
+      "details": "Do podpisu zostáva žiadosť pozastavená a prostriedky nemožno pripraviť. Podpis prebieha online jednorazovým kódom do dvoch minút.",
+      "subject": "Čaká sa na podpis — žiadosť {{reference}}"
+    }
+  },
+  "finance": {
+    "address": {
+      "hideManual": "Skryť podrobnosti",
+      "hint": "Vyberte návrh alebo zadajte adresu manuálne.",
+      "manual": "Zadať manuálne",
+      "placeholder": "Začnite písať svoju adresu (celý svet)…"
+    },
+    "apply": {
+      "badMime": "Nepodporovaný formát súboru.",
+      "bankNotice": "Vaše bankové údaje sú šifrované a použité len na vyplatenie úveru.",
+      "chooseFile": "Vybrať súbor",
+      "consentMarketing": "Súhlasím so zasielaním informácií o ponukách MOONYP.",
+      "consentPrivacy": "Súhlasím so zásadami ochrany súkromia a spracovaním údajov.",
+      "consentTerms": "Súhlasím so všeobecnými podmienkami.",
+      "documentsIntro": "Nahrajte ostré a čitateľné dokumenty. Formáty: PDF, JPG alebo PNG.",
+      "documentsMissing": "Chýba jeden alebo viac povinných dokumentov.",
+      "dti": "Ukazovateľ dlhovej služby (DTI)",
+      "fileCount": "vybraných súborov",
+      "fileTooLarge": "Tento súbor je príliš veľký.",
+      "finalNotice": "Odoslaním potvrdzujete, že uvedené informácie sú správne. Vašu žiadosť analyzuje náš úverový tím; zabezpečený odkaz na sledovanie každého kroku vám bude zaslaný e-mailom.",
+      "fixErrors": "Opravte označené polia.",
+      "holderHint": "Musí sa zhodovať s menom žiadateľa",
+      "maxSize": "Max. veľkosť",
+      "metaDesc": "Vyplňte žiadosť online v 6 bezpečných krokoch.",
+      "metaTitle": "Žiadosť o úver — MOONYP",
+      "next": "Pokračovať",
+      "previous": "Späť",
+      "rateLimited": "Príliš veľa pokusov. Skúste to o niekoľko minút.",
+      "reviewFlag": "Tento bod bude overený manuálne",
+      "reviewTitle": "Vaša splátka",
+      "stepOf": "Krok {{current}} z {{total}}",
+      "steps": {
+        "documents": "Dokumenty",
+        "employment": "Zamestnanie",
+        "identity": "Totožnosť",
+        "payout": "Výplata",
+        "request": "Žiadosť",
+        "review": "Súhrn"
+      },
+      "submit": "Odoslať žiadosť",
+      "submitError": "Žiadosť sa nepodarilo odoslať. Skúste to znova.",
+      "subtitle": "Šesť krokov, pár minút. Postup sa ukladá v tomto zariadení.",
+      "takePhoto": "Odfotiť",
+      "title": "Vaša žiadosť o úver",
+      "uploading": "Odosielanie dokumentov ({{done}}/{{total}})"
+    },
+    "contract": {
+      "alreadySigned": "Táto zmluva je už podpísaná.",
+      "backToFile": "Späť na spis",
+      "code": "Kód na podpis",
+      "codeHint": "Jednorazový kód bol odoslaný na e-mail uvedený v spise.",
+      "codeSent": "Kód odoslaný",
+      "confirmSignature": "Potvrdiť podpis",
+      "consent": "Potvrdzujem, že som si zmluvu prečítal a súhlasím s jej elektronickým podpisom.",
+      "document": "Zmluvný dokument",
+      "events": {
+        "contract_created": "Zmluva vytvorená",
+        "contract_downloaded": "Zmluva stiahnutá",
+        "contract_sent": "Zmluva odoslaná",
+        "contract_viewed": "Zmluva zobrazená",
+        "signature_completed": "Podpis dokončený",
+        "signature_requested": "Podpis vyžiadaný"
+      },
+      "fullName": "Celé meno podpisujúceho",
+      "hash": "Odtlačok dokumentu",
+      "history": "História zmluvy",
+      "important": "Uschovajte si kópiu podpísanej zmluvy. Naša podpora je vám k dispozícii.",
+      "legalNotice": "Ide o zdokonalený elektronický podpis s dôkaznou hodnotou (jednorazový kód, časová pečiatka, odtlačok dokumentu). Nejde o kvalifikovaný elektronický podpis podľa eIDAS.",
+      "metaDesc": "Prezrite si a bezpečne podpíšte svoju zmluvu o financovaní.",
+      "metaTitle": "Vaša zmluva — MOONYP",
+      "notAvailable": "Zmluva zatiaľ nie je k dispozícii.",
+      "offerSummary": "Zhrnutie ponuky",
+      "providerLabel": "Mechanizmus podpisu",
+      "rate": "Ročná sadzba",
+      "resendCode": "Poslať kód znova",
+      "signed": "Zmluva podpísaná",
+      "signError": "Podpis zlyhal.",
+      "signTitle": "Podpísať zmluvu",
+      "startError": "Podpis sa nepodarilo spustiť.",
+      "startSignature": "Poslať kód na podpis",
+      "state": "Stav",
+      "states": {
+        "cancelled": "Zrušené",
+        "draft": "Koncept",
+        "ready": "Pripravené",
+        "sent": "Odoslané",
+        "signed": "Podpísané",
+        "viewed": "Zobrazené"
+      },
+      "version": "Verzia"
+    },
+    "employment": {
+      "business_owner": "Podnikateľ",
+      "civil_servant": "Štátny zamestnanec",
+      "employee": "Zamestnanec",
+      "other": "Iné",
+      "retired": "Dôchodca",
+      "self_employed": "Živnostník",
+      "student": "Študent",
+      "unemployed": "Nezamestnaný"
+    },
+    "fields": {
+      "address": "Adresa",
+      "addressNoMatch": "Adresa sa nenašla – zadajte ju manuálne",
+      "addressPlaceholder": "Začnite písať názov ulice",
+      "bankHolder": "Majiteľ účtu",
+      "bankName": "Banka",
+      "bic": "BIC / SWIFT",
+      "birthDate": "Dátum narodenia",
+      "charges": "Mesačné výdavky",
+      "choose": "Vyberte…",
+      "chooseCountry": "Vyberte krajinu",
+      "city": "Mesto",
+      "country": "Krajina",
+      "email": "E-mail",
+      "employer": "Zamestnávateľ",
+      "employmentStatus": "Pracovný status",
+      "firstName": "Meno",
+      "household": "Počet osôb v domácnosti",
+      "iban": "IBAN",
+      "income": "Čistý mesačný príjem",
+      "lastName": "Priezvisko",
+      "nationality": "Štátna príslušnosť",
+      "otherIncome": "Iné príjmy",
+      "phone": "Telefón",
+      "phoneCountry": "Predvoľba krajiny",
+      "postalCode": "PSČ",
+      "profession": "Povolanie",
+      "purpose": "Účel úveru",
+      "searchCountry": "Vyhľadať krajinu",
+      "seniority": "Dĺžka zamestnania (mesiace)"
+    },
+    "guarantee": {
+      "choiceSaved": "Voľba uložená",
+      "chosen": {
+        "decline": "Vzdali ste sa žiadosti o úver.",
+        "pay_later": "Zvolili ste zaplatiť neskôr.",
+        "pay_now": "Zvolili ste zaplatiť teraz."
+      },
+      "confirmChoice": "Potvrdiť voľbu",
+      "error": {
+        "dateRequired": "Zadajte dátum platby.",
+        "generic": "Akcia nie je možná."
+      },
+      "fee": "Poplatok za krytie úverového rizika",
+      "instructions": "Pokyny na platbu",
+      "noPaymentNotice": "Táto voľba nevykonáva platbu: potvrdí sa až po overení naším tímom.",
+      "options": {
+        "decline": "Nie, nezaplatiť a vzdať sa žiadosti",
+        "pay_later": "Áno, zaplatiť neskôr a ponechať žiadosť čakajúcu",
+        "pay_now": "Áno, zaplatiť a získať úver"
+      },
+      "optionsHint": {
+        "decline": "Váš spis bude uzavretý.",
+        "pay_later": "Vyberte dátum platby, pošleme pripomienky.",
+        "pay_now": "Dostanete pokyny na platbu."
+      },
+      "paidNotice": "Náš tím potvrdil váš poplatok.",
+      "payment": {
+        "awaiting_payment": "Čaká na platbu",
+        "failed": "Zlyhalo",
+        "paid": "Zaplatené",
+        "unpaid": "Nezaplatené",
+        "waived": "Vzdané"
+      },
+      "paymentStatus": "Stav platby",
+      "pickDate": "Želaný dátum platby",
+      "question": "Chcete zaplatiť poplatok za krytie?",
+      "scheduledDate": "Plánovaný dátum platby",
+      "validationNotice": "Platba sa považuje za prijatú až po potvrdení naším tímom."
+    },
+    "insurance": {
+      "choiceSaved": "Voľba uložená",
+      "chosen": {
+        "decline": "Vzdali ste sa poistenia.",
+        "pay_later": "Zvolili ste platbu neskôr.",
+        "pay_now": "Zvolili ste okamžitú platbu."
+      },
+      "confirmChoice": "Potvrdiť voľbu",
+      "dueDate": "Dátum splatnosti",
+      "error": {
+        "datePast": "Zvolený dátum už uplynul.",
+        "dateRequired": "Vyberte dátum platby.",
+        "generic": "Akcia nie je možná."
+      },
+      "fee": "Poplatok za zriadenie poistenia",
+      "instructions": "Pokyny na platbu",
+      "noPaymentNotice": "Táto voľba nevykonáva platbu: potvrdzuje sa až po overení naším tímom.",
+      "options": {
+        "decline": "Nie, vzdávam sa poistenia",
+        "pay_later": "Áno, zaplatiť neskôr",
+        "pay_now": "Áno, zaplatiť teraz"
+      },
+      "optionsHint": {
+        "decline": "Spis sa posúdi bez poistenia.",
+        "pay_later": "Vyberte dátum: pošleme pripomienky.",
+        "pay_now": "Dostanete pokyny na platbu."
+      },
+      "paidNotice": "Váš poplatok za poistenie overil náš tím.",
+      "payment": {
+        "awaiting_payment": "Čaká na platbu",
+        "failed": "Zlyhalo",
+        "not_required": "Bez poplatku",
+        "paid": "Zaplatené",
+        "pending": "Čaká sa",
+        "unpaid": "Nezaplatené",
+        "waived": "Vzdanie sa"
+      },
+      "paymentStatus": "Stav platby",
+      "pickDate": "Želaný dátum platby",
+      "question": "Chcete uhradiť poplatok za poistenie?",
+      "scheduledDate": "Naplánovaný dátum platby",
+      "validationNotice": "Platba sa považuje za prijatú až po overení naším tímom."
+    },
+    "payment": {
+      "address": "Adresa",
+      "back": "Späť na spis",
+      "bank": "Banka",
+      "copied": "Skopírované",
+      "copyReference": "Kopírovať referenciu",
+      "created": "Platba zaznamenaná",
+      "createdHint": "Platba bude potvrdená po skutočnom prijatí prostriedkov.",
+      "due": "Suma na úhradu",
+      "error": "Platbu sa nepodarilo spustiť.",
+      "feeStatus": {
+        "cancelled": "Zrušené",
+        "late": "Po splatnosti",
+        "not_required": "Nevyžaduje sa",
+        "paid": "Zaplatené",
+        "pending": "Čaká sa"
+      },
+      "history": "História platieb",
+      "holder": "Majiteľ účtu",
+      "instructions": "Pokyny na platbu",
+      "kind": {
+        "bank_transfer": "Bankový prevod",
+        "card": "Karta",
+        "crypto": "Krypto",
+        "other": "Iné",
+        "qr": "QR kód"
+      },
+      "metaDesc": "Bezpečne uhraďte poplatky súvisiace s vašou žiadosťou o financovanie Moonyp.",
+      "metaTitle": "Bezpečná platba — MOONYP",
+      "methods": "Spôsoby platby",
+      "network": "Sieť",
+      "noDue": "Momentálne nie je nič na úhradu.",
+      "noMethods": "Momentálne nie je dostupný žiadny spôsob platby.",
+      "noPaymentYet": "Žiadna zaznamenaná platba.",
+      "notConfigured": "Tento poskytovateľ nie je nakonfigurovaný.",
+      "notice": "Pri prevode vždy uveďte referenciu, inak nebude možné platbu priradiť k vášmu spisu.",
+      "pay": "Zaplatiť",
+      "purpose": {
+        "application_fee": "Poplatok za spracovanie",
+        "guarantee_fee": "Poplatok za záruku",
+        "installment": "Splátka úveru",
+        "insurance_fee": "Poplatok za poistenie",
+        "other": "Iné"
+      },
+      "redirecting": "Presmerovanie k poskytovateľovi…",
+      "reference": "Referencia",
+      "status": {
+        "cancelled": "Zrušené",
+        "failed": "Zlyhalo",
+        "pending": "Čaká sa",
+        "processing": "Prebieha",
+        "received": "Prijaté"
+      },
+      "subtitle": "Spis",
+      "title": "Bezpečná platba"
+    },
+    "portal": {
+      "acceptedOn": "Prijaté",
+      "apr": "RPMN",
+      "beneficiary": "Príjemca",
+      "contract": "Zmluva",
+      "disbursement": "Vyplatenie",
+      "doc": {
+        "approved": "Schválený",
+        "pending": "Čakajúci",
+        "rejected": "Zamietnutý",
+        "replacement_requested": "Vyžaduje sa náhrada"
+      },
+      "documents": "Podkladové dokumenty",
+      "download": "Stiahnuť",
+      "downloadContract": "Stiahnuť zmluvu",
+      "downloadError": "Stiahnutie nie je dostupné",
+      "downloadNotice": "Odkazy na stiahnutie vypršia po dvoch minútach a zaznamenávajú sa.",
+      "downloadSigned": "Stiahnuť podpísanú zmluvu",
+      "dueDate": "Splatnosť",
+      "fees": "Poplatky za spracovanie",
+      "guarantee": "Zabezpečenie",
+      "guarantor": "Ručiteľ",
+      "help": "Táto stránka je aktualizovaná v reálnom čase. Náš úverový tím vás bude kontaktovať e-mailom pri každom kľúčovom kroku. Tento zabezpečený odkaz nikdy s nikým nezdieľajte.",
+      "installment": "Splátka",
+      "insurance": "Poistenie dlžníka",
+      "insurance2": "Poistenie dlžníka",
+      "interest": "Celkový úrok",
+      "invalidDesc": "Tento bezpečný odkaz už nie je platný. Požiadajte náš tím o nový.",
+      "invalidTitle": "Neplatný alebo expirovaný odkaz",
+      "kyc": {
+        "failed": "Overenie zlyhalo",
+        "manual_review": "Manuálna kontrola",
+        "passed": "Identita overená",
+        "pending": "Čaká na overenie",
+        "verifying": "Prebieha overovanie"
+      },
+      "kycNone": "Zatiaľ nie je zaznamenané žiadne overenie.",
+      "kycTitle": "Overenie totožnosti",
+      "metaDesc": "Bezpečne sledujte svoju žiadosť o úver.",
+      "metaTitle": "Váš úverový spis — MOONYP",
+      "monthly": "Mesačná splátka",
+      "noDocuments": "Zatiaľ neboli prijaté žiadne dokumenty.",
+      "none": "Zatiaľ nedostupné",
+      "offer": "Ponuka úveru",
+      "paid": "Zaplatená",
+      "paidOn": "Zaplatené",
+      "policy": "Číslo poistky",
+      "premium": "Mesačné poistné",
+      "product": "Finančný produkt",
+      "progress": "Stav spracovania žiadosti",
+      "provider": "Poisťovateľ",
+      "reference": "Referencia spisu",
+      "remaining": "Zostatok",
+      "repayments": "Splátkový kalendár",
+      "requests": {
+        "answered": "Vybavené",
+        "answeredAt": "Odpovedané",
+        "desc": "Náš tím potrebuje ďalšie údaje na pokračovanie posudzovania.",
+        "error": "Odoslanie zlyhalo",
+        "kindInformation": "Doplňujúca informácia",
+        "kindJustification": "Vyžiadané odôvodnenie",
+        "kindMissingDocument": "Chýbajúci dokument",
+        "kindReplaceDocument": "Výmena dokumentu",
+        "none": "Žiadna otvorená požiadavka.",
+        "open": "Čaká",
+        "placeholder": "Napíšte odpoveď…",
+        "respondLabel": "Vaša odpoveď",
+        "submit": "Odoslať odpoveď",
+        "success": "Odpoveď odoslaná",
+        "title": "Požadované informácie"
+      },
+      "secure": "Bezpečný prístup",
+      "sentOn": "Odoslané",
+      "signedOn": "Podpísané",
+      "stages": {
+        "approved": "Žiadosť schválená",
+        "contract": "Zmluva",
+        "disbursement": "Vyplatenie",
+        "guarantee": "Zabezpečenie",
+        "insurance": "Poistenie",
+        "received": "Žiadosť prijatá",
+        "repayment": "Splácanie",
+        "study": "Spis sa posudzuje"
+      },
+      "status": "Stav",
+      "submittedOn": "Odoslané dňa",
+      "summary": "Súhrn",
+      "timeline": "História",
+      "totalCost": "Celkové náklady na úver",
+      "unpaid": "Nadchádzajúca",
+      "upload": {
+        "attach": "Priložiť súbor",
+        "attached": "Príloha: {{name}}",
+        "chooseType": "Typ dokumentu",
+        "desc": "Pridajte chýbajúci doklad alebo nahraďte zamietnutý.",
+        "error": "Nahranie zlyhalo",
+        "limits": "PDF, JPEG alebo PNG — maximálne {{size}} MB.",
+        "send": "Vybrať súbor",
+        "success": "Dokument odoslaný",
+        "title": "Nahrať dokument"
+      },
+      "validUntil": "Platná do",
+      "viewContract": "Zobraziť moju zmluvu"
+    },
+    "repayment": {
+      "status": {
+        "cancelled": "Zrušená",
+        "late": "Po splatnosti",
+        "paid": "Zaplatená",
+        "partially_paid": "Čiastočne zaplatená",
+        "upcoming": "Nadchádzajúca"
+      }
+    },
+    "schedule": {
+      "balance": "Zostatok istiny",
+      "dueDate": "Dátum splatnosti",
+      "export": "Exportovať CSV",
+      "insurance": "Poistenie",
+      "interest": "Úrok",
+      "number": "Č.",
+      "payment": "Splátka",
+      "period": "Obdobie",
+      "principal": "Istina",
+      "title": "Splátkový kalendár",
+      "total": "Celkom"
+    },
+    "sim": {
+      "amount": "Suma",
+      "apr": "RPMN",
+      "aprLabel": "RPMN",
+      "balance": "Zostatok istiny",
+      "borrowed": "Požičaná suma",
+      "capital": "Istina",
+      "disclaimer": "Táto simulácia je len informatívna a nie je ponukou úveru. Konečné podmienky závisia od posúdenia žiadosti.",
+      "duration": "Doba splatnosti",
+      "fees": "Poplatky",
+      "hideSchedule": "Skryť kalendár",
+      "instalment": "Mesačná splátka",
+      "insurance": "Poistenie dlžníka",
+      "insuranceCost": "Náklady na poistenie",
+      "insuranceHint": "Voliteľné krytie pripočítané ku každej splátke.",
+      "interest": "Odhadované úroky",
+      "interestShort": "Úroky",
+      "legalNotice": "Pôžička je záväzkom a musí byť splatená. Pred uzavretím zmluvy si preverte svoju schopnosť splácať.",
+      "monthly": "Odhadovaná mesačná splátka",
+      "months": "mesiacov",
+      "monthsShort": "mes.",
+      "perMonth": "/mes.",
+      "product": "Úverový produkt",
+      "range": "Medzi {{min}} a {{max}}",
+      "rate": "Úroková sadzba",
+      "rateFrom": "od {{rate}} %",
+      "showSchedule": "Zobraziť splátkový kalendár",
+      "totalCost": "Celkové náklady úveru",
+      "totalRepaid": "Celkovo splatené"
+    },
+    "simPage": {
+      "badge": "Kalkulačka",
+      "cta": "Požiadať za týchto podmienok",
+      "metaDesc": "Vypočítajte splátku, úroky a celkové náklady za pár sekúnd.",
+      "metaTitle": "Úverová kalkulačka — MOONYP",
+      "noProducts": "Momentálne nie je dostupný žiadny úverový produkt.",
+      "seeProducts": "Pozrieť naše riešenia",
+      "subtitle": "Upravte sumu a dobu a ihneď uvidíte odhadovanú splátku.",
+      "title": "Simulujte svoje financovanie"
+    },
+    "solutions": {
+      "amountRange": "Suma",
+      "badge": "Naše riešenia",
+      "durationRange": "Doba",
+      "metaDesc": "Spotrebné, autoúvery, hypotéky a podnikateľské úvery.",
+      "metaTitle": "Riešenia financovania — MOONYP",
+      "rateFrom": "Sadzba od",
+      "simulate": "Simulovať",
+      "subtitle": "Vyberte vhodný produkt a simulujte ho jedným klikom.",
+      "title": "Financovanie pre váš projekt"
+    },
+    "status": {
+      "analysis": "Posudzovanie",
+      "approved": "Schválená",
+      "cancelled": "Zrušená",
+      "contract_sent": "Zmluva odoslaná",
+      "contract_signed": "Zmluva podpísaná",
+      "disbursed": "Vyplatené",
+      "disbursement_preparing": "Príprava výplaty",
+      "documents_missing": "Chýbajú dokumenty",
+      "draft": "Koncept",
+      "guarantee_sent": "Záruka odoslaná",
+      "guarantee_signed": "Záruka podpísaná",
+      "info_requested": "Vyžiadané informácie",
+      "insurance_pending": "Poistenie čaká",
+      "insurance_validated": "Poistenie schválené",
+      "late": "Po splatnosti",
+      "offer_available": "Ponuka k dispozícii",
+      "received": "Žiadosť prijatá",
+      "rejected": "Zamietnutá",
+      "repaid": "Úplne splatené",
+      "repaying": "Prebieha splácanie",
+      "signature_pending": "Čaká na podpis",
+      "unknown": "Neznámy stav",
+      "verification": "Overovanie"
+    },
+    "success": {
+      "linkNotice": "Uschovajte tento odkaz: poskytuje bezpečný prístup k vášmu spisu.",
+      "openFile": "Otvoriť môj spis",
+      "reference": "Referencia spisu",
+      "step1": "Overenie údajov a dokumentov",
+      "step2": "Posúdenie a rozhodnutie, zvyčajne do 48 pracovných hodín",
+      "step3": "Ponuka, zmluva a výplata po schválení",
+      "subtitle": "Náš tím posudzuje váš spis. O každom kroku vás budeme informovať e-mailom.",
+      "title": "Vaša žiadosť bola prijatá"
+    },
+    "validation": {
+      "bank": {
+        "countryMismatch": "Deklarovaná krajina banky nezodpovedá kódu IBAN",
+        "crossBorder": "Účet je vedený mimo vašej krajiny pobytu",
+        "nonSepa": "Účet mimo oblasti SEPA"
+      },
+      "bic": {
+        "countryMismatch": "Kód BIC nezodpovedá krajine IBAN",
+        "format": "Neplatný kód BIC/SWIFT"
+      },
+      "holder": {
+        "mismatch": "Majiteľ účtu sa nezhoduje so žiadateľom",
+        "partial": "Meno majiteľa účtu sa nezhoduje so žiadateľom",
+        "required": "Zadajte majiteľa účtu"
+      },
+      "iban": {
+        "charset": "Tento IBAN obsahuje neplatné znaky",
+        "checksum": "Tento IBAN je neplatný (kontrolný súčet zlyhal)",
+        "country": "Tento kód krajiny nie je súčasťou registra IBAN",
+        "empty": "Zadajte váš IBAN",
+        "length": "Tento IBAN má nesprávnu dĺžku pre danú krajinu",
+        "valid": "Platný IBAN — {{country}}"
+      },
+      "phoneIncomplete": "Neúplné číslo",
+      "phoneValid": "Platné číslo",
+      "required": "Toto pole je povinné.",
+      "risk": {
+        "dtiAbove40": "Miera zadlženosti nad 40 %"
+      }
+    }
+  },
+  "footer": {
+    "aml": "AML / KYC",
+    "banking": "Bankovníctvo",
+    "contact": "Kontakt",
+    "contactForm": "Kontaktný formulár",
+    "cookies": "Cookies",
+    "disclaimer": "Úver zaväzuje a musí byť splatený. Pred podaním žiadosti si overte svoju schopnosť splácať. Každá ponuka podlieha schváleniu a overeniu totožnosti.",
+    "finPriv": "Finančné súkromie",
+    "legal": "Právne",
+    "loanTerms": "Podmienky úveru",
+    "mentions": "Právne upozornenie",
+    "privacy": "Súkromie",
+    "regulated": "Regulované a v súlade s GDPR",
+    "repayment": "Splácanie a omeškanie",
+    "rights": "Všetky práva vyhradené.",
+    "tagline": "Európska úverová platforma. Rýchle rozhodnutia, transparentné podmienky, banková bezpečnosť.",
+    "terms": "Podmienky"
+  },
+  "header": {
+    "admin": "Admin",
+    "contact": "Kontakt",
+    "dashboard": "Prehľad",
+    "menu": "Menu",
+    "myLoans": "Moje úvery",
+    "newLoan": "Požiadať o úver",
+    "settings": "Nastavenia",
+    "signIn": "Prihlásiť sa",
+    "signOut": "Odhlásiť sa"
+  },
+  "kyc": {
+    "addDocument": "Pridať dokument",
+    "camera": {
+      "badFormat": "Nepodporovaný formát súboru",
+      "tooLarge": "Súbor je väčší ako {{size}} MB"
+    },
+    "category": {
+      "address": {
+        "desc": "Nie starší ako tri mesiace",
+        "title": "Doklad o adrese"
+      },
+      "bank": {
+        "desc": "Výpis z účtu s uvedeným IBAN",
+        "title": "Bankové údaje"
+      },
+      "identity": {
+        "desc": "Cestovný pas, občiansky preukaz alebo povolenie na pobyt",
+        "title": "Doklad totožnosti"
+      },
+      "income": {
+        "desc": "Závisí od vašej pracovnej situácie",
+        "title": "Doklad o príjme"
+      },
+      "selfie": {
+        "desc": "Rýchla selfie na porovnanie s vaším dokladom",
+        "title": "Overenie živosti"
+      }
+    },
+    "chooseDocument": "Vyberte si doklad",
+    "docs": {
+      "bankStatement": "Bankový výpis (posledné 3 mesiace)",
+      "benefits": "Potvrdenie o dávkach",
+      "drivingLicence": "Vodičský preukaz",
+      "electricity": "Faktúra za elektrinu",
+      "hosting": "Potvrdenie o ubytovaní",
+      "kbis": "Výpis z obchodného registra",
+      "nationalId": "Občiansky preukaz",
+      "passport": "Cestovný pas",
+      "payslip": "Výplatné pásky (posledné 3 mesiace)",
+      "pension": "Potvrdenie o dôchodku",
+      "residencePermit": "Povolenie na pobyt",
+      "selfie": "Overenie tváre",
+      "taxReturn": "Daňové priznanie",
+      "telecom": "Faktúra za telefón / internet",
+      "water": "Faktúra za vodu"
+    },
+    "done": {
+      "desc": "Všetky požadované dokumenty boli nasnímané. Pred odoslaním žiadosti si ich môžete skontrolovať alebo nahradiť.",
+      "title": "Overenie dokončené"
+    },
+    "finish": "Dokončiť",
+    "hint": {
+      "scan": "Umiestnite dokument na rovný povrch, plne do rámu a bez odleskov.",
+      "scan_double": "Nasnímajte obe strany jednu po druhej, so všetkými štyrmi viditeľnými rohmi.",
+      "selfie": "Pozerajte sa priamo do fotoaparátu, bez pokrývky hlavy alebo slnečných okuliarov.",
+      "upload": "Nahrajte súbor zo zariadenia alebo naskenujte dokument kamerou."
+    },
+    "intro": {
+      "camera": "Doklad totožnosti sa skenuje kamerou zariadenia na dobre osvetlenom mieste. Ostatné doklady môžete nahrať alebo naskenovať.",
+      "privacy": "Vaše dokumenty sú šifrované a nikdy nie sú zdieľané s tretími stranami.",
+      "start": "Začať overovanie",
+      "title": "Overenie identity",
+      "why": "Európska regulácia vyžaduje, aby sme pred uvoľnením akýchkoľvek prostriedkov overili vašu totožnosť. Trvá to približne tri minúty."
+    },
+    "liveness": {
+      "challenge": {
+        "blink": "Pomaly žmurknite",
+        "open_mouth": "Otvorte ústa",
+        "smile": "Usmejte sa",
+        "turn_left": "Otočte hlavu doľava",
+        "turn_right": "Otočte hlavu doprava"
+      },
+      "denied": "Predná kamera nie je dostupná alebo bolo povolenie zamietnuté.",
+      "engineError": "Kontrolu tváre sa nepodarilo spustiť. Skontrolujte pripojenie a skúste znova.",
+      "guidance": {
+        "bright": "Príliš svetlo — vyhnite sa protisvetlu.",
+        "dark": "Príliš tma — presuňte sa na svetlejšie miesto.",
+        "flat": "Fotografia ani vytlačená tvár sa neprijíma.",
+        "multiple_faces": "V zábere smie byť iba jedna osoba.",
+        "no_face": "Umiestnite tvár do oválu.",
+        "not_frontal": "Pozerajte priamo do kamery.",
+        "off_center": "Vycentrujte tvár v ováli.",
+        "ready": "Výborne — zostaňte tak.",
+        "screen": "Tvár zobrazená na obrazovke sa neprijíma.",
+        "too_close": "Trochu sa vzdiaľte.",
+        "too_far": "Priblížte sa ku kamere."
+      },
+      "loading": "Pripravuje sa kontrola tváre…",
+      "notice": "Iba predná kamera. V tomto kroku nie je možné nahrať fotografiu ani video.",
+      "passed": "Kontrola živosti úspešná",
+      "restart": "Začať odznova",
+      "retry": "Skúsiť znova",
+      "short": {
+        "blink": "Žmurknutie",
+        "open_mouth": "Ústa",
+        "smile": "Úsmev",
+        "turn_left": "Doľava",
+        "turn_right": "Doprava"
+      },
+      "unsupported": "Tento prehliadač nemá prístup k prednej kamere.",
+      "validate": "Pokračovať"
+    },
+    "nothingRequired": "V tejto fáze nie sú potrebné žiadne doklady",
+    "retake": "Zopakovať",
+    "scan": "Skenovať",
+    "scanner": {
+      "autoNotice": "Snímka sa vytvorí automaticky — nehýbte sa, keď rám zozelenie.",
+      "captured": "Dokument zachytený",
+      "check": {
+        "frame": "Orámovanie",
+        "light": "Osvetlenie",
+        "sharpness": "Ostrosť",
+        "stability": "Stabilita"
+      },
+      "denied": "Kamera nie je dostupná alebo bolo povolenie zamietnuté. Povoľte prístup a skúste znova.",
+      "guidance": {
+        "blurry": "Rozmazané — držte pevne a nechajte zaostriť.",
+        "bright": "Príliš svetlo — vyhnite sa priamemu svetlu.",
+        "dark": "Príliš tma — nájdite lepšie svetlo.",
+        "glare": "Zistený odlesk — dokument mierne nakloňte.",
+        "no_document": "Vložte dokument do rámu.",
+        "off_center": "Vycentrujte dokument v ráme.",
+        "ready": "Nehýbte sa — prebieha snímanie.",
+        "screen": "Fotografia obrazovky sa neprijíma.",
+        "skewed": "Držte kameru rovnobežne s dokumentom.",
+        "too_close": "Trochu sa vzdiaľte.",
+        "too_far": "Priblížte sa k dokumentu.",
+        "unstable": "Držte zariadenie nehybne."
+      },
+      "rescan": "Skenovať znova",
+      "retry": "Skúsiť znova",
+      "torch": "Prisvietenie",
+      "unsupported": "Tento prehliadač nemá prístup ku kamere. Otvorte stránku v telefóne.",
+      "validate": "Použiť tento sken"
+    },
+    "side": {
+      "back": "Zadná strana",
+      "front": "Predná strana",
+      "single": "Dokument"
+    },
+    "source": {
+      "badFormat": "Tento formát súboru sa neprijíma.",
+      "chooseMethod": "Ako chcete tento dokument doložiť?",
+      "formats": "PDF, JPEG alebo PNG — do {{size}} MB.",
+      "import": "Nahrať súbor",
+      "importDesc": "Vyberte PDF alebo fotografiu, ktorú už máte v zariadení.",
+      "scan": "Skenovať kamerou",
+      "scanDesc": "Položte dokument naplocho — snímka sa vytvorí sama, len čo bude čitateľný.",
+      "scanHint": "Položte dokument naplocho, všetky štyri rohy v ráme, bez tieňa.",
+      "tooLarge": "Súbor väčší než {{size}} MB."
+    },
+    "startLiveness": "Spustiť kontrolu",
+    "status": {
+      "capturing": "Neúplné",
+      "failed": "Odmietnuté",
+      "in_progress": "Prebieha",
+      "manual_review": "V procese posudzovania",
+      "passed": "Poskytnuté",
+      "retry": "Zopakovať",
+      "todo": "Na vybavenie",
+      "verifying": "Kontroluje sa"
+    },
+    "stepOf": "Krok {{current}} z {{total}}",
+    "storageNotice": "Vaše dokumenty sú šifrované, uložené v súkromnom priestore a prístupné výhradne nášmu oddeleniu kontroly zhody."
+  },
+  "landing": {
+    "badge": "Rozhodnutie do 24 hodín",
+    "ctaPrimary": "Požiadať o pôžičku",
+    "ctaSecondary": "Simulovať moju pôžičku",
+    "faq": {
+      "a1": "Nie. Podáte žiadosť a sledujete ju cez bezpečný odkaz zaslaný e-mailom.",
+      "a2": "Náš štandardný plán nemá skryté poplatky. Bežné operácie sú zadarmo.",
+      "a3": "Vklady sú zaručené do 100 000 € Fondom ochrany vkladov.",
+      "a4": "Náš tím je k dispozícii 24/7 cez zabezpečený chat, e-mail alebo telefón.",
+      "q1": "Musím si vytvoriť účet?",
+      "q2": "Aké sú poplatky?",
+      "q3": "Sú moje prostriedky chránené?",
+      "q4": "Ako kontaktovať podporu?",
+      "title": "Často kladené otázky"
+    },
+    "finalCta": {
+      "button": "Začať žiadosť",
+      "desc": "Žiadosť podáte za pár minút – bez účtu a bez papierovania.",
+      "title": "Pripravení uskutočniť svoje projekty?"
+    },
+    "footer": {
+      "legal": "Úver vás zaväzuje a musí byť splatený. Pred záväzkom si overte schopnosť splácania.",
+      "rights": "Všetky práva vyhradené."
+    },
+    "heroDesc": "MOONYP patrí k najlepšej generácii európskych bánk ponúkajúcich rýchle, transparentné a bezpečné osobné pôžičky.",
+    "heroTitleA": "Financujte svoje projekty",
+    "heroTitleB": "s dôverou.",
+    "how": {
+      "s1d": "Vyberte vhodnú sumu a dobu splácania. Okamžite vypočítame odhadovanú mesačnú splátku.",
+      "s1t": "Simulujte pôžičku",
+      "s2d": "Vyplňte formulár za 5 minút a nahrajte doklady (občiansky preukaz, doklad o bydlisku, výplatné pásky).",
+      "s2t": "Doplňte žiadosť",
+      "s3d": "Po schválení naším tímom podpíšte zmluvu elektronicky a bezpečne.",
+      "s3t": "Podpíšte zmluvu",
+      "s4d": "Po uplynutí zákonnej lehoty sú prostriedky dostupné vo vašej peňaženke MOONYP, pripravené na výber.",
+      "s4t": "Prijmite prostriedky",
+      "title": "Ako to funguje?"
+    },
+    "kpis": {
+      "assets": "Spravované aktíva",
+      "clients": "Aktívni klienti",
+      "countries": "Krajiny",
+      "uptime": "Dostupnosť"
+    },
+    "metaDesc": "Financujte svoje projekty s dôverou. Rýchle osobné pôžičky od 1 000 € do 50 000 €. Rozhodnutie do 24h, prostriedky do 72h.",
+    "metaTitle": "MOONYP — Okamžité online pôžičky",
+    "mobile": {
+      "b1": "Sledovanie transakcií v reálnom čase",
+      "b2": "Okamžité medzinárodné prevody",
+      "b3": "Biometria Face ID a odtlačok prsta",
+      "desc": "Sledujte žiadosť, nahrajte dokumenty a podpíšte zmluvu z telefónu.",
+      "eyebrow": "Mobilná aplikácia",
+      "title": "Celá vaša banka na dlani"
+    },
+    "partners": {
+      "desc": "Spolupracujeme s hlavnými európskymi finančnými inštitúciami pre rýchle a bezpečné prevody.",
+      "eyebrow": "Naše partnerské banky",
+      "title": "Dôveryhodná bankovná sieť"
+    },
+    "security": {
+      "desc": "Naše systémy spĺňajú najprísnejšie európske bankové štandardy.",
+      "eyebrow": "Bezpečnosť a súlad",
+      "f1d": "Vaše údaje sú chránené vojenským štandardom.",
+      "f1t": "Šifrovanie AES-256",
+      "f2d": "Európske predpisy sa prísne uplatňujú.",
+      "f2t": "Súlad s PSD2 a GDPR",
+      "f3d": "Dvojstupňová validácia pre každú citlivú operáciu.",
+      "f3t": "Silná autentifikácia",
+      "f4d": "Dedikovaní poradcovia dostupní kedykoľvek.",
+      "f4t": "Podpora 24/7",
+      "title": "Špičková banková ochrana"
+    },
+    "slides": {
+      "s1d": "Žiadosť za pár minút, bez účtu a papierovania.",
+      "s1t": "Bankovníctvo navrhnuté pre vás",
+      "s2d": "Prehľadný panel, analýzy a inteligentné upozornenia.",
+      "s2t": "Spravujte svoje financie v reálnom čase",
+      "s3d": "Bezpečná mobilná aplikácia dostupná 24/7.",
+      "s3t": "Vaša banka vo vrecku",
+      "s4d": "Šifrovanie z konca na koniec a silná autentifikácia.",
+      "s4t": "Bezpečnosť na bankovej úrovni"
+    },
+    "testi": {
+      "eyebrow": "Referencie",
+      "t1n": "Marie Dubois",
+      "t1q": "Plynulý a profesionálny bankový zážitok. Podpora je výnimočná.",
+      "t1r": "Finančná riaditeľka",
+      "t2n": "Jean Martin",
+      "t2q": "Medzinárodné prevody sú rýchle a bezpečnosť je bezchybná.",
+      "t2r": "Podnikateľ",
+      "t3n": "Sophie Laurent",
+      "t3q": "Konečne digitálna banka, ktorá spája jednoduchosť s inštitucionálnou vážnosťou.",
+      "t3r": "Advokátka",
+      "title": "Dôverujú nám"
+    },
+    "trust1": "Šifrované údaje",
+    "trust2": "100% bezpečné",
+    "trust3": "Bez skrytých poplatkov",
+    "values": {
+      "nofees": {
+        "desc": "Uvedená sadzba je aplikovaná sadzba. Žiadne prekvapenia pri splátkach.",
+        "title": "Bez skrytých poplatkov"
+      },
+      "response": {
+        "desc": "Náš tím expertov rýchlo posúdi vašu žiadosť. Žiadne nekonečné čakanie.",
+        "title": "Odpoveď do 24h"
+      },
+      "secure": {
+        "desc": "Vaše údaje sú šifrované od konca po koniec. Dodržiavame najprísnejšie bankové štandardy.",
+        "title": "100% Bezpečné"
+      }
+    }
+  },
+  "legal": {
+    "amlKyc": {
+      "sections": [
+        {
+          "h": "Záväzok",
+          "p": "Nulová tolerancia voči praniu a financovaniu terorizmu."
+        },
+        {
+          "h": "Dôkladná identifikácia",
+          "p": "Identita, adresa, zdroj prostriedkov, sústavný monitoring."
+        },
+        {
+          "h": "Zvýšená",
+          "p": "PEP, vysokorizikové krajiny."
+        },
+        {
+          "h": "Sankcie",
+          "p": "Skríning voči zoznamom EÚ, OSN, OFAC, UK."
+        },
+        {
+          "h": "Hlásenia",
+          "p": "Hlásenia FIU; zákaz tipping-off."
+        },
+        {
+          "h": "Školenie",
+          "p": "Ročné školenie; nezávislý MLRO."
+        }
+      ],
+      "title": "AML / KYC politika"
+    },
+    "badge": "Právne",
+    "cookies": {
+      "sections": [
+        {
+          "h": "Čo používame",
+          "list": [
+            "<strong>Nevyhnutné</strong>",
+            "<strong>Funkčné</strong>",
+            "<strong>Bezpečnostné</strong>",
+            "<strong>Analytické</strong> — len so súhlasom."
+          ]
+        },
+        {
+          "h": "Správa",
+          "p": "Cookies môžete vymazať v prehliadači."
+        }
+      ],
+      "title": "Politika cookies"
+    },
+    "finPriv": {
+      "sections": [
+        {
+          "h": "Ochrana peňazí",
+          "p": "TLS 1.3, AES-256, HSM, oddelené prostriedky klientov."
+        },
+        {
+          "h": "Autentifikácia",
+          "p": "SCA PSD2: heslo + zariadenie + OTP."
+        },
+        {
+          "h": "Monitorovanie",
+          "p": "24/7 detekcia anomálií."
+        },
+        {
+          "h": "Dôvernosť",
+          "p": "Bankové tajomstvo."
+        },
+        {
+          "h": "Vaša rola",
+          "p": "Chráňte prihlásenia, registrujte dôveryhodné zariadenia."
+        }
+      ],
+      "title": "Finančné súkromie a bezpečnosť"
+    },
+    "home": "Domov",
+    "lastUpdated": "Posledná aktualizácia",
+    "loanTerms": {
+      "sections": [
+        {
+          "h": "1. Podmienky",
+          "p": "Overená identita, stabilný príjem."
+        },
+        {
+          "h": "2. Sumy a doba",
+          "p": "Od 1 000 EUR do 500 000 EUR, 12 až 120 mesiacov."
+        },
+        {
+          "h": "3. Úrok / RPMN",
+          "p": "Pevný úrok uvedený v ponuke."
+        },
+        {
+          "h": "4. Vyplatenie",
+          "p": "Po podpise a overení."
+        },
+        {
+          "h": "5. Splácanie",
+          "p": "Mesačné inkaso."
+        },
+        {
+          "h": "6. Omeškanie",
+          "p": "Úroky, poplatky a možná zosplatnenie."
+        },
+        {
+          "h": "7. Odstúpenie",
+          "p": "14 kalendárnych dní od podpisu."
+        }
+      ],
+      "subtitle": "Úver vás zaväzuje; overte si schopnosť splácať.",
+      "title": "Podmienky úveru"
+    },
+    "mentions": {
+      "sections": [
+        {
+          "h": "Vydavateľ",
+          "p": "MOONYP — SAS, kapitál 1 000 000 EUR — sídlo: 1 Centenary Square, Birmingham, Spojené kráľovstvo."
+        },
+        {
+          "h": "Riaditeľ",
+          "p": "Compliance MOONYP."
+        },
+        {
+          "h": "Hosting",
+          "p": "Cloudflare Workers — San Francisco, USA."
+        },
+        {
+          "h": "Kontakt",
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
+        },
+        {
+          "h": "Duševné vlastníctvo",
+          "p": "Značky a obsah patria MOONYP."
+        }
+      ],
+      "title": "Právne oznámenia"
+    },
+    "privacy": {
+      "sections": [
+        {
+          "h": "1. Zbierané údaje",
+          "p": "Identita, kontakt, finančné, technické a behaviorálne údaje."
+        },
+        {
+          "h": "2. Účely",
+          "p": "Vedenie účtu, posúdenie úveru, prevencia podvodov a prania."
+        },
+        {
+          "h": "3. Právny základ (GDPR)",
+          "p": "Zmluva, oprávnený záujem, zákonná povinnosť, súhlas."
+        },
+        {
+          "h": "4. Zdieľanie",
+          "p": "Iba s preverenými spracovateľmi a orgánmi."
+        },
+        {
+          "h": "5. Uchovávanie",
+          "p": "Účet: vzťah + 10 rokov. Logy: 24 mesiacov."
+        },
+        {
+          "h": "6. Vaše práva",
+          "p": "Prístup, oprava, výmaz, obmedzenie, prenosnosť, námietka."
+        },
+        {
+          "h": "7. Bezpečnosť",
+          "p": "TLS, fingerprint, detekcia anomálií, MFA, 24/7 reakcia."
+        }
+      ],
+      "subtitle": "Vaše súkromie je základom dôvery v banku.",
+      "title": "Zásady ochrany súkromia"
+    },
+    "repayment": {
+      "sections": [
+        {
+          "h": "Splátkový kalendár",
+          "p": "Mesačné splátky v dohodnutý deň."
+        },
+        {
+          "h": "Predčasné splatenie",
+          "p": "Vždy povolené."
+        },
+        {
+          "h": "Omeškanie",
+          "list": [
+            "Deň 1–7: upozornenie.",
+            "Deň 8–30: poplatky + úrok z omeškania.",
+            "Od dňa 31: výzva."
+          ]
+        },
+        {
+          "h": "Vymáhanie",
+          "p": "Najprv zmierne riešenie."
+        },
+        {
+          "h": "Ťažkosti",
+          "p": "Kontaktujte nás kvôli odkladu."
+        }
+      ],
+      "title": "Politika splácania"
+    },
+    "terms": {
+      "sections": [
+        {
+          "h": "1. Podmienky",
+          "p": "Min. 18 rokov, rezident povolenej krajiny."
+        },
+        {
+          "h": "2. Účet",
+          "p": "Pravdivé údaje a dôverné prihlásenia."
+        },
+        {
+          "h": "3. Prijateľné použitie",
+          "p": "Bez podvodov, prania, financovania terorizmu."
+        },
+        {
+          "h": "4. Poplatky",
+          "p": "Zobrazené pred operáciou; zmeny s 30 dní vopred."
+        },
+        {
+          "h": "5. Zodpovednosť",
+          "p": "Priame škody pri hrubej nedbanlivosti."
+        },
+        {
+          "h": "6. Pozastavenie",
+          "p": "Okamžité pri podozrení."
+        },
+        {
+          "h": "7. Právny poriadok",
+          "p": "Francúzske právo s ochranou spotrebiteľa."
+        }
+      ],
+      "subtitle": "Používaním MOONYP súhlasíte s týmito podmienkami.",
+      "title": "Obchodné podmienky"
+    }
+  },
+  "livechat": {
+    "close": "Zavrieť",
+    "faq": {
+      "contact": "Tím je dostupný na +39 350 036 6867 alebo cez stránku Kontakt.",
+      "default": "Poradca MOONYP sa vám čoskoro ozve. Kontaktovať nás môžete aj cez stránku Kontakt.",
+      "loan": "Pre žiadosť o úver vyberte „Nový úver\" na nástenke. Rozhodnutie do 24 h, prostriedky do 72 h.",
+      "password": "Heslo môžete obnoviť na prihlasovacej stránke cez „Zabudli ste heslo?\".",
+      "thanks": "Rado sa stalo! Pokojne sa pýtajte ďalej.",
+      "transfer": "Vaše prevody nájdete v sekcii „Prevody\" na nástenke."
+    },
+    "greeting": "Dobrý deň 👋! Ako vám môžem pomôcť?",
+    "online": "Online",
+    "open": "Otvoriť chat",
+    "placeholder": "Napíšte správu…",
+    "title": "MOONYP poradca"
+  },
+  "loanDetail": {
+    "addedOn": "Pridané dňa {{date}}",
+    "alreadyWithdrawn": "Už vybraté: {{withdrawn}} z {{total}}",
+    "amount": "Suma",
+    "availableBalance": "Dostupný zostatok",
+    "back": "Späť na moje úvery",
+    "contractDownloaded": "Zmluva stiahnutá",
+    "contractGenerating": "Generuje sa PDF zmluva…",
+    "contractTitle": "Zmluva",
+    "details": "Details",
+    "documentsTitle": "Poskytnuté dokumenty",
+    "downloadContract": "Stiahnuť zmluvu",
+    "downloadImpossible": "Stiahnutie nie je dostupné",
+    "duration": "Doba",
+    "durationMonths": "{{count}} mesiacov",
+    "fileNumber": "Spis #{{id}}",
+    "fileTooHeavy": "Súbor je príliš veľký (max. 10 MB)",
+    "generationImpossible": "Generovanie zlyhalo: {{message}}",
+    "historyTitle": "História akcií",
+    "loading": "Načítava sa…",
+    "loanDescription": {
+      "accepte": "Vaša žiadosť bola schválená",
+      "contrat_envoye": "Zmluva bola odoslaná na podpis",
+      "contrat_signe": "Prijatá podpísaná zmluva, uvoľnenie sa pripravuje",
+      "en_attente": "Vaša žiadosť sa posudzuje",
+      "en_traitement": "Sprístupnenie prostriedkov do 72 hodín",
+      "fonds_disponibles": "Vaše prostriedky sú k dispozícii",
+      "refuse": "Žiadosť neúspešná"
+    },
+    "makeTransfer": "Vykonať prevod",
+    "metaTitle": "Detail pôžičky — MOONYP",
+    "monthlyIncome": "Mesačný príjem",
+    "monthlyPayment": "Odhadovaná mesačná splátka",
+    "noAction": "Zatiaľ žiadna akcia.",
+    "notFound": "Úver sa nenašiel",
+    "purpose": "Účel",
+    "reason": "Dôvod",
+    "refusedDesc": "Po preskúmaní vašej žiadosti, žiaľ, nemôžeme vyhovieť vašej žiadosti o financovanie.",
+    "refusedTitle": "Žiadosť zamietnutá",
+    "requestRefused": "Žiadosť zamietnutá",
+    "requestSubmitted": "Žiadosť odoslaná",
+    "sendSignedContract": "Odoslať podpísanú zmluvu",
+    "sessionExpired": "Relácia vypršala. Prihláste sa znova.",
+    "signedContractReceived": "Prijatá podpísaná zmluva",
+    "signedReceivedMessage": "{{name}} podpísal/a zmluvu (žiadosť {{id}})",
+    "signedReceivedTitle": "Prijatá podpísaná zmluva",
+    "signedSent": "Podpísaná zmluva odoslaná!",
+    "signInstruction": "Podpíšte zmluvu a nahrajte ju nižšie na overenie.",
+    "steps": {
+      "accepte": "Schválené",
+      "contrat_envoye": "Zmluva odoslaná",
+      "contrat_signe": "Zmluva podpísaná",
+      "en_attente": "Žiadosť odoslaná",
+      "en_traitement": "Spracováva sa",
+      "fonds_disponibles": "Prostriedky k dispozícii"
+    },
+    "summaryTitle": "Súhrn žiadosti",
+    "title": "Detail úveru",
+    "unknownError": "Neznáma chyba",
+    "updateError": "Chyba aktualizácie",
+    "uploadFailed": "Nahrávanie zlyhalo",
+    "withdraw": "Vybrať"
+  },
+  "loanForm": {
+    "address": "Úplná poštová adresa",
+    "addressHint": "Vyberte návrh alebo zadajte celú adresu ručne.",
+    "addressPlaceholder": "Začnite písať svoju adresu…",
+    "addressRequired": "Uveďte prosím svoju úplnú poštovú adresu",
+    "adminNotifMsg": "{{name}} žiada {{amount}} € na {{months}} mesiacov",
+    "adminNotifTitle": "Nová žiadosť o úver",
+    "amount": "Požadovaná suma (€)",
+    "amountMax": "Maximálne 100 000 €",
+    "amountMin": "Minimálne 500 €",
+    "back": "Späť",
+    "createError": "Chyba pri vytváraní žiadosti",
+    "doc1": "Platný doklad totožnosti alebo vodičský preukaz (obe strany) — alebo cestovný pas (iba predná strana)",
+    "doc2": "Aktuálne potvrdenie o adrese",
+    "doc3": "Posledné tri výplatné pásky alebo potvrdenie o príjme",
+    "doc4": "Posledný bankový výpis alebo IBAN na meno žiadateľa",
+    "docsRequiredExact": "Musíte nahrať presne {{count}} dokumentov.",
+    "documents": "Požadované doklady (max. 5, po 5 MB)",
+    "duration": "Doba (mesiace)",
+    "email": "E-mail",
+    "fileTooLarge": "{{name}} presahuje 5 MB",
+    "fullName": "Celé meno",
+    "loading": "Načítavanie…",
+    "monthlyIncome": "Mesačný čistý príjem (€)",
+    "newRequestDesc": "Podajte žiadosť o úver",
+    "newRequestShort": "Nová žiadosť",
+    "purpose": "Účel úveru (voliteľné)",
+    "purposePlaceholder": "Rekonštrukcia, auto, osobný projekt…",
+    "requiredDocs": "Doklady potrebné na posúdenie",
+    "requiredDocsHint": "Nahrajte čitateľné PDF, JPG alebo PNG súbory pre rýchlejšie schválenie.",
+    "submit": "Odoslať žiadosť",
+    "submitting": "Odosielanie…",
+    "subtitle": "Vyplňte formulár a priložte doklady.",
+    "success": "Žiadosť odoslaná!",
+    "successToast": "Vaša žiadosť bola úspešne odoslaná",
+    "title": "Nová žiadosť o úver",
+    "uploadFailed": "Nahrávanie zlyhalo: {{name}}",
+    "uploadHint": "Kliknite pre pridanie (PDF, JPG, PNG)",
+    "uploadHintExact": "Nahrajte presne {{count}} dokumentov (PDF, JPG, PNG — max. 5 MB)."
+  },
+  "mobileHome": {
+    "cta": "Začať",
+    "description": "Spravujte svoje úvery, prevody a účty bezpečne, kdekoľvek ste.",
+    "feature1": "Bezpečné",
+    "feature2": "Šifrovanie end-to-end",
+    "feature3": "Prémiový zážitok",
+    "subtitle": "Vaša banka, vo vašom vrecku.",
+    "tagline": "Európska banková bezpečnosť",
+    "title": "Vitajte v MOONYP"
+  },
+  "nav": {
+    "about": "O nás",
+    "apply": "Požiadať",
+    "contact": "Kontakt",
+    "home": "Domov",
+    "language": "Jazyk",
+    "menu": "Menu",
+    "primary": "Hlavná navigácia",
+    "request": "Žiadosť",
+    "simulation": "Kalkulačka",
+    "solutions": "Riešenia",
+    "support": "Podpora",
+    "transfers": "Prevody"
+  },
+  "notif": {
+    "adminCodes": {
+      "codeMsg": "Váš kód: {{code}} (poplatok {{fee}})",
+      "codeTitle": "Odblokovací kód {{p}}%",
+      "manualCodeMsg": "Váš odblokovací kód je: {{code}}",
+      "manualCodeTitle": "Odblokovací kód {{p}}%",
+      "rejectedMsg": "Nahrajte platné potvrdenie.",
+      "rejectedTitle": "Potvrdenie zamietnuté"
+    },
+    "loan": {
+      "newRequestAdminMsg": "{{name}} žiada {{amount}} € na {{months}} mesiacov",
+      "newRequestAdminTitle": "Nová žiadosť o úver",
+      "signedReceivedMsg": "{{name}} podpísal zmluvu (žiadosť {{id}})",
+      "signedReceivedTitle": "Prijatá podpísaná zmluva",
+      "statusMsg": "Vaša žiadosť o {{amount}} je teraz: $t(status.{{statusKey}})",
+      "statusTitle": "Stav vašej žiadosti bol aktualizovaný"
+    },
+    "transfer": {
+      "adminInitMsg": "{{amount}} → {{beneficiary}} (ref. {{ref}})",
+      "adminInitTitle": "Nový prevod spustený",
+      "classicMsg": "Bol spustený štandardný prevod {{amount}} (pripísanie do 1 pracovného dňa, ref. {{ref}})",
+      "classicTitle": "Prevod prebieha",
+      "instantMsg": "{{amount}} pripísané na účet {{iban4}}…{{ibanLast}} (ref. {{ref}})",
+      "instantTitle": "Prijatý okamžitý prevod"
+    },
+    "transferProcess": {
+      "adminReceiptMsg": "Bolo nahrané nové potvrdenie o platbe poplatku.",
+      "adminReceiptTitle": "Prijaté nové potvrdenie",
+      "adminValidationMsg": "Klient nahral potvrdenie o platbe na overenie.",
+      "adminValidationTitle": "Potvrdenie na overenie"
+    },
+    "withdrawal": {
+      "rejectedMsg": "Váš prevod {{amount}} bol zamietnutý. Zostatok bol automaticky vrátený.",
+      "rejectedTitle": "Prevod zamietnutý · prostriedky vrátené",
+      "sentMsg": "{{amount}} bolo odoslaných na {{iban4}}…{{ibanLast}} (ref. {{ref}})",
+      "sentTitle": "Prevod vykonaný"
+    }
+  },
+  "notifications": {
+    "allRead": "Všetko je prečítané",
+    "empty": "Žiadne upozornenia",
+    "markAllRead": "Označiť všetky ako prečítané",
+    "noLink": "Bez odkazu",
+    "pageTitle": "Všetky upozornenia",
+    "title": "Upozornenia",
+    "viewAll": "Zobraziť všetky upozornenia"
+  },
+  "password": {
+    "excellent": "Vynikajúce",
+    "fair": "Priemerné",
+    "good": "Dobré",
+    "hide": "Skryť heslo",
+    "notStrong": "Heslo nespĺňa všetky bezpečnostné pravidlá.",
+    "ruleDigit": "Číslica",
+    "ruleLength": "Aspoň 10 znakov",
+    "ruleLower": "Malé písmeno",
+    "ruleSpecial": "Špeciálny znak",
+    "ruleUpper": "Veľké písmeno",
+    "show": "Zobraziť heslo",
+    "strong": "Silné",
+    "veryWeak": "Veľmi slabé",
+    "weak": "Slabé"
+  },
+  "products": {
+    "auto": {
+      "desc": "Nové alebo jazdené vozidlo za zvýhodnenú sadzbu.",
+      "name": "Autoúver"
+    },
+    "business": {
+      "desc": "Podporte rast, vybavenie alebo prevádzkový kapitál.",
+      "name": "Podnikateľský úver"
+    },
+    "mortgage": {
+      "desc": "Kúpte, postavte alebo zrekonštruujte s dlhodobým financovaním.",
+      "name": "Hypotéka"
+    },
+    "personal": {
+      "desc": "Financujte svoje plány s fixnou sadzbou a jasnými splátkami.",
+      "name": "Spotrebný úver"
+    }
+  },
+  "receipt": {
+    "amount": "Prevedená suma",
+    "bank": "Banka príjemcu",
+    "beneficiary": "Príjemca",
+    "bic": "BIC / SWIFT",
+    "documentLabel": "Oficiálny dokument",
+    "documentTitle": "Doklad o prevode",
+    "download": "Stiahnuť PDF",
+    "downloaded": "Doklad úspešne stiahnutý",
+    "downloadError": "Doklad sa nepodarilo stiahnuť",
+    "footerLegal": "Tento doklad potvrdzuje bankovú operáciu a môže byť predložený príslušnému orgánu.",
+    "footerSecurity": "Dokument vygenerovaný zabezpečenými systémami MOONYP.",
+    "generating": "Generuje sa PDF…",
+    "iban": "IBAN",
+    "issuedAt": "Dátum vydania",
+    "metaTitle": "Doklad o prevode — MOONYP",
+    "reference": "Referencia",
+    "serverAmount": "Prevedená suma",
+    "serverBank": "Banka príjemcu",
+    "serverBeneficiary": "Príjemca",
+    "serverBic": "BIC / SWIFT",
+    "serverExecuted": "Prevod vykonaný",
+    "serverExecutedAt": "Dátum vykonania",
+    "serverIban": "IBAN",
+    "serverIssued": "Vystavené dňa {{date}}",
+    "serverLegal": "Tento doklad slúži ako potvrdenie bankovej operácie a možno ho predložiť ktorémukoľvek príslušnému orgánu.",
+    "serverNotFound": "Prevod sa nenašiel",
+    "serverReference": "Referencia",
+    "serverSecure": "Zabezpečený dokument",
+    "serverSecurity": "Dokument vygenerovaný zabezpečenými systémami MOONYP.",
+    "serverSessionExpired": "Relácia vypršala. Prihláste sa znova.",
+    "serverStatus": "Status",
+    "serverSubtitle": "Oficiálne bankové potvrdenie",
+    "serverTitle": "Potvrdenie o prevode",
+    "serverUnauthorized": "Neoprávnený prístup k tomuto potvrdeniu",
+    "serverUnavailable": "Potvrdenie je dostupné až po overení prevodu",
+    "sessionExpired": "Relácia vypršala. Prihláste sa znova.",
+    "statusExecuted": "Prevod vykonaný",
+    "statusPending": "Prevod sa spracováva",
+    "subBrand": "Together we thrive",
+    "subtitle": "Vydané {{date}}",
+    "title": "Bankový doklad o prevode"
+  },
+  "settings": {
+    "accessAdmin": "Otvoriť admin panel",
+    "adminAccount": "Účet administrátora",
+    "adminDesc": "Máte oprávnenia na správu klientskych spisov a operácií.",
+    "back": "Späť",
+    "changePassword": "Zmeniť heslo",
+    "confirmPassword": "Potvrdiť",
+    "currentEmail": "Aktuálny e-mail",
+    "currentPassword": "Aktuálne heslo",
+    "currentPasswordWrong": "Aktuálne heslo je nesprávne",
+    "emailHint": "Na novú adresu bude odoslaný potvrdzovací e-mail.",
+    "emailSection": "E-mailová adresa",
+    "emailUpdated": "E-mail aktualizovaný. Skontrolujte schránku pre potvrdenie.",
+    "fullName": "Celé meno",
+    "goBack": "Späť",
+    "languageDesc": "Vyberte jazyk rozhrania. Vaša voľba sa uloží a synchronizuje s vaším účtom.",
+    "languageSaved": "Jazyk aktualizovaný",
+    "languageSection": "Jazyk",
+    "loadProfileError": "Nie je možné načítať profil",
+    "metaTitle": "Nastavenia — MOONYP",
+    "newEmail": "Nová e-mailová adresa",
+    "newPassword": "Nové heslo",
+    "passwordMismatch": "Heslá sa nezhodujú",
+    "passwordSection": "Password",
+    "passwordTooShort": "Heslo musí mať aspoň 8 znakov",
+    "passwordUpdated": "Heslo aktualizované",
+    "phone": "Telefón",
+    "profile": "Profile",
+    "profileUpdated": "Profil aktualizovaný",
+    "saveError": "Chyba pri ukladaní",
+    "saveProfile": "Uložiť profil",
+    "subtitleDesktop": "Spravujte svoje osobné údaje a bezpečnosť",
+    "subtitleMobile": "Spravujte svoj účet a bezpečnosť",
+    "title": "Nastavenia",
+    "updateEmail": "Aktualizovať e-mail"
+  },
+  "status": {
+    "accepte": "Schválené",
+    "contrat_envoye": "Zmluva odoslaná",
+    "contrat_signe": "Zmluva podpísaná",
+    "en_attente": "Čakajúce",
+    "en_traitement": "Spracováva sa",
+    "envoye": "Odoslané",
+    "fonds_disponibles": "Prostriedky dostupné",
+    "refuse": "Zamietnuté",
+    "rejete": "Zamietnuté"
+  },
+  "transfer": {
+    "amount": "Suma (€)",
+    "amountInvalid": "Neplatná suma",
+    "available": "Disponibilný zostatok",
+    "bankName": "Banka",
+    "bankNamePlaceholder": "Názov banky",
+    "bankRequired": "Banka je povinná",
+    "beneficiary": "Príjemca",
+    "beneficiaryPlaceholder": "Meno a priezvisko",
+    "beneficiaryRequired": "Príjemca je povinný",
+    "bic": "BIC / SWIFT",
+    "bicInvalid": "Neplatný BIC/SWIFT",
+    "confirmClassic": "Potvrdiť prevod",
+    "errorEmit": "Chyba pri vykonávaní",
+    "executeInstant": "Vykonať prevod",
+    "iban": "IBAN",
+    "ibanInvalid": "Neplatný IBAN",
+    "kindClassic": "Štandardný (SEPA)",
+    "kindClassicHint": "Pripísané do 1 pracovného dňa · možnosť plánovania.",
+    "kindInstant": "Okamžitý (SEPA Instant)",
+    "kindInstantHint": "Pripísané príjemcovi okamžite (24/7).",
+    "noLoanSelected": "Nie je vybraný úver",
+    "reason": "Dôvod (voliteľné)",
+    "reasonPlaceholder": "Nájom, nákup, splátka…",
+    "reference": "Referencia",
+    "referencePlaceholder": "Automaticky ak prázdne",
+    "schedule": "Naplánovať (voliteľné)",
+    "scheduleFuture": "Plánovaný dátum musí byť v budúcnosti",
+    "scheduleHint": "Nechajte prázdne pre nasledujúci pracovný deň.",
+    "secureClassic": "Šifrované údaje · 1 pracovný deň",
+    "secureInstant": "Šifrované údaje · okamžité vykonanie",
+    "sourceLoan": "Zdrojový úver",
+    "subtitle": "Vyberte typ, zadajte údaje príjemcu a potvrďte.",
+    "successClassic": "Príkaz na prevod zaznamenaný",
+    "successInstant": "Okamžitý prevod vykonaný",
+    "successScheduled": "Prevod naplánovaný",
+    "title": "Vykonať prevod"
+  },
+  "transferDetail": {
+    "amount": "Suma",
+    "backAll": "Všetky prevody",
+    "badge": {
+      "compliance": "Kontrola súladu",
+      "processing": "Bankové spracovanie",
+      "rejected": "Prevod zamietnutý",
+      "validated": "Prevod potvrdený"
+    },
+    "bank": "Banka",
+    "beneficiary": "Príjemca",
+    "bic": "BIC",
+    "header": "MOONYP · Príkaz na prevod",
+    "history": "História",
+    "iban": "IBAN",
+    "issuedAt": "Vydané",
+    "metaTitle": "Detail prevodu — MOONYP",
+    "notFound": "Prevod sa nenašiel.",
+    "receipt": {
+      "desc": "Stiahnite si oficiálne zhrnutie MOONYP k tomuto príkazu na prevod.",
+      "download": "Stiahnuť doklad",
+      "title": "Bankový doklad dostupný"
+    },
+    "reference": "Referencia",
+    "rejected": {
+      "desc": "Prostriedky boli automaticky pripísané späť na váš účet MOONYP.",
+      "reason": "Dôvod",
+      "title": "Tento prevod bol zamietnutý"
+    },
+    "timeline": {
+      "compliance": "Krok súladu potvrdený",
+      "complianceDesc": "Odblokovací kód úspešne zadaný.",
+      "enhanced": "Rozšírené overenie potvrdené",
+      "enhancedDesc": "Prevod pokračuje k príjemcovi.",
+      "executed": "Prevod vykonaný",
+      "executedDesc": "Prostriedky boli pripísané.",
+      "issued": "Príkaz na prevod vydaný",
+      "issuedDesc": "Pre {{beneficiary}} ({{amount}})",
+      "now": "Práve teraz",
+      "rejected": "Prevod zamietnutý",
+      "rejectedDesc": "Zostatok bol automaticky pripísaný späť."
+    },
+    "tracking": "Sledovanie prevodu"
+  },
+  "transferProcess": {
+    "accountHolder": "Majiteľ účtu",
+    "adminReceiptMessage": "Klient nahral potvrdenku o platbe za súlad.",
+    "adminReceiptTitle": "Nová potvrdenka na kontrolu",
+    "adminValidationMessage": "Klient dosiahol krok súladu a čaká na uvoľnenie kódu.",
+    "adminValidationTitle": "Prevod čaká na overenie",
+    "advanced": "Krok potvrdený.",
+    "animatingDesc": "Váš prevod prechádza našimi zabezpečenými kanálmi. Nie je potrebná žiadna akcia.",
+    "animatingTitle": "Bankové smerovanie prebieha",
+    "bankOrder": "Bankové údaje MOONYP",
+    "blockedDesc": "Na dokončenie tohto kroku uhradte nižšie uvedený poplatok za súlad a zadajte prijatý kód.",
+    "blockedTitle": "Vyžaduje sa kontrola súladu",
+    "codePlaceholder": "Zadajte kód (napr. ABC-1234)",
+    "complianceBadge": "Kontrola súladu",
+    "configDesc": "Poradca MOONYPPARIBAS pripravuje platbu za súlad. Pokyny dostanete čoskoro.",
+    "configTitle": "Konfigurácia prebieha",
+    "copied": "{{label}} skopírované do schránky.",
+    "fee": "Splatný poplatok za súlad",
+    "fileTooBig": "Súbor presahuje 10 MB.",
+    "finalDesc": "Príjemca dostane prostriedky v štandardnej medzibankovej lehote.",
+    "finalTitle": "Prevod úspešne vykonaný",
+    "invalidCode": "Neplatný alebo už použitý kód.",
+    "processingBadge": "Bankové spracovanie",
+    "progress": "Bezpečný postup",
+    "reason": "Dôvod prevodu",
+    "receiptApproved": "Schválené",
+    "receiptLabel": "Doklad o platbe",
+    "receiptPending": "Prebieha kontrola",
+    "receiptRejected": "Zamietnuté",
+    "receiptSent": "Potvrdenka odoslaná poradcovi.",
+    "rejectedBadge": "Prevod zamietnutý",
+    "rejectedDesc": "Prostriedky boli automaticky pripísané späť na váš účet.",
+    "rejectedTitle": "Tento prevod bol zamietnutý",
+    "replaceReceipt": "Nahradiť potvrdenku",
+    "successFinal": "Prevod dokončený.",
+    "unlockCodeReceived": "Odblokovací kód prijatý",
+    "uploadReceipt": "Nahrať potvrdenku",
+    "validateAndContinue": "Potvrdiť a pokračovať",
+    "validatedBadge": "Prevod potvrdený",
+    "waitingCodeDesc": "Po overení potvrdenky vám poradca pošle 6-miestny kód.",
+    "waitingCodeTitle": "Čaká sa na odblokovací kód"
+  },
+  "transfersPage": {
+    "beneficiary": "Príjemca:",
+    "emptyDesc": "Vaše prevody sa zobrazia po vytvorení.",
+    "emptyTitle": "Žiadne prevody",
+    "eyebrow": "Zóna prevodov",
+    "filters": {
+      "active": "Prebiehajúce",
+      "all": "Všetky",
+      "blocked": "Blokované",
+      "done": "Dokončené"
+    },
+    "issuedAt": "Vydané {{date}}",
+    "metaTitle": "Moje prevody — MOONYP",
+    "newTransfer": "Nový prevod",
+    "reference": "ref. {{reference}}",
+    "status": {
+      "blocked": "Vyžaduje overenie",
+      "final": "Potvrdené",
+      "processing": "Bankové spracovanie",
+      "rejected": "Zamietnuté"
+    },
+    "subtitle": "Sledovanie SEPA prevodov, krokov súladu a potvrdeniek.",
+    "title": "Moje prevody"
+  },
+  "transferStepDialog": {
+    "subtitle": "Sledujte postup a bezpečne potvrďte každý míľnik.",
+    "title": "Krok súladu"
+  },
+  "transferSteps": {
+    "advanced": "Krok {{p}}% odblokovaný",
+    "awaitingCode": "Čaká sa na kód",
+    "awaitingCodeDesc": "Kód bude odoslaný po overení potvrdenky administrátorom.",
+    "awaitingConfig": "Konfigurácia prebieha",
+    "awaitingConfigDesc": "Náš tím dokončuje tento krok. Budete informovaní.",
+    "blockedDesc": "Z dôvodu bankovej zhody si odblokovanie kroku {{p}}% vyžaduje úhradu poplatku a overenie potvrdenky.",
+    "blockedTitle": "Prevod zablokovaný na {{p}}%",
+    "completed": "Prevod dokončený",
+    "completedDesc": "Prostriedky boli pripísané príjemcovi.",
+    "enterCode": "Zadajte odblokovací kód",
+    "feeFor": "Poplatok krok {{p}}%",
+    "fileTooBig": "Súbor je príliš veľký (max. 10 MB)",
+    "invalidCode": "Neplatný kód",
+    "notifAdminMsg": "Klient nahral potvrdenku na overenie.",
+    "notifAdminTitle": "Prijatá potvrdenka — krok {{p}}%",
+    "paymentAddress": "Platobná adresa",
+    "paymentHelp": "Uhraďte na túto adresu a nahrajte potvrdenku.",
+    "progress": "Postup",
+    "receipt": "Platobná potvrdenka",
+    "receiptApproved": "Schválené",
+    "receiptPending": "Čaká na overenie",
+    "receiptRejected": "Zamietnuté — pošlite znova",
+    "receiptSent": "Potvrdenka odoslaná na overenie",
+    "replaceReceipt": "Nahradiť potvrdenku",
+    "stepNotReached": "Etapa ešte nedosiahnutá",
+    "subtitle": "Bankový postup v 3 krokoch: 63% · 88% · 100%.",
+    "successFinal": "Prevod úspešne dokončený",
+    "title": "Bezpečný prevod",
+    "unlock": "Odblokovať krok {{p}}%",
+    "uploadReceipt": "Nahrať potvrdenku"
+  },
+  "validation": {
+    "phone": "Zadajte platné telefónne číslo"
+  },
+  "workflow": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "confirmTitle": "Confirm the decision",
+    "error": {
+      "forbidden": "Action not allowed",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "sameStatus": "The file already has this status"
+    },
+    "guard": {
+      "complianceBlocking": "Blocking compliance alert",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "kycNotPassed": "KYC checks not passed",
+      "missingPayout": "Payout details missing",
+      "noInsurance": "No insurance subscribed on this file"
+    },
+    "noteLabel": "Internal note",
+    "reasonLabel": "Reason shared with the applicant",
+    "requests": {
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "close": "Close",
+      "create": "Send request",
+      "kind": "Request type",
+      "kinds": {
+        "information": "Doplňujúca informácia",
+        "justification": "Vyžiadané odôvodnenie",
+        "missing_document": "Chýbajúci dokument",
+        "replace_document": "Výmena dokumentu"
+      },
+      "message": "Message sent to the applicant",
+      "none": "No information request.",
+      "open": "Pending",
+      "title": "Information requests"
+    }
   }
 }

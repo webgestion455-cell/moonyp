@@ -314,16 +314,17 @@ function ApplyPage() {
       const created = await submitFn({ data: payload as never });
 
       const captures = Object.entries(kyc.files).flatMap(([slug, list]) =>
-        list.map((capture) => ({ slug, file: capture.file })),
+        list.map((capture) => ({ slug, file: capture.file, evidence: capture.evidence })),
       );
       setProgress({ done: 0, total: captures.length });
 
       const registered: Array<{
         document_type_slug: string; storage_path: string; file_name: string; mime_type: string; file_size: number;
+        capture_evidence?: unknown;
       }> = [];
 
       for (const [index, capture] of captures.entries()) {
-        const { file, slug } = capture;
+        const { file, slug, evidence } = capture;
         const signed = await uploadUrlFn({
           data: { token: created.token, document_type_slug: slug, file_name: file.name, mime_type: file.type, file_size: file.size },
         });
@@ -334,6 +335,8 @@ function ApplyPage() {
         registered.push({
           document_type_slug: slug, storage_path: signed.path, file_name: file.name,
           mime_type: file.type, file_size: file.size,
+          // Preuve mesurée à la capture : revalidée côté serveur, jamais crue sur parole.
+          ...(evidence ? { capture_evidence: evidence } : {}),
         });
         setProgress({ done: index + 1, total: captures.length });
       }

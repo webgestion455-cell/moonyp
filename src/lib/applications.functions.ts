@@ -281,6 +281,8 @@ export const registerDocuments = createServerFn({ method: "POST" })
               file_name: z.string().min(1).max(255),
               mime_type: z.string().min(1).max(120),
               file_size: z.coerce.number().int().min(1).max(25 * 1024 * 1024),
+              /** Preuve de capture produite par le navigateur, revalidée ici. */
+              capture_evidence: z.unknown().optional(),
             }),
           )
           .min(1)
@@ -291,13 +293,28 @@ export const registerDocuments = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const server = await import("@/lib/applications.server");
+    const { verifyCaptureEvidence } = await import("@/lib/kyc/evidence.server");
 
     const applicationId = await server.resolveToken(data.token);
     if (!applicationId) throw new Error("invalid_token");
 
+    /* Revalidation serveur des preuves : les mesures du navigateur ne sont
+     * jamais reprises telles quelles, elles sont bornées puis confrontées aux
+     * mêmes seuils qu'à l'écran. Le verdict pilote le statut du contrôle KYC. */
+    const verdicts = new Map<string, ReturnType<typeof verifyCaptureEvidence>>();
     const rows = data.documents
       .filter((d) => d.storage_path.startsWith(`${applicationId}/`))
-      .map((d) => ({ ...d, application_id: applicationId }));
+      .map((d) => {
+        const { capture_evidence, ...doc } = d;
+        const verdict = verifyCaptureEvidence(capture_evidence);
+        verdicts.set(d.storage_path, verdict);
+        return {
+          ...doc,
+          application_id: applicationId,
+          capture_method: verdict.evidence ? verdict.method : null,
+          capture_evidence: (verdict.evidence ?? null) as never,
+        };
+      });
     if (rows.length === 0) throw new Error("invalid_path");
 
     /* ------------------------------------------------------------------
@@ -345,7 +362,7 @@ export const registerDocuments = createServerFn({ method: "POST" })
     const { data: insertedDocs, error } = await supabaseAdmin
       .from("application_documents")
       .insert(rows)
-      .select("id, document_type_slug");
+      .select("id, document_type_slug, storage_path");
     if (error) throw new Error(error.message);
 
     // Purge des versions précédentes UNIQUEMENT pour les pièces réellement
@@ -409,15 +426,24 @@ export const registerDocuments = createServerFn({ method: "POST" })
       .in("slug", rows.map((r) => r.document_type_slug));
     const categoryOf = new Map((types ?? []).map((t) => [t.slug, (t as { category?: string }).category ?? "other"]));
 
-    const checks = (insertedDocs ?? []).map((doc) => ({
-      application_id: applicationId,
-      step_key: `${categoryOf.get(doc.document_type_slug) ?? "other"}:${doc.document_type_slug}`,
-      category: categoryOf.get(doc.document_type_slug) ?? "other",
-      document_type_slug: doc.document_type_slug,
-      document_id: doc.id,
-      status: "verifying",
-      provider: "manual",
-    }));
+    const checks = (insertedDocs ?? []).map((doc) => {
+      const verdict = verdicts.get((doc as { storage_path?: string }).storage_path ?? "");
+      return {
+        application_id: applicationId,
+        step_key: `${categoryOf.get(doc.document_type_slug) ?? "other"}:${doc.document_type_slug}`,
+        category: categoryOf.get(doc.document_type_slug) ?? "other",
+        document_type_slug: doc.document_type_slug,
+        document_id: doc.id,
+        // Une preuve jugée irrecevable côté serveur échoue immédiatement ;
+        // tout le reste reste en vérification pour la revue de conformité.
+        status: verdict?.status === "failed" ? "failed" : "verifying",
+        provider: verdict?.provider ?? "manual",
+        method: verdict?.evidence ? verdict.method : null,
+        evidence: (verdict?.evidence ?? null) as never,
+        reasons: verdict?.reasons ?? [],
+        score: verdict?.score ?? null,
+      };
+    });
     if (checks.length > 0) {
       await supabaseAdmin.from("application_kyc_checks").insert(checks as never);
       await supabaseAdmin
@@ -429,7 +455,16 @@ export const registerDocuments = createServerFn({ method: "POST" })
 
     await server.logEvent(applicationId, "documents_uploaded", {
       description: `${rows.length} document(s) déposé(s)`,
-      metadata: { types: rows.map((r) => r.document_type_slug) },
+      metadata: {
+        types: rows.map((r) => r.document_type_slug),
+        // Piste d'audit : mode de capture réel et anomalies relevées.
+        capture: [...verdicts.values()].map((v) => ({
+          method: v.method,
+          provider: v.provider,
+          status: v.status,
+          reasons: v.reasons,
+        })),
+      },
     });
     return { ok: true, count: rows.length };
   });

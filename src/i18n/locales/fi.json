@@ -1,2382 +1,600 @@
 {
-  "common": {
-    "loading": "Ladataan…",
-    "save": "Tallenna",
-    "cancel": "Peruuta",
-    "close": "Sulje",
-    "back": "Takaisin",
-    "open": "Avaa",
-    "search": "Hae",
-    "actions": "Toiminnot",
-    "yes": "Kyllä",
-    "no": "Ei",
-    "all": "Kaikki",
-    "none": "Ei mitään",
-    "language": "Kieli",
-    "submit": "Lähetä",
-    "send": "Lähetä",
-    "confirm": "Vahvista",
-    "delete": "Poista",
-    "edit": "Muokkaa",
-    "view": "Näytä",
-    "download": "Lataa",
-    "upload": "Lähetä",
-    "next": "Seuraava",
-    "previous": "Edellinen",
-    "from": "Lähettäjä",
-    "to": "Vastaanottaja",
-    "amount": "Summa",
-    "date": "Päivä",
-    "status": "Tila",
-    "details": "Tiedot",
-    "optional": "valinnainen",
-    "required": "vaaditaan",
-    "refresh": "Päivitä",
-    "viewAll": "Näytä kaikki",
-    "new": "Uusi",
-    "saving": "Tallennetaan…",
-    "sending": "Lähetetään…",
-    "updating": "Päivitetään…",
-    "loadError": "Latausvirhe",
-    "sessionExpired": "Istunto vanheni",
-    "notFound": "Sivua ei löydy",
-    "notFoundDesc": "Etsimääsi sivua ei ole olemassa.",
-    "backHome": "Takaisin etusivulle",
-    "errorRetry": "Yritä uudelleen",
-    "noResults": "Ei tuloksia",
-    "continue": "Jatka"
-  },
-  "header": {
-    "myLoans": "Lainani",
-    "newLoan": "Hae lainaa",
-    "dashboard": "Hallintapaneeli",
-    "admin": "Admin",
-    "settings": "Asetukset",
-    "signOut": "Kirjaudu ulos",
-    "signIn": "Kirjaudu",
-    "contact": "Yhteystiedot",
-    "menu": "Valikko"
-  },
-  "notifications": {
-    "title": "Notifications",
-    "empty": "No notifications",
-    "markAllRead": "Mark all read",
-    "pageTitle": "All notifications",
-    "noLink": "No link",
-    "allRead": "All caught up",
-    "viewAll": "View all notifications"
-  },
-  "auth": {
-    "title": "Client area",
-    "signIn": "Sign in",
-    "signUp": "Create account",
-    "email": "Email",
-    "password": "Password",
-    "fullName": "Full name",
-    "phone": "Phone",
-    "forgotPassword": "Forgot password?",
-    "noAccount": "No account yet?",
-    "hasAccount": "Already have an account?",
-    "createAccount": "Create my account",
-    "loginSuccess": "Successfully signed in",
-    "signupSuccess": "Account created · check your inbox",
-    "backHome": "Back to home",
-    "brandBadge": "Secure digital bank",
-    "creating": "Creating account…",
-    "decision": "Decision within 24 business hours",
-    "google": "Continue with Google",
-    "googleError": "Unable to sign in with Google",
-    "googleLoading": "Signing in with Google…",
-    "minPasswordHint": "At least 8 characters.",
-    "mobileHint": "Sign in or create your account",
-    "rgpd": "GDPR compliant",
-    "signingIn": "Signing in…",
-    "terms": "By continuing, you accept our Terms and Privacy Policy.",
-    "tls": "TLS 1.3 encryption",
-    "welcomeDesc": "Access your loans, transfers and premium services securely.",
-    "welcomeTitle": "Welcome to",
-    "nameShort": "Name too short",
-    "phoneInvalid": "Invalid phone number",
-    "emailInvalid": "Invalid email",
-    "passwordMin": "Password must be at least 8 characters",
-    "passwordRequired": "Salasana vaaditaan",
-    "invalidCredentials": "Virheelliset tunnistetiedot",
-    "connectedToast": "Kirjautuminen onnistui",
-    "emailAlreadyUsed": "Sähköposti on jo käytössä",
-    "accountCreated": "Tili luotu onnistuneesti",
-    "emailLabel": "Sähköposti",
-    "passwordLabel": "Salasana",
-    "fullNameLabel": "Koko nimi",
-    "phoneLabel": "Puhelin",
-    "tabSignin": "Kirjaudu sisään",
-    "tabSignup": "Luo tili",
-    "forgotLink": "Unohditko salasanasi?",
-    "forgotTitle": "Palauta salasanasi",
-    "forgotDesc": "Anna sähköpostiosoitteesi. Lähetämme sinulle suojatun linkin uuden salasanan asettamiseksi.",
-    "forgotSend": "Lähetä linkki",
-    "forgotSent": "Jos tili on olemassa, sähköposti on lähetetty.",
-    "resetTitle": "Aseta uusi salasana",
-    "resetWaiting": "Palautuslinkkiä vahvistetaan…",
-    "resetSuccess": "Salasana päivitetty onnistuneesti.",
-    "newPassword": "Uusi salasana",
-    "confirmNewPassword": "Vahvista salasana",
-    "updatePassword": "Päivitä salasana"
-  },
-  "dashboard": {
-    "title": "Oma hallintapaneeli",
-    "welcome": "Hei",
-    "balance": "Käytettävissä oleva saldo",
-    "showBalance": "Näytä saldo",
-    "hideBalance": "Piilota saldo",
-    "newLoan": "Uusi laina",
-    "withdraw": "Nosta",
-    "transfer": "Tee siirto",
-    "myLoans": "Omat lainat",
-    "transferHistory": "Siirtohistoria",
-    "noLoans": "Sinulla ei ole vielä lainaa",
-    "startApplication": "Aloita hakemus",
-    "noTransfers": "Ei siirtoja",
-    "viewLoan": "Näytä tiedosto",
-    "needHelp": "Tarvitsetko apua?",
-    "contactSupport": "Ota yhteyttä asiakaspalveluun",
-    "metaTitle": "Oma hallintapaneeli — MOONYP",
-    "sessionExpired": "Istunto vanhentui toimettomuuden vuoksi",
-    "loadError": "Latausvirhe",
-    "welcomeNamed": "Tervetuloa, {{name}}",
-    "welcomeAnon": "Tervetuloa",
-    "totalAvailable": "Käytettävissä oleva kokonaissaldo",
-    "fundedOutOf": "{{amount}} rahoitetusta",
-    "withdrawnAmount": "{{amount}} nostettu",
-    "newShort": "+ Uusi",
-    "activeLoans": "Aktiiviset lainat",
-    "totalFunded": "Rahoitettu yhteensä",
-    "transfers": "Siirrot",
-    "loading": "Ladataan…",
-    "firstLoanTitle": "Aloita ensimmäinen hakemuksesi",
-    "firstLoanDesc": "Rahoita projektisi minuuteissa: auto, remontti, kassavirta tai mikä tahansa muu tarve.",
-    "apply": "Hae nyt",
-    "loanDurationCreated": "{{months}} kuukautta · Pyydetty {{date}}",
-    "disbursedRemaining": "Maksettu: {{disbursed}} · Jäljellä: {{remaining}}",
-    "recentActivity": "Viimeaikainen toiminta",
-    "viewAll": "Näytä kaikki",
-    "noRecentTransfers": "Ei siirtoja vielä",
-    "status": {
-      "en_traitement": "Käsittelyssä",
-      "envoye": "Lähetetty",
-      "rejete": "Hylätty"
-    },
-    "welcomeShort": "Tervetuloa",
-    "myDashboard": "Oma hallintapaneeli",
-    "newRequest": "Uusi pyyntö",
-    "fundedOf": "{{amount}} rahoitetusta",
-    "makeTransfer": "Tee siirto",
-    "transfersKpi": "Siirrot",
-    "applyCta": "Hae nyt",
-    "monthsSince": "{{months}} kuukautta · Pyydetty {{date}}",
-    "details": "Tiedot",
-    "noTransfersYet": "Ei siirtoja vielä"
-  },
-  "loanForm": {
-    "title": "Uusi lainahakemus",
-    "subtitle": "Täytä lomake ja liitä asiakirjasi.",
-    "fullName": "Koko nimi",
-    "email": "Sähköposti",
-    "amount": "Pyydetty summa (€)",
-    "duration": "Kesto (kuukausia)",
-    "monthlyIncome": "Nettokuukausitulot (€)",
-    "purpose": "Lainatarkoitus (valinnainen)",
-    "purposePlaceholder": "Remontti, auto, henkilökohtainen projekti…",
-    "documents": "Vaaditut asiakirjat (enintään 5, 5 Mt kutakin)",
-    "uploadHint": "Napsauta lisätäksesi (PDF, JPG, PNG)",
-    "submit": "Lähetä hakemus",
-    "submitting": "Lähetetään…",
-    "success": "Hakemus lähetetty!",
-    "requiredDocs": "Tarkistusta varten vaadittavat asiakirjat",
-    "requiredDocsHint": "Lataa luettavat PDF-, JPG- tai PNG-tiedostot nopeuttaaksesi hyväksyntää.",
-    "doc1": "Voimassa oleva henkilöllisyystodistus tai ajokortti (molemmin puolin) — tai passi (vain etupuoli)",
-    "doc2": "Tuore osoitetodistus",
-    "doc3": "Kolme viimeisintä palkkalaskelmaa tai tulotodistus",
-    "doc4": "Viimeisin tiliote tai IBAN hakijan nimissä",
-    "back": "Takaisin",
-    "newRequestShort": "Uusi pyyntö",
-    "newRequestDesc": "Lähetä lainapyyntösi",
-    "amountMin": "Vähintään 500 €",
-    "amountMax": "Enintään 100 000 €",
-    "fileTooLarge": "{{name}} ylittää 5 Mt",
-    "createError": "Virhe pyynnön luomisessa",
-    "uploadFailed": "Lataus epäonnistui: {{name}}",
-    "adminNotifTitle": "Uusi lainapyyntö",
-    "adminNotifMsg": "{{name}} pyytää {{amount}} € {{months}} kuukauden ajalle",
-    "successToast": "Pyyntösi lähetettiin onnistuneesti",
-    "loading": "Ladataan…",
-    "docsRequiredExact": "Sinun on ladattava täsmälleen {{count}} asiakirjaa lähettääksesi pyyntösi.",
-    "uploadHintExact": "Lataa täsmälleen {{count}} asiakirjaa (PDF, JPG, PNG – enintään 5 Mt kutakin)",
-    "address": "Täydellinen postiosoite",
-    "addressPlaceholder": "Aloita osoitteesi syöttäminen…",
-    "addressHint": "Valitse ehdotus tai kirjoita koko osoitteesi manuaalisesti.",
-    "addressRequired": "Anna täydellinen postiosoitteesi"
-  },
-  "transfer": {
-    "title": "Tee siirto",
-    "subtitle": "Valitse tyyppi, anna edunsaajan tiedot ja vahvista.",
-    "kindInstant": "Välitön (SEPA Instant)",
-    "kindInstantHint": "Hyvitetään edunsaajalle välittömästi (24/7).",
-    "kindClassic": "Normaali (SEPA)",
-    "kindClassicHint": "Hyvitetään 1 arkipäivän kuluessa · ajoitus mahdollista.",
-    "sourceLoan": "Lähdelaina",
-    "amount": "Summa (€)",
-    "available": "Käytettävissä oleva saldo",
-    "beneficiary": "Edunsaaja",
-    "beneficiaryPlaceholder": "Etu- ja sukunimi",
-    "iban": "IBAN",
-    "bic": "BIC / SWIFT",
-    "bankName": "Pankki",
-    "bankNamePlaceholder": "Pankin nimi",
-    "reference": "Viite",
-    "referencePlaceholder": "Automaattisesti luotu, jos tyhjä",
-    "schedule": "Aikataulu (valinnainen)",
-    "scheduleHint": "Jätä tyhjäksi seuraavaa arkipäivää varten.",
-    "reason": "Syy (valinnainen)",
-    "reasonPlaceholder": "Vuokra, osto, takaisinmaksu…",
-    "secureInstant": "Salattuja tietoja · välitön toimeenpano",
-    "secureClassic": "Salattuja tietoja · 1 arkipäivä",
-    "executeInstant": "Suorita siirto",
-    "confirmClassic": "Vahvista siirto",
-    "successInstant": "Pikasiirto suoritettu",
-    "successScheduled": "Siirto ajoitettu",
-    "successClassic": "Siirtomääräys kirjattu",
-    "errorEmit": "Virhe siirron suorittamisessa",
-    "noLoanSelected": "Lainaa ei valittu",
-    "amountInvalid": "Virheellinen summa",
-    "ibanInvalid": "Virheellinen IBAN",
-    "bicInvalid": "Virheellinen BIC/SWIFT",
-    "beneficiaryRequired": "Saaja vaaditaan",
-    "bankRequired": "Pankki vaaditaan",
-    "scheduleFuture": "Ajoitetun päivämäärän on oltava tulevaisuudessa"
-  },
-  "contact": {
-    "title": "Ota yhteyttä asiakaspalveluun",
-    "subtitle": "Vastaamme 24 arkityötunnin kuluessa · luottamuksellisuus taattu.",
-    "infoTitle": "Yhteystiedot",
-    "phoneLabel": "Asiakaspalvelu",
-    "phoneHours": "Ma-Pe · klo 8-20",
-    "emailLabel": "Sähköposti",
-    "addressLabel": "Pääkonttori",
-    "secureNote": "Viestisi ovat salattuja ja vaatimustenmukaisuustiimimme käsittelee ne luottamuksellisesti.",
-    "formTitle": "Lähetä viesti",
-    "fullName": "Koko nimi",
-    "email": "Sähköposti",
-    "subject": "Aihe",
-    "message": "Viesti",
-    "messagePlaceholder": "Kuvaile pyyntösi yksityiskohtaisesti…",
-    "send": "Lähetä viesti",
-    "success": "Viesti lähetetty · asiakaspalvelu vastaa 24 tunnin kuluessa",
-    "error": "Lähetys epäonnistui",
-    "subjects": {
-      "account": "Kysymys tilistäni",
-      "loan": "Kysymys lainasta",
-      "transfer": "Siirto-ongelma",
-      "complaint": "Valitus",
-      "appointment": "Ajanvarauspyyntö",
-      "other": "Muu"
-    },
-    "metaTitle": "Ota yhteyttä – MOONYP -asiakaspalveluun",
-    "metaDesc": "Ota yhteyttä MOONYP -asiakaspalveluun, jos sinulla on kysyttävää tilistäsi, lainoistasi tai siirroistasi.",
-    "nameRequired": "Nimi on pakollinen",
-    "emailInvalid": "Virheellinen sähköpostiosoite",
-    "messageTooShort": "Viesti on liian lyhyt (vähintään 10 merkkiä)",
-    "defaultNamePlaceholder": "John Smith",
-    "defaultEmailPlaceholder": "sinä@esimerkki.com",
-    "back": "Takaisin",
-    "phoneTitle": "Asiakaspalvelu",
-    "address": "103 avenue des Champs-Élysées",
-    "addressCity": "75008 Pariisi, Ranska",
-    "sending": "Lähetetään…",
-    "successQueued": "Viestisi on tallennettu. Tiimimme vastaa pian."
-  },
-  "admin": {
-    "title": "Järjestelmänvalvojan hallintapaneeli",
-    "subtitle": "Yleiskatsaus pankkitoiminnasta.",
-    "kpis": {
-      "total": "Hakemuksia yhteensä",
-      "pending": "Odottaa",
-      "accepted": "Hyväksytty",
-      "refused": "Hylätty"
-    },
-    "amounts": {
-      "requested": "Pyydetty yhteensä",
-      "accepted": "Hyväksytty yhteensä",
-      "disbursed": "Maksetut varat"
-    },
-    "recent": {
-      "title": "Viimeaikainen toiminta",
-      "empty": "Ei viimeaikaista toimintaa",
-      "open": "Avaa"
-    },
-    "quickActions": {
-      "title": "Pikatoiminnot",
-      "subtitle": "Käsittele odottavat tiedostot ensin.",
-      "toStudy": "Tarkistettavat tiedostot",
-      "signedContracts": "Käsiteltävät allekirjoitetut sopimukset",
-      "manageClients": "Hallitse asiakkaita"
-    },
-    "loansPage": {
-      "title": "Kaikki lainatiedostot",
-      "subtitle": "Yksityiskohtainen ja suodatettava näkymä hakemuksista.",
-      "client": "Asiakas",
-      "amount": "Summa",
-      "status": "Tila",
-      "date": "Päivämäärä",
-      "documents": "Asiakirjat",
-      "duration": "Kesto"
-    },
-    "clientsPage": {
-      "title": "Asiakkaat",
-      "subtitle": "Asiakastilit ja käyttöoikeuksien tila.",
-      "client": "Asiakas",
-      "phone": "Puhelin",
-      "loans": "Lainat",
-      "totalBorrowed": "Lainattu yhteensä",
-      "joined": "Liittynyt",
-      "status": "Tila",
-      "active": "Aktiivinen",
-      "blocked": "Estetty"
-    },
-    "clientDetail": {
-      "title": "Asiakasprofiili",
-      "personalInfo": "Henkilötiedot",
-      "summary": "Yhteenveto",
-      "loans": "Asiakkaan lainat",
-      "withdrawals": "Siirrot",
-      "noLoans": "Tällä asiakkaalla ei ole vielä tiedostoja.",
-      "noWithdrawals": "Ei siirtoja.",
-      "blockBtn": "Estä tili",
-      "unblockBtn": "Poista tilin esto",
-      "blockTitle": "Estä asiakastili",
-      "blockReason": "Eston syy",
-      "blockReasonPlaceholder": "esim. petosepäily, KYC-vaatimusten noudattamatta jättäminen…",
-      "blockedSince": "Estetty alkaen",
-      "blockedReason": "Syy",
-      "confirm": "Vahvista"
-    },
-    "stages": {
-      "title": "Vapautusmaksut ja koodit",
-      "planSaved": "Suunnitelma tallennettu",
-      "planFirst": "Aseta maksut ensin",
-      "codeSent": "Koodi lähetetty vaiheelle {{stage}}%",
-      "unlocked": "Lukitus avattu",
-      "codeSentBadge": "Koodi lähetetty",
-      "fee": "Maksu (€)",
-      "sentAt": "Lähetetty",
-      "genAndSend": "Luo ja lähetä",
-      "regenAndSend": "Luo uudelleen ja lähetä",
-      "savePlan": "Tallenna suunnitelma"
-    },
-    "transfer": {
-      "title": "Tee asiakassiirto",
-      "subtitle": "Luo pikainen tai tavallinen pankkisiirto asiakkaan puolesta.",
-      "kind": "Siirron tyyppi",
-      "instant": "Pikasiirto",
-      "instantHint": "Hyvitetään välittömästi 24/7.",
-      "classic": "Tavallinen",
-      "classicHint": "Hyvitetään 1 arkipäivän kuluessa.",
-      "client": "Asiakas",
-      "selectClient": "Valitse asiakas",
-      "loan": "Lähdelaina",
-      "selectLoan": "Valitse laina",
-      "amount": "Summa (€)",
-      "beneficiary": "Saaja",
-      "bankName": "Saajan pankki",
-      "iban": "IBAN",
-      "bic": "BIC / SWIFT",
-      "reference": "Viite",
-      "submit": "Tee siirto",
-      "success": "Siirto tehty onnistuneesti",
-      "error": "Siirron tekeminen epäonnistui"
-    }
-  },
-  "blocked": {
-    "title": "Tili jäädytetty",
-    "message": "Vaatimustenmukaisuustiimimme on jäädyttänyt tilisi väliaikaisesti.",
-    "reasonLabel": "Syy",
-    "contact": "Ota yhteyttä tukeen saadaksesi lisätietoja.",
-    "signOut": "Kirjaudu ulos"
-  },
-  "status": {
-    "en_attente": "Odottaa",
-    "accepte": "Hyväksytty",
-    "refuse": "Hylätty",
-    "contrat_envoye": "Sopimus lähetetty",
-    "contrat_signe": "Sopimus allekirjoitettu",
-    "en_traitement": "Käsittelyssä",
-    "fonds_disponibles": "Varojen saatavuus",
-    "envoye": "Lähetetty",
-    "rejete": "Hylätty"
-  },
-  "client": {
-    "stages": {
-      "title": "Siirrot käynnissä",
-      "blockedTitle": "Siirto estetty {{stage}}%:ssa",
-      "blockedDesc": "Maksettava maksu: {{fee}}. Saat koodin vahvistuksen jälkeen.",
-      "codePlaceholder": "Vapautuskoodi",
-      "unlock": "Avaa lukitus",
-      "enterCode": "Syötä koodi",
-      "invalidCode": "Virheellinen koodi",
-      "unlocked": "Vaihe avattu",
-      "awaitCode": "Odotetaan järjestelmänvalvojan koodia",
-      "codeReceivedTitle": "Vapautuskoodi {{stage}}%",
-      "codeReceivedMsg": "Koodisi: {{code}} (maksu {{fee}})"
-    }
-  },
-  "adminCodes": {
-    "title": "Avaa koodit",
-    "help": "Hallitse siirron edistymiskoodeja.",
-    "step": "Vaihe",
-    "released": "Julkaistu",
-    "fee": "Maksu (€)",
-    "code": "Koodi",
-    "generate": "Luo",
-    "regenerate": "Luo uudelleen",
-    "send": "Lähetä",
-    "generateAndSend": "Luo ja lähetä",
-    "regenerateAndSend": "Luo uudelleen ja lähetä",
-    "noCode": "Ei koodia",
-    "created": "Koodi luotu",
-    "updated": "Koodi päivitetty",
-    "error": "Virhe",
-    "success": "Onnistui",
-    "sectionTitle": "Siirtovaiheen konfiguraatio",
-    "sectionHelp": "Aseta maksut ja maksun osoite vaiheittain, vahvista kuitti ja lähetä sitten koodi.",
-    "gatedTitle": "Konfiguraatio lukittu",
-    "gatedDesc": "Siirtovaiheen konfiguraatio tulee saataville lainan hyväksymisen jälkeen.",
-    "address": "Maksun osoite",
-    "saved": "Konfiguraatio tallennettu",
-    "invalidFee": "Virheellinen maksu",
-    "codeSent": "Koodi luotu ja lähetetty",
-    "consumed": "Kulutettu",
-    "receiptUploaded": "Kuitti ladattu",
-    "pending": "Odottaa",
-    "approved": "Hyväksytty",
-    "rejected": "Hylätty",
-    "approve": "Hyväksy",
-    "reject": "Hylkää",
-    "receiptApproved": "Kuitti hyväksytty",
-    "receiptRejected": "Kuitti hylätty",
-    "invalidates": "Koodin uudelleenluominen mitätöi automaattisesti edellisen: vain uusin koodi toimii.",
-    "notifTitle": "Avaa koodi {{p}}%",
-    "notifMsg": "Koodisi: {{code}} (maksu {{fee}})",
-    "notifApprovedTitle": "Kuitti hyväksytty – vaihe {{p}}%",
-    "notifApprovedMsg": "Maksusi vahvistettiin. Koodi lähetetään.",
-    "notifRejectedTitle": "Kuitti hylätty – vaihe {{p}}%",
-    "notifRejectedMsg": "Lataa kelvollinen kuitti.",
-    "holder": "Tilinhaltija",
-    "iban": "IBAN",
-    "bic": "BIC / SWIFT",
-    "description": "Viite / Kuvaus"
-  },
-  "transferSteps": {
-    "title": "Turvallinen siirto",
-    "subtitle": "Pankkisiirron edistyminen 3 vaiheessa: 63% · 88% · 100%.",
-    "progress": "Edistyminen",
-    "completed": "Siirto valmis",
-    "completedDesc": "Varat on hyvitetty edunsaajalle.",
-    "blockedTitle": "Siirto estetty {{p}}%:ssa",
-    "blockedDesc": "Pankkisäännösten noudattamisen vuoksi vaiheen {{p}}% avaaminen edellyttää maksun suorittamista ja kuitin vahvistamista.",
-    "awaitingConfig": "Määritys käynnissä",
-    "awaitingConfigDesc": "Tiimimme viimeistelee tätä vaihetta. Sinulle ilmoitetaan.",
-    "feeFor": "Maksun vaihe {{p}}%",
-    "paymentAddress": "Maksun osoite",
-    "paymentHelp": "Suorita maksu tähän osoitteeseen ja lataa sitten kuittisi.",
-    "receipt": "Maksukuitti",
-    "receiptPending": "Odottaa vahvistusta",
-    "receiptApproved": "Hyväksytty",
-    "receiptRejected": "Hylätty – lähetä uudelleen",
-    "uploadReceipt": "Lataa kuitti",
-    "replaceReceipt": "Korvaa kuitti",
-    "receiptSent": "Kuitti lähetetty vahvistettavaksi",
-    "fileTooBig": "Tiedosto liian suuri (enintään 10 Mt)",
-    "enterCode": "Syötä avauskoodisi",
-    "unlock": "Avaa vaihe {{p}}%",
-    "awaitingCode": "Odottaa koodia",
-    "awaitingCodeDesc": "Koodi lähetetään, kun ylläpitäjä on vahvistanut kuittisi.",
-    "invalidCode": "Virheellinen koodi",
-    "advanced": "Vaihe {{p}}% avattu",
-    "successFinal": "Siirto suoritettu onnistuneesti",
-    "notifAdminTitle": "Kuitti vastaanotettu – vaihe {{p}}%",
-    "notifAdminMsg": "Asiakas on ladannut kuitin vahvistettavaksi.",
-    "stepNotReached": "Vaihetta ei ole vielä saavutettu"
-  },
-  "transfersPage": {
-    "metaTitle": "Omat siirrot – MOONYP",
-    "eyebrow": "Siirrot-alue",
-    "title": "Omat siirrot",
-    "subtitle": "Seuraa SEPA-siirtoja, vaatimustenmukaisuusvaiheita ja kuitteja.",
-    "newTransfer": "Uusi siirto",
-    "beneficiary": "Saaja:",
-    "issuedAt": "Annettu {{date}}",
-    "reference": "viite. {{reference}}",
-    "emptyTitle": "Ei siirtoja",
-    "emptyDesc": "Siirtosi näkyvät täällä, kun ne on luotu.",
-    "filters": {
-      "all": "Kaikki",
-      "active": "Meneillään",
-      "blocked": "Estetty",
-      "done": "Valmis"
-    },
-    "status": {
-      "final": "Vahvistettu",
-      "rejected": "Hylätty",
-      "blocked": "Tarkistus vaaditaan",
-      "processing": "Pankkikäsittely"
-    }
-  },
-  "landing": {
-    "metaTitle": "MOONYP – Välittömät verkkolainat",
-    "metaDesc": "Rahoita projektisi luottavaisin mielin. Nopeat henkilökohtaiset lainat 1 000 eurosta 50 000 euroon. Päätös 24 tunnissa, varat 72 tunnissa.",
-    "badge": "Päätös alle 24 tunnissa",
-    "heroTitleA": "Rahoita projektisi",
-    "heroTitleB": "luottavaisin mielin.",
-    "heroDesc": "MOONYP on osa johtavaa eurooppalaisten pankkien sukupolvea, joka tarjoaa nopeita, läpinäkyviä ja turvallisia henkilökohtaisia lainoja.",
-    "ctaPrimary": "Hae lainaa",
-    "ctaSecondary": "Simuloi lainani",
-    "trust1": "Salattu data",
-    "trust2": "100 % turvallinen",
-    "trust3": "Ei piilokuluja",
-    "values": {
-      "response": {
-        "title": "Vastaus 24 tunnin kuluessa",
-        "desc": "Asiantuntijatiimimme tarkistaa hakemuksesi nopeasti. Ei enää loputtomia viikkoja odottelua."
-      },
-      "secure": {
-        "title": "100 % turvallinen",
-        "desc": "Tietosi on salattu päästä päähän. Noudatamme tiukimpia pankkistandardeja."
-      },
-      "nofees": {
-        "title": "Ei piilokuluja",
-        "desc": "Mainostettu korko on sovellettu korko. Ei yllätyksiä kuukausimaksuissasi."
-      }
-    },
-    "how": {
-      "title": "Miten se toimii?",
-      "s1t": "Simuloi lainasi",
-      "s1d": "Valitse sinulle sopiva summa ja laina-aika. Laskemme heti arvioidun kuukausimaksusi.",
-      "s2t": "Täytä hakemuksesi",
-      "s2d": "Täytä lomake 5 minuutissa ja lataa liiteasiakirjasi (henkilöllisyystodistus, osoitetodistus, palkkalaskelmat).",
-      "s3t": "Allekirjoita sopimuksesi",
-      "s3d": "Kun tiimimme on hyväksynyt sen, allekirjoita sopimuksesi sähköisesti ja turvallisesti.",
-      "s4t": "Vastaanota varasi",
-      "s4d": "Kun lakisääteinen määräaika on kulunut, varat ovat käytettävissä MOONYP -lompakossasi ja valmiina nostettavaksi."
-    },
-    "partners": {
-      "eyebrow": "Kumppanipankkimme",
-      "title": "Luotettava pankkiverkosto",
-      "desc": "Teemme yhteistyötä Euroopan tärkeimpien rahoituslaitosten kanssa taataksemme nopeat ja turvalliset siirrot."
-    },
-    "finalCta": {
-      "title": "Oletko valmis toteuttamaan projektisi?",
-      "desc": "Tee hakemus muutamassa minuutissa – ei tiliä, ei paperitöitä.",
-      "button": "Aloita hakemus"
-    },
-    "footer": {
-      "rights": "Kaikki oikeudet pidätetään.",
-      "legal": "Laina sitoo sinua ja se on maksettava takaisin. Tarkista takaisinmaksukykysi ennen sitoutumista."
-    },
-    "slides": {
-      "s1t": "Pankkipalvelut suunniteltu sinua varten",
-      "s1d": "Hakemus muutamassa minuutissa, ilman tiliä ja papereita.",
-      "s2t": "Hallitse talouttasi reaaliaikaisesti",
-      "s2d": "Selkeä hallintapaneeli, analytiikka ja älykkäät hälytykset.",
-      "s3t": "Pankkisi taskussasi",
-      "s3d": "Turvallinen mobiilisovellus saatavilla 24/7.",
-      "s4t": "Pankkitason turvallisuus",
-      "s4d": "Päästä päähän -salaus ja vahva todennus."
-    },
-    "kpis": {
-      "clients": "Aktiiviset asiakkaat",
-      "countries": "Katetut maat",
-      "assets": "Hallinnoidut varat",
-      "uptime": "Käyttöaika"
-    },
-    "security": {
-      "eyebrow": "Turvallisuus ja vaatimustenmukaisuus",
-      "title": "Huippuluokan pankkiturva",
-      "desc": "Järjestelmämme täyttävät tiukimmat eurooppalaiset pankkistandardit.",
-      "f1t": "AES-256-salaus",
-      "f1d": "Tietosi on suojattu sotilastason salauksella.",
-      "f2t": "PSD2- ja GDPR-yhteensopiva",
-      "f2d": "Eurooppalaisia säännöksiä noudatetaan tiukasti.",
-      "f3t": "Vahva todennus",
-      "f3d": "Kaksivaiheinen vahvistus jokaiselle arkaluonteiselle toimenpiteelle.",
-      "f4t": "24/7 tuki",
-      "f4d": "Omistetut neuvonantajat saatavilla kaikkina aikoina."
-    },
-    "testi": {
-      "eyebrow": "Suositukset",
-      "title": "He luottavat meihin",
-      "t1n": "Marie Dubois",
-      "t1r": "Talousjohtaja",
-      "t1q": "Sujuva ja ammattimainen pankkikokemus. Tuki on erinomaista.",
-      "t2n": "Jean Martin",
-      "t2r": "Yrittäjä",
-      "t2q": "Kansainväliset siirrot ovat nopeita ja turvallisuus moitteetonta.",
-      "t3n": "Sophie Laurent",
-      "t3r": "Lakimies",
-      "t3q": "Vihdoinkin digitaalinen pankki, joka yhdistää yksinkertaisuuden ja institutionaalisen vakavuuden."
-    },
-    "mobile": {
-      "eyebrow": "Mobiilisovellus",
-      "title": "Koko pankkisi kämmenelläsi",
-      "desc": "Seuraa hakemustasi, lataa asiakirjat ja allekirjoita sopimus puhelimella.",
-      "b1": "Reaaliaikainen tapahtumaseuranta",
-      "b2": "Välittömät kansainväliset siirrot",
-      "b3": "Face ID & sormenjälkibiometriikka"
-    },
-    "faq": {
-      "title": "Usein kysytyt kysymykset",
-      "q1": "Pitääkö minun luoda tili?",
-      "a1": "Ei. Teet hakemuksen ja seuraat sitä sähköpostitse lähetetyn turvallisen linkin kautta.",
-      "q2": "Mitkä ovat maksut?",
-      "a2": "Vakiopaketissamme ei ole piilokuluja. Päivittäiset toiminnot ovat ilmaisia.",
-      "q3": "Ovatko varani suojattuja?",
-      "a3": "Talletukset on taattu 100 000 euroon asti talletussuojarahaston toimesta.",
-      "q4": "Miten otan yhteyttä tukeen?",
-      "a4": "Tiimimme on tavoitettavissa 24/7 suojatun chatin, sähköpostin tai puhelimen kautta."
-    }
-  },
-  "transferProcess": {
-    "progress": "Turvallinen edistyminen",
-    "rejectedBadge": "Siirto hylätty",
-    "validatedBadge": "Siirto vahvistettu",
-    "complianceBadge": "Vaatimustenmukaisuustarkastus",
-    "processingBadge": "Pankkikäsittely",
-    "rejectedTitle": "Tämä siirto hylättiin",
-    "rejectedDesc": "Varasi on automaattisesti hyvitetty takaisin tilillesi.",
-    "finalTitle": "Siirto suoritettu onnistuneesti",
-    "finalDesc": "Saaja vastaanottaa varat pankkien välisen vakiintuneen aikataulun mukaisesti.",
-    "animatingTitle": "Pankkireititys käynnissä",
-    "animatingDesc": "Siirtosi etenee turvallisia kanaviamme pitkin. Toimenpiteitä ei tarvita.",
-    "blockedTitle": "Vaatimustenmukaisuuden tarkistus vaaditaan",
-    "blockedDesc": "Suorittaaksesi tämän vaiheen, maksa alla oleva vaatimustenmukaisuusmaksu ja syötä saamasi koodi.",
-    "configTitle": "Määritys käynnissä",
-    "configDesc": "MOONYP -neuvoja valmistelee vaatimustenmukaisuusmaksua. Saat ohjeet pian.",
-    "fee": "Vaatimustenmukaisuusmaksu erääntyy",
-    "bankOrder": "MOONYP tiedot",
-    "accountHolder": "Tilinhaltija",
-    "reason": "Siirron syy",
-    "receiptLabel": "Maksutosite",
-    "receiptPending": "Tarkastelussa",
-    "receiptApproved": "Hyväksytty",
-    "receiptRejected": "Hylätty",
-    "replaceReceipt": "Korvaa kuitti",
-    "uploadReceipt": "Lataa kuitti",
-    "unlockCodeReceived": "Lukituksen avauskoodi vastaanotettu",
-    "codePlaceholder": "Syötä koodi (esim. ABC-1234)",
-    "validateAndContinue": "Vahvista ja jatka",
-    "waitingCodeTitle": "Odotetaan lukituksen avauskoodia",
-    "waitingCodeDesc": "Kun kuittisi on vahvistettu, neuvonantajasi lähettää sinulle 6-merkkisen koodin.",
-    "fileTooBig": "Tiedosto ylittää 10 Mt.",
-    "invalidCode": "Virheellinen tai jo käytetty koodi.",
-    "successFinal": "Siirto viimeistelty.",
-    "advanced": "Vaihe vahvistettu.",
-    "copied": "{{label}} kopioitu leikepöydälle.",
-    "receiptSent": "Kuitti lähetetty neuvonantajallesi.",
-    "adminValidationTitle": "Siirto odottaa vahvistusta",
-    "adminValidationMessage": "Asiakas saavutti vaatimustenmukaisuusvaiheen ja odottaa koodin julkaisua.",
-    "adminReceiptTitle": "Uusi kuitti tarkistettavaksi",
-    "adminReceiptMessage": "Asiakas latasi vaatimustenmukaisuusmaksun kuitin."
-  },
-  "transferStepDialog": {
-    "title": "Vaatimustenmukaisuusvaihe",
-    "subtitle": "Seuraa edistymistä ja vahvista turvallisesti jokainen virstanpylväs."
-  },
-  "transferDetail": {
-    "metaTitle": "Siirron tiedot — MOONYP",
-    "backAll": "Kaikki siirrot",
-    "header": "MOONYP · Siirtomääräys",
-    "amount": "Summa",
-    "beneficiary": "Saaja",
-    "bank": "Pankki",
-    "reference": "Viite",
-    "iban": "IBAN",
-    "bic": "BIC",
-    "issuedAt": "Annettu",
-    "tracking": "Siirron seuranta",
-    "history": "Historia",
-    "notFound": "Siirtoa ei löytynyt.",
-    "badge": {
-      "validated": "Siirto vahvistettu",
-      "rejected": "Siirto hylätty",
-      "compliance": "Vaatimustenmukaisuustarkastus",
-      "processing": "Pankkikäsittely"
-    },
-    "rejected": {
-      "title": "Tämä siirto hylättiin",
-      "desc": "Varasi on hyvitetty automaattisesti takaisin MOONYP -tilillesi.",
-      "reason": "Syy"
-    },
-    "timeline": {
-      "issued": "Siirtomääräys annettu",
-      "issuedDesc": "Saajalle {{beneficiary}} ({{amount}})",
-      "compliance": "Vaatimustenmukaisuusvaihe vahvistettu",
-      "complianceDesc": "Lukituksen avauskoodi syötetty onnistuneesti.",
-      "enhanced": "Tehostettu varmennus vahvistettu",
-      "enhancedDesc": "Siirto jatkaa reititystään edunsaajalle.",
-      "executed": "Siirto suoritettu",
-      "executedDesc": "Varojen hyvitys on tehty.",
-      "rejected": "Siirto hylätty",
-      "rejectedDesc": "Saldo on hyvitetty automaattisesti takaisin.",
-      "now": "Juuri nyt"
-    },
-    "receipt": {
-      "title": "Pankkikuitti saatavilla",
-      "desc": "Lataa tämän siirtomääräyksen virallinen MOONYP -yhteenveto.",
-      "download": "Lataa kuitti"
-    }
-  },
-  "receipt": {
-    "metaTitle": "Siirtokuitti – MOONYP",
-    "download": "Lataa PDF",
-    "subBrand": "Yhdessä menestymme",
-    "documentLabel": "Virallinen asiakirja",
-    "documentTitle": "Siirtokuitti",
-    "title": "Pankkisiirtokuitti",
-    "subtitle": "Annettu {{date}}",
-    "amount": "Siirretty summa",
-    "statusExecuted": "Siirto suoritettu",
-    "statusPending": "Siirto käsiteltävänä",
-    "beneficiary": "Saaja",
-    "bank": "Saajan pankki",
-    "iban": "IBAN",
-    "bic": "BIC / SWIFT",
-    "reference": "Viite",
-    "issuedAt": "Antopäivä",
-    "footerSecurity": "Asiakirjan on luonut MOONYPin turvalliset järjestelmät.",
-    "footerLegal": "Tämä kuitti todistaa pankkitapahtuman ja sen voi esittää mille tahansa toimivaltaiselle viranomaiselle.",
-    "generating": "Luodaan PDF:ää…",
-    "downloaded": "Kuitti ladattu onnistuneesti",
-    "downloadError": "Kuittia ei voitu ladata",
-    "sessionExpired": "Istunto vanhentunut. Kirjaudu sisään uudelleen.",
-    "serverSessionExpired": "Istunto vanhentunut. Kirjaudu sisään uudelleen.",
-    "serverNotFound": "Siirtoa ei löydy",
-    "serverUnauthorized": "Luvaton pääsy tähän kuittiin",
-    "serverUnavailable": "Kuitti on saatavilla vasta siirron hyväksymisen jälkeen",
-    "serverSubtitle": "Virallinen pankkikuitti",
-    "serverSecure": "Turvallinen asiakirja",
-    "serverTitle": "Siirtokuitti",
-    "serverIssued": "Myönnetty {{date}}",
-    "serverAmount": "Siirretty summa",
-    "serverStatus": "Tila",
-    "serverExecuted": "Siirto suoritettu",
-    "serverBeneficiary": "Saaja",
-    "serverBank": "Saajan pankki",
-    "serverIban": "IBAN",
-    "serverBic": "BIC / SWIFT",
-    "serverReference": "Viite",
-    "serverExecutedAt": "Suorituspäivä",
-    "serverSecurity": "Asiakirjan on luonut MOONYPin turvajärjestelmä.",
-    "serverLegal": "Tämä kuitti on todiste pankkitoiminnosta ja sen voi esittää mille tahansa toimivaltaiselle viranomaiselle."
-  },
-  "notif": {
-    "transfer": {
-      "instantTitle": "Pikasiirto vastaanotettu",
-      "classicTitle": "Siirto käynnissä",
-      "instantMsg": "{{amount}} hyvitetty tilille {{iban4}}…{{ibanLast}} (viite {{ref}})",
-      "classicMsg": "Tavallinen siirto {{amount}} on aloitettu (hyvitys 1 työpäivän kuluessa, viite {{ref}})",
-      "adminInitTitle": "Uusi siirto aloitettu",
-      "adminInitMsg": "{{amount}} → {{beneficiary}} (viite {{ref}})"
-    },
-    "transferProcess": {
-      "adminValidationTitle": "Kuitti vahvistettavaksi",
-      "adminValidationMsg": "Asiakas on ladannut maksukuitin vahvistettavaksi.",
-      "adminReceiptTitle": "Uusi kuitti vastaanotettu",
-      "adminReceiptMsg": "Uusi maksukuitin maksu on ladattu."
-    },
-    "adminCodes": {
-      "codeTitle": "Avauskoodi {{p}}%",
-      "codeMsg": "Koodisi: {{code}} (maksu {{fee}})",
-      "rejectedTitle": "Kuitti hylätty",
-      "rejectedMsg": "Lataa kelvollinen kuitti.",
-      "manualCodeTitle": "Avauskoodi {{p}}%",
-      "manualCodeMsg": "Avauskoodisi on: {{code}}"
-    },
-    "loan": {
-      "newRequestAdminTitle": "Uusi lainapyyntö",
-      "newRequestAdminMsg": "{{name}} pyytää {{amount}} € {{months}} kuukauden ajaksi",
-      "statusTitle": "Hakemuksesi tilaa päivitettiin",
-      "statusMsg": "Hakemuksesi summalle {{amount}} on nyt: $t(status.{{statusKey}})",
-      "signedReceivedTitle": "Allekirjoitettu sopimus vastaanotettu",
-      "signedReceivedMsg": "{{name}} allekirjoitti sopimuksen (hakemus {{id}})"
-    },
-    "withdrawal": {
-      "sentTitle": "Siirto suoritettu",
-      "sentMsg": "{{amount}} on lähetetty tilille {{iban4}}…{{ibanLast}} (viite {{ref}})",
-      "rejectedTitle": "Siirto hylätty · varat palautettu",
-      "rejectedMsg": "Siirtosi {{amount}} hylättiin. Saldo on palautettu automaattisesti."
-    }
-  },
-  "settings": {
-    "metaTitle": "Asetukset – MOONYP",
-    "title": "Asetukset",
-    "subtitleDesktop": "Hallitse henkilökohtaisia tietojasi ja turvallisuuttasi",
-    "subtitleMobile": "Hallitse tiliäsi ja turvallisuuttasi",
-    "profile": "Profiili",
-    "fullName": "Koko nimi",
-    "phone": "Puhelin",
-    "currentEmail": "Nykyinen sähköpostiosoite",
-    "saveProfile": "Tallenna profiili",
-    "emailSection": "Sähköpostiosoite",
-    "newEmail": "Uusi sähköpostiosoite",
-    "emailHint": "Vahvistussähköposti lähetetään uuteen osoitteeseen.",
-    "updateEmail": "Päivitä sähköpostiosoite",
-    "passwordSection": "Salasana",
-    "currentPassword": "Nykyinen salasana",
-    "newPassword": "Uusi salasana",
-    "confirmPassword": "Vahvista",
-    "changePassword": "Vaihda salasana",
-    "adminAccount": "Järjestelmänvalvojan tili",
-    "adminDesc": "Sinulla on hallintaoikeudet asiakastiedostoihin ja -toimintoihin.",
-    "loadProfileError": "Profiilia ei voitu ladata",
-    "saveError": "Tallennusvirhe",
-    "profileUpdated": "Profiili päivitetty",
-    "emailUpdated": "Sähköpostiosoite päivitetty. Tarkista postilaatikkosi vahvistaaksesi.",
-    "passwordTooShort": "Salasanan on oltava vähintään 8 merkkiä pitkä",
-    "passwordMismatch": "Salasanat eivät täsmää",
-    "currentPasswordWrong": "Nykyinen salasana on virheellinen",
-    "passwordUpdated": "Salasana päivitetty",
-    "back": "Takaisin",
-    "accessAdmin": "Avaa järjestelmänvalvojan hallintapaneeli",
-    "goBack": "Takaisin",
-    "languageSection": "Kieli",
-    "languageDesc": "Valitse käyttöliittymän kieli. Valintasi tallennetaan ja synkronoidaan tilillesi.",
-    "languageSaved": "Kieli päivitetty"
-  },
-  "loanDetail": {
-    "metaTitle": "Lainatiedot – MOONYP",
-    "downloadImpossible": "Lataus ei saatavilla",
-    "contractGenerating": "Luodaan sopimuksen PDF-tiedostoa…",
-    "sessionExpired": "Istunto vanhentunut. Kirjaudu sisään uudelleen.",
-    "contractDownloaded": "Sopimus ladattu",
-    "generationImpossible": "Luominen epäonnistui: {{message}}",
-    "unknownError": "Tuntematon virhe",
-    "fileTooHeavy": "Tiedosto liian suuri (enintään 10 Mt)",
-    "uploadFailed": "Lähetys epäonnistui",
-    "updateError": "Päivitysvirhe",
-    "signedSent": "Allekirjoitettu sopimus lähetetty!",
-    "signedReceivedTitle": "Allekirjoitettu sopimus vastaanotettu",
-    "signedReceivedMessage": "{{name}} allekirjoitti sopimuksen (hakemus {{id}})",
-    "loading": "Ladataan…",
-    "notFound": "Lainaa ei löydy",
-    "back": "Takaisin lainoihini",
-    "fileNumber": "Tiedosto #{{id}}",
-    "title": "Lainatiedot",
-    "refusedTitle": "Hakemus hylätty",
-    "refusedDesc": "Tiedostosi tarkistamisen jälkeen emme valitettavasti voi hyväksyä tätä rahoituspyyntöä.",
-    "reason": "Syy",
-    "summaryTitle": "Hakemuksen yhteenveto",
-    "amount": "Summa",
-    "duration": "Laina-aika",
-    "durationMonths": "{{count}} kuukautta",
-    "monthlyPayment": "Arvioitu kuukausimaksu",
-    "monthlyIncome": "Kuukausitulot",
-    "purpose": "Tarkoitus",
-    "documentsTitle": "Toimitetut asiakirjat",
-    "addedOn": "Lisätty {{date}}",
-    "availableBalance": "Käytettävissä oleva saldo",
-    "alreadyWithdrawn": "Jo nostettu: {{withdrawn}} / {{total}}",
-    "makeTransfer": "Tee siirto",
-    "contractTitle": "Sopimus",
-    "downloadContract": "Lataa sopimus",
-    "signInstruction": "Allekirjoita sopimus ja lähetä se alle validointia varten.",
-    "sendSignedContract": "Lähetä allekirjoitettu sopimus",
-    "signedContractReceived": "Allekirjoitettu sopimus vastaanotettu",
-    "historyTitle": "Toimintahistoria",
-    "noAction": "Ei toimintoja vielä.",
-    "requestSubmitted": "Hakemus lähetetty",
-    "requestRefused": "Hakemus hylätty",
-    "withdraw": "Nosta",
-    "details": "Tiedot",
-    "loanDescription": {
-      "en_attente": "Hakemustasi käsitellään",
-      "accepte": "Hakemuksesi on hyväksytty",
-      "refuse": "Hakemus epäonnistui",
-      "contrat_envoye": "Sopimus on lähetetty allekirjoitettavaksi",
-      "contrat_signe": "Allekirjoitettu sopimus vastaanotettu, julkaisu valmistelussa",
-      "en_traitement": "Varojen saatavuus 72 tunnin kuluessa",
-      "fonds_disponibles": "Varasi ovat käytettävissä"
-    },
-    "steps": {
-      "en_attente": "Hakemus lähetetty",
-      "accepte": "Hyväksytty",
-      "contrat_envoye": "Sopimus lähetetty",
-      "contrat_signe": "Sopimus allekirjoitettu",
-      "en_traitement": "Käsittelyssä",
-      "fonds_disponibles": "Varojen saatavuus"
-    }
-  },
-  "nav": {
-    "home": "Etusivu",
-    "transfers": "Siirrot",
-    "request": "Pyyntö",
-    "primary": "Päänavigointi",
-    "support": "Tuki",
-    "apply": "Hae lainaa",
-    "language": "Kieli",
-    "menu": "Valikko",
-    "solutions": "Ratkaisut",
-    "simulation": "Laskuri",
-    "contact": "Yhteystiedot",
-    "about": "Tietoa meistä"
-  },
-  "mobileHome": {
-    "title": "Tervetuloa MOONYP -palveluun",
-    "subtitle": "Pankkisi, taskussasi.",
-    "description": "Hallitse lainojasi, siirtojasi ja tilejäsi turvallisesti, missä tahansa oletkin.",
-    "cta": "Aloita",
-    "tagline": "Eurooppalainen pankkiturvallisuus",
-    "feature1": "Turvallinen",
-    "feature2": "Päästä päähän -salaus",
-    "feature3": "Premium-kokemus"
-  },
-  "authPending": {
-    "title": "Tarkista sähköpostisi",
-    "description": "Olemme lähettäneet vahvistuslinkin sähköpostiosoitteeseesi.",
-    "instruction": "Aktivoi tilisi napsauttamalla linkkiä postilaatikossasi.",
-    "loading": "Odotetaan vahvistusta...",
-    "footer": "Turvallisuutesi vuoksi älä koskaan jaa tunnuksiasi. MOONYP ei koskaan kysy salasanaasi."
-  },
-  "password": {
-    "show": "Näytä salasana",
-    "hide": "Piilota salasana",
-    "veryWeak": "Erittäin heikko",
-    "weak": "Heikko",
-    "fair": "Kohtalainen",
-    "good": "Hyvä",
-    "strong": "Vahva",
-    "excellent": "Erinomainen",
-    "ruleLength": "Vähintään 10 merkkiä",
-    "ruleUpper": "Yksi iso kirjain",
-    "ruleLower": "Yksi pieni kirjain",
-    "ruleDigit": "Yksi numero",
-    "ruleSpecial": "Yksi erikoismerkki",
-    "notStrong": "Salasana ei täytä kaikkia suojaussääntöjä."
-  },
-  "livechat": {
-    "open": "Avaa keskustelu",
-    "close": "Sulje",
-    "title": "MOONYP neuvonantaja",
-    "online": "Paikalla",
-    "placeholder": "Kirjoita viestisi…",
-    "greeting": "Hei 👋! Miten voin auttaa sinua tänään?",
-    "faq": {
-      "loan": "Hakeaksesi lainaa, siirry \"Uusi laina\" -osioon hallintapaneelissasi. Päätös 24 tunnin sisällä, varat 72 tunnin sisällä.",
-      "password": "Voit nollata salasanasi kirjautumissivulta käyttämällä \"Unohtuiko salasana?\".",
-      "transfer": "Siirtosi on lueteltu hallintapaneelisi \"Siirrot\"-osiossa.",
-      "contact": "Tiimiimme saa yhteyden numerosta +39 350 036 6867 tai Yhteystiedot-sivun kautta.",
-      "thanks": "Eipä kestä! Voit kysyä mitä tahansa muuta.",
-      "default": "MOONYP -neuvoja ottaa sinuun yhteyttä pian. Voit ottaa meihin yhteyttä myös Yhteystiedot-sivun kautta."
-    }
-  },
-  "legal": {
-    "badge": "Lakitiedot",
-    "lastUpdated": "Viimeksi päivitetty",
-    "home": "Etusivu",
-    "privacy": {
-      "title": "Tietosuojakäytäntö",
-      "subtitle": "Yksityisyytenne on osa pankin luottamustamme.",
-      "sections": [
-        {
-          "h": "1. Kerättävät tiedot",
-          "p": "Henkilöllisyys, yhteystiedot, taloudelliset, tekniset ja käyttäytymistiedot."
-        },
-        {
-          "h": "2. Tarkoitukset",
-          "p": "Tilin hoito, lainan arviointi, petosten ja rahanpesun esto."
-        },
-        {
-          "h": "3. Oikeusperuste (GDPR)",
-          "p": "Sopimus, oikeutettu etu, lakisääteinen velvoite, suostumus."
-        },
-        {
-          "h": "4. Jakaminen",
-          "p": "Vain hyväksytyille käsittelijöille ja viranomaisille."
-        },
-        {
-          "h": "5. Säilytys",
-          "p": "Tilin tiedot: suhde + 10 vuotta. Tietoturvalokit: 24 kk."
-        },
-        {
-          "h": "6. Oikeutenne",
-          "p": "Tutustuminen, oikaisu, poisto, rajoitus, siirrettävyys, vastustaminen."
-        },
-        {
-          "h": "7. Tietoturva",
-          "p": "Salaus, fingerprint, anomaliantunnistus, MFA, 24/7-vastaus."
-        }
-      ]
-    },
-    "terms": {
-      "title": "Käyttöehdot",
-      "subtitle": "Käyttämällä MOONYP -palvelua hyväksytte nämä ehdot.",
-      "sections": [
-        {
-          "h": "1. Ehdot",
-          "p": "Vähintään 18, asukas hyväksytyssä maassa."
-        },
-        {
-          "h": "2. Tili",
-          "p": "Totuudenmukaiset tiedot ja luottamukselliset tunnukset."
-        },
-        {
-          "h": "3. Hyväksyttävä käyttö",
-          "p": "Ei petoksia, rahanpesua, terrorismin rahoitusta."
-        },
-        {
-          "h": "4. Maksut",
-          "p": "Näytetään ennen jokaista toimea; muutokset 30 päivän etukäteen."
-        },
-        {
-          "h": "5. Vastuu",
-          "p": "Suorat vahingot törkeästä huolimattomuudesta."
-        },
-        {
-          "h": "6. Keskeytys",
-          "p": "Välitön keskeytys petosepäilyssä."
-        },
-        {
-          "h": "7. Sovellettava laki",
-          "p": "Ranskan laki kuluttajansuojan rajoissa."
-        }
-      ]
-    },
-    "cookies": {
-      "title": "Evästekäytäntö",
-      "sections": [
-        {
-          "h": "Mitä käytämme",
-          "list": [
-            "<strong>Välttämättömät</strong>",
-            "<strong>Toiminnalliset</strong>",
-            "<strong>Tietoturva</strong>",
-            "<strong>Analytiikka</strong> — vain suostumuksella."
-          ]
-        },
-        {
-          "h": "Hallinta",
-          "p": "Voitte poistaa evästeet selaimesta."
-        }
-      ]
-    },
-    "mentions": {
-      "title": "Lakitiedot",
-      "sections": [
-        {
-          "h": "Julkaisija",
-          "p": "MOONYP — SAS, pääoma 1 000 000 EUR — kotipaikka: 1 Centenary Square, Birmingham, Yhdistynyt kuningaskunta."
-        },
-        {
-          "h": "Vastaava julkaisija",
-          "p": "Compliance MOONYP."
-        },
-        {
-          "h": "Isännöinti",
-          "p": "Cloudflare Workers — San Francisco, USA."
-        },
-        {
-          "h": "Yhteys",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
-        },
-        {
-          "h": "Immateriaalioikeudet",
-          "p": "Tavaramerkit ja sisältö kuuluvat MOONYP:ille."
-        }
-      ]
-    },
-    "amlKyc": {
-      "title": "AML / KYC -käytäntö",
-      "sections": [
-        {
-          "h": "Sitoutuminen",
-          "p": "Nollatoleranssi rahanpesua ja terrorismin rahoitusta vastaan."
-        },
-        {
-          "h": "Asiakkaan tunteminen",
-          "p": "Henkilöllisyyden ja varojen alkuperän tarkistus."
-        },
-        {
-          "h": "Tehostettu",
-          "p": "PEP, korkean riskin maat."
-        },
-        {
-          "h": "Pakotteet",
-          "p": "Reaaliaikainen tarkistus EU, YK, OFAC, UK -listoja vastaan."
-        },
-        {
-          "h": "Ilmoitukset",
-          "p": "Toimivaltaiselle FIU:lle; tipping-off kielletty."
-        },
-        {
-          "h": "Koulutus",
-          "p": "Vuosittainen koulutus; riippumaton MLRO."
-        }
-      ]
-    },
-    "finPriv": {
-      "title": "Taloudellinen yksityisyys ja turvallisuus",
-      "sections": [
-        {
-          "h": "Suojaus",
-          "p": "TLS 1.3, AES-256, HSM, asiakasvarojen erottaminen."
-        },
-        {
-          "h": "Tunnistautuminen",
-          "p": "SCA PSD2: salasana + laite + OTP."
-        },
-        {
-          "h": "Petostorjunta",
-          "p": "Anomaliantunnistus 24/7."
-        },
-        {
-          "h": "Salassapito",
-          "p": "Pankkisalaisuus."
-        },
-        {
-          "h": "Roolinne",
-          "p": "Pitäkää tunnukset salassa, rekisteröikää luotetut laitteet."
-        }
-      ]
-    },
-    "loanTerms": {
-      "title": "Lainaehdot",
-      "subtitle": "Laina sitouttaa; tarkistakaa takaisinmaksukykynne.",
-      "sections": [
-        {
-          "h": "1. Ehdot",
-          "p": "Vahvistettu henkilöllisyys ja vakaat tulot."
-        },
-        {
-          "h": "2. Summat ja kesto",
-          "p": "1 000 EUR – 500 000 EUR, 12–120 kuukautta."
-        },
-        {
-          "h": "3. Korko / TKK",
-          "p": "Kiinteä korko tarjouksessa."
-        },
-        {
-          "h": "4. Maksu",
-          "p": "Allekirjoituksen ja tarkistuksen jälkeen."
-        },
-        {
-          "h": "5. Takaisinmaksu",
-          "p": "Kuukausittainen suoraveloitus."
-        },
-        {
-          "h": "6. Maksuhäiriö",
-          "p": "Korot, palkkiot ja mahdollinen erääntyminen."
-        },
-        {
-          "h": "7. Peruutusoikeus",
-          "p": "14 päivää allekirjoituksesta."
-        }
-      ]
-    },
-    "repayment": {
-      "title": "Takaisinmaksu- ja häiriökäytäntö",
-      "sections": [
-        {
-          "h": "Aikataulu",
-          "p": "Kuukausittaiset erät sovittuna päivänä."
-        },
-        {
-          "h": "Ennenaikainen",
-          "p": "Aina sallittu."
-        },
-        {
-          "h": "Viivästys",
-          "list": [
-            "Päivät 1–7: muistutus.",
-            "Päivät 8–30: palkkiot + viivästyskorko.",
-            "Päivästä 31: virallinen vaatimus."
-          ]
-        },
-        {
-          "h": "Periminen",
-          "p": "Ensisijaisesti sovinnollisesti."
-        },
-        {
-          "h": "Vaikeudet",
-          "p": "Ottakaa yhteyttä; lykkäys mahdollinen."
-        }
-      ]
-    }
-  },
-  "adminSec": {
-    "metaTitle": "Turvallisuus · Admin",
-    "unauthorized": "Ei valtuuksia",
-    "adminLink": "Järjestelmänvalvoja",
-    "center": "Turvakeskus",
-    "ok": "ok",
-    "fail": "virhe",
-    "user": "käyttäjä",
-    "kpi": {
-      "totalEvents": "Tapahtumia yhteensä",
-      "devicesTracked": "Seuratut laitteet",
-      "openAlerts": "Avoimet hälytykset",
-      "highRisk": "Riskikäyttäjät"
-    },
-    "tab": {
-      "logs": "Lokit",
-      "alerts": "Hälytykset",
-      "devices": "Laitteet",
-      "risk": "Riski"
-    },
-    "logs": {
-      "title": "Turvallisuuslokit",
-      "searchPh": "Etsi käyttäjä, IP, maa…",
-      "action": "Toiminto",
-      "allActions": "Kaikki toiminnot",
-      "when": "Milloin",
-      "user": "Käyttäjä",
-      "ipCountry": "IP / Maa",
-      "device": "Laite",
-      "status": "Tila",
-      "empty": "Ei lokeja."
-    },
-    "alerts": {
-      "title": "Turvallisuushälytykset",
-      "empty": "Ei hälytyksiä.",
-      "resolved": "ratkaistu",
-      "resolve": "Ratkaise"
-    },
-    "devices": {
-      "title": "Luotetut laitteet",
-      "label": "Nimike",
-      "country": "Maa",
-      "lastSeen": "Viimeksi nähty",
-      "trusted": "Luottamus",
-      "trustedBadge": "luotettu",
-      "pending": "odottaa",
-      "empty": "Ei laitteita."
-    },
-    "risk": {
-      "title": "Riskipisteet",
-      "risk": "Riski",
-      "sessions": "Istunnot",
-      "sensitive": "Arkaluonteinen",
-      "empty": "Ei tietoja."
-    }
-  },
-  "footer": {
-    "legal": "Oikeudellinen",
-    "privacy": "Yksityisyys",
-    "terms": "Ehdot",
-    "cookies": "Evästeet",
-    "mentions": "Oikeudellinen huomautus",
-    "banking": "Pankkitoiminta",
-    "loanTerms": "Lainan ehdot",
-    "repayment": "Takaisinmaksu ja maksukyvyttömyys",
-    "aml": "AML / KYC",
-    "finPriv": "Taloudellinen yksityisyys",
-    "contact": "Yhteystiedot",
-    "tagline": "Eurooppalainen luottoalusta. Nopeat päätökset, läpinäkyvät ehdot, pankkitason turvallisuus.",
-    "regulated": "Säännelty ja GDPR-yhteensopiva",
-    "contactForm": "Yhteydenottolomake",
-    "disclaimer": "Luotto sitoo sinua ja se on maksettava takaisin. Tarkista takaisinmaksukykysi ennen hakemista. Jokainen tarjous edellyttää hyväksyntää ja henkilöllisyyden varmennusta.",
-    "rights": "Kaikki oikeudet pidätetään."
-  },
-  "chat": {
-    "loading": "Ladataan",
-    "notFound": "Sivua ei löydy",
-    "notFoundDesc": "Tätä sivua ei ole.",
-    "backHome": "Takaisin etusivulle",
-    "assistant": "avustaja",
-    "typing": "kirjoittaa",
-    "today": "Tänään",
-    "yesterday": "Eilen",
-    "pageTitle": "Live-tuki",
-    "pageDesc": "Keskustele tiimimme tai virtuaaliavustajamme Annan kanssa.",
-    "closed": "Keskustelu suljettu",
-    "closeTicket": "Sulje keskustelu",
-    "close": "Sulje",
-    "compose": {
-      "placeholder": "Kirjoita viesti…"
-    },
-    "rt": {
-      "bold": "Lihavoitu",
-      "italic": "Kursivoitu",
-      "link": "Linkki",
-      "linkPrompt": "Anna URL (https://...)"
-    },
-    "handoff": {
-      "question": "Haluatko puhua neuvojan kanssa?",
-      "yes": "Kyllä, puhu neuvojalle",
-      "no": "Ei kiitos",
-      "pending": "Pyyntöäsi käsitellään, neuvoja liittyy 1-2 minuutissa…"
-    },
-    "agent": {
-      "joined": "liittyi keskusteluun",
-      "joinedYou": "Liityit keskusteluun",
-      "notAssigned": "Ei nimettyä agenttia",
-      "join": "Liity",
-      "defaultName": "Neuvoja",
-      "brandName": "MOONYP-neuvoja"
-    },
-    "status": {
-      "online": "Verkossa",
-      "agent": "Neuvoja verkossa",
-      "open": "Avoin",
-      "waiting_agent": "Odottaa agenttia",
-      "assigned": "Käynnissä",
-      "closed": "Suljettu"
-    },
-    "admin": {
-      "empty": "Ei keskusteluja.",
-      "selectHint": "Valitse keskustelu vasemmalta.",
-      "folders": "Asiakastiedostot",
-      "tickets": "Liput",
-      "searchPlaceholder": "Hae asiakas, lippu, sähköposti…",
-      "filter": {
-        "all": "Kaikki",
-        "waiting": "Odotustilassa",
-        "mine": "Minulle määrätty",
-        "closed": "Suljettu",
-        "guests": "Vierailijat"
-      },
-      "info": {
-        "title": "Tiketin tiedot",
-        "none": "Ei tietoja"
-      },
-      "close": "Sulje tiketti",
-      "reopen": "Avaa tiketti uudelleen",
-      "updated": "Tiketti päivitetty"
-    },
-    "banner": {
-      "top": "MOONYP — Turvallinen asiakaspalvelu",
-      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris"
-    },
-    "loginRequired": {
-      "title": "Kirjaudu keskustellaksesi",
-      "desc": "Sinun on kirjauduttava tukea varten.",
-      "cta": "Kirjaudu"
-    },
-    "nav": "Tuki",
-    "guest": {
-      "subtitle": "Vierailijaapu",
-      "intro": "Täytä tämä lomake, niin MOONYPin neuvonantaja vastaa nopeasti. Saat lipun numeron.",
-      "name": "koko nimi*",
-      "email": "Sähköposti*",
-      "phone": "Puhelin",
-      "whatsapp": "WhatsApp",
-      "country": "Asuinmaa",
-      "subject": "Aihe",
-      "message": "Viestisi *",
-      "submit": "Avaa lippuni",
-      "privacy": "Tietojasi käsitellään luottamuksellisesti (GDPR).",
-      "created": "Lippu #{{ticket}} luotu!",
-      "errors": {
-        "required": "Nimi, sähköposti ja viesti vaaditaan.",
-        "fail": "Lähetys epäonnistui, yritä uudelleen."
-      }
-    },
-    "ticket": "Lippu",
-    "archived": "Arkistot",
-    "open": "Avata",
-    "welcome": {
-      "greeting": "Hei 👋 Olen Anna, MOONYP -avustajanne.",
-      "help": "Miten voin auttaa teitä tänään?"
-    },
-    "tickets": {
-      "title": "Keskusteluni",
-      "new": "Uusi keskustelu",
-      "open": "Avoimet",
-      "closed": "Suljetut",
-      "empty": "Ei vielä keskusteluja.",
-      "back": "Takaisin",
-      "one": "Keskustelu"
-    },
-    "system": "Järjestelmä",
-    "closedNotice": "Keskustelu suljettu.",
-    "joinedNotice": "{{name}} liittyi keskusteluun.",
-    "sendError": "Lähetys epäonnistui",
-    "genericError": "Tapahtui virhe",
-    "agentTitle": "Asiakaspalvelun asiantuntija",
-    "you": "Sinä"
-  },
-  "adminDash": {
-    "title": "Kojelauta – MOONYP",
-    "overview": "Yleiskatsaus",
-    "clients": "Asiakkaat",
-    "loans": "Lainat",
-    "transfers": "Siirrot",
-    "chat": "Live Chat",
-    "security": "Turvallisuus",
-    "notifications": "Ilmoitukset",
-    "kpis": {
-      "clients": "Aktiivisia asiakkaita",
-      "loansPending": "Odottavat lainat",
-      "transfersBlocked": "Siirrot estetty",
-      "ticketsOpen": "Avaa liput",
-      "newToday": "Uutta tänään"
-    },
-    "recentActivity": "Viimeaikainen toiminta",
-    "quickActions": "Nopeat toiminnot",
-    "staff": "Team & roles",
-    "roles": "Permissions",
-    "logs": "Activity log"
-  },
-  "finance": {
-    "sim": {
-      "product": "Lainatuote",
-      "amount": "Määrä",
-      "duration": "Laina-aika",
-      "months": "kuukautta",
-      "monthly": "Arvioitu kuukausierä",
-      "rate": "Korko",
-      "apr": "Todellinen vuosikorko",
-      "borrowed": "Lainamäärä",
-      "interest": "Arvioidut korot",
-      "interestShort": "Korot",
-      "fees": "Kulut",
-      "insurance": "Lainaturva",
-      "insuranceHint": "Vapaaehtoinen turva, lisätään jokaiseen erään.",
-      "insuranceCost": "Vakuutuksen kustannus",
-      "totalCost": "Luoton kokonaiskustannus",
-      "totalRepaid": "Takaisin maksettava yhteensä",
-      "capital": "Pääoma",
-      "balance": "Jäljellä oleva pääoma",
-      "showSchedule": "Näytä maksuaikataulu",
-      "hideSchedule": "Piilota aikataulu",
-      "disclaimer": "Tämä laskelma on suuntaa antava eikä ole luottotarjous. Lopulliset ehdot riippuvat hakemuksen käsittelystä.",
-      "instalment": "Kuukausierä",
-      "perMonth": "/kk",
-      "aprLabel": "Todellinen vuosikorko",
-      "monthsShort": "kk",
-      "rateFrom": "alk. {{rate}} %",
-      "range": "Välillä {{min}} ja {{max}}",
-      "legalNotice": "Lainan ottaminen on sitova päätös ja se on maksettava takaisin. Tarkista takaisinmaksukykysi ennen sitoutumista."
-    },
-    "simPage": {
-      "metaTitle": "Lainalaskuri — MOONYP",
-      "metaDesc": "Laske kuukausierä, korot ja kokonaiskustannus sekunneissa.",
-      "badge": "Laskuri",
-      "title": "Laske rahoituksesi",
-      "subtitle": "Säädä määrää ja laina-aikaa ja näe kuukausierä heti.",
-      "cta": "Hae näillä ehdoilla",
-      "seeProducts": "Katso ratkaisumme",
-      "noProducts": "Lainatuotteita ei ole tällä hetkellä saatavilla."
-    },
-    "solutions": {
-      "metaTitle": "Rahoitusratkaisut — MOONYP",
-      "metaDesc": "Kulutus-, auto-, asunto- ja yrityslainat selkein ehdoin.",
-      "badge": "Ratkaisumme",
-      "title": "Rahoitus hankkeesi mukaan",
-      "subtitle": "Valitse sopiva tuote ja laske se yhdellä klikkauksella.",
-      "amountRange": "Määrä",
-      "durationRange": "Laina-aika",
-      "rateFrom": "Korko alkaen",
-      "simulate": "Laske"
-    },
-    "apply": {
-      "metaTitle": "Lainahakemus — MOONYP",
-      "metaDesc": "Täytä hakemus verkossa kuudessa turvallisessa vaiheessa.",
-      "title": "Lainahakemuksesi",
-      "subtitle": "Kuusi vaihetta, muutama minuutti. Edistyminen tallennetaan tälle laitteelle.",
-      "next": "Jatka",
-      "previous": "Takaisin",
-      "submit": "Lähetä hakemus",
-      "submitError": "Hakemusta ei voitu lähettää. Yritä uudelleen.",
-      "rateLimited": "Liian monta yritystä. Yritä muutaman minuutin kuluttua.",
-      "fixErrors": "Korjaa merkityt kentät.",
-      "documentsIntro": "Lataa selkeät ja luettavat asiakirjat. Muodot: PDF, JPG tai PNG.",
-      "documentsMissing": "Yksi tai useampi pakollinen asiakirja puuttuu.",
-      "chooseFile": "Valitse tiedosto",
-      "takePhoto": "Ota kuva",
-      "maxSize": "Enimmäiskoko",
-      "badMime": "Tiedostomuotoa ei tueta.",
-      "fileTooLarge": "Tiedosto on liian suuri.",
-      "fileCount": "tiedostoa valittu",
-      "bankNotice": "Pankkitietosi salataan ja niitä käytetään vain lainan maksuun.",
-      "consentTerms": "Hyväksyn yleiset ehdot.",
-      "consentPrivacy": "Hyväksyn tietosuojakäytännön ja tietojeni käsittelyn.",
-      "consentMarketing": "Haluan tietoa MOONYP-tarjouksista.",
-      "steps": {
-        "identity": "Henkilötiedot",
-        "employment": "Työtilanne",
-        "request": "Hakemus",
-        "payout": "Maksu",
-        "documents": "Asiakirjat",
-        "review": "Yhteenveto"
-      },
-      "stepOf": "Vaihe {{current}} / {{total}}",
-      "uploading": "Asiakirjoja lähetetään ({{done}}/{{total}})",
-      "holderHint": "On vastattava hakijan nimeä",
-      "reviewFlag": "Tämä kohta tarkistetaan manuaalisesti",
-      "reviewTitle": "Kuukausieräsi",
-      "dti": "Velkaantumisaste",
-      "finalNotice": "Lähettämällä hakemuksen vahvistat annettujen tietojen paikkansapitävyyden. Luotto-osastomme analysoi hakemuksesi. Saat sähköpostitse suojatun linkin, jonka kautta voit seurata käsittelyn etenemistä."
-    },
-    "fields": {
-      "firstName": "Etunimi",
-      "lastName": "Sukunimi",
-      "birthDate": "Syntymäaika",
-      "nationality": "Kansalaisuus",
-      "address": "Osoite",
-      "postalCode": "Postinumero",
-      "city": "Kaupunki",
-      "country": "Maa",
-      "phone": "Puhelin",
-      "email": "Sähköposti",
-      "employmentStatus": "Työtilanne",
-      "profession": "Ammatti",
-      "employer": "Työnantaja",
-      "seniority": "Työsuhteen kesto (kk)",
-      "income": "Nettokuukausitulot",
-      "charges": "Kuukausimenot",
-      "otherIncome": "Muut tulot",
-      "household": "Talouden koko",
-      "purpose": "Lainan käyttötarkoitus",
-      "bankHolder": "Tilinomistaja",
-      "bankName": "Pankki",
-      "iban": "IBAN",
-      "bic": "BIC / SWIFT",
-      "choose": "Valitse…",
-      "chooseCountry": "Valitse maa",
-      "searchCountry": "Hae maata",
-      "phoneCountry": "Suuntanumero",
-      "addressPlaceholder": "Aloita katuosoitteen kirjoittaminen",
-      "addressNoMatch": "Osoitetta ei löytynyt – syötä se manuaalisesti"
-    },
-    "employment": {
-      "employee": "Palkansaaja",
-      "civil_servant": "Virkamies",
-      "self_employed": "Itsenäinen ammatinharjoittaja",
-      "business_owner": "Yrittäjä",
-      "retired": "Eläkeläinen",
-      "student": "Opiskelija",
-      "unemployed": "Työtön",
-      "other": "Muu"
-    },
-    "status": {
-      "draft": "Luonnos",
-      "received": "Hakemus vastaanotettu",
-      "verification": "Tarkistuksessa",
-      "documents_missing": "Asiakirjoja puuttuu",
-      "analysis": "Käsittelyssä",
-      "info_requested": "Lisätietoja pyydetty",
-      "approved": "Hyväksytty",
-      "rejected": "Hylätty",
-      "offer_available": "Tarjous saatavilla",
-      "contract_sent": "Sopimus lähetetty",
-      "signature_pending": "Allekirjoitusta odotetaan",
-      "contract_signed": "Sopimus allekirjoitettu",
-      "disbursement_preparing": "Maksua valmistellaan",
-      "disbursed": "Maksettu",
-      "repaying": "Takaisinmaksu käynnissä",
-      "late": "Myöhässä",
-      "repaid": "Kokonaan maksettu",
-      "cancelled": "Peruutettu",
-      "unknown": "Tuntematon tila",
-      "guarantee_sent": "Vakuus lähetetty",
-      "guarantee_signed": "Vakuus allekirjoitettu",
-      "insurance_pending": "Vakuutus odottaa",
-      "insurance_validated": "Vakuutus vahvistettu"
-    },
-    "portal": {
-      "metaTitle": "Rahoitushakemuksesi — MOONYP",
-      "metaDesc": "Seuraa lainahakemustasi turvallisesti.",
-      "reference": "Hakemuksen viite",
-      "secure": "Suojattu pääsy",
-      "summary": "Yhteenveto",
-      "status": "Tila",
-      "timeline": "Historia",
-      "invalidTitle": "Linkki on virheellinen tai vanhentunut",
-      "invalidDesc": "Tämä suojattu linkki ei ole enää voimassa. Pyydä uusi tiimiltämme.",
-      "progress": "Hakemuksen eteneminen",
-      "submittedOn": "Lähetetty",
-      "monthly": "Kuukausierä",
-      "apr": "Todellinen vuosikorko",
-      "product": "Rahoitustuote",
-      "insurance": "Luottovakuutus",
-      "totalCost": "Luoton kokonaiskustannukset",
-      "interest": "Korkokustannukset yhteensä",
-      "fees": "Järjestelypalkkiot",
-      "documents": "Liitteet",
-      "noDocuments": "Asiakirjoja ei ole vielä vastaanotettu.",
-      "help": "Tämä sivu päivittyy reaaliajassa. Luotto-osastomme ottaa sinuun yhteyttä sähköpostitse jokaisessa keskeisessä vaiheessa. Älä koskaan jaa tätä suojattua linkkiä ulkopuolisille.",
-      "kyc": {
-        "pending": "Odottaa vahvistusta",
-        "verifying": "Vahvistus käynnissä",
-        "passed": "Henkilöllisyys vahvistettu",
-        "failed": "Vahvistus epäonnistui",
-        "manual_review": "Manuaalinen tarkistus"
-      },
-      "doc": {
-        "pending": "Odottaa",
-        "approved": "Hyväksytty",
-        "rejected": "Hylätty",
-        "replacement_requested": "Vaatii täydennystä"
-      },
-      "requests": {
-        "title": "Pyydetyt tiedot",
-        "desc": "Tiimimme tarvitsee lisätietoja hakemuksen käsittelyä varten.",
-        "none": "Ei avoimia pyyntöjä.",
-        "open": "Odottaa",
-        "answered": "Käsitelty",
-        "respondLabel": "Vastauksesi",
-        "placeholder": "Kirjoita vastauksesi…",
-        "submit": "Lähetä vastaus",
-        "success": "Vastaus lähetetty",
-        "error": "Lähetys epäonnistui",
-        "kindMissingDocument": "Puuttuva asiakirja",
-        "kindReplaceDocument": "Asiakirjan korvaaminen",
-        "kindInformation": "Lisätieto",
-        "kindJustification": "Perustelu pyydetty",
-        "answeredAt": "Vastattu"
-      },
-      "stages": {
-        "received": "Hakemus vastaanotettu",
-        "study": "Hakemus käsittelyssä",
-        "approved": "Hakemus hyväksytty",
-        "contract": "Sopimus",
-        "guarantee": "Vakuus",
-        "insurance": "Vakuutus",
-        "disbursement": "Maksatus",
-        "repayment": "Takaisinmaksu"
-      },
-      "offer": "Lainatarjous",
-      "contract": "Sopimus",
-      "guarantee": "Vakuus",
-      "insurance2": "Lainaturvavakuutus",
-      "disbursement": "Maksatus",
-      "repayments": "Maksuaikataulu",
-      "kycTitle": "Henkilöllisyyden varmennus",
-      "validUntil": "Voimassa",
-      "sentOn": "Lähetetty",
-      "signedOn": "Allekirjoitettu",
-      "acceptedOn": "Hyväksytty",
-      "download": "Lataa",
-      "downloadContract": "Lataa sopimus",
-      "downloadSigned": "Lataa allekirjoitettu sopimus",
-      "guarantor": "Takaaja",
-      "provider": "Vakuutusyhtiö",
-      "policy": "Vakuutusnumero",
-      "premium": "Kuukausimaksu",
-      "beneficiary": "Saaja",
-      "paidOn": "Maksettu",
-      "installment": "Erä",
-      "dueDate": "Eräpäivä",
-      "remaining": "Jäljellä oleva saldo",
-      "paid": "Maksettu",
-      "unpaid": "Tuleva",
-      "none": "Ei vielä saatavilla",
-      "downloadNotice": "Latauslinkit vanhenevat kahdessa minuutissa ja ne kirjataan lokiin.",
-      "downloadError": "Lataus ei ole käytettävissä",
-      "kycNone": "Ei vielä kirjattuja tarkastuksia.",
-      "viewContract": "Näytä sopimukseni",
-      "upload": {
-        "attach": "Liitä tiedosto",
-        "attached": "Liite: {{name}}",
-        "chooseType": "Asiakirjan tyyppi",
-        "desc": "Lisää puuttuva todistus tai korvaa hylätty asiakirja.",
-        "error": "Lähetys epäonnistui",
-        "limits": "PDF, JPEG tai PNG — enintään {{size}} Mt.",
-        "send": "Valitse tiedosto",
-        "success": "Asiakirja lähetetty",
-        "title": "Lataa asiakirja"
-      }
-    },
-    "success": {
-      "title": "Hakemuksesi on vastaanotettu",
-      "subtitle": "Tiimimme käsittelee hakemustasi. Saat sähköpostin jokaisesta vaiheesta.",
-      "reference": "Hakemuksen viite",
-      "openFile": "Avaa hakemukseni",
-      "linkNotice": "Säilytä tämä linkki: se antaa turvallisen pääsyn hakemukseesi.",
-      "step1": "Tietojen ja asiakirjojen tarkistus",
-      "step2": "Käsittely ja päätös, yleensä 48 työtunnin sisällä",
-      "step3": "Tarjous, sopimus ja maksu hyväksynnän jälkeen"
-    },
-    "validation": {
-      "required": "Tämä kenttä on pakollinen.",
-      "iban": {
-        "empty": "Syötä IBAN-tilinumero",
-        "charset": "Tämä IBAN sisältää virheellisiä merkkejä",
-        "country": "Tämä maakoodi ei ole osa IBAN-rekisteriä",
-        "length": "Tämä IBAN on väärän pituinen kyseiselle maalle",
-        "checksum": "Tämä IBAN on virheellinen (tarkistussumma ei täsmää)",
-        "valid": "Kelvollinen IBAN — {{country}}"
-      },
-      "bic": {
-        "format": "Virheellinen BIC/SWIFT-koodi",
-        "countryMismatch": "BIC-koodi ei vastaa IBAN-tilin maata"
-      },
-      "holder": {
-        "required": "Syötä tilinhaltijan nimi",
-        "mismatch": "Tilinhaltija poikkeaa hakijasta",
-        "partial": "Haltijan etunimi poikkeaa hakijasta"
-      },
-      "bank": {
-        "countryMismatch": "Ilmoitettu pankin sijaintimaa ei vastaa IBAN-tunnusta",
-        "crossBorder": "Tili sijaitsee asuinmaasi ulkopuolella",
-        "nonSepa": "Tili SEPA-alueen ulkopuolella"
-      },
-      "risk": {
-        "dtiAbove40": "Velkaantumisaste yli 40 %"
-      },
-      "phoneValid": "Kelvollinen numero",
-      "phoneIncomplete": "Puhelinnumero on puutteellinen"
-    },
-    "address": {
-      "placeholder": "Kirjoita osoitteesi (koko maailma)…",
-      "hint": "Valitse ehdotus tai syötä osoite käsin.",
-      "manual": "Syötä käsin",
-      "hideManual": "Piilota tiedot"
-    },
-    "schedule": {
-      "title": "Takaisinmaksusuunnitelma",
-      "period": "Kausi",
-      "number": "Nro",
-      "dueDate": "Eräpäivä",
-      "payment": "Maksuerä",
-      "principal": "Pääoma",
-      "interest": "Korko",
-      "insurance": "Vakuutus",
-      "balance": "Jäljellä oleva pääoma",
-      "total": "Yhteensä",
-      "export": "Lataa CSV-muodossa"
-    },
-    "contract": {
-      "metaTitle": "Sopimuksesi — MOONYP",
-      "metaDesc": "Tarkastele ja allekirjoita rahoitussopimuksesi turvallisesti.",
-      "backToFile": "Takaisin hakemukseen",
-      "offerSummary": "Tarjouksen yhteenveto",
-      "rate": "Vuosikorko",
-      "document": "Sopimusasiakirja",
-      "version": "Versio",
-      "state": "Tila",
-      "hash": "Asiakirjan tiiviste",
-      "providerLabel": "Allekirjoitusmenetelmä",
-      "signTitle": "Allekirjoita sopimus",
-      "legalNotice": "Tämä on kehittynyt sähköinen allekirjoitus todistusaineistoineen (kertakäyttökoodi, aikaleima, asiakirjan tiiviste). Se ei ole eIDAS-asetuksen mukainen hyväksytty allekirjoitus.",
-      "fullName": "Allekirjoittajan koko nimi",
-      "startSignature": "Lähetä allekirjoituskoodi",
-      "code": "Allekirjoituskoodi",
-      "codeHint": "Kertakäyttökoodi lähetettiin hakemuksen sähköpostiosoitteeseen.",
-      "consent": "Vahvistan lukeneeni sopimuksen ja suostun allekirjoittamaan sen sähköisesti.",
-      "confirmSignature": "Vahvista allekirjoitus",
-      "resendCode": "Lähetä koodi uudelleen",
-      "history": "Sopimuksen historia",
-      "important": "Säilytä kopio allekirjoitetusta sopimuksesta. Asiakaspalvelumme auttaa kysymyksissä.",
-      "notAvailable": "Sopimusta ei ole vielä saatavilla.",
-      "alreadySigned": "Tämä sopimus on jo allekirjoitettu.",
-      "codeSent": "Koodi lähetetty",
-      "startError": "Allekirjoitusta ei voitu aloittaa.",
-      "signError": "Allekirjoitus epäonnistui.",
-      "signed": "Sopimus allekirjoitettu",
-      "states": {
-        "draft": "Luonnos",
-        "ready": "Valmis",
-        "sent": "Lähetetty",
-        "viewed": "Katsottu",
-        "signed": "Allekirjoitettu",
-        "cancelled": "Peruutettu"
-      },
-      "events": {
-        "contract_created": "Sopimus luotu",
-        "contract_sent": "Sopimus lähetetty",
-        "contract_viewed": "Sopimus katsottu",
-        "signature_requested": "Allekirjoitusta pyydetty",
-        "signature_completed": "Allekirjoitus valmis",
-        "contract_downloaded": "Sopimus ladattu"
-      }
-    },
-    "guarantee": {
-      "fee": "Luottoriskin kattamismaksu",
-      "paymentStatus": "Maksun tila",
-      "payment": {
-        "unpaid": "Maksamatta",
-        "awaiting_payment": "Odottaa maksua",
-        "paid": "Maksettu",
-        "waived": "Luovuttu",
-        "failed": "Epäonnistui"
-      },
-      "scheduledDate": "Suunniteltu maksupäivä",
-      "paidNotice": "Tiimimme on vahvistanut maksusi.",
-      "chosen": {
-        "pay_now": "Valitsit maksaa heti.",
-        "decline": "Luovuit lainahakemuksestasi.",
-        "pay_later": "Valitsit maksaa myöhemmin."
-      },
-      "instructions": "Maksuohjeet",
-      "validationNotice": "Maksu katsotaan vastaanotetuksi vasta tiimimme vahvistuksen jälkeen.",
-      "question": "Haluatko maksaa kattamismaksun?",
-      "options": {
-        "pay_now": "Kyllä, maksan ja saan lainani",
-        "decline": "En, en maksa ja luovun hakemuksestani",
-        "pay_later": "Kyllä, maksan myöhemmin ja pidän hakemuksen voimassa"
-      },
-      "optionsHint": {
-        "pay_now": "Saat maksuohjeet.",
-        "decline": "Hakemuksesi suljetaan.",
-        "pay_later": "Valitse maksupäivä, lähetämme muistutuksia."
-      },
-      "pickDate": "Toivottu maksupäivä",
-      "confirmChoice": "Vahvista valintani",
-      "noPaymentNotice": "Tämä valinta ei suorita maksua: maksu vahvistetaan vasta tiimimme tarkistuksen jälkeen.",
-      "choiceSaved": "Valinta tallennettu",
-      "error": {
-        "dateRequired": "Valitse maksupäivä.",
-        "generic": "Toiminto ei ole mahdollinen."
-      }
-    },
-    "payment": {
-      "metaTitle": "Turvallinen maksu — MOONYP",
-      "metaDesc": "Maksa Moonyp-rahoitushakemuksesi kulut turvallisesti.",
-      "title": "Turvallinen maksu",
-      "subtitle": "Hakemus",
-      "back": "Takaisin hakemukseen",
-      "due": "Maksettava summa",
-      "noDue": "Tällä hetkellä ei ole maksettavaa.",
-      "methods": "Maksutavat",
-      "noMethods": "Maksutapoja ei ole tällä hetkellä saatavilla.",
-      "notConfigured": "Tätä palveluntarjoajaa ei ole määritetty.",
-      "pay": "Maksa",
-      "redirecting": "Ohjataan palveluntarjoajalle…",
-      "created": "Maksu kirjattu",
-      "createdHint": "Maksu vahvistetaan, kun varat on tosiasiallisesti vastaanotettu.",
-      "instructions": "Maksuohjeet",
-      "reference": "Viite",
-      "copyReference": "Kopioi viite",
-      "copied": "Kopioitu",
-      "holder": "Tilinomistaja",
-      "bank": "Pankki",
-      "address": "Osoite",
-      "network": "Verkko",
-      "history": "Maksuhistoria",
-      "noPaymentYet": "Ei kirjattuja maksuja.",
-      "notice": "Ilmoita aina viite tilisiirrossa, muuten maksua ei voida kohdistaa hakemukseesi.",
-      "error": "Maksua ei voitu käynnistää.",
-      "purpose": {
-        "guarantee_fee": "Takausmaksu",
-        "insurance_fee": "Vakuutusmaksu",
-        "application_fee": "Käsittelymaksu",
-        "installment": "Lainaerä",
-        "other": "Muu"
-      },
-      "feeStatus": {
-        "pending": "Odottaa",
-        "paid": "Maksettu",
-        "not_required": "Ei vaadita",
-        "late": "Myöhässä",
-        "cancelled": "Peruutettu"
-      },
-      "kind": {
-        "bank_transfer": "Tilisiirto",
-        "card": "Kortti",
-        "qr": "QR-koodi",
-        "crypto": "Krypto",
-        "other": "Muu"
-      },
-      "status": {
-        "pending": "Odottaa",
-        "processing": "Käsittelyssä",
-        "received": "Vastaanotettu",
-        "failed": "Epäonnistui",
-        "cancelled": "Peruutettu"
-      }
-    },
-    "repayment": {
-      "status": {
-        "upcoming": "Tuleva",
-        "paid": "Maksettu",
-        "partially_paid": "Osittain maksettu",
-        "late": "Myöhässä",
-        "cancelled": "Peruutettu"
-      }
-    },
-    "insurance": {
-      "fee": "Vakuutuksen aloitusmaksu",
-      "paymentStatus": "Maksun tila",
-      "payment": {
-        "unpaid": "Maksamatta",
-        "not_required": "Ei maksua",
-        "pending": "Odottaa",
-        "awaiting_payment": "Odottaa maksua",
-        "paid": "Maksettu",
-        "waived": "Luovuttu",
-        "failed": "Epäonnistui"
-      },
-      "dueDate": "Eräpäivä",
-      "scheduledDate": "Ajastettu maksupäivä",
-      "paidNotice": "Vakuutusmaksusi on vahvistettu tiimimme toimesta.",
-      "chosen": {
-        "pay_now": "Valitsit maksaa heti.",
-        "decline": "Luovuit vakuutuksesta.",
-        "pay_later": "Valitsit maksaa myöhemmin."
-      },
-      "instructions": "Maksuohjeet",
-      "validationNotice": "Maksu katsotaan vastaanotetuksi vasta tiimimme vahvistuksen jälkeen.",
-      "question": "Haluatko maksaa vakuutusmaksun?",
-      "options": {
-        "pay_now": "Kyllä, maksan nyt",
-        "decline": "Ei, luovun vakuutuksesta",
-        "pay_later": "Kyllä, maksan myöhemmin"
-      },
-      "optionsHint": {
-        "pay_now": "Saat maksuohjeet.",
-        "decline": "Hakemus käsitellään ilman vakuutusta.",
-        "pay_later": "Valitse päivä: lähetämme muistutuksia."
-      },
-      "pickDate": "Toivottu maksupäivä",
-      "confirmChoice": "Vahvista valintani",
-      "noPaymentNotice": "Tämä valinta ei suorita maksua: se vahvistetaan vasta tiimimme tarkistuksen jälkeen.",
-      "choiceSaved": "Valinta tallennettu",
-      "error": {
-        "dateRequired": "Valitse maksupäivä.",
-        "datePast": "Valittu päivä on jo mennyt.",
-        "generic": "Toiminto ei ole mahdollinen."
-      }
-    }
-  },
-  "products": {
-    "personal": {
-      "name": "Kulutusluotto",
-      "desc": "Rahoita hankkeesi kiinteällä korolla ja selkeillä erillä."
-    },
-    "auto": {
-      "name": "Autolaina",
-      "desc": "Uusi tai käytetty ajoneuvo edullisella korolla."
-    },
-    "mortgage": {
-      "name": "Asuntolaina",
-      "desc": "Osta, rakenna tai remontoi pitkäaikaisella rahoituksella."
-    },
-    "business": {
-      "name": "Yrityslaina",
-      "desc": "Tue kasvua, laitehankintoja tai käyttöpääomaa."
-    }
-  },
-  "documents": {
-    "identity": "Henkilöllisyystodistus",
-    "proofAddress": "Osoitetodistus",
-    "income": "Tulotositteet",
-    "bankStatement": "Tiliotteet",
-    "rib": "Pankkitiedot (IBAN)",
-    "other": "Muu asiakirja"
-  },
-  "contactSection": {
-    "eyebrow": "Yhteystiedot",
-    "title": "Keskustele neuvojan kanssa",
-    "desc": "Tiimimme vastaa kysymyksiin rahoituksesta, asiakirjoista ja hakemuksen seurannasta.",
-    "cta": "Ota yhteyttä"
-  },
-  "apply": {
-    "steps": {
-      "identity": "Henkilötiedot",
-      "employment": "Työtilanne",
-      "request": "Hakemus",
-      "payout": "Maksu",
-      "documents": "Asiakirjat",
-      "review": "Yhteenveto"
-    }
-  },
   "about": {
-    "metaTitle": "Tietoa MOONYPistä — eurooppalainen luottoalusta",
-    "metaDesc": "Keitä olemme, miten rahoitamme hankkeita ja mitkä standardit suojaavat tietojasi ja rahojasi.",
-    "eyebrow": "Tietoa meistä",
-    "title": "Moderni luottotalo pankkikurinalaisuudella.",
-    "intro": "MOONYP rahoittaa yksityishenkilöitä ja yrityksiä kaikkialla Euroopassa yhdellä lupauksella: selkeä päätös, reilu korko eikä piilokuluja.",
-    "intro2": "Tiimimme yhdistävät luottoanalyysin, vaatimustenmukaisuuden ja teknologian ja muuttavat hitaan paperiprosessin turvalliseksi digitaaliseksi poluksi — simulaatiosta maksatukseen.",
+    "cta": {
+      "button": "Aloita hakemus",
+      "desc": "Simuloi minuutissa, hae kuudessa vaiheessa ja saa päätös alle 24 tunnissa.",
+      "title": "Valmis rahoittamaan hankkeesi?"
+    },
     "ctaPrimary": "Hae nyt",
     "ctaSecondary": "Keskustele neuvojan kanssa",
-    "hqAlt": "MOONYPin pääkonttorin aula",
-    "missionAlt": "MOONYPin luottoanalyysinäkymä",
+    "eyebrow": "Tietoa meistä",
+    "governance": {
+      "desc": "Toimintamallimme vastaa eurooppalaisten luotonantajien vaatimuksia: tehtävien eriyttäminen, jokaisen päätöksen jäljitettävyys ja jatkuva riskienhallinta.",
+      "eyebrow": "Hallinto ja vaatimustenmukaisuus",
+      "g1d": "Luotonanto toteutetaan toimiluvan saaneiden pankkikumppaneiden kanssa.",
+      "g1t": "Säännelty kehys",
+      "g2d": "GDPR-vaatimustenmukaisuus, salaus levossa ja siirrossa, tiukat säilytysajat.",
+      "g2t": "Tietosuoja",
+      "g3d": "ISO 27001 -mukaiset kontrollit ja vuosittaiset riippumattomat auditoinnit.",
+      "g3t": "Sertifioidut prosessit",
+      "g4d": "Luotto- ja riskikomitea tarkistaa periaatteet neljännesvuosittain.",
+      "g4t": "Riippumaton valvonta",
+      "title": "Auditoitavat standardit."
+    },
     "governanceAlt": "MOONYPin tietoturva",
+    "hqAlt": "MOONYPin pääkonttorin aula",
+    "intro": "MOONYP rahoittaa yksityishenkilöitä ja yrityksiä kaikkialla Euroopassa yhdellä lupauksella: selkeä päätös, reilu korko eikä piilokuluja.",
+    "intro2": "Tiimimme yhdistävät luottoanalyysin, vaatimustenmukaisuuden ja teknologian ja muuttavat hitaan paperiprosessin turvalliseksi digitaaliseksi poluksi — simulaatiosta maksatukseen.",
     "kpis": {
       "clients": "Rahoitetut asiakkaat",
       "countries": "Palvellut maat",
       "financed": "Rahoitettu vuodesta 2016",
       "uptime": "Alustan käytettävyys"
     },
+    "metaDesc": "Keitä olemme, miten rahoitamme hankkeita ja mitkä standardit suojaavat tietojasi ja rahojasi.",
+    "metaTitle": "Tietoa MOONYPistä — eurooppalainen luottoalusta",
     "mission": {
       "eyebrow": "Tehtävämme",
-      "title": "Luotto, joka kunnioittaa aikaasi ja budjettiasi.",
       "p1": "Jokainen hakemus arvioidaan samoilla objektiivisilla kriteereillä: takaisinmaksukyky, tulojen vakaus ja hankkeen johdonmukaisuus. Ei läpinäkymätöntä pisteytystä eikä mielivaltaisia hylkäyksiä.",
-      "p2": "Seuraat hakemustasi reaaliajassa suojatun linkin kautta, saat jokaisen asiakirjan omalla kielelläsi ja allekirjoitat sähköisesti täydellä oikeusvaikutuksella."
+      "p2": "Seuraat hakemustasi reaaliajassa suojatun linkin kautta, saat jokaisen asiakirjan omalla kielelläsi ja allekirjoitat sähköisesti täydellä oikeusvaikutuksella.",
+      "title": "Luotto, joka kunnioittaa aikaasi ja budjettiasi."
     },
+    "missionAlt": "MOONYPin luottoanalyysinäkymä",
+    "timeline": {
+      "title": "Tarinamme",
+      "y1d": "Kolme luottoasiantuntijaa perustaa MOONYPin lyhentääkseen päätökset viikoista tunteihin.",
+      "y1t": "Perustettu Pariisissa",
+      "y2d": "Avautuminen yhteentoista markkinaan ja sopimusten sekä viestinnän täysi lokalisointi.",
+      "y2t": "Eurooppalainen laajentuminen",
+      "y3d": "Täysin paperiton polku sertifioidulla allekirjoituksella ja automaattisella tunnistautumisella.",
+      "y3t": "Sähköinen allekirjoitus ja välitön KYC",
+      "y4d": "Hakija seuraa hakemustaan suojatulla henkilökohtaisella linkillä ilman salasanaa.",
+      "y4t": "Kokemus ilman tiliä"
+    },
+    "title": "Moderni luottotalo pankkikurinalaisuudella.",
     "values": {
       "eyebrow": "Arvomme",
       "title": "Neljä periaatetta, poikkeuksetta.",
-      "v1t": "Turvallisuus ensin",
       "v1d": "Salatut tiedot, tiukka pääsynhallinta ja jatkuva valvonta.",
-      "v2t": "Täysi selkeys",
+      "v1t": "Turvallisuus ensin",
       "v2d": "Korko, vakuutus, kulut ja kokonaishinta näkyvät ennen sitoutumista.",
-      "v3t": "Ihmisen tuki",
+      "v2t": "Täysi selkeys",
       "v3d": "Oma neuvoja hakemuksesi jokaisessa keskeisessä vaiheessa.",
-      "v4t": "Eurooppalainen kattavuus",
-      "v4d": "Yksi alusta, 15 kieltä ja rahoituskumppanit koko mantereella."
-    },
-    "timeline": {
-      "title": "Tarinamme",
-      "y1t": "Perustettu Pariisissa",
-      "y1d": "Kolme luottoasiantuntijaa perustaa MOONYPin lyhentääkseen päätökset viikoista tunteihin.",
-      "y2t": "Eurooppalainen laajentuminen",
-      "y2d": "Avautuminen yhteentoista markkinaan ja sopimusten sekä viestinnän täysi lokalisointi.",
-      "y3t": "Sähköinen allekirjoitus ja välitön KYC",
-      "y3d": "Täysin paperiton polku sertifioidulla allekirjoituksella ja automaattisella tunnistautumisella.",
-      "y4t": "Kokemus ilman tiliä",
-      "y4d": "Hakija seuraa hakemustaan suojatulla henkilökohtaisella linkillä ilman salasanaa."
-    },
-    "governance": {
-      "eyebrow": "Hallinto ja vaatimustenmukaisuus",
-      "title": "Auditoitavat standardit.",
-      "desc": "Toimintamallimme vastaa eurooppalaisten luotonantajien vaatimuksia: tehtävien eriyttäminen, jokaisen päätöksen jäljitettävyys ja jatkuva riskienhallinta.",
-      "g1t": "Säännelty kehys",
-      "g1d": "Luotonanto toteutetaan toimiluvan saaneiden pankkikumppaneiden kanssa.",
-      "g2t": "Tietosuoja",
-      "g2d": "GDPR-vaatimustenmukaisuus, salaus levossa ja siirrossa, tiukat säilytysajat.",
-      "g3t": "Sertifioidut prosessit",
-      "g3d": "ISO 27001 -mukaiset kontrollit ja vuosittaiset riippumattomat auditoinnit.",
-      "g4t": "Riippumaton valvonta",
-      "g4d": "Luotto- ja riskikomitea tarkistaa periaatteet neljännesvuosittain."
-    },
-    "cta": {
-      "title": "Valmis rahoittamaan hankkeesi?",
-      "desc": "Simuloi minuutissa, hae kuudessa vaiheessa ja saa päätös alle 24 tunnissa.",
-      "button": "Aloita hakemus"
+      "v3t": "Ihmisen tuki",
+      "v4d": "Yksi alusta, 15 kieltä ja rahoituskumppanit koko mantereella.",
+      "v4t": "Eurooppalainen kattavuus"
     }
   },
-  "validation": {
-    "phone": "Syötä voimassa oleva puhelinnumero"
-  },
-  "kyc": {
-    "capture": "Ota kuva",
-    "retake": "Ota uusi kuva",
-    "chooseDocument": "Valitse asiakirja",
-    "nothingRequired": "Tässä vaiheessa ei vaadita asiakirjoja",
-    "storageNotice": "Asiakirjasi on salattu ja tallennettu suojattuun tilaan. Vain sääntöjenmukaisuudesta vastaavalla tiimillämme on pääsy niihin.",
-    "intro": {
-      "title": "Henkilöllisyyden todentaminen",
-      "why": "Eurooppalainen sääntely edellyttää henkilöllisyyden todentamista ennen varojen maksamista. Prosessi kestää noin kolme minuuttia.",
-      "camera": "Käytä kameraasi hyvässä valaistuksessa – voit myös tuoda tiedoston laitteeltasi.",
-      "privacy": "Asiakirjasi on salattu, eikä niitä koskaan jaeta kolmansille osapuolille.",
-      "start": "Aloita todentaminen"
+  "admin": {
+    "amounts": {
+      "accepted": "Hyväksytty yhteensä",
+      "disbursed": "Maksetut varat",
+      "requested": "Pyydetty yhteensä"
     },
-    "category": {
-      "identity": {
-        "title": "Henkilöllisyystodistus",
-        "desc": "Passi, henkilökortti tai oleskelulupa"
-      },
-      "address": {
-        "title": "Todistus asuinpaikasta",
-        "desc": "Enintään kolme kuukautta vanha"
-      },
-      "selfie": {
-        "title": "Kasvojentunnistus",
-        "desc": "Nopea selfie asiakirjan tietojen vahvistamiseksi"
-      },
-      "bank": {
-        "title": "Pankkiyhteystiedot",
-        "desc": "Tiliote, josta ilmenee IBAN-tilinumero"
-      },
-      "income": {
-        "title": "Tulotosite",
-        "desc": "Riippuu ammatillisesta tilanteestasi"
-      }
+    "clientDetail": {
+      "blockBtn": "Estä tili",
+      "blockedReason": "Syy",
+      "blockedSince": "Estetty alkaen",
+      "blockReason": "Eston syy",
+      "blockReasonPlaceholder": "esim. petosepäily, KYC-vaatimusten noudattamatta jättäminen…",
+      "blockTitle": "Estä asiakastili",
+      "confirm": "Vahvista",
+      "loans": "Asiakkaan lainat",
+      "noLoans": "Tällä asiakkaalla ei ole vielä tiedostoja.",
+      "noWithdrawals": "Ei siirtoja.",
+      "personalInfo": "Henkilötiedot",
+      "summary": "Yhteenveto",
+      "title": "Asiakasprofiili",
+      "unblockBtn": "Poista tilin esto",
+      "withdrawals": "Siirrot"
     },
-    "side": {
-      "front": "Etupuoli",
-      "back": "Taustapuoli",
-      "single": "Asiakirja"
+    "clientsPage": {
+      "active": "Aktiivinen",
+      "blocked": "Estetty",
+      "client": "Asiakas",
+      "joined": "Liittynyt",
+      "loans": "Lainat",
+      "phone": "Puhelin",
+      "status": "Tila",
+      "subtitle": "Asiakastilit ja käyttöoikeuksien tila.",
+      "title": "Asiakkaat",
+      "totalBorrowed": "Lainattu yhteensä"
     },
-    "hint": {
-      "scan": "Aseta asiakirja tasaiselle alustalle kokonaan kehyksen sisään ilman heijastuksia.",
-      "scan_double": "Ota kuva molemmista puolista peräkkäin niin, että kaikki neljä kulmaa näkyvät.",
-      "selfie": "Katso suoraan kameraan ilman päähinettä tai aurinkolaseja.",
-      "upload": "Hyväksytyt tiedostomuodot: PDF, JPEG, PNG."
+    "kpis": {
+      "accepted": "Hyväksytty",
+      "pending": "Odottaa",
+      "refused": "Hylätty",
+      "total": "Hakemuksia yhteensä"
     },
-    "status": {
-      "todo": "Tekemättä",
-      "in_progress": "Käsittelyssä",
-      "capturing": "Keskeneräinen",
-      "verifying": "Tarkistetaan",
-      "passed": "Toimitettu",
-      "failed": "Hylätty",
-      "retry": "Yritä uudelleen",
-      "manual_review": "Käsittelyssä"
-    },
-    "camera": {
-      "ready": "Kamera valmis",
-      "start": "Avaa kamera",
-      "shoot": "Ota kuva",
-      "retake": "Ota uusi kuva",
-      "use": "Käytä tätä kuvaa",
-      "importInstead": "Tuo tiedosto",
-      "denied": "Kamera ei ole käytettävissä tai käyttöoikeus on evätty.",
-      "unsupported": "Selaimesi ei tue kuvan ottamista kameralla.",
-      "badFormat": "Tiedostomuotoa ei tueta",
-      "tooLarge": "Tiedostokoko ylittää {{size}} Mt",
-      "quality": {
-        "ok": "Hyvä laatu – asiakirja on luettavissa.",
-        "dark": "Kuva on liian tumma: siirry valoisampaan paikkaan.",
-        "bright": "Kuva on ylivalottunut: vältä suoraa valoa ja heijastuksia.",
-        "blurry": "Kuva on epätarkka: pidä laite paikallaan ja tarkenna uudelleen."
-      }
-    },
-    "stepOf": "Vaihe {{current}} / {{total}}",
-    "finish": "Valmis",
-    "done": {
-      "title": "Tunnistautuminen valmis",
-      "desc": "Kaikki vaaditut asiakirjat on kuvattu. Voitte vielä tarkistaa tai vaihtaa asiakirjoja ennen hakemuksen lopullista lähettämistä."
-    },
-    "docs": {
-      "bankStatement": "Tiliote (viimeiset 3 kuukautta)",
-      "benefits": "Etuustodistus",
-      "drivingLicence": "Ajokortti",
-      "electricity": "Sähkölasku",
-      "hosting": "Asumistodistus",
-      "kbis": "Kaupparekisteriote",
-      "nationalId": "Henkilökortti",
-      "passport": "Passi",
-      "payslip": "Palkkalaskelmat (viimeiset 3 kuukautta)",
-      "pension": "Eläketodistus",
-      "residencePermit": "Oleskelulupa",
-      "selfie": "Kasvojen varmennus",
-      "taxReturn": "Verotuspäätös",
-      "telecom": "Puhelin-/internetlasku",
-      "water": "Vesilasku"
-    }
-  },
-  "emails": {
-    "applicationReceived": {
-      "subject": "Hakemuksesi {{reference}} on vastaanotettu",
-      "body": "Hei {{firstName}}, olemme vastaanottaneet hakemuksesi {{reference}}. Tiimimme käsittelee sitä ja tiedottaa jokaisesta vaiheesta."
-    },
-    "documentsMissing": {
-      "subject": "Puuttuvat asiakirjat — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, hakemuksesta {{reference}} puuttuu asiakirjoja. Lataa ne turvallisessa palvelussa. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer."
-    },
-    "infoRequested": {
-      "subject": "Lisätiedot — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, tarvitsemme lisätietoja hakemukseen {{reference}}. {{reason}}"
-    },
-    "approved": {
-      "subject": "Hakemuksesi {{reference}} on hyväksytty",
-      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on hyväksytty. Tarjous näkyy turvallisessa palvelussa.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area."
-    },
-    "rejected": {
-      "subject": "Päätös hakemuksesta {{reference}}",
-      "body": "Hei {{firstName}}, käsittelyn jälkeen hakemusta {{reference}} ei voitu hyväksyä. Syy: {{reason}}"
-    },
-    "offerAvailable": {
-      "subject": "Tarjouksesi {{reference}} on saatavilla",
-      "body": "Hei {{firstName}}, rahoitustarjouksesi {{reference}} on saatavilla turvallisessa palvelussa.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area."
-    },
-    "contractSent": {
-      "subject": "Sopimuksesi {{reference}} on valmis",
-      "body": "Hei {{firstName}}, sopimus {{reference}} on allekirjoitettavissa turvallisessa palvelussa.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived."
-    },
-    "disbursed": {
-      "subject": "Varat maksettu — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, hakemuksen {{reference}} varat on siirretty tilillesi.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online."
-    },
-    "signatureCode": {
-      "subject": "Allekirjoituskoodisi {{reference}}",
-      "body": "Hei {{firstName}}, allekirjoituskoodisi on {{code}}. Se vanhenee 10 minuutissa.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once."
-    },
-    "contractSigned": {
-      "subject": "Sopimus {{reference}} allekirjoitettu",
-      "body": "Hei {{firstName}}, sopimuksesi {{reference}} on allekirjoitettu. Voit ladata sen turvallisesta tilastasi.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time."
-    },
-    "guaranteeSent": {
-      "subject": "Kattamismaksu — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, luottoriskin kattamismaksu on {{amount}}. Valitse vaihtoehtosi turvallisessa tilassa.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing."
-    },
-    "guaranteePayNow": {
-      "subject": "Maksun valinta {{reference}}",
-      "body": "Hei {{firstName}}, kirjasimme valintasi maksaa {{amount}}. Maksuohjeet lähetetään tarkistuksen jälkeen.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt."
-    },
-    "guaranteeDeclined": {
-      "subject": "Hakemus {{reference}} peruttu",
-      "body": "Hei {{firstName}}, kirjasimme luopumisesi. Hakemuksesi {{reference}} suljetaan."
-    },
-    "guaranteePayLater": {
-      "subject": "Maksu ajoitettu {{reference}}",
-      "body": "Hei {{firstName}}, maksusi {{amount}} on ajoitettu {{date}}. Hakemus pysyy voimassa.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area."
-    },
-    "guaranteePaymentValidated": {
-      "subject": "Maksu vahvistettu {{reference}}",
-      "body": "Hei {{firstName}}, maksusi on vahvistettu. Hakemuksesi käsittely jatkuu."
-    },
-    "guaranteeReminder": {
-      "subject": "Maksumuistutus {{reference}}",
-      "body": "Hei {{firstName}}, maksusi {{amount}} erääntyy {{date}}."
-    },
-    "insurancePending": {
-      "subject": "Vakuutus {{reference}}",
-      "body": "Hei {{firstName}}, hakemuksesi edellyttää {{amount}} kuukausivakuutusta.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area."
-    },
-    "insuranceValidated": {
-      "subject": "Vakuutus vahvistettu {{reference}}",
-      "body": "Hei {{firstName}}, vakuutuksesi on vahvistettu.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area."
-    },
-    "common": {
-      "summary": "Hakemuksen yhteenveto",
-      "reference": "Viite",
-      "amount": "Rahoitettu määrä",
+    "loansPage": {
+      "amount": "Summa",
+      "client": "Asiakas",
+      "date": "Päivämäärä",
+      "documents": "Asiakirjat",
       "duration": "Kesto",
-      "monthly": "Arvioitu erä",
-      "status": "Hakemuksen tila",
-      "months": "kuukautta",
-      "feeAmount": "Kyseinen summa",
-      "scheduledDate": "Suunniteltu päivä",
-      "codeTitle": "Kertakäyttöinen allekirjoituskoodi",
-      "reasonTitle": "Tiimimme tarkennukset",
-      "secureNotice": "Linkki on henkilökohtainen, salattu ja peruutettavissa. Älä jaa sitä.",
-      "needHelp": "Kysyttävää? Asiakaspalvelu vastaa turvallisessa tilassasi.",
-      "footerLegal": "Moonyp — vastuullista rahoitusta. Sähköposti koskee hakemustasi.",
-      "autoMessage": "Automaattiviesti — älä vastaa suoraan.",
-      "tagline": "Rahoituksesi, täysin läpinäkyvästi"
+      "status": "Tila",
+      "subtitle": "Yksityiskohtainen ja suodatettava näkymä hakemuksista.",
+      "title": "Kaikki lainatiedostot"
     },
-    "cta": {
-      "portal": "Katso hakemukseni",
-      "contract": "Lue ja allekirjoita sopimus",
-      "guarantee": "Valitse kattavuus",
-      "insurance": "Hallinnoi vakuutusta",
-      "payment": "Tee maksu",
-      "documents": "Lataa asiakirjat",
-      "schedule": "Katso maksusuunnitelmani"
+    "quickActions": {
+      "manageClients": "Hallitse asiakkaita",
+      "signedContracts": "Käsiteltävät allekirjoitetut sopimukset",
+      "subtitle": "Käsittele odottavat tiedostot ensin.",
+      "title": "Pikatoiminnot",
+      "toStudy": "Tarkistettavat tiedostot"
     },
-    "installmentReminder": {
-      "subject": "Tuleva erä — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, seuraava erä {{amount}} erääntyy {{date}}.",
-      "details": "Maksusuunnitelma ja maksaminen turvallisessa tilassasi."
+    "recent": {
+      "empty": "Ei viimeaikaista toimintaa",
+      "open": "Avaa",
+      "title": "Viimeaikainen toiminta"
     },
-    "applicationVerification": {
-      "subject": "Hakemus {{reference}} tarkistuksessa",
-      "body": "Hei {{firstName}}, hakemustasi {{reference}} tarkistetaan tiimeissämme.",
-      "details": "Tarkistamme liitteidesi aitouden ja luettavuuden. Tässä vaiheessa sinun ei tarvitse tehdä mitään; ilmoitamme heti, jos asiakirjaa on täydennettävä."
+    "stages": {
+      "codeSent": "Koodi lähetetty vaiheelle {{stage}}%",
+      "codeSentBadge": "Koodi lähetetty",
+      "fee": "Maksu (€)",
+      "genAndSend": "Luo ja lähetä",
+      "planFirst": "Aseta maksut ensin",
+      "planSaved": "Suunnitelma tallennettu",
+      "regenAndSend": "Luo uudelleen ja lähetä",
+      "savePlan": "Tallenna suunnitelma",
+      "sentAt": "Lähetetty",
+      "title": "Vapautusmaksut ja koodit",
+      "unlocked": "Lukitus avattu"
     },
-    "applicationAnalysis": {
-      "subject": "Hakemus {{reference}} analyysissä",
-      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on siirtynyt luottoanalyysiin.",
-      "details": "Analyytikkomme arvioivat takaisinmaksukykyäsi, tulojesi johdonmukaisuutta ja haettua summaa. Tulos näkyy turvallisessa tilassasi heti, kun se on valmis."
-    },
-    "signaturePending": {
-      "subject": "Allekirjoitus odottaa — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, sopimuksesi {{reference}} odottaa sähköistä allekirjoitustasi.",
-      "details": "Ennen allekirjoitusta hakemus odottaa eikä varoja voi valmistella. Allekirjoitus tehdään verkossa kertakäyttöisellä koodilla alle kahdessa minuutissa."
-    },
-    "guaranteeSigned": {
-      "subject": "Kattavuus vahvistettu — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, hakemuksen {{reference}} luottoriskin kattavuus on vahvistettu.",
-      "details": "Tämän jälkeen hakemus siirtyy lainaturvavakuutukseen ja sitten maksatuksen valmisteluun. Jokainen vaihe näkyy reaaliajassa turvallisessa tilassasi."
-    },
-    "disbursementPreparing": {
-      "subject": "Maksatus valmistelussa — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, hakemuksen {{reference}} maksatusta valmistellaan.",
-      "details": "Rahoitusosastomme tarkistaa pankkitietosi viimeisen kerran ennen tilisiirtoa. Saat vahvistuksen heti, kun varat on lähetetty."
-    },
-    "repaying": {
-      "subject": "Takaisinmaksu käynnissä — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, hakemuksesi {{reference}} siirtyy takaisinmaksuvaiheeseen.",
-      "details": "Yksityiskohtainen maksusuunnitelma (pääoma, korot, jäljellä oleva velka) on turvallisessa tilassasi. Jokainen vastaanotettu erä kirjataan sinne ja vahvistetaan sähköpostilla."
-    },
-    "repaymentReceived": {
-      "subject": "Maksu vastaanotettu — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, olemme vastaanottaneet {{amount}} maksusi hakemukseen {{reference}}.",
-      "details": "Kyseinen erä on merkitty maksetuksi ja jäljellä oleva velka päivitetty turvalliseen tilaasi, jossa maksusuunnitelma on ladattavissa."
-    },
-    "late": {
-      "subject": "Erä myöhässä — hakemus {{reference}}",
-      "body": "Hei {{firstName}}, hakemuksesi {{reference}} erä on maksamatta.",
-      "details": "Pyydämme maksamaan erän mahdollisimman pian viivästyskulujen ja merkinnän välttämiseksi. Jos sinulla on vaikeuksia, ota yhteyttä: järjestelyä voidaan harkita."
-    },
-    "repaid": {
-      "subject": "Hakemus {{reference}} maksettu kokonaan",
-      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on maksettu kokonaan. Kiitos luottamuksestasi.",
-      "details": "Todistus nollasaldosta ja koko maksuhistoria pysyvät turvallisessa tilassasi. Voit tehdä uuden hakemuksen milloin tahansa."
-    },
-    "cancelled": {
-      "subject": "Hakemus {{reference}} peruutettu",
-      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on peruutettu.",
-      "details": "Tästä hakemuksesta ei veloiteta mitään. Jos peruutus ei vastaa toivettasi, voit tehdä uuden hakemuksen turvallisessa tilassasi."
-    },
-    "insurancePayNow": {
-      "subject": "Vakuutus — välitön maksu · hakemus {{reference}}",
-      "body": "Hei {{firstName}}, valitsit maksaa vakuutusmaksun {{amount}} heti.",
-      "details": "Maksuohjeet (saaja, IBAN, BIC ja viite) löytyvät suojatusta palvelustasi. Maksu katsotaan vastaanotetuksi vasta tiimimme vahvistuksen jälkeen."
-    },
-    "insurancePayLater": {
-      "subject": "Vakuutus — maksu ajastettu · hakemus {{reference}}",
-      "body": "Hei {{firstName}}, {{amount}} maksu on ajastettu {{date}}.",
-      "details": "Hakemuksesi pysyy varattuna valittuun päivään asti. Voit maksaa aiemmin; lähetämme muistutuksia ennen eräpäivää."
-    },
-    "insuranceDeclined": {
-      "subject": "Vakuutus — luopuminen kirjattu · hakemus {{reference}}",
-      "body": "Hei {{firstName}}, olemme kirjanneet luopumisesi lainaturvavakuutuksesta.",
-      "details": "Ilman vakuutusta hakemus voidaan arvioida uudelleen. Voit muuttaa valintaasi ennen varojen maksamista."
-    },
-    "insurancePaymentValidated": {
-      "subject": "Vakuutus — maksu vahvistettu · hakemus {{reference}}",
-      "body": "Hei {{firstName}}, vahvistamme vakuutusmaksun vastaanoton.",
-      "details": "Vakuutusturvaa otetaan käyttöön. Todistus ja vakuutusnumero näkyvät suojatussa palvelussa vahvistuksen jälkeen."
-    },
-    "insuranceReminder": {
-      "subject": "Muistutus — vakuutusmaksu · hakemus {{reference}}",
-      "body": "Hei {{firstName}}, {{amount}} maksu erääntyy {{date}}.",
-      "details": "Tämä automaattinen muistutus lähetetään ennen valitsemaasi päivää. Maksuohjeet löytyvät suojatusta palvelusta."
+    "subtitle": "Yleiskatsaus pankkitoiminnasta.",
+    "title": "Järjestelmänvalvojan hallintapaneeli",
+    "transfer": {
+      "amount": "Summa (€)",
+      "bankName": "Saajan pankki",
+      "beneficiary": "Saaja",
+      "bic": "BIC / SWIFT",
+      "classic": "Tavallinen",
+      "classicHint": "Hyvitetään 1 arkipäivän kuluessa.",
+      "client": "Asiakas",
+      "error": "Siirron tekeminen epäonnistui",
+      "iban": "IBAN",
+      "instant": "Pikasiirto",
+      "instantHint": "Hyvitetään välittömästi 24/7.",
+      "kind": "Siirron tyyppi",
+      "loan": "Lähdelaina",
+      "reference": "Viite",
+      "selectClient": "Valitse asiakas",
+      "selectLoan": "Valitse laina",
+      "submit": "Tee siirto",
+      "subtitle": "Luo pikainen tai tavallinen pankkisiirto asiakkaan puolesta.",
+      "success": "Siirto tehty onnistuneesti",
+      "title": "Tee asiakassiirto"
     }
   },
-  "workflow": {
-    "guard": {
-      "kycNotPassed": "KYC checks not passed",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "noInsurance": "No insurance subscribed on this file",
-      "missingPayout": "Payout details missing",
-      "complianceBlocking": "Blocking compliance alert"
+  "adminCodes": {
+    "address": "Maksun osoite",
+    "approve": "Hyväksy",
+    "approved": "Hyväksytty",
+    "bic": "BIC / SWIFT",
+    "code": "Koodi",
+    "codeSent": "Koodi luotu ja lähetetty",
+    "consumed": "Kulutettu",
+    "created": "Koodi luotu",
+    "description": "Viite / Kuvaus",
+    "error": "Virhe",
+    "fee": "Maksu (€)",
+    "gatedDesc": "Siirtovaiheen konfiguraatio tulee saataville lainan hyväksymisen jälkeen.",
+    "gatedTitle": "Konfiguraatio lukittu",
+    "generate": "Luo",
+    "generateAndSend": "Luo ja lähetä",
+    "help": "Hallitse siirron edistymiskoodeja.",
+    "holder": "Tilinhaltija",
+    "iban": "IBAN",
+    "invalidates": "Koodin uudelleenluominen mitätöi automaattisesti edellisen: vain uusin koodi toimii.",
+    "invalidFee": "Virheellinen maksu",
+    "noCode": "Ei koodia",
+    "notifApprovedMsg": "Maksusi vahvistettiin. Koodi lähetetään.",
+    "notifApprovedTitle": "Kuitti hyväksytty – vaihe {{p}}%",
+    "notifMsg": "Koodisi: {{code}} (maksu {{fee}})",
+    "notifRejectedMsg": "Lataa kelvollinen kuitti.",
+    "notifRejectedTitle": "Kuitti hylätty – vaihe {{p}}%",
+    "notifTitle": "Avaa koodi {{p}}%",
+    "pending": "Odottaa",
+    "receiptApproved": "Kuitti hyväksytty",
+    "receiptRejected": "Kuitti hylätty",
+    "receiptUploaded": "Kuitti ladattu",
+    "regenerate": "Luo uudelleen",
+    "regenerateAndSend": "Luo uudelleen ja lähetä",
+    "reject": "Hylkää",
+    "rejected": "Hylätty",
+    "released": "Julkaistu",
+    "saved": "Konfiguraatio tallennettu",
+    "sectionHelp": "Aseta maksut ja maksun osoite vaiheittain, vahvista kuitti ja lähetä sitten koodi.",
+    "sectionTitle": "Siirtovaiheen konfiguraatio",
+    "send": "Lähetä",
+    "step": "Vaihe",
+    "success": "Onnistui",
+    "title": "Avaa koodit",
+    "updated": "Koodi päivitetty"
+  },
+  "adminDash": {
+    "chat": "Live Chat",
+    "clients": "Asiakkaat",
+    "kpis": {
+      "clients": "Aktiivisia asiakkaita",
+      "loansPending": "Odottavat lainat",
+      "newToday": "Uutta tänään",
+      "ticketsOpen": "Avaa liput",
+      "transfersBlocked": "Siirrot estetty"
     },
-    "error": {
-      "sameStatus": "The file already has this status",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "forbidden": "Action not allowed"
+    "loans": "Lainat",
+    "logs": "Activity log",
+    "notifications": "Ilmoitukset",
+    "overview": "Yleiskatsaus",
+    "quickActions": "Nopeat toiminnot",
+    "recentActivity": "Viimeaikainen toiminta",
+    "roles": "Permissions",
+    "security": "Turvallisuus",
+    "staff": "Team & roles",
+    "title": "Kojelauta – MOONYP",
+    "transfers": "Siirrot"
+  },
+  "adminSec": {
+    "adminLink": "Järjestelmänvalvoja",
+    "alerts": {
+      "empty": "Ei hälytyksiä.",
+      "resolve": "Ratkaise",
+      "resolved": "ratkaistu",
+      "title": "Turvallisuushälytykset"
     },
-    "confirmTitle": "Confirm the decision",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "reasonLabel": "Reason shared with the applicant",
-    "noteLabel": "Internal note",
-    "confirm": "Confirm",
-    "cancel": "Cancel",
-    "requests": {
-      "title": "Information requests",
-      "kind": "Request type",
-      "message": "Message sent to the applicant",
-      "create": "Send request",
-      "none": "No information request.",
-      "close": "Close",
-      "open": "Pending",
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "kinds": {
-        "missing_document": "Puuttuva asiakirja",
-        "replace_document": "Asiakirjan korvaaminen",
-        "information": "Lisätieto",
-        "justification": "Perustelu pyydetty"
-      }
+    "center": "Turvakeskus",
+    "devices": {
+      "country": "Maa",
+      "empty": "Ei laitteita.",
+      "label": "Nimike",
+      "lastSeen": "Viimeksi nähty",
+      "pending": "odottaa",
+      "title": "Luotetut laitteet",
+      "trusted": "Luottamus",
+      "trustedBadge": "luotettu"
+    },
+    "fail": "virhe",
+    "kpi": {
+      "devicesTracked": "Seuratut laitteet",
+      "highRisk": "Riskikäyttäjät",
+      "openAlerts": "Avoimet hälytykset",
+      "totalEvents": "Tapahtumia yhteensä"
+    },
+    "logs": {
+      "action": "Toiminto",
+      "allActions": "Kaikki toiminnot",
+      "device": "Laite",
+      "empty": "Ei lokeja.",
+      "ipCountry": "IP / Maa",
+      "searchPh": "Etsi käyttäjä, IP, maa…",
+      "status": "Tila",
+      "title": "Turvallisuuslokit",
+      "user": "Käyttäjä",
+      "when": "Milloin"
+    },
+    "metaTitle": "Turvallisuus · Admin",
+    "ok": "ok",
+    "risk": {
+      "empty": "Ei tietoja.",
+      "risk": "Riski",
+      "sensitive": "Arkaluonteinen",
+      "sessions": "Istunnot",
+      "title": "Riskipisteet"
+    },
+    "tab": {
+      "alerts": "Hälytykset",
+      "devices": "Laitteet",
+      "logs": "Lokit",
+      "risk": "Riski"
+    },
+    "unauthorized": "Ei valtuuksia",
+    "user": "käyttäjä"
+  },
+  "apply": {
+    "steps": {
+      "documents": "Asiakirjat",
+      "employment": "Työtilanne",
+      "identity": "Henkilötiedot",
+      "payout": "Maksu",
+      "request": "Hakemus",
+      "review": "Yhteenveto"
     }
+  },
+  "auth": {
+    "accountCreated": "Tili luotu onnistuneesti",
+    "backHome": "Back to home",
+    "brandBadge": "Secure digital bank",
+    "confirmNewPassword": "Vahvista salasana",
+    "connectedToast": "Kirjautuminen onnistui",
+    "createAccount": "Create my account",
+    "creating": "Creating account…",
+    "decision": "Decision within 24 business hours",
+    "email": "Email",
+    "emailAlreadyUsed": "Sähköposti on jo käytössä",
+    "emailInvalid": "Invalid email",
+    "emailLabel": "Sähköposti",
+    "forgotDesc": "Anna sähköpostiosoitteesi. Lähetämme sinulle suojatun linkin uuden salasanan asettamiseksi.",
+    "forgotLink": "Unohditko salasanasi?",
+    "forgotPassword": "Forgot password?",
+    "forgotSend": "Lähetä linkki",
+    "forgotSent": "Jos tili on olemassa, sähköposti on lähetetty.",
+    "forgotTitle": "Palauta salasanasi",
+    "fullName": "Full name",
+    "fullNameLabel": "Koko nimi",
+    "google": "Continue with Google",
+    "googleError": "Unable to sign in with Google",
+    "googleLoading": "Signing in with Google…",
+    "hasAccount": "Already have an account?",
+    "invalidCredentials": "Virheelliset tunnistetiedot",
+    "loginSuccess": "Successfully signed in",
+    "minPasswordHint": "At least 8 characters.",
+    "mobileHint": "Sign in or create your account",
+    "nameShort": "Name too short",
+    "newPassword": "Uusi salasana",
+    "noAccount": "No account yet?",
+    "password": "Password",
+    "passwordLabel": "Salasana",
+    "passwordMin": "Password must be at least 8 characters",
+    "passwordRequired": "Salasana vaaditaan",
+    "phone": "Phone",
+    "phoneInvalid": "Invalid phone number",
+    "phoneLabel": "Puhelin",
+    "resetSuccess": "Salasana päivitetty onnistuneesti.",
+    "resetTitle": "Aseta uusi salasana",
+    "resetWaiting": "Palautuslinkkiä vahvistetaan…",
+    "rgpd": "GDPR compliant",
+    "signIn": "Sign in",
+    "signingIn": "Signing in…",
+    "signUp": "Create account",
+    "signupSuccess": "Account created · check your inbox",
+    "tabSignin": "Kirjaudu sisään",
+    "tabSignup": "Luo tili",
+    "terms": "By continuing, you accept our Terms and Privacy Policy.",
+    "title": "Client area",
+    "tls": "TLS 1.3 encryption",
+    "updatePassword": "Päivitä salasana",
+    "welcomeDesc": "Access your loans, transfers and premium services securely.",
+    "welcomeTitle": "Welcome to"
+  },
+  "authPending": {
+    "description": "Olemme lähettäneet vahvistuslinkin sähköpostiosoitteeseesi.",
+    "footer": "Turvallisuutesi vuoksi älä koskaan jaa tunnuksiasi. MOONYP ei koskaan kysy salasanaasi.",
+    "instruction": "Aktivoi tilisi napsauttamalla linkkiä postilaatikossasi.",
+    "loading": "Odotetaan vahvistusta...",
+    "title": "Tarkista sähköpostisi"
+  },
+  "blocked": {
+    "contact": "Ota yhteyttä tukeen saadaksesi lisätietoja.",
+    "message": "Vaatimustenmukaisuustiimimme on jäädyttänyt tilisi väliaikaisesti.",
+    "reasonLabel": "Syy",
+    "signOut": "Kirjaudu ulos",
+    "title": "Tili jäädytetty"
+  },
+  "chat": {
+    "admin": {
+      "close": "Sulje tiketti",
+      "empty": "Ei keskusteluja.",
+      "filter": {
+        "all": "Kaikki",
+        "closed": "Suljettu",
+        "guests": "Vierailijat",
+        "mine": "Minulle määrätty",
+        "waiting": "Odotustilassa"
+      },
+      "folders": "Asiakastiedostot",
+      "info": {
+        "none": "Ei tietoja",
+        "title": "Tiketin tiedot"
+      },
+      "reopen": "Avaa tiketti uudelleen",
+      "searchPlaceholder": "Hae asiakas, lippu, sähköposti…",
+      "selectHint": "Valitse keskustelu vasemmalta.",
+      "tickets": "Liput",
+      "updated": "Tiketti päivitetty"
+    },
+    "agent": {
+      "brandName": "MOONYP-neuvoja",
+      "defaultName": "Neuvoja",
+      "join": "Liity",
+      "joined": "liittyi keskusteluun",
+      "joinedYou": "Liityit keskusteluun",
+      "notAssigned": "Ei nimettyä agenttia"
+    },
+    "agentTitle": "Asiakaspalvelun asiantuntija",
+    "archived": "Arkistot",
+    "assistant": "avustaja",
+    "backHome": "Takaisin etusivulle",
+    "banner": {
+      "bottom": "© 2000-{{year}} Moonyp SA · 16 boulevard des Italiens, 75009 Paris",
+      "top": "MOONYP — Turvallinen asiakaspalvelu"
+    },
+    "close": "Sulje",
+    "closed": "Keskustelu suljettu",
+    "closedNotice": "Keskustelu suljettu.",
+    "closeTicket": "Sulje keskustelu",
+    "compose": {
+      "placeholder": "Kirjoita viesti…"
+    },
+    "genericError": "Tapahtui virhe",
+    "guest": {
+      "country": "Asuinmaa",
+      "created": "Lippu #{{ticket}} luotu!",
+      "email": "Sähköposti*",
+      "errors": {
+        "fail": "Lähetys epäonnistui, yritä uudelleen.",
+        "required": "Nimi, sähköposti ja viesti vaaditaan."
+      },
+      "intro": "Täytä tämä lomake, niin MOONYPin neuvonantaja vastaa nopeasti. Saat lipun numeron.",
+      "message": "Viestisi *",
+      "name": "koko nimi*",
+      "phone": "Puhelin",
+      "privacy": "Tietojasi käsitellään luottamuksellisesti (GDPR).",
+      "subject": "Aihe",
+      "submit": "Avaa lippuni",
+      "subtitle": "Vierailijaapu",
+      "whatsapp": "WhatsApp"
+    },
+    "handoff": {
+      "no": "Ei kiitos",
+      "pending": "Pyyntöäsi käsitellään, neuvoja liittyy 1-2 minuutissa…",
+      "question": "Haluatko puhua neuvojan kanssa?",
+      "yes": "Kyllä, puhu neuvojalle"
+    },
+    "joinedNotice": "{{name}} liittyi keskusteluun.",
+    "loading": "Ladataan",
+    "loginRequired": {
+      "cta": "Kirjaudu",
+      "desc": "Sinun on kirjauduttava tukea varten.",
+      "title": "Kirjaudu keskustellaksesi"
+    },
+    "nav": "Tuki",
+    "notFound": "Sivua ei löydy",
+    "notFoundDesc": "Tätä sivua ei ole.",
+    "open": "Avata",
+    "pageDesc": "Keskustele tiimimme tai virtuaaliavustajamme Annan kanssa.",
+    "pageTitle": "Live-tuki",
+    "rt": {
+      "bold": "Lihavoitu",
+      "italic": "Kursivoitu",
+      "link": "Linkki",
+      "linkPrompt": "Anna URL (https://...)"
+    },
+    "sendError": "Lähetys epäonnistui",
+    "status": {
+      "agent": "Neuvoja verkossa",
+      "assigned": "Käynnissä",
+      "closed": "Suljettu",
+      "online": "Verkossa",
+      "open": "Avoin",
+      "waiting_agent": "Odottaa agenttia"
+    },
+    "system": "Järjestelmä",
+    "ticket": "Lippu",
+    "tickets": {
+      "back": "Takaisin",
+      "closed": "Suljetut",
+      "empty": "Ei vielä keskusteluja.",
+      "new": "Uusi keskustelu",
+      "one": "Keskustelu",
+      "open": "Avoimet",
+      "title": "Keskusteluni"
+    },
+    "today": "Tänään",
+    "typing": "kirjoittaa",
+    "welcome": {
+      "greeting": "Hei 👋 Olen Anna, MOONYP -avustajanne.",
+      "help": "Miten voin auttaa teitä tänään?"
+    },
+    "yesterday": "Eilen",
+    "you": "Sinä"
+  },
+  "client": {
+    "stages": {
+      "awaitCode": "Odotetaan järjestelmänvalvojan koodia",
+      "blockedDesc": "Maksettava maksu: {{fee}}. Saat koodin vahvistuksen jälkeen.",
+      "blockedTitle": "Siirto estetty {{stage}}%:ssa",
+      "codePlaceholder": "Vapautuskoodi",
+      "codeReceivedMsg": "Koodisi: {{code}} (maksu {{fee}})",
+      "codeReceivedTitle": "Vapautuskoodi {{stage}}%",
+      "enterCode": "Syötä koodi",
+      "invalidCode": "Virheellinen koodi",
+      "title": "Siirrot käynnissä",
+      "unlock": "Avaa lukitus",
+      "unlocked": "Vaihe avattu"
+    }
+  },
+  "common": {
+    "actions": "Toiminnot",
+    "all": "Kaikki",
+    "amount": "Summa",
+    "back": "Takaisin",
+    "backHome": "Takaisin etusivulle",
+    "cancel": "Peruuta",
+    "close": "Sulje",
+    "confirm": "Vahvista",
+    "continue": "Jatka",
+    "date": "Päivä",
+    "delete": "Poista",
+    "details": "Tiedot",
+    "download": "Lataa",
+    "edit": "Muokkaa",
+    "errorRetry": "Yritä uudelleen",
+    "from": "Lähettäjä",
+    "language": "Kieli",
+    "loadError": "Latausvirhe",
+    "loading": "Ladataan…",
+    "new": "Uusi",
+    "next": "Seuraava",
+    "no": "Ei",
+    "none": "Ei mitään",
+    "noResults": "Ei tuloksia",
+    "notFound": "Sivua ei löydy",
+    "notFoundDesc": "Etsimääsi sivua ei ole olemassa.",
+    "open": "Avaa",
+    "optional": "valinnainen",
+    "previous": "Edellinen",
+    "refresh": "Päivitä",
+    "required": "vaaditaan",
+    "save": "Tallenna",
+    "saving": "Tallennetaan…",
+    "search": "Hae",
+    "send": "Lähetä",
+    "sending": "Lähetetään…",
+    "sessionExpired": "Istunto vanheni",
+    "status": "Tila",
+    "submit": "Lähetä",
+    "to": "Vastaanottaja",
+    "updating": "Päivitetään…",
+    "upload": "Lähetä",
+    "view": "Näytä",
+    "viewAll": "Näytä kaikki",
+    "yes": "Kyllä"
+  },
+  "contact": {
+    "address": "103 avenue des Champs-Élysées",
+    "addressCity": "75008 Pariisi, Ranska",
+    "addressLabel": "Pääkonttori",
+    "back": "Takaisin",
+    "defaultEmailPlaceholder": "sinä@esimerkki.com",
+    "defaultNamePlaceholder": "John Smith",
+    "email": "Sähköposti",
+    "emailInvalid": "Virheellinen sähköpostiosoite",
+    "emailLabel": "Sähköposti",
+    "error": "Lähetys epäonnistui",
+    "formTitle": "Lähetä viesti",
+    "fullName": "Koko nimi",
+    "infoTitle": "Yhteystiedot",
+    "message": "Viesti",
+    "messagePlaceholder": "Kuvaile pyyntösi yksityiskohtaisesti…",
+    "messageTooShort": "Viesti on liian lyhyt (vähintään 10 merkkiä)",
+    "metaDesc": "Ota yhteyttä MOONYP -asiakaspalveluun, jos sinulla on kysyttävää tilistäsi, lainoistasi tai siirroistasi.",
+    "metaTitle": "Ota yhteyttä – MOONYP -asiakaspalveluun",
+    "nameRequired": "Nimi on pakollinen",
+    "phoneHours": "Ma-Pe · klo 8-20",
+    "phoneLabel": "Asiakaspalvelu",
+    "phoneTitle": "Asiakaspalvelu",
+    "secureNote": "Viestisi ovat salattuja ja vaatimustenmukaisuustiimimme käsittelee ne luottamuksellisesti.",
+    "send": "Lähetä viesti",
+    "sending": "Lähetetään…",
+    "subject": "Aihe",
+    "subjects": {
+      "account": "Kysymys tilistäni",
+      "appointment": "Ajanvarauspyyntö",
+      "complaint": "Valitus",
+      "loan": "Kysymys lainasta",
+      "other": "Muu",
+      "transfer": "Siirto-ongelma"
+    },
+    "subtitle": "Vastaamme 24 arkityötunnin kuluessa · luottamuksellisuus taattu.",
+    "success": "Viesti lähetetty · asiakaspalvelu vastaa 24 tunnin kuluessa",
+    "successQueued": "Viestisi on tallennettu. Tiimimme vastaa pian.",
+    "title": "Ota yhteyttä asiakaspalveluun"
+  },
+  "contactSection": {
+    "cta": "Ota yhteyttä",
+    "desc": "Tiimimme vastaa kysymyksiin rahoituksesta, asiakirjoista ja hakemuksen seurannasta.",
+    "eyebrow": "Yhteystiedot",
+    "title": "Keskustele neuvojan kanssa"
   },
   "contractDoc": {
     "address": "Osoite",
@@ -2414,5 +632,1854 @@
     "title": "Kulutusluottosopimus",
     "totalCost": "Luoton kokonaiskustannus",
     "version": "Versio"
+  },
+  "dashboard": {
+    "activeLoans": "Aktiiviset lainat",
+    "apply": "Hae nyt",
+    "applyCta": "Hae nyt",
+    "balance": "Käytettävissä oleva saldo",
+    "contactSupport": "Ota yhteyttä asiakaspalveluun",
+    "details": "Tiedot",
+    "disbursedRemaining": "Maksettu: {{disbursed}} · Jäljellä: {{remaining}}",
+    "firstLoanDesc": "Rahoita projektisi minuuteissa: auto, remontti, kassavirta tai mikä tahansa muu tarve.",
+    "firstLoanTitle": "Aloita ensimmäinen hakemuksesi",
+    "fundedOf": "{{amount}} rahoitetusta",
+    "fundedOutOf": "{{amount}} rahoitetusta",
+    "hideBalance": "Piilota saldo",
+    "loadError": "Latausvirhe",
+    "loading": "Ladataan…",
+    "loanDurationCreated": "{{months}} kuukautta · Pyydetty {{date}}",
+    "makeTransfer": "Tee siirto",
+    "metaTitle": "Oma hallintapaneeli — MOONYP",
+    "monthsSince": "{{months}} kuukautta · Pyydetty {{date}}",
+    "myDashboard": "Oma hallintapaneeli",
+    "myLoans": "Omat lainat",
+    "needHelp": "Tarvitsetko apua?",
+    "newLoan": "Uusi laina",
+    "newRequest": "Uusi pyyntö",
+    "newShort": "+ Uusi",
+    "noLoans": "Sinulla ei ole vielä lainaa",
+    "noRecentTransfers": "Ei siirtoja vielä",
+    "noTransfers": "Ei siirtoja",
+    "noTransfersYet": "Ei siirtoja vielä",
+    "recentActivity": "Viimeaikainen toiminta",
+    "sessionExpired": "Istunto vanhentui toimettomuuden vuoksi",
+    "showBalance": "Näytä saldo",
+    "startApplication": "Aloita hakemus",
+    "status": {
+      "en_traitement": "Käsittelyssä",
+      "envoye": "Lähetetty",
+      "rejete": "Hylätty"
+    },
+    "title": "Oma hallintapaneeli",
+    "totalAvailable": "Käytettävissä oleva kokonaissaldo",
+    "totalFunded": "Rahoitettu yhteensä",
+    "transfer": "Tee siirto",
+    "transferHistory": "Siirtohistoria",
+    "transfers": "Siirrot",
+    "transfersKpi": "Siirrot",
+    "viewAll": "Näytä kaikki",
+    "viewLoan": "Näytä tiedosto",
+    "welcome": "Hei",
+    "welcomeAnon": "Tervetuloa",
+    "welcomeNamed": "Tervetuloa, {{name}}",
+    "welcomeShort": "Tervetuloa",
+    "withdraw": "Nosta",
+    "withdrawnAmount": "{{amount}} nostettu"
+  },
+  "documents": {
+    "bankStatement": "Tiliotteet",
+    "identity": "Henkilöllisyystodistus",
+    "income": "Tulotositteet",
+    "other": "Muu asiakirja",
+    "proofAddress": "Osoitetodistus",
+    "rib": "Pankkitiedot (IBAN)"
+  },
+  "emails": {
+    "applicationAnalysis": {
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on siirtynyt luottoanalyysiin.",
+      "details": "Analyytikkomme arvioivat takaisinmaksukykyäsi, tulojesi johdonmukaisuutta ja haettua summaa. Tulos näkyy turvallisessa tilassasi heti, kun se on valmis.",
+      "subject": "Hakemus {{reference}} analyysissä"
+    },
+    "applicationReceived": {
+      "body": "Hei {{firstName}}, olemme vastaanottaneet hakemuksesi {{reference}}. Tiimimme käsittelee sitä ja tiedottaa jokaisesta vaiheesta.",
+      "subject": "Hakemuksesi {{reference}} on vastaanotettu"
+    },
+    "applicationVerification": {
+      "body": "Hei {{firstName}}, hakemustasi {{reference}} tarkistetaan tiimeissämme.",
+      "details": "Tarkistamme liitteidesi aitouden ja luettavuuden. Tässä vaiheessa sinun ei tarvitse tehdä mitään; ilmoitamme heti, jos asiakirjaa on täydennettävä.",
+      "subject": "Hakemus {{reference}} tarkistuksessa"
+    },
+    "approved": {
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on hyväksytty. Tarjous näkyy turvallisessa palvelussa.",
+      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "subject": "Hakemuksesi {{reference}} on hyväksytty"
+    },
+    "cancelled": {
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on peruutettu.",
+      "details": "Tästä hakemuksesta ei veloiteta mitään. Jos peruutus ei vastaa toivettasi, voit tehdä uuden hakemuksen turvallisessa tilassasi.",
+      "subject": "Hakemus {{reference}} peruutettu"
+    },
+    "common": {
+      "amount": "Rahoitettu määrä",
+      "autoMessage": "Automaattiviesti — älä vastaa suoraan.",
+      "codeTitle": "Kertakäyttöinen allekirjoituskoodi",
+      "duration": "Kesto",
+      "feeAmount": "Kyseinen summa",
+      "footerLegal": "Moonyp — vastuullista rahoitusta. Sähköposti koskee hakemustasi.",
+      "monthly": "Arvioitu erä",
+      "months": "kuukautta",
+      "needHelp": "Kysyttävää? Asiakaspalvelu vastaa turvallisessa tilassasi.",
+      "reasonTitle": "Tiimimme tarkennukset",
+      "reference": "Viite",
+      "scheduledDate": "Suunniteltu päivä",
+      "secureNotice": "Linkki on henkilökohtainen, salattu ja peruutettavissa. Älä jaa sitä.",
+      "status": "Hakemuksen tila",
+      "summary": "Hakemuksen yhteenveto",
+      "tagline": "Rahoituksesi, täysin läpinäkyvästi"
+    },
+    "contractSent": {
+      "body": "Hei {{firstName}}, sopimus {{reference}} on allekirjoitettavissa turvallisessa palvelussa.",
+      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "subject": "Sopimuksesi {{reference}} on valmis"
+    },
+    "contractSigned": {
+      "body": "Hei {{firstName}}, sopimuksesi {{reference}} on allekirjoitettu. Voit ladata sen turvallisesta tilastasi.",
+      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "subject": "Sopimus {{reference}} allekirjoitettu"
+    },
+    "cta": {
+      "contract": "Lue ja allekirjoita sopimus",
+      "documents": "Lataa asiakirjat",
+      "guarantee": "Valitse kattavuus",
+      "insurance": "Hallinnoi vakuutusta",
+      "payment": "Tee maksu",
+      "portal": "Katso hakemukseni",
+      "schedule": "Katso maksusuunnitelmani"
+    },
+    "disbursed": {
+      "body": "Hei {{firstName}}, hakemuksen {{reference}} varat on siirretty tilillesi.",
+      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "subject": "Varat maksettu — hakemus {{reference}}"
+    },
+    "disbursementPreparing": {
+      "body": "Hei {{firstName}}, hakemuksen {{reference}} maksatusta valmistellaan.",
+      "details": "Rahoitusosastomme tarkistaa pankkitietosi viimeisen kerran ennen tilisiirtoa. Saat vahvistuksen heti, kun varat on lähetetty.",
+      "subject": "Maksatus valmistelussa — hakemus {{reference}}"
+    },
+    "documentsMissing": {
+      "body": "Hei {{firstName}}, hakemuksesta {{reference}} puuttuu asiakirjoja. Lataa ne turvallisessa palvelussa. {{reason}}",
+      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "subject": "Puuttuvat asiakirjat — hakemus {{reference}}"
+    },
+    "guaranteeDeclined": {
+      "body": "Hei {{firstName}}, kirjasimme luopumisesi. Hakemuksesi {{reference}} suljetaan.",
+      "subject": "Hakemus {{reference}} peruttu"
+    },
+    "guaranteePayLater": {
+      "body": "Hei {{firstName}}, maksusi {{amount}} on ajoitettu {{date}}. Hakemus pysyy voimassa.",
+      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "subject": "Maksu ajoitettu {{reference}}"
+    },
+    "guaranteePaymentValidated": {
+      "body": "Hei {{firstName}}, maksusi on vahvistettu. Hakemuksesi käsittely jatkuu.",
+      "subject": "Maksu vahvistettu {{reference}}"
+    },
+    "guaranteePayNow": {
+      "body": "Hei {{firstName}}, kirjasimme valintasi maksaa {{amount}}. Maksuohjeet lähetetään tarkistuksen jälkeen.",
+      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "subject": "Maksun valinta {{reference}}"
+    },
+    "guaranteeReminder": {
+      "body": "Hei {{firstName}}, maksusi {{amount}} erääntyy {{date}}.",
+      "subject": "Maksumuistutus {{reference}}"
+    },
+    "guaranteeSent": {
+      "body": "Hei {{firstName}}, luottoriskin kattamismaksu on {{amount}}. Valitse vaihtoehtosi turvallisessa tilassa.",
+      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "subject": "Kattamismaksu — hakemus {{reference}}"
+    },
+    "guaranteeSigned": {
+      "body": "Hei {{firstName}}, hakemuksen {{reference}} luottoriskin kattavuus on vahvistettu.",
+      "details": "Tämän jälkeen hakemus siirtyy lainaturvavakuutukseen ja sitten maksatuksen valmisteluun. Jokainen vaihe näkyy reaaliajassa turvallisessa tilassasi.",
+      "subject": "Kattavuus vahvistettu — hakemus {{reference}}"
+    },
+    "infoRequested": {
+      "body": "Hei {{firstName}}, tarvitsemme lisätietoja hakemukseen {{reference}}. {{reason}}",
+      "subject": "Lisätiedot — hakemus {{reference}}"
+    },
+    "installmentReminder": {
+      "body": "Hei {{firstName}}, seuraava erä {{amount}} erääntyy {{date}}.",
+      "details": "Maksusuunnitelma ja maksaminen turvallisessa tilassasi.",
+      "subject": "Tuleva erä — hakemus {{reference}}"
+    },
+    "insuranceDeclined": {
+      "body": "Hei {{firstName}}, olemme kirjanneet luopumisesi lainaturvavakuutuksesta.",
+      "details": "Ilman vakuutusta hakemus voidaan arvioida uudelleen. Voit muuttaa valintaasi ennen varojen maksamista.",
+      "subject": "Vakuutus — luopuminen kirjattu · hakemus {{reference}}"
+    },
+    "insurancePayLater": {
+      "body": "Hei {{firstName}}, {{amount}} maksu on ajastettu {{date}}.",
+      "details": "Hakemuksesi pysyy varattuna valittuun päivään asti. Voit maksaa aiemmin; lähetämme muistutuksia ennen eräpäivää.",
+      "subject": "Vakuutus — maksu ajastettu · hakemus {{reference}}"
+    },
+    "insurancePaymentValidated": {
+      "body": "Hei {{firstName}}, vahvistamme vakuutusmaksun vastaanoton.",
+      "details": "Vakuutusturvaa otetaan käyttöön. Todistus ja vakuutusnumero näkyvät suojatussa palvelussa vahvistuksen jälkeen.",
+      "subject": "Vakuutus — maksu vahvistettu · hakemus {{reference}}"
+    },
+    "insurancePayNow": {
+      "body": "Hei {{firstName}}, valitsit maksaa vakuutusmaksun {{amount}} heti.",
+      "details": "Maksuohjeet (saaja, IBAN, BIC ja viite) löytyvät suojatusta palvelustasi. Maksu katsotaan vastaanotetuksi vasta tiimimme vahvistuksen jälkeen.",
+      "subject": "Vakuutus — välitön maksu · hakemus {{reference}}"
+    },
+    "insurancePending": {
+      "body": "Hei {{firstName}}, hakemuksesi edellyttää {{amount}} kuukausivakuutusta.",
+      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "subject": "Vakuutus {{reference}}"
+    },
+    "insuranceReminder": {
+      "body": "Hei {{firstName}}, {{amount}} maksu erääntyy {{date}}.",
+      "details": "Tämä automaattinen muistutus lähetetään ennen valitsemaasi päivää. Maksuohjeet löytyvät suojatusta palvelusta.",
+      "subject": "Muistutus — vakuutusmaksu · hakemus {{reference}}"
+    },
+    "insuranceValidated": {
+      "body": "Hei {{firstName}}, vakuutuksesi on vahvistettu.",
+      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "subject": "Vakuutus vahvistettu {{reference}}"
+    },
+    "late": {
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} erä on maksamatta.",
+      "details": "Pyydämme maksamaan erän mahdollisimman pian viivästyskulujen ja merkinnän välttämiseksi. Jos sinulla on vaikeuksia, ota yhteyttä: järjestelyä voidaan harkita.",
+      "subject": "Erä myöhässä — hakemus {{reference}}"
+    },
+    "offerAvailable": {
+      "body": "Hei {{firstName}}, rahoitustarjouksesi {{reference}} on saatavilla turvallisessa palvelussa.",
+      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "subject": "Tarjouksesi {{reference}} on saatavilla"
+    },
+    "rejected": {
+      "body": "Hei {{firstName}}, käsittelyn jälkeen hakemusta {{reference}} ei voitu hyväksyä. Syy: {{reason}}",
+      "subject": "Päätös hakemuksesta {{reference}}"
+    },
+    "repaid": {
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} on maksettu kokonaan. Kiitos luottamuksestasi.",
+      "details": "Todistus nollasaldosta ja koko maksuhistoria pysyvät turvallisessa tilassasi. Voit tehdä uuden hakemuksen milloin tahansa.",
+      "subject": "Hakemus {{reference}} maksettu kokonaan"
+    },
+    "repaying": {
+      "body": "Hei {{firstName}}, hakemuksesi {{reference}} siirtyy takaisinmaksuvaiheeseen.",
+      "details": "Yksityiskohtainen maksusuunnitelma (pääoma, korot, jäljellä oleva velka) on turvallisessa tilassasi. Jokainen vastaanotettu erä kirjataan sinne ja vahvistetaan sähköpostilla.",
+      "subject": "Takaisinmaksu käynnissä — hakemus {{reference}}"
+    },
+    "repaymentReceived": {
+      "body": "Hei {{firstName}}, olemme vastaanottaneet {{amount}} maksusi hakemukseen {{reference}}.",
+      "details": "Kyseinen erä on merkitty maksetuksi ja jäljellä oleva velka päivitetty turvalliseen tilaasi, jossa maksusuunnitelma on ladattavissa.",
+      "subject": "Maksu vastaanotettu — hakemus {{reference}}"
+    },
+    "signatureCode": {
+      "body": "Hei {{firstName}}, allekirjoituskoodisi on {{code}}. Se vanhenee 10 minuutissa.",
+      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "subject": "Allekirjoituskoodisi {{reference}}"
+    },
+    "signaturePending": {
+      "body": "Hei {{firstName}}, sopimuksesi {{reference}} odottaa sähköistä allekirjoitustasi.",
+      "details": "Ennen allekirjoitusta hakemus odottaa eikä varoja voi valmistella. Allekirjoitus tehdään verkossa kertakäyttöisellä koodilla alle kahdessa minuutissa.",
+      "subject": "Allekirjoitus odottaa — hakemus {{reference}}"
+    }
+  },
+  "finance": {
+    "address": {
+      "hideManual": "Piilota tiedot",
+      "hint": "Valitse ehdotus tai syötä osoite käsin.",
+      "manual": "Syötä käsin",
+      "placeholder": "Kirjoita osoitteesi (koko maailma)…"
+    },
+    "apply": {
+      "badMime": "Tiedostomuotoa ei tueta.",
+      "bankNotice": "Pankkitietosi salataan ja niitä käytetään vain lainan maksuun.",
+      "chooseFile": "Valitse tiedosto",
+      "consentMarketing": "Haluan tietoa MOONYP-tarjouksista.",
+      "consentPrivacy": "Hyväksyn tietosuojakäytännön ja tietojeni käsittelyn.",
+      "consentTerms": "Hyväksyn yleiset ehdot.",
+      "documentsIntro": "Lataa selkeät ja luettavat asiakirjat. Muodot: PDF, JPG tai PNG.",
+      "documentsMissing": "Yksi tai useampi pakollinen asiakirja puuttuu.",
+      "dti": "Velkaantumisaste",
+      "fileCount": "tiedostoa valittu",
+      "fileTooLarge": "Tiedosto on liian suuri.",
+      "finalNotice": "Lähettämällä hakemuksen vahvistat annettujen tietojen paikkansapitävyyden. Luotto-osastomme analysoi hakemuksesi. Saat sähköpostitse suojatun linkin, jonka kautta voit seurata käsittelyn etenemistä.",
+      "fixErrors": "Korjaa merkityt kentät.",
+      "holderHint": "On vastattava hakijan nimeä",
+      "maxSize": "Enimmäiskoko",
+      "metaDesc": "Täytä hakemus verkossa kuudessa turvallisessa vaiheessa.",
+      "metaTitle": "Lainahakemus — MOONYP",
+      "next": "Jatka",
+      "previous": "Takaisin",
+      "rateLimited": "Liian monta yritystä. Yritä muutaman minuutin kuluttua.",
+      "reviewFlag": "Tämä kohta tarkistetaan manuaalisesti",
+      "reviewTitle": "Kuukausieräsi",
+      "stepOf": "Vaihe {{current}} / {{total}}",
+      "steps": {
+        "documents": "Asiakirjat",
+        "employment": "Työtilanne",
+        "identity": "Henkilötiedot",
+        "payout": "Maksu",
+        "request": "Hakemus",
+        "review": "Yhteenveto"
+      },
+      "submit": "Lähetä hakemus",
+      "submitError": "Hakemusta ei voitu lähettää. Yritä uudelleen.",
+      "subtitle": "Kuusi vaihetta, muutama minuutti. Edistyminen tallennetaan tälle laitteelle.",
+      "takePhoto": "Ota kuva",
+      "title": "Lainahakemuksesi",
+      "uploading": "Asiakirjoja lähetetään ({{done}}/{{total}})"
+    },
+    "contract": {
+      "alreadySigned": "Tämä sopimus on jo allekirjoitettu.",
+      "backToFile": "Takaisin hakemukseen",
+      "code": "Allekirjoituskoodi",
+      "codeHint": "Kertakäyttökoodi lähetettiin hakemuksen sähköpostiosoitteeseen.",
+      "codeSent": "Koodi lähetetty",
+      "confirmSignature": "Vahvista allekirjoitus",
+      "consent": "Vahvistan lukeneeni sopimuksen ja suostun allekirjoittamaan sen sähköisesti.",
+      "document": "Sopimusasiakirja",
+      "events": {
+        "contract_created": "Sopimus luotu",
+        "contract_downloaded": "Sopimus ladattu",
+        "contract_sent": "Sopimus lähetetty",
+        "contract_viewed": "Sopimus katsottu",
+        "signature_completed": "Allekirjoitus valmis",
+        "signature_requested": "Allekirjoitusta pyydetty"
+      },
+      "fullName": "Allekirjoittajan koko nimi",
+      "hash": "Asiakirjan tiiviste",
+      "history": "Sopimuksen historia",
+      "important": "Säilytä kopio allekirjoitetusta sopimuksesta. Asiakaspalvelumme auttaa kysymyksissä.",
+      "legalNotice": "Tämä on kehittynyt sähköinen allekirjoitus todistusaineistoineen (kertakäyttökoodi, aikaleima, asiakirjan tiiviste). Se ei ole eIDAS-asetuksen mukainen hyväksytty allekirjoitus.",
+      "metaDesc": "Tarkastele ja allekirjoita rahoitussopimuksesi turvallisesti.",
+      "metaTitle": "Sopimuksesi — MOONYP",
+      "notAvailable": "Sopimusta ei ole vielä saatavilla.",
+      "offerSummary": "Tarjouksen yhteenveto",
+      "providerLabel": "Allekirjoitusmenetelmä",
+      "rate": "Vuosikorko",
+      "resendCode": "Lähetä koodi uudelleen",
+      "signed": "Sopimus allekirjoitettu",
+      "signError": "Allekirjoitus epäonnistui.",
+      "signTitle": "Allekirjoita sopimus",
+      "startError": "Allekirjoitusta ei voitu aloittaa.",
+      "startSignature": "Lähetä allekirjoituskoodi",
+      "state": "Tila",
+      "states": {
+        "cancelled": "Peruutettu",
+        "draft": "Luonnos",
+        "ready": "Valmis",
+        "sent": "Lähetetty",
+        "signed": "Allekirjoitettu",
+        "viewed": "Katsottu"
+      },
+      "version": "Versio"
+    },
+    "employment": {
+      "business_owner": "Yrittäjä",
+      "civil_servant": "Virkamies",
+      "employee": "Palkansaaja",
+      "other": "Muu",
+      "retired": "Eläkeläinen",
+      "self_employed": "Itsenäinen ammatinharjoittaja",
+      "student": "Opiskelija",
+      "unemployed": "Työtön"
+    },
+    "fields": {
+      "address": "Osoite",
+      "addressNoMatch": "Osoitetta ei löytynyt – syötä se manuaalisesti",
+      "addressPlaceholder": "Aloita katuosoitteen kirjoittaminen",
+      "bankHolder": "Tilinomistaja",
+      "bankName": "Pankki",
+      "bic": "BIC / SWIFT",
+      "birthDate": "Syntymäaika",
+      "charges": "Kuukausimenot",
+      "choose": "Valitse…",
+      "chooseCountry": "Valitse maa",
+      "city": "Kaupunki",
+      "country": "Maa",
+      "email": "Sähköposti",
+      "employer": "Työnantaja",
+      "employmentStatus": "Työtilanne",
+      "firstName": "Etunimi",
+      "household": "Talouden koko",
+      "iban": "IBAN",
+      "income": "Nettokuukausitulot",
+      "lastName": "Sukunimi",
+      "nationality": "Kansalaisuus",
+      "otherIncome": "Muut tulot",
+      "phone": "Puhelin",
+      "phoneCountry": "Suuntanumero",
+      "postalCode": "Postinumero",
+      "profession": "Ammatti",
+      "purpose": "Lainan käyttötarkoitus",
+      "searchCountry": "Hae maata",
+      "seniority": "Työsuhteen kesto (kk)"
+    },
+    "guarantee": {
+      "choiceSaved": "Valinta tallennettu",
+      "chosen": {
+        "decline": "Luovuit lainahakemuksestasi.",
+        "pay_later": "Valitsit maksaa myöhemmin.",
+        "pay_now": "Valitsit maksaa heti."
+      },
+      "confirmChoice": "Vahvista valintani",
+      "error": {
+        "dateRequired": "Valitse maksupäivä.",
+        "generic": "Toiminto ei ole mahdollinen."
+      },
+      "fee": "Luottoriskin kattamismaksu",
+      "instructions": "Maksuohjeet",
+      "noPaymentNotice": "Tämä valinta ei suorita maksua: maksu vahvistetaan vasta tiimimme tarkistuksen jälkeen.",
+      "options": {
+        "decline": "En, en maksa ja luovun hakemuksestani",
+        "pay_later": "Kyllä, maksan myöhemmin ja pidän hakemuksen voimassa",
+        "pay_now": "Kyllä, maksan ja saan lainani"
+      },
+      "optionsHint": {
+        "decline": "Hakemuksesi suljetaan.",
+        "pay_later": "Valitse maksupäivä, lähetämme muistutuksia.",
+        "pay_now": "Saat maksuohjeet."
+      },
+      "paidNotice": "Tiimimme on vahvistanut maksusi.",
+      "payment": {
+        "awaiting_payment": "Odottaa maksua",
+        "failed": "Epäonnistui",
+        "paid": "Maksettu",
+        "unpaid": "Maksamatta",
+        "waived": "Luovuttu"
+      },
+      "paymentStatus": "Maksun tila",
+      "pickDate": "Toivottu maksupäivä",
+      "question": "Haluatko maksaa kattamismaksun?",
+      "scheduledDate": "Suunniteltu maksupäivä",
+      "validationNotice": "Maksu katsotaan vastaanotetuksi vasta tiimimme vahvistuksen jälkeen."
+    },
+    "insurance": {
+      "choiceSaved": "Valinta tallennettu",
+      "chosen": {
+        "decline": "Luovuit vakuutuksesta.",
+        "pay_later": "Valitsit maksaa myöhemmin.",
+        "pay_now": "Valitsit maksaa heti."
+      },
+      "confirmChoice": "Vahvista valintani",
+      "dueDate": "Eräpäivä",
+      "error": {
+        "datePast": "Valittu päivä on jo mennyt.",
+        "dateRequired": "Valitse maksupäivä.",
+        "generic": "Toiminto ei ole mahdollinen."
+      },
+      "fee": "Vakuutuksen aloitusmaksu",
+      "instructions": "Maksuohjeet",
+      "noPaymentNotice": "Tämä valinta ei suorita maksua: se vahvistetaan vasta tiimimme tarkistuksen jälkeen.",
+      "options": {
+        "decline": "Ei, luovun vakuutuksesta",
+        "pay_later": "Kyllä, maksan myöhemmin",
+        "pay_now": "Kyllä, maksan nyt"
+      },
+      "optionsHint": {
+        "decline": "Hakemus käsitellään ilman vakuutusta.",
+        "pay_later": "Valitse päivä: lähetämme muistutuksia.",
+        "pay_now": "Saat maksuohjeet."
+      },
+      "paidNotice": "Vakuutusmaksusi on vahvistettu tiimimme toimesta.",
+      "payment": {
+        "awaiting_payment": "Odottaa maksua",
+        "failed": "Epäonnistui",
+        "not_required": "Ei maksua",
+        "paid": "Maksettu",
+        "pending": "Odottaa",
+        "unpaid": "Maksamatta",
+        "waived": "Luovuttu"
+      },
+      "paymentStatus": "Maksun tila",
+      "pickDate": "Toivottu maksupäivä",
+      "question": "Haluatko maksaa vakuutusmaksun?",
+      "scheduledDate": "Ajastettu maksupäivä",
+      "validationNotice": "Maksu katsotaan vastaanotetuksi vasta tiimimme vahvistuksen jälkeen."
+    },
+    "payment": {
+      "address": "Osoite",
+      "back": "Takaisin hakemukseen",
+      "bank": "Pankki",
+      "copied": "Kopioitu",
+      "copyReference": "Kopioi viite",
+      "created": "Maksu kirjattu",
+      "createdHint": "Maksu vahvistetaan, kun varat on tosiasiallisesti vastaanotettu.",
+      "due": "Maksettava summa",
+      "error": "Maksua ei voitu käynnistää.",
+      "feeStatus": {
+        "cancelled": "Peruutettu",
+        "late": "Myöhässä",
+        "not_required": "Ei vaadita",
+        "paid": "Maksettu",
+        "pending": "Odottaa"
+      },
+      "history": "Maksuhistoria",
+      "holder": "Tilinomistaja",
+      "instructions": "Maksuohjeet",
+      "kind": {
+        "bank_transfer": "Tilisiirto",
+        "card": "Kortti",
+        "crypto": "Krypto",
+        "other": "Muu",
+        "qr": "QR-koodi"
+      },
+      "metaDesc": "Maksa Moonyp-rahoitushakemuksesi kulut turvallisesti.",
+      "metaTitle": "Turvallinen maksu — MOONYP",
+      "methods": "Maksutavat",
+      "network": "Verkko",
+      "noDue": "Tällä hetkellä ei ole maksettavaa.",
+      "noMethods": "Maksutapoja ei ole tällä hetkellä saatavilla.",
+      "noPaymentYet": "Ei kirjattuja maksuja.",
+      "notConfigured": "Tätä palveluntarjoajaa ei ole määritetty.",
+      "notice": "Ilmoita aina viite tilisiirrossa, muuten maksua ei voida kohdistaa hakemukseesi.",
+      "pay": "Maksa",
+      "purpose": {
+        "application_fee": "Käsittelymaksu",
+        "guarantee_fee": "Takausmaksu",
+        "installment": "Lainaerä",
+        "insurance_fee": "Vakuutusmaksu",
+        "other": "Muu"
+      },
+      "redirecting": "Ohjataan palveluntarjoajalle…",
+      "reference": "Viite",
+      "status": {
+        "cancelled": "Peruutettu",
+        "failed": "Epäonnistui",
+        "pending": "Odottaa",
+        "processing": "Käsittelyssä",
+        "received": "Vastaanotettu"
+      },
+      "subtitle": "Hakemus",
+      "title": "Turvallinen maksu"
+    },
+    "portal": {
+      "acceptedOn": "Hyväksytty",
+      "apr": "Todellinen vuosikorko",
+      "beneficiary": "Saaja",
+      "contract": "Sopimus",
+      "disbursement": "Maksatus",
+      "doc": {
+        "approved": "Hyväksytty",
+        "pending": "Odottaa",
+        "rejected": "Hylätty",
+        "replacement_requested": "Vaatii täydennystä"
+      },
+      "documents": "Liitteet",
+      "download": "Lataa",
+      "downloadContract": "Lataa sopimus",
+      "downloadError": "Lataus ei ole käytettävissä",
+      "downloadNotice": "Latauslinkit vanhenevat kahdessa minuutissa ja ne kirjataan lokiin.",
+      "downloadSigned": "Lataa allekirjoitettu sopimus",
+      "dueDate": "Eräpäivä",
+      "fees": "Järjestelypalkkiot",
+      "guarantee": "Vakuus",
+      "guarantor": "Takaaja",
+      "help": "Tämä sivu päivittyy reaaliajassa. Luotto-osastomme ottaa sinuun yhteyttä sähköpostitse jokaisessa keskeisessä vaiheessa. Älä koskaan jaa tätä suojattua linkkiä ulkopuolisille.",
+      "installment": "Erä",
+      "insurance": "Luottovakuutus",
+      "insurance2": "Lainaturvavakuutus",
+      "interest": "Korkokustannukset yhteensä",
+      "invalidDesc": "Tämä suojattu linkki ei ole enää voimassa. Pyydä uusi tiimiltämme.",
+      "invalidTitle": "Linkki on virheellinen tai vanhentunut",
+      "kyc": {
+        "failed": "Vahvistus epäonnistui",
+        "manual_review": "Manuaalinen tarkistus",
+        "passed": "Henkilöllisyys vahvistettu",
+        "pending": "Odottaa vahvistusta",
+        "verifying": "Vahvistus käynnissä"
+      },
+      "kycNone": "Ei vielä kirjattuja tarkastuksia.",
+      "kycTitle": "Henkilöllisyyden varmennus",
+      "metaDesc": "Seuraa lainahakemustasi turvallisesti.",
+      "metaTitle": "Rahoitushakemuksesi — MOONYP",
+      "monthly": "Kuukausierä",
+      "noDocuments": "Asiakirjoja ei ole vielä vastaanotettu.",
+      "none": "Ei vielä saatavilla",
+      "offer": "Lainatarjous",
+      "paid": "Maksettu",
+      "paidOn": "Maksettu",
+      "policy": "Vakuutusnumero",
+      "premium": "Kuukausimaksu",
+      "product": "Rahoitustuote",
+      "progress": "Hakemuksen eteneminen",
+      "provider": "Vakuutusyhtiö",
+      "reference": "Hakemuksen viite",
+      "remaining": "Jäljellä oleva saldo",
+      "repayments": "Maksuaikataulu",
+      "requests": {
+        "answered": "Käsitelty",
+        "answeredAt": "Vastattu",
+        "desc": "Tiimimme tarvitsee lisätietoja hakemuksen käsittelyä varten.",
+        "error": "Lähetys epäonnistui",
+        "kindInformation": "Lisätieto",
+        "kindJustification": "Perustelu pyydetty",
+        "kindMissingDocument": "Puuttuva asiakirja",
+        "kindReplaceDocument": "Asiakirjan korvaaminen",
+        "none": "Ei avoimia pyyntöjä.",
+        "open": "Odottaa",
+        "placeholder": "Kirjoita vastauksesi…",
+        "respondLabel": "Vastauksesi",
+        "submit": "Lähetä vastaus",
+        "success": "Vastaus lähetetty",
+        "title": "Pyydetyt tiedot"
+      },
+      "secure": "Suojattu pääsy",
+      "sentOn": "Lähetetty",
+      "signedOn": "Allekirjoitettu",
+      "stages": {
+        "approved": "Hakemus hyväksytty",
+        "contract": "Sopimus",
+        "disbursement": "Maksatus",
+        "guarantee": "Vakuus",
+        "insurance": "Vakuutus",
+        "received": "Hakemus vastaanotettu",
+        "repayment": "Takaisinmaksu",
+        "study": "Hakemus käsittelyssä"
+      },
+      "status": "Tila",
+      "submittedOn": "Lähetetty",
+      "summary": "Yhteenveto",
+      "timeline": "Historia",
+      "totalCost": "Luoton kokonaiskustannukset",
+      "unpaid": "Tuleva",
+      "upload": {
+        "attach": "Liitä tiedosto",
+        "attached": "Liite: {{name}}",
+        "chooseType": "Asiakirjan tyyppi",
+        "desc": "Lisää puuttuva todistus tai korvaa hylätty asiakirja.",
+        "error": "Lähetys epäonnistui",
+        "limits": "PDF, JPEG tai PNG — enintään {{size}} Mt.",
+        "send": "Valitse tiedosto",
+        "success": "Asiakirja lähetetty",
+        "title": "Lataa asiakirja"
+      },
+      "validUntil": "Voimassa",
+      "viewContract": "Näytä sopimukseni"
+    },
+    "repayment": {
+      "status": {
+        "cancelled": "Peruutettu",
+        "late": "Myöhässä",
+        "paid": "Maksettu",
+        "partially_paid": "Osittain maksettu",
+        "upcoming": "Tuleva"
+      }
+    },
+    "schedule": {
+      "balance": "Jäljellä oleva pääoma",
+      "dueDate": "Eräpäivä",
+      "export": "Lataa CSV-muodossa",
+      "insurance": "Vakuutus",
+      "interest": "Korko",
+      "number": "Nro",
+      "payment": "Maksuerä",
+      "period": "Kausi",
+      "principal": "Pääoma",
+      "title": "Takaisinmaksusuunnitelma",
+      "total": "Yhteensä"
+    },
+    "sim": {
+      "amount": "Määrä",
+      "apr": "Todellinen vuosikorko",
+      "aprLabel": "Todellinen vuosikorko",
+      "balance": "Jäljellä oleva pääoma",
+      "borrowed": "Lainamäärä",
+      "capital": "Pääoma",
+      "disclaimer": "Tämä laskelma on suuntaa antava eikä ole luottotarjous. Lopulliset ehdot riippuvat hakemuksen käsittelystä.",
+      "duration": "Laina-aika",
+      "fees": "Kulut",
+      "hideSchedule": "Piilota aikataulu",
+      "instalment": "Kuukausierä",
+      "insurance": "Lainaturva",
+      "insuranceCost": "Vakuutuksen kustannus",
+      "insuranceHint": "Vapaaehtoinen turva, lisätään jokaiseen erään.",
+      "interest": "Arvioidut korot",
+      "interestShort": "Korot",
+      "legalNotice": "Lainan ottaminen on sitova päätös ja se on maksettava takaisin. Tarkista takaisinmaksukykysi ennen sitoutumista.",
+      "monthly": "Arvioitu kuukausierä",
+      "months": "kuukautta",
+      "monthsShort": "kk",
+      "perMonth": "/kk",
+      "product": "Lainatuote",
+      "range": "Välillä {{min}} ja {{max}}",
+      "rate": "Korko",
+      "rateFrom": "alk. {{rate}} %",
+      "showSchedule": "Näytä maksuaikataulu",
+      "totalCost": "Luoton kokonaiskustannus",
+      "totalRepaid": "Takaisin maksettava yhteensä"
+    },
+    "simPage": {
+      "badge": "Laskuri",
+      "cta": "Hae näillä ehdoilla",
+      "metaDesc": "Laske kuukausierä, korot ja kokonaiskustannus sekunneissa.",
+      "metaTitle": "Lainalaskuri — MOONYP",
+      "noProducts": "Lainatuotteita ei ole tällä hetkellä saatavilla.",
+      "seeProducts": "Katso ratkaisumme",
+      "subtitle": "Säädä määrää ja laina-aikaa ja näe kuukausierä heti.",
+      "title": "Laske rahoituksesi"
+    },
+    "solutions": {
+      "amountRange": "Määrä",
+      "badge": "Ratkaisumme",
+      "durationRange": "Laina-aika",
+      "metaDesc": "Kulutus-, auto-, asunto- ja yrityslainat selkein ehdoin.",
+      "metaTitle": "Rahoitusratkaisut — MOONYP",
+      "rateFrom": "Korko alkaen",
+      "simulate": "Laske",
+      "subtitle": "Valitse sopiva tuote ja laske se yhdellä klikkauksella.",
+      "title": "Rahoitus hankkeesi mukaan"
+    },
+    "status": {
+      "analysis": "Käsittelyssä",
+      "approved": "Hyväksytty",
+      "cancelled": "Peruutettu",
+      "contract_sent": "Sopimus lähetetty",
+      "contract_signed": "Sopimus allekirjoitettu",
+      "disbursed": "Maksettu",
+      "disbursement_preparing": "Maksua valmistellaan",
+      "documents_missing": "Asiakirjoja puuttuu",
+      "draft": "Luonnos",
+      "guarantee_sent": "Vakuus lähetetty",
+      "guarantee_signed": "Vakuus allekirjoitettu",
+      "info_requested": "Lisätietoja pyydetty",
+      "insurance_pending": "Vakuutus odottaa",
+      "insurance_validated": "Vakuutus vahvistettu",
+      "late": "Myöhässä",
+      "offer_available": "Tarjous saatavilla",
+      "received": "Hakemus vastaanotettu",
+      "rejected": "Hylätty",
+      "repaid": "Kokonaan maksettu",
+      "repaying": "Takaisinmaksu käynnissä",
+      "signature_pending": "Allekirjoitusta odotetaan",
+      "unknown": "Tuntematon tila",
+      "verification": "Tarkistuksessa"
+    },
+    "success": {
+      "linkNotice": "Säilytä tämä linkki: se antaa turvallisen pääsyn hakemukseesi.",
+      "openFile": "Avaa hakemukseni",
+      "reference": "Hakemuksen viite",
+      "step1": "Tietojen ja asiakirjojen tarkistus",
+      "step2": "Käsittely ja päätös, yleensä 48 työtunnin sisällä",
+      "step3": "Tarjous, sopimus ja maksu hyväksynnän jälkeen",
+      "subtitle": "Tiimimme käsittelee hakemustasi. Saat sähköpostin jokaisesta vaiheesta.",
+      "title": "Hakemuksesi on vastaanotettu"
+    },
+    "validation": {
+      "bank": {
+        "countryMismatch": "Ilmoitettu pankin sijaintimaa ei vastaa IBAN-tunnusta",
+        "crossBorder": "Tili sijaitsee asuinmaasi ulkopuolella",
+        "nonSepa": "Tili SEPA-alueen ulkopuolella"
+      },
+      "bic": {
+        "countryMismatch": "BIC-koodi ei vastaa IBAN-tilin maata",
+        "format": "Virheellinen BIC/SWIFT-koodi"
+      },
+      "holder": {
+        "mismatch": "Tilinhaltija poikkeaa hakijasta",
+        "partial": "Haltijan etunimi poikkeaa hakijasta",
+        "required": "Syötä tilinhaltijan nimi"
+      },
+      "iban": {
+        "charset": "Tämä IBAN sisältää virheellisiä merkkejä",
+        "checksum": "Tämä IBAN on virheellinen (tarkistussumma ei täsmää)",
+        "country": "Tämä maakoodi ei ole osa IBAN-rekisteriä",
+        "empty": "Syötä IBAN-tilinumero",
+        "length": "Tämä IBAN on väärän pituinen kyseiselle maalle",
+        "valid": "Kelvollinen IBAN — {{country}}"
+      },
+      "phoneIncomplete": "Puhelinnumero on puutteellinen",
+      "phoneValid": "Kelvollinen numero",
+      "required": "Tämä kenttä on pakollinen.",
+      "risk": {
+        "dtiAbove40": "Velkaantumisaste yli 40 %"
+      }
+    }
+  },
+  "footer": {
+    "aml": "AML / KYC",
+    "banking": "Pankkitoiminta",
+    "contact": "Yhteystiedot",
+    "contactForm": "Yhteydenottolomake",
+    "cookies": "Evästeet",
+    "disclaimer": "Luotto sitoo sinua ja se on maksettava takaisin. Tarkista takaisinmaksukykysi ennen hakemista. Jokainen tarjous edellyttää hyväksyntää ja henkilöllisyyden varmennusta.",
+    "finPriv": "Taloudellinen yksityisyys",
+    "legal": "Oikeudellinen",
+    "loanTerms": "Lainan ehdot",
+    "mentions": "Oikeudellinen huomautus",
+    "privacy": "Yksityisyys",
+    "regulated": "Säännelty ja GDPR-yhteensopiva",
+    "repayment": "Takaisinmaksu ja maksukyvyttömyys",
+    "rights": "Kaikki oikeudet pidätetään.",
+    "tagline": "Eurooppalainen luottoalusta. Nopeat päätökset, läpinäkyvät ehdot, pankkitason turvallisuus.",
+    "terms": "Ehdot"
+  },
+  "header": {
+    "admin": "Admin",
+    "contact": "Yhteystiedot",
+    "dashboard": "Hallintapaneeli",
+    "menu": "Valikko",
+    "myLoans": "Lainani",
+    "newLoan": "Hae lainaa",
+    "settings": "Asetukset",
+    "signIn": "Kirjaudu",
+    "signOut": "Kirjaudu ulos"
+  },
+  "kyc": {
+    "addDocument": "Lisää asiakirja",
+    "camera": {
+      "badFormat": "Tiedostomuotoa ei tueta",
+      "tooLarge": "Tiedostokoko ylittää {{size}} Mt"
+    },
+    "category": {
+      "address": {
+        "desc": "Enintään kolme kuukautta vanha",
+        "title": "Todistus asuinpaikasta"
+      },
+      "bank": {
+        "desc": "Tiliote, josta ilmenee IBAN-tilinumero",
+        "title": "Pankkiyhteystiedot"
+      },
+      "identity": {
+        "desc": "Passi, henkilökortti tai oleskelulupa",
+        "title": "Henkilöllisyystodistus"
+      },
+      "income": {
+        "desc": "Riippuu ammatillisesta tilanteestasi",
+        "title": "Tulotosite"
+      },
+      "selfie": {
+        "desc": "Nopea selfie asiakirjan tietojen vahvistamiseksi",
+        "title": "Kasvojentunnistus"
+      }
+    },
+    "chooseDocument": "Valitse asiakirja",
+    "docs": {
+      "bankStatement": "Tiliote (viimeiset 3 kuukautta)",
+      "benefits": "Etuustodistus",
+      "drivingLicence": "Ajokortti",
+      "electricity": "Sähkölasku",
+      "hosting": "Asumistodistus",
+      "kbis": "Kaupparekisteriote",
+      "nationalId": "Henkilökortti",
+      "passport": "Passi",
+      "payslip": "Palkkalaskelmat (viimeiset 3 kuukautta)",
+      "pension": "Eläketodistus",
+      "residencePermit": "Oleskelulupa",
+      "selfie": "Kasvojen varmennus",
+      "taxReturn": "Verotuspäätös",
+      "telecom": "Puhelin-/internetlasku",
+      "water": "Vesilasku"
+    },
+    "done": {
+      "desc": "Kaikki vaaditut asiakirjat on kuvattu. Voitte vielä tarkistaa tai vaihtaa asiakirjoja ennen hakemuksen lopullista lähettämistä.",
+      "title": "Tunnistautuminen valmis"
+    },
+    "finish": "Valmis",
+    "hint": {
+      "scan": "Aseta asiakirja tasaiselle alustalle kokonaan kehyksen sisään ilman heijastuksia.",
+      "scan_double": "Ota kuva molemmista puolista peräkkäin niin, että kaikki neljä kulmaa näkyvät.",
+      "selfie": "Katso suoraan kameraan ilman päähinettä tai aurinkolaseja.",
+      "upload": "Lataa tiedosto laitteeltasi tai skannaa asiakirja kameralla."
+    },
+    "intro": {
+      "camera": "Henkilöllisyystodistus skannataan laitteen kameralla hyvin valaistussa tilassa. Muut todisteet voit ladata tiedostoista tai skannata.",
+      "privacy": "Asiakirjasi on salattu, eikä niitä koskaan jaeta kolmansille osapuolille.",
+      "start": "Aloita todentaminen",
+      "title": "Henkilöllisyyden todentaminen",
+      "why": "Eurooppalainen sääntely edellyttää henkilöllisyyden todentamista ennen varojen maksamista. Prosessi kestää noin kolme minuuttia."
+    },
+    "liveness": {
+      "challenge": {
+        "blink": "Räpäytä silmiä hitaasti",
+        "open_mouth": "Avaa suu",
+        "smile": "Hymyile",
+        "turn_left": "Käännä päätä vasemmalle",
+        "turn_right": "Käännä päätä oikealle"
+      },
+      "denied": "Etukamera ei ole käytettävissä tai lupa evättiin.",
+      "engineError": "Kasvojen tarkistus ei käynnistynyt. Tarkista yhteys ja yritä uudelleen.",
+      "guidance": {
+        "bright": "Liian kirkasta — vältä vastavaloa.",
+        "dark": "Liian hämärää — siirry valoisampaan paikkaan.",
+        "flat": "Valokuvaa tai tulostettuja kasvoja ei hyväksytä.",
+        "multiple_faces": "Kuvassa saa näkyä vain yksi henkilö.",
+        "no_face": "Aseta kasvosi soikion sisään.",
+        "not_frontal": "Katso suoraan kameraan.",
+        "off_center": "Keskitä kasvosi soikioon.",
+        "ready": "Hyvä — pysy näin.",
+        "screen": "Näytöllä näkyviä kasvoja ei hyväksytä.",
+        "too_close": "Siirry hieman kauemmas.",
+        "too_far": "Siirry lähemmäs kameraa."
+      },
+      "loading": "Valmistellaan kasvojen tarkistusta…",
+      "notice": "Vain etukamera. Tässä vaiheessa ei voi ladata kuvaa eikä videota.",
+      "passed": "Elävyystarkistus hyväksytty",
+      "restart": "Aloita alusta",
+      "retry": "Yritä uudelleen",
+      "short": {
+        "blink": "Räpäytys",
+        "open_mouth": "Suu",
+        "smile": "Hymy",
+        "turn_left": "Vasen",
+        "turn_right": "Oikea"
+      },
+      "unsupported": "Tämä selain ei pääse etukameraan.",
+      "validate": "Jatka"
+    },
+    "nothingRequired": "Tässä vaiheessa ei vaadita asiakirjoja",
+    "retake": "Ota uusi kuva",
+    "scan": "Skannaa",
+    "scanner": {
+      "autoNotice": "Kuva otetaan automaattisesti — pysy paikallasi, kun kehys muuttuu vihreäksi.",
+      "captured": "Asiakirja tallennettu",
+      "check": {
+        "frame": "Rajaus",
+        "light": "Valaistus",
+        "sharpness": "Terävyys",
+        "stability": "Vakaus"
+      },
+      "denied": "Kamera ei ole käytettävissä tai lupa evättiin. Salli käyttö ja yritä uudelleen.",
+      "guidance": {
+        "blurry": "Epätarkka — pidä käsi vakaana ja anna tarkentua.",
+        "bright": "Liian kirkasta — vältä suoraa valoa.",
+        "dark": "Liian hämärää — hae parempi valo.",
+        "glare": "Heijastus havaittu — kallista asiakirjaa hieman.",
+        "no_document": "Aseta asiakirja kehyksen sisään.",
+        "off_center": "Keskitä asiakirja kehykseen.",
+        "ready": "Älä liiku — otetaan kuvaa.",
+        "screen": "Näytöltä otettua kuvaa ei hyväksytä.",
+        "skewed": "Pidä kamera suorassa asiakirjaan nähden.",
+        "too_close": "Siirry hieman kauemmas.",
+        "too_far": "Siirry lähemmäs asiakirjaa.",
+        "unstable": "Pidä laite paikallaan."
+      },
+      "rescan": "Skannaa uudelleen",
+      "retry": "Yritä uudelleen",
+      "torch": "Valo",
+      "unsupported": "Tämä selain ei pääse kameraan. Avaa sivu puhelimella.",
+      "validate": "Käytä tätä skannausta"
+    },
+    "side": {
+      "back": "Taustapuoli",
+      "front": "Etupuoli",
+      "single": "Asiakirja"
+    },
+    "source": {
+      "badFormat": "Tätä tiedostomuotoa ei hyväksytä.",
+      "chooseMethod": "Miten haluat toimittaa tämän asiakirjan?",
+      "formats": "PDF, JPEG tai PNG — enintään {{size}} Mt.",
+      "import": "Lataa tiedosto",
+      "importDesc": "Valitse laitteellasi jo oleva PDF tai valokuva.",
+      "scan": "Skannaa kameralla",
+      "scanDesc": "Aseta asiakirja tasaiselle alustalle: kuva otetaan itsestään, kun teksti erottuu.",
+      "scanHint": "Aseta asiakirja tasolle, kaikki neljä kulmaa kehyksen sisään, ilman varjoja.",
+      "tooLarge": "Tiedosto on yli {{size}} Mt."
+    },
+    "startLiveness": "Aloita tarkistus",
+    "status": {
+      "capturing": "Keskeneräinen",
+      "failed": "Hylätty",
+      "in_progress": "Käsittelyssä",
+      "manual_review": "Käsittelyssä",
+      "passed": "Toimitettu",
+      "retry": "Yritä uudelleen",
+      "todo": "Tekemättä",
+      "verifying": "Tarkistetaan"
+    },
+    "stepOf": "Vaihe {{current}} / {{total}}",
+    "storageNotice": "Asiakirjasi on salattu ja tallennettu suojattuun tilaan. Vain sääntöjenmukaisuudesta vastaavalla tiimillämme on pääsy niihin."
+  },
+  "landing": {
+    "badge": "Päätös alle 24 tunnissa",
+    "ctaPrimary": "Hae lainaa",
+    "ctaSecondary": "Simuloi lainani",
+    "faq": {
+      "a1": "Ei. Teet hakemuksen ja seuraat sitä sähköpostitse lähetetyn turvallisen linkin kautta.",
+      "a2": "Vakiopaketissamme ei ole piilokuluja. Päivittäiset toiminnot ovat ilmaisia.",
+      "a3": "Talletukset on taattu 100 000 euroon asti talletussuojarahaston toimesta.",
+      "a4": "Tiimimme on tavoitettavissa 24/7 suojatun chatin, sähköpostin tai puhelimen kautta.",
+      "q1": "Pitääkö minun luoda tili?",
+      "q2": "Mitkä ovat maksut?",
+      "q3": "Ovatko varani suojattuja?",
+      "q4": "Miten otan yhteyttä tukeen?",
+      "title": "Usein kysytyt kysymykset"
+    },
+    "finalCta": {
+      "button": "Aloita hakemus",
+      "desc": "Tee hakemus muutamassa minuutissa – ei tiliä, ei paperitöitä.",
+      "title": "Oletko valmis toteuttamaan projektisi?"
+    },
+    "footer": {
+      "legal": "Laina sitoo sinua ja se on maksettava takaisin. Tarkista takaisinmaksukykysi ennen sitoutumista.",
+      "rights": "Kaikki oikeudet pidätetään."
+    },
+    "heroDesc": "MOONYP on osa johtavaa eurooppalaisten pankkien sukupolvea, joka tarjoaa nopeita, läpinäkyviä ja turvallisia henkilökohtaisia lainoja.",
+    "heroTitleA": "Rahoita projektisi",
+    "heroTitleB": "luottavaisin mielin.",
+    "how": {
+      "s1d": "Valitse sinulle sopiva summa ja laina-aika. Laskemme heti arvioidun kuukausimaksusi.",
+      "s1t": "Simuloi lainasi",
+      "s2d": "Täytä lomake 5 minuutissa ja lataa liiteasiakirjasi (henkilöllisyystodistus, osoitetodistus, palkkalaskelmat).",
+      "s2t": "Täytä hakemuksesi",
+      "s3d": "Kun tiimimme on hyväksynyt sen, allekirjoita sopimuksesi sähköisesti ja turvallisesti.",
+      "s3t": "Allekirjoita sopimuksesi",
+      "s4d": "Kun lakisääteinen määräaika on kulunut, varat ovat käytettävissä MOONYP -lompakossasi ja valmiina nostettavaksi.",
+      "s4t": "Vastaanota varasi",
+      "title": "Miten se toimii?"
+    },
+    "kpis": {
+      "assets": "Hallinnoidut varat",
+      "clients": "Aktiiviset asiakkaat",
+      "countries": "Katetut maat",
+      "uptime": "Käyttöaika"
+    },
+    "metaDesc": "Rahoita projektisi luottavaisin mielin. Nopeat henkilökohtaiset lainat 1 000 eurosta 50 000 euroon. Päätös 24 tunnissa, varat 72 tunnissa.",
+    "metaTitle": "MOONYP – Välittömät verkkolainat",
+    "mobile": {
+      "b1": "Reaaliaikainen tapahtumaseuranta",
+      "b2": "Välittömät kansainväliset siirrot",
+      "b3": "Face ID & sormenjälkibiometriikka",
+      "desc": "Seuraa hakemustasi, lataa asiakirjat ja allekirjoita sopimus puhelimella.",
+      "eyebrow": "Mobiilisovellus",
+      "title": "Koko pankkisi kämmenelläsi"
+    },
+    "partners": {
+      "desc": "Teemme yhteistyötä Euroopan tärkeimpien rahoituslaitosten kanssa taataksemme nopeat ja turvalliset siirrot.",
+      "eyebrow": "Kumppanipankkimme",
+      "title": "Luotettava pankkiverkosto"
+    },
+    "security": {
+      "desc": "Järjestelmämme täyttävät tiukimmat eurooppalaiset pankkistandardit.",
+      "eyebrow": "Turvallisuus ja vaatimustenmukaisuus",
+      "f1d": "Tietosi on suojattu sotilastason salauksella.",
+      "f1t": "AES-256-salaus",
+      "f2d": "Eurooppalaisia säännöksiä noudatetaan tiukasti.",
+      "f2t": "PSD2- ja GDPR-yhteensopiva",
+      "f3d": "Kaksivaiheinen vahvistus jokaiselle arkaluonteiselle toimenpiteelle.",
+      "f3t": "Vahva todennus",
+      "f4d": "Omistetut neuvonantajat saatavilla kaikkina aikoina.",
+      "f4t": "24/7 tuki",
+      "title": "Huippuluokan pankkiturva"
+    },
+    "slides": {
+      "s1d": "Hakemus muutamassa minuutissa, ilman tiliä ja papereita.",
+      "s1t": "Pankkipalvelut suunniteltu sinua varten",
+      "s2d": "Selkeä hallintapaneeli, analytiikka ja älykkäät hälytykset.",
+      "s2t": "Hallitse talouttasi reaaliaikaisesti",
+      "s3d": "Turvallinen mobiilisovellus saatavilla 24/7.",
+      "s3t": "Pankkisi taskussasi",
+      "s4d": "Päästä päähän -salaus ja vahva todennus.",
+      "s4t": "Pankkitason turvallisuus"
+    },
+    "testi": {
+      "eyebrow": "Suositukset",
+      "t1n": "Marie Dubois",
+      "t1q": "Sujuva ja ammattimainen pankkikokemus. Tuki on erinomaista.",
+      "t1r": "Talousjohtaja",
+      "t2n": "Jean Martin",
+      "t2q": "Kansainväliset siirrot ovat nopeita ja turvallisuus moitteetonta.",
+      "t2r": "Yrittäjä",
+      "t3n": "Sophie Laurent",
+      "t3q": "Vihdoinkin digitaalinen pankki, joka yhdistää yksinkertaisuuden ja institutionaalisen vakavuuden.",
+      "t3r": "Lakimies",
+      "title": "He luottavat meihin"
+    },
+    "trust1": "Salattu data",
+    "trust2": "100 % turvallinen",
+    "trust3": "Ei piilokuluja",
+    "values": {
+      "nofees": {
+        "desc": "Mainostettu korko on sovellettu korko. Ei yllätyksiä kuukausimaksuissasi.",
+        "title": "Ei piilokuluja"
+      },
+      "response": {
+        "desc": "Asiantuntijatiimimme tarkistaa hakemuksesi nopeasti. Ei enää loputtomia viikkoja odottelua.",
+        "title": "Vastaus 24 tunnin kuluessa"
+      },
+      "secure": {
+        "desc": "Tietosi on salattu päästä päähän. Noudatamme tiukimpia pankkistandardeja.",
+        "title": "100 % turvallinen"
+      }
+    }
+  },
+  "legal": {
+    "amlKyc": {
+      "sections": [
+        {
+          "h": "Sitoutuminen",
+          "p": "Nollatoleranssi rahanpesua ja terrorismin rahoitusta vastaan."
+        },
+        {
+          "h": "Asiakkaan tunteminen",
+          "p": "Henkilöllisyyden ja varojen alkuperän tarkistus."
+        },
+        {
+          "h": "Tehostettu",
+          "p": "PEP, korkean riskin maat."
+        },
+        {
+          "h": "Pakotteet",
+          "p": "Reaaliaikainen tarkistus EU, YK, OFAC, UK -listoja vastaan."
+        },
+        {
+          "h": "Ilmoitukset",
+          "p": "Toimivaltaiselle FIU:lle; tipping-off kielletty."
+        },
+        {
+          "h": "Koulutus",
+          "p": "Vuosittainen koulutus; riippumaton MLRO."
+        }
+      ],
+      "title": "AML / KYC -käytäntö"
+    },
+    "badge": "Lakitiedot",
+    "cookies": {
+      "sections": [
+        {
+          "h": "Mitä käytämme",
+          "list": [
+            "<strong>Välttämättömät</strong>",
+            "<strong>Toiminnalliset</strong>",
+            "<strong>Tietoturva</strong>",
+            "<strong>Analytiikka</strong> — vain suostumuksella."
+          ]
+        },
+        {
+          "h": "Hallinta",
+          "p": "Voitte poistaa evästeet selaimesta."
+        }
+      ],
+      "title": "Evästekäytäntö"
+    },
+    "finPriv": {
+      "sections": [
+        {
+          "h": "Suojaus",
+          "p": "TLS 1.3, AES-256, HSM, asiakasvarojen erottaminen."
+        },
+        {
+          "h": "Tunnistautuminen",
+          "p": "SCA PSD2: salasana + laite + OTP."
+        },
+        {
+          "h": "Petostorjunta",
+          "p": "Anomaliantunnistus 24/7."
+        },
+        {
+          "h": "Salassapito",
+          "p": "Pankkisalaisuus."
+        },
+        {
+          "h": "Roolinne",
+          "p": "Pitäkää tunnukset salassa, rekisteröikää luotetut laitteet."
+        }
+      ],
+      "title": "Taloudellinen yksityisyys ja turvallisuus"
+    },
+    "home": "Etusivu",
+    "lastUpdated": "Viimeksi päivitetty",
+    "loanTerms": {
+      "sections": [
+        {
+          "h": "1. Ehdot",
+          "p": "Vahvistettu henkilöllisyys ja vakaat tulot."
+        },
+        {
+          "h": "2. Summat ja kesto",
+          "p": "1 000 EUR – 500 000 EUR, 12–120 kuukautta."
+        },
+        {
+          "h": "3. Korko / TKK",
+          "p": "Kiinteä korko tarjouksessa."
+        },
+        {
+          "h": "4. Maksu",
+          "p": "Allekirjoituksen ja tarkistuksen jälkeen."
+        },
+        {
+          "h": "5. Takaisinmaksu",
+          "p": "Kuukausittainen suoraveloitus."
+        },
+        {
+          "h": "6. Maksuhäiriö",
+          "p": "Korot, palkkiot ja mahdollinen erääntyminen."
+        },
+        {
+          "h": "7. Peruutusoikeus",
+          "p": "14 päivää allekirjoituksesta."
+        }
+      ],
+      "subtitle": "Laina sitouttaa; tarkistakaa takaisinmaksukykynne.",
+      "title": "Lainaehdot"
+    },
+    "mentions": {
+      "sections": [
+        {
+          "h": "Julkaisija",
+          "p": "MOONYP — SAS, pääoma 1 000 000 EUR — kotipaikka: 1 Centenary Square, Birmingham, Yhdistynyt kuningaskunta."
+        },
+        {
+          "h": "Vastaava julkaisija",
+          "p": "Compliance MOONYP."
+        },
+        {
+          "h": "Isännöinti",
+          "p": "Cloudflare Workers — San Francisco, USA."
+        },
+        {
+          "h": "Yhteys",
+          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
+        },
+        {
+          "h": "Immateriaalioikeudet",
+          "p": "Tavaramerkit ja sisältö kuuluvat MOONYP:ille."
+        }
+      ],
+      "title": "Lakitiedot"
+    },
+    "privacy": {
+      "sections": [
+        {
+          "h": "1. Kerättävät tiedot",
+          "p": "Henkilöllisyys, yhteystiedot, taloudelliset, tekniset ja käyttäytymistiedot."
+        },
+        {
+          "h": "2. Tarkoitukset",
+          "p": "Tilin hoito, lainan arviointi, petosten ja rahanpesun esto."
+        },
+        {
+          "h": "3. Oikeusperuste (GDPR)",
+          "p": "Sopimus, oikeutettu etu, lakisääteinen velvoite, suostumus."
+        },
+        {
+          "h": "4. Jakaminen",
+          "p": "Vain hyväksytyille käsittelijöille ja viranomaisille."
+        },
+        {
+          "h": "5. Säilytys",
+          "p": "Tilin tiedot: suhde + 10 vuotta. Tietoturvalokit: 24 kk."
+        },
+        {
+          "h": "6. Oikeutenne",
+          "p": "Tutustuminen, oikaisu, poisto, rajoitus, siirrettävyys, vastustaminen."
+        },
+        {
+          "h": "7. Tietoturva",
+          "p": "Salaus, fingerprint, anomaliantunnistus, MFA, 24/7-vastaus."
+        }
+      ],
+      "subtitle": "Yksityisyytenne on osa pankin luottamustamme.",
+      "title": "Tietosuojakäytäntö"
+    },
+    "repayment": {
+      "sections": [
+        {
+          "h": "Aikataulu",
+          "p": "Kuukausittaiset erät sovittuna päivänä."
+        },
+        {
+          "h": "Ennenaikainen",
+          "p": "Aina sallittu."
+        },
+        {
+          "h": "Viivästys",
+          "list": [
+            "Päivät 1–7: muistutus.",
+            "Päivät 8–30: palkkiot + viivästyskorko.",
+            "Päivästä 31: virallinen vaatimus."
+          ]
+        },
+        {
+          "h": "Periminen",
+          "p": "Ensisijaisesti sovinnollisesti."
+        },
+        {
+          "h": "Vaikeudet",
+          "p": "Ottakaa yhteyttä; lykkäys mahdollinen."
+        }
+      ],
+      "title": "Takaisinmaksu- ja häiriökäytäntö"
+    },
+    "terms": {
+      "sections": [
+        {
+          "h": "1. Ehdot",
+          "p": "Vähintään 18, asukas hyväksytyssä maassa."
+        },
+        {
+          "h": "2. Tili",
+          "p": "Totuudenmukaiset tiedot ja luottamukselliset tunnukset."
+        },
+        {
+          "h": "3. Hyväksyttävä käyttö",
+          "p": "Ei petoksia, rahanpesua, terrorismin rahoitusta."
+        },
+        {
+          "h": "4. Maksut",
+          "p": "Näytetään ennen jokaista toimea; muutokset 30 päivän etukäteen."
+        },
+        {
+          "h": "5. Vastuu",
+          "p": "Suorat vahingot törkeästä huolimattomuudesta."
+        },
+        {
+          "h": "6. Keskeytys",
+          "p": "Välitön keskeytys petosepäilyssä."
+        },
+        {
+          "h": "7. Sovellettava laki",
+          "p": "Ranskan laki kuluttajansuojan rajoissa."
+        }
+      ],
+      "subtitle": "Käyttämällä MOONYP -palvelua hyväksytte nämä ehdot.",
+      "title": "Käyttöehdot"
+    }
+  },
+  "livechat": {
+    "close": "Sulje",
+    "faq": {
+      "contact": "Tiimiimme saa yhteyden numerosta +39 350 036 6867 tai Yhteystiedot-sivun kautta.",
+      "default": "MOONYP -neuvoja ottaa sinuun yhteyttä pian. Voit ottaa meihin yhteyttä myös Yhteystiedot-sivun kautta.",
+      "loan": "Hakeaksesi lainaa, siirry \"Uusi laina\" -osioon hallintapaneelissasi. Päätös 24 tunnin sisällä, varat 72 tunnin sisällä.",
+      "password": "Voit nollata salasanasi kirjautumissivulta käyttämällä \"Unohtuiko salasana?\".",
+      "thanks": "Eipä kestä! Voit kysyä mitä tahansa muuta.",
+      "transfer": "Siirtosi on lueteltu hallintapaneelisi \"Siirrot\"-osiossa."
+    },
+    "greeting": "Hei 👋! Miten voin auttaa sinua tänään?",
+    "online": "Paikalla",
+    "open": "Avaa keskustelu",
+    "placeholder": "Kirjoita viestisi…",
+    "title": "MOONYP neuvonantaja"
+  },
+  "loanDetail": {
+    "addedOn": "Lisätty {{date}}",
+    "alreadyWithdrawn": "Jo nostettu: {{withdrawn}} / {{total}}",
+    "amount": "Summa",
+    "availableBalance": "Käytettävissä oleva saldo",
+    "back": "Takaisin lainoihini",
+    "contractDownloaded": "Sopimus ladattu",
+    "contractGenerating": "Luodaan sopimuksen PDF-tiedostoa…",
+    "contractTitle": "Sopimus",
+    "details": "Tiedot",
+    "documentsTitle": "Toimitetut asiakirjat",
+    "downloadContract": "Lataa sopimus",
+    "downloadImpossible": "Lataus ei saatavilla",
+    "duration": "Laina-aika",
+    "durationMonths": "{{count}} kuukautta",
+    "fileNumber": "Tiedosto #{{id}}",
+    "fileTooHeavy": "Tiedosto liian suuri (enintään 10 Mt)",
+    "generationImpossible": "Luominen epäonnistui: {{message}}",
+    "historyTitle": "Toimintahistoria",
+    "loading": "Ladataan…",
+    "loanDescription": {
+      "accepte": "Hakemuksesi on hyväksytty",
+      "contrat_envoye": "Sopimus on lähetetty allekirjoitettavaksi",
+      "contrat_signe": "Allekirjoitettu sopimus vastaanotettu, julkaisu valmistelussa",
+      "en_attente": "Hakemustasi käsitellään",
+      "en_traitement": "Varojen saatavuus 72 tunnin kuluessa",
+      "fonds_disponibles": "Varasi ovat käytettävissä",
+      "refuse": "Hakemus epäonnistui"
+    },
+    "makeTransfer": "Tee siirto",
+    "metaTitle": "Lainatiedot – MOONYP",
+    "monthlyIncome": "Kuukausitulot",
+    "monthlyPayment": "Arvioitu kuukausimaksu",
+    "noAction": "Ei toimintoja vielä.",
+    "notFound": "Lainaa ei löydy",
+    "purpose": "Tarkoitus",
+    "reason": "Syy",
+    "refusedDesc": "Tiedostosi tarkistamisen jälkeen emme valitettavasti voi hyväksyä tätä rahoituspyyntöä.",
+    "refusedTitle": "Hakemus hylätty",
+    "requestRefused": "Hakemus hylätty",
+    "requestSubmitted": "Hakemus lähetetty",
+    "sendSignedContract": "Lähetä allekirjoitettu sopimus",
+    "sessionExpired": "Istunto vanhentunut. Kirjaudu sisään uudelleen.",
+    "signedContractReceived": "Allekirjoitettu sopimus vastaanotettu",
+    "signedReceivedMessage": "{{name}} allekirjoitti sopimuksen (hakemus {{id}})",
+    "signedReceivedTitle": "Allekirjoitettu sopimus vastaanotettu",
+    "signedSent": "Allekirjoitettu sopimus lähetetty!",
+    "signInstruction": "Allekirjoita sopimus ja lähetä se alle validointia varten.",
+    "steps": {
+      "accepte": "Hyväksytty",
+      "contrat_envoye": "Sopimus lähetetty",
+      "contrat_signe": "Sopimus allekirjoitettu",
+      "en_attente": "Hakemus lähetetty",
+      "en_traitement": "Käsittelyssä",
+      "fonds_disponibles": "Varojen saatavuus"
+    },
+    "summaryTitle": "Hakemuksen yhteenveto",
+    "title": "Lainatiedot",
+    "unknownError": "Tuntematon virhe",
+    "updateError": "Päivitysvirhe",
+    "uploadFailed": "Lähetys epäonnistui",
+    "withdraw": "Nosta"
+  },
+  "loanForm": {
+    "address": "Täydellinen postiosoite",
+    "addressHint": "Valitse ehdotus tai kirjoita koko osoitteesi manuaalisesti.",
+    "addressPlaceholder": "Aloita osoitteesi syöttäminen…",
+    "addressRequired": "Anna täydellinen postiosoitteesi",
+    "adminNotifMsg": "{{name}} pyytää {{amount}} € {{months}} kuukauden ajalle",
+    "adminNotifTitle": "Uusi lainapyyntö",
+    "amount": "Pyydetty summa (€)",
+    "amountMax": "Enintään 100 000 €",
+    "amountMin": "Vähintään 500 €",
+    "back": "Takaisin",
+    "createError": "Virhe pyynnön luomisessa",
+    "doc1": "Voimassa oleva henkilöllisyystodistus tai ajokortti (molemmin puolin) — tai passi (vain etupuoli)",
+    "doc2": "Tuore osoitetodistus",
+    "doc3": "Kolme viimeisintä palkkalaskelmaa tai tulotodistus",
+    "doc4": "Viimeisin tiliote tai IBAN hakijan nimissä",
+    "docsRequiredExact": "Sinun on ladattava täsmälleen {{count}} asiakirjaa lähettääksesi pyyntösi.",
+    "documents": "Vaaditut asiakirjat (enintään 5, 5 Mt kutakin)",
+    "duration": "Kesto (kuukausia)",
+    "email": "Sähköposti",
+    "fileTooLarge": "{{name}} ylittää 5 Mt",
+    "fullName": "Koko nimi",
+    "loading": "Ladataan…",
+    "monthlyIncome": "Nettokuukausitulot (€)",
+    "newRequestDesc": "Lähetä lainapyyntösi",
+    "newRequestShort": "Uusi pyyntö",
+    "purpose": "Lainatarkoitus (valinnainen)",
+    "purposePlaceholder": "Remontti, auto, henkilökohtainen projekti…",
+    "requiredDocs": "Tarkistusta varten vaadittavat asiakirjat",
+    "requiredDocsHint": "Lataa luettavat PDF-, JPG- tai PNG-tiedostot nopeuttaaksesi hyväksyntää.",
+    "submit": "Lähetä hakemus",
+    "submitting": "Lähetetään…",
+    "subtitle": "Täytä lomake ja liitä asiakirjasi.",
+    "success": "Hakemus lähetetty!",
+    "successToast": "Pyyntösi lähetettiin onnistuneesti",
+    "title": "Uusi lainahakemus",
+    "uploadFailed": "Lataus epäonnistui: {{name}}",
+    "uploadHint": "Napsauta lisätäksesi (PDF, JPG, PNG)",
+    "uploadHintExact": "Lataa täsmälleen {{count}} asiakirjaa (PDF, JPG, PNG – enintään 5 Mt kutakin)"
+  },
+  "mobileHome": {
+    "cta": "Aloita",
+    "description": "Hallitse lainojasi, siirtojasi ja tilejäsi turvallisesti, missä tahansa oletkin.",
+    "feature1": "Turvallinen",
+    "feature2": "Päästä päähän -salaus",
+    "feature3": "Premium-kokemus",
+    "subtitle": "Pankkisi, taskussasi.",
+    "tagline": "Eurooppalainen pankkiturvallisuus",
+    "title": "Tervetuloa MOONYP -palveluun"
+  },
+  "nav": {
+    "about": "Tietoa meistä",
+    "apply": "Hae lainaa",
+    "contact": "Yhteystiedot",
+    "home": "Etusivu",
+    "language": "Kieli",
+    "menu": "Valikko",
+    "primary": "Päänavigointi",
+    "request": "Pyyntö",
+    "simulation": "Laskuri",
+    "solutions": "Ratkaisut",
+    "support": "Tuki",
+    "transfers": "Siirrot"
+  },
+  "notif": {
+    "adminCodes": {
+      "codeMsg": "Koodisi: {{code}} (maksu {{fee}})",
+      "codeTitle": "Avauskoodi {{p}}%",
+      "manualCodeMsg": "Avauskoodisi on: {{code}}",
+      "manualCodeTitle": "Avauskoodi {{p}}%",
+      "rejectedMsg": "Lataa kelvollinen kuitti.",
+      "rejectedTitle": "Kuitti hylätty"
+    },
+    "loan": {
+      "newRequestAdminMsg": "{{name}} pyytää {{amount}} € {{months}} kuukauden ajaksi",
+      "newRequestAdminTitle": "Uusi lainapyyntö",
+      "signedReceivedMsg": "{{name}} allekirjoitti sopimuksen (hakemus {{id}})",
+      "signedReceivedTitle": "Allekirjoitettu sopimus vastaanotettu",
+      "statusMsg": "Hakemuksesi summalle {{amount}} on nyt: $t(status.{{statusKey}})",
+      "statusTitle": "Hakemuksesi tilaa päivitettiin"
+    },
+    "transfer": {
+      "adminInitMsg": "{{amount}} → {{beneficiary}} (viite {{ref}})",
+      "adminInitTitle": "Uusi siirto aloitettu",
+      "classicMsg": "Tavallinen siirto {{amount}} on aloitettu (hyvitys 1 työpäivän kuluessa, viite {{ref}})",
+      "classicTitle": "Siirto käynnissä",
+      "instantMsg": "{{amount}} hyvitetty tilille {{iban4}}…{{ibanLast}} (viite {{ref}})",
+      "instantTitle": "Pikasiirto vastaanotettu"
+    },
+    "transferProcess": {
+      "adminReceiptMsg": "Uusi maksukuitin maksu on ladattu.",
+      "adminReceiptTitle": "Uusi kuitti vastaanotettu",
+      "adminValidationMsg": "Asiakas on ladannut maksukuitin vahvistettavaksi.",
+      "adminValidationTitle": "Kuitti vahvistettavaksi"
+    },
+    "withdrawal": {
+      "rejectedMsg": "Siirtosi {{amount}} hylättiin. Saldo on palautettu automaattisesti.",
+      "rejectedTitle": "Siirto hylätty · varat palautettu",
+      "sentMsg": "{{amount}} on lähetetty tilille {{iban4}}…{{ibanLast}} (viite {{ref}})",
+      "sentTitle": "Siirto suoritettu"
+    }
+  },
+  "notifications": {
+    "allRead": "All caught up",
+    "empty": "No notifications",
+    "markAllRead": "Mark all read",
+    "noLink": "No link",
+    "pageTitle": "All notifications",
+    "title": "Notifications",
+    "viewAll": "View all notifications"
+  },
+  "password": {
+    "excellent": "Erinomainen",
+    "fair": "Kohtalainen",
+    "good": "Hyvä",
+    "hide": "Piilota salasana",
+    "notStrong": "Salasana ei täytä kaikkia suojaussääntöjä.",
+    "ruleDigit": "Yksi numero",
+    "ruleLength": "Vähintään 10 merkkiä",
+    "ruleLower": "Yksi pieni kirjain",
+    "ruleSpecial": "Yksi erikoismerkki",
+    "ruleUpper": "Yksi iso kirjain",
+    "show": "Näytä salasana",
+    "strong": "Vahva",
+    "veryWeak": "Erittäin heikko",
+    "weak": "Heikko"
+  },
+  "products": {
+    "auto": {
+      "desc": "Uusi tai käytetty ajoneuvo edullisella korolla.",
+      "name": "Autolaina"
+    },
+    "business": {
+      "desc": "Tue kasvua, laitehankintoja tai käyttöpääomaa.",
+      "name": "Yrityslaina"
+    },
+    "mortgage": {
+      "desc": "Osta, rakenna tai remontoi pitkäaikaisella rahoituksella.",
+      "name": "Asuntolaina"
+    },
+    "personal": {
+      "desc": "Rahoita hankkeesi kiinteällä korolla ja selkeillä erillä.",
+      "name": "Kulutusluotto"
+    }
+  },
+  "receipt": {
+    "amount": "Siirretty summa",
+    "bank": "Saajan pankki",
+    "beneficiary": "Saaja",
+    "bic": "BIC / SWIFT",
+    "documentLabel": "Virallinen asiakirja",
+    "documentTitle": "Siirtokuitti",
+    "download": "Lataa PDF",
+    "downloaded": "Kuitti ladattu onnistuneesti",
+    "downloadError": "Kuittia ei voitu ladata",
+    "footerLegal": "Tämä kuitti todistaa pankkitapahtuman ja sen voi esittää mille tahansa toimivaltaiselle viranomaiselle.",
+    "footerSecurity": "Asiakirjan on luonut MOONYPin turvalliset järjestelmät.",
+    "generating": "Luodaan PDF:ää…",
+    "iban": "IBAN",
+    "issuedAt": "Antopäivä",
+    "metaTitle": "Siirtokuitti – MOONYP",
+    "reference": "Viite",
+    "serverAmount": "Siirretty summa",
+    "serverBank": "Saajan pankki",
+    "serverBeneficiary": "Saaja",
+    "serverBic": "BIC / SWIFT",
+    "serverExecuted": "Siirto suoritettu",
+    "serverExecutedAt": "Suorituspäivä",
+    "serverIban": "IBAN",
+    "serverIssued": "Myönnetty {{date}}",
+    "serverLegal": "Tämä kuitti on todiste pankkitoiminnosta ja sen voi esittää mille tahansa toimivaltaiselle viranomaiselle.",
+    "serverNotFound": "Siirtoa ei löydy",
+    "serverReference": "Viite",
+    "serverSecure": "Turvallinen asiakirja",
+    "serverSecurity": "Asiakirjan on luonut MOONYPin turvajärjestelmä.",
+    "serverSessionExpired": "Istunto vanhentunut. Kirjaudu sisään uudelleen.",
+    "serverStatus": "Tila",
+    "serverSubtitle": "Virallinen pankkikuitti",
+    "serverTitle": "Siirtokuitti",
+    "serverUnauthorized": "Luvaton pääsy tähän kuittiin",
+    "serverUnavailable": "Kuitti on saatavilla vasta siirron hyväksymisen jälkeen",
+    "sessionExpired": "Istunto vanhentunut. Kirjaudu sisään uudelleen.",
+    "statusExecuted": "Siirto suoritettu",
+    "statusPending": "Siirto käsiteltävänä",
+    "subBrand": "Yhdessä menestymme",
+    "subtitle": "Annettu {{date}}",
+    "title": "Pankkisiirtokuitti"
+  },
+  "settings": {
+    "accessAdmin": "Avaa järjestelmänvalvojan hallintapaneeli",
+    "adminAccount": "Järjestelmänvalvojan tili",
+    "adminDesc": "Sinulla on hallintaoikeudet asiakastiedostoihin ja -toimintoihin.",
+    "back": "Takaisin",
+    "changePassword": "Vaihda salasana",
+    "confirmPassword": "Vahvista",
+    "currentEmail": "Nykyinen sähköpostiosoite",
+    "currentPassword": "Nykyinen salasana",
+    "currentPasswordWrong": "Nykyinen salasana on virheellinen",
+    "emailHint": "Vahvistussähköposti lähetetään uuteen osoitteeseen.",
+    "emailSection": "Sähköpostiosoite",
+    "emailUpdated": "Sähköpostiosoite päivitetty. Tarkista postilaatikkosi vahvistaaksesi.",
+    "fullName": "Koko nimi",
+    "goBack": "Takaisin",
+    "languageDesc": "Valitse käyttöliittymän kieli. Valintasi tallennetaan ja synkronoidaan tilillesi.",
+    "languageSaved": "Kieli päivitetty",
+    "languageSection": "Kieli",
+    "loadProfileError": "Profiilia ei voitu ladata",
+    "metaTitle": "Asetukset – MOONYP",
+    "newEmail": "Uusi sähköpostiosoite",
+    "newPassword": "Uusi salasana",
+    "passwordMismatch": "Salasanat eivät täsmää",
+    "passwordSection": "Salasana",
+    "passwordTooShort": "Salasanan on oltava vähintään 8 merkkiä pitkä",
+    "passwordUpdated": "Salasana päivitetty",
+    "phone": "Puhelin",
+    "profile": "Profiili",
+    "profileUpdated": "Profiili päivitetty",
+    "saveError": "Tallennusvirhe",
+    "saveProfile": "Tallenna profiili",
+    "subtitleDesktop": "Hallitse henkilökohtaisia tietojasi ja turvallisuuttasi",
+    "subtitleMobile": "Hallitse tiliäsi ja turvallisuuttasi",
+    "title": "Asetukset",
+    "updateEmail": "Päivitä sähköpostiosoite"
+  },
+  "status": {
+    "accepte": "Hyväksytty",
+    "contrat_envoye": "Sopimus lähetetty",
+    "contrat_signe": "Sopimus allekirjoitettu",
+    "en_attente": "Odottaa",
+    "en_traitement": "Käsittelyssä",
+    "envoye": "Lähetetty",
+    "fonds_disponibles": "Varojen saatavuus",
+    "refuse": "Hylätty",
+    "rejete": "Hylätty"
+  },
+  "transfer": {
+    "amount": "Summa (€)",
+    "amountInvalid": "Virheellinen summa",
+    "available": "Käytettävissä oleva saldo",
+    "bankName": "Pankki",
+    "bankNamePlaceholder": "Pankin nimi",
+    "bankRequired": "Pankki vaaditaan",
+    "beneficiary": "Edunsaaja",
+    "beneficiaryPlaceholder": "Etu- ja sukunimi",
+    "beneficiaryRequired": "Saaja vaaditaan",
+    "bic": "BIC / SWIFT",
+    "bicInvalid": "Virheellinen BIC/SWIFT",
+    "confirmClassic": "Vahvista siirto",
+    "errorEmit": "Virhe siirron suorittamisessa",
+    "executeInstant": "Suorita siirto",
+    "iban": "IBAN",
+    "ibanInvalid": "Virheellinen IBAN",
+    "kindClassic": "Normaali (SEPA)",
+    "kindClassicHint": "Hyvitetään 1 arkipäivän kuluessa · ajoitus mahdollista.",
+    "kindInstant": "Välitön (SEPA Instant)",
+    "kindInstantHint": "Hyvitetään edunsaajalle välittömästi (24/7).",
+    "noLoanSelected": "Lainaa ei valittu",
+    "reason": "Syy (valinnainen)",
+    "reasonPlaceholder": "Vuokra, osto, takaisinmaksu…",
+    "reference": "Viite",
+    "referencePlaceholder": "Automaattisesti luotu, jos tyhjä",
+    "schedule": "Aikataulu (valinnainen)",
+    "scheduleFuture": "Ajoitetun päivämäärän on oltava tulevaisuudessa",
+    "scheduleHint": "Jätä tyhjäksi seuraavaa arkipäivää varten.",
+    "secureClassic": "Salattuja tietoja · 1 arkipäivä",
+    "secureInstant": "Salattuja tietoja · välitön toimeenpano",
+    "sourceLoan": "Lähdelaina",
+    "subtitle": "Valitse tyyppi, anna edunsaajan tiedot ja vahvista.",
+    "successClassic": "Siirtomääräys kirjattu",
+    "successInstant": "Pikasiirto suoritettu",
+    "successScheduled": "Siirto ajoitettu",
+    "title": "Tee siirto"
+  },
+  "transferDetail": {
+    "amount": "Summa",
+    "backAll": "Kaikki siirrot",
+    "badge": {
+      "compliance": "Vaatimustenmukaisuustarkastus",
+      "processing": "Pankkikäsittely",
+      "rejected": "Siirto hylätty",
+      "validated": "Siirto vahvistettu"
+    },
+    "bank": "Pankki",
+    "beneficiary": "Saaja",
+    "bic": "BIC",
+    "header": "MOONYP · Siirtomääräys",
+    "history": "Historia",
+    "iban": "IBAN",
+    "issuedAt": "Annettu",
+    "metaTitle": "Siirron tiedot — MOONYP",
+    "notFound": "Siirtoa ei löytynyt.",
+    "receipt": {
+      "desc": "Lataa tämän siirtomääräyksen virallinen MOONYP -yhteenveto.",
+      "download": "Lataa kuitti",
+      "title": "Pankkikuitti saatavilla"
+    },
+    "reference": "Viite",
+    "rejected": {
+      "desc": "Varasi on hyvitetty automaattisesti takaisin MOONYP -tilillesi.",
+      "reason": "Syy",
+      "title": "Tämä siirto hylättiin"
+    },
+    "timeline": {
+      "compliance": "Vaatimustenmukaisuusvaihe vahvistettu",
+      "complianceDesc": "Lukituksen avauskoodi syötetty onnistuneesti.",
+      "enhanced": "Tehostettu varmennus vahvistettu",
+      "enhancedDesc": "Siirto jatkaa reititystään edunsaajalle.",
+      "executed": "Siirto suoritettu",
+      "executedDesc": "Varojen hyvitys on tehty.",
+      "issued": "Siirtomääräys annettu",
+      "issuedDesc": "Saajalle {{beneficiary}} ({{amount}})",
+      "now": "Juuri nyt",
+      "rejected": "Siirto hylätty",
+      "rejectedDesc": "Saldo on hyvitetty automaattisesti takaisin."
+    },
+    "tracking": "Siirron seuranta"
+  },
+  "transferProcess": {
+    "accountHolder": "Tilinhaltija",
+    "adminReceiptMessage": "Asiakas latasi vaatimustenmukaisuusmaksun kuitin.",
+    "adminReceiptTitle": "Uusi kuitti tarkistettavaksi",
+    "adminValidationMessage": "Asiakas saavutti vaatimustenmukaisuusvaiheen ja odottaa koodin julkaisua.",
+    "adminValidationTitle": "Siirto odottaa vahvistusta",
+    "advanced": "Vaihe vahvistettu.",
+    "animatingDesc": "Siirtosi etenee turvallisia kanaviamme pitkin. Toimenpiteitä ei tarvita.",
+    "animatingTitle": "Pankkireititys käynnissä",
+    "bankOrder": "MOONYP tiedot",
+    "blockedDesc": "Suorittaaksesi tämän vaiheen, maksa alla oleva vaatimustenmukaisuusmaksu ja syötä saamasi koodi.",
+    "blockedTitle": "Vaatimustenmukaisuuden tarkistus vaaditaan",
+    "codePlaceholder": "Syötä koodi (esim. ABC-1234)",
+    "complianceBadge": "Vaatimustenmukaisuustarkastus",
+    "configDesc": "MOONYP -neuvoja valmistelee vaatimustenmukaisuusmaksua. Saat ohjeet pian.",
+    "configTitle": "Määritys käynnissä",
+    "copied": "{{label}} kopioitu leikepöydälle.",
+    "fee": "Vaatimustenmukaisuusmaksu erääntyy",
+    "fileTooBig": "Tiedosto ylittää 10 Mt.",
+    "finalDesc": "Saaja vastaanottaa varat pankkien välisen vakiintuneen aikataulun mukaisesti.",
+    "finalTitle": "Siirto suoritettu onnistuneesti",
+    "invalidCode": "Virheellinen tai jo käytetty koodi.",
+    "processingBadge": "Pankkikäsittely",
+    "progress": "Turvallinen edistyminen",
+    "reason": "Siirron syy",
+    "receiptApproved": "Hyväksytty",
+    "receiptLabel": "Maksutosite",
+    "receiptPending": "Tarkastelussa",
+    "receiptRejected": "Hylätty",
+    "receiptSent": "Kuitti lähetetty neuvonantajallesi.",
+    "rejectedBadge": "Siirto hylätty",
+    "rejectedDesc": "Varasi on automaattisesti hyvitetty takaisin tilillesi.",
+    "rejectedTitle": "Tämä siirto hylättiin",
+    "replaceReceipt": "Korvaa kuitti",
+    "successFinal": "Siirto viimeistelty.",
+    "unlockCodeReceived": "Lukituksen avauskoodi vastaanotettu",
+    "uploadReceipt": "Lataa kuitti",
+    "validateAndContinue": "Vahvista ja jatka",
+    "validatedBadge": "Siirto vahvistettu",
+    "waitingCodeDesc": "Kun kuittisi on vahvistettu, neuvonantajasi lähettää sinulle 6-merkkisen koodin.",
+    "waitingCodeTitle": "Odotetaan lukituksen avauskoodia"
+  },
+  "transfersPage": {
+    "beneficiary": "Saaja:",
+    "emptyDesc": "Siirtosi näkyvät täällä, kun ne on luotu.",
+    "emptyTitle": "Ei siirtoja",
+    "eyebrow": "Siirrot-alue",
+    "filters": {
+      "active": "Meneillään",
+      "all": "Kaikki",
+      "blocked": "Estetty",
+      "done": "Valmis"
+    },
+    "issuedAt": "Annettu {{date}}",
+    "metaTitle": "Omat siirrot – MOONYP",
+    "newTransfer": "Uusi siirto",
+    "reference": "viite. {{reference}}",
+    "status": {
+      "blocked": "Tarkistus vaaditaan",
+      "final": "Vahvistettu",
+      "processing": "Pankkikäsittely",
+      "rejected": "Hylätty"
+    },
+    "subtitle": "Seuraa SEPA-siirtoja, vaatimustenmukaisuusvaiheita ja kuitteja.",
+    "title": "Omat siirrot"
+  },
+  "transferStepDialog": {
+    "subtitle": "Seuraa edistymistä ja vahvista turvallisesti jokainen virstanpylväs.",
+    "title": "Vaatimustenmukaisuusvaihe"
+  },
+  "transferSteps": {
+    "advanced": "Vaihe {{p}}% avattu",
+    "awaitingCode": "Odottaa koodia",
+    "awaitingCodeDesc": "Koodi lähetetään, kun ylläpitäjä on vahvistanut kuittisi.",
+    "awaitingConfig": "Määritys käynnissä",
+    "awaitingConfigDesc": "Tiimimme viimeistelee tätä vaihetta. Sinulle ilmoitetaan.",
+    "blockedDesc": "Pankkisäännösten noudattamisen vuoksi vaiheen {{p}}% avaaminen edellyttää maksun suorittamista ja kuitin vahvistamista.",
+    "blockedTitle": "Siirto estetty {{p}}%:ssa",
+    "completed": "Siirto valmis",
+    "completedDesc": "Varat on hyvitetty edunsaajalle.",
+    "enterCode": "Syötä avauskoodisi",
+    "feeFor": "Maksun vaihe {{p}}%",
+    "fileTooBig": "Tiedosto liian suuri (enintään 10 Mt)",
+    "invalidCode": "Virheellinen koodi",
+    "notifAdminMsg": "Asiakas on ladannut kuitin vahvistettavaksi.",
+    "notifAdminTitle": "Kuitti vastaanotettu – vaihe {{p}}%",
+    "paymentAddress": "Maksun osoite",
+    "paymentHelp": "Suorita maksu tähän osoitteeseen ja lataa sitten kuittisi.",
+    "progress": "Edistyminen",
+    "receipt": "Maksukuitti",
+    "receiptApproved": "Hyväksytty",
+    "receiptPending": "Odottaa vahvistusta",
+    "receiptRejected": "Hylätty – lähetä uudelleen",
+    "receiptSent": "Kuitti lähetetty vahvistettavaksi",
+    "replaceReceipt": "Korvaa kuitti",
+    "stepNotReached": "Vaihetta ei ole vielä saavutettu",
+    "subtitle": "Pankkisiirron edistyminen 3 vaiheessa: 63% · 88% · 100%.",
+    "successFinal": "Siirto suoritettu onnistuneesti",
+    "title": "Turvallinen siirto",
+    "unlock": "Avaa vaihe {{p}}%",
+    "uploadReceipt": "Lataa kuitti"
+  },
+  "validation": {
+    "phone": "Syötä voimassa oleva puhelinnumero"
+  },
+  "workflow": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
+    "confirmTitle": "Confirm the decision",
+    "error": {
+      "forbidden": "Action not allowed",
+      "notAllowed": "Transition not allowed by the workflow",
+      "notFound": "File not found",
+      "reasonRequired": "A reason is required",
+      "sameStatus": "The file already has this status"
+    },
+    "guard": {
+      "complianceBlocking": "Blocking compliance alert",
+      "documentsPending": "Required documents missing or not approved",
+      "infoRequestsOpen": "Information requests still open",
+      "kycNotPassed": "KYC checks not passed",
+      "missingPayout": "Payout details missing",
+      "noInsurance": "No insurance subscribed on this file"
+    },
+    "noteLabel": "Internal note",
+    "reasonLabel": "Reason shared with the applicant",
+    "requests": {
+      "answered": "Answered",
+      "cancelled": "Cancelled",
+      "close": "Close",
+      "create": "Send request",
+      "kind": "Request type",
+      "kinds": {
+        "information": "Lisätieto",
+        "justification": "Perustelu pyydetty",
+        "missing_document": "Puuttuva asiakirja",
+        "replace_document": "Asiakirjan korvaaminen"
+      },
+      "message": "Message sent to the applicant",
+      "none": "No information request.",
+      "open": "Pending",
+      "title": "Information requests"
+    }
   }
 }
