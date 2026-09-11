@@ -137,8 +137,22 @@ const paypal: PaymentProvider = {
       },
       body: "grant_type=client_credentials",
     });
-    const tokenJson = (await tokenRes.json()) as { access_token?: string };
-    if (!tokenRes.ok || !tokenJson.access_token) throw new Error("paypal_auth_error");
+    const tokenJson = (await tokenRes.json()) as {
+  access_token?: string;
+  error?: string;
+  error_description?: string;
+};
+
+if (!tokenRes.ok || !tokenJson.access_token) {
+  console.error("[PAYPAL AUTH ERROR]", {
+    status: tokenRes.status,
+    error: tokenJson.error,
+    description: tokenJson.error_description,
+    environment: env("PAYPAL_ENVIRONMENT") ?? "sandbox",
+  });
+
+  throw new Error(`paypal_auth_error:${tokenRes.status}`);
+}
 
     const orderRes = await fetch(`${base}/v2/checkout/orders`, {
       method: "POST",
