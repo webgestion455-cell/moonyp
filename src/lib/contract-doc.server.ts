@@ -1,36 +1,33 @@
 /**
- * Génération du contrat PDF d'un dossier de financement.
+ * Contrat de prêt personnel MOONYP — document contractuel multipage.
  *
- * Le document est produit côté serveur à partir des données faisant foi
- * (dossier + offre acceptée), versionné, empreinté (SHA-256) puis déposé dans
- * le bucket privé `contracts`. Aucune donnée n'est reprise du navigateur.
+ * Le document est produit côté serveur par la fabrique documentaire commune
+ * (`src/lib/pdf/doc-kit.server.ts`) à partir des seules données faisant foi
+ * (dossier Supabase + offre acceptée). Aucune valeur n'est inventée ici :
+ * chaque champ absent est rendu « non précisé ».
+ *
+ * Structure : page de couverture (référence dossier, référence document, date,
+ * parties, montant), puis 7 titres et 18 articles numérotés, un tableau des
+ * conditions financières, les encadrés réglementaires, le cartouche de
+ * signatures électroniques et l'empreinte documentaire. En-tête, pied de page
+ * et pagination « Page X / Y » sur toutes les pages.
  */
-import { createHash } from "crypto";
 import { Buffer } from "node:buffer";
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
-import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { tServer } from "@/lib/workflow.server";
+import {
+  BankDocument,
+  LENDER,
+  dateTime,
+  documentReference,
+  longDate,
+  money,
+  percent,
+  storeDocument,
+} from "@/lib/pdf/doc-kit.server";
+import { docLocale, docText } from "@/lib/pdf/doc-i18n.server";
 
-/** Les polices standard PDF sont latines : on translittère le reste. */
-const TRANSLIT: Record<string, string> = {
-  ł: "l", Ł: "L", đ: "d", Đ: "D", ı: "i", ș: "s", Ș: "S", ț: "t", Ț: "T",
-  ő: "o", Ő: "O", ű: "u", Ű: "U", œ: "oe", Œ: "OE", æ: "ae", Æ: "AE",
-};
-
-function latin(value: string): string {
-  return value
-    .replace(/[łŁđĐıșȘțȚőŐűŰœŒæÆ]/g, (c) => TRANSLIT[c] ?? c)
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, (m) => (/[\u0300-\u0303\u0308\u030a\u0327]/.test(m) ? m : ""))
-    .normalize("NFC")
-    .replace(/[^\u0000-\u00ff]/g, "?");
-}
-
-/** Les alphabets non latins ne sont pas rendus par les polices standard. */
-const LATIN_LOCALES = new Set(["fr", "en", "de", "es", "it", "nl", "pl", "ro", "sk", "sl", "hr", "hu", "fi"]);
+/** Langue de mise en page du document (repli anglais). */
 export function pdfLocale(language: string | null | undefined): string {
-  const lang = (language ?? "en").slice(0, 2).toLowerCase();
-  return LATIN_LOCALES.has(lang) ? lang : "en";
+  return docLocale(language);
 }
 
 export interface ContractInput {
@@ -49,6 +46,14 @@ export interface ContractInput {
   fees: number;
   currency: string;
   purpose: string | null;
+  /** Champs enrichis (facultatifs : rendus « non précisé » s'ils manquent). */
+  apr?: number | null;
+  phone?: string | null;
+  birthDate?: string | null;
+  country?: string | null;
+  iban?: string | null;
+  offerValidUntil?: string | null;
+  issuedAt?: string | null;
   signature?: {
     name: string;
     signedAt: string;
@@ -56,120 +61,222 @@ export interface ContractInput {
     provider: string;
     qualified: boolean;
     documentHash: string;
+    ip?: string | null;
+    seal?: string | null;
   } | null;
 }
 
-function money(value: number, currency: string, locale: string): string {
-  return latin(
-    new Intl.NumberFormat(locale, { style: "currency", currency, maximumFractionDigits: 2 }).format(value),
-  );
-}
+const DASH = "—";
 
-/** Construit le PDF et renvoie ses octets + son empreinte SHA-256. */
-export async function buildContractPdf(input: ContractInput): Promise<{ bytes: Uint8Array; hash: string }> {
-  const locale = pdfLocale(input.language);
-  const t = (key: string, vars: Record<string, string> = {}) => latin(tServer(locale, `contractDoc.${key}`, vars));
+/** Construit le PDF et renvoie ses octets, son empreinte SHA-256 et le nombre de pages. */
+export async function buildContractPdf(
+  input: ContractInput,
+): Promise<{ bytes: Uint8Array; hash: string; pages: number }> {
+  const lang = docLocale(input.language);
+  const t = (key: string) => docText(lang, `contract.${key}`);
+  const p = (key: string) => docText(lang, `parties.${key}`);
+  const label = (key: string) => docText(lang, `labels.${key}`);
+  const issuedAt = input.issuedAt ? new Date(input.issuedAt) : new Date();
+  const cur = (input.currency || "EUR").toUpperCase();
+  const amount = (value: number) => money(value, cur, lang);
+  const orDash = (value: string | null | undefined) => (value && value.trim() ? value.trim() : t("notSpecified"));
+  const docRef = documentReference("CTR", input.reference, input.version);
 
-  const pdf = await PDFDocument.create();
-  const page = pdf.addPage([595.28, 841.89]);
-  const font = await pdf.embedFont(StandardFonts.Helvetica);
-  const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
-  const ink = rgb(0.08, 0.09, 0.12);
-  const muted = rgb(0.42, 0.45, 0.5);
-  const brand = rgb(0.05, 0.35, 0.55);
-
-  let y = 800;
-  const left = 56;
-  const write = (text: string, size = 10, useBold = false, color = ink, x = left) => {
-    page.drawText(text, { x, y, size, font: useBold ? bold : font, color });
-    y -= size + 6;
-  };
-  const gap = (n = 10) => {
-    y -= n;
-  };
-  const line = (label: string, value: string) => {
-    page.drawText(label, { x: left, y, size: 10, font, color: muted });
-    page.drawText(value, { x: 300, y, size: 10, font: bold, color: ink });
-    y -= 18;
-  };
-
-  page.drawRectangle({ x: 0, y: 792, width: 595.28, height: 50, color: brand });
-  page.drawText("MOONYP", { x: left, y: 810, size: 18, font: bold, color: rgb(1, 1, 1) });
-  page.drawText(t("subtitle"), { x: left + 100, y: 814, size: 9, font, color: rgb(0.9, 0.94, 1) });
-
-  y = 750;
-  write(t("title"), 17, true);
-  write(`${t("reference")} ${latin(input.reference)}  ·  ${t("version")} ${input.version}`, 9, false, muted);
-  write(`${t("issuedOn")} ${latin(new Date().toLocaleDateString(locale, { day: "2-digit", month: "long", year: "numeric" }))}`, 9, false, muted);
-  gap();
-
-  write(t("partiesTitle"), 12, true);
-  line(t("lender"), "MOONYP SAS");
-  line(t("borrower"), latin(input.borrower));
-  line(t("address"), latin(input.address));
-  line(t("email"), latin(input.email));
-  gap();
-
-  write(t("termsTitle"), 12, true);
-  line(t("amount"), money(input.amount, input.currency, locale));
-  line(t("duration"), `${input.months} ${t("months")}`);
-  line(t("rate"), `${input.rate.toFixed(2)} %`);
-  line(t("monthly"), money(input.monthly, input.currency, locale));
-  if (input.insuranceMonthly > 0) line(t("insurance"), money(input.insuranceMonthly, input.currency, locale));
-  line(t("fees"), money(input.fees, input.currency, locale));
-  line(t("totalCost"), money(input.totalCost, input.currency, locale));
-  line(t("purpose"), latin(input.purpose ?? t("notSpecified")));
-  gap();
-
-  write(t("commitmentsTitle"), 12, true);
-  for (const clause of ["clause1", "clause2", "clause3"]) {
-    const text = t(clause);
-    for (const chunk of wrap(text, 96)) write(chunk, 9.5, false, muted);
-    gap(2);
-  }
-
-  gap(6);
-  write(t("signatureTitle"), 12, true);
-  if (input.signature) {
-    line(t("signedBy"), latin(input.signature.name));
-    line(t("signedOn"), latin(new Date(input.signature.signedAt).toLocaleString(locale)));
-    line(t("provider"), latin(input.signature.provider));
-    line(t("signatureRef"), latin(input.signature.reference));
-    line(t("documentHash"), input.signature.documentHash.slice(0, 40));
-    for (const chunk of wrap(t(input.signature.qualified ? "qualifiedNotice" : "advancedNotice"), 96)) {
-      write(chunk, 8.5, false, muted);
-    }
-  } else {
-    for (const chunk of wrap(t("pendingSignature"), 96)) write(chunk, 9.5, false, muted);
-  }
-
-  page.drawText(latin(tServer(locale, "contractDoc.footer")), {
-    x: left,
-    y: 42,
-    size: 8,
-    font,
-    color: muted,
+  const doc = await BankDocument.create({
+    title: t("title"),
+    kicker: t("kicker"),
+    fileReference: input.reference,
+    documentReference: docRef,
+    version: input.version,
+    language: lang,
+    issuedAt,
+    footerNote: t("footer"),
+    labels: {
+      page: label("page"),
+      of: "/",
+      fileRef: label("fileRef"),
+      docRef: label("docRef"),
+      version: label("version"),
+      issuedOn: label("issuedOn"),
+      continued: label("continued"),
+    },
   });
 
-  const bytes = await pdf.save();
-  const hash = createHash("sha256").update(Buffer.from(bytes)).digest("hex");
-  return { bytes, hash };
-}
+  /* --------------------------- page de couverture -------------------------- */
 
-function wrap(text: string, max: number): string[] {
-  const words = text.split(/\s+/);
-  const lines: string[] = [];
-  let current = "";
-  for (const word of words) {
-    if ((current + " " + word).trim().length > max) {
-      lines.push(current.trim());
-      current = word;
-    } else {
-      current = `${current} ${word}`;
-    }
+  doc.cover({
+    subtitle: t("subtitle"),
+    partiesTitle: t("partiesTitle"),
+    notice: t("coverNotice"),
+    highlight: { label: t("amountLabel"), value: amount(input.amount), note: t("amountNote") },
+    blocks: [
+      {
+        label: p("lender"),
+        lines: [
+          LENDER.name,
+          LENDER.legalForm,
+          LENDER.address,
+          LENDER.registry,
+          `${p("email")} : ${LENDER.email}`,
+        ],
+      },
+      {
+        label: p("borrower"),
+        lines: [
+          orDash(input.borrower),
+          input.birthDate ? `${p("birthDate")} : ${longDate(input.birthDate, lang)}` : `${p("birthDate")} : ${t("notSpecified")}`,
+          orDash(input.address),
+          `${p("email")} : ${orDash(input.email)}`,
+          `${p("phone")} : ${orDash(input.phone)}`,
+        ],
+      },
+    ],
+  });
+
+  /* -------------------------- Titre I — Parties --------------------------- */
+
+  doc.pageBreak();
+  doc.sectionTitle(t("s1"));
+  doc.article("Article 1", t("a1t"));
+  doc.paragraph(t("a1b"));
+  doc.keyValue(`${p("lender")} — ${p("legalIdentity")}`, `${LENDER.name} · ${LENDER.registry}`);
+  doc.keyValue(`${p("lender")} — ${p("address")}`, LENDER.address);
+  doc.keyValue(`${p("lender")} — ${p("compliance")}`, `${LENDER.compliance} · ${LENDER.email}`);
+  doc.keyValue(`${p("borrower")} — ${p("name")}`, orDash(input.borrower));
+  doc.keyValue(`${p("borrower")} — ${p("address")}`, orDash(input.address));
+  doc.keyValue(`${p("borrower")} — ${p("country")}`, orDash(input.country));
+  doc.keyValue(`${p("borrower")} — ${p("email")}`, orDash(input.email));
+  doc.space(6);
+  doc.article("Article 2", t("a2t"));
+  doc.paragraph(t("a2b"));
+  doc.keyValue(t("rowPurpose"), orDash(input.purpose));
+
+  /* ---------------- Titre II — Conditions financières --------------------- */
+
+  doc.sectionTitle(t("s2"));
+  doc.article("Article 3", t("a3t"));
+  doc.paragraph(t("a3b"));
+  doc.article("Article 4", t("a4t"));
+  doc.paragraph(t("a4b"));
+  doc.article("Article 5", t("a5t"));
+  doc.paragraph(t("a5b"));
+  doc.article("Article 6", t("a6t"));
+  doc.paragraph(t("a6b"));
+  doc.article("Article 7", t("a7t"));
+  doc.paragraph(t("a7b"));
+
+  const totalMonthly = Number(input.monthly ?? 0) + Number(input.insuranceMonthly ?? 0);
+  const totalRepaid = Number(input.amount ?? 0) + Number(input.totalCost ?? 0);
+  const rows: string[][] = [
+    [t("rowAmount"), amount(input.amount)],
+    [t("rowDuration"), input.months > 0 ? `${input.months} ${t("rowMonths")}` : t("notSpecified")],
+    [t("rowRate"), input.rate > 0 ? percent(input.rate, lang) : t("notSpecified")],
+    [t("rowApr"), input.apr && input.apr > 0 ? percent(input.apr, lang) : input.rate > 0 ? percent(input.rate, lang) : t("notSpecified")],
+    [t("rowMonthly"), amount(input.monthly)],
+  ];
+  if (Number(input.insuranceMonthly ?? 0) > 0) {
+    rows.push([t("rowInsurance"), amount(input.insuranceMonthly)]);
+    rows.push([t("rowTotalMonthly"), amount(totalMonthly)]);
   }
-  if (current.trim()) lines.push(current.trim());
-  return lines;
+  rows.push([t("rowFees"), amount(input.fees)]);
+  rows.push([t("rowCurrency"), cur]);
+  if (input.offerValidUntil) rows.push([t("rowOfferValid"), longDate(input.offerValidUntil, lang)]);
+  if (input.iban) rows.push([t("rowIban"), input.iban]);
+  rows.push([t("rowTotalCost"), amount(input.totalCost)]);
+  rows.push([t("rowTotalRepaid"), amount(totalRepaid)]);
+
+  doc.space(4);
+  doc.sectionTitle(t("tableTitle"));
+  doc.table(
+    [
+      { header: t("colItem"), width: 62 },
+      { header: t("colValue"), width: 38, align: "right" },
+    ],
+    rows,
+    { highlightLast: true },
+  );
+  doc.callout(t("calloutAprTitle"), t("calloutAprBody"));
+
+  /* --------------- Titre III — Décaissement & remboursement --------------- */
+
+  doc.sectionTitle(t("s3"));
+  doc.article("Article 8", t("a8t"));
+  doc.paragraph(t("a8b"));
+  doc.article("Article 9", t("a9t"));
+  doc.paragraph(t("a9b"));
+  doc.article("Article 10", t("a10t"));
+  doc.paragraph(t("a10b"));
+
+  /* -------------------- Titre IV — Obligations des parties ---------------- */
+
+  doc.sectionTitle(t("s4"));
+  doc.article("Article 11", t("a11t"));
+  doc.paragraph(t("a11b"));
+  doc.article("Article 12", t("a12t"));
+  doc.paragraph(t("a12b"));
+
+  /* --------------- Titre V — Assurance, garantie, incidents --------------- */
+
+  doc.sectionTitle(t("s5"));
+  doc.article("Article 13", t("a13t"));
+  doc.paragraph(t("a13b"));
+  doc.article("Article 14", t("a14t"));
+  doc.paragraph(t("a14b"));
+
+  /* ------------------ Titre VI — Dispositions juridiques ------------------ */
+
+  doc.sectionTitle(t("s6"));
+  doc.article("Article 15", t("a15t"));
+  doc.paragraph(t("a15b"));
+  doc.callout(t("calloutWithdrawalTitle"), t("calloutWithdrawalBody"));
+  doc.article("Article 16", t("a16t"));
+  doc.paragraph(t("a16b"));
+  doc.article("Article 17", t("a17t"));
+  doc.paragraph(t("a17b"));
+  doc.article("Article 18", t("a18t"));
+  doc.paragraph(t("a18b"));
+
+  /* ------------------- Titre VII — Signatures électroniques --------------- */
+
+  doc.sectionTitle(t("s7"));
+  doc.paragraph(t("sigIntro"));
+  doc.signatureBlocks({
+    left: {
+      title: t("sigLender"),
+      name: LENDER.name,
+      place: t("sigPlace"),
+      mention: t("sigLenderMention"),
+    },
+    right: {
+      title: t("sigBorrower"),
+      name: input.signature?.name || orDash(input.borrower),
+      mention: input.signature ? t("sigBorrowerMention") : t("pendingMention"),
+      signedLine: input.signature ? `${t("signedOn")} ${dateTime(input.signature.signedAt, lang)}` : undefined,
+    },
+  });
+
+  if (input.signature) {
+    doc.keyValue(t("signedBy"), input.signature.name);
+    doc.keyValue(t("provider"), input.signature.provider);
+    doc.keyValue(t("signatureRef"), input.signature.reference);
+    if (input.signature.ip) doc.keyValue(t("signerIp"), input.signature.ip);
+    doc.paragraph(input.signature.qualified ? t("qualifiedNotice") : t("advancedNotice"), {
+      size: 8.2,
+      italic: true,
+      muted: true,
+    });
+  }
+
+  const fpRows: Array<[string, string]> = [
+    [t("fpVersion"), `${docRef} · ${label("version")} ${input.version}`],
+    [t("fpGeneratedAt"), dateTime(issuedAt, lang)],
+  ];
+  if (input.signature?.documentHash) fpRows.push([t("fpDraftHash"), input.signature.documentHash]);
+  if (input.signature?.seal) fpRows.push([t("fpSeal"), input.signature.seal]);
+  doc.space(4);
+  doc.fingerprint(t("fingerprintTitle"), fpRows, t("fpNote"));
+
+  return doc.finish();
 }
 
 /** Dépose le PDF dans le bucket privé et renvoie son chemin. */
@@ -178,10 +285,7 @@ export async function storeContractPdf(
   fileName: string,
   bytes: Uint8Array,
 ): Promise<string> {
-  const path = `${applicationId}/${fileName}`;
-  const { error } = await supabaseAdmin.storage
-    .from("contracts")
-    .upload(path, Buffer.from(bytes), { contentType: "application/pdf", upsert: true });
-  if (error) throw new Error(error.message);
-  return path;
+  return storeDocument(applicationId, fileName, bytes);
 }
+
+export type ContractBuildResult = Awaited<ReturnType<typeof buildContractPdf>>;

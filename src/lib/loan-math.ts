@@ -163,15 +163,44 @@ export function debtRatio(totalMonthly: number, income: number, charges: number)
   return Math.round(((totalMonthly / netIncome) * 100 + Number.EPSILON) * 10) / 10;
 }
 
+/**
+ * Locales complètes : « fr » seul produit un formatage bancaire incohérent
+ * suivant les moteurs (séparateurs, place du symbole). On force la variante
+ * régionale afin d'obtenir « 5 000,00 € » / « 175,19 € » côté français et le
+ * bon symbole partout ailleurs.
+ */
+const MONEY_LOCALES: Record<string, string> = {
+  fr: "fr-FR", en: "en-GB", de: "de-DE", es: "es-ES", it: "it-IT", nl: "nl-NL",
+  pl: "pl-PL", ro: "ro-RO", sk: "sk-SK", sl: "sl-SI", hr: "hr-HR", hu: "hu-HU",
+  fi: "fi-FI", bg: "bg-BG", el: "el-GR", pt: "pt-PT",
+};
+
+export function moneyLocale(locale: string | null | undefined): string {
+  const raw = (locale ?? "fr").trim();
+  if (raw.includes("-")) return raw;
+  return MONEY_LOCALES[raw.slice(0, 2).toLowerCase()] ?? "en-GB";
+}
+
+/**
+ * Montant monétaire toujours affiché avec deux décimales, le symbole de la
+ * devise et des espaces insécables (jamais de coupure « 5 000 » / « ,00 € »
+ * en fin de ligne).
+ */
 export function formatMoney(value: number, currency = "EUR", locale = "fr"): string {
+  const amount = Number.isFinite(value) ? value : 0;
+  const code = (currency || "EUR").toUpperCase();
   try {
-    return new Intl.NumberFormat(locale, {
+    return new Intl.NumberFormat(moneyLocale(locale), {
       style: "currency",
-      currency,
+      currency: code,
+      minimumFractionDigits: 2,
       maximumFractionDigits: 2,
-    }).format(value);
+    })
+      .format(amount)
+      // Normalise les espaces (fines, étroites) en espace insécable unique.
+      .replace(/[\u202F\u2009\u00A0\u0020]+/g, "\u00A0");
   } catch {
-    return `${value.toFixed(2)} ${currency}`;
+    return `${amount.toFixed(2)}\u00A0${code}`;
   }
 }
 
