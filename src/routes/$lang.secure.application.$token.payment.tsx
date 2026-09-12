@@ -12,6 +12,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { MethodBrands } from "@/components/payments/PaymentBrands";
 import { createPaymentIntent, getPaymentOptions } from "@/lib/payments.functions";
 import { formatMoney } from "@/lib/loan-math";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 
 export const Route = createFileRoute("/$lang/secure/application/$token/payment")({
   component: PaymentPage,
@@ -54,24 +55,39 @@ function PaymentPage() {
   const [purpose, setPurpose] = useState<string>("guarantee_fee");
   const [intent, setIntent] = useState<Intent | null>(null);
 
-  const refresh = useCallback(async () => {
-    setLoading(true);
-    try {
-      const res = await load({ data: { token } });
-      setData(res);
-      const firstDue = res.dues.find((d) => d.status !== "paid");
-      if (firstDue) setPurpose(firstDue.purpose);
-      if (res.methods[0]) setSelected(res.methods[0].id);
-    } catch {
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
-  }, [load, token]);
+  /**
+   * `silent` : cadence de fond (5 s). On met à jour les montants et l'état des
+   * échéances, mais jamais le moyen de paiement ni l'objet déjà choisis par le
+   * client : sa sélection en cours ne doit pas être écrasée.
+   */
+  const refresh = useCallback(
+    async (silent = false) => {
+      if (!silent) setLoading(true);
+      try {
+        const res = await load({ data: { token } });
+        setData(res);
+        if (!silent) {
+          const firstDue = res.dues.find((d) => d.status !== "paid");
+          if (firstDue) setPurpose(firstDue.purpose);
+          if (res.methods[0]) setSelected(res.methods[0].id);
+        }
+      } catch {
+        if (!silent) setData(null);
+      } finally {
+        if (!silent) setLoading(false);
+      }
+    },
+    [load, token],
+  );
 
   useEffect(() => {
     void refresh();
   }, [refresh]);
+
+  // Les échéances se mettent à jour seules dès que le back-office agit.
+  // Suspendu pendant un paiement en cours ou l'affichage des instructions.
+  useAutoRefresh(() => refresh(true), { enabled: !busy && !intent });
+
 
   const due = data?.dues.find((d) => d.purpose === purpose) ?? null;
 

@@ -68,24 +68,34 @@ function AdminStaff() {
     }
   }, [hasPermission, navigate]);
 
-  async function load() {
+  /**
+   * `silent` : rechargement de fond (cadence 5 s). Ni état de chargement, ni
+   * message d'erreur : l'écran conserve simplement les dernières données.
+   */
+  async function load(silent = false) {
     const token = session?.access_token;
     if (!token) return;
-    setLoading(true);
+    if (!silent) setLoading(true);
     try {
       const res = await listStaff({ data: { accessToken: token } });
       setMembers((res.members ?? []) as unknown as Member[]);
       setInvitations((res.invitations ?? []) as unknown as Invitation[]);
     } catch (e) {
-      toast.error(e instanceof Error ? e.message : "Chargement impossible");
+      if (!silent) toast.error(e instanceof Error ? e.message : "Chargement impossible");
     } finally {
-      setLoading(false);
+      if (!silent) setLoading(false);
     }
   }
 
   useEffect(() => {
     void load();
   }, [session?.access_token]);
+
+  /*
+   * L'équipe et les invitations reflètent l'état réel sans rechargement.
+   * La boucle est suspendue tant qu'une invitation est en cours de saisie.
+   */
+  useAutoRefresh(() => load(true), { enabled: Boolean(session?.access_token) && !open && !saving });
 
   async function handleInvite(e: React.FormEvent) {
     e.preventDefault();

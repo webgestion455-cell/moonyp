@@ -34,6 +34,7 @@ import {
   respondToInfoRequest,
 } from "@/lib/applications.functions";
 import { PortalUpload, type PortalDocumentType } from "@/components/finance/PortalUpload";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 import {
   chooseGuaranteeOption,
   chooseInsuranceOption,
@@ -108,22 +109,34 @@ function SecurePortal() {
   const [insChoice, setInsChoice] = useState<InsuranceChoice | "">("");
   const [insDate, setInsDate] = useState("");
 
-  const load = useCallback(async () => {
-    setLoading(true);
-    try {
-      const result = await fetchFile({ data: { token } });
-      setData(result);
-      setFailed(!result);
-    } catch {
-      setFailed(true);
-    } finally {
-      setLoading(false);
-    }
-  }, [fetchFile, token]);
+  /**
+   * `silent` : rechargement de fond (cadence 5 s). L'écran ne repasse jamais
+   * en état « chargement » et un incident réseau passager ne fait pas basculer
+   * la page sur l'écran d'erreur : les dernières données connues restent
+   * affichées.
+   */
+  const load = useCallback(
+    async (silent = false) => {
+      if (!silent) setLoading(true);
+      try {
+        const result = await fetchFile({ data: { token } });
+        setData(result);
+        if (result || !silent) setFailed(!result);
+      } catch {
+        if (!silent) setFailed(true);
+      } finally {
+        if (!silent) setLoading(false);
+      }
+    },
+    [fetchFile, token],
+  );
 
   useEffect(() => {
     void load();
   }, [load]);
+
+  // Espace sécurisé : l'état réel du dossier s'affiche sans action du client.
+  useAutoRefresh(() => load(true), { enabled: !sending });
 
   // Catalogue des pièces acceptées : même source que le parcours de souscription.
   useEffect(() => {

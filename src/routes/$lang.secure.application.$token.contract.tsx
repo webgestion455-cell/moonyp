@@ -18,6 +18,7 @@ import {
 import { getSecureDocumentUrl } from "@/lib/applications.functions";
 import { formatMoney } from "@/lib/loan-math";
 import { statusLabel, type ApplicationStatus } from "@/lib/application-status";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 
 export const Route = createFileRoute("/$lang/secure/application/$token/contract")({
   component: ContractPage,
@@ -52,20 +53,34 @@ function ContractPage() {
   const [consent, setConsent] = useState(false);
   const [requestId, setRequestId] = useState<string | null>(null);
 
-  const refresh = useCallback(async () => {
-    setLoading(true);
-    try {
-      setData(await load({ data: { token } }));
-    } catch {
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
-  }, [load, token]);
+  /**
+   * `silent` : cadence de fond (5 s). Aucun état de chargement, aucune perte
+   * de la saisie de signature en cours, et un incident réseau ne vide pas
+   * l'écran déjà affiché.
+   */
+  const refresh = useCallback(
+    async (silent = false) => {
+      if (!silent) setLoading(true);
+      try {
+        const res = await load({ data: { token } });
+        if (res || !silent) setData(res);
+      } catch {
+        if (!silent) setData(null);
+      } finally {
+        if (!silent) setLoading(false);
+      }
+    },
+    [load, token],
+  );
 
   useEffect(() => {
     void refresh();
   }, [refresh]);
+
+  // Le contrat suit l'état réel côté back-office, sans rechargement manuel.
+  // Suspendu pendant une opération de signature pour ne rien interrompre.
+  useAutoRefresh(() => refresh(true), { enabled: !busy && !requestId });
+
 
   async function openDocument(kind: "contract" | "signed_contract") {
     try {

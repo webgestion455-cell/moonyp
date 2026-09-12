@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { supabase as _sb } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -30,6 +30,12 @@ function AdminRoles() {
   const [matrix, setMatrix] = useState<Matrix>(emptyMatrix());
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  /*
+   * Modifications non enregistrées : tant qu'une case a été cochée sans
+   * sauvegarde, l'actualisation automatique est suspendue pour ne jamais
+   * écraser le travail en cours de l'administrateur.
+   */
+  const [dirty, setDirty] = useState(false);
 
   useEffect(() => {
     if (!hasPermission("roles.manage")) {
@@ -38,19 +44,26 @@ function AdminRoles() {
     }
   }, [hasPermission, navigate]);
 
-  useEffect(() => {
-    void (async () => {
-      const { data } = await supabase.from("role_permissions").select("role, permission_key");
-      const next = emptyMatrix();
-      (data ?? []).forEach((row: { role: StaffRole; permission_key: string }) => {
-        if (next[row.role]) next[row.role].add(row.permission_key);
-      });
-      setMatrix(next);
-      setLoading(false);
-    })();
+  const load = useCallback(async (silent = false) => {
+    const { data, error } = await supabase.from("role_permissions").select("role, permission_key");
+    // Incident réseau en mode silencieux : la matrice affichée reste intacte.
+    if (silent && (error || !data)) return;
+    const next = emptyMatrix();
+    (data ?? []).forEach((row: { role: StaffRole; permission_key: string }) => {
+      if (next[row.role]) next[row.role].add(row.permission_key);
+    });
+    setMatrix(next);
+    if (!silent) setLoading(false);
   }, []);
 
+  useEffect(() => {
+    void load();
+  }, [load]);
+
+  useAutoRefresh(() => load(true), { enabled: !dirty && !saving });
+
   function toggle(role: StaffRole, key: string) {
+    setDirty(true);
     setMatrix((prev) => {
       const set = new Set(prev[role]);
       if (set.has(key)) set.delete(key);
@@ -71,6 +84,7 @@ function AdminRoles() {
         }
       }
       await logActivity("roles.permissions_updated", { entity: "role_permissions" });
+      setDirty(false);
       toast.success("Matrice des permissions enregistrée");
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Enregistrement impossible");

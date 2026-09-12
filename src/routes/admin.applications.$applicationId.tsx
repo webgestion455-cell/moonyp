@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { ArrowLeft, Copy, ExternalLink, FileText } from "lucide-react";
@@ -52,6 +52,7 @@ import { listDocumentTypes } from "@/lib/applications.functions";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AdminFinancePanel } from "@/components/admin/AdminFinancePanel";
 import { CoveragePanel, COVERAGE_STEPS } from "@/components/admin/CoveragePanel";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 
 export const Route = createFileRoute("/admin/applications/$applicationId")({
   component: ApplicationDetail,
@@ -128,6 +129,13 @@ function ApplicationDetail() {
     useState<InfoRequestKind>("missing_document");
   const [reqMessage, setReqMessage] = useState("");
   const [reqSlug, setReqSlug] = useState("");
+  /*
+   * Mise en évidence du bloc « Demandes d'informations » lorsqu'il est ouvert
+   * depuis le panneau de décision (document manquant / demande d'information).
+   */
+  const [requestsHighlighted, setRequestsHighlighted] = useState(false);
+  const requestsCardRef = useRef<HTMLDivElement | null>(null);
+  const requestMessageRef = useRef<HTMLTextAreaElement | null>(null);
   // Catalogue réel des pièces : la demande cible une pièce précise, pas un texte libre.
   const [docTypes, setDocTypes] = useState<
     { slug: string; label_fr: string | null; category: string | null }[]
@@ -148,15 +156,60 @@ function ApplicationDetail() {
     })();
   }, []);
 
-  const load = useCallback(async () => {
-    const res = await get({ data: { id: applicationId } });
-    setData(res);
-    setLoading(false);
-  }, [get, applicationId]);
+  /**
+   * `silent` : rechargement de fond (cadence 5 s). L'écran garde ses données,
+   * aucun état de chargement n'est réaffiché et un incident réseau passager
+   * n'efface pas le dossier déjà présenté.
+   */
+  const load = useCallback(
+    async (silent = false) => {
+      try {
+        const res = await get({ data: { id: applicationId } });
+        setData(res);
+      } catch {
+        if (!silent) throw new Error("load_failed");
+      } finally {
+        if (!silent) setLoading(false);
+      }
+    },
+    [get, applicationId],
+  );
 
   useEffect(() => {
     void load();
   }, [load]);
+
+  /*
+   * Le détail d'un dossier reflète en permanence l'état réel : dépôt d'une
+   * pièce par le client, réponse à une demande, paiement reçu… La boucle est
+   * suspendue pendant une action en cours (dialogue de confirmation, panneau
+   * de couverture, écriture) afin de ne jamais interrompre l'agent.
+   */
+  useAutoRefresh(() => load(true), {
+    enabled: !busy && pending === null && coverageStep === null,
+  });
+
+  /**
+   * Ouverture directe des champs « Demandes d'informations ».
+   *
+   * « Signaler des documents manquants » et « Demander des informations » ne
+   * sont pas de simples changements de statut : l'agent doit désigner la pièce
+   * concernée et rédiger le message adressé au client. Ces deux actions
+   * ouvrent donc immédiatement le formulaire, pré-réglé sur la bonne nature de
+   * demande, mis en évidence et prêt à la saisie. La transition de statut est
+   * ensuite effectuée par le serveur à l'envoi (`move_status: true`).
+   */
+  const openInfoRequestForm = useCallback((kind: InfoRequestKind) => {
+    setReqKind(kind);
+    setTab("dossier");
+    setRequestsHighlighted(true);
+    window.setTimeout(() => {
+      requestsCardRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      requestMessageRef.current?.focus({ preventScroll: true });
+    }, 80);
+    window.setTimeout(() => setRequestsHighlighted(false), 2600);
+  }, []);
+
 
   const ctx = (data?.workflowContext ?? {}) as WorkflowContext;
 
@@ -635,11 +688,33 @@ function ApplicationDetail() {
                   setTab("finance");
                   return;
                 }
+                /*
+                 * « Signaler des documents manquants » et « Demander des
+                 * informations » ouvrent directement les champs de la carte
+                 * « Demandes d'informations » : l'agent choisit la pièce et
+                 * rédige le message, puis l'envoi effectue lui-même la
+                 * transition de statut côté serveur.
+                 */
+                if (s === "documents_missing") {
+                  openInfoRequestForm("missing_document");
+                  return;
+                }
+                if (s === "info_requested") {
+                  openInfoRequestForm("information");
+                  return;
+                }
                 setPending(s);
               }}
             />
 
-            <Card>
+            <Card
+              ref={requestsCardRef}
+              className={
+                requestsHighlighted
+                  ? "ring-2 ring-primary ring-offset-2 ring-offset-background transition-shadow"
+                  : "transition-shadow"
+              }
+            >
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm font-semibold">
                   {t("workflow.requests.title")}
@@ -725,6 +800,7 @@ function ApplicationDetail() {
                     ))}
                   </div>
                   <Textarea
+                    ref={requestMessageRef}
                     value={reqMessage}
                     onChange={(e) => setReqMessage(e.target.value)}
                     rows={3}
