@@ -261,6 +261,7 @@ export function renderEmailHtml(
                       letter-spacing:.14em;
                       text-transform:uppercase;
                       color:#FFFFFF;
+                      text-align:center;
                     "
                   >${esc(input.detailsTitle ?? "")}</td>
                 </tr>
@@ -407,9 +408,10 @@ export function renderEmailHtml(
    * Mobile :
    *   largeur = 100 % de l'espace disponible.
    */
-  const ctaBlock =
-    input.ctaUrl && input.ctaLabel
-      ? `
+  
+const ctaBlock =
+  input.ctaUrl && input.ctaLabel
+    ? `
           <tr>
             <td
               class="px"
@@ -428,9 +430,9 @@ export function renderEmailHtml(
                 style="
                   height:48px;
                   v-text-anchor:middle;
-                  width:300px;
+                  width:220px;
                 "
-                arcsize="8%"
+                arcsize="50%"
                 strokecolor="${INK}"
                 fillcolor="${INK}"
               >
@@ -455,10 +457,10 @@ export function renderEmailHtml(
                 cellpadding="0"
                 cellspacing="0"
                 border="0"
-                width="300"
+                width="220"
                 class="btnwrap"
                 style="
-                  width:300px;
+                  width:220px;
                   max-width:100%;
                   margin:0 auto;
                   border-collapse:separate;
@@ -470,7 +472,7 @@ export function renderEmailHtml(
                     bgcolor="${INK}"
                     style="
                       background:${INK};
-                      border-radius:4px;
+                      border-radius:999px;
                       text-align:center;
                     "
                   >
@@ -483,17 +485,17 @@ export function renderEmailHtml(
                         display:block;
                         width:100%;
                         box-sizing:border-box;
-                        padding:15px 20px;
+                        padding:14px 28px;
                         font-family:${FONT};
                         font-size:14px;
-                        line-height:18px;
+                        line-height:20px;
                         font-weight:600;
                         letter-spacing:.02em;
                         color:#FFFFFF;
                         text-decoration:none;
-                        border-radius:4px;
+                        border-radius:999px;
                         text-align:center;
-                        white-space:normal;
+                        white-space:nowrap;
                       "
                     >${esc(input.ctaLabel)}</a>
                   </td>
@@ -504,7 +506,7 @@ export function renderEmailHtml(
 
             </td>
           </tr>`
-      : "";
+    : "";
 
   /* ----------------------------- Paragraphes ---------------------------- */
 
@@ -742,20 +744,36 @@ export function renderEmailHtml(
       max-width:45vw !important;
     }
 
-    .btnwrap {
-      width:100% !important;
-      max-width:100% !important;
-    }
+  
+.btnwrap {
+  width:220px !important;
+  max-width:100% !important;
+  margin:0 auto !important;
+}
 
-    .btn {
-      width:100% !important;
-      display:block !important;
-      box-sizing:border-box !important;
-      padding:14px 16px !important;
-      font-size:14px !important;
-      line-height:18px !important;
-      text-align:center !important;
-    }
+.btn {
+  display:block !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+  border-radius:999px !important;
+  text-align:center !important;
+}
+
+@media only screen and (max-width:620px) {
+
+  .btnwrap {
+    width:auto !important;
+    max-width:calc(100% - 20px) !important;
+  }
+
+  .btn {
+    width:auto !important;
+    display:inline-block !important;
+    padding:13px 24px !important;
+    border-radius:999px !important;
+    white-space:normal !important;
+  }
+}
 
     .dl,
     .dv {
@@ -997,6 +1015,7 @@ export function renderEmailHtml(
                       font-weight:700;
                       letter-spacing:-.01em;
                       color:${INK};
+                      text-align:center;
                     "
                   >${esc(input.title)}</h1>
 
