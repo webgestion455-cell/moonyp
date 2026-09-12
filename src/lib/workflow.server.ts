@@ -79,13 +79,17 @@ const CTA_BY_TEMPLATE: Record<
   guaranteePayLater: { path: "", label: "portal", hash: "guarantee" },
   guaranteeDeclined: { path: "", label: "portal", hash: "guarantee" },
   guaranteePaymentValidated: { path: "", label: "portal", hash: "guarantee" },
-  insurancePending: { path: "/payment", label: "insurance" },
+  // L'assurance suit exactement la même logique que la garantie : le client
+  // revient d'abord dans son espace sécurisé, sur la carte « Assurance », où il
+  // choisit (payer maintenant, plus tard, refuser). Le renvoyer directement sur
+  // /payment sautait l'étape de choix et bloquait le parcours.
+  insurancePending: { path: "", label: "insurance", hash: "insurance" },
   insuranceValidated: { path: "", label: "portal", hash: "insurance" },
   insurancePayNow: { path: "/payment", label: "payment" },
   insurancePayLater: { path: "", label: "portal", hash: "insurance" },
   insuranceDeclined: { path: "", label: "portal", hash: "insurance" },
   insurancePaymentValidated: { path: "", label: "portal", hash: "insurance" },
-  insuranceReminder: { path: "/payment", label: "payment" },
+  insuranceReminder: { path: "", label: "insurance", hash: "insurance" },
   disbursementPreparing: { path: "", label: "portal", hash: "disbursement" },
   disbursed: { path: "", label: "portal", hash: "disbursement" },
   repaying: { path: "/payment", label: "schedule" },
@@ -275,7 +279,7 @@ export async function loadWorkflowContext(
     .maybeSingle();
   if (!application) return null;
 
-  const [{ data: documents }, { data: requests }, { data: requiredTypes }] = await Promise.all([
+  const [{ data: documents }, { data: requests }, { data: requiredTypes }, { data: insurances }] = await Promise.all([
     supabaseAdmin.from("application_documents").select("document_type_slug, status").eq("application_id", applicationId),
     supabaseAdmin
       .from("application_info_requests")
@@ -287,6 +291,11 @@ export async function loadWorkflowContext(
       .select("slug, category, required, employment_statuses")
       .eq("active", true)
       .eq("required", true),
+    // Vérité de terrain sur l'assurance : les lignes réellement émises.
+    supabaseAdmin
+      .from("application_insurances")
+      .select("id, status, required, payment_status")
+      .eq("application_id", applicationId),
   ]);
 
   const approved = new Set(
@@ -337,7 +346,11 @@ export async function loadWorkflowContext(
       openInfoRequests: (requests ?? []).length,
       blockingComplianceFlags: flags.filter((f) => f?.severity === "error").length,
       hasPayoutDetails: Boolean(application.bank_iban),
-      insuranceOpted: Boolean(application.insurance_opted),
+      // Le drapeau déclaratif seul faisait échouer la garde « assurance » sur
+      // tout dossier où l'assurance avait pourtant été envoyée par le
+      // back-office : on retient donc aussi l'existence d'une ligne réelle.
+      insuranceOpted: Boolean(application.insurance_opted) || (insurances ?? []).length > 0,
+      hasInsuranceRecord: (insurances ?? []).length > 0,
     },
   };
 }

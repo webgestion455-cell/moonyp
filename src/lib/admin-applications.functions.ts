@@ -528,6 +528,30 @@ export const adminReviewKycCheck = createServerFn({ method: "POST" })
       .select("application_id")
       .maybeSingle();
     if (error) throw new Error(error.message);
+
+    // Synchronisation inverse : une décision prise depuis la file KYC doit
+    // aussi se refléter sur la pièce justificative correspondante, afin que la
+    // section Documents et la section KYC affichent toujours le même verdict.
+    const { data: check } = await supabaseAdmin
+      .from("application_kyc_checks")
+      .select("document_id")
+      .eq("id", data.id)
+      .maybeSingle();
+    const linkedDocument = (check as { document_id?: string | null } | null)?.document_id ?? null;
+    if (linkedDocument) {
+      const documentStatus =
+        data.status === "passed" ? "approved" : data.status === "failed" ? "rejected" : "pending";
+      await supabaseAdmin
+        .from("application_documents")
+        .update({
+          status: documentStatus,
+          review_note: data.review_note ?? null,
+          reviewed_by: context.userId,
+          reviewed_at: new Date().toISOString(),
+        } as never)
+        .eq("id", linkedDocument);
+    }
+
     if (row?.application_id) await refreshKycStatus(row.application_id);
     return { ok: true };
   });

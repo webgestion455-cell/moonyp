@@ -27,6 +27,12 @@ export interface WorkflowContext {
   hasPayoutDetails?: boolean;
   /** Assurance souscrite par le client. */
   insuranceOpted?: boolean;
+  /**
+   * Une offre d'assurance a réellement été émise sur le dossier
+   * (ligne présente dans `application_insurances`). Dérivé des données, jamais
+   * du seul drapeau déclaratif `loan_applications.insurance_opted`.
+   */
+  hasInsuranceRecord?: boolean;
 }
 
 export type Guard = (ctx: WorkflowContext) => string | null;
@@ -46,7 +52,10 @@ export const TRANSITIONS: Record<ApplicationStatus, ApplicationStatus[]> = {
   contract_signed: ["guarantee_sent", "insurance_pending", "disbursement_preparing", "cancelled"],
   guarantee_sent: ["guarantee_signed", "cancelled"],
   guarantee_signed: ["insurance_pending", "disbursement_preparing", "cancelled"],
-  insurance_pending: ["insurance_validated", "cancelled"],
+  // Une assurance en attente peut être validée, mais aussi contournée lorsque
+  // le client la décline ou qu'elle n'est pas requise : sans cette sortie, le
+  // dossier restait définitivement bloqué sur « Assurance en attente ».
+  insurance_pending: ["insurance_validated", "disbursement_preparing", "cancelled"],
   insurance_validated: ["disbursement_preparing", "cancelled"],
   disbursement_preparing: ["disbursed", "cancelled"],
   disbursed: ["repaying", "late"],
@@ -66,7 +75,8 @@ const GUARDS: Partial<Record<ApplicationStatus, Guard>> = {
     return null;
   },
   offer_available: (ctx) => (ctx.kycStatus === "passed" ? null : "workflow.guard.kycNotPassed"),
-  insurance_validated: (ctx) => (ctx.insuranceOpted ? null : "workflow.guard.noInsurance"),
+  insurance_validated: (ctx) =>
+    ctx.insuranceOpted || ctx.hasInsuranceRecord ? null : "workflow.guard.noInsurance",
   disbursement_preparing: (ctx) => {
     if (!ctx.hasPayoutDetails) return "workflow.guard.missingPayout";
     if ((ctx.blockingComplianceFlags ?? 0) > 0) return "workflow.guard.complianceBlocking";

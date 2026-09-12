@@ -352,6 +352,14 @@ export const adminSendInsurance = createServerFn({ method: "POST" })
       .single();
     if (error) throw new Error(error.message);
 
+    // Le dossier porte désormais une assurance : le drapeau déclaratif est
+    // aligné sur la réalité, sinon la garde « Assurance validée » refusait la
+    // transition et le workflow restait bloqué sur « Assurance en attente ».
+    await supabaseAdmin
+      .from("loan_applications")
+      .update({ insurance_opted: true } as never)
+      .eq("id", data.application_id);
+
     await server.logEvent(data.application_id, "insurance_requested", {
       actor: "staff",
       actorId: context.userId,
