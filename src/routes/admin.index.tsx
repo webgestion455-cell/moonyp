@@ -25,6 +25,7 @@ import { AdminAnalytics, type MonthPoint } from "@/components/admin/AdminAnalyti
 import { PageHeader, SectionTitle, StatTile, type StatTone } from "@/components/admin/AdminUI";
 import { adminApplicationStats, adminListApplications } from "@/lib/admin-applications.functions";
 import { supabase } from "@/integrations/supabase/client";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 
 export const Route = createFileRoute("/admin/")({
   component: AdminOverview,
@@ -61,10 +62,9 @@ function AdminOverview() {
         getStats({ data: undefined as never }),
         listApplications({ data: { limit: 8 } }),
       ]);
-      setStats(s.status === "fulfilled" ? (s.value as Stats) : null);
-      // Une erreur serveur ne doit jamais faire planter le tableau de bord :
-      // `recent` reste un tableau quoi qu'il arrive.
-      setRecent(r.status === "fulfilled" && Array.isArray(r.value) ? (r.value as Row[]) : []);
+      // Un incident passager ne doit jamais vider un tableau de bord déjà affiché.
+      if (s.status === "fulfilled") setStats(s.value as Stats);
+      if (r.status === "fulfilled" && Array.isArray(r.value)) setRecent(r.value as Row[]);
     } finally {
       setLoading(false);
     }
@@ -73,6 +73,9 @@ function AdminOverview() {
   useEffect(() => {
     void load();
   }, [load]);
+
+  // Actualisation automatique toutes les 5 secondes (silencieuse).
+  useAutoRefresh(load);
 
   // Realtime refresh on any application change
   useEffect(() => {

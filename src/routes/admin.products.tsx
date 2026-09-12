@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Package, Save } from "lucide-react";
 import { toast } from "sonner";
@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { CenterLoader } from "@/components/ui/loader";
 import { adminListProducts, adminUpdateProduct } from "@/lib/admin-catalog.functions";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 
 export const Route = createFileRoute("/admin/products")({
   component: AdminProducts,
@@ -37,21 +38,40 @@ function AdminProducts() {
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState<string | null>(null);
 
-  const load = useCallback(async () => {
-    setLoading(true);
-    try {
-      setProducts(await list({ data: undefined as never }));
-    } finally {
-      setLoading(false);
-    }
-  }, [list]);
+  /*
+   * Les produits sont éditables en ligne : l'actualisation automatique ne doit
+   * jamais écraser une saisie en cours. On mémorise donc les produits modifiés
+   * et non encore enregistrés, et on suspend le rafraîchissement tant qu'il en
+   * reste au moins un.
+   */
+  const dirtyRef = useRef<Set<string>>(new Set());
+
+  const load = useCallback(
+    async (silent = false) => {
+      if (!silent) setLoading(true);
+      try {
+        setProducts(await list({ data: undefined as never }));
+      } finally {
+        if (!silent) setLoading(false);
+      }
+    },
+    [list],
+  );
 
   useEffect(() => {
     void load();
   }, [load]);
 
-  const patch = (id: string, key: string, value: unknown) =>
+  // Actualisation automatique toutes les 5 secondes, hors saisie en cours.
+  useAutoRefresh(() => {
+    if (dirtyRef.current.size > 0) return;
+    return load(true);
+  });
+
+  const patch = (id: string, key: string, value: unknown) => {
+    dirtyRef.current.add(id);
     setProducts((prev) => prev.map((p) => (p.id === id ? { ...p, [key]: value } : p)));
+  };
 
   const save = async (p: Product) => {
     setBusy(p.id);
@@ -71,6 +91,8 @@ function AdminProducts() {
           max_dti_percent: Number(p.max_dti_percent),
         },
       });
+      // Saisie enregistrée : l'actualisation automatique peut reprendre.
+      dirtyRef.current.delete(p.id);
       toast.success("Produit mis à jour");
     } catch {
       toast.error("Enregistrement impossible");

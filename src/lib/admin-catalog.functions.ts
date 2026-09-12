@@ -95,3 +95,31 @@ export const adminKycQueue = createServerFn({ method: "POST" })
     const byId = new Map((apps ?? []).map((a) => [a.id, a]));
     return (checks ?? []).map((c) => ({ ...c, application: byId.get(c.application_id) ?? null }));
   });
+
+/**
+ * Compteurs réels de la file KYC, tous états confondus.
+ *
+ * La section « Conformité — KYC » ne doit jamais paraître vide : même sans
+ * contrôle « à vérifier », l'équipe voit le volume par état et peut basculer
+ * sur la file correspondante en un clic.
+ */
+export const adminKycCounters = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    await assertStaff(context.supabase as never, context.userId);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+    const { data, error } = await supabaseAdmin
+      .from("application_kyc_checks")
+      .select("status")
+      .limit(20000);
+    if (error) throw new Error(error.message);
+
+    const counters = { all: 0, todo: 0, verifying: 0, passed: 0, failed: 0 } as Record<string, number>;
+    for (const row of data ?? []) {
+      const status = String((row as { status: string | null }).status ?? "todo");
+      counters.all += 1;
+      counters[status] = (counters[status] ?? 0) + 1;
+    }
+    return counters as { all: number; todo: number; verifying: number; passed: number; failed: number };
+  });

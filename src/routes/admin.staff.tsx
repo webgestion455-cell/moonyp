@@ -14,6 +14,7 @@ import { STAFF_ROLES, roleLabel, type StaffRole } from "@/lib/permissions";
 import { listStaff, inviteStaff, updateStaffRole, setStaffActive, revokeInvitation } from "@/lib/staff.functions";
 import { toast } from "sonner";
 import { Loader2, UserPlus, ShieldCheck, Copy, Ban, RotateCcw, MailCheck, Users } from "lucide-react";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 
 export const Route = createFileRoute("/admin/staff")({
   component: AdminStaff,

@@ -9,6 +9,7 @@ import { PERMISSIONS, PERMISSION_MODULES, STAFF_ROLES, type StaffRole } from "@/
 import { logActivity } from "@/lib/activity-log";
 import { toast } from "sonner";
 import { Loader2, Save, ShieldCheck } from "lucide-react";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 
 const supabase: any = _sb;
 

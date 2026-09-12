@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ShieldCheck, AlertTriangle, Activity, Smartphone, ArrowLeft, RefreshCw, Globe2, Search } from "lucide-react";
 import i18n from "@/i18n";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 
 export const Route = createFileRoute("/admin/security")({
   component: AdminSecurity,

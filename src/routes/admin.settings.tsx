@@ -17,6 +17,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { MethodBrands } from "@/components/payments/PaymentBrands";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 import {
   adminDeletePaymentMethod,
   adminPaymentSettings,
@@ -112,20 +113,33 @@ function AdminSettings() {
   const [saving, setSaving] = useState(false);
   const canManage = isStaff && hasPermission("settings.manage");
 
-  const refresh = useCallback(async () => {
-    setLoading(true);
-    try {
-      setSettings(await load());
-    } catch (error) {
-      toast.error(error instanceof Error ? error.message : "Chargement impossible");
-    } finally {
-      setLoading(false);
-    }
-  }, [load]);
+  const refresh = useCallback(
+    async (silent = false) => {
+      if (!silent) setLoading(true);
+      try {
+        setSettings(await load());
+      } catch (error) {
+        // En arrière-plan, un incident réseau reste silencieux.
+        if (!silent) toast.error(error instanceof Error ? error.message : "Chargement impossible");
+      } finally {
+        if (!silent) setLoading(false);
+      }
+    },
+    [load],
+  );
 
   useEffect(() => {
     void refresh();
   }, [refresh]);
+
+  /*
+   * Actualisation automatique toutes les 5 secondes, suspendue pendant
+   * l'édition d'un moyen de paiement pour ne pas perturber la saisie.
+   */
+  useAutoRefresh(() => {
+    if (dialogOpen || saving) return;
+    return refresh(true);
+  });
 
   const rows = settings?.methods ?? [];
   const providers = settings?.providers ?? [];

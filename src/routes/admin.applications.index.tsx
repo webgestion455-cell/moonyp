@@ -10,6 +10,7 @@ import { EmptyState, ListCard, PageHeader } from "@/components/admin/AdminUI";
 import { FileText } from "lucide-react";
 import { APPLICATION_STATUS_ORDER, statusLabel } from "@/lib/application-status";
 import { adminListApplications } from "@/lib/admin-applications.functions";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 
 export const Route = createFileRoute("/admin/applications/")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -33,19 +34,26 @@ function ApplicationsList() {
   const [loading, setLoading] = useState(true);
   const [term, setTerm] = useState(q ?? "");
 
-  const load = useCallback(async () => {
-    setLoading(true);
-    try {
-      const data = await list({ data: { status: status as never, search: q, limit: 200 } });
-      setRows(data);
-    } finally {
-      setLoading(false);
-    }
-  }, [list, status, q]);
+  // `silent` : rechargement d'arrière-plan sans loader ni clignotement.
+  const load = useCallback(
+    async (silent = false) => {
+      if (!silent) setLoading(true);
+      try {
+        const data = await list({ data: { status: status as never, search: q, limit: 200 } });
+        setRows(data);
+      } finally {
+        if (!silent) setLoading(false);
+      }
+    },
+    [list, status, q],
+  );
 
   useEffect(() => {
     void load();
   }, [load]);
+
+  // Actualisation automatique toutes les 5 secondes.
+  useAutoRefresh(() => load(true));
 
   return (
     <div className="space-y-5">
