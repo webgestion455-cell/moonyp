@@ -136,8 +136,9 @@ export async function buildContractPdf(
   /* -------------------------- Titre I — Parties --------------------------- */
 
   doc.pageBreak();
+  const article = (number: number, title: string) => doc.article(`${label("article")} ${number}`, title);
   doc.sectionTitle(t("s1"));
-  doc.article("Article 1", t("a1t"));
+  article(1, t("a1t"));
   doc.paragraph(t("a1b"));
   doc.keyValue(`${p("lender")} — ${p("legalIdentity")}`, `${LENDER.name} · ${LENDER.registry}`);
   doc.keyValue(`${p("lender")} — ${p("address")}`, LENDER.address);
@@ -147,22 +148,22 @@ export async function buildContractPdf(
   doc.keyValue(`${p("borrower")} — ${p("country")}`, orDash(input.country));
   doc.keyValue(`${p("borrower")} — ${p("email")}`, orDash(input.email));
   doc.space(6);
-  doc.article("Article 2", t("a2t"));
+  article(2, t("a2t"));
   doc.paragraph(t("a2b"));
   doc.keyValue(t("rowPurpose"), orDash(input.purpose));
 
   /* ---------------- Titre II — Conditions financières --------------------- */
 
   doc.sectionTitle(t("s2"));
-  doc.article("Article 3", t("a3t"));
+  article(3, t("a3t"));
   doc.paragraph(t("a3b"));
-  doc.article("Article 4", t("a4t"));
+  article(4, t("a4t"));
   doc.paragraph(t("a4b"));
-  doc.article("Article 5", t("a5t"));
+  article(5, t("a5t"));
   doc.paragraph(t("a5b"));
-  doc.article("Article 6", t("a6t"));
+  article(6, t("a6t"));
   doc.paragraph(t("a6b"));
-  doc.article("Article 7", t("a7t"));
+  article(7, t("a7t"));
   doc.paragraph(t("a7b"));
 
   const totalMonthly = Number(input.monthly ?? 0) + Number(input.insuranceMonthly ?? 0);
@@ -200,40 +201,40 @@ export async function buildContractPdf(
   /* --------------- Titre III — Décaissement & remboursement --------------- */
 
   doc.sectionTitle(t("s3"));
-  doc.article("Article 8", t("a8t"));
+  article(8, t("a8t"));
   doc.paragraph(t("a8b"));
-  doc.article("Article 9", t("a9t"));
+  article(9, t("a9t"));
   doc.paragraph(t("a9b"));
-  doc.article("Article 10", t("a10t"));
+  article(10, t("a10t"));
   doc.paragraph(t("a10b"));
 
   /* -------------------- Titre IV — Obligations des parties ---------------- */
 
   doc.sectionTitle(t("s4"));
-  doc.article("Article 11", t("a11t"));
+  article(11, t("a11t"));
   doc.paragraph(t("a11b"));
-  doc.article("Article 12", t("a12t"));
+  article(12, t("a12t"));
   doc.paragraph(t("a12b"));
 
   /* --------------- Titre V — Assurance, garantie, incidents --------------- */
 
   doc.sectionTitle(t("s5"));
-  doc.article("Article 13", t("a13t"));
+  article(13, t("a13t"));
   doc.paragraph(t("a13b"));
-  doc.article("Article 14", t("a14t"));
+  article(14, t("a14t"));
   doc.paragraph(t("a14b"));
 
   /* ------------------ Titre VI — Dispositions juridiques ------------------ */
 
   doc.sectionTitle(t("s6"));
-  doc.article("Article 15", t("a15t"));
+  article(15, t("a15t"));
   doc.paragraph(t("a15b"));
   doc.callout(t("calloutWithdrawalTitle"), t("calloutWithdrawalBody"));
-  doc.article("Article 16", t("a16t"));
+  article(16, t("a16t"));
   doc.paragraph(t("a16b"));
-  doc.article("Article 17", t("a17t"));
+  article(17, t("a17t"));
   doc.paragraph(t("a17b"));
-  doc.article("Article 18", t("a18t"));
+  article(18, t("a18t"));
   doc.paragraph(t("a18b"));
 
   /* ------------------- Titre VII — Signatures électroniques --------------- */

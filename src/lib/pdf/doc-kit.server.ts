@@ -10,52 +10,30 @@
  *  - Aucune donnée n'est inventée ici : le moteur ne met en page que les
  *    valeurs qui lui sont transmises par l'appelant (Supabase = source de
  *    vérité).
- *  - Encodage : les polices standard PDF utilisent WinAnsi, qui couvre le
- *    latin étendu ET le symbole €. `winAnsi()` normalise les espaces
- *    insécables/fines et translittère ce que WinAnsi ne peut pas encoder,
- *    de sorte que « 5 000,00 € » s'affiche toujours correctement.
+ *  - Encodage : Noto Sans est embarquée et sous-ensemblée dans chaque PDF.
+ *    `winAnsi()` conserve son nom historique mais normalise désormais l'UTF-8
+ *    sans translittération, notamment pour €, le grec et le cyrillique.
  */
 import { createHash } from "crypto";
 import { Buffer } from "node:buffer";
-import { PDFDocument, StandardFonts, rgb, type PDFFont, type PDFPage, type PDFImage } from "pdf-lib";
+import fontkit from "@pdf-lib/fontkit";
+import { PDFDocument, rgb, type PDFFont, type PDFPage, type PDFImage } from "pdf-lib";
 import { MOONYP_LOGO_PNG_BASE64 } from "@/lib/pdf/brand-logo.server";
+import { NOTO_SANS_REGULAR_BASE64 } from "@/lib/pdf/fonts/noto-sans-regular.base64";
+import { NOTO_SANS_BOLD_BASE64 } from "@/lib/pdf/fonts/noto-sans-bold.base64";
+import { NOTO_SANS_ITALIC_BASE64 } from "@/lib/pdf/fonts/noto-sans-italic.base64";
 
 /* ------------------------------------------------------------------------ *
- * Encodage texte (WinAnsi + €)
+ * Encodage texte (UTF-8 / Unicode)
  * ------------------------------------------------------------------------ */
 
-/** Lettres non couvertes par WinAnsi : translittération lisible. */
-const TRANSLIT: Record<string, string> = {
-  ł: "l", Ł: "L", đ: "d", Đ: "D", ı: "i", ș: "s", Ș: "S", ț: "t", Ț: "T",
-  ő: "o", Ő: "O", ű: "u", Ű: "U", ć: "c", Ć: "C", č: "c", Č: "C", ě: "e", Ě: "E",
-  ř: "r", Ř: "R", ů: "u", Ů: "U", ą: "a", Ą: "A", ę: "e", Ę: "E", ń: "n", Ń: "N",
-  ś: "s", Ś: "S", ź: "z", Ź: "Z", ż: "z", Ż: "Z", ľ: "l", Ľ: "L", ĺ: "l", Ĺ: "L",
-  ň: "n", Ň: "N", ť: "t", Ť: "T", ď: "d", Ď: "D", ā: "a", ē: "e", ī: "i", ū: "u",
-};
-
-/** Caractères typographiques ramenés à un équivalent WinAnsi sûr. */
-const TYPO: Array<[RegExp, string]> = [
-  [/[\u00A0\u202F\u2007\u2009\u200A\u2028\u2060]/g, " "], // espaces insécables / fines
-  [/[\u2018\u2019\u201B\u2032]/g, "'"],
-  [/[\u201C\u201D\u201E\u2033]/g, '"'],
-  [/\u2026/g, "..."],
-  [/[\u2212\u2012\u2015]/g, "-"],
-  [/\u00AD/g, ""],
-  [/\t/g, "    "],
-];
-
-/**
- * Rend une chaîne encodable par les polices standard PDF (WinAnsi).
- * Le symbole € (U+20AC) est explicitement préservé, ainsi que les accents
- * latins ; le reste est translittéré, puis remplacé en dernier recours.
- */
+/** Normalise une chaîne UTF-8 sans perdre les accents ni les alphabets pris en charge. */
 export function winAnsi(input: string): string {
-  let value = String(input ?? "");
-  for (const [re, to] of TYPO) value = value.replace(re, to);
-  value = value.replace(/[^\x00-\x7F]/g, (c) => TRANSLIT[c] ?? c);
-  // Décomposition : on conserve les diacritiques latins recomposables.
-  value = value.normalize("NFC");
-  return value.replace(/[^\x09\x0A\x0D\x20-\x7E\u00A1-\u00FF\u20AC\u0152\u0153\u0160\u0161\u0178\u017D\u017E\u0192\u2022\u2013\u2014]/g, "?");
+  return String(input ?? "")
+    .normalize("NFC")
+    .replace(/\u00AD/g, "")
+    .replace(/\t/g, "    ")
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "");
 }
 
 /* ------------------------------------------------------------------------ *
@@ -209,6 +187,7 @@ export class BankDocument {
 
   static async create(meta: DocMeta): Promise<BankDocument> {
     const pdf = await PDFDocument.create();
+    pdf.registerFontkit(fontkit);
     pdf.setTitle(winAnsi(`${meta.title} — ${meta.fileReference}`));
     pdf.setSubject(winAnsi(meta.kicker));
     pdf.setAuthor("MOONYP SAS");
@@ -217,9 +196,9 @@ export class BankDocument {
     pdf.setCreationDate(meta.issuedAt);
     pdf.setLanguage(meta.language.slice(0, 2).toLowerCase());
 
-    const font = await pdf.embedFont(StandardFonts.Helvetica);
-    const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
-    const italic = await pdf.embedFont(StandardFonts.HelveticaOblique);
+    const font = await pdf.embedFont(Buffer.from(NOTO_SANS_REGULAR_BASE64, "base64"), { subset: true });
+    const bold = await pdf.embedFont(Buffer.from(NOTO_SANS_BOLD_BASE64, "base64"), { subset: true });
+    const italic = await pdf.embedFont(Buffer.from(NOTO_SANS_ITALIC_BASE64, "base64"), { subset: true });
     const logo = await pdf.embedPng(Buffer.from(MOONYP_LOGO_PNG_BASE64, "base64"));
 
     return new BankDocument(pdf, font, bold, italic, logo, meta);
@@ -619,11 +598,25 @@ export class BankDocument {
       let current = "";
       for (const word of paragraph.split(/\s+/)) {
         const candidate = current ? `${current} ${word}` : word;
-        if (font.widthOfTextAtSize(candidate, size) <= maxWidth || !current) {
+        if (font.widthOfTextAtSize(candidate, size) <= maxWidth || (!current && font.widthOfTextAtSize(word, size) <= maxWidth)) {
           current = candidate;
         } else {
-          out.push(current);
-          current = word;
+          if (current) out.push(current);
+          if (font.widthOfTextAtSize(word, size) <= maxWidth) {
+            current = word;
+          } else {
+            let fragment = "";
+            for (const character of word) {
+              const next = fragment + character;
+              if (fragment && font.widthOfTextAtSize(next, size) > maxWidth) {
+                out.push(fragment);
+                fragment = character;
+              } else {
+                fragment = next;
+              }
+            }
+            current = fragment;
+          }
         }
       }
       if (current) out.push(current);

@@ -118,8 +118,9 @@ export async function buildGuaranteePdf(
   });
 
   doc.pageBreak();
+  const article = (number: number, title: string) => doc.article(`${label("article")} ${number}`, title);
   doc.sectionTitle(t("s1"));
-  doc.article("Article 1", t("a1t"));
+  article(1, t("a1t"));
   doc.paragraph(t("a1b"));
   doc.keyValue(`${p("lender")} — ${p("legalIdentity")}`, `${LENDER.name} · ${LENDER.registry}`);
   doc.keyValue(`${p("lender")} — ${p("address")}`, LENDER.address);
@@ -128,9 +129,9 @@ export async function buildGuaranteePdf(
   doc.keyValue(`${p("borrower")} — ${p("country")}`, orDash(input.borrowerCountry));
   doc.keyValue(p("guarantor"), orDash(input.guarantorName));
   doc.space(6);
-  doc.article("Article 2", t("a2t"));
+  article(2, t("a2t"));
   doc.paragraph(t("a2b"));
-  doc.article("Article 3", t("a3t"));
+  article(3, t("a3t"));
   doc.paragraph(t("a3b"));
 
   doc.sectionTitle(t("s2"));
@@ -158,7 +159,7 @@ export async function buildGuaranteePdf(
     rows,
     { highlightLast: true },
   );
-  doc.article("Article 4", t("a4t"));
+  article(4, t("a4t"));
   doc.paragraph(t("a4b"));
   if (input.paymentInstructions) {
     doc.keyValue(t("rowInstructions"), input.paymentInstructions);
@@ -166,17 +167,17 @@ export async function buildGuaranteePdf(
   doc.callout(t("calloutTitle"), t("calloutBody"));
 
   doc.sectionTitle(t("s3"));
-  doc.article("Article 5", t("a5t"));
+  article(5, t("a5t"));
   doc.paragraph(t("a5b"));
-  doc.article("Article 6", t("a6t"));
+  article(6, t("a6t"));
   doc.paragraph(t("a6b"));
-  doc.article("Article 7", t("a7t"));
+  article(7, t("a7t"));
   doc.paragraph(t("a7b"));
 
   doc.sectionTitle(t("s4"));
-  doc.article("Article 8", t("a8t"));
+  article(8, t("a8t"));
   doc.paragraph(t("a8b"));
-  doc.article("Article 9", t("a9t"));
+  article(9, t("a9t"));
   doc.paragraph(t("a9b"));
 
   doc.space(4);
