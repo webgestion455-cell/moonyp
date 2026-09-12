@@ -78,6 +78,9 @@ export const adminSendGuarantee = createServerFn({ method: "POST" })
       .single();
     if (error) throw new Error(error.message);
 
+    const { generateGuaranteeDocument } = await import("@/lib/coverage-documents.server");
+    const artifact = await generateGuaranteeDocument(row.id);
+
     await server.logEvent(data.application_id, "guarantee_sent", {
       actor: "staff",
       actorId: context.userId,
@@ -110,7 +113,7 @@ export const adminSendGuarantee = createServerFn({ method: "POST" })
       });
     }
 
-    return { ok: true as const, id: row.id, transition };
+    return { ok: true as const, id: row.id, transition, artifact };
   });
 
 /** Choix exclusif du client sur les frais de garantie (aucun paiement ici). */
@@ -251,6 +254,9 @@ export const adminValidateGuaranteePayment = createServerFn({ method: "POST" })
       .eq("application_id", data.application_id);
     if (error) throw new Error(error.message);
 
+    const { generateGuaranteeDocument } = await import("@/lib/coverage-documents.server");
+    const artifact = await generateGuaranteeDocument(data.guarantee_id, true);
+
     await server.logEvent(data.application_id, "guarantee_payment_validated", {
       actor: "staff",
       actorId: context.userId,
@@ -283,7 +289,7 @@ export const adminValidateGuaranteePayment = createServerFn({ method: "POST" })
       });
     }
 
-    return { ok: true as const, transition };
+    return { ok: true as const, transition, artifact };
   });
 
 /** Détail garantie + assurance pour le back-office. */
@@ -305,7 +311,18 @@ export const adminGetCoverage = createServerFn({ method: "POST" })
         .eq("application_id", data.application_id)
         .order("created_at", { ascending: false }),
     ]);
-    return { guarantees: guarantees ?? [], insurances: insurances ?? [] };
+    const { signedCoverageUrl } = await import("@/lib/coverage-documents.server");
+    const guaranteeRows = await Promise.all((guarantees ?? []).map(async (row) => ({
+      ...row,
+      document_url: await signedCoverageUrl("guarantee", row.storage_path),
+      signed_document_url: await signedCoverageUrl("guarantee", row.signed_storage_path),
+    })));
+    const insuranceRows = await Promise.all((insurances ?? []).map(async (row) => ({
+      ...row,
+      document_url: await signedCoverageUrl("insurance", row.storage_path),
+      signed_document_url: await signedCoverageUrl("insurance", (row as typeof row & { signed_storage_path?: string | null }).signed_storage_path ?? null),
+    })));
+    return { guarantees: guaranteeRows, insurances: insuranceRows };
   });
 
 /** Ouvre l'étape Assurance (distincte de la garantie). */
@@ -352,6 +369,9 @@ export const adminSendInsurance = createServerFn({ method: "POST" })
       .single();
     if (error) throw new Error(error.message);
 
+    const { generateInsuranceDocument } = await import("@/lib/coverage-documents.server");
+    const artifact = await generateInsuranceDocument(row.id);
+
     // Le dossier porte désormais une assurance : le drapeau déclaratif est
     // aligné sur la réalité, sinon la garde « Assurance validée » refusait la
     // transition et le workflow restait bloqué sur « Assurance en attente ».
@@ -395,7 +415,7 @@ export const adminSendInsurance = createServerFn({ method: "POST" })
       });
     }
 
-    return { ok: true as const, id: row.id, transition };
+    return { ok: true as const, id: row.id, transition, artifact };
   });
 
 /** Validation de l'assurance par le back-office. */
@@ -431,6 +451,9 @@ export const adminValidateInsurance = createServerFn({ method: "POST" })
       .eq("application_id", data.application_id);
     if (error) throw new Error(error.message);
 
+    const { generateInsuranceDocument } = await import("@/lib/coverage-documents.server");
+    const artifact = await generateInsuranceDocument(data.insurance_id, true);
+
     await server.logEvent(data.application_id, "insurance_validated", {
       actor: "staff",
       actorId: context.userId,
@@ -462,7 +485,7 @@ export const adminValidateInsurance = createServerFn({ method: "POST" })
       });
     }
 
-    return { ok: true as const, transition };
+    return { ok: true as const, transition, artifact };
   });
 
 /* ---------------------------------------------------------------------------
@@ -605,6 +628,9 @@ export const adminValidateInsurancePayment = createServerFn({ method: "POST" })
       .eq("application_id", data.application_id);
     if (error) throw new Error(error.message);
 
+    const { generateInsuranceDocument } = await import("@/lib/coverage-documents.server");
+    const artifact = await generateInsuranceDocument(data.insurance_id, true);
+
     await server.logEvent(data.application_id, "insurance_payment_validated", {
       actor: "staff",
       actorId: context.userId,
@@ -630,5 +656,5 @@ export const adminValidateInsurancePayment = createServerFn({ method: "POST" })
       });
     }
 
-    return { ok: true as const };
+    return { ok: true as const, artifact };
   });

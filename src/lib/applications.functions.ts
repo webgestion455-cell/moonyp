@@ -581,14 +581,14 @@ export const getApplicationByToken = createServerFn({ method: "POST" })
         .maybeSingle(),
       supabaseAdmin
         .from("application_guarantees")
-        .select("id, kind, guarantor_name, amount, currency, status, sent_at, signed_at, fee_amount, fee_description, payment_instructions, payment_status, client_choice, choice_at, scheduled_payment_date, payment_validated_at")
+        .select("id, kind, guarantor_name, amount, currency, status, sent_at, signed_at, fee_amount, fee_description, payment_instructions, payment_status, client_choice, choice_at, scheduled_payment_date, payment_validated_at, storage_path, signed_storage_path, document_version, document_hash, signed_document_hash")
         .eq("application_id", applicationId)
         .order("created_at", { ascending: false })
         .limit(1)
         .maybeSingle(),
       supabaseAdmin
         .from("application_insurances")
-        .select("id, provider, policy_number, coverage, monthly_premium, currency, status, starts_on, due_date, validated_at, sent_at, fee_amount, fee_description, payment_instructions, payment_status, client_choice, choice_at, scheduled_payment_date, payment_validated_at")
+        .select("id, provider, policy_number, coverage, monthly_premium, currency, status, starts_on, due_date, validated_at, sent_at, signed_at, fee_amount, fee_description, payment_instructions, payment_status, client_choice, choice_at, scheduled_payment_date, payment_validated_at, storage_path, signed_storage_path, document_version, document_hash, signed_document_hash")
         .eq("application_id", applicationId)
         .order("created_at", { ascending: false })
         .limit(1)
@@ -628,8 +628,8 @@ export const getApplicationByToken = createServerFn({ method: "POST" })
             has_signed_document: Boolean(contract.signed_storage_path),
           }
         : null,
-      guarantee,
-      insurance,
+      guarantee: guarantee ? { ...guarantee, has_document: Boolean(guarantee.storage_path), has_signed_document: Boolean(guarantee.signed_storage_path) } : null,
+      insurance: insurance ? { ...insurance, has_document: Boolean(insurance.storage_path), has_signed_document: Boolean(insurance.signed_storage_path) } : null,
       disbursement: disbursement
         ? { ...disbursement, iban: server.maskIban(disbursement.iban) }
         : null,
@@ -647,7 +647,7 @@ export const getSecureDocumentUrl = createServerFn({ method: "POST" })
     z
       .object({
         token: z.string().min(20).max(200),
-        kind: z.enum(["document", "contract", "signed_contract"]).default("document"),
+        kind: z.enum(["document", "contract", "signed_contract", "guarantee", "signed_guarantee", "insurance", "signed_insurance"]).default("document"),
         document_id: z.string().uuid().optional(),
       })
       .parse(input),
@@ -677,7 +677,7 @@ export const getSecureDocumentUrl = createServerFn({ method: "POST" })
         .eq("application_id", applicationId)
         .maybeSingle();
       path = doc?.storage_path ?? null;
-    } else {
+    } else if (data.kind === "contract" || data.kind === "signed_contract") {
       bucket = "contracts";
       const { data: contract } = await supabaseAdmin
         .from("application_contracts")
@@ -687,6 +687,19 @@ export const getSecureDocumentUrl = createServerFn({ method: "POST" })
         .limit(1)
         .maybeSingle();
       path = (data.kind === "signed_contract" ? contract?.signed_storage_path : contract?.storage_path) ?? null;
+    } else {
+      bucket = "contracts";
+      const isGuarantee = data.kind === "guarantee" || data.kind === "signed_guarantee";
+      const table = isGuarantee ? "application_guarantees" : "application_insurances";
+      const { data: artifact } = await supabaseAdmin
+        .from(table)
+        .select("storage_path, signed_storage_path")
+        .eq("application_id", applicationId)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      const signedKind = data.kind === "signed_guarantee" || data.kind === "signed_insurance";
+      path = (signedKind ? artifact?.signed_storage_path : artifact?.storage_path) ?? null;
     }
 
     if (!path) throw new Error("not_found");

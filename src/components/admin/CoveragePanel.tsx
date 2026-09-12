@@ -12,7 +12,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
-import { ShieldCheck, Umbrella, BadgeEuro, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Umbrella, BadgeEuro, CheckCircle2, Download, FileText } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -229,6 +229,7 @@ export function CoveragePanel({
                     label="Choix du client"
                     value={guarantee.client_choice ? (CHOICE_LABEL[guarantee.client_choice] ?? guarantee.client_choice) : "En attente"}
                   />
+                  {guarantee.document_hash && <Field label="Empreinte SHA-256" value={`${guarantee.document_hash.slice(0, 16)}…`} />}
                   <Field
                     label="Date programmée"
                     value={guarantee.scheduled_payment_date ? new Date(guarantee.scheduled_payment_date).toLocaleDateString("fr-FR") : "—"}
@@ -253,6 +254,12 @@ export function CoveragePanel({
                   <Button size="sm" onClick={() => setDialog("guaranteePayment")}>
                     <CheckCircle2 className="mr-1.5 h-4 w-4" aria-hidden /> Valider le paiement reçu
                   </Button>
+                )}
+                {guarantee?.document_url && (
+                  <Button asChild size="sm" variant="outline"><a href={guarantee.document_url} target="_blank" rel="noreferrer"><FileText className="mr-1.5 h-4 w-4" aria-hidden /> Acte de garantie</a></Button>
+                )}
+                {guarantee?.signed_document_url && (
+                  <Button asChild size="sm" variant="outline"><a href={guarantee.signed_document_url} target="_blank" rel="noreferrer"><Download className="mr-1.5 h-4 w-4" aria-hidden /> Version signée</a></Button>
                 )}
               </div>
             </section>
@@ -286,6 +293,7 @@ export function CoveragePanel({
                     value={insurance.scheduled_payment_date ? new Date(insurance.scheduled_payment_date).toLocaleDateString("fr-FR") : "—"}
                   />
                   <Field label="Police" value={insurance.policy_number ?? "—"} />
+                  {insurance.document_hash && <Field label="Empreinte SHA-256" value={`${insurance.document_hash.slice(0, 16)}…`} />}
                 </div>
               ) : (
                 <p className="mt-3 text-sm text-muted-foreground">
@@ -306,6 +314,12 @@ export function CoveragePanel({
                   <Button size="sm" onClick={() => setDialog("insurancePolicy")}>
                     <CheckCircle2 className="mr-1.5 h-4 w-4" aria-hidden /> Valider l'assurance
                   </Button>
+                )}
+                {insurance?.document_url && (
+                  <Button asChild size="sm" variant="outline"><a href={insurance.document_url} target="_blank" rel="noreferrer"><FileText className="mr-1.5 h-4 w-4" aria-hidden /> Notice d'assurance</a></Button>
+                )}
+                {insurance?.signed_document_url && (
+                  <Button asChild size="sm" variant="outline"><a href={insurance.signed_document_url} target="_blank" rel="noreferrer"><Download className="mr-1.5 h-4 w-4" aria-hidden /> Version signée</a></Button>
                 )}
               </div>
             </section>

@@ -253,7 +253,10 @@ function SecurePortal() {
   }
 
   /** Ouvre une URL signée éphémère (2 min), jamais un chemin de stockage. */
-  async function openDocument(kind: "document" | "contract" | "signed_contract", documentId?: string) {
+  async function openDocument(
+    kind: "document" | "contract" | "signed_contract" | "guarantee" | "signed_guarantee" | "insurance" | "signed_insurance",
+    documentId?: string,
+  ) {
     try {
       const res = await fetchDocUrl({ data: { token, kind, document_id: documentId } });
       window.open(res.url, "_blank", "noopener,noreferrer");
@@ -485,7 +488,10 @@ function SecurePortal() {
         <Card className="p-5 lg:col-span-3">
           <h2 className="text-sm font-semibold">{t("finance.portal.summary")}</h2>
           <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
-            <Row label={t("finance.portal.product")} value={(data.product?.name as string | undefined) ?? "—"} />
+            <Row
+              label={t("finance.portal.product")}
+              value={data.product?.i18n_key ? t(`${data.product.i18n_key}.name`, { defaultValue: data.product.name }) : (data.product?.name ?? "—")}
+            />
             <Row label={t("finance.portal.status")} value={statusLabel(status)} />
             <Row label={t("finance.portal.insurance")} value={app.insurance_opted ? t("common.yes") : t("common.no")} />
             <Row label={t("finance.portal.totalCost")} value={money(num("total_cost"))} />
@@ -765,6 +771,18 @@ function SecurePortal() {
           {guarantee.fee_description && (
             <p className="mt-3 text-sm text-muted-foreground">{guarantee.fee_description}</p>
           )}
+          {guarantee.has_document && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Button type="button" variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("guarantee")}>
+                <Download className="h-4 w-4" aria-hidden /> {t("finance.portal.download")}
+              </Button>
+              {guarantee.has_signed_document && (
+                <Button type="button" variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("signed_guarantee")}>
+                  <Download className="h-4 w-4" aria-hidden /> {t("finance.portal.downloadSigned")}
+                </Button>
+              )}
+            </div>
+          )}
 
           {guarantee.payment_status === "paid" ? (
             <p className="mt-4 rounded-lg bg-success/10 p-3 text-sm text-success">
@@ -865,6 +883,18 @@ function SecurePortal() {
           </dl>
           {insurance.fee_description && (
             <p className="mt-3 text-sm text-muted-foreground">{insurance.fee_description}</p>
+          )}
+          {insurance.has_document && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Button type="button" variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("insurance")}>
+                <Download className="h-4 w-4" aria-hidden /> {t("finance.portal.download")}
+              </Button>
+              {insurance.has_signed_document && (
+                <Button type="button" variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("signed_insurance")}>
+                  <Download className="h-4 w-4" aria-hidden /> {t("finance.portal.downloadSigned")}
+                </Button>
+              )}
+            </div>
           )}
 
           {insurance.payment_status === "paid" ? (
