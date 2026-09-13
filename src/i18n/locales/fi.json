@@ -213,7 +213,7 @@
     "updated": "Koodi päivitetty"
   },
   "adminDash": {
-    "chat": "Live Chat",
+    "chat": "Live-chat",
     "clients": "Asiakkaat",
     "kpis": {
       "clients": "Aktiivisia asiakkaita",
@@ -223,14 +223,14 @@
       "transfersBlocked": "Siirrot estetty"
     },
     "loans": "Lainat",
-    "logs": "Activity log",
+    "logs": "Toimintaloki",
     "notifications": "Ilmoitukset",
     "overview": "Yleiskatsaus",
     "quickActions": "Nopeat toiminnot",
     "recentActivity": "Viimeaikainen toiminta",
-    "roles": "Permissions",
+    "roles": "Luvat",
     "security": "Turvallisuus",
-    "staff": "Team & roles",
+    "staff": "Joukkue ja roolit",
     "title": "Kojelauta – MOONYP",
     "transfers": "Siirrot"
   },
@@ -302,59 +302,59 @@
   },
   "auth": {
     "accountCreated": "Tili luotu onnistuneesti",
-    "backHome": "Back to home",
-    "brandBadge": "Secure digital bank",
+    "backHome": "Takaisin kotiin",
+    "brandBadge": "Turvallinen digipankki",
     "confirmNewPassword": "Vahvista salasana",
     "connectedToast": "Kirjautuminen onnistui",
-    "createAccount": "Create my account",
-    "creating": "Creating account…",
-    "decision": "Decision within 24 business hours",
+    "createAccount": "Luo tilini",
+    "creating": "Luodaan tiliä…",
+    "decision": "Päätös 24 tunnin sisällä",
     "email": "Email",
     "emailAlreadyUsed": "Sähköposti on jo käytössä",
-    "emailInvalid": "Invalid email",
+    "emailInvalid": "Virheellinen sähköpostiosoite",
     "emailLabel": "Sähköposti",
     "forgotDesc": "Anna sähköpostiosoitteesi. Lähetämme sinulle suojatun linkin uuden salasanan asettamiseksi.",
     "forgotLink": "Unohditko salasanasi?",
-    "forgotPassword": "Forgot password?",
+    "forgotPassword": "Unohditko salasanan?",
     "forgotSend": "Lähetä linkki",
     "forgotSent": "Jos tili on olemassa, sähköposti on lähetetty.",
     "forgotTitle": "Palauta salasanasi",
-    "fullName": "Full name",
+    "fullName": "Koko nimi",
     "fullNameLabel": "Koko nimi",
-    "google": "Continue with Google",
-    "googleError": "Unable to sign in with Google",
-    "googleLoading": "Signing in with Google…",
-    "hasAccount": "Already have an account?",
+    "google": "Jatka Googlella",
+    "googleError": "Ei voi kirjautua sisään Googlella",
+    "googleLoading": "Kirjaudutaan sisään Googlella…",
+    "hasAccount": "Onko sinulla jo tili?",
     "invalidCredentials": "Virheelliset tunnistetiedot",
-    "loginSuccess": "Successfully signed in",
-    "minPasswordHint": "At least 8 characters.",
-    "mobileHint": "Sign in or create your account",
-    "nameShort": "Name too short",
+    "loginSuccess": "Kirjautuminen onnistui",
+    "minPasswordHint": "Vähintään 8 merkkiä.",
+    "mobileHint": "Kirjaudu sisään tai luo tili",
+    "nameShort": "Nimi liian lyhyt",
     "newPassword": "Uusi salasana",
-    "noAccount": "No account yet?",
-    "password": "Password",
+    "noAccount": "Eikö tiliä ole vielä?",
+    "password": "Salasana",
     "passwordLabel": "Salasana",
-    "passwordMin": "Password must be at least 8 characters",
+    "passwordMin": "Salasanassa on oltava vähintään 8 merkkiä",
     "passwordRequired": "Salasana vaaditaan",
-    "phone": "Phone",
-    "phoneInvalid": "Invalid phone number",
+    "phone": "Puhelin",
+    "phoneInvalid": "Virheellinen puhelinnumero",
     "phoneLabel": "Puhelin",
     "resetSuccess": "Salasana päivitetty onnistuneesti.",
     "resetTitle": "Aseta uusi salasana",
     "resetWaiting": "Palautuslinkkiä vahvistetaan…",
-    "rgpd": "GDPR compliant",
-    "signIn": "Sign in",
-    "signingIn": "Signing in…",
-    "signUp": "Create account",
-    "signupSuccess": "Account created · check your inbox",
+    "rgpd": "GDPR-yhteensopiva",
+    "signIn": "Kirjaudu sisään",
+    "signingIn": "Kirjaudutaan sisään…",
+    "signUp": "Luo tili",
+    "signupSuccess": "Tili luotu · Tarkista postilaatikkosi",
     "tabSignin": "Kirjaudu sisään",
     "tabSignup": "Luo tili",
-    "terms": "By continuing, you accept our Terms and Privacy Policy.",
-    "title": "Client area",
-    "tls": "TLS 1.3 encryption",
+    "terms": "Jatkamalla hyväksyt käyttöehtomme ja tietosuojakäytäntömme.",
+    "title": "Asiakasalue",
+    "tls": "TLS 1.3 -salaus",
     "updatePassword": "Päivitä salasana",
-    "welcomeDesc": "Access your loans, transfers and premium services securely.",
-    "welcomeTitle": "Welcome to"
+    "welcomeDesc": "Käytä lainojasi, siirtojasi ja premium-palveluitasi turvallisesti.",
+    "welcomeTitle": "Tervetuloa"
   },
   "authPending": {
     "description": "Olemme lähettäneet vahvistuslinkin sähköpostiosoitteeseesi.",
@@ -712,7 +712,7 @@
     },
     "approved": {
       "body": "Hei {{firstName}}, hakemuksesi {{reference}} on hyväksytty. Tarjous näkyy turvallisessa palvelussa.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "details": "Henkilökohtainen tarjouksesi ja sitten sopimuksesi ovat saatavilla suojatulla alueellasi.",
       "subject": "Hakemuksesi {{reference}} on hyväksytty"
     },
     "cancelled": {
@@ -740,12 +740,12 @@
     },
     "contractSent": {
       "body": "Hei {{firstName}}, sopimus {{reference}} on allekirjoitettavissa turvallisessa palvelussa.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "details": "Rahoitussopimuksesi on saatavilla verkossa. Lue se kokonaan, lataa PDF ja allekirjoita se sitten sähköisesti sähköpostitse lähetetyllä kertakoodilla. Allekirjoitus on aikaleimattu ja arkistoitu.",
       "subject": "Sopimuksesi {{reference}} on valmis"
     },
     "contractSigned": {
       "body": "Hei {{firstName}}, sopimuksesi {{reference}} on allekirjoitettu. Voit ladata sen turvallisesta tilastasi.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "details": "Allekirjoitettu sopimuksesi arkistoidaan ja ladattavissa milloin tahansa turvalliselta alueeltasi, jossa seuraavat vaiheet (vakuutus, vakuutus, maksu) seurataan reaaliajassa.",
       "subject": "Sopimus {{reference}} allekirjoitettu"
     },
     "cta": {
@@ -759,7 +759,7 @@
     },
     "disbursed": {
       "body": "Hei {{firstName}}, hakemuksen {{reference}} varat on siirretty tilillesi.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "details": "Siirto on matkalla antamallesi tilille. Takaisinmaksuaikataulusi on saatavilla verkossa.",
       "subject": "Varat maksettu — hakemus {{reference}}"
     },
     "disbursementPreparing": {
@@ -769,7 +769,7 @@
     },
     "documentsMissing": {
       "body": "Hei {{firstName}}, hakemuksesta {{reference}} puuttuu asiakirjoja. Lataa ne turvallisessa palvelussa. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "details": "Lataaminen kestää sekunteja suoraan puhelimelta tai tietokoneelta.",
       "subject": "Puuttuvat asiakirjat — hakemus {{reference}}"
     },
     "guaranteeDeclined": {
@@ -778,7 +778,7 @@
     },
     "guaranteePayLater": {
       "body": "Hei {{firstName}}, maksusi {{amount}} on ajoitettu {{date}}. Hakemus pysyy voimassa.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "details": "Hakemuksesi pysyy varattuna valitsemaasi päivään asti. Voit tuoda maksun eteenpäin milloin tahansa turvalliselta alueeltasi.",
       "subject": "Maksu ajoitettu {{reference}}"
     },
     "guaranteePaymentValidated": {
@@ -787,7 +787,7 @@
     },
     "guaranteePayNow": {
       "body": "Hei {{firstName}}, kirjasimme valintasi maksaa {{amount}}. Maksuohjeet lähetetään tarkistuksen jälkeen.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "details": "Maksuohjeet (saaja, IBAN, BIC ja viittaus tarjoukseen) ovat saatavilla suojattu alueesi maksusivulla, jonne voit myös ladata kuittisi.",
       "subject": "Maksun valinta {{reference}}"
     },
     "guaranteeReminder": {
@@ -796,7 +796,7 @@
     },
     "guaranteeSent": {
       "body": "Hei {{firstName}}, luottoriskin kattamismaksu on {{amount}}. Valitse vaihtoehtosi turvallisessa tilassa.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "details": "Luottoriskivakuutus vaaditaan ennen varojen vapauttamista. Turva-alueeltasi voit maksaa nyt, ajoittaa maksun valitsemallesi päivälle tai vetäytyä rahoituksesta.",
       "subject": "Kattamismaksu — hakemus {{reference}}"
     },
     "guaranteeSigned": {
@@ -835,7 +835,7 @@
     },
     "insurancePending": {
       "body": "Hei {{firstName}}, hakemuksesi edellyttää {{amount}} kuukausivakuutusta.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "details": "Lainavakuutus kattaa kuoleman, työkyvyttömyyden ja työpaikan menetyksen sopimusehtojen mukaisesti. Vakuus, kuukausimaksu ja maksuehdot ovat yksityiskohtaiset suojatulla alueellasi.",
       "subject": "Vakuutus {{reference}}"
     },
     "insuranceReminder": {
@@ -845,7 +845,7 @@
     },
     "insuranceValidated": {
       "body": "Hei {{firstName}}, vakuutuksesi on vahvistettu.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "details": "Vakuutuksesi on vahvistettu ja liitetty sopimukseesi. Varmenteen voi ladata suojatuilta alueiltasi.",
       "subject": "Vakuutus vahvistettu {{reference}}"
     },
     "late": {
@@ -855,7 +855,7 @@
     },
     "offerAvailable": {
       "body": "Hei {{firstName}}, rahoitustarjouksesi {{reference}} on saatavilla turvallisessa palvelussa.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "details": "Tarjouksessasi on yksityiskohtaiset tiedot summasta, kestosta, vuosikorosta, erästä, kokonaiskustannuksista ja maksuista. Se on voimassa suojatulla alueellasi näkyvään päivämäärään saakka.",
       "subject": "Tarjouksesi {{reference}} on saatavilla"
     },
     "rejected": {
@@ -879,7 +879,7 @@
     },
     "signatureCode": {
       "body": "Hei {{firstName}}, allekirjoituskoodisi on {{code}}. Se vanhenee 10 minuutissa.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "details": "Kirjoita tämä koodi sopimuksen allekirjoitussivulle viimeistelläksesi sitoumuksen. Se vanhenee 10 minuutin kuluttua ja sitä voidaan käyttää vain kerran.",
       "subject": "Allekirjoituskoodisi {{reference}}"
     },
     "signaturePending": {
@@ -1402,7 +1402,7 @@
     }
   },
   "footer": {
-    "aml": "AML / KYC",
+    "aml": "RA / TUN",
     "banking": "Pankkitoiminta",
     "contact": "Yhteystiedot",
     "contactForm": "Yhteydenottolomake",
@@ -1420,7 +1420,7 @@
     "terms": "Ehdot"
   },
   "header": {
-    "admin": "Admin",
+    "admin": "Ylläpitäjä",
     "contact": "Yhteystiedot",
     "dashboard": "Hallintapaneeli",
     "menu": "Valikko",
@@ -2123,13 +2123,13 @@
     }
   },
   "notifications": {
-    "allRead": "All caught up",
-    "empty": "No notifications",
-    "markAllRead": "Mark all read",
-    "noLink": "No link",
-    "pageTitle": "All notifications",
-    "title": "Notifications",
-    "viewAll": "View all notifications"
+    "allRead": "Kaikki kiinni",
+    "empty": "Ei ilmoituksia",
+    "markAllRead": "Merkitse kaikki luetuiksi",
+    "noLink": "Ei linkkiä",
+    "pageTitle": "Kaikki ilmoitukset",
+    "title": "Ilmoitukset",
+    "viewAll": "Näytä kaikki ilmoitukset"
   },
   "password": {
     "excellent": "Erinomainen",
@@ -2443,43 +2443,43 @@
     "phone": "Syötä voimassa oleva puhelinnumero"
   },
   "workflow": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "confirmTitle": "Confirm the decision",
+    "cancel": "Peruuta",
+    "confirm": "Vahvista",
+    "confirmBody": "Tiedosto {{reference}} siirtyy tilaan \"{{status}}\". Tämä toimenpide kirjataan kirjausketjuun.",
+    "confirmTitle": "Vahvista päätös",
     "error": {
-      "forbidden": "Action not allowed",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "sameStatus": "The file already has this status"
+      "forbidden": "Toimia ei sallita",
+      "notAllowed": "Työnkulku ei salli siirtymistä",
+      "notFound": "Tiedostoa ei löydy",
+      "reasonRequired": "Syy vaaditaan",
+      "sameStatus": "Tiedostolla on jo tämä tila"
     },
     "guard": {
-      "complianceBlocking": "Blocking compliance alert",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "kycNotPassed": "KYC checks not passed",
-      "missingPayout": "Payout details missing",
-      "noInsurance": "No insurance subscribed on this file"
+      "complianceBlocking": "Estä vaatimustenmukaisuusvaroitus",
+      "documentsPending": "Vaaditut asiakirjat puuttuvat tai niitä ei ole hyväksytty",
+      "infoRequestsOpen": "Tietopyynnöt ovat edelleen auki",
+      "kycNotPassed": "KYC-tarkistuksia ei läpäissyt",
+      "missingPayout": "Maksutiedot puuttuvat",
+      "noInsurance": "Tälle tiedostolle ei ole tilattu vakuutusta"
     },
-    "noteLabel": "Internal note",
-    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Sisäinen huomautus",
+    "reasonLabel": "Syy jaettu hakijan kanssa",
     "requests": {
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "close": "Close",
-      "create": "Send request",
-      "kind": "Request type",
+      "answered": "Vastattu",
+      "cancelled": "Peruutettu",
+      "close": "Sulje",
+      "create": "Lähetä pyyntö",
+      "kind": "Pyynnön tyyppi",
       "kinds": {
         "information": "Lisätieto",
         "justification": "Perustelu pyydetty",
         "missing_document": "Puuttuva asiakirja",
         "replace_document": "Asiakirjan korvaaminen"
       },
-      "message": "Message sent to the applicant",
-      "none": "No information request.",
-      "open": "Pending",
-      "title": "Information requests"
+      "message": "Viesti lähetetty hakijalle",
+      "none": "Ei tietopyyntöä.",
+      "open": "Kesken",
+      "title": "Tietopyynnöt"
     }
   }
 }

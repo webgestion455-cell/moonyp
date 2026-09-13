@@ -84,7 +84,17 @@ export const adminPrepareContract = createServerFn({ method: "POST" })
       fees: Number(offer?.fees_total ?? app.fees ?? 0),
       currency,
       purpose: app.purpose ?? null,
+      // Données nominatives du dossier : sans elles le contrat imprimerait
+      // « Non précisé » sur des mentions obligatoires (date de naissance,
+      // téléphone, pays de résidence, IBAN de versement, TAEG, validité).
+      apr: Number(app.apr ?? offer?.annual_rate ?? 0) || null,
+      phone: app.phone ?? null,
+      birthDate: app.birth_date ?? null,
+      country: app.country ?? null,
+      iban: app.bank_iban ?? null,
+      offerValidUntil: (offer?.valid_until as string | null | undefined) ?? null,
     });
+
 
     const path = await storeContractPdf(data.application_id, `contract-v${version}.pdf`, bytes);
 
@@ -484,6 +494,14 @@ export const signContract = createServerFn({ method: "POST" })
       fees: Number(offer?.fees_total ?? app.fees ?? 0),
       currency: (offer?.currency as string | undefined) ?? product?.currency ?? "EUR",
       purpose: app.purpose ?? null,
+      // Le contrat signé reprend exactement les mentions du contrat émis.
+      apr: Number(app.apr ?? offer?.annual_rate ?? 0) || null,
+      phone: app.phone ?? null,
+      birthDate: app.birth_date ?? null,
+      country: app.country ?? null,
+      iban: app.bank_iban ?? null,
+      offerValidUntil: (offer?.valid_until as string | null | undefined) ?? null,
+
       signature: {
         name: data.full_name.trim(),
         signedAt,

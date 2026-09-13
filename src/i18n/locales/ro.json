@@ -95,7 +95,7 @@
       "joined": "S-a alăturat",
       "loans": "Împrumuturi",
       "phone": "Telefon",
-      "status": "Status",
+      "status": "Statut",
       "subtitle": "Conturi de client și starea accesului.",
       "title": "Clienții",
       "totalBorrowed": "Total împrumutat"
@@ -110,9 +110,9 @@
       "amount": "Cantitate",
       "client": "Client",
       "date": "Data",
-      "documents": "Docs",
+      "documents": "Documente",
       "duration": "Durată",
-      "status": "Status",
+      "status": "Statut",
       "subtitle": "Vedere detaliată și filtrabilă a aplicațiilor.",
       "title": "Toate dosarele de împrumut"
     },
@@ -223,19 +223,19 @@
       "transfersBlocked": "Transferuri blocate"
     },
     "loans": "Împrumuturi",
-    "logs": "Activity log",
+    "logs": "Jurnal de activitate",
     "notifications": "Notificări",
     "overview": "Prezentare generală",
     "quickActions": "Acțiuni rapide",
     "recentActivity": "Activitate recentă",
-    "roles": "Permissions",
+    "roles": "Permisiuni",
     "security": "Securitate",
-    "staff": "Team & roles",
+    "staff": "Echipa și roluri",
     "title": "Tabloul de bord — MOONYP",
     "transfers": "Transferuri"
   },
   "adminSec": {
-    "adminLink": "Admin",
+    "adminLink": "Administrator",
     "alerts": {
       "empty": "Nicio alertă.",
       "resolve": "Rezolvă",
@@ -367,7 +367,7 @@
     "contact": "Vă rugăm să contactați asistența pentru mai multe informații.",
     "message": "Contul dvs. a fost suspendat temporar de echipa noastră de conformitate.",
     "reasonLabel": "Motiv",
-    "signOut": "Sign out",
+    "signOut": "Deconectare",
     "title": "Cont suspendat"
   },
   "chat": {
@@ -712,7 +712,7 @@
     },
     "approved": {
       "body": "Bună {{firstName}}, cererea {{reference}} a fost aprobată. Oferta va fi disponibilă în spațiul securizat.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "details": "Oferta dvs. personalizată și apoi contractul dvs. vor fi disponibile în zona dumneavoastră securizată.",
       "subject": "Cererea {{reference}} a fost aprobată"
     },
     "cancelled": {
@@ -740,12 +740,12 @@
     },
     "contractSent": {
       "body": "Bună {{firstName}}, contractul {{reference}} este gata de semnat în spațiul securizat.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "details": "Contractul dumneavoastră de finanțare este disponibil online. Citiți-l integral, descărcați PDF-ul, apoi semnați-l electronic cu un cod unic trimis prin e-mail. Semnătura este marcată de timp și arhivată.",
       "subject": "Contractul {{reference}} vă așteaptă"
     },
     "contractSigned": {
       "body": "Bună {{firstName}}, contractul {{reference}} a fost semnat. Îl puteți descărca din spațiul securizat.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "details": "Contractul dvs. semnat este arhivat și descărcat în orice moment din zona dumneavoastră securizată, unde următorii pași (acoperire, asigurare, plăți) sunt urmăriți în timp real.",
       "subject": "Contract {{reference}} semnat"
     },
     "cta": {
@@ -759,7 +759,7 @@
     },
     "disbursed": {
       "body": "Bună {{firstName}}, fondurile dosarului {{reference}} au fost virate în contul dvs.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "details": "Transferul este în drum spre contul pe care l-ați furnizat. Programul dvs. de rambursare este disponibil online.",
       "subject": "Fonduri virate — dosar {{reference}}"
     },
     "disbursementPreparing": {
@@ -769,7 +769,7 @@
     },
     "documentsMissing": {
       "body": "Bună {{firstName}}, lipsesc documente din dosarul {{reference}}. Încărcați-le din spațiul securizat. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "details": "Încărcarea durează câteva secunde, direct de pe telefon sau computer.",
       "subject": "Documente lipsă — dosar {{reference}}"
     },
     "guaranteeDeclined": {
@@ -778,7 +778,7 @@
     },
     "guaranteePayLater": {
       "body": "Bună {{firstName}}, plata de {{amount}} este programată pentru {{date}}. Cererea rămâne în așteptare.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "details": "Aplicația dumneavoastră rămâne rezervată până la data aleasă. Puteți înainta oricând plata din zona dumneavoastră securizată.",
       "subject": "Plată programată {{reference}}"
     },
     "guaranteePaymentValidated": {
@@ -787,7 +787,7 @@
     },
     "guaranteePayNow": {
       "body": "Bună {{firstName}}, am înregistrat alegerea de a plăti {{amount}}. Instrucțiunile urmează după verificare.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "details": "Instrucțiunile de plată (beneficiar, IBAN, BIC și referința la cot) sunt disponibile pe pagina de plată a zonei dumneavoastră securizate, unde puteți încărca și chitanța.",
       "subject": "Plata comisionului {{reference}}"
     },
     "guaranteeReminder": {
@@ -796,7 +796,7 @@
     },
     "guaranteeSent": {
       "body": "Bună {{firstName}}, comisionul de acoperire a riscului de credit este {{amount}}. Alegeți opțiunea în spațiul securizat.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "details": "Acoperirea riscului de credit este necesară înainte de eliberarea fondurilor. Din zona dvs. securizată puteți plăti acum, puteți programa plata la o dată la alegere sau vă puteți retrage din finanțare.",
       "subject": "Comision de acoperire — dosar {{reference}}"
     },
     "guaranteeSigned": {
@@ -835,7 +835,7 @@
     },
     "insurancePending": {
       "body": "Bună {{firstName}}, este necesară o asigurare de {{amount}} pe lună.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "details": "Asigurarea împrumutatului acoperă decesul, invaliditatea și pierderea locului de muncă în condițiile contractului. Acoperirea, prima lunară și termenii de plată sunt detaliate în zona dumneavoastră securizată.",
       "subject": "Asigurare {{reference}}"
     },
     "insuranceReminder": {
@@ -845,7 +845,7 @@
     },
     "insuranceValidated": {
       "body": "Bună {{firstName}}, asigurarea dvs. a fost validată.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "details": "Asigurarea dumneavoastră este validată și atașată contractului dumneavoastră. Certificatul poate fi descărcat din zona dumneavoastră securizată.",
       "subject": "Asigurare validată {{reference}}"
     },
     "late": {
@@ -855,7 +855,7 @@
     },
     "offerAvailable": {
       "body": "Bună {{firstName}}, oferta dvs. de finanțare {{reference}} este disponibilă în spațiul securizat.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "details": "Oferta dvs. detaliază suma, termenul, tariful anual, rata, costul total și taxele. Rămâne valabil până la data afișată în zona dumneavoastră securizată.",
       "subject": "Oferta {{reference}} este disponibilă"
     },
     "rejected": {
@@ -879,7 +879,7 @@
     },
     "signatureCode": {
       "body": "Bună {{firstName}}, codul de semnare este {{code}}. Expiră în 10 minute.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "details": "Introduceți acest cod pe pagina de semnătură a contractului pentru a vă finaliza angajamentul. Expiră după 10 minute și poate fi folosit o singură dată.",
       "subject": "Codul dvs. de semnare {{reference}}"
     },
     "signaturePending": {
@@ -1420,7 +1420,7 @@
     "terms": "Termeni"
   },
   "header": {
-    "admin": "Admin",
+    "admin": "Administrator",
     "contact": "Contact",
     "dashboard": "Panou",
     "menu": "Meniu",
@@ -1681,7 +1681,7 @@
       "eyebrow": "Mărturii",
       "t1n": "Marie Dubois",
       "t1q": "O experiență bancară fluidă și profesională. Suportul este remarcabil.",
-      "t1r": "CFO",
+      "t1r": "Director financiar",
       "t2n": "Jean Martin",
       "t2q": "Transferurile internaționale sunt rapide și securitatea este impecabilă.",
       "t2r": "Antreprenor",
@@ -2196,7 +2196,7 @@
     "serverSecure": "Document securizat",
     "serverSecurity": "Document generat de sistemele securizate MOONYP.",
     "serverSessionExpired": "Sesiunea a expirat. Vă rugăm să vă conectați din nou.",
-    "serverStatus": "Status",
+    "serverStatus": "Statut",
     "serverSubtitle": "chitanță bancară oficială",
     "serverTitle": "Chitanța de transfer",
     "serverUnauthorized": "Acces neautorizat la această chitanță",
@@ -2259,7 +2259,7 @@
     "amount": "Suma (€)",
     "amountInvalid": "Sumă nevalidă",
     "available": "Sold disponibil",
-    "bankName": "Bank",
+    "bankName": "Bancă",
     "bankNamePlaceholder": "Numele băncii",
     "bankRequired": "Banca necesară",
     "beneficiary": "Beneficiar",
@@ -2302,7 +2302,7 @@
       "rejected": "Transfer respins",
       "validated": "Transfer validat"
     },
-    "bank": "Bank",
+    "bank": "Bancă",
     "beneficiary": "Beneficiar",
     "bic": "BIC",
     "header": "MOONYP · Ordin de transfer",
@@ -2443,43 +2443,43 @@
     "phone": "Introduceți un număr de telefon valid"
   },
   "workflow": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "confirmTitle": "Confirm the decision",
+    "cancel": "Anulează",
+    "confirm": "Confirmă",
+    "confirmBody": "Fișierul {{reference}} se va muta în starea „{{status}}”. Această acțiune este înregistrată în pista de audit.",
+    "confirmTitle": "Confirmați decizia",
     "error": {
-      "forbidden": "Action not allowed",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "sameStatus": "The file already has this status"
+      "forbidden": "Acțiune nu este permisă",
+      "notAllowed": "Tranziția nu este permisă de fluxul de lucru",
+      "notFound": "Fișierul nu a fost găsit",
+      "reasonRequired": "Se cere un motiv",
+      "sameStatus": "Fișierul are deja această stare"
     },
     "guard": {
-      "complianceBlocking": "Blocking compliance alert",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "kycNotPassed": "KYC checks not passed",
-      "missingPayout": "Payout details missing",
-      "noInsurance": "No insurance subscribed on this file"
+      "complianceBlocking": "Alertă de conformitate de blocare",
+      "documentsPending": "Lipsesc documentele necesare sau nu sunt aprobate",
+      "infoRequestsOpen": "Cererile de informatii inca sunt deschise",
+      "kycNotPassed": "Verificările KYC nu au fost trecute",
+      "missingPayout": "Lipsesc detalii de plată",
+      "noInsurance": "Nicio asigurare nu a fost subscrisa in acest dosar"
     },
-    "noteLabel": "Internal note",
-    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Notă internă",
+    "reasonLabel": "Motivul împărtășit solicitantului",
     "requests": {
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "close": "Close",
-      "create": "Send request",
-      "kind": "Request type",
+      "answered": "Răspuns",
+      "cancelled": "Anulat",
+      "close": "Închide",
+      "create": "Trimiteți cererea",
+      "kind": "Tip cerere",
       "kinds": {
         "information": "Informație suplimentară",
         "justification": "Justificare solicitată",
         "missing_document": "Document lipsă",
         "replace_document": "Înlocuire document"
       },
-      "message": "Message sent to the applicant",
-      "none": "No information request.",
-      "open": "Pending",
-      "title": "Information requests"
+      "message": "Mesaj trimis solicitantului",
+      "none": "Nicio solicitare de informatii.",
+      "open": "În așteptare",
+      "title": "Solicitări de informații"
     }
   }
 }

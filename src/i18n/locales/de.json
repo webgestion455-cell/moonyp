@@ -223,19 +223,19 @@
       "transfersBlocked": "Überweisungen blockiert"
     },
     "loans": "Kredite",
-    "logs": "Activity log",
+    "logs": "Aktivitätsprotokoll",
     "notifications": "Benachrichtigungen",
     "overview": "Überblick",
     "quickActions": "Schnelle Aktionen",
     "recentActivity": "Aktuelle Aktivität",
-    "roles": "Permissions",
+    "roles": "Berechtigungen",
     "security": "Sicherheit",
-    "staff": "Team & roles",
+    "staff": "Team & Rollen",
     "title": "Dashboard – MOONYP",
     "transfers": "Überweisungen"
   },
   "adminSec": {
-    "adminLink": "Admin",
+    "adminLink": "Administrator",
     "alerts": {
       "empty": "Keine Warnungen.",
       "resolve": "Lösen",
@@ -447,7 +447,7 @@
       "desc": "Sie müssen angemeldet sein, um den Support zu nutzen.",
       "title": "Anmelden zum Chatten"
     },
-    "nav": "Support",
+    "nav": "Unterstützen",
     "notFound": "Seite nicht gefunden",
     "notFoundDesc": "Diese Seite existiert nicht.",
     "open": "Offen",
@@ -515,7 +515,7 @@
     "continue": "Weiter",
     "date": "Datum",
     "delete": "Löschen",
-    "details": "Details",
+    "details": "Einzelheiten",
     "download": "Herunterladen",
     "edit": "Bearbeiten",
     "errorRetry": "Erneut versuchen",
@@ -639,7 +639,7 @@
     "applyCta": "Jetzt beantragen",
     "balance": "Verfügbarer Saldo",
     "contactSupport": "Kundenservice kontaktieren",
-    "details": "Details",
+    "details": "Einzelheiten",
     "disbursedRemaining": "Ausgezahlt: {{disbursed}} · Rest: {{remaining}}",
     "firstLoanDesc": "Finanzieren Sie Ihre Projekte in wenigen Minuten: Auto, Renovierung, Liquidität u. a.",
     "firstLoanTitle": "Starten Sie Ihren ersten Antrag",
@@ -712,7 +712,7 @@
     },
     "approved": {
       "body": "Hallo {{firstName}}, Ihr Antrag {{reference}} wurde genehmigt. Ihr Angebot finden Sie in Ihrem sicheren Bereich.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "details": "Ihr individuelles Angebot und anschließend Ihr Vertrag werden Ihnen in Ihrem sicheren Bereich zur Verfügung gestellt.",
       "subject": "Ihr Antrag {{reference}} wurde genehmigt"
     },
     "cancelled": {
@@ -740,12 +740,12 @@
     },
     "contractSent": {
       "body": "Hallo {{firstName}}, Ihr Vertrag {{reference}} kann in Ihrem sicheren Bereich unterzeichnet werden.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "details": "Ihr Finanzierungsvertrag ist online verfügbar. Lesen Sie es vollständig durch, laden Sie das PDF herunter und unterschreiben Sie es dann elektronisch mit einem Einmalcode, der Ihnen per E-Mail zugesandt wird. Die Signatur wird mit einem Zeitstempel versehen und archiviert.",
       "subject": "Ihr Vertrag {{reference}} ist bereit"
     },
     "contractSigned": {
       "body": "Hallo {{firstName}}, Ihr Vertrag {{reference}} wurde unterzeichnet. Sie können ihn in Ihrem sicheren Bereich herunterladen.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "details": "Ihr unterschriebener Vertrag wird archiviert und kann jederzeit in Ihrem sicheren Bereich heruntergeladen werden, wo die nächsten Schritte (Versicherung, Versicherung, Auszahlung) in Echtzeit verfolgt werden.",
       "subject": "Vertrag {{reference}} unterzeichnet"
     },
     "cta": {
@@ -759,7 +759,7 @@
     },
     "disbursed": {
       "body": "Hallo {{firstName}}, die Mittel Ihrer Akte {{reference}} wurden auf Ihr Konto überwiesen.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "details": "Die Überweisung ist auf dem Weg auf das von Ihnen angegebene Konto. Ihr Tilgungsplan ist online verfügbar.",
       "subject": "Auszahlung erfolgt — Akte {{reference}}"
     },
     "disbursementPreparing": {
@@ -769,7 +769,7 @@
     },
     "documentsMissing": {
       "body": "Hallo {{firstName}}, in Ihrer Akte {{reference}} fehlen Unterlagen. Bitte laden Sie diese in Ihrem sicheren Bereich hoch. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "details": "Das Hochladen dauert nur wenige Sekunden, direkt von Ihrem Telefon oder Computer.",
       "subject": "Fehlende Unterlagen — Akte {{reference}}"
     },
     "guaranteeDeclined": {
@@ -778,7 +778,7 @@
     },
     "guaranteePayLater": {
       "body": "Hallo {{firstName}}, Ihre Zahlung von {{amount}} ist für den {{date}} geplant. Ihr Antrag bleibt offen.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "details": "Ihre Bewerbung bleibt bis zum gewählten Termin reserviert. Sie können die Zahlung jederzeit aus Ihrem sicheren Bereich heraus vorziehen.",
       "subject": "Zahlung geplant {{reference}}"
     },
     "guaranteePaymentValidated": {
@@ -787,7 +787,7 @@
     },
     "guaranteePayNow": {
       "body": "Hallo {{firstName}}, wir haben Ihre Wahl erfasst, {{amount}} zu zahlen. Die Zahlungsanweisungen folgen nach Prüfung.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "details": "Zahlungsanweisungen (Begünstigter, IBAN, BIC und die Referenz zum Angebot) finden Sie auf der Zahlungsseite Ihres sicheren Bereichs, wo Sie auch Ihre Quittung hochladen können.",
       "subject": "Gebührenzahlung {{reference}}"
     },
     "guaranteeReminder": {
@@ -796,7 +796,7 @@
     },
     "guaranteeSent": {
       "body": "Hallo {{firstName}}, die Gebühr zur Deckung des Kreditrisikos beträgt {{amount}}. Wählen Sie Ihre Option im sicheren Bereich.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "details": "Vor der Freigabe der Mittel ist eine Kreditrisikoabsicherung erforderlich. Von Ihrem sicheren Bereich aus können Sie jetzt bezahlen, die Zahlung zu einem Wunschtermin vereinbaren oder von der Finanzierung zurücktreten.",
       "subject": "Deckungsgebühr — Akte {{reference}}"
     },
     "guaranteeSigned": {
@@ -835,7 +835,7 @@
     },
     "insurancePending": {
       "body": "Hallo {{firstName}}, für Ihre Akte ist eine Versicherung von {{amount}} pro Monat erforderlich.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "details": "Die Versicherung des Kreditnehmers deckt im Rahmen der Vertragsbedingungen Tod, Invalidität und Verlust des Arbeitsplatzes ab. Einzelheiten zu Versicherungsschutz, monatlicher Prämie und Zahlungsbedingungen finden Sie in Ihrem sicheren Bereich.",
       "subject": "Versicherung {{reference}}"
     },
     "insuranceReminder": {
@@ -845,7 +845,7 @@
     },
     "insuranceValidated": {
       "body": "Hallo {{firstName}}, Ihre Versicherung wurde bestätigt.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "details": "Ihre Versicherung wird validiert und Ihrem Vertrag beigefügt. Das Zertifikat können Sie in Ihrem sicheren Bereich herunterladen.",
       "subject": "Versicherung bestätigt {{reference}}"
     },
     "late": {
@@ -855,7 +855,7 @@
     },
     "offerAvailable": {
       "body": "Hallo {{firstName}}, Ihr Finanzierungsangebot {{reference}} steht in Ihrem sicheren Bereich bereit.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "details": "In Ihrem Angebot sind Betrag, Laufzeit, Jahresrate, Rate, Gesamtkosten und Gebühren aufgeführt. Es bleibt bis zu dem in Ihrem sicheren Bereich angezeigten Datum gültig.",
       "subject": "Ihr Angebot {{reference}} ist verfügbar"
     },
     "rejected": {
@@ -879,7 +879,7 @@
     },
     "signatureCode": {
       "body": "Hallo {{firstName}}, Ihr Signaturcode lautet {{code}}. Er läuft in 10 Minuten ab.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "details": "Geben Sie diesen Code auf Ihrer Vertragsunterzeichnungsseite ein, um Ihre Verpflichtung abzuschließen. Es läuft nach 10 Minuten ab und kann nur einmal verwendet werden.",
       "subject": "Ihr Signaturcode {{reference}}"
     },
     "signaturePending": {
@@ -1406,7 +1406,7 @@
     "banking": "Bankwesen",
     "contact": "Kontakt",
     "contactForm": "Kontaktformular",
-    "cookies": "Cookies",
+    "cookies": "Kekse",
     "disclaimer": "Ein Kredit verpflichtet Sie und muss zurückgezahlt werden. Prüfen Sie vor der Beantragung Ihre Rückzahlungsfähigkeit. Jedes Angebot steht unter dem Vorbehalt der Annahme und der Identitätsprüfung.",
     "finPriv": "Finanzielle Privatsphäre",
     "legal": "Rechtliches",
@@ -1420,9 +1420,9 @@
     "terms": "AGB"
   },
   "header": {
-    "admin": "Admin",
+    "admin": "Administrator",
     "contact": "Kontakt",
-    "dashboard": "Dashboard",
+    "dashboard": "Armaturenbrett",
     "menu": "Menü",
     "myLoans": "Meine Kredite",
     "newLoan": "Kredit beantragen",
@@ -1966,7 +1966,7 @@
     "contractDownloaded": "Vertrag heruntergeladen",
     "contractGenerating": "PDF-Vertrag wird erstellt…",
     "contractTitle": "Vertrag",
-    "details": "Details",
+    "details": "Einzelheiten",
     "documentsTitle": "Eingereichte Dokumente",
     "downloadContract": "Vertrag herunterladen",
     "downloadImpossible": "Download nicht möglich",
@@ -2081,7 +2081,7 @@
     "request": "Antrag",
     "simulation": "Rechner",
     "solutions": "Lösungen",
-    "support": "Support",
+    "support": "Unterstützen",
     "transfers": "Überweisungen"
   },
   "notif": {
@@ -2231,11 +2231,11 @@
     "newEmail": "Neue E-Mail-Adresse",
     "newPassword": "Neues Passwort",
     "passwordMismatch": "Passwörter stimmen nicht überein",
-    "passwordSection": "Password",
+    "passwordSection": "Passwort",
     "passwordTooShort": "Passwort muss mindestens 8 Zeichen haben",
     "passwordUpdated": "Passwort aktualisiert",
     "phone": "Telefon",
-    "profile": "Profile",
+    "profile": "Profil",
     "profileUpdated": "Profil aktualisiert",
     "saveError": "Speicherfehler",
     "saveProfile": "Profil speichern",
@@ -2443,43 +2443,43 @@
     "phone": "Bitte geben Sie eine gültige Telefonnummer ein"
   },
   "workflow": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "confirmTitle": "Confirm the decision",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "confirmBody": "Die Datei {{reference}} wechselt in den Status „{{status}}“. Diese Aktion wird im Audit Trail aufgezeichnet.",
+    "confirmTitle": "Bestätigen Sie die Entscheidung",
     "error": {
-      "forbidden": "Action not allowed",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "sameStatus": "The file already has this status"
+      "forbidden": "Aktion nicht zulässig",
+      "notAllowed": "Übergang vom Workflow nicht zugelassen",
+      "notFound": "Datei nicht gefunden",
+      "reasonRequired": "Es ist ein Grund erforderlich",
+      "sameStatus": "Die Datei hat bereits diesen Status"
     },
     "guard": {
-      "complianceBlocking": "Blocking compliance alert",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "kycNotPassed": "KYC checks not passed",
-      "missingPayout": "Payout details missing",
-      "noInsurance": "No insurance subscribed on this file"
+      "complianceBlocking": "Blockierungs-Compliance-Warnung",
+      "documentsPending": "Erforderliche Dokumente fehlen oder sind nicht genehmigt",
+      "infoRequestsOpen": "Informationsanfragen sind noch offen",
+      "kycNotPassed": "KYC-Prüfungen nicht bestanden",
+      "missingPayout": "Auszahlungsdetails fehlen",
+      "noInsurance": "Für diese Datei ist keine Versicherung abgeschlossen"
     },
-    "noteLabel": "Internal note",
-    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Interner Hinweis",
+    "reasonLabel": "Dem Antragsteller mitgeteilter Grund",
     "requests": {
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "close": "Close",
-      "create": "Send request",
-      "kind": "Request type",
+      "answered": "Beantwortet",
+      "cancelled": "Abgesagt",
+      "close": "Schließen",
+      "create": "Anfrage senden",
+      "kind": "Anfragetyp",
       "kinds": {
         "information": "Zusätzliche Information",
         "justification": "Begründung angefordert",
         "missing_document": "Fehlendes Dokument",
         "replace_document": "Dokument ersetzen"
       },
-      "message": "Message sent to the applicant",
-      "none": "No information request.",
-      "open": "Pending",
-      "title": "Information requests"
+      "message": "Nachricht an den Antragsteller gesendet",
+      "none": "Keine Informationsanfrage.",
+      "open": "Ausstehend",
+      "title": "Informationsanfragen"
     }
   }
 }

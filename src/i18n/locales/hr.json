@@ -223,14 +223,14 @@
       "transfersBlocked": "Transferi blokirani"
     },
     "loans": "Krediti",
-    "logs": "Activity log",
+    "logs": "Dnevnik aktivnosti",
     "notifications": "Obavijesti",
     "overview": "Pregled",
     "quickActions": "Brze radnje",
     "recentActivity": "Nedavna aktivnost",
-    "roles": "Permissions",
+    "roles": "Dozvole",
     "security": "Sigurnost",
-    "staff": "Team & roles",
+    "staff": "Tim i uloge",
     "title": "Nadzorna ploča — MOONYP",
     "transfers": "Transferi"
   },
@@ -419,7 +419,7 @@
     "guest": {
       "country": "Država prebivališta",
       "created": "Ulaznica #{{ticket}} stvorena!",
-      "email": "Email *",
+      "email": "E-mail *",
       "errors": {
         "fail": "Slanje nije uspjelo, pokušajte ponovno.",
         "required": "Obavezno ime, email i poruka."
@@ -712,7 +712,7 @@
     },
     "approved": {
       "body": "Pozdrav {{firstName}}, zahtjev {{reference}} je odobren. Ponuda će biti dostupna u sigurnom prostoru.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "details": "Vaša personalizirana ponuda, a zatim i vaš ugovor bit će dostupni u vašem sigurnom području.",
       "subject": "Zahtjev {{reference}} je odobren"
     },
     "cancelled": {
@@ -740,12 +740,12 @@
     },
     "contractSent": {
       "body": "Pozdrav {{firstName}}, ugovor {{reference}} spreman je za potpis u sigurnom prostoru.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "details": "Vaš ugovor o financiranju dostupan je na internetu. Pročitajte ga u cijelosti, preuzmite PDF, a zatim ga elektronički potpišite jednokratnim kodom poslan e-poštom. Potpis je označen vremenskim žigom i arhiviran.",
       "subject": "Vaš ugovor {{reference}} je spreman"
     },
     "contractSigned": {
       "body": "Pozdrav {{firstName}}, ugovor {{reference}} je potpisan. Možete ga preuzeti u sigurnom prostoru.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "details": "Vaš potpisani ugovor se arhivira i može se preuzeti u bilo kojem trenutku iz vašeg sigurnog područja, gdje se sljedeći koraci (pokriće, osiguranje, isplata) prate u stvarnom vremenu.",
       "subject": "Ugovor {{reference}} potpisan"
     },
     "cta": {
@@ -759,7 +759,7 @@
     },
     "disbursed": {
       "body": "Pozdrav {{firstName}}, sredstva predmeta {{reference}} doznačena su na vaš račun.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "details": "Prijenos je na putu na račun koji ste naveli. Vaš plan otplate dostupan je na internetu.",
       "subject": "Sredstva isplaćena — predmet {{reference}}"
     },
     "disbursementPreparing": {
@@ -769,7 +769,7 @@
     },
     "documentsMissing": {
       "body": "Pozdrav {{firstName}}, u predmetu {{reference}} nedostaju dokumenti. Učitajte ih u sigurnom prostoru. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "details": "Prijenos traje nekoliko sekundi, izravno s vašeg telefona ili računala.",
       "subject": "Nedostaju dokumenti — predmet {{reference}}"
     },
     "guaranteeDeclined": {
@@ -778,7 +778,7 @@
     },
     "guaranteePayLater": {
       "body": "Pozdrav {{firstName}}, plaćanje od {{amount}} zakazano je za {{date}}. Zahtjev ostaje na čekanju.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "details": "Vaša prijava ostaje rezervirana do odabranog datuma. Uplatu možete prenijeti u bilo kojem trenutku iz svog sigurnog područja.",
       "subject": "Plaćanje zakazano {{reference}}"
     },
     "guaranteePaymentValidated": {
@@ -787,7 +787,7 @@
     },
     "guaranteePayNow": {
       "body": "Pozdrav {{firstName}}, zabilježili smo odabir plaćanja {{amount}}. Upute slijede nakon provjere.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "details": "Upute za plaćanje (primatelj, IBAN, BIC i referenca za ponudu) dostupne su na stranici za plaćanje vašeg sigurnog područja, gdje također možete prenijeti svoju potvrdu.",
       "subject": "Plaćanje naknade {{reference}}"
     },
     "guaranteeReminder": {
@@ -796,7 +796,7 @@
     },
     "guaranteeSent": {
       "body": "Pozdrav {{firstName}}, naknada za pokriće kreditnog rizika iznosi {{amount}}. Odaberite opciju u sigurnom prostoru.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "details": "Prije oslobađanja sredstava potrebno je pokriće kreditnog rizika. Iz svog sigurnog područja možete platiti sada, zakazati plaćanje za datum po vašem izboru ili se povući iz financiranja.",
       "subject": "Naknada za pokriće — predmet {{reference}}"
     },
     "guaranteeSigned": {
@@ -835,7 +835,7 @@
     },
     "insurancePending": {
       "body": "Pozdrav {{firstName}}, potrebno je osiguranje od {{amount}} mjesečno.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "details": "Osiguranje dužnika pokriva smrt, invaliditet i gubitak posla prema uvjetima ugovora. Pokrivenost, mjesečna premija i uvjeti plaćanja navedeni su u vašem sigurnom području.",
       "subject": "Osiguranje {{reference}}"
     },
     "insuranceReminder": {
@@ -845,7 +845,7 @@
     },
     "insuranceValidated": {
       "body": "Pozdrav {{firstName}}, vaše osiguranje je potvrđeno.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "details": "Vaše osiguranje je potvrđeno i priloženo uz vaš ugovor. Certifikat se može preuzeti sa vašeg sigurnog područja.",
       "subject": "Osiguranje potvrđeno {{reference}}"
     },
     "late": {
@@ -855,7 +855,7 @@
     },
     "offerAvailable": {
       "body": "Pozdrav {{firstName}}, ponuda financiranja {{reference}} dostupna je u sigurnom prostoru.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "details": "Vaša ponuda detaljno opisuje iznos, rok, godišnju stopu, ratu, ukupni trošak i naknade. Vrijedi do datuma prikazanog u vašem sigurnom području.",
       "subject": "Vaša ponuda {{reference}} je dostupna"
     },
     "rejected": {
@@ -879,7 +879,7 @@
     },
     "signatureCode": {
       "body": "Pozdrav {{firstName}}, vaš kod za potpis je {{code}}. Istječe za 10 minuta.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "details": "Unesite ovaj kod na svoju stranicu za potpis ugovora kako biste dovršili svoju obvezu. Ističe nakon 10 minuta i može se koristiti samo jednom.",
       "subject": "Vaš kod za potpis {{reference}}"
     },
     "signaturePending": {
@@ -2443,43 +2443,43 @@
     "phone": "Unesite valjan broj telefona"
   },
   "workflow": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "confirmTitle": "Confirm the decision",
+    "cancel": "Otkaži",
+    "confirm": "Potvrdi",
+    "confirmBody": "Datoteka {{reference}} će prijeći u status \"{{status}}\". Ova se radnja bilježi u revizijskom tragu.",
+    "confirmTitle": "Potvrdite odluku",
     "error": {
-      "forbidden": "Action not allowed",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "sameStatus": "The file already has this status"
+      "forbidden": "Radnja nije dopuštena",
+      "notAllowed": "Tijek rada ne dopušta prijelaz",
+      "notFound": "Datoteka nije pronađena",
+      "reasonRequired": "Potreban je razlog",
+      "sameStatus": "Datoteka već ima ovaj status"
     },
     "guard": {
-      "complianceBlocking": "Blocking compliance alert",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "kycNotPassed": "KYC checks not passed",
-      "missingPayout": "Payout details missing",
-      "noInsurance": "No insurance subscribed on this file"
+      "complianceBlocking": "Blokiranje upozorenja o usklađenosti",
+      "documentsPending": "Potrebni dokumenti nedostaju ili nisu odobreni",
+      "infoRequestsOpen": "Zahtjevi za informacijama još su otvoreni",
+      "kycNotPassed": "KYC provjere nisu prošle",
+      "missingPayout": "Nedostaju podaci o isplati",
+      "noInsurance": "U ovoj datoteci nema pretplate na osiguranje"
     },
-    "noteLabel": "Internal note",
-    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Interna bilješka",
+    "reasonLabel": "Razlog podijeljen s podnositeljem zahtjeva",
     "requests": {
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "close": "Close",
-      "create": "Send request",
-      "kind": "Request type",
+      "answered": "Odgovoreno",
+      "cancelled": "Otkozano",
+      "close": "Zatvori",
+      "create": "Pošalji zahtjev",
+      "kind": "Vrsta zahtjeva",
       "kinds": {
         "information": "Dodatna informacija",
         "justification": "Zatraženo obrazloženje",
         "missing_document": "Nedostaje dokument",
         "replace_document": "Zamjena dokumenta"
       },
-      "message": "Message sent to the applicant",
-      "none": "No information request.",
-      "open": "Pending",
-      "title": "Information requests"
+      "message": "Poruka poslana podnositelju zahtjeva",
+      "none": "Nema zahtjeva za informacijama.",
+      "open": "Na čekanju",
+      "title": "Zahtjevi za informacijama"
     }
   }
 }

@@ -223,19 +223,19 @@
       "transfersBlocked": "Transfery zablokowane"
     },
     "loans": "Pożyczki",
-    "logs": "Activity log",
+    "logs": "Dziennik aktywności",
     "notifications": "Powiadomienia",
     "overview": "Przegląd",
     "quickActions": "Szybkie działania",
     "recentActivity": "Ostatnia aktywność",
-    "roles": "Permissions",
+    "roles": "Uprawnienia",
     "security": "Bezpieczeństwo",
-    "staff": "Team & roles",
+    "staff": "Zespół i role",
     "title": "Panel kontrolny — MOONYP",
     "transfers": "Transfery"
   },
   "adminSec": {
-    "adminLink": "Admin",
+    "adminLink": "Administrator",
     "alerts": {
       "empty": "Brak alertów.",
       "resolve": "Rozwiąż",
@@ -712,7 +712,7 @@
     },
     "approved": {
       "body": "Cześć {{firstName}}, Twój wniosek {{reference}} został zatwierdzony. Oferta pojawi się w bezpiecznej strefie.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "details": "Twoja spersonalizowana oferta, a następnie umowa zostaną udostępnione w Twoim bezpiecznym obszarze.",
       "subject": "Twój wniosek {{reference}} został zatwierdzony"
     },
     "cancelled": {
@@ -740,12 +740,12 @@
     },
     "contractSent": {
       "body": "Cześć {{firstName}}, umowa {{reference}} jest gotowa do podpisu w bezpiecznej strefie.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "details": "Twoja umowa o finansowanie jest dostępna online. Przeczytaj w całości, pobierz plik PDF, a następnie podpisz elektronicznie jednorazowym kodem przesłanym e-mailem. Podpis jest opatrzony znacznikiem czasu i archiwizowany.",
       "subject": "Twoja umowa {{reference}} czeka"
     },
     "contractSigned": {
       "body": "Cześć {{firstName}}, umowa {{reference}} została podpisana. Możesz ją pobrać w bezpiecznej strefie.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "details": "Podpisana przez Ciebie umowa jest archiwizowana i można ją w każdej chwili pobrać z bezpiecznej strefy, gdzie w czasie rzeczywistym śledzone są kolejne etapy (ochrona ubezpieczeniowa, ubezpieczenie, wypłata).",
       "subject": "Umowa {{reference}} podpisana"
     },
     "cta": {
@@ -759,7 +759,7 @@
     },
     "disbursed": {
       "body": "Cześć {{firstName}}, środki ze sprawy {{reference}} zostały przelane na Twoje konto.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "details": "Przelew jest już w drodze na podane przez Ciebie konto. Twój harmonogram spłat jest dostępny online.",
       "subject": "Środki wypłacone — sprawa {{reference}}"
     },
     "disbursementPreparing": {
@@ -769,7 +769,7 @@
     },
     "documentsMissing": {
       "body": "Cześć {{firstName}}, w sprawie {{reference}} brakuje dokumentów. Prześlij je w swojej bezpiecznej strefie. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "details": "Przesyłanie zajmuje kilka sekund, bezpośrednio z telefonu lub komputera.",
       "subject": "Brakujące dokumenty — sprawa {{reference}}"
     },
     "guaranteeDeclined": {
@@ -778,7 +778,7 @@
     },
     "guaranteePayLater": {
       "body": "Cześć {{firstName}}, płatność {{amount}} zaplanowano na {{date}}. Wniosek pozostaje w toku.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "details": "Twoje zgłoszenie pozostaje zarezerwowane do wybranego terminu. Możesz przenieść płatność w dowolnym momencie ze swojej bezpiecznej strefy.",
       "subject": "Płatność zaplanowana {{reference}}"
     },
     "guaranteePaymentValidated": {
@@ -787,7 +787,7 @@
     },
     "guaranteePayNow": {
       "body": "Cześć {{firstName}}, zapisaliśmy wybór zapłaty {{amount}}. Instrukcje otrzymasz po weryfikacji.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "details": "Instrukcje dotyczące płatności (odbiorca, IBAN, BIC i odniesienie do wyceny) są dostępne na stronie płatności w bezpiecznym obszarze, gdzie możesz również przesłać potwierdzenie.",
       "subject": "Płatność opłaty {{reference}}"
     },
     "guaranteeReminder": {
@@ -796,7 +796,7 @@
     },
     "guaranteeSent": {
       "body": "Cześć {{firstName}}, opłata za pokrycie ryzyka kredytowego wynosi {{amount}}. Wybierz opcję w bezpiecznej strefie.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "details": "Przed uwolnieniem środków wymagane jest pokrycie ryzyka kredytowego. Ze swojej bezpiecznej strefy możesz zapłacić już teraz, zaplanować płatność na wybrany przez Ciebie termin lub zrezygnować z finansowania.",
       "subject": "Opłata za pokrycie — wniosek {{reference}}"
     },
     "guaranteeSigned": {
@@ -835,7 +835,7 @@
     },
     "insurancePending": {
       "body": "Cześć {{firstName}}, wymagane jest ubezpieczenie {{amount}} miesięcznie.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "details": "Ubezpieczenie pożyczkobiorcy obejmuje śmierć, inwalidztwo i utratę pracy zgodnie z warunkami umowy. Szczegółowe informacje na temat zakresu ubezpieczenia, miesięcznej składki i warunków płatności znajdziesz w bezpiecznym obszarze.",
       "subject": "Ubezpieczenie {{reference}}"
     },
     "insuranceReminder": {
@@ -845,7 +845,7 @@
     },
     "insuranceValidated": {
       "body": "Cześć {{firstName}}, Twoje ubezpieczenie zostało zatwierdzone.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "details": "Twoje ubezpieczenie jest potwierdzone i dołączone do umowy. Certyfikat można pobrać z bezpiecznej strefy.",
       "subject": "Ubezpieczenie zatwierdzone {{reference}}"
     },
     "late": {
@@ -855,7 +855,7 @@
     },
     "offerAvailable": {
       "body": "Cześć {{firstName}}, Twoja oferta finansowania {{reference}} jest dostępna w bezpiecznej strefie.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "details": "Twoja oferta zawiera szczegółowe informacje na temat kwoty, okresu, stawki rocznej, raty, całkowitego kosztu i opłat. Pozostaje ważny do daty wskazanej w bezpiecznym obszarze.",
       "subject": "Twoja oferta {{reference}} jest dostępna"
     },
     "rejected": {
@@ -879,7 +879,7 @@
     },
     "signatureCode": {
       "body": "Cześć {{firstName}}, Twój kod podpisu to {{code}}. Wygasa za 10 minut.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "details": "Wpisz ten kod na stronie podpisania umowy, aby dokończyć zobowiązanie. Wygasa po 10 minutach i można go użyć tylko raz.",
       "subject": "Twój kod podpisu {{reference}}"
     },
     "signaturePending": {
@@ -986,7 +986,7 @@
       "other": "Inne",
       "retired": "Emeryt",
       "self_employed": "Samozatrudniony",
-      "student": "Student",
+      "student": "Uczeń",
       "unemployed": "Bezrobotny"
     },
     "fields": {
@@ -1402,7 +1402,7 @@
     }
   },
   "footer": {
-    "aml": "AML / KYC",
+    "aml": "AML/KYC",
     "banking": "Bankowość",
     "contact": "Kontakt",
     "contactForm": "Formularz kontaktowy",
@@ -2185,7 +2185,7 @@
     "serverAmount": "Kwota przelewu",
     "serverBank": "Bank odbiorcy",
     "serverBeneficiary": "Odbiorca",
-    "serverBic": "BIC / SWIFT",
+    "serverBic": "BIC/SWIFT",
     "serverExecuted": "Przelew wykonany",
     "serverExecutedAt": "Data wykonania",
     "serverIban": "IBAN",
@@ -2443,43 +2443,43 @@
     "phone": "Wprowadź poprawny numer telefonu"
   },
   "workflow": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "confirmTitle": "Confirm the decision",
+    "cancel": "Anuluj",
+    "confirm": "Potwierdź",
+    "confirmBody": "Plik {{reference}} przejdzie do statusu „{{status}}”. Działanie to jest rejestrowane w ścieżce audytu.",
+    "confirmTitle": "Potwierdź decyzję",
     "error": {
-      "forbidden": "Action not allowed",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "sameStatus": "The file already has this status"
+      "forbidden": "Działanie niedozwolone",
+      "notAllowed": "Przejście nie jest dozwolone w przepływie pracy",
+      "notFound": "Nie znaleziono pliku",
+      "reasonRequired": "Wymagany jest powód",
+      "sameStatus": "Plik ma już ten status"
     },
     "guard": {
-      "complianceBlocking": "Blocking compliance alert",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "kycNotPassed": "KYC checks not passed",
-      "missingPayout": "Payout details missing",
-      "noInsurance": "No insurance subscribed on this file"
+      "complianceBlocking": "Blokowanie alertu dotyczącego zgodności",
+      "documentsPending": "Brak wymaganych dokumentów lub nie zostały one zatwierdzone",
+      "infoRequestsOpen": "Wnioski o informacje są nadal otwarte",
+      "kycNotPassed": "Kontrole KYC nie zostały zaliczone",
+      "missingPayout": "Brak szczegółów wypłaty",
+      "noInsurance": "Ten plik nie jest objęty żadnym ubezpieczeniem"
     },
-    "noteLabel": "Internal note",
-    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Notatka wewnętrzna",
+    "reasonLabel": "Powód udostępniony wnioskodawcy",
     "requests": {
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "close": "Close",
-      "create": "Send request",
-      "kind": "Request type",
+      "answered": "Odpowiedziano",
+      "cancelled": "Anulowano",
+      "close": "Zamknij",
+      "create": "Wyślij prośbę",
+      "kind": "Typ żądania",
       "kinds": {
         "information": "Dodatkowa informacja",
         "justification": "Wymagane uzasadnienie",
         "missing_document": "Brakujący dokument",
         "replace_document": "Wymiana dokumentu"
       },
-      "message": "Message sent to the applicant",
-      "none": "No information request.",
-      "open": "Pending",
-      "title": "Information requests"
+      "message": "Wiadomość wysłana do wnioskodawcy",
+      "none": "Brak prośby o informacje.",
+      "open": "Oczekujące",
+      "title": "Prośby o informacje"
     }
   }
 }

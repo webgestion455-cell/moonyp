@@ -148,7 +148,7 @@
       "bankName": "Kedvezményezett bankja",
       "beneficiary": "Kedvezményezett",
       "bic": "BIC / SWIFT",
-      "classic": "Standard",
+      "classic": "Normál",
       "classicHint": "1 munkanapon belül jóváírva.",
       "client": "Ügyfél",
       "error": "Nem sikerült elindítani az átutalást",
@@ -223,19 +223,19 @@
       "transfersBlocked": "Az átvitelek blokkolva"
     },
     "loans": "Hitelek",
-    "logs": "Activity log",
+    "logs": "Tevékenységnapló",
     "notifications": "Értesítések",
     "overview": "Áttekintés",
     "quickActions": "Gyors műveletek",
     "recentActivity": "Legutóbbi tevékenység",
-    "roles": "Permissions",
+    "roles": "Engedélyek",
     "security": "Biztonság",
-    "staff": "Team & roles",
+    "staff": "Csapat és szerepek",
     "title": "Irányítópult – MOONYP",
     "transfers": "Átigazolások"
   },
   "adminSec": {
-    "adminLink": "Admin",
+    "adminLink": "Adminisztrátor",
     "alerts": {
       "empty": "Nincsenek riasztások.",
       "resolve": "Megoldás",
@@ -456,7 +456,7 @@
     "rt": {
       "bold": "Félkövér",
       "italic": "Dőlt",
-      "link": "Link",
+      "link": "Hivatkozás",
       "linkPrompt": "Adja meg az URL-t (https://...)"
     },
     "sendError": "A küldés sikertelen",
@@ -634,58 +634,58 @@
     "version": "Valtozat"
   },
   "dashboard": {
-    "activeLoans": "Active loans",
-    "apply": "Apply now",
-    "applyCta": "Apply now",
+    "activeLoans": "Aktív hitelek",
+    "apply": "Jelentkezzen most",
+    "applyCta": "Jelentkezzen most",
     "balance": "Rendelkezésre álló egyenleg",
     "contactSupport": "Ügyfélszolgálat felkeresése",
-    "details": "Details",
-    "disbursedRemaining": "Disbursed: {{disbursed}} · Remaining: {{remaining}}",
-    "firstLoanDesc": "Finance your projects in minutes: car, renovation, treasury or any other need.",
-    "firstLoanTitle": "Start your first application",
-    "fundedOf": "of {{amount}} funded",
-    "fundedOutOf": "out of {{amount}} funded",
+    "details": "Részletek",
+    "disbursedRemaining": "Folyósított: {{disbursed}} · Fennmaradó: {{remaining}}",
+    "firstLoanDesc": "Finanszírozza projektjeit percek alatt: autó, felújítás, kincstár vagy bármilyen más igény.",
+    "firstLoanTitle": "Indítsa el az első alkalmazást",
+    "fundedOf": "{{amount}} finanszírozott",
+    "fundedOutOf": "a {{amount}} finanszírozott összegből",
     "hideBalance": "Egyenleg elrejtése",
     "loadError": "Betöltési hiba",
     "loading": "Loading…",
-    "loanDurationCreated": "{{months}} months · Requested on {{date}}",
-    "makeTransfer": "Make a transfer",
+    "loanDurationCreated": "{{months}} hónap · Kért a {{date}} oldalon",
+    "makeTransfer": "Végezzen átutalást",
     "metaTitle": "My dashboard — MOONYPAS",
-    "monthsSince": "{{months}} months · Requested on {{date}}",
-    "myDashboard": "My dashboard",
+    "monthsSince": "{{months}} hónap · Kért a {{date}} oldalon",
+    "myDashboard": "A műszerfalam",
     "myLoans": "Kölcsöneim",
     "needHelp": "Segítségre van szüksége?",
     "newLoan": "Új kölcsön",
-    "newRequest": "New request",
-    "newShort": "+ New",
+    "newRequest": "Új kérés",
+    "newShort": "+ Új",
     "noLoans": "Még nincs kölcsöne",
-    "noRecentTransfers": "No transfers yet",
+    "noRecentTransfers": "Még nincs transzfer",
     "noTransfers": "Nincs átutalás",
-    "noTransfersYet": "No transfers yet",
-    "recentActivity": "Recent activity",
+    "noTransfersYet": "Még nincs transzfer",
+    "recentActivity": "Legutóbbi tevékenység",
     "sessionExpired": "A munkamenet inaktivitás miatt lejárt",
     "showBalance": "Egyenleg megjelenítése",
     "startApplication": "Jelentkezés indítása",
     "status": {
-      "en_traitement": "Processing",
-      "envoye": "Sent",
-      "rejete": "Rejected"
+      "en_traitement": "Feldolgozás",
+      "envoye": "Elküldve",
+      "rejete": "Elutasítva"
     },
     "title": "Irányítópultom",
-    "totalAvailable": "Total available balance",
-    "totalFunded": "Total funded",
+    "totalAvailable": "Teljes elérhető egyenleg",
+    "totalFunded": "Összesen finanszírozott",
     "transfer": "Átutalás indítása",
     "transferHistory": "Átutalási előzmények",
-    "transfers": "Transfers",
-    "transfersKpi": "Transfers",
-    "viewAll": "View all",
+    "transfers": "Átutalások",
+    "transfersKpi": "Átutalások",
+    "viewAll": "Az összes megtekintése",
     "viewLoan": "Fájl megtekintése",
     "welcome": "Helló",
-    "welcomeAnon": "Welcome",
-    "welcomeNamed": "Welcome, {{name}}",
-    "welcomeShort": "Welcome",
+    "welcomeAnon": "Üdvözöljük",
+    "welcomeNamed": "Üdvözöljük, {{name}}",
+    "welcomeShort": "Üdvözöljük",
     "withdraw": "Kifizetés",
-    "withdrawnAmount": "{{amount}} withdrawn"
+    "withdrawnAmount": "{{amount}} visszavonva"
   },
   "documents": {
     "bankStatement": "Bankszámlakivonatok",
@@ -712,7 +712,7 @@
     },
     "approved": {
       "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} kérelmét jóváhagytuk. Az ajánlat a biztonságos felületen lesz elérhető.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "details": "Személyre szabott ajánlata, majd szerződése elérhetővé válik az Ön biztonságos területén.",
       "subject": "A(z) {{reference}} kérelem jóváhagyva"
     },
     "cancelled": {
@@ -740,12 +740,12 @@
     },
     "contractSent": {
       "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} szerződés aláírásra kész a biztonságos felületen.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "details": "Your financing contract is available online. Olvassa el teljes egészében, töltse le a PDF-et, majd írja alá elektronikusan egy e-mailben elküldött egyszeri kóddal. The signature is timestamped and archived.",
       "subject": "A(z) {{reference}} szerződése kész"
     },
     "contractSigned": {
       "body": "Üdv {{firstName}}, a(z) {{reference}} szerződést aláírták. Letöltheti a biztonságos felületén.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "details": "Aláírt szerződése archiválva és bármikor letölthető biztonságos területéről, ahol a következő lépések (fedezet, biztosítás, folyósítás) valós időben követhetők.",
       "subject": "{{reference}} szerződés aláírva"
     },
     "cta": {
@@ -759,7 +759,7 @@
     },
     "disbursed": {
       "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügy összegét átutaltuk a számlájára.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "details": "Az átutalás úton van az Ön által megadott számlára. A törlesztési ütemezés online elérhető.",
       "subject": "Folyósítás megtörtént — ügy {{reference}}"
     },
     "disbursementPreparing": {
@@ -769,7 +769,7 @@
     },
     "documentsMissing": {
       "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} ügyből dokumentumok hiányoznak. Töltse fel a biztonságos felületen. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "details": "A feltöltés másodpercekig tart, közvetlenül a telefonról vagy a számítógépről.",
       "subject": "Hiányzó dokumentumok — ügy {{reference}}"
     },
     "guaranteeDeclined": {
@@ -778,7 +778,7 @@
     },
     "guaranteePayLater": {
       "body": "Üdv {{firstName}}, a(z) {{amount}} fizetés {{date}} napra van ütemezve. A kérelem függőben marad.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "details": "Jelentkezése a választott időpontig fenntartva marad. A fizetést bármikor előrehozhatja biztonságos területéről.",
       "subject": "Fizetés ütemezve {{reference}}"
     },
     "guaranteePaymentValidated": {
@@ -787,7 +787,7 @@
     },
     "guaranteePayNow": {
       "body": "Üdv {{firstName}}, rögzítettük, hogy {{amount}} összeget fizet. Az utasítások ellenőrzés után érkeznek.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "details": "A fizetési utasítások (kedvezményezett, IBAN, BIC és az árajánlatra való hivatkozás) a biztonságos terület fizetési oldalán érhetők el, ahová a nyugtát is feltöltheti.",
       "subject": "Díjfizetés {{reference}}"
     },
     "guaranteeReminder": {
@@ -796,7 +796,7 @@
     },
     "guaranteeSent": {
       "body": "Üdv {{firstName}}, a hitelkockázati fedezeti díj {{amount}}. Válasszon a biztonságos felületén.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "details": "A pénzeszközök felszabadítása előtt hitelkockázati fedezet szükséges. Biztonságos területéről fizethet most, ütemezheti a fizetést egy választott időpontra, vagy kiléphet a finanszírozásból.",
       "subject": "Fedezeti díj — ügy {{reference}}"
     },
     "guaranteeSigned": {
@@ -835,7 +835,7 @@
     },
     "insurancePending": {
       "body": "Üdv {{firstName}}, havi {{amount}} biztosítás szükséges az ügyéhez.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "details": "A hitelfelvevő biztosítás a szerződéses feltételek szerint fedezi a halálesetet, a rokkantságot és az állásvesztést. A fedezet, a havi díj és a fizetési feltételek részletesen megtalálhatók a biztonságos területen.",
       "subject": "Biztosítás {{reference}}"
     },
     "insuranceReminder": {
@@ -845,7 +845,7 @@
     },
     "insuranceValidated": {
       "body": "Üdv {{firstName}}, a biztosítását jóváhagytuk.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "details": "Biztosítása érvényes, és a szerződéshez csatolva van. A tanúsítvány letölthető a biztonságos területről.",
       "subject": "Biztosítás jóváhagyva {{reference}}"
     },
     "late": {
@@ -855,7 +855,7 @@
     },
     "offerAvailable": {
       "body": "Üdvözöljük {{firstName}}, a(z) {{reference}} finanszírozási ajánlata elérhető a biztonságos felületen.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "details": "Az ajánlat részletezi az összeget, a futamidőt, az éves árfolyamot, a törlesztőrészletet, a teljes költséget és a díjakat. A biztonságos területen feltüntetett dátumig érvényes.",
       "subject": "A(z) {{reference}} ajánlata elérhető"
     },
     "rejected": {
@@ -879,7 +879,7 @@
     },
     "signatureCode": {
       "body": "Üdv {{firstName}}, az aláírási kódja {{code}}. 10 perc múlva lejár.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "details": "Adja meg ezt a kódot a szerződés aláírási oldalán a kötelezettségvállalás teljesítéséhez. 10 perc után lejár, és csak egyszer használható.",
       "subject": "Aláírási kódja {{reference}}"
     },
     "signaturePending": {
@@ -1420,7 +1420,7 @@
     "terms": "Feltételek"
   },
   "header": {
-    "admin": "Admin",
+    "admin": "Adminisztrátor",
     "contact": "Kapcsolat",
     "dashboard": "Irányítópult",
     "menu": "Menü",
@@ -2027,7 +2027,7 @@
     "addressRequired": "Kérjük, adja meg teljes postacímét",
     "adminNotifMsg": "{{name}} {{amount}} €-t igényel {{months}} hónapra",
     "adminNotifTitle": "Új hitelkérelem",
-    "amount": "Requested amount (€)",
+    "amount": "Kért összeg (€)",
     "amountMax": "Maximum 100 000 €",
     "amountMin": "Minimum 500 €",
     "back": "Vissza",
@@ -2038,24 +2038,24 @@
     "doc4": "Legutóbbi bankszámlakivonat vagy IBAN a kérelmező nevére",
     "docsRequiredExact": "Pontosan {{count}} dokumentumot kell feltöltenie a kérelem benyújtásához.",
     "documents": "Szükséges dokumentumok (max. 5, egyenként 5 MB)",
-    "duration": "Duration (months)",
+    "duration": "Időtartam (hónap)",
     "email": "Email",
     "fileTooLarge": "A {{name}} meghaladja az 5 MB-ot",
-    "fullName": "Full name",
+    "fullName": "Teljes név",
     "loading": "Betöltés…",
-    "monthlyIncome": "Net monthly income (€)",
+    "monthlyIncome": "Nettó havi jövedelem (€)",
     "newRequestDesc": "Nyújtsa be hitelkérelmét",
     "newRequestShort": "Új kérelem",
-    "purpose": "Purpose of the loan (optional)",
+    "purpose": "A kölcsön célja (nem kötelező)",
     "purposePlaceholder": "Felújítás, autó, személyes projekt…",
     "requiredDocs": "Szükséges dokumentumok az áttekintéshez",
     "requiredDocsHint": "Töltsön fel olvasható PDF, JPG vagy PNG fájlokat a jóváhagyás felgyorsítása érdekében.",
     "submit": "Kérelem elküldése",
     "submitting": "Küldés…",
-    "subtitle": "Fill in the form and attach your documents.",
+    "subtitle": "Töltse ki az űrlapot, és csatolja a dokumentumokat.",
     "success": "Kérelem elküldve!",
     "successToast": "Kérelmét sikeresen elküldtük",
-    "title": "New loan application",
+    "title": "Új hitelkérelem",
     "uploadFailed": "Feltöltés sikertelen: {{name}}",
     "uploadHint": "Kattintson a hozzáadáshoz (PDF, JPG, PNG)",
     "uploadHintExact": "Töltsön fel pontosan {{count}} dokumentumot (PDF, JPG, PNG – egyenként max. 5 MB)"
@@ -2272,7 +2272,7 @@
     "executeInstant": "Átutalás végrehajtása",
     "iban": "IBAN",
     "ibanInvalid": "Érvénytelen IBAN",
-    "kindClassic": "Standard (SEPA)",
+    "kindClassic": "Normál (SEPA)",
     "kindClassicHint": "1 munkanapon belül jóváírva · ütemezés elérhető.",
     "kindInstant": "Azonnali (SEPA Instant)",
     "kindInstantHint": "Azonnal jóváírva a kedvezményezettnek (24/7).",
@@ -2443,43 +2443,43 @@
     "phone": "Kérjük, adjon meg egy érvényes telefonszámot"
   },
   "workflow": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "confirmTitle": "Confirm the decision",
+    "cancel": "Mégse",
+    "confirm": "Megerősít",
+    "confirmBody": "A {{reference}} fájl „{{status}}” állapotba kerül. Ezt a műveletet rögzíti az ellenőrzési nyomvonal.",
+    "confirmTitle": "Erősítse meg a döntést",
     "error": {
-      "forbidden": "Action not allowed",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "sameStatus": "The file already has this status"
+      "forbidden": "A művelet nem engedélyezett",
+      "notAllowed": "A munkafolyamat nem teszi lehetővé az átmenetet",
+      "notFound": "A fájl nem található",
+      "reasonRequired": "Indoklás szükséges",
+      "sameStatus": "A fájlnak már ez az állapota"
     },
     "guard": {
-      "complianceBlocking": "Blocking compliance alert",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "kycNotPassed": "KYC checks not passed",
-      "missingPayout": "Payout details missing",
-      "noInsurance": "No insurance subscribed on this file"
+      "complianceBlocking": "Megfelelőségi figyelmeztetés letiltása",
+      "documentsPending": "A szükséges dokumentumok hiányoznak vagy nincsenek jóváhagyva",
+      "infoRequestsOpen": "Az információigénylés továbbra is nyitva áll",
+      "kycNotPassed": "A KYC ellenőrzések nem feleltek meg",
+      "missingPayout": "Hiányoznak a kifizetési adatok",
+      "noInsurance": "Ezen a fájlon nincs biztosítás"
     },
-    "noteLabel": "Internal note",
-    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Belső megjegyzés",
+    "reasonLabel": "A kérelmezővel megosztott ok",
     "requests": {
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "close": "Close",
-      "create": "Send request",
-      "kind": "Request type",
+      "answered": "Válaszolt",
+      "cancelled": "Törölve",
+      "close": "Bezár",
+      "create": "Kérelem küldése",
+      "kind": "Kérelem típusa",
       "kinds": {
         "information": "További információ",
         "justification": "Indoklás kérése",
         "missing_document": "Hiányzó dokumentum",
         "replace_document": "Dokumentum cseréje"
       },
-      "message": "Message sent to the applicant",
-      "none": "No information request.",
-      "open": "Pending",
-      "title": "Information requests"
+      "message": "Üzenet küldve a kérelmezőnek",
+      "none": "Nincs információ kérés.",
+      "open": "Függőben",
+      "title": "Információkérések"
     }
   }
 }

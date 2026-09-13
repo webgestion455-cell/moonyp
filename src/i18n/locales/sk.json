@@ -223,19 +223,19 @@
       "transfersBlocked": "Prevody sú zablokované"
     },
     "loans": "Pôžičky",
-    "logs": "Activity log",
+    "logs": "Denník aktivít",
     "notifications": "Upozornenia",
     "overview": "Prehľad",
     "quickActions": "Rýchle akcie",
     "recentActivity": "Nedávna aktivita",
-    "roles": "Permissions",
+    "roles": "Oprávnenia",
     "security": "Bezpečnosť",
-    "staff": "Team & roles",
+    "staff": "Tím a roly",
     "title": "Prístrojová doska — MOONYP",
     "transfers": "Prestupy"
   },
   "adminSec": {
-    "adminLink": "Admin",
+    "adminLink": "Administrátor",
     "alerts": {
       "empty": "Žiadne upozornenia.",
       "resolve": "Vyriešiť",
@@ -712,7 +712,7 @@
     },
     "approved": {
       "body": "Dobrý deň {{firstName}}, žiadosť {{reference}} bola schválená. Ponuka bude dostupná v zabezpečenej zóne.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "details": "Vaša personalizovaná ponuka a potom vaša zmluva budú sprístupnené vo vašej zabezpečenej oblasti.",
       "subject": "Žiadosť {{reference}} bola schválená"
     },
     "cancelled": {
@@ -740,12 +740,12 @@
     },
     "contractSent": {
       "body": "Dobrý deň {{firstName}}, zmluva {{reference}} je pripravená na podpis v zabezpečenej zóne.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "details": "Vaša zmluva o financovaní je dostupná online. Prečítajte si ho celý, stiahnite si PDF a potom ho elektronicky podpíšte jednorazovým kódom odoslaným e-mailom. Podpis je označený časovou pečiatkou a archivovaný.",
       "subject": "Vaša zmluva {{reference}} je pripravená"
     },
     "contractSigned": {
       "body": "Dobrý deň {{firstName}}, zmluva {{reference}} bola podpísaná. Stiahnuť si ju môžete v zabezpečenej zóne.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "details": "Vaša podpísaná zmluva je archivovaná a stiahnuteľná kedykoľvek z vašej zabezpečenej oblasti, kde sa v reálnom čase sledujú ďalšie kroky (krytie, poistenie, vyplatenie).",
       "subject": "Zmluva {{reference}} podpísaná"
     },
     "cta": {
@@ -759,7 +759,7 @@
     },
     "disbursed": {
       "body": "Dobrý deň {{firstName}}, prostriedky spisu {{reference}} boli poukázané na váš účet.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "details": "Prevod je na ceste na účet, ktorý ste uviedli. Váš splátkový kalendár je dostupný online.",
       "subject": "Prostriedky vyplatené — spis {{reference}}"
     },
     "disbursementPreparing": {
@@ -769,7 +769,7 @@
     },
     "documentsMissing": {
       "body": "Dobrý deň {{firstName}}, v spise {{reference}} chýbajú dokumenty. Nahrajte ich v zabezpečenej zóne. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "details": "Nahrávanie trvá niekoľko sekúnd priamo z telefónu alebo počítača.",
       "subject": "Chýbajúce dokumenty — spis {{reference}}"
     },
     "guaranteeDeclined": {
@@ -778,7 +778,7 @@
     },
     "guaranteePayLater": {
       "body": "Dobrý deň {{firstName}}, platba {{amount}} je naplánovaná na {{date}}. Žiadosť zostáva čakajúca.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "details": "Vaša prihláška zostáva rezervovaná do zvoleného dátumu. Platbu môžete kedykoľvek preniesť zo svojej zabezpečenej oblasti.",
       "subject": "Platba naplánovaná {{reference}}"
     },
     "guaranteePaymentValidated": {
@@ -787,7 +787,7 @@
     },
     "guaranteePayNow": {
       "body": "Dobrý deň {{firstName}}, zaznamenali sme voľbu zaplatiť {{amount}}. Pokyny pošleme po overení.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "details": "Pokyny k platbe (príjemca, IBAN, BIC a odkaz na cenovú ponuku) sú k dispozícii na platobnej stránke vo vašej zabezpečenej oblasti, kde môžete nahrať aj potvrdenie.",
       "subject": "Platba poplatku {{reference}}"
     },
     "guaranteeReminder": {
@@ -796,7 +796,7 @@
     },
     "guaranteeSent": {
       "body": "Dobrý deň {{firstName}}, poplatok za krytie úverového rizika je {{amount}}. Vyberte možnosť v zabezpečenej zóne.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "details": "Pred uvoľnením prostriedkov sa vyžaduje krytie úverového rizika. Z vašej bezpečnej oblasti môžete zaplatiť teraz, naplánovať platbu na dátum podľa vášho výberu alebo odstúpiť od financovania.",
       "subject": "Poplatok za krytie — spis {{reference}}"
     },
     "guaranteeSigned": {
@@ -835,7 +835,7 @@
     },
     "insurancePending": {
       "body": "Dobrý deň {{firstName}}, vyžaduje sa poistenie {{amount}} mesačne.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "details": "Poistenie dlžníka pokrýva smrť, invaliditu a stratu zamestnania podľa zmluvných podmienok. Pokrytie, mesačné poistné a platobné podmienky sú podrobne uvedené vo vašej zabezpečenej oblasti.",
       "subject": "Poistenie {{reference}}"
     },
     "insuranceReminder": {
@@ -845,7 +845,7 @@
     },
     "insuranceValidated": {
       "body": "Dobrý deň {{firstName}}, vaše poistenie bolo potvrdené.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "details": "Vaše poistenie je overené a pripojené k zmluve. Certifikát si môžete stiahnuť z vašej zabezpečenej oblasti.",
       "subject": "Poistenie potvrdené {{reference}}"
     },
     "late": {
@@ -855,7 +855,7 @@
     },
     "offerAvailable": {
       "body": "Dobrý deň {{firstName}}, ponuka financovania {{reference}} je dostupná v zabezpečenej zóne.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "details": "Vaša ponuka obsahuje podrobnosti o sume, termíne, ročnej sadzbe, splátke, celkových nákladoch a poplatkoch. Zostáva v platnosti do dátumu uvedeného vo vašej zabezpečenej oblasti.",
       "subject": "Vaša ponuka {{reference}} je dostupná"
     },
     "rejected": {
@@ -879,7 +879,7 @@
     },
     "signatureCode": {
       "body": "Dobrý deň {{firstName}}, váš kód na podpis je {{code}}. Platí 10 minút.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "details": "Zadaním tohto kódu na stránke podpisu zmluvy dokončíte svoj záväzok. Jeho platnosť vyprší po 10 minútach a možno ho použiť iba raz.",
       "subject": "Váš kód na podpis {{reference}}"
     },
     "signaturePending": {
@@ -1406,7 +1406,7 @@
     "banking": "Bankovníctvo",
     "contact": "Kontakt",
     "contactForm": "Kontaktný formulár",
-    "cookies": "Cookies",
+    "cookies": "Sušienky",
     "disclaimer": "Úver zaväzuje a musí byť splatený. Pred podaním žiadosti si overte svoju schopnosť splácať. Každá ponuka podlieha schváleniu a overeniu totožnosti.",
     "finPriv": "Finančné súkromie",
     "legal": "Právne",
@@ -1420,7 +1420,7 @@
     "terms": "Podmienky"
   },
   "header": {
-    "admin": "Admin",
+    "admin": "Administrátor",
     "contact": "Kontakt",
     "dashboard": "Prehľad",
     "menu": "Menu",
@@ -1966,7 +1966,7 @@
     "contractDownloaded": "Zmluva stiahnutá",
     "contractGenerating": "Generuje sa PDF zmluva…",
     "contractTitle": "Zmluva",
-    "details": "Details",
+    "details": "Podrobnosti",
     "documentsTitle": "Poskytnuté dokumenty",
     "downloadContract": "Stiahnuť zmluvu",
     "downloadImpossible": "Stiahnutie nie je dostupné",
@@ -2196,7 +2196,7 @@
     "serverSecure": "Zabezpečený dokument",
     "serverSecurity": "Dokument vygenerovaný zabezpečenými systémami MOONYP.",
     "serverSessionExpired": "Relácia vypršala. Prihláste sa znova.",
-    "serverStatus": "Status",
+    "serverStatus": "Stav",
     "serverSubtitle": "Oficiálne bankové potvrdenie",
     "serverTitle": "Potvrdenie o prevode",
     "serverUnauthorized": "Neoprávnený prístup k tomuto potvrdeniu",
@@ -2231,11 +2231,11 @@
     "newEmail": "Nová e-mailová adresa",
     "newPassword": "Nové heslo",
     "passwordMismatch": "Heslá sa nezhodujú",
-    "passwordSection": "Password",
+    "passwordSection": "Heslo",
     "passwordTooShort": "Heslo musí mať aspoň 8 znakov",
     "passwordUpdated": "Heslo aktualizované",
     "phone": "Telefón",
-    "profile": "Profile",
+    "profile": "Profil",
     "profileUpdated": "Profil aktualizovaný",
     "saveError": "Chyba pri ukladaní",
     "saveProfile": "Uložiť profil",
@@ -2443,43 +2443,43 @@
     "phone": "Zadajte platné telefónne číslo"
   },
   "workflow": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "confirmTitle": "Confirm the decision",
+    "cancel": "Zrušiť",
+    "confirm": "Potvrdiť",
+    "confirmBody": "Súbor {{reference}} sa presunie do stavu „{{status}}“. Táto akcia je zaznamenaná v zázname auditu.",
+    "confirmTitle": "Potvrďte rozhodnutie",
     "error": {
-      "forbidden": "Action not allowed",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "sameStatus": "The file already has this status"
+      "forbidden": "Akcia nie je povolená",
+      "notAllowed": "Prechod nepovoľuje pracovný postup",
+      "notFound": "Súbor sa nenašiel",
+      "reasonRequired": "Vyžaduje sa dôvod",
+      "sameStatus": "Súbor už má tento stav"
     },
     "guard": {
-      "complianceBlocking": "Blocking compliance alert",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "kycNotPassed": "KYC checks not passed",
-      "missingPayout": "Payout details missing",
-      "noInsurance": "No insurance subscribed on this file"
+      "complianceBlocking": "Upozornenie na zablokovanie súladu",
+      "documentsPending": "Požadované dokumenty chýbajú alebo nie sú schválené",
+      "infoRequestsOpen": "Žiadosti o informácie sú stále otvorené",
+      "kycNotPassed": "Kontroly KYC neprešli",
+      "missingPayout": "Chýbajú podrobnosti o platbe",
+      "noInsurance": "V tomto súbore nie je predplatené žiadne poistenie"
     },
-    "noteLabel": "Internal note",
-    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Interná poznámka",
+    "reasonLabel": "Dôvod zdieľaný so žiadateľom",
     "requests": {
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "close": "Close",
-      "create": "Send request",
-      "kind": "Request type",
+      "answered": "Odpovedané",
+      "cancelled": "Zrušené",
+      "close": "Zatvoriť",
+      "create": "Odoslať žiadosť",
+      "kind": "Typ žiadosti",
       "kinds": {
         "information": "Doplňujúca informácia",
         "justification": "Vyžiadané odôvodnenie",
         "missing_document": "Chýbajúci dokument",
         "replace_document": "Výmena dokumentu"
       },
-      "message": "Message sent to the applicant",
-      "none": "No information request.",
-      "open": "Pending",
-      "title": "Information requests"
+      "message": "Správa odoslaná žiadateľovi",
+      "none": "Žiadna žiadosť o informácie.",
+      "open": "Čaká sa",
+      "title": "Žiadosti o informácie"
     }
   }
 }

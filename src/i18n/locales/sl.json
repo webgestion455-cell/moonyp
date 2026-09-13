@@ -223,19 +223,19 @@
       "transfersBlocked": "Prenosi so blokirani"
     },
     "loans": "Posojila",
-    "logs": "Activity log",
+    "logs": "Dnevnik dejavnosti",
     "notifications": "Obvestila",
     "overview": "Pregled",
     "quickActions": "Hitra dejanja",
     "recentActivity": "Nedavna dejavnost",
-    "roles": "Permissions",
+    "roles": "Dovoljenja",
     "security": "Varnost",
-    "staff": "Team & roles",
+    "staff": "Ekipa in vloge",
     "title": "Armaturna plošča — MOONYP",
     "transfers": "Prestopi"
   },
   "adminSec": {
-    "adminLink": "Admin",
+    "adminLink": "Administrator",
     "alerts": {
       "empty": "Ni opozoril.",
       "resolve": "Reši",
@@ -712,7 +712,7 @@
     },
     "approved": {
       "body": "Pozdravljeni {{firstName}}, vloga {{reference}} je odobrena. Ponudba bo na voljo v varnem območju.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "details": "Vaša prilagojena ponudba in nato vaša pogodba bosta na voljo v vašem varnem območju.",
       "subject": "Vloga {{reference}} je odobrena"
     },
     "cancelled": {
@@ -740,12 +740,12 @@
     },
     "contractSent": {
       "body": "Pozdravljeni {{firstName}}, pogodba {{reference}} je pripravljena za podpis v varnem območju.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "details": "Vaša pogodba o financiranju je na voljo na spletu. Preberite ga v celoti, prenesite PDF in ga nato elektronsko podpišite z enkratno kodo, poslano po e-pošti. Podpis je časovno žigosan in arhiviran.",
       "subject": "Vaša pogodba {{reference}} je pripravljena"
     },
     "contractSigned": {
       "body": "Pozdravljeni {{firstName}}, pogodba {{reference}} je podpisana. Prenesete jo lahko v varnem območju.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "details": "Vaša podpisana pogodba je arhivirana in jo je mogoče kadar koli prenesti iz vašega varnega območja, kjer se naslednji koraki (kritje, zavarovanje, izplačilo) spremljajo v realnem času.",
       "subject": "Pogodba {{reference}} podpisana"
     },
     "cta": {
@@ -759,7 +759,7 @@
     },
     "disbursed": {
       "body": "Pozdravljeni {{firstName}}, sredstva zadeve {{reference}} so nakazana na vaš račun.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "details": "Nakazilo je na poti na račun, ki ste ga navedli. Vaš načrt odplačevanja je na voljo na spletu.",
       "subject": "Sredstva izplačana — zadeva {{reference}}"
     },
     "disbursementPreparing": {
@@ -769,7 +769,7 @@
     },
     "documentsMissing": {
       "body": "Pozdravljeni {{firstName}}, v zadevi {{reference}} manjkajo dokumenti. Naložite jih v varnem območju. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "details": "Nalaganje traja nekaj sekund, neposredno iz vašega telefona ali računalnika.",
       "subject": "Manjkajoči dokumenti — zadeva {{reference}}"
     },
     "guaranteeDeclined": {
@@ -778,7 +778,7 @@
     },
     "guaranteePayLater": {
       "body": "Pozdravljeni {{firstName}}, plačilo {{amount}} je načrtovano za {{date}}. Vloga ostaja v čakanju.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "details": "Vaša prijava ostane rezervirana do izbranega datuma. Plačilo lahko kadar koli prenesete naprej iz svojega varnega območja.",
       "subject": "Plačilo načrtovano {{reference}}"
     },
     "guaranteePaymentValidated": {
@@ -787,7 +787,7 @@
     },
     "guaranteePayNow": {
       "body": "Pozdravljeni {{firstName}}, zabeležili smo izbiro plačila {{amount}}. Navodila sledijo po preverjanju.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "details": "Navodila za plačilo (prejemnik, IBAN, BIC in sklic na ponudbo) so na voljo na plačilni strani vašega varnega območja, kamor lahko naložite tudi svoje potrdilo.",
       "subject": "Plačilo nadomestila {{reference}}"
     },
     "guaranteeReminder": {
@@ -796,7 +796,7 @@
     },
     "guaranteeSent": {
       "body": "Pozdravljeni {{firstName}}, nadomestilo za kritje kreditnega tveganja znaša {{amount}}. Izberite možnost v varnem območju.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "details": "Pred sprostitvijo sredstev je potrebno kritje kreditnega tveganja. Iz svojega varnega območja lahko plačate zdaj, načrtujete plačilo za datum po vaši izbiri ali odstopite od financiranja.",
       "subject": "Nadomestilo za kritje — vloga {{reference}}"
     },
     "guaranteeSigned": {
@@ -835,7 +835,7 @@
     },
     "insurancePending": {
       "body": "Pozdravljeni {{firstName}}, potrebno je zavarovanje {{amount}} na mesec.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "details": "Zavarovanje posojilojemalca krije smrt, invalidnost in izgubo zaposlitve v skladu s pogodbenimi pogoji. Kritje, mesečna premija in plačilni pogoji so podrobno opisani v vašem varnem območju.",
       "subject": "Zavarovanje {{reference}}"
     },
     "insuranceReminder": {
@@ -845,7 +845,7 @@
     },
     "insuranceValidated": {
       "body": "Pozdravljeni {{firstName}}, vaše zavarovanje je potrjeno.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "details": "Vaše zavarovanje je potrjeno in priloženo vaši pogodbi. Certifikat lahko prenesete iz vašega varnega območja.",
       "subject": "Zavarovanje potrjeno {{reference}}"
     },
     "late": {
@@ -855,7 +855,7 @@
     },
     "offerAvailable": {
       "body": "Pozdravljeni {{firstName}}, ponudba financiranja {{reference}} je na voljo v varnem območju.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "details": "Vaša ponudba podrobno opisuje znesek, rok, letno obrestno mero, obrok, skupne stroške in nadomestila. Velja do datuma, ki je prikazan v vašem varnem območju.",
       "subject": "Vaša ponudba {{reference}} je na voljo"
     },
     "rejected": {
@@ -879,7 +879,7 @@
     },
     "signatureCode": {
       "body": "Pozdravljeni {{firstName}}, vaša koda za podpis je {{code}}. Poteče čez 10 minut.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "details": "Vnesite to kodo na stran za podpis pogodbe, da dokončate svojo zavezo. Rok uporabnosti poteče po 10 minutah in se lahko uporabi samo enkrat.",
       "subject": "Vaša koda za podpis {{reference}}"
     },
     "signaturePending": {
@@ -1966,7 +1966,7 @@
     "contractDownloaded": "Pogodba prenesena",
     "contractGenerating": "Ustvarjanje pogodbe PDF…",
     "contractTitle": "Pogodba",
-    "details": "Details",
+    "details": "Podrobnosti",
     "documentsTitle": "Predloženi dokumenti",
     "downloadContract": "Prenesi pogodbo",
     "downloadImpossible": "Prenos ni mogoč",
@@ -2231,11 +2231,11 @@
     "newEmail": "Nov e-poštni naslov",
     "newPassword": "Novo geslo",
     "passwordMismatch": "Gesli se ne ujemata",
-    "passwordSection": "Password",
+    "passwordSection": "Geslo",
     "passwordTooShort": "Geslo mora vsebovati vsaj 8 znakov",
     "passwordUpdated": "Geslo posodobljeno",
     "phone": "Telefon",
-    "profile": "Profile",
+    "profile": "Profil",
     "profileUpdated": "Profil posodobljen",
     "saveError": "Napaka pri shranjevanju",
     "saveProfile": "Shrani profil",
@@ -2443,43 +2443,43 @@
     "phone": "Vnesite veljavno telefonsko številko"
   },
   "workflow": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "confirmTitle": "Confirm the decision",
+    "cancel": "Prekliči",
+    "confirm": "Potrdi",
+    "confirmBody": "Datoteka {{reference}} se bo premaknila v stanje »{{status}}«. To dejanje se zabeleži v revizijski sledi.",
+    "confirmTitle": "Potrdite odločitev",
     "error": {
-      "forbidden": "Action not allowed",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "sameStatus": "The file already has this status"
+      "forbidden": "Dejanje ni dovoljeno",
+      "notAllowed": "Potek dela ne dovoljuje prehoda",
+      "notFound": "Datoteke ni mogoče najti",
+      "reasonRequired": "Potreben je razlog",
+      "sameStatus": "Datoteka že ima ta status"
     },
     "guard": {
-      "complianceBlocking": "Blocking compliance alert",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "kycNotPassed": "KYC checks not passed",
-      "missingPayout": "Payout details missing",
-      "noInsurance": "No insurance subscribed on this file"
+      "complianceBlocking": "Opozorilo o skladnosti z blokiranjem",
+      "documentsPending": "Zahtevani dokumenti manjkajo ali niso odobreni",
+      "infoRequestsOpen": "Zahteve za informacije so še odprte",
+      "kycNotPassed": "Preverjanja KYC niso opravljena",
+      "missingPayout": "Manjkajo podatki o izplačilu",
+      "noInsurance": "Za to datoteko ni zavarovanja"
     },
-    "noteLabel": "Internal note",
-    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Interna opomba",
+    "reasonLabel": "Razlog delimo s pritožnikom",
     "requests": {
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "close": "Close",
-      "create": "Send request",
-      "kind": "Request type",
+      "answered": "Odgovoril",
+      "cancelled": "Preklicano",
+      "close": "Zapri",
+      "create": "Pošlji zahtevo",
+      "kind": "Vrsta zahteve",
       "kinds": {
         "information": "Dodatna informacija",
         "justification": "Zahtevana utemeljitev",
         "missing_document": "Manjkajoč dokument",
         "replace_document": "Zamenjava dokumenta"
       },
-      "message": "Message sent to the applicant",
-      "none": "No information request.",
-      "open": "Pending",
-      "title": "Information requests"
+      "message": "Sporočilo poslano prijavitelju",
+      "none": "Ni zahteve po informacijah.",
+      "open": "V teku",
+      "title": "Zahteve po informacijah"
     }
   }
 }

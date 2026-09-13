@@ -223,19 +223,19 @@
       "transfersBlocked": "Μπλοκαρίστηκαν οι μεταγραφές"
     },
     "loans": "Δάνεια",
-    "logs": "Activity log",
+    "logs": "ημερολόγιο δραστηριότητας",
     "notifications": "Ειδοποιήσεις",
     "overview": "Επισκόπηση",
     "quickActions": "Γρήγορες Ενέργειες",
     "recentActivity": "Πρόσφατη δραστηριότητα",
-    "roles": "Permissions",
+    "roles": "Δικαιώματα",
     "security": "Ασφάλεια",
-    "staff": "Team & roles",
+    "staff": "Ομάδα και ρόλοι",
     "title": "Ταμπλό — MOONYP",
     "transfers": "Μεταγραφές"
   },
   "adminSec": {
-    "adminLink": "Admin",
+    "adminLink": "Διαχειριστής",
     "alerts": {
       "empty": "Δεν υπάρχουν ειδοποιήσεις.",
       "resolve": "Επίλυση",
@@ -597,41 +597,41 @@
     "title": "Μιλήστε με σύμβουλο"
   },
   "contractDoc": {
-    "address": "Address",
-    "advancedNotice": "Advanced electronic signature under Regulation (EU) 910/2014 (eIDAS), time-stamped and uniquely linked to the signatory.",
-    "amount": "Loan amount",
-    "borrower": "Borrower",
-    "clause1": "The lender releases the funds to the borrower once this agreement is signed and the file has been fully verified.",
-    "clause2": "The borrower undertakes to repay the monthly instalments shown above on each due date until the end of the term.",
-    "clause3": "The borrower has a statutory right of withdrawal of fourteen calendar days from the date of signature.",
-    "commitmentsTitle": "Commitments of the parties",
-    "documentHash": "Document fingerprint",
-    "duration": "Term",
+    "address": "Διεύθυνση",
+    "advancedNotice": "Προηγμένη ηλεκτρονική υπογραφή σύμφωνα με τον κανονισμό (ΕΕ) 910/2014 (eIDAS), με χρονική σφραγίδα και μοναδικά συνδεδεμένη με τον υπογράφοντα.",
+    "amount": "Ποσό δανείου",
+    "borrower": "Δανειολήπτης",
+    "clause1": "Ο δανειστής αποδεσμεύει τα κεφάλαια στον δανειολήπτη μόλις υπογραφεί αυτή η συμφωνία και το αρχείο έχει επαληθευτεί πλήρως.",
+    "clause2": "Ο δανειολήπτης δεσμεύεται να εξοφλήσει τις μηνιαίες δόσεις που αναφέρονται παραπάνω σε κάθε ημερομηνία λήξης μέχρι το τέλος της περιόδου.",
+    "clause3": "Ο δανειολήπτης έχει εκ του νόμου δικαίωμα υπαναχώρησης δεκατεσσάρων ημερολογιακών ημερών από την ημερομηνία υπογραφής.",
+    "commitmentsTitle": "Δεσμεύσεις των μερών",
+    "documentHash": "Δακτυλικό αποτύπωμα εγγράφου",
+    "duration": "Όρος",
     "email": "Email",
-    "fees": "Arrangement fee",
-    "footer": "MOONYP SAS - Electronically generated document, valid without a handwritten signature.",
-    "insurance": "Monthly insurance",
-    "issuedOn": "Issued on",
-    "lender": "Lender",
-    "monthly": "Monthly payment",
-    "months": "months",
-    "notSpecified": "Not specified",
-    "partiesTitle": "Contracting parties",
-    "pendingSignature": "This document is a draft agreement: it takes effect only once electronically signed by the borrower.",
-    "provider": "Provider",
-    "purpose": "Purpose of financing",
-    "qualifiedNotice": "Qualified electronic signature under Regulation (EU) 910/2014 (eIDAS), equivalent to a handwritten signature.",
-    "rate": "Annual percentage rate",
-    "reference": "Reference",
-    "signatureRef": "Signature reference",
-    "signatureTitle": "Electronic signature",
-    "signedBy": "Signed by",
-    "signedOn": "Signed on",
+    "fees": "Χρέωση διευθέτησης",
+    "footer": "MOONYP SAS - Έγγραφο που δημιουργείται ηλεκτρονικά, ισχύει χωρίς χειρόγραφη υπογραφή.",
+    "insurance": "Μηνιαία ασφάλιση",
+    "issuedOn": "Εκδόθηκε στις",
+    "lender": "Δανειστής",
+    "monthly": "Μηνιαία πληρωμή",
+    "months": "μήνες",
+    "notSpecified": "Δεν διευκρινίζεται",
+    "partiesTitle": "συμβαλλόμενα μέρη",
+    "pendingSignature": "Αυτό το έγγραφο είναι ένα σχέδιο συμφωνίας: τίθεται σε ισχύ μόνο εφόσον υπογραφεί ηλεκτρονικά από τον δανειολήπτη.",
+    "provider": "Πάροχος",
+    "purpose": "Σκοπός χρηματοδότησης",
+    "qualifiedNotice": "Πιστοποιημένη ηλεκτρονική υπογραφή βάσει του κανονισμού (ΕΕ) 910/2014 (eIDAS), ισοδύναμη με χειρόγραφη υπογραφή.",
+    "rate": "Ετήσιο ποσοστό",
+    "reference": "Αναφορά",
+    "signatureRef": "Αναφορά υπογραφής",
+    "signatureTitle": "Ηλεκτρονική υπογραφή",
+    "signedBy": "Υπογεγραμμένο από",
+    "signedOn": "Υπογεγραμμένο",
     "subtitle": "Σύμβαση πίστωσης",
-    "termsTitle": "Financial terms",
+    "termsTitle": "Οικονομικοί όροι",
     "title": "Σύμβαση προσωπικού δανείου",
-    "totalCost": "Total cost of credit",
-    "version": "Version"
+    "totalCost": "Συνολικό κόστος πίστωσης",
+    "version": "Έκδοση"
   },
   "dashboard": {
     "activeLoans": "Ενεργά δάνεια",
@@ -712,7 +712,7 @@
     },
     "approved": {
       "body": "Γεια σας {{firstName}}, η αίτηση {{reference}} εγκρίθηκε. Η προσφορά θα είναι διαθέσιμη στην ασφαλή περιοχή.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "details": "Η εξατομικευμένη προσφορά σας και στη συνέχεια το συμβόλαιό σας θα διατεθούν στην ασφαλή περιοχή σας.",
       "subject": "Η αίτηση {{reference}} εγκρίθηκε"
     },
     "cancelled": {
@@ -740,12 +740,12 @@
     },
     "contractSent": {
       "body": "Γεια σας {{firstName}}, το συμβόλαιο {{reference}} είναι έτοιμο προς υπογραφή στην ασφαλή περιοχή.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "details": "Το χρηματοδοτικό συμβόλαιό σας είναι διαθέσιμο στο διαδίκτυο. Διαβάστε το πλήρως, κατεβάστε το PDF και, στη συνέχεια, υπογράψτε το ηλεκτρονικά με έναν κωδικό μιας χρήσης που αποστέλλεται μέσω email. Η υπογραφή είναι χρονοσφραγισμένη και αρχειοθετημένη.",
       "subject": "Το συμβόλαιό σας {{reference}} είναι έτοιμο"
     },
     "contractSigned": {
       "body": "Γεια σας {{firstName}}, η σύμβαση {{reference}} υπογράφηκε. Μπορείτε να τη λάβετε από τον ασφαλή χώρο σας.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "details": "Το υπογεγραμμένο συμβόλαιό σας αρχειοθετείται και μπορείτε να το κατεβάσετε ανά πάσα στιγμή από την ασφαλή περιοχή σας, όπου τα επόμενα βήματα (κάλυψη, ασφάλιση, εκταμίευση) παρακολουθούνται σε πραγματικό χρόνο.",
       "subject": "Η σύμβαση {{reference}} υπογράφηκε"
     },
     "cta": {
@@ -759,7 +759,7 @@
     },
     "disbursed": {
       "body": "Γεια σας {{firstName}}, τα κεφάλαια του φακέλου {{reference}} μεταφέρθηκαν στον λογαριασμό σας.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "details": "Η μεταφορά είναι καθ' οδόν προς τον λογαριασμό που καταχωρίσατε. Το πρόγραμμα αποπληρωμής σας είναι διαθέσιμο στο διαδίκτυο.",
       "subject": "Εκταμίευση — φάκελος {{reference}}"
     },
     "disbursementPreparing": {
@@ -769,7 +769,7 @@
     },
     "documentsMissing": {
       "body": "Γεια σας {{firstName}}, λείπουν έγγραφα από τον φάκελο {{reference}}. Ανεβάστε τα από την ασφαλή περιοχή. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "details": "Η μεταφόρτωση διαρκεί δευτερόλεπτα, απευθείας από το τηλέφωνο ή τον υπολογιστή σας.",
       "subject": "Ελλιπή έγγραφα — φάκελος {{reference}}"
     },
     "guaranteeDeclined": {
@@ -778,7 +778,7 @@
     },
     "guaranteePayLater": {
       "body": "Γεια σας {{firstName}}, η πληρωμή {{amount}} έχει προγραμματιστεί για {{date}}. Το αίτημα παραμένει σε αναμονή.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "details": "Η αίτησή σας παραμένει δεσμευμένη μέχρι την επιλεγμένη ημερομηνία. Μπορείτε να μεταφέρετε την πληρωμή ανά πάσα στιγμή από την ασφαλή περιοχή σας.",
       "subject": "Προγραμματισμένη πληρωμή {{reference}}"
     },
     "guaranteePaymentValidated": {
@@ -787,7 +787,7 @@
     },
     "guaranteePayNow": {
       "body": "Γεια σας {{firstName}}, καταγράψαμε την επιλογή πληρωμής {{amount}}. Οι οδηγίες θα σταλούν μετά τον έλεγχο.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "details": "Οδηγίες πληρωμής (δικαιούχος, IBAN, BIC και αναφορά στην προσφορά) είναι διαθέσιμες στη σελίδα πληρωμής της ασφαλούς περιοχής σας, όπου μπορείτε επίσης να ανεβάσετε την απόδειξή σας.",
       "subject": "Πληρωμή τέλους {{reference}}"
     },
     "guaranteeReminder": {
@@ -796,7 +796,7 @@
     },
     "guaranteeSent": {
       "body": "Γεια σας {{firstName}}, το τέλος κάλυψης πιστωτικού κινδύνου είναι {{amount}}. Επιλέξτε από τον ασφαλή χώρο σας.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "details": "Απαιτείται κάλυψη πιστωτικού κινδύνου πριν αποδεσμευτούν τα κεφάλαια. Από την ασφαλή περιοχή σας μπορείτε να πληρώσετε τώρα, να προγραμματίσετε την πληρωμή για μια ημερομηνία της επιλογής σας ή να αποσυρθείτε από τη χρηματοδότηση.",
       "subject": "Τέλος κάλυψης — φάκελος {{reference}}"
     },
     "guaranteeSigned": {
@@ -835,7 +835,7 @@
     },
     "insurancePending": {
       "body": "Γεια σας {{firstName}}, απαιτείται ασφάλιση {{amount}} τον μήνα.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "details": "Η ασφάλιση δανειοληπτών καλύπτει θάνατο, αναπηρία και απώλεια εργασίας σύμφωνα με τους όρους της σύμβασης. Η κάλυψη, το μηνιαίο ασφάλιστρο και οι όροι πληρωμής αναφέρονται λεπτομερώς στην ασφαλή περιοχή σας.",
       "subject": "Ασφάλιση {{reference}}"
     },
     "insuranceReminder": {
@@ -845,7 +845,7 @@
     },
     "insuranceValidated": {
       "body": "Γεια σας {{firstName}}, η ασφάλισή σας επικυρώθηκε.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "details": "Η ασφάλισή σας είναι επικυρωμένη και επισυνάπτεται στο συμβόλαιό σας. Το πιστοποιητικό μπορεί να ληφθεί από την ασφαλή περιοχή σας.",
       "subject": "Ασφάλιση επικυρώθηκε {{reference}}"
     },
     "late": {
@@ -855,7 +855,7 @@
     },
     "offerAvailable": {
       "body": "Γεια σας {{firstName}}, η προσφορά χρηματοδότησης {{reference}} είναι διαθέσιμη στην ασφαλή περιοχή.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "details": "Η προσφορά σας αναφέρει το ποσό, τη διάρκεια, το ετήσιο επιτόκιο, τη δόση, το συνολικό κόστος και τις χρεώσεις. Παραμένει σε ισχύ μέχρι την ημερομηνία που εμφανίζεται στην ασφαλή περιοχή σας.",
       "subject": "Η προσφορά σας {{reference}} είναι διαθέσιμη"
     },
     "rejected": {
@@ -879,7 +879,7 @@
     },
     "signatureCode": {
       "body": "Γεια σας {{firstName}}, ο κωδικός υπογραφής είναι {{code}}. Λήγει σε 10 λεπτά.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "details": "Εισαγάγετε αυτόν τον κωδικό στη σελίδα υπογραφής συμβολαίου σας για να ολοκληρώσετε τη δέσμευσή σας. Λήγει μετά από 10 λεπτά και μπορεί να χρησιμοποιηθεί μόνο μία φορά.",
       "subject": "Ο κωδικός υπογραφής σας {{reference}}"
     },
     "signaturePending": {
@@ -1406,7 +1406,7 @@
     "banking": "Τραπεζικά",
     "contact": "Επικοινωνία",
     "contactForm": "Φόρμα επικοινωνίας",
-    "cookies": "Cookies",
+    "cookies": "Μπισκότα",
     "disclaimer": "Η πίστωση σας δεσμεύει και πρέπει να αποπληρωθεί. Ελέγξτε την ικανότητα αποπληρωμής σας πριν υποβάλετε αίτηση. Κάθε προσφορά υπόκειται σε έγκριση και ταυτοποίηση.",
     "finPriv": "Οικονομικό απόρρητο",
     "legal": "Νομικά",
@@ -1942,20 +1942,20 @@
     }
   },
   "livechat": {
-    "close": "Close",
+    "close": "Κλείσε",
     "faq": {
-      "contact": "Our team is reachable at +39 350 036 6867 or via the Contact page.",
-      "default": "An MOONYP adviser will get back to you shortly. You can also reach us via the Contact page.",
-      "loan": "To request a loan, go to \"New loan\" from your dashboard. Decision within 24h, funds within 72h.",
-      "password": "You can reset your password from the sign-in page using \"Forgot password?\".",
-      "thanks": "You're welcome! Feel free to ask anything else.",
-      "transfer": "Your transfers are listed in the \"Transfers\" section of your dashboard."
+      "contact": "Η ομάδα μας είναι προσβάσιμη στο +39 350 036 6867 ή μέσω της σελίδας Επικοινωνία.",
+      "default": "Ένας σύμβουλος της MOONYP θα επικοινωνήσει μαζί σας σύντομα. Μπορείτε επίσης να επικοινωνήσετε μαζί μας μέσω της σελίδας Επικοινωνία.",
+      "loan": "Για να ζητήσετε δάνειο, μεταβείτε στο \"Νέο δάνειο\" από τον πίνακα ελέγχου σας. Απόφαση εντός 24 ωρών, χρηματοδότηση εντός 72 ωρών.",
+      "password": "Μπορείτε να επαναφέρετε τον κωδικό πρόσβασής σας από τη σελίδα σύνδεσης χρησιμοποιώντας το \"Ξεχάσατε τον κωδικό πρόσβασης;\".",
+      "thanks": "Καλώς ήρθες! Μη διστάσετε να ρωτήσετε οτιδήποτε άλλο.",
+      "transfer": "Οι μεταφορές σας παρατίθενται στην ενότητα \"Μεταφορές\" του πίνακα ελέγχου σας."
     },
-    "greeting": "Hello 👋! How can I help you today?",
-    "online": "Online",
+    "greeting": "Γεια σας 👋! Πώς μπορώ να σας βοηθήσω σήμερα;",
+    "online": "Συνδεδεμένος στο διαδίκτυο",
     "open": "Άνοιγμα συνομιλίας",
-    "placeholder": "Write your message…",
-    "title": "MOONYP Adviser"
+    "placeholder": "Γράψτε το μήνυμά σας…",
+    "title": "Σύμβουλος MOONYP"
   },
   "loanDetail": {
     "addedOn": "Προστέθηκε στις {{date}}",
@@ -2443,43 +2443,43 @@
     "phone": "Εισαγάγετε έναν έγκυρο αριθμό τηλεφώνου"
   },
   "workflow": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "confirmTitle": "Confirm the decision",
+    "cancel": "Ακύρωση",
+    "confirm": "Επιβεβαίωση",
+    "confirmBody": "Το αρχείο {{reference}} θα μετακινηθεί στην κατάσταση \"{{status}}\". Αυτή η ενέργεια καταγράφεται στη διαδρομή ελέγχου.",
+    "confirmTitle": "Επιβεβαιώστε την απόφαση",
     "error": {
-      "forbidden": "Action not allowed",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "sameStatus": "The file already has this status"
+      "forbidden": "Δεν επιτρέπεται η ενέργεια",
+      "notAllowed": "Η μετάβαση δεν επιτρέπεται από τη ροή εργασίας",
+      "notFound": "Το αρχείο δεν βρέθηκε",
+      "reasonRequired": "Απαιτείται λόγος",
+      "sameStatus": "Το αρχείο έχει ήδη αυτήν την κατάσταση"
     },
     "guard": {
-      "complianceBlocking": "Blocking compliance alert",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "kycNotPassed": "KYC checks not passed",
-      "missingPayout": "Payout details missing",
-      "noInsurance": "No insurance subscribed on this file"
+      "complianceBlocking": "Ειδοποίηση συμμόρφωσης αποκλεισμού",
+      "documentsPending": "Απαιτούμενα έγγραφα λείπουν ή δεν έχουν εγκριθεί",
+      "infoRequestsOpen": "Τα αιτήματα πληροφοριών είναι ακόμη ανοιχτά",
+      "kycNotPassed": "Οι έλεγχοι KYC δεν πέρασαν",
+      "missingPayout": "Λείπουν λεπτομέρειες πληρωμής",
+      "noInsurance": "Δεν έχει εγγραφεί ασφάλιση σε αυτό το αρχείο"
     },
-    "noteLabel": "Internal note",
-    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Εσωτερική σημείωση",
+    "reasonLabel": "Ο λόγος που κοινοποιήθηκε με τον αιτούντα",
     "requests": {
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "close": "Close",
-      "create": "Send request",
-      "kind": "Request type",
+      "answered": "Απαντήθηκε",
+      "cancelled": "Ακυρώθηκε",
+      "close": "Κλείσε",
+      "create": "Αποστολή αιτήματος",
+      "kind": "Τύπος αιτήματος",
       "kinds": {
         "information": "Πρόσθετη πληροφορία",
         "justification": "Ζητήθηκε αιτιολόγηση",
         "missing_document": "Έλλειψη εγγράφου",
         "replace_document": "Αντικατάσταση εγγράφου"
       },
-      "message": "Message sent to the applicant",
-      "none": "No information request.",
-      "open": "Pending",
-      "title": "Information requests"
+      "message": "Μήνυμα που στάλθηκε στον αιτούντα",
+      "none": "Κανένα αίτημα πληροφοριών.",
+      "open": "Εκκρεμεί",
+      "title": "Αιτήματα πληροφοριών"
     }
   }
 }

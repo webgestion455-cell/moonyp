@@ -10,7 +10,7 @@
     "eyebrow": "Over ons",
     "governance": {
       "desc": "Ons operationeel kader voldoet aan de eisen van Europese kredietverstrekkers: functiescheiding, traceerbaarheid van elke beslissing en permanent risicobeheer.",
-      "eyebrow": "Governance & compliance",
+      "eyebrow": "Bestuur en naleving",
       "g1d": "Kredietverlening samen met vergunninghoudende bankpartners.",
       "g1t": "Gereguleerd kader",
       "g2d": "AVG-conform, versleuteling in rust en tijdens transport, strikte bewaartermijnen.",
@@ -223,19 +223,19 @@
       "transfersBlocked": "Overboekingen geblokkeerd"
     },
     "loans": "Leningen",
-    "logs": "Activity log",
+    "logs": "Activiteitenlogboek",
     "notifications": "Meldingen",
     "overview": "Overzicht",
     "quickActions": "Snelle acties",
     "recentActivity": "Recente activiteit",
-    "roles": "Permissions",
+    "roles": "machtigingen",
     "security": "Beveiliging",
-    "staff": "Team & roles",
+    "staff": "Team & rollen",
     "title": "Dashboard — MOONYP",
     "transfers": "Overdrachten"
   },
   "adminSec": {
-    "adminLink": "Admin",
+    "adminLink": "Beheerder",
     "alerts": {
       "empty": "Geen waarschuwingen.",
       "resolve": "Oplossen",
@@ -447,7 +447,7 @@
       "desc": "Je moet ingelogd zijn om support te gebruiken.",
       "title": "Log in om te chatten"
     },
-    "nav": "Support",
+    "nav": "Ondersteunen",
     "notFound": "Pagina niet gevonden",
     "notFoundDesc": "Deze pagina bestaat niet.",
     "open": "Open",
@@ -456,7 +456,7 @@
     "rt": {
       "bold": "Vet",
       "italic": "Cursief",
-      "link": "Link",
+      "link": "Koppeling",
       "linkPrompt": "Voer URL in (https://...)"
     },
     "sendError": "Verzenden mislukt",
@@ -712,7 +712,7 @@
     },
     "approved": {
       "body": "Hallo {{firstName}}, uw aanvraag {{reference}} is goedgekeurd. Uw aanbod verschijnt in uw beveiligde omgeving.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "details": "Uw gepersonaliseerde offerte en vervolgens uw contract worden beschikbaar gesteld in uw beveiligde omgeving.",
       "subject": "Uw aanvraag {{reference}} is goedgekeurd"
     },
     "cancelled": {
@@ -740,12 +740,12 @@
     },
     "contractSent": {
       "body": "Hallo {{firstName}}, uw contract {{reference}} kan worden ondertekend in uw beveiligde omgeving.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "details": "Uw financieringscontract is online beschikbaar. Lees het volledig, download de pdf en onderteken het vervolgens elektronisch met een eenmalige code die per e-mail wordt verzonden. De handtekening wordt voorzien van een tijdstempel en gearchiveerd.",
       "subject": "Uw contract {{reference}} is klaar"
     },
     "contractSigned": {
       "body": "Hallo {{firstName}}, uw contract {{reference}} is ondertekend. U kunt het downloaden in uw beveiligde omgeving.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "details": "Uw ondertekende contract wordt op elk moment gearchiveerd en gedownload vanuit uw beveiligde omgeving, waar de volgende stappen (dekking, verzekering, uitbetaling) in realtime worden gevolgd.",
       "subject": "Contract {{reference}} ondertekend"
     },
     "cta": {
@@ -759,7 +759,7 @@
     },
     "disbursed": {
       "body": "Hallo {{firstName}}, het bedrag van dossier {{reference}} is naar uw rekening overgemaakt.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "details": "De overboeking is onderweg naar de door u opgegeven rekening. Uw aflossingsschema staat online.",
       "subject": "Bedrag uitbetaald — dossier {{reference}}"
     },
     "disbursementPreparing": {
@@ -769,7 +769,7 @@
     },
     "documentsMissing": {
       "body": "Hallo {{firstName}}, er ontbreken documenten in dossier {{reference}}. Upload ze via uw beveiligde omgeving. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "details": "Uploaden duurt enkele seconden, rechtstreeks vanaf uw telefoon of computer.",
       "subject": "Ontbrekende documenten — dossier {{reference}}"
     },
     "guaranteeDeclined": {
@@ -778,7 +778,7 @@
     },
     "guaranteePayLater": {
       "body": "Hallo {{firstName}}, uw betaling van {{amount}} staat gepland op {{date}}. Uw aanvraag blijft in afwachting.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "details": "Uw aanvraag blijft gereserveerd tot de gekozen datum. U kunt de betaling op elk gewenst moment vanuit uw beveiligde omgeving vervroegen.",
       "subject": "Betaling gepland {{reference}}"
     },
     "guaranteePaymentValidated": {
@@ -787,7 +787,7 @@
     },
     "guaranteePayNow": {
       "body": "Hallo {{firstName}}, we hebben uw keuze om {{amount}} te betalen geregistreerd. Instructies volgen na verificatie.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "details": "Betaalinstructies (begunstigde, IBAN, BIC en de verwijzing naar de offerte) vindt u op de betaalpagina van uw beveiligde omgeving, waar u ook uw betalingsbewijs kunt uploaden.",
       "subject": "Betaling kosten {{reference}}"
     },
     "guaranteeReminder": {
@@ -796,7 +796,7 @@
     },
     "guaranteeSent": {
       "body": "Hallo {{firstName}}, de kosten voor dekking van het kredietrisico bedragen {{amount}}. Kies uw optie in uw beveiligde omgeving.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "details": "Dekking van kredietrisico's is vereist voordat middelen worden vrijgegeven. Vanuit uw beveiligde omgeving kunt u nu betalen, de betaling inplannen op een datum naar keuze of de financiering stopzetten.",
       "subject": "Dekkingskosten — dossier {{reference}}"
     },
     "guaranteeSigned": {
@@ -835,7 +835,7 @@
     },
     "insurancePending": {
       "body": "Hallo {{firstName}}, een verzekering van {{amount}} per maand is vereist voor uw dossier.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "details": "De kredietnemerverzekering dekt overlijden, invaliditeit en baanverlies volgens de contractvoorwaarden. Dekking, maandelijkse premie en betalingsvoorwaarden worden gedetailleerd beschreven in uw beveiligde omgeving.",
       "subject": "Verzekering {{reference}}"
     },
     "insuranceReminder": {
@@ -845,7 +845,7 @@
     },
     "insuranceValidated": {
       "body": "Hallo {{firstName}}, uw verzekering is gevalideerd.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "details": "Uw verzekering is gevalideerd en aan uw contract toegevoegd. Het certificaat kunt u downloaden vanuit uw beveiligde omgeving.",
       "subject": "Verzekering gevalideerd {{reference}}"
     },
     "late": {
@@ -855,7 +855,7 @@
     },
     "offerAvailable": {
       "body": "Hallo {{firstName}}, uw financieringsaanbod {{reference}} staat klaar in uw beveiligde omgeving.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "details": "In uw offerte worden het bedrag, de looptijd, het jaartarief, de termijn, de totale kosten en de vergoedingen vermeld. Het blijft geldig tot de datum die in uw beveiligde omgeving wordt weergegeven.",
       "subject": "Uw aanbod {{reference}} staat klaar"
     },
     "rejected": {
@@ -879,7 +879,7 @@
     },
     "signatureCode": {
       "body": "Hallo {{firstName}}, uw ondertekeningscode is {{code}}. Deze verloopt over 10 minuten.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "details": "Voer deze code in op de ondertekeningspagina van uw contract om uw verbintenis te voltooien. Het verloopt na 10 minuten en kan slechts één keer worden gebruikt.",
       "subject": "Uw ondertekeningscode {{reference}}"
     },
     "signaturePending": {
@@ -1402,11 +1402,11 @@
     }
   },
   "footer": {
-    "aml": "AML / KYC",
+    "aml": "AML/KYC",
     "banking": "Bankzaken",
     "contact": "Contact",
     "contactForm": "Contactformulier",
-    "cookies": "Cookies",
+    "cookies": "Koekjes",
     "disclaimer": "Krediet verbindt u en moet worden terugbetaald. Controleer uw terugbetalingscapaciteit voordat u een aanvraag doet. Elk aanbod is onder voorbehoud van goedkeuring en identiteitscontrole.",
     "finPriv": "Financiële privacy",
     "legal": "Juridisch",
@@ -1420,7 +1420,7 @@
     "terms": "Voorwaarden"
   },
   "header": {
-    "admin": "Admin",
+    "admin": "Beheerder",
     "contact": "Contact",
     "dashboard": "Dashboard",
     "menu": "Menu",
@@ -1913,7 +1913,7 @@
           "p": "Minimaal 18 jaar, ingezetene van een toegestaan land."
         },
         {
-          "h": "2. Account",
+          "h": "2. Rekening",
           "p": "Juiste gegevens, vertrouwelijke inloggegevens."
         },
         {
@@ -2081,7 +2081,7 @@
     "request": "Aanvraag",
     "simulation": "Simulator",
     "solutions": "Oplossingen",
-    "support": "Support",
+    "support": "Ondersteunen",
     "transfers": "Overschrijvingen"
   },
   "notif": {
@@ -2443,43 +2443,43 @@
     "phone": "Voer een geldig telefoonnummer in"
   },
   "workflow": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "confirmTitle": "Confirm the decision",
+    "cancel": "Annuleren",
+    "confirm": "Bevestigen",
+    "confirmBody": "Bestand {{reference}} zal naar de status “{{status}}” gaan. Deze actie wordt vastgelegd in de audit trail.",
+    "confirmTitle": "Bevestig de beslissing",
     "error": {
-      "forbidden": "Action not allowed",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "sameStatus": "The file already has this status"
+      "forbidden": "Actie niet toegestaan",
+      "notAllowed": "Overgang niet toegestaan door de workflow",
+      "notFound": "Bestand niet gevonden",
+      "reasonRequired": "Er is een reden vereist",
+      "sameStatus": "Het bestand heeft deze status al"
     },
     "guard": {
-      "complianceBlocking": "Blocking compliance alert",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "kycNotPassed": "KYC checks not passed",
-      "missingPayout": "Payout details missing",
-      "noInsurance": "No insurance subscribed on this file"
+      "complianceBlocking": "Nalevingswaarschuwing blokkeren",
+      "documentsPending": "Vereiste documenten ontbreken of zijn niet goedgekeurd",
+      "infoRequestsOpen": "Informatieverzoeken staan nog open",
+      "kycNotPassed": "KYC-controles zijn niet geslaagd",
+      "missingPayout": "Uitbetalingsgegevens ontbreken",
+      "noInsurance": "Er is geen verzekering afgesloten voor dit dossier"
     },
-    "noteLabel": "Internal note",
-    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Interne opmerking",
+    "reasonLabel": "Reden gedeeld met de aanvrager",
     "requests": {
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "close": "Close",
-      "create": "Send request",
-      "kind": "Request type",
+      "answered": "Beantwoord",
+      "cancelled": "Geannuleerd",
+      "close": "Sluit",
+      "create": "Verzoek verzenden",
+      "kind": "Verzoektype",
       "kinds": {
         "information": "Aanvullende informatie",
         "justification": "Motivering gevraagd",
         "missing_document": "Ontbrekend document",
         "replace_document": "Document vervangen"
       },
-      "message": "Message sent to the applicant",
-      "none": "No information request.",
-      "open": "Pending",
-      "title": "Information requests"
+      "message": "Bericht verzonden naar de aanvrager",
+      "none": "Geen informatieverzoek.",
+      "open": "In afwachting",
+      "title": "Informatieverzoeken"
     }
   }
 }

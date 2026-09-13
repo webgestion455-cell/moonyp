@@ -223,19 +223,19 @@
       "transfersBlocked": "Trasferimenti bloccati"
     },
     "loans": "Prestiti",
-    "logs": "Activity log",
+    "logs": "Registro delle attività",
     "notifications": "Notifiche",
     "overview": "Panoramica",
     "quickActions": "Azioni rapide",
     "recentActivity": "Attività recente",
-    "roles": "Permissions",
+    "roles": "Permessi",
     "security": "Sicurezza",
-    "staff": "Team & roles",
+    "staff": "Squadra e ruoli",
     "title": "Cruscotto — MOONYP",
     "transfers": "Trasferimenti"
   },
   "adminSec": {
-    "adminLink": "Admin",
+    "adminLink": "Amministratore",
     "alerts": {
       "empty": "Nessuna allerta.",
       "resolve": "Risolvi",
@@ -456,7 +456,7 @@
     "rt": {
       "bold": "Grassetto",
       "italic": "Corsivo",
-      "link": "Link",
+      "link": "Collegamento",
       "linkPrompt": "Inserisci URL (https://...)"
     },
     "sendError": "Invio non riuscito",
@@ -712,7 +712,7 @@
     },
     "approved": {
       "body": "Ciao {{firstName}}, la tua richiesta {{reference}} è approvata. L'offerta sarà disponibile nella tua area sicura.",
-      "details": "Your personalised offer and then your contract will be made available in your secure area.",
+      "details": "La tua offerta personalizzata e poi il tuo contratto saranno resi disponibili nella tua area protetta.",
       "subject": "La tua richiesta {{reference}} è approvata"
     },
     "cancelled": {
@@ -740,12 +740,12 @@
     },
     "contractSent": {
       "body": "Ciao {{firstName}}, il contratto {{reference}} è pronto per la firma nella tua area sicura.",
-      "details": "Your financing contract is available online. Read it in full, download the PDF, then sign it electronically with a one-time code sent by email. The signature is timestamped and archived.",
+      "details": "Il tuo contratto di finanziamento è disponibile online. Leggilo integralmente, scarica il PDF, quindi firmalo elettronicamente con un codice monouso inviato via e-mail. La firma viene datata e archiviata.",
       "subject": "Il tuo contratto {{reference}} è pronto"
     },
     "contractSigned": {
       "body": "Ciao {{firstName}}, il contratto {{reference}} è stato firmato. Puoi scaricarlo dalla tua area sicura.",
-      "details": "Your signed contract is archived and downloadable at any time from your secure area, where the next steps (coverage, insurance, disbursement) are tracked in real time.",
+      "details": "Il tuo contratto firmato è archiviato e scaricabile in ogni momento dalla tua area protetta, dove i passaggi successivi (copertura, assicurazione, erogazione) vengono tracciati in tempo reale.",
       "subject": "Contratto {{reference}} firmato"
     },
     "cta": {
@@ -759,7 +759,7 @@
     },
     "disbursed": {
       "body": "Ciao {{firstName}}, i fondi della pratica {{reference}} sono stati accreditati sul tuo conto.",
-      "details": "The transfer is on its way to the account you provided. Your repayment schedule is available online.",
+      "details": "Il trasferimento è in arrivo sul conto che hai fornito. Il tuo programma di rimborso è disponibile online.",
       "subject": "Fondi erogati — pratica {{reference}}"
     },
     "disbursementPreparing": {
@@ -769,7 +769,7 @@
     },
     "documentsMissing": {
       "body": "Ciao {{firstName}}, mancano documenti nella pratica {{reference}}. Caricali dalla tua area sicura. {{reason}}",
-      "details": "Uploading takes seconds, straight from your phone or computer.",
+      "details": "Il caricamento richiede pochi secondi, direttamente dal tuo telefono o computer.",
       "subject": "Documenti mancanti — pratica {{reference}}"
     },
     "guaranteeDeclined": {
@@ -778,7 +778,7 @@
     },
     "guaranteePayLater": {
       "body": "Ciao {{firstName}}, il pagamento di {{amount}} è previsto per il {{date}}. La richiesta resta in attesa.",
-      "details": "Your application stays reserved until the chosen date. You may bring the payment forward at any time from your secure area.",
+      "details": "La tua candidatura resta riservata fino alla data prescelta. Potrai anticipare il pagamento in qualsiasi momento dalla tua area protetta.",
       "subject": "Pagamento programmato {{reference}}"
     },
     "guaranteePaymentValidated": {
@@ -787,7 +787,7 @@
     },
     "guaranteePayNow": {
       "body": "Ciao {{firstName}}, abbiamo registrato la scelta di pagare {{amount}}. Le istruzioni seguiranno dopo la verifica.",
-      "details": "Payment instructions (beneficiary, IBAN, BIC and the reference to quote) are available on the payment page of your secure area, where you can also upload your receipt.",
+      "details": "Le istruzioni per il pagamento (beneficiario, IBAN, BIC e riferimento al preventivo) sono disponibili nella pagina di pagamento della tua area protetta, dove potrai anche caricare la ricevuta.",
       "subject": "Pagamento spese {{reference}}"
     },
     "guaranteeReminder": {
@@ -796,7 +796,7 @@
     },
     "guaranteeSent": {
       "body": "Ciao {{firstName}}, le spese di copertura del rischio di credito sono di {{amount}}. Scegli la tua opzione nell'area sicura.",
-      "details": "Credit risk coverage is required before funds are released. From your secure area you can pay now, schedule the payment for a date of your choice, or withdraw from the financing.",
+      "details": "La copertura del rischio di credito è richiesta prima che i fondi vengano rilasciati. Dalla tua area protetta puoi pagare adesso, programmare il pagamento per una data a tua scelta, oppure recedere dal finanziamento.",
       "subject": "Spese di copertura — pratica {{reference}}"
     },
     "guaranteeSigned": {
@@ -835,7 +835,7 @@
     },
     "insurancePending": {
       "body": "Ciao {{firstName}}, è richiesta un'assicurazione di {{amount}} al mese per la pratica.",
-      "details": "Borrower insurance covers death, disability and job loss under the contract terms. Coverage, monthly premium and payment terms are detailed in your secure area.",
+      "details": "L'assicurazione del mutuatario copre la morte, l'invalidità e la perdita del lavoro secondo i termini contrattuali. La copertura, il premio mensile e i termini di pagamento sono dettagliati nella tua area protetta.",
       "subject": "Assicurazione {{reference}}"
     },
     "insuranceReminder": {
@@ -845,7 +845,7 @@
     },
     "insuranceValidated": {
       "body": "Ciao {{firstName}}, la tua assicurazione è stata convalidata.",
-      "details": "Your insurance is validated and attached to your contract. The certificate can be downloaded from your secure area.",
+      "details": "La tua assicurazione è convalidata e allegata al tuo contratto. Il certificato può essere scaricato dalla tua area protetta.",
       "subject": "Assicurazione convalidata {{reference}}"
     },
     "late": {
@@ -855,7 +855,7 @@
     },
     "offerAvailable": {
       "body": "Ciao {{firstName}}, la tua offerta di finanziamento {{reference}} è disponibile nella tua area sicura.",
-      "details": "Your offer details the amount, term, annual rate, instalment, total cost and fees. It remains valid until the date shown in your secure area.",
+      "details": "La tua offerta dettaglia l'importo, la durata, la tariffa annuale, la rata, il costo totale e le commissioni. Rimane valido fino alla data indicata nella tua area protetta.",
       "subject": "La tua offerta {{reference}} è disponibile"
     },
     "rejected": {
@@ -879,7 +879,7 @@
     },
     "signatureCode": {
       "body": "Ciao {{firstName}}, il tuo codice di firma è {{code}}. Scade tra 10 minuti.",
-      "details": "Enter this code on your contract signature page to complete your commitment. It expires after 10 minutes and can be used only once.",
+      "details": "Inserisci questo codice nella pagina della firma del contratto per completare il tuo impegno. Scade dopo 10 minuti e può essere utilizzata una sola volta.",
       "subject": "Il tuo codice di firma {{reference}}"
     },
     "signaturePending": {
@@ -1402,7 +1402,7 @@
     }
   },
   "footer": {
-    "aml": "AML / KYC",
+    "aml": "AML/KYC",
     "banking": "Bancario",
     "contact": "Contatti",
     "contactForm": "Modulo di contatto",
@@ -1420,7 +1420,7 @@
     "terms": "Termini"
   },
   "header": {
-    "admin": "Admin",
+    "admin": "Amministratore",
     "contact": "Contatto",
     "dashboard": "Pannello",
     "menu": "Menu",
@@ -1782,7 +1782,7 @@
       ],
       "title": "Privacy e sicurezza finanziaria"
     },
-    "home": "Home",
+    "home": "Casa",
     "lastUpdated": "Ultimo aggiornamento",
     "loanTerms": {
       "sections": [
@@ -1913,7 +1913,7 @@
           "p": "Maggiorenni, residenti in paesi ammessi, capaci di contrarre."
         },
         {
-          "h": "2. Account",
+          "h": "2. Conto",
           "p": "Informazioni veritiere, credenziali riservate, segnalazione compromissioni."
         },
         {
@@ -2074,7 +2074,7 @@
     "about": "Chi siamo",
     "apply": "Richiedi",
     "contact": "Contatti",
-    "home": "Home",
+    "home": "Casa",
     "language": "Lingua",
     "menu": "Menu",
     "primary": "Navigazione principale",
@@ -2185,7 +2185,7 @@
     "serverAmount": "Importo trasferito",
     "serverBank": "Banca del beneficiario",
     "serverBeneficiary": "Beneficiario",
-    "serverBic": "BIC / SWIFT",
+    "serverBic": "BIC/SWIFT",
     "serverExecuted": "Bonifico eseguito",
     "serverExecutedAt": "Data di esecuzione",
     "serverIban": "IBAN",
@@ -2443,43 +2443,43 @@
     "phone": "Inserire un numero di telefono valido"
   },
   "workflow": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "confirmBody": "File {{reference}} will move to status “{{status}}”. This action is recorded in the audit trail.",
-    "confirmTitle": "Confirm the decision",
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "confirmBody": "Il file {{reference}} passerà allo stato “{{status}}”. Questa azione viene registrata nella traccia di controllo.",
+    "confirmTitle": "Conferma la decisione",
     "error": {
-      "forbidden": "Action not allowed",
-      "notAllowed": "Transition not allowed by the workflow",
-      "notFound": "File not found",
-      "reasonRequired": "A reason is required",
-      "sameStatus": "The file already has this status"
+      "forbidden": "Azione non consentita",
+      "notAllowed": "Transizione non consentita dal flusso di lavoro",
+      "notFound": "File non trovato",
+      "reasonRequired": "È necessario un motivo",
+      "sameStatus": "Il file ha già questo stato"
     },
     "guard": {
-      "complianceBlocking": "Blocking compliance alert",
-      "documentsPending": "Required documents missing or not approved",
-      "infoRequestsOpen": "Information requests still open",
-      "kycNotPassed": "KYC checks not passed",
-      "missingPayout": "Payout details missing",
-      "noInsurance": "No insurance subscribed on this file"
+      "complianceBlocking": "Blocco dell'avviso di conformità",
+      "documentsPending": "Documenti richiesti mancanti o non approvati",
+      "infoRequestsOpen": "Richieste di informazioni ancora aperte",
+      "kycNotPassed": "Controlli KYC non superati",
+      "missingPayout": "Mancano i dettagli del pagamento",
+      "noInsurance": "Nessuna assicurazione sottoscritta su questo file"
     },
-    "noteLabel": "Internal note",
-    "reasonLabel": "Reason shared with the applicant",
+    "noteLabel": "Nota interna",
+    "reasonLabel": "Motivo condiviso con il richiedente",
     "requests": {
-      "answered": "Answered",
-      "cancelled": "Cancelled",
-      "close": "Close",
-      "create": "Send request",
-      "kind": "Request type",
+      "answered": "Risposto",
+      "cancelled": "annullata",
+      "close": "Chiudi",
+      "create": "Invia richiesta",
+      "kind": "Tipo di richiesta",
       "kinds": {
         "information": "Informazione aggiuntiva",
         "justification": "Giustificazione richiesta",
         "missing_document": "Documento mancante",
         "replace_document": "Sostituzione documento"
       },
-      "message": "Message sent to the applicant",
-      "none": "No information request.",
-      "open": "Pending",
-      "title": "Information requests"
+      "message": "Messaggio inviato al richiedente",
+      "none": "Nessuna richiesta di informazioni.",
+      "open": "In sospeso",
+      "title": "Richieste di informazioni"
     }
   }
 }
