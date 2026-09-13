@@ -297,7 +297,8 @@
       "yes": "áno",
       "no": "Nie",
       "none": "žiadne",
-      "pending_assignment": "Byť zadaný"
+      "pending_assignment": "Prideľuje sa",
+      "not_applicable": "Neuplatňuje sa"
     }
   }
 }

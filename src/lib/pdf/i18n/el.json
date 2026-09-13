@@ -297,7 +297,8 @@
       "yes": "Ναί",
       "no": "Οχι",
       "none": "Κανένας",
-      "pending_assignment": "Ανατίθεται"
+      "pending_assignment": "Υπό απόδοση",
+      "not_applicable": "Δεν εφαρμόζεται"
     }
   }
 }

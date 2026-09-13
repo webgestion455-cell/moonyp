@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { useTranslation } from "react-i18next";
+import { useAdminT } from "@/hooks/use-admin-t";
 import { toast } from "sonner";
 import {
   Banknote,
@@ -93,7 +93,7 @@ export function AdminFinancePanel({
   applicationId: string;
   onChanged?: () => void;
 }) {
-  const { t, i18n } = useTranslation();
+  const { t, locale } = useAdminT();
 
   const listPayments = useServerFn(adminListPayments);
   const updatePayment = useServerFn(adminUpdatePaymentStatus);
@@ -122,7 +122,6 @@ export function AdminFinancePanel({
   const [firstDue, setFirstDue] = useState("");
 
 
-  const locale = i18n.language;
 
   const refresh = useCallback(async () => {
     setLoading(true);

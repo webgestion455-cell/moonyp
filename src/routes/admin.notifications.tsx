@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { CenterLoader, ListSkeleton } from "@/components/ui/loader";
 import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { adminT, useAdminT } from "@/hooks/use-admin-t";
 import { Check, Inbox, ArrowRight } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
@@ -9,16 +9,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { AppNotification } from "@/lib/notifications";
-import i18n from "@/i18n";
 
 export const Route = createFileRoute("/admin/notifications")({
   component: AdminNotificationsPage,
-  head: () => ({ meta: [{ title: i18n.t("notifications.pageTitle") }] }),
+  head: () => ({ meta: [{ title: adminT("notifications.pageTitle") }] }),
 });
 
 function AdminNotificationsPage() {
   const { user, loading: authLoading } = useAuth();
-  const { t } = useTranslation();
+  const { t, locale } = useAdminT();
   const navigate = useNavigate();
   const [items, setItems] = useState<AppNotification[]>([]);
   const [loading, setLoading] = useState(true);
@@ -85,7 +84,7 @@ function AdminNotificationsPage() {
                     {!n.read && <Badge className="border-0 bg-primary/15 text-primary">{t("common.new")}</Badge>}
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">{n.message}</p>
-                  <p className="mt-1 text-xs text-muted-foreground/70">{new Intl.DateTimeFormat(i18n.language, { dateStyle: "medium", timeStyle: "short" }).format(new Date(n.created_at))}</p>
+                  <p className="mt-1 text-xs text-muted-foreground/70">{new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeStyle: "short" }).format(new Date(n.created_at))}</p>
                 </div>
                 {n.link && <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-muted-foreground" />}
               </button>

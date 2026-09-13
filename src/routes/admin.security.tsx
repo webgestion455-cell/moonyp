@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLoader } from "@/components/ui/loader";
 import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { adminT, useAdminT } from "@/hooks/use-admin-t";
 import { useAuth } from "@/lib/auth-context";
 import { supabase as _sb } from "@/integrations/supabase/client";
 const supabase: any = _sb;
@@ -12,12 +12,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ShieldCheck, AlertTriangle, Activity, Smartphone, ArrowLeft, RefreshCw, Globe2, Search } from "lucide-react";
-import i18n from "@/i18n";
 import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 
 export const Route = createFileRoute("/admin/security")({
   component: AdminSecurity,
-  head: () => ({ meta: [{ title: `${i18n.t("adminSec.metaTitle")} — MOONYP` }] }),
+  head: () => ({ meta: [{ title: `${adminT("adminSec.metaTitle")} — MOONYP` }] }),
 });
 
 interface SecurityLog {
@@ -40,7 +39,7 @@ interface BehaviorRow {
 
 function AdminSecurity() {
   const { user, role, loading: authLoading } = useAuth();
-  const { t } = useTranslation();
+  const { t } = useAdminT();
   const [tab, setTab] = useState<"logs" | "devices" | "alerts" | "risk">("logs");
   const [logs, setLogs] = useState<SecurityLog[]>([]);
   const [devices, setDevices] = useState<TrustedDevice[]>([]);

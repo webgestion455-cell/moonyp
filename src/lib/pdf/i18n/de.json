@@ -297,7 +297,8 @@
       "yes": "Ja",
       "no": "NEIN",
       "none": "Keiner",
-      "pending_assignment": "Zugeteilt werden"
+      "pending_assignment": "Wird noch zugeteilt",
+      "not_applicable": "Nicht zutreffend"
     }
   }
 }

@@ -297,7 +297,8 @@
       "yes": "Tak",
       "no": "NIE",
       "none": "Nic",
-      "pending_assignment": "Przydzielony"
+      "pending_assignment": "W trakcie nadawania",
+      "not_applicable": "Nie dotyczy"
     }
   }
 }

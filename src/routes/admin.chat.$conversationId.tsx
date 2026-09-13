@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
+import { useAdminT } from "@/hooks/use-admin-t";
 import { ChatWindow } from "@/components/chat/ChatWindow";
 
 export const Route = createFileRoute("/admin/chat/$conversationId")({

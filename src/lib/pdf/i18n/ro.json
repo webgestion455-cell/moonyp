@@ -297,7 +297,8 @@
       "yes": "Da",
       "no": "Nu",
       "none": "Nici unul",
-      "pending_assignment": "Fiind repartizat"
+      "pending_assignment": "În curs de atribuire",
+      "not_applicable": "Nu se aplică"
     }
   }
 }

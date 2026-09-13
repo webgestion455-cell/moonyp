@@ -333,6 +333,9 @@ export const adminSendInsurance = createServerFn({ method: "POST" })
       .object({
         application_id: z.string().uuid(),
         provider: z.string().max(120).optional(),
+        // Numéro de police saisissable dès l'envoi : sans lui la notice
+        // imprime « En cours d'attribution » et jamais « Non précisé ».
+        policy_number: z.string().max(120).optional(),
         coverage: z.string().max(500).optional(),
         monthly_premium: z.coerce.number().min(0).max(100_000),
         fee_amount: z.coerce.number().min(0).max(100_000).default(0),
@@ -354,6 +357,7 @@ export const adminSendInsurance = createServerFn({ method: "POST" })
       .insert({
         application_id: data.application_id,
         provider: data.provider ?? null,
+        policy_number: data.policy_number?.trim() || null,
         coverage: data.coverage ?? null,
         monthly_premium: data.monthly_premium,
         fee_amount: data.fee_amount,
@@ -442,9 +446,11 @@ export const adminValidateInsurance = createServerFn({ method: "POST" })
       .from("application_insurances")
       .update({
         status: "validated",
-        policy_number: data.policy_number ?? null,
-        starts_on: data.starts_on ?? null,
-        admin_notes: data.admin_notes ?? null,
+        // Champs facultatifs : une saisie vide ne doit jamais effacer une
+        // police ou une date d'effet déjà enregistrée au dossier.
+        ...(data.policy_number?.trim() ? { policy_number: data.policy_number.trim() } : {}),
+        ...(data.starts_on ? { starts_on: data.starts_on } : {}),
+        ...(data.admin_notes ? { admin_notes: data.admin_notes } : {}),
         validated_at: new Date().toISOString(),
       } as never)
       .eq("id", data.insurance_id)

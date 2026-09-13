@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { useTranslation } from "react-i18next";
+import { useAdminT } from "@/hooks/use-admin-t";
 import { toast } from "sonner";
 import { Bitcoin, CreditCard, Landmark, Loader2, Pencil, Plus, QrCode, Trash2, Wallet } from "lucide-react";
 import { ListSkeleton } from "@/components/ui/loader";
@@ -99,7 +99,7 @@ const PROVIDER_LABEL: Record<Provider, string> = {
 
 function AdminSettings() {
   const { hasPermission, isStaff } = useAuth();
-  const { t } = useTranslation();
+  const { t } = useAdminT();
   const load = useServerFn(adminPaymentSettings);
   const save = useServerFn(adminSavePaymentMethod);
   const toggle = useServerFn(adminSetPaymentMethodActive);

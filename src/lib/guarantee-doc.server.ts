@@ -19,6 +19,7 @@ import {
   storeDocument,
 } from "@/lib/pdf/doc-kit.server";
 import { docLocale, docText } from "@/lib/pdf/doc-i18n.server";
+import { docEnum } from "@/lib/pdf/doc-enums.server";
 
 export interface GuaranteeDocInput {
   /** Référence du dossier de crédit (loan_applications.reference). */
@@ -69,6 +70,9 @@ export async function buildGuaranteePdf(
   const cur = (input.currency || "EUR").toUpperCase();
   const amount = (value: number) => money(value, cur, lang);
   const orDash = (value: string | null | undefined) => (value && String(value).trim() ? String(value).trim() : t("notSpecified"));
+  /** Valeur technique de la base traduite en libellé contractuel. */
+  const enumOrDash = (group: Parameters<typeof docEnum>[1], value: string | null | undefined) =>
+    docEnum(lang, group, value) ?? t("notSpecified");
   const docRef = documentReference("GAR", input.reference, input.version);
 
   const doc = await BankDocument.create({
@@ -136,16 +140,16 @@ export async function buildGuaranteePdf(
 
   doc.sectionTitle(t("s2"));
   const rows: string[][] = [
-    [t("rowKind"), orDash(input.kind)],
+    [t("rowKind"), enumOrDash("guaranteeKind", input.kind)],
     [t("rowGuarantor"), orDash(input.guarantorName)],
     [t("rowAmount"), amount(input.amount)],
     [t("rowFee"), amount(input.feeAmount)],
     [t("rowCurrency"), cur],
   ];
   if (input.feeDescription) rows.push([t("rowDescription"), input.feeDescription]);
-  rows.push([t("rowStatus"), orDash(input.status)]);
-  rows.push([t("rowPaymentStatus"), orDash(input.paymentStatus)]);
-  if (input.clientChoice) rows.push([t("rowClientChoice"), input.clientChoice]);
+  rows.push([t("rowStatus"), enumOrDash("status", input.status)]);
+  rows.push([t("rowPaymentStatus"), enumOrDash("paymentStatus", input.paymentStatus)]);
+  if (input.clientChoice) rows.push([t("rowClientChoice"), enumOrDash("clientChoice", input.clientChoice)]);
   if (input.scheduledPaymentDate) rows.push([t("rowScheduled"), longDate(input.scheduledPaymentDate, lang)]);
   if (input.paymentValidatedAt) rows.push([t("rowValidatedAt"), dateTime(input.paymentValidatedAt, lang)]);
   if (typeof input.loanAmount === "number" && input.loanAmount > 0) {
@@ -193,7 +197,7 @@ export async function buildGuaranteePdf(
   });
   if (input.signature) {
     doc.keyValue(c("signedBy"), input.signature.name);
-    doc.keyValue(c("provider"), input.signature.provider);
+    doc.keyValue(c("provider"), docEnum(lang, "signatureProvider", input.signature.provider) ?? input.signature.provider);
     doc.keyValue(c("signatureRef"), input.signature.reference);
     doc.paragraph(input.signature.qualified ? c("qualifiedNotice") : c("advancedNotice"), {
       size: 8.2,

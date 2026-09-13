@@ -1,6 +1,6 @@
 import { createFileRoute, Link, Outlet, useParams } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useAdminT } from "@/hooks/use-admin-t";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -40,7 +40,7 @@ interface Ticket {
 }
 
 function AdminChatLayout() {
-  const { t, i18n } = useTranslation();
+  const { t, locale } = useAdminT();
   const params = useParams({ strict: false }) as { conversationId?: string };
   const [folders, setFolders] = useState<Folder[]>([]);
   const [tickets, setTickets] = useState<Ticket[]>([]);
@@ -180,7 +180,7 @@ function AdminChatLayout() {
                     <span>{f.open_count} ouv.</span>
                     <span>·</span>
                     <span>{f.closed_count} clos</span>
-                    <span className="ml-auto">{formatDay(f.last_activity, t as any, i18n.language)}</span>
+                    <span className="ml-auto">{formatDay(f.last_activity, t as any, locale)}</span>
                   </div>
                 </div>
               </button>
@@ -241,7 +241,7 @@ function AdminChatLayout() {
                   <Badge className="bg-red-500 text-white text-[10px] mt-1">{tk.unread_agent}</Badge>
                 )}
                 <p className="text-[11px] text-muted-foreground mt-0.5">
-                  {formatDay(tk.last_message_at, t as any, i18n.language)}
+                  {formatDay(tk.last_message_at, t as any, locale)}
                 </p>
               </Link>
             ))}

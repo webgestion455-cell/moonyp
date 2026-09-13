@@ -7,7 +7,7 @@
  * ne fait qu'afficher l'état réel du dossier et déléguer la décision au
  * serveur via `applyTransition()`.
  */
-import { useTranslation } from "react-i18next";
+import { useAdminT } from "@/hooks/use-admin-t";
 import { CheckCircle2, CircleDot, Lock, Ban, ChevronRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -80,7 +80,7 @@ export function WorkflowPanel({
   busy: boolean;
   onSelect: (status: ApplicationStatus) => void;
 }) {
-  const { t } = useTranslation();
+  const { t } = useAdminT();
 
   const reachable = new Map(transitions.map((tr) => [tr.status, tr.check]));
   const currentIndex = MAIN_PATH.indexOf(status);

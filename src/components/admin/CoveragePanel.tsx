@@ -73,6 +73,65 @@ const CHOICE_LABEL: Record<string, string> = {
   decline: "Renonce au financement",
 };
 
+/** Statuts de dossier garantie / assurance, en clair pour le back-office. */
+const STATUS_LABEL: Record<string, string> = {
+  draft: "Brouillon",
+  pending: "En attente",
+  sent: "Transmis au client",
+  accepted: "Accepté",
+  signed: "Signé",
+  active: "En vigueur",
+  validated: "Validée",
+  declined: "Refusée",
+  cancelled: "Annulée",
+  expired: "Expirée",
+  waived: "Renoncée",
+  not_required: "Non requise",
+  completed: "Terminée",
+};
+
+/** Types de garantie proposés au back-office. */
+const GUARANTEE_KIND_LABEL: Record<string, string> = {
+  credit_risk_cover: "Couverture du risque de crédit",
+  personal_guarantee: "Garantie personnelle",
+  joint_surety: "Caution solidaire",
+  bank_guarantee: "Garantie bancaire",
+  deposit: "Dépôt de garantie",
+  pledge: "Nantissement",
+  mortgage: "Hypothèque",
+  salary_assignment: "Cession sur salaire",
+  third_party_guarantor: "Garant tiers",
+  other: "Autre garantie",
+};
+
+/** Garanties d'assurance emprunteur proposées au back-office. */
+const COVERAGE_LABEL: Record<string, string> = {
+  death: "Décès",
+  disability: "Invalidité permanente",
+  ptia: "Perte totale et irréversible d'autonomie",
+  itt: "Incapacité temporaire totale de travail",
+  ipt: "Invalidité permanente totale",
+  job_loss: "Perte involontaire d'emploi",
+  death_disability: "Décès et invalidité permanente",
+  death_disability_job_loss: "Décès, invalidité permanente et perte d'emploi",
+  loan_repayment: "Remboursement du capital restant dû",
+  credit_protection: "Protection des échéances du crédit",
+  other: "Autre garantie",
+};
+
+/** Style des listes déroulantes natives, aligné sur le composant Input. */
+const SELECT_CLASS =
+  "h-10 w-full rounded-md border border-input bg-background px-3 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50";
+
+/** Aucun code technique ne doit s'afficher : repli humanisé systématique. */
+function humanLabel(dictionary: Record<string, string>, value: unknown, fallback = "—"): string {
+  const raw = value === null || value === undefined ? "" : String(value).trim();
+  if (!raw) return fallback;
+  if (dictionary[raw]) return dictionary[raw]!;
+  const words = raw.replace(/_/g, " ");
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}
+
 const PAYMENT_LABEL: Record<string, string> = {
   unpaid: "Non payé",
   not_required: "Sans frais",
@@ -132,6 +191,7 @@ export function CoveragePanel({
 
   const [iForm, setIForm] = useState({
     provider: "",
+    policy_number: "",
     coverage: "",
     monthly_premium: "",
     fee_amount: "",
@@ -160,6 +220,22 @@ export function CoveragePanel({
   // Ouverture du bon formulaire quand l'étape est déclenchée depuis le panneau
   // de décision : l'administrateur ne peut pas « envoyer la garantie » sans
   // saisir le montant des frais.
+  // Le dialogue de validation reprend la police déjà enregistrée au dossier :
+  // valider sans ressaisir ne doit jamais effacer le numéro existant.
+  useEffect(() => {
+    const existing = data?.insurances?.[0];
+    if (!existing) return;
+    setIPolicy((previous) =>
+      previous.policy_number || previous.starts_on
+        ? previous
+        : {
+            ...previous,
+            policy_number: existing.policy_number ?? "",
+            starts_on: existing.starts_on ?? "",
+          },
+    );
+  }, [data]);
+
   useEffect(() => {
     if (!requestedStep) return;
     if (requestedStep === "guarantee_sent") setDialog("guarantee");
@@ -217,17 +293,19 @@ export function CoveragePanel({
                 </h3>
                 {guarantee && (
                   <Badge className={TONE[String(guarantee.payment_status)] ?? TONE.pending}>
-                    {PAYMENT_LABEL[String(guarantee.payment_status)] ?? String(guarantee.payment_status)}
+                    {humanLabel(PAYMENT_LABEL, guarantee.payment_status, "En attente")}
                   </Badge>
                 )}
               </div>
 
               {guarantee ? (
                 <div className="mt-3">
+                  <Field label="Type de garantie" value={humanLabel(GUARANTEE_KIND_LABEL, guarantee.kind)} />
+                  <Field label="Statut de la garantie" value={humanLabel(STATUS_LABEL, guarantee.status, "En attente")} />
                   <Field label="Frais de couverture" value={money(guarantee.fee_amount ?? guarantee.amount, guarantee.currency)} />
                   <Field
                     label="Choix du client"
-                    value={guarantee.client_choice ? (CHOICE_LABEL[guarantee.client_choice] ?? guarantee.client_choice) : "En attente"}
+                    value={humanLabel(CHOICE_LABEL, guarantee.client_choice, "En attente")}
                   />
                   {guarantee.document_hash && <Field label="Empreinte SHA-256" value={`${guarantee.document_hash.slice(0, 16)}…`} />}
                   <Field
@@ -271,7 +349,7 @@ export function CoveragePanel({
                   <Umbrella className="h-4 w-4 text-primary" aria-hidden /> Assurance
                 </h3>
                 {insurance && (
-                  <Badge className={TONE[String(insurance.status)] ?? TONE.pending}>{String(insurance.status)}</Badge>
+                  <Badge className={TONE[String(insurance.status)] ?? TONE.pending}>{humanLabel(STATUS_LABEL, insurance.status, "En attente")}</Badge>
                 )}
               </div>
 
@@ -282,17 +360,18 @@ export function CoveragePanel({
                   <Field label="Frais de mise en place" value={money(insurance.fee_amount, insurance.currency)} />
                   <Field
                     label="Paiement des frais"
-                    value={PAYMENT_LABEL[String(insurance.payment_status)] ?? String(insurance.payment_status)}
+                    value={humanLabel(PAYMENT_LABEL, insurance.payment_status, "En attente")}
                   />
                   <Field
                     label="Choix du client"
-                    value={insurance.client_choice ? (CHOICE_LABEL[insurance.client_choice] ?? insurance.client_choice) : "En attente"}
+                    value={humanLabel(CHOICE_LABEL, insurance.client_choice, "En attente")}
                   />
                   <Field
                     label="Date programmée"
                     value={insurance.scheduled_payment_date ? new Date(insurance.scheduled_payment_date).toLocaleDateString("fr-FR") : "—"}
                   />
-                  <Field label="Police" value={insurance.policy_number ?? "—"} />
+                  <Field label="Numéro de police" value={insurance.policy_number?.trim() || "En cours d'attribution"} />
+                  <Field label="Garanties couvertes" value={humanLabel(COVERAGE_LABEL, insurance.coverage)} />
                   {insurance.document_hash && <Field label="Empreinte SHA-256" value={`${insurance.document_hash.slice(0, 16)}…`} />}
                 </div>
               ) : (
@@ -365,6 +444,21 @@ export function CoveragePanel({
                   onChange={(e) => setGForm({ ...gForm, currency: e.target.value.toUpperCase() })}
                 />
               </div>
+            </div>
+            <div>
+              <Label htmlFor="g-kind">Type de garantie</Label>
+              <select
+                id="g-kind"
+                className={SELECT_CLASS}
+                value={gForm.kind}
+                onChange={(e) => setGForm({ ...gForm, kind: e.target.value })}
+              >
+                {Object.entries(GUARANTEE_KIND_LABEL).map(([value, label]) => (
+                  <option key={value} value={value}>
+                    {label}
+                  </option>
+                ))}
+              </select>
             </div>
             <div>
               <Label htmlFor="g-name">Garant (facultatif)</Label>
@@ -476,8 +570,32 @@ export function CoveragePanel({
               <Input id="i-prov" value={iForm.provider} onChange={(e) => setIForm({ ...iForm, provider: e.target.value })} />
             </div>
             <div>
+              <Label htmlFor="i-pol">Numéro de police</Label>
+              <Input
+                id="i-pol"
+                value={iForm.policy_number}
+                placeholder="Laisser vide : la notice indiquera « En cours d'attribution »"
+                onChange={(e) => setIForm({ ...iForm, policy_number: e.target.value })}
+              />
+            </div>
+            <div>
               <Label htmlFor="i-cov">Garanties couvertes</Label>
-              <Textarea id="i-cov" rows={2} value={iForm.coverage} onChange={(e) => setIForm({ ...iForm, coverage: e.target.value })} />
+              <select
+                id="i-cov"
+                className={SELECT_CLASS}
+                value={iForm.coverage}
+                onChange={(e) => setIForm({ ...iForm, coverage: e.target.value })}
+              >
+                <option value="">Non précisées</option>
+                {Object.entries(COVERAGE_LABEL).map(([value, label]) => (
+                  <option key={value} value={value}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+              <p className="mt-1 text-xs text-muted-foreground">
+                La notice d'assurance du client affichera ce libellé traduit dans sa langue.
+              </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
               <div>
@@ -529,6 +647,7 @@ export function CoveragePanel({
                       data: {
                         application_id: applicationId,
                         provider: iForm.provider || undefined,
+                        policy_number: iForm.policy_number || undefined,
                         coverage: iForm.coverage || undefined,
                         monthly_premium: Number(iForm.monthly_premium || 0),
                         fee_amount: Number(iForm.fee_amount || 0),

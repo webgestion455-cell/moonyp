@@ -297,7 +297,8 @@
       "yes": "Igen",
       "no": "Nem",
       "none": "Egyik sem",
-      "pending_assignment": "Beosztás alatt"
+      "pending_assignment": "Kiadása folyamatban",
+      "not_applicable": "Nem alkalmazandó"
     }
   }
 }

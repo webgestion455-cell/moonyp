@@ -24,6 +24,7 @@ import {
   storeDocument,
 } from "@/lib/pdf/doc-kit.server";
 import { docLocale, docText } from "@/lib/pdf/doc-i18n.server";
+import { docEnum } from "@/lib/pdf/doc-enums.server";
 
 /** Langue de mise en page du document (repli anglais). */
 export function pdfLocale(language: string | null | undefined): string {
@@ -258,7 +259,7 @@ export async function buildContractPdf(
 
   if (input.signature) {
     doc.keyValue(t("signedBy"), input.signature.name);
-    doc.keyValue(t("provider"), input.signature.provider);
+    doc.keyValue(t("provider"), docEnum(lang, "signatureProvider", input.signature.provider) ?? input.signature.provider);
     doc.keyValue(t("signatureRef"), input.signature.reference);
     if (input.signature.ip) doc.keyValue(t("signerIp"), input.signature.ip);
     doc.paragraph(input.signature.qualified ? t("qualifiedNotice") : t("advancedNotice"), {

@@ -15,6 +15,7 @@ import {
   storeDocument,
 } from "@/lib/pdf/doc-kit.server";
 import { docLocale, docText } from "@/lib/pdf/doc-i18n.server";
+import { docEnum } from "@/lib/pdf/doc-enums.server";
 
 export interface InsuranceDocInput {
   reference: string;
@@ -66,6 +67,16 @@ export async function buildInsurancePdf(
   const cur = (input.currency || "EUR").toUpperCase();
   const amount = (value: number) => money(value, cur, lang);
   const orDash = (value: string | null | undefined) => (value && String(value).trim() ? String(value).trim() : t("notSpecified"));
+  /** Valeur technique de la base traduite en libellé contractuel. */
+  const enumOrDash = (group: Parameters<typeof docEnum>[1], value: string | null | undefined) =>
+    docEnum(lang, group, value) ?? t("notSpecified");
+  /**
+   * Numéro de police : tant que l'assureur ne l'a pas attribué, la notice
+   * imprime « En cours d'attribution » et jamais « Non précisé ».
+   */
+  const policyNumber = input.policyNumber && String(input.policyNumber).trim()
+    ? String(input.policyNumber).trim()
+    : docText(lang, "enums.common.pending_assignment");
   const docRef = documentReference("ASS", input.reference, input.version);
 
   const doc = await BankDocument.create({
@@ -108,7 +119,7 @@ export async function buildInsurancePdf(
       },
       {
         label: p("insurer"),
-        lines: [orDash(input.provider), `${t("rowPolicy")} : ${orDash(input.policyNumber)}`],
+        lines: [orDash(input.provider), `${t("rowPolicy")} : ${policyNumber}`],
       },
       {
         label: p("beneficiary"),
@@ -140,8 +151,8 @@ export async function buildInsurancePdf(
 
   const rows: string[][] = [
     [t("rowInsurer"), orDash(input.provider)],
-    [t("rowPolicy"), orDash(input.policyNumber)],
-    [t("rowCoverage"), orDash(input.coverage)],
+    [t("rowPolicy"), policyNumber],
+    [t("rowCoverage"), enumOrDash("insuranceCoverage", input.coverage)],
     [t("rowPremium"), amount(input.monthlyPremium)],
   ];
   if (typeof input.feeAmount === "number" && input.feeAmount > 0) rows.push([t("rowFee"), amount(input.feeAmount)]);
@@ -152,9 +163,9 @@ export async function buildInsurancePdf(
   if (typeof input.months === "number" && input.months > 0) {
     rows.push([t("rowDuration"), `${input.months} ${t("rowMonths")}`]);
   }
-  rows.push([t("rowStatus"), orDash(input.status)]);
-  if (input.paymentStatus) rows.push([t("rowPaymentStatus"), input.paymentStatus]);
-  if (input.clientChoice) rows.push([t("rowClientChoice"), input.clientChoice]);
+  rows.push([t("rowStatus"), enumOrDash("status", input.status)]);
+  if (input.paymentStatus) rows.push([t("rowPaymentStatus"), enumOrDash("paymentStatus", input.paymentStatus)]);
+  if (input.clientChoice) rows.push([t("rowClientChoice"), enumOrDash("clientChoice", input.clientChoice)]);
   if (input.scheduledPaymentDate) rows.push([t("rowScheduled"), longDate(input.scheduledPaymentDate, lang)]);
   rows.push([t("rowBeneficiary"), LENDER.name]);
 
@@ -197,7 +208,7 @@ export async function buildInsurancePdf(
   });
   if (input.signature) {
     doc.keyValue(c("signedBy"), input.signature.name);
-    doc.keyValue(c("provider"), input.signature.provider);
+    doc.keyValue(c("provider"), docEnum(lang, "signatureProvider", input.signature.provider) ?? input.signature.provider);
     doc.keyValue(c("signatureRef"), input.signature.reference);
     doc.paragraph(input.signature.qualified ? c("qualifiedNotice") : c("advancedNotice"), {
       size: 8.2,

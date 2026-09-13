@@ -1,7 +1,7 @@
 import { createFileRoute, Link, Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import { BankSpinner } from "@/components/ui/loader";
 import { useEffect, useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useAdminT } from "@/hooks/use-admin-t";
 import { useAuth } from "@/lib/auth-context";
 import { cn } from "@/lib/utils";
 import { getAdmin2FAExpiry } from "@/routes/admin.verify";
@@ -38,7 +38,7 @@ interface NavItem {
 }
 
 function AdminLayout() {
-  const { t } = useTranslation();
+  const { t } = useAdminT();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { user, isStaff, staffRole, hasPermission, loading, profile, signOut } = useAuth() as any;

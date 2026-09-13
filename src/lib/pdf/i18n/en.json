@@ -297,7 +297,8 @@
       "yes": "Yes",
       "no": "No",
       "none": "None",
-      "pending_assignment": "Being assigned"
+      "pending_assignment": "Pending assignment",
+      "not_applicable": "Not applicable"
     }
   }
 }

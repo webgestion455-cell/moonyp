@@ -297,7 +297,8 @@
       "yes": "Oui",
       "no": "Non",
       "none": "Aucune",
-      "pending_assignment": "En cours d'attribution"
+      "pending_assignment": "En cours d'attribution",
+      "not_applicable": "Sans objet"
     }
   }
 }

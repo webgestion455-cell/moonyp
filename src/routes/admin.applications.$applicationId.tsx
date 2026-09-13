@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { StatusBadge } from "@/components/StatusBadge";
 import { WorkflowPanel } from "@/components/admin/WorkflowPanel";
 import { CenterLoader } from "@/components/ui/loader";
-import { useTranslation } from "react-i18next";
+import { useAdminT } from "@/hooks/use-admin-t";
 import { statusLabel, type ApplicationStatus } from "@/lib/application-status";
 import {
   nextStatuses,
@@ -102,7 +102,7 @@ function ApplicationDetail() {
   const closeInfoRequest = useServerFn(adminCloseInfoRequest);
   const addInternalNote = useServerFn(adminAddInternalNote);
 
-  const { t } = useTranslation();
+  const { t } = useAdminT();
 
   const [internalNote, setInternalNote] = useState("");
 

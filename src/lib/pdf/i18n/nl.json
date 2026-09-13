@@ -297,7 +297,8 @@
       "yes": "Ja",
       "no": "Nee",
       "none": "Geen",
-      "pending_assignment": "Wordt toegewezen"
+      "pending_assignment": "Wordt nog toegekend",
+      "not_applicable": "Niet van toepassing"
     }
   }
 }

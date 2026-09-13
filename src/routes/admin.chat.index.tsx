@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
+import { useAdminT } from "@/hooks/use-admin-t";
 import { MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/admin/chat/")({
@@ -7,7 +7,7 @@ export const Route = createFileRoute("/admin/chat/")({
 });
 
 function AdminChatIndex() {
-  const { t } = useTranslation();
+  const { t } = useAdminT();
   return (
     <div className="h-full grid place-items-center rounded-2xl border border-border bg-card text-center p-8">
       <div>

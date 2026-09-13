@@ -297,7 +297,8 @@
       "yes": "ja",
       "no": "št",
       "none": "Noben",
-      "pending_assignment": "Biti dodeljen"
+      "pending_assignment": "V postopku dodelitve",
+      "not_applicable": "Ni relevantno"
     }
   }
 }

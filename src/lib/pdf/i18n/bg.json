@@ -297,7 +297,8 @@
       "yes": "да",
       "no": "не",
       "none": "Няма",
-      "pending_assignment": "Да бъде назначен"
+      "pending_assignment": "Предстои да бъде определен",
+      "not_applicable": "Не се прилага"
     }
   }
 }

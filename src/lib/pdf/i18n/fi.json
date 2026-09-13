@@ -297,7 +297,8 @@
       "yes": "Kyllä",
       "no": "Ei",
       "none": "Ei mitään",
-      "pending_assignment": "Ollaan määrättynä"
+      "pending_assignment": "Myönnetään parhaillaan",
+      "not_applicable": "Ei sovellettavissa"
     }
   }
 }
