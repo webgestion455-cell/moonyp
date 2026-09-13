@@ -234,70 +234,70 @@
   },
   "enums": {
     "guaranteeKind": {
-      "credit_risk_cover": "Credit risk coverage",
-      "personal_guarantee": "Personal guarantee",
-      "joint_surety": "Joint and several surety",
-      "bank_guarantee": "Bank guarantee",
-      "deposit": "Security deposit",
-      "pledge": "Pledge",
-      "mortgage": "Mortgage",
-      "salary_assignment": "Assignment of salary",
-      "third_party_guarantor": "Third-party guarantor",
-      "other": "Other guarantee"
+      "credit_risk_cover": "Pokrycie ryzyka kredytowego",
+      "personal_guarantee": "Gwarancja osobista",
+      "joint_surety": "Poręczenie solidarne",
+      "bank_guarantee": "Gwarancja bankowa",
+      "deposit": "Kaucja zabezpieczająca",
+      "pledge": "Zastaw",
+      "mortgage": "Hipoteka",
+      "salary_assignment": "Przydział wynagrodzenia",
+      "third_party_guarantor": "Gwarant zewnętrzny",
+      "other": "Inna gwarancja"
     },
     "insuranceCoverage": {
-      "death": "Death",
-      "disability": "Permanent disability",
-      "ptia": "Total and irreversible loss of autonomy",
-      "itt": "Temporary total incapacity for work",
-      "ipt": "Total permanent invalidity",
-      "job_loss": "Involuntary loss of employment",
-      "death_disability": "Death and permanent disability",
-      "death_disability_job_loss": "Death, permanent disability and loss of employment",
-      "loan_repayment": "Repayment of the outstanding loan",
-      "credit_protection": "Credit instalment protection",
-      "other": "Other coverage"
+      "death": "Śmierć",
+      "disability": "Trwała niepełnosprawność",
+      "ptia": "Całkowita i nieodwracalna utrata autonomii",
+      "itt": "Tymczasowa całkowita niezdolność do pracy",
+      "ipt": "Całkowite trwałe inwalidztwo",
+      "job_loss": "Przymusowa utrata pracy",
+      "death_disability": "Śmierć i trwałe kalectwo",
+      "death_disability_job_loss": "Śmierć, trwałe kalectwo i utrata pracy",
+      "loan_repayment": "Spłata zaległego kredytu",
+      "credit_protection": "Ochrona raty kredytu",
+      "other": "Inne pokrycie"
     },
     "status": {
-      "draft": "Draft",
-      "pending": "Pending",
-      "sent": "Sent to the borrower",
-      "accepted": "Accepted",
-      "signed": "Signed",
-      "active": "Active",
-      "validated": "Validated",
-      "declined": "Declined",
-      "cancelled": "Cancelled",
-      "expired": "Expired",
-      "waived": "Waived",
-      "not_required": "Not required",
-      "completed": "Completed"
+      "draft": "Projekt",
+      "pending": "Aż do",
+      "sent": "Wysłane do pożyczkobiorcy",
+      "accepted": "Przyjęty",
+      "signed": "Podpisano",
+      "active": "Aktywny",
+      "validated": "Zatwierdzone",
+      "declined": "Odrzucony",
+      "cancelled": "Odwołany",
+      "expired": "Wygasły",
+      "waived": "Zrzeczenie się",
+      "not_required": "Nie jest wymagane",
+      "completed": "Zakończony"
     },
     "paymentStatus": {
-      "unpaid": "Not paid",
-      "not_required": "No fee due",
-      "pending": "Pending",
-      "awaiting_payment": "Awaiting payment",
-      "paid": "Paid and validated",
-      "waived": "Waived",
-      "failed": "Payment failed",
-      "refunded": "Refunded"
+      "unpaid": "Niezapłacone",
+      "not_required": "Brak należnej opłaty",
+      "pending": "Aż do",
+      "awaiting_payment": "Oczekiwanie na płatność",
+      "paid": "Płatne i sprawdzone",
+      "waived": "Zrzeczenie się",
+      "failed": "Płatność nie powiodła się",
+      "refunded": "Zwrócono pieniądze"
     },
     "clientChoice": {
-      "pay_now": "Immediate payment",
-      "pay_later": "Deferred payment",
-      "decline": "Financing declined"
+      "pay_now": "Natychmiastowa płatność",
+      "pay_later": "Odroczona płatność",
+      "decline": "Finansowanie spadło"
     },
     "signatureProvider": {
-      "internal_aes": "MOONYP advanced electronic signature",
-      "administrative_validation": "Administrative validation by the lender",
-      "qualified_eidas": "Qualified electronic signature (eIDAS)"
+      "internal_aes": "Zaawansowany podpis elektroniczny MOONYP",
+      "administrative_validation": "Zatwierdzenie administracyjne przez pożyczkodawcę",
+      "qualified_eidas": "Kwalifikowany podpis elektroniczny (eIDAS)"
     },
     "common": {
-      "yes": "Yes",
-      "no": "No",
-      "none": "None",
-      "pending_assignment": "Being assigned"
+      "yes": "Tak",
+      "no": "NIE",
+      "none": "Nic",
+      "pending_assignment": "Przydzielony"
     }
   }
 }

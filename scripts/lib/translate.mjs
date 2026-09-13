@@ -73,3 +73,66 @@ export function translateMap(entries, target, source = "en", onProgress) {
   });
   return out;
 }
+
+/* -------------------------------------------------------------------------
+ * Variante asynchrone parallélisée.
+ *
+ * Les scripts de remise à niveau traduisent plusieurs centaines de chaînes
+ * sur quinze langues : l'exécution séquentielle prendrait une demi-heure.
+ * `translateMapAsync` conserve exactement la même protection des
+ * interpolations `{{variable}}` mais lance plusieurs traductions de front.
+ * ---------------------------------------------------------------------- */
+import { execFile } from "node:child_process";
+
+function execFileAsync(cmd, args) {
+  return new Promise((resolve, reject) => {
+    execFile(cmd, args, { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }, (error, stdout) => {
+      if (error) reject(error);
+      else resolve(stdout);
+    });
+  });
+}
+
+/** Traduit une chaîne unique, sans bloquer la boucle d'évènements. */
+export async function translateOneAsync(text, target, source = "en") {
+  if (!text || !text.trim()) return text;
+  const { masked, tokens } = protect(text);
+  const { cmd, prefix } = resolveRunner();
+  const args = [...prefix, "-brief", "-no-warn", "-s", source, "-t", target, masked];
+  const raw = await execFileAsync(cmd, args);
+  const line = raw
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .pop();
+  if (!line) return text;
+  return restore(line, tokens).replace(/\s+([,.;:!?])/g, "$1").trim();
+}
+
+/**
+ * Traduit un dictionnaire plat `{ cle: texte }` avec une file d'attente bornée.
+ * En cas d'échec réseau la valeur source est conservée : aucune clé n'est perdue.
+ */
+export async function translateMapAsync(entries, target, source = "en", concurrency = 6, onProgress) {
+  const keys = Object.keys(entries);
+  const out = {};
+  let cursor = 0;
+  let done = 0;
+
+  async function worker() {
+    while (cursor < keys.length) {
+      const key = keys[cursor++];
+      try {
+        out[key] = await translateOneAsync(entries[key], target, source);
+      } catch (error) {
+        out[key] = entries[key];
+        console.error(`  ! ${target} ${key}: ${error.message}`);
+      }
+      done += 1;
+      if (onProgress) onProgress(done, keys.length, key);
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(concurrency, keys.length) }, worker));
+  return out;
+}

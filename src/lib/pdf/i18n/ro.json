@@ -234,70 +234,70 @@
   },
   "enums": {
     "guaranteeKind": {
-      "credit_risk_cover": "Credit risk coverage",
-      "personal_guarantee": "Personal guarantee",
-      "joint_surety": "Joint and several surety",
-      "bank_guarantee": "Bank guarantee",
-      "deposit": "Security deposit",
-      "pledge": "Pledge",
-      "mortgage": "Mortgage",
-      "salary_assignment": "Assignment of salary",
-      "third_party_guarantor": "Third-party guarantor",
-      "other": "Other guarantee"
+      "credit_risk_cover": "Acoperirea riscului de credit",
+      "personal_guarantee": "Garantie personala",
+      "joint_surety": "Cauțiune solidară",
+      "bank_guarantee": "Garantie bancara",
+      "deposit": "Depozit de garanție",
+      "pledge": "Gaj",
+      "mortgage": "Ipotecare",
+      "salary_assignment": "Atribuirea salariului",
+      "third_party_guarantor": "Garant terț",
+      "other": "Altă garanție"
     },
     "insuranceCoverage": {
-      "death": "Death",
-      "disability": "Permanent disability",
-      "ptia": "Total and irreversible loss of autonomy",
-      "itt": "Temporary total incapacity for work",
-      "ipt": "Total permanent invalidity",
-      "job_loss": "Involuntary loss of employment",
-      "death_disability": "Death and permanent disability",
-      "death_disability_job_loss": "Death, permanent disability and loss of employment",
-      "loan_repayment": "Repayment of the outstanding loan",
-      "credit_protection": "Credit instalment protection",
-      "other": "Other coverage"
+      "death": "Moarte",
+      "disability": "Invaliditate permanentă",
+      "ptia": "Pierderea totală și ireversibilă a autonomiei",
+      "itt": "Incapacitate temporară totală de muncă",
+      "ipt": "Invaliditate permanentă totală",
+      "job_loss": "Pierderea involuntară a locului de muncă",
+      "death_disability": "Deces și invaliditate permanentă",
+      "death_disability_job_loss": "Deces, invaliditate permanentă și pierderea locului de muncă",
+      "loan_repayment": "Rambursarea împrumutului restante",
+      "credit_protection": "Protecția ratelor de credit",
+      "other": "Altă acoperire"
     },
     "status": {
-      "draft": "Draft",
-      "pending": "Pending",
-      "sent": "Sent to the borrower",
-      "accepted": "Accepted",
-      "signed": "Signed",
-      "active": "Active",
-      "validated": "Validated",
-      "declined": "Declined",
-      "cancelled": "Cancelled",
-      "expired": "Expired",
-      "waived": "Waived",
-      "not_required": "Not required",
-      "completed": "Completed"
+      "draft": "Proiect",
+      "pending": "În așteptare",
+      "sent": "Trimis împrumutatului",
+      "accepted": "Acceptat",
+      "signed": "Semnat",
+      "active": "Activ",
+      "validated": "Validat",
+      "declined": "A refuzat",
+      "cancelled": "Anulat",
+      "expired": "Expirat",
+      "waived": "Renunțat",
+      "not_required": "Nu este necesar",
+      "completed": "Terminat"
     },
     "paymentStatus": {
-      "unpaid": "Not paid",
-      "not_required": "No fee due",
-      "pending": "Pending",
-      "awaiting_payment": "Awaiting payment",
-      "paid": "Paid and validated",
-      "waived": "Waived",
-      "failed": "Payment failed",
-      "refunded": "Refunded"
+      "unpaid": "Neplătit",
+      "not_required": "Fără taxă datorată",
+      "pending": "În așteptare",
+      "awaiting_payment": "În așteptarea plății",
+      "paid": "Plătit și validat",
+      "waived": "Renunțat",
+      "failed": "Plata nu a reușit",
+      "refunded": "Rambursat"
     },
     "clientChoice": {
-      "pay_now": "Immediate payment",
-      "pay_later": "Deferred payment",
-      "decline": "Financing declined"
+      "pay_now": "Plata imediata",
+      "pay_later": "Plată amânată",
+      "decline": "Finanțarea a scăzut"
     },
     "signatureProvider": {
-      "internal_aes": "MOONYP advanced electronic signature",
-      "administrative_validation": "Administrative validation by the lender",
-      "qualified_eidas": "Qualified electronic signature (eIDAS)"
+      "internal_aes": "Semnătură electronică avansată MOONYP",
+      "administrative_validation": "Validare administrativă de către creditor",
+      "qualified_eidas": "Semnătură electronică calificată (eIDAS)"
     },
     "common": {
-      "yes": "Yes",
-      "no": "No",
-      "none": "None",
-      "pending_assignment": "Being assigned"
+      "yes": "Da",
+      "no": "Nu",
+      "none": "Nici unul",
+      "pending_assignment": "Fiind repartizat"
     }
   }
 }

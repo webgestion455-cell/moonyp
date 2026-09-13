@@ -5,7 +5,8 @@
     "docRef": "Documento",
     "version": "Versione",
     "issuedOn": "Emesso il",
-    "continued": "(segue)"
+    "continued": "(segue)",
+    "article": "Articolo"
   },
   "parties": {
     "lender": "Finanziatore",
@@ -233,70 +234,70 @@
   },
   "enums": {
     "guaranteeKind": {
-      "credit_risk_cover": "Credit risk coverage",
-      "personal_guarantee": "Personal guarantee",
-      "joint_surety": "Joint and several surety",
-      "bank_guarantee": "Bank guarantee",
-      "deposit": "Security deposit",
-      "pledge": "Pledge",
-      "mortgage": "Mortgage",
-      "salary_assignment": "Assignment of salary",
-      "third_party_guarantor": "Third-party guarantor",
-      "other": "Other guarantee"
+      "credit_risk_cover": "Copertura del rischio di credito",
+      "personal_guarantee": "Garanzia personale",
+      "joint_surety": "Fideiussione solidale e solidale",
+      "bank_guarantee": "Garanzia bancaria",
+      "deposit": "Deposito cauzionale",
+      "pledge": "Impegno",
+      "mortgage": "Mutuo",
+      "salary_assignment": "Assegnazione dello stipendio",
+      "third_party_guarantor": "Garante terzo",
+      "other": "Altra garanzia"
     },
     "insuranceCoverage": {
-      "death": "Death",
-      "disability": "Permanent disability",
-      "ptia": "Total and irreversible loss of autonomy",
-      "itt": "Temporary total incapacity for work",
-      "ipt": "Total permanent invalidity",
-      "job_loss": "Involuntary loss of employment",
-      "death_disability": "Death and permanent disability",
-      "death_disability_job_loss": "Death, permanent disability and loss of employment",
-      "loan_repayment": "Repayment of the outstanding loan",
-      "credit_protection": "Credit instalment protection",
-      "other": "Other coverage"
+      "death": "Morte",
+      "disability": "Invalidità permanente",
+      "ptia": "Perdita totale e irreversibile dell’autonomia",
+      "itt": "Inabilità temporanea totale al lavoro",
+      "ipt": "Invalidità permanente totale",
+      "job_loss": "Perdita involontaria del lavoro",
+      "death_disability": "Morte e invalidità permanente",
+      "death_disability_job_loss": "Morte, invalidità permanente e perdita del lavoro",
+      "loan_repayment": "Rimborso del prestito in essere",
+      "credit_protection": "Tutela della rata del credito",
+      "other": "Altra copertura"
     },
     "status": {
-      "draft": "Draft",
-      "pending": "Pending",
-      "sent": "Sent to the borrower",
-      "accepted": "Accepted",
-      "signed": "Signed",
-      "active": "Active",
-      "validated": "Validated",
-      "declined": "Declined",
-      "cancelled": "Cancelled",
-      "expired": "Expired",
-      "waived": "Waived",
-      "not_required": "Not required",
-      "completed": "Completed"
+      "draft": "Bozza",
+      "pending": "In attesa di",
+      "sent": "Inviato al mutuatario",
+      "accepted": "Accettato",
+      "signed": "Firmato",
+      "active": "Attivo",
+      "validated": "Convalidato",
+      "declined": "Rifiutato",
+      "cancelled": "Annullato",
+      "expired": "Scaduto",
+      "waived": "Rinunciato",
+      "not_required": "Non richiesto",
+      "completed": "Completato"
     },
     "paymentStatus": {
-      "unpaid": "Not paid",
-      "not_required": "No fee due",
-      "pending": "Pending",
-      "awaiting_payment": "Awaiting payment",
-      "paid": "Paid and validated",
-      "waived": "Waived",
-      "failed": "Payment failed",
-      "refunded": "Refunded"
+      "unpaid": "Non pagato",
+      "not_required": "Nessun compenso dovuto",
+      "pending": "In attesa di",
+      "awaiting_payment": "In attesa di pagamento",
+      "paid": "Pagato e convalidato",
+      "waived": "Rinunciato",
+      "failed": "Pagamento non riuscito",
+      "refunded": "Rimborsato"
     },
     "clientChoice": {
-      "pay_now": "Immediate payment",
-      "pay_later": "Deferred payment",
-      "decline": "Financing declined"
+      "pay_now": "Pagamento immediato",
+      "pay_later": "Pagamento differito",
+      "decline": "Il finanziamento è diminuito"
     },
     "signatureProvider": {
-      "internal_aes": "MOONYP advanced electronic signature",
-      "administrative_validation": "Administrative validation by the lender",
-      "qualified_eidas": "Qualified electronic signature (eIDAS)"
+      "internal_aes": "MOONYP firma elettronica avanzata",
+      "administrative_validation": "Convalida amministrativa da parte del finanziatore",
+      "qualified_eidas": "Firma elettronica qualificata (eIDAS)"
     },
     "common": {
-      "yes": "Yes",
-      "no": "No",
-      "none": "None",
-      "pending_assignment": "Being assigned"
+      "yes": "SÌ",
+      "no": "NO",
+      "none": "Nessuno",
+      "pending_assignment": "Essere assegnato"
     }
   }
 }

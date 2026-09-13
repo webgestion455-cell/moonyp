@@ -234,70 +234,70 @@
   },
   "enums": {
     "guaranteeKind": {
-      "credit_risk_cover": "Credit risk coverage",
-      "personal_guarantee": "Personal guarantee",
-      "joint_surety": "Joint and several surety",
-      "bank_guarantee": "Bank guarantee",
-      "deposit": "Security deposit",
-      "pledge": "Pledge",
-      "mortgage": "Mortgage",
-      "salary_assignment": "Assignment of salary",
-      "third_party_guarantor": "Third-party guarantor",
-      "other": "Other guarantee"
+      "credit_risk_cover": "Hitelkockázati fedezet",
+      "personal_guarantee": "Személyes garancia",
+      "joint_surety": "Egyetemleges készfizető kezesség",
+      "bank_guarantee": "Bankgarancia",
+      "deposit": "Biztonsági letét",
+      "pledge": "Fogadalom",
+      "mortgage": "Jelzálog",
+      "salary_assignment": "Fizetés hozzárendelése",
+      "third_party_guarantor": "Harmadik fél kezes",
+      "other": "Egyéb garancia"
     },
     "insuranceCoverage": {
-      "death": "Death",
-      "disability": "Permanent disability",
-      "ptia": "Total and irreversible loss of autonomy",
-      "itt": "Temporary total incapacity for work",
-      "ipt": "Total permanent invalidity",
-      "job_loss": "Involuntary loss of employment",
-      "death_disability": "Death and permanent disability",
-      "death_disability_job_loss": "Death, permanent disability and loss of employment",
-      "loan_repayment": "Repayment of the outstanding loan",
-      "credit_protection": "Credit instalment protection",
-      "other": "Other coverage"
+      "death": "Halál",
+      "disability": "Maradandó rokkantság",
+      "ptia": "Az autonómia teljes és visszafordíthatatlan elvesztése",
+      "itt": "Ideiglenes teljes keresőképtelenség",
+      "ipt": "Teljes maradandó rokkantság",
+      "job_loss": "Munkahely önkéntelen elvesztése",
+      "death_disability": "Halál és maradandó rokkantság",
+      "death_disability_job_loss": "Halál, maradandó rokkantság és munkahely elvesztése",
+      "loan_repayment": "A fennálló kölcsön visszafizetése",
+      "credit_protection": "Hitelrészlet védelem",
+      "other": "Egyéb fedezet"
     },
     "status": {
-      "draft": "Draft",
-      "pending": "Pending",
-      "sent": "Sent to the borrower",
-      "accepted": "Accepted",
-      "signed": "Signed",
-      "active": "Active",
-      "validated": "Validated",
-      "declined": "Declined",
-      "cancelled": "Cancelled",
-      "expired": "Expired",
-      "waived": "Waived",
-      "not_required": "Not required",
-      "completed": "Completed"
+      "draft": "Piszkozat",
+      "pending": "Függőben levő",
+      "sent": "Elküldve a kölcsönvevőnek",
+      "accepted": "Elfogadott",
+      "signed": "Aláírva",
+      "active": "Aktív",
+      "validated": "Érvényesített",
+      "declined": "Elutasítva",
+      "cancelled": "Törölve",
+      "expired": "Lejárt",
+      "waived": "Lemondva",
+      "not_required": "Nem kötelező",
+      "completed": "Befejezve"
     },
     "paymentStatus": {
-      "unpaid": "Not paid",
-      "not_required": "No fee due",
-      "pending": "Pending",
-      "awaiting_payment": "Awaiting payment",
-      "paid": "Paid and validated",
-      "waived": "Waived",
-      "failed": "Payment failed",
-      "refunded": "Refunded"
+      "unpaid": "Nem fizetett",
+      "not_required": "Nincs díj",
+      "pending": "Függőben levő",
+      "awaiting_payment": "Fizetésre vár",
+      "paid": "Fizetve és érvényesítve",
+      "waived": "Lemondva",
+      "failed": "Sikertelen fizetés",
+      "refunded": "Visszatérítve"
     },
     "clientChoice": {
-      "pay_now": "Immediate payment",
-      "pay_later": "Deferred payment",
-      "decline": "Financing declined"
+      "pay_now": "Azonnali fizetés",
+      "pay_later": "Halasztott fizetés",
+      "decline": "A finanszírozás visszaesett"
     },
     "signatureProvider": {
-      "internal_aes": "MOONYP advanced electronic signature",
-      "administrative_validation": "Administrative validation by the lender",
-      "qualified_eidas": "Qualified electronic signature (eIDAS)"
+      "internal_aes": "MOONYP fejlett elektronikus aláírás",
+      "administrative_validation": "Adminisztratív érvényesítés a hitelező által",
+      "qualified_eidas": "Minősített elektronikus aláírás (eIDAS)"
     },
     "common": {
-      "yes": "Yes",
-      "no": "No",
-      "none": "None",
-      "pending_assignment": "Being assigned"
+      "yes": "Igen",
+      "no": "Nem",
+      "none": "Egyik sem",
+      "pending_assignment": "Beosztás alatt"
     }
   }
 }

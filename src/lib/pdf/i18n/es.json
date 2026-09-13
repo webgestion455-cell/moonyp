@@ -5,7 +5,8 @@
     "docRef": "Documento",
     "version": "Versión",
     "issuedOn": "Emitido el",
-    "continued": "(continuación)"
+    "continued": "(continuación)",
+    "article": "Artículo"
   },
   "parties": {
     "lender": "Prestamista",
@@ -233,70 +234,70 @@
   },
   "enums": {
     "guaranteeKind": {
-      "credit_risk_cover": "Credit risk coverage",
-      "personal_guarantee": "Personal guarantee",
-      "joint_surety": "Joint and several surety",
-      "bank_guarantee": "Bank guarantee",
-      "deposit": "Security deposit",
-      "pledge": "Pledge",
-      "mortgage": "Mortgage",
-      "salary_assignment": "Assignment of salary",
-      "third_party_guarantor": "Third-party guarantor",
-      "other": "Other guarantee"
+      "credit_risk_cover": "Cobertura de riesgo de crédito",
+      "personal_guarantee": "Garantía personal",
+      "joint_surety": "Fianza solidaria",
+      "bank_guarantee": "Garantía bancaria",
+      "deposit": "Depósito de seguridad",
+      "pledge": "Promesa",
+      "mortgage": "Hipoteca",
+      "salary_assignment": "Asignación de salario",
+      "third_party_guarantor": "Garante tercero",
+      "other": "Otra garantía"
     },
     "insuranceCoverage": {
-      "death": "Death",
-      "disability": "Permanent disability",
-      "ptia": "Total and irreversible loss of autonomy",
-      "itt": "Temporary total incapacity for work",
-      "ipt": "Total permanent invalidity",
-      "job_loss": "Involuntary loss of employment",
-      "death_disability": "Death and permanent disability",
-      "death_disability_job_loss": "Death, permanent disability and loss of employment",
-      "loan_repayment": "Repayment of the outstanding loan",
-      "credit_protection": "Credit instalment protection",
-      "other": "Other coverage"
+      "death": "Muerte",
+      "disability": "Incapacidad permanente",
+      "ptia": "Pérdida total e irreversible de autonomía",
+      "itt": "Incapacidad laboral total temporal",
+      "ipt": "Invalidez permanente total",
+      "job_loss": "Pérdida involuntaria del empleo.",
+      "death_disability": "Muerte e invalidez permanente",
+      "death_disability_job_loss": "Muerte, incapacidad permanente y pérdida del empleo",
+      "loan_repayment": "Amortización del préstamo pendiente",
+      "credit_protection": "Protección de cuotas de crédito",
+      "other": "Otras coberturas"
     },
     "status": {
-      "draft": "Draft",
-      "pending": "Pending",
-      "sent": "Sent to the borrower",
-      "accepted": "Accepted",
-      "signed": "Signed",
-      "active": "Active",
-      "validated": "Validated",
-      "declined": "Declined",
-      "cancelled": "Cancelled",
-      "expired": "Expired",
-      "waived": "Waived",
-      "not_required": "Not required",
-      "completed": "Completed"
+      "draft": "Borrador",
+      "pending": "Pendiente",
+      "sent": "Enviado al prestatario",
+      "accepted": "Aceptado",
+      "signed": "Firmado",
+      "active": "Activo",
+      "validated": "Validado",
+      "declined": "Rechazado",
+      "cancelled": "Cancelado",
+      "expired": "Venció",
+      "waived": "Renunciado",
+      "not_required": "No requerido",
+      "completed": "Terminado"
     },
     "paymentStatus": {
-      "unpaid": "Not paid",
-      "not_required": "No fee due",
-      "pending": "Pending",
-      "awaiting_payment": "Awaiting payment",
-      "paid": "Paid and validated",
-      "waived": "Waived",
-      "failed": "Payment failed",
-      "refunded": "Refunded"
+      "unpaid": "No pagado",
+      "not_required": "No se debe pagar ninguna tarifa",
+      "pending": "Pendiente",
+      "awaiting_payment": "En espera de pago",
+      "paid": "Pagado y validado",
+      "waived": "Renunciado",
+      "failed": "Pago fallido",
+      "refunded": "Reintegrado"
     },
     "clientChoice": {
-      "pay_now": "Immediate payment",
-      "pay_later": "Deferred payment",
-      "decline": "Financing declined"
+      "pay_now": "Pago inmediato",
+      "pay_later": "Pago diferido",
+      "decline": "Financiamiento rechazado"
     },
     "signatureProvider": {
-      "internal_aes": "MOONYP advanced electronic signature",
-      "administrative_validation": "Administrative validation by the lender",
-      "qualified_eidas": "Qualified electronic signature (eIDAS)"
+      "internal_aes": "Firma electrónica avanzada MOONYP",
+      "administrative_validation": "Validación administrativa por parte del prestamista.",
+      "qualified_eidas": "Firma electrónica cualificada (eIDAS)"
     },
     "common": {
-      "yes": "Yes",
+      "yes": "Sí",
       "no": "No",
-      "none": "None",
-      "pending_assignment": "Being assigned"
+      "none": "Ninguno",
+      "pending_assignment": "siendo asignado"
     }
   }
 }

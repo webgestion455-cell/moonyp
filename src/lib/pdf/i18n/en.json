@@ -5,7 +5,8 @@
     "docRef": "Document",
     "version": "Version",
     "issuedOn": "Issued on",
-    "continued": "(continued)"
+    "continued": "(continued)",
+    "article": "Article"
   },
   "parties": {
     "lender": "Lender",

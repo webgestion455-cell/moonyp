@@ -234,70 +234,70 @@
   },
   "enums": {
     "guaranteeKind": {
-      "credit_risk_cover": "Credit risk coverage",
-      "personal_guarantee": "Personal guarantee",
-      "joint_surety": "Joint and several surety",
-      "bank_guarantee": "Bank guarantee",
-      "deposit": "Security deposit",
-      "pledge": "Pledge",
-      "mortgage": "Mortgage",
-      "salary_assignment": "Assignment of salary",
-      "third_party_guarantor": "Third-party guarantor",
-      "other": "Other guarantee"
+      "credit_risk_cover": "Покритие на кредитен риск",
+      "personal_guarantee": "Лична гаранция",
+      "joint_surety": "Солидарно поръчителство",
+      "bank_guarantee": "Банкова гаранция",
+      "deposit": "Гаранционен депозит",
+      "pledge": "Залог",
+      "mortgage": "Ипотека",
+      "salary_assignment": "Назначаване на заплата",
+      "third_party_guarantor": "Поръчител трето лице",
+      "other": "Друга гаранция"
     },
     "insuranceCoverage": {
-      "death": "Death",
-      "disability": "Permanent disability",
-      "ptia": "Total and irreversible loss of autonomy",
-      "itt": "Temporary total incapacity for work",
-      "ipt": "Total permanent invalidity",
-      "job_loss": "Involuntary loss of employment",
-      "death_disability": "Death and permanent disability",
-      "death_disability_job_loss": "Death, permanent disability and loss of employment",
-      "loan_repayment": "Repayment of the outstanding loan",
-      "credit_protection": "Credit instalment protection",
-      "other": "Other coverage"
+      "death": "Смърт",
+      "disability": "Трайно увреждане",
+      "ptia": "Пълна и необратима загуба на автономия",
+      "itt": "Временна пълна неработоспособност",
+      "ipt": "Пълна трайна инвалидност",
+      "job_loss": "Неволна загуба на работа",
+      "death_disability": "Смърт и трайна нетрудоспособност",
+      "death_disability_job_loss": "Смърт, трайна нетрудоспособност и загуба на работа",
+      "loan_repayment": "Погасяване на непогасения заем",
+      "credit_protection": "Защита на кредитни вноски",
+      "other": "Друго покритие"
     },
     "status": {
-      "draft": "Draft",
-      "pending": "Pending",
-      "sent": "Sent to the borrower",
-      "accepted": "Accepted",
-      "signed": "Signed",
-      "active": "Active",
-      "validated": "Validated",
-      "declined": "Declined",
-      "cancelled": "Cancelled",
-      "expired": "Expired",
-      "waived": "Waived",
-      "not_required": "Not required",
-      "completed": "Completed"
+      "draft": "Чернова",
+      "pending": "В очакване",
+      "sent": "Изпратено на кредитополучателя",
+      "accepted": "Прието",
+      "signed": "Подписано",
+      "active": "Активен",
+      "validated": "Валидирани",
+      "declined": "Отказано",
+      "cancelled": "Отменено",
+      "expired": "Изтекъл",
+      "waived": "Отказал се",
+      "not_required": "Не се изисква",
+      "completed": "Завършено"
     },
     "paymentStatus": {
-      "unpaid": "Not paid",
-      "not_required": "No fee due",
-      "pending": "Pending",
-      "awaiting_payment": "Awaiting payment",
-      "paid": "Paid and validated",
-      "waived": "Waived",
-      "failed": "Payment failed",
-      "refunded": "Refunded"
+      "unpaid": "Не е платено",
+      "not_required": "Не се дължи такса",
+      "pending": "В очакване",
+      "awaiting_payment": "Очаква се плащане",
+      "paid": "Платени и валидирани",
+      "waived": "Отказал се",
+      "failed": "Неуспешно плащане",
+      "refunded": "Възстановена сума"
     },
     "clientChoice": {
-      "pay_now": "Immediate payment",
-      "pay_later": "Deferred payment",
-      "decline": "Financing declined"
+      "pay_now": "Незабавно плащане",
+      "pay_later": "Разсрочено плащане",
+      "decline": "Финансирането намаля"
     },
     "signatureProvider": {
-      "internal_aes": "MOONYP advanced electronic signature",
-      "administrative_validation": "Administrative validation by the lender",
-      "qualified_eidas": "Qualified electronic signature (eIDAS)"
+      "internal_aes": "MOONYP усъвършенстван електронен подпис",
+      "administrative_validation": "Административна проверка от заемодателя",
+      "qualified_eidas": "Квалифициран електронен подпис (eIDAS)"
     },
     "common": {
-      "yes": "Yes",
-      "no": "No",
-      "none": "None",
-      "pending_assignment": "Being assigned"
+      "yes": "да",
+      "no": "не",
+      "none": "Няма",
+      "pending_assignment": "Да бъде назначен"
     }
   }
 }

@@ -234,70 +234,70 @@
   },
   "enums": {
     "guaranteeKind": {
-      "credit_risk_cover": "Credit risk coverage",
-      "personal_guarantee": "Personal guarantee",
-      "joint_surety": "Joint and several surety",
-      "bank_guarantee": "Bank guarantee",
-      "deposit": "Security deposit",
-      "pledge": "Pledge",
-      "mortgage": "Mortgage",
-      "salary_assignment": "Assignment of salary",
-      "third_party_guarantor": "Third-party guarantor",
-      "other": "Other guarantee"
+      "credit_risk_cover": "Κάλυψη πιστωτικού κινδύνου",
+      "personal_guarantee": "Προσωπική εγγύηση",
+      "joint_surety": "Εγγύηση από κοινού",
+      "bank_guarantee": "Τραπεζική εγγύηση",
+      "deposit": "Εγγύηση",
+      "pledge": "Υπόσχεση",
+      "mortgage": "Υποθήκη",
+      "salary_assignment": "Εκχώρηση μισθού",
+      "third_party_guarantor": "Τρίτος εγγυητής",
+      "other": "Άλλη εγγύηση"
     },
     "insuranceCoverage": {
-      "death": "Death",
-      "disability": "Permanent disability",
-      "ptia": "Total and irreversible loss of autonomy",
-      "itt": "Temporary total incapacity for work",
-      "ipt": "Total permanent invalidity",
-      "job_loss": "Involuntary loss of employment",
-      "death_disability": "Death and permanent disability",
-      "death_disability_job_loss": "Death, permanent disability and loss of employment",
-      "loan_repayment": "Repayment of the outstanding loan",
-      "credit_protection": "Credit instalment protection",
-      "other": "Other coverage"
+      "death": "Θάνατος",
+      "disability": "Μόνιμη αναπηρία",
+      "ptia": "Ολική και μη αναστρέψιμη απώλεια αυτονομίας",
+      "itt": "Προσωρινή ολική ανικανότητα για εργασία",
+      "ipt": "Ολική μόνιμη αναπηρία",
+      "job_loss": "Ακούσια απώλεια εργασίας",
+      "death_disability": "Θάνατος και μόνιμη αναπηρία",
+      "death_disability_job_loss": "Θάνατος, μόνιμη αναπηρία και απώλεια εργασίας",
+      "loan_repayment": "Αποπληρωμή του ανεξόφλητου δανείου",
+      "credit_protection": "Προστασία με πιστωτικές δόσεις",
+      "other": "Άλλη κάλυψη"
     },
     "status": {
-      "draft": "Draft",
-      "pending": "Pending",
-      "sent": "Sent to the borrower",
-      "accepted": "Accepted",
-      "signed": "Signed",
-      "active": "Active",
-      "validated": "Validated",
-      "declined": "Declined",
-      "cancelled": "Cancelled",
-      "expired": "Expired",
-      "waived": "Waived",
-      "not_required": "Not required",
-      "completed": "Completed"
+      "draft": "Προσχέδιο",
+      "pending": "Εκκρεμής",
+      "sent": "Στάλθηκε στον δανειολήπτη",
+      "accepted": "Δεκτός",
+      "signed": "Υπογεγραμμένο",
+      "active": "Ενεργός",
+      "validated": "Επικυρώθηκε",
+      "declined": "Απορρίφθηκε",
+      "cancelled": "Ακυρώθηκε",
+      "expired": "Λήξη",
+      "waived": "Παραιτήθηκε",
+      "not_required": "Δεν απαιτείται",
+      "completed": "Ολοκληρώθηκε το"
     },
     "paymentStatus": {
-      "unpaid": "Not paid",
-      "not_required": "No fee due",
-      "pending": "Pending",
-      "awaiting_payment": "Awaiting payment",
-      "paid": "Paid and validated",
-      "waived": "Waived",
-      "failed": "Payment failed",
-      "refunded": "Refunded"
+      "unpaid": "Δεν πληρώνεται",
+      "not_required": "Δεν οφείλεται τέλος",
+      "pending": "Εκκρεμής",
+      "awaiting_payment": "Αναμονή πληρωμής",
+      "paid": "Πληρώθηκε και επικυρώθηκε",
+      "waived": "Παραιτήθηκε",
+      "failed": "Η πληρωμή απέτυχε",
+      "refunded": "Επιστροφή χρημάτων"
     },
     "clientChoice": {
-      "pay_now": "Immediate payment",
-      "pay_later": "Deferred payment",
-      "decline": "Financing declined"
+      "pay_now": "Άμεση πληρωμή",
+      "pay_later": "Αναβολή πληρωμής",
+      "decline": "Η χρηματοδότηση μειώθηκε"
     },
     "signatureProvider": {
-      "internal_aes": "MOONYP advanced electronic signature",
-      "administrative_validation": "Administrative validation by the lender",
-      "qualified_eidas": "Qualified electronic signature (eIDAS)"
+      "internal_aes": "MOONYP προηγμένη ηλεκτρονική υπογραφή",
+      "administrative_validation": "Διοικητική επικύρωση από τον δανειστή",
+      "qualified_eidas": "Πιστοποιημένη ηλεκτρονική υπογραφή (eIDAS)"
     },
     "common": {
-      "yes": "Yes",
-      "no": "No",
-      "none": "None",
-      "pending_assignment": "Being assigned"
+      "yes": "Ναί",
+      "no": "Οχι",
+      "none": "Κανένας",
+      "pending_assignment": "Ανατίθεται"
     }
   }
 }

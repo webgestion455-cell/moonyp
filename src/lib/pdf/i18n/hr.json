@@ -234,70 +234,70 @@
   },
   "enums": {
     "guaranteeKind": {
-      "credit_risk_cover": "Credit risk coverage",
-      "personal_guarantee": "Personal guarantee",
-      "joint_surety": "Joint and several surety",
-      "bank_guarantee": "Bank guarantee",
-      "deposit": "Security deposit",
-      "pledge": "Pledge",
-      "mortgage": "Mortgage",
-      "salary_assignment": "Assignment of salary",
-      "third_party_guarantor": "Third-party guarantor",
-      "other": "Other guarantee"
+      "credit_risk_cover": "Pokriće kreditnog rizika",
+      "personal_guarantee": "Osobno jamstvo",
+      "joint_surety": "Solidarno jamstvo",
+      "bank_guarantee": "Bankovna garancija",
+      "deposit": "Sigurnosni depozit",
+      "pledge": "Zalog",
+      "mortgage": "Hipoteka",
+      "salary_assignment": "Dodjela plaće",
+      "third_party_guarantor": "Jamac treće strane",
+      "other": "Ostalo jamstvo"
     },
     "insuranceCoverage": {
-      "death": "Death",
-      "disability": "Permanent disability",
-      "ptia": "Total and irreversible loss of autonomy",
-      "itt": "Temporary total incapacity for work",
-      "ipt": "Total permanent invalidity",
-      "job_loss": "Involuntary loss of employment",
-      "death_disability": "Death and permanent disability",
-      "death_disability_job_loss": "Death, permanent disability and loss of employment",
-      "loan_repayment": "Repayment of the outstanding loan",
-      "credit_protection": "Credit instalment protection",
-      "other": "Other coverage"
+      "death": "Smrt",
+      "disability": "Trajni invaliditet",
+      "ptia": "Potpuni i nepovratni gubitak autonomije",
+      "itt": "Privremena potpuna nesposobnost za rad",
+      "ipt": "Potpuna trajna invalidnost",
+      "job_loss": "Nedobrovoljni gubitak posla",
+      "death_disability": "Smrt i trajni invaliditet",
+      "death_disability_job_loss": "Smrt, trajni invaliditet i gubitak posla",
+      "loan_repayment": "Otplata neotplaćenog kredita",
+      "credit_protection": "Zaštita rata kredita",
+      "other": "Ostalo pokriće"
     },
     "status": {
-      "draft": "Draft",
-      "pending": "Pending",
-      "sent": "Sent to the borrower",
-      "accepted": "Accepted",
-      "signed": "Signed",
-      "active": "Active",
-      "validated": "Validated",
-      "declined": "Declined",
-      "cancelled": "Cancelled",
-      "expired": "Expired",
-      "waived": "Waived",
-      "not_required": "Not required",
-      "completed": "Completed"
+      "draft": "Nacrt",
+      "pending": "Na čekanju",
+      "sent": "Poslano zajmoprimcu",
+      "accepted": "Prihvaćeno",
+      "signed": "Potpisano",
+      "active": "Aktivan",
+      "validated": "Potvrđeno",
+      "declined": "Odbijeno",
+      "cancelled": "Otkazano",
+      "expired": "Istekao",
+      "waived": "Odustao",
+      "not_required": "Nije potrebno",
+      "completed": "Završeno"
     },
     "paymentStatus": {
-      "unpaid": "Not paid",
-      "not_required": "No fee due",
-      "pending": "Pending",
-      "awaiting_payment": "Awaiting payment",
-      "paid": "Paid and validated",
-      "waived": "Waived",
-      "failed": "Payment failed",
-      "refunded": "Refunded"
+      "unpaid": "Nije plaćeno",
+      "not_required": "Bez naknade",
+      "pending": "Na čekanju",
+      "awaiting_payment": "Čeka se isplata",
+      "paid": "Plaćeno i potvrđeno",
+      "waived": "Odustao",
+      "failed": "Plaćanje nije uspjelo",
+      "refunded": "Vraćeno"
     },
     "clientChoice": {
-      "pay_now": "Immediate payment",
-      "pay_later": "Deferred payment",
-      "decline": "Financing declined"
+      "pay_now": "Isplata odmah",
+      "pay_later": "Odgođeno plaćanje",
+      "decline": "Financiranje je smanjeno"
     },
     "signatureProvider": {
-      "internal_aes": "MOONYP advanced electronic signature",
-      "administrative_validation": "Administrative validation by the lender",
-      "qualified_eidas": "Qualified electronic signature (eIDAS)"
+      "internal_aes": "MOONYP napredni elektronički potpis",
+      "administrative_validation": "Administrativna potvrda od strane zajmodavca",
+      "qualified_eidas": "Kvalificirani elektronički potpis (eIDAS)"
     },
     "common": {
-      "yes": "Yes",
-      "no": "No",
-      "none": "None",
-      "pending_assignment": "Being assigned"
+      "yes": "Da",
+      "no": "Ne",
+      "none": "Nijedan",
+      "pending_assignment": "Biti dodijeljen"
     }
   }
 }

@@ -5,7 +5,8 @@
     "docRef": "Document",
     "version": "Versie",
     "issuedOn": "Opgemaakt op",
-    "continued": "(vervolg)"
+    "continued": "(vervolg)",
+    "article": "Artikel"
   },
   "parties": {
     "lender": "Kredietgever",
@@ -233,70 +234,70 @@
   },
   "enums": {
     "guaranteeKind": {
-      "credit_risk_cover": "Credit risk coverage",
-      "personal_guarantee": "Personal guarantee",
-      "joint_surety": "Joint and several surety",
-      "bank_guarantee": "Bank guarantee",
-      "deposit": "Security deposit",
-      "pledge": "Pledge",
-      "mortgage": "Mortgage",
-      "salary_assignment": "Assignment of salary",
-      "third_party_guarantor": "Third-party guarantor",
-      "other": "Other guarantee"
+      "credit_risk_cover": "Dekking van kredietrisico",
+      "personal_guarantee": "Persoonlijke garantie",
+      "joint_surety": "Hoofdelijke en hoofdelijke borg",
+      "bank_guarantee": "Bankgarantie",
+      "deposit": "Borg",
+      "pledge": "Belofte",
+      "mortgage": "Hypotheek",
+      "salary_assignment": "Toekenning van salaris",
+      "third_party_guarantor": "Derde garant",
+      "other": "Andere garantie"
     },
     "insuranceCoverage": {
-      "death": "Death",
-      "disability": "Permanent disability",
-      "ptia": "Total and irreversible loss of autonomy",
-      "itt": "Temporary total incapacity for work",
-      "ipt": "Total permanent invalidity",
-      "job_loss": "Involuntary loss of employment",
-      "death_disability": "Death and permanent disability",
-      "death_disability_job_loss": "Death, permanent disability and loss of employment",
-      "loan_repayment": "Repayment of the outstanding loan",
-      "credit_protection": "Credit instalment protection",
-      "other": "Other coverage"
+      "death": "Dood",
+      "disability": "Blijvende invaliditeit",
+      "ptia": "Totaal en onomkeerbaar verlies van autonomie",
+      "itt": "Tijdelijke totale arbeidsongeschiktheid",
+      "ipt": "Totale blijvende invaliditeit",
+      "job_loss": "Onvrijwillig verlies van werkgelegenheid",
+      "death_disability": "Overlijden en blijvende invaliditeit",
+      "death_disability_job_loss": "Overlijden, blijvende invaliditeit en verlies van werk",
+      "loan_repayment": "Aflossing van de uitstaande lening",
+      "credit_protection": "Bescherming van kredietafbetalingen",
+      "other": "Andere dekking"
     },
     "status": {
-      "draft": "Draft",
-      "pending": "Pending",
-      "sent": "Sent to the borrower",
-      "accepted": "Accepted",
-      "signed": "Signed",
-      "active": "Active",
-      "validated": "Validated",
-      "declined": "Declined",
-      "cancelled": "Cancelled",
-      "expired": "Expired",
-      "waived": "Waived",
-      "not_required": "Not required",
-      "completed": "Completed"
+      "draft": "Voorlopige versie",
+      "pending": "In behandeling",
+      "sent": "Verzonden naar de lener",
+      "accepted": "Geaccepteerd",
+      "signed": "Ondertekend",
+      "active": "Actief",
+      "validated": "Gevalideerd",
+      "declined": "Afgewezen",
+      "cancelled": "Geannuleerd",
+      "expired": "Verlopen",
+      "waived": "Afgewezen",
+      "not_required": "Niet vereist",
+      "completed": "Voltooid"
     },
     "paymentStatus": {
-      "unpaid": "Not paid",
-      "not_required": "No fee due",
-      "pending": "Pending",
-      "awaiting_payment": "Awaiting payment",
-      "paid": "Paid and validated",
-      "waived": "Waived",
-      "failed": "Payment failed",
-      "refunded": "Refunded"
+      "unpaid": "Niet betaald",
+      "not_required": "Geen vergoeding verschuldigd",
+      "pending": "In behandeling",
+      "awaiting_payment": "In afwachting van betaling",
+      "paid": "Betaald en gevalideerd",
+      "waived": "Afgewezen",
+      "failed": "Betaling mislukt",
+      "refunded": "Terugbetaald"
     },
     "clientChoice": {
-      "pay_now": "Immediate payment",
-      "pay_later": "Deferred payment",
-      "decline": "Financing declined"
+      "pay_now": "Onmiddellijke betaling",
+      "pay_later": "Uitgestelde betaling",
+      "decline": "De financiering daalde"
     },
     "signatureProvider": {
-      "internal_aes": "MOONYP advanced electronic signature",
-      "administrative_validation": "Administrative validation by the lender",
-      "qualified_eidas": "Qualified electronic signature (eIDAS)"
+      "internal_aes": "MOONYP geavanceerde elektronische handtekening",
+      "administrative_validation": "Administratieve validatie door de kredietverstrekker",
+      "qualified_eidas": "Gekwalificeerde elektronische handtekening (eIDAS)"
     },
     "common": {
-      "yes": "Yes",
-      "no": "No",
-      "none": "None",
-      "pending_assignment": "Being assigned"
+      "yes": "Ja",
+      "no": "Nee",
+      "none": "Geen",
+      "pending_assignment": "Wordt toegewezen"
     }
   }
 }

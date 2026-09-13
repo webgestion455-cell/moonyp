@@ -234,70 +234,70 @@
   },
   "enums": {
     "guaranteeKind": {
-      "credit_risk_cover": "Credit risk coverage",
-      "personal_guarantee": "Personal guarantee",
-      "joint_surety": "Joint and several surety",
-      "bank_guarantee": "Bank guarantee",
-      "deposit": "Security deposit",
-      "pledge": "Pledge",
-      "mortgage": "Mortgage",
-      "salary_assignment": "Assignment of salary",
-      "third_party_guarantor": "Third-party guarantor",
-      "other": "Other guarantee"
+      "credit_risk_cover": "Luottoriskin kattavuus",
+      "personal_guarantee": "Henkilökohtainen takuu",
+      "joint_surety": "Yhteisvastuullinen vakuus",
+      "bank_guarantee": "Pankkitakaus",
+      "deposit": "Vakuus",
+      "pledge": "Lupaus",
+      "mortgage": "Kiinnitys",
+      "salary_assignment": "Palkan määräys",
+      "third_party_guarantor": "Kolmannen osapuolen takaaja",
+      "other": "Muu takuu"
     },
     "insuranceCoverage": {
-      "death": "Death",
-      "disability": "Permanent disability",
-      "ptia": "Total and irreversible loss of autonomy",
-      "itt": "Temporary total incapacity for work",
-      "ipt": "Total permanent invalidity",
-      "job_loss": "Involuntary loss of employment",
-      "death_disability": "Death and permanent disability",
-      "death_disability_job_loss": "Death, permanent disability and loss of employment",
-      "loan_repayment": "Repayment of the outstanding loan",
-      "credit_protection": "Credit instalment protection",
-      "other": "Other coverage"
+      "death": "Kuolema",
+      "disability": "Pysyvä vamma",
+      "ptia": "Autonomian täydellinen ja peruuttamaton menetys",
+      "itt": "Tilapäinen täydellinen työkyvyttömyys",
+      "ipt": "Täydellinen pysyvä työkyvyttömyys",
+      "job_loss": "Tahaton työpaikan menetys",
+      "death_disability": "Kuolema ja pysyvä vamma",
+      "death_disability_job_loss": "Kuolema, pysyvä työkyvyttömyys ja työpaikan menetys",
+      "loan_repayment": "Lainan takaisinmaksu",
+      "credit_protection": "Luottomaksusuoja",
+      "other": "Muu kattavuus"
     },
     "status": {
-      "draft": "Draft",
-      "pending": "Pending",
-      "sent": "Sent to the borrower",
-      "accepted": "Accepted",
-      "signed": "Signed",
-      "active": "Active",
-      "validated": "Validated",
-      "declined": "Declined",
-      "cancelled": "Cancelled",
-      "expired": "Expired",
-      "waived": "Waived",
-      "not_required": "Not required",
-      "completed": "Completed"
+      "draft": "Luonnos",
+      "pending": "Odottaa",
+      "sent": "Lähetetty lainanottajalle",
+      "accepted": "Hyväksytty",
+      "signed": "Allekirjoitettu",
+      "active": "Aktiivinen",
+      "validated": "Vahvistettu",
+      "declined": "Hylätty",
+      "cancelled": "Peruutettu",
+      "expired": "Vanhentunut",
+      "waived": "Luopunut",
+      "not_required": "Ei vaadita",
+      "completed": "Valmis"
     },
     "paymentStatus": {
-      "unpaid": "Not paid",
-      "not_required": "No fee due",
-      "pending": "Pending",
-      "awaiting_payment": "Awaiting payment",
-      "paid": "Paid and validated",
-      "waived": "Waived",
-      "failed": "Payment failed",
-      "refunded": "Refunded"
+      "unpaid": "Ei maksettu",
+      "not_required": "Ei maksua",
+      "pending": "Odottaa",
+      "awaiting_payment": "Odottaa maksua",
+      "paid": "Maksettu ja vahvistettu",
+      "waived": "Luopunut",
+      "failed": "Maksu epäonnistui",
+      "refunded": "Hyvitetty"
     },
     "clientChoice": {
-      "pay_now": "Immediate payment",
-      "pay_later": "Deferred payment",
-      "decline": "Financing declined"
+      "pay_now": "Välitön maksu",
+      "pay_later": "Lykätty maksu",
+      "decline": "Rahoitus väheni"
     },
     "signatureProvider": {
-      "internal_aes": "MOONYP advanced electronic signature",
-      "administrative_validation": "Administrative validation by the lender",
-      "qualified_eidas": "Qualified electronic signature (eIDAS)"
+      "internal_aes": "Kehittynyt MOONYP sähköinen allekirjoitus",
+      "administrative_validation": "Lainanantajan hallinnollinen vahvistus",
+      "qualified_eidas": "Hyväksytty sähköinen allekirjoitus (eIDAS)"
     },
     "common": {
-      "yes": "Yes",
-      "no": "No",
-      "none": "None",
-      "pending_assignment": "Being assigned"
+      "yes": "Kyllä",
+      "no": "Ei",
+      "none": "Ei mitään",
+      "pending_assignment": "Ollaan määrättynä"
     }
   }
 }
