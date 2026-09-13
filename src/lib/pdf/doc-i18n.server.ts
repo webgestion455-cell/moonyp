@@ -55,10 +55,34 @@ function pick(bundle: Bundle, path: string): string | undefined {
   return typeof node === "string" ? node : undefined;
 }
 
+/**
+ * Recherche stricte : renvoie `undefined` si la clé n'existe ni dans la langue
+ * demandée ni en anglais. Utilisé par `docEnum()` pour distinguer une valeur
+ * traduisible d'une valeur libre.
+ */
+export function docTextOrNull(language: string | null | undefined, path: string): string | undefined {
+  const lang = docLocale(language);
+  return pick(BUNDLES[lang]!, path) ?? pick(BUNDLES["en"]!, path);
+}
+
+/**
+ * `labels.article` → « Article » : dernier filet de sécurité si une clé manque
+ * dans tous les dictionnaires. Un document contractuel ne doit jamais afficher
+ * un chemin de clé (« labels.article 1 »).
+ */
+function humanizePath(path: string): string {
+  const leaf = path.split(".").pop() ?? path;
+  const words = leaf
+    .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+    .replace(/[_-]+/g, " ")
+    .trim()
+    .toLowerCase();
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}
+
 /** Traducteur documentaire : `docText("fr", "contract.a1t")`. */
 export function docText(language: string | null | undefined, path: string): string {
-  const lang = docLocale(language);
-  return pick(BUNDLES[lang]!, path) ?? pick(BUNDLES["en"]!, path) ?? path;
+  return docTextOrNull(language, path) ?? humanizePath(path);
 }
 
 /** Fabrique un traducteur préfixé (« contract. », « guarantee. »…). */

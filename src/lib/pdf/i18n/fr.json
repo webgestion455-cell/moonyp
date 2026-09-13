@@ -230,5 +230,73 @@
     "calloutTitle": "Information de l'assuré",
     "calloutBody": "Les garanties, exclusions et montants ci-dessus proviennent exclusivement du dossier de crédit. Toute modification fait l'objet d'une nouvelle version du présent document.",
     "footer": "Notice d'assurance MOONYP — document généré électroniquement, rattaché au dossier de crédit."
+  },
+  "enums": {
+    "guaranteeKind": {
+      "credit_risk_cover": "Couverture du risque de crédit",
+      "personal_guarantee": "Garantie personnelle",
+      "joint_surety": "Caution solidaire",
+      "bank_guarantee": "Garantie bancaire",
+      "deposit": "Dépôt de garantie",
+      "pledge": "Nantissement",
+      "mortgage": "Hypothèque",
+      "salary_assignment": "Cession sur salaire",
+      "third_party_guarantor": "Garant tiers",
+      "other": "Autre garantie"
+    },
+    "insuranceCoverage": {
+      "death": "Décès",
+      "disability": "Invalidité permanente",
+      "ptia": "Perte totale et irréversible d'autonomie",
+      "itt": "Incapacité temporaire totale de travail",
+      "ipt": "Invalidité permanente totale",
+      "job_loss": "Perte involontaire d'emploi",
+      "death_disability": "Décès et invalidité permanente",
+      "death_disability_job_loss": "Décès, invalidité permanente et perte d'emploi",
+      "loan_repayment": "Remboursement du capital restant dû",
+      "credit_protection": "Protection des échéances du crédit",
+      "other": "Autre garantie"
+    },
+    "status": {
+      "draft": "Projet",
+      "pending": "En attente",
+      "sent": "Transmis à l'emprunteur",
+      "accepted": "Accepté",
+      "signed": "Signé",
+      "active": "En vigueur",
+      "validated": "Validé",
+      "declined": "Refusé",
+      "cancelled": "Annulé",
+      "expired": "Expiré",
+      "waived": "Renoncé",
+      "not_required": "Non requis",
+      "completed": "Terminé"
+    },
+    "paymentStatus": {
+      "unpaid": "Non payé",
+      "not_required": "Aucun frais dû",
+      "pending": "En attente",
+      "awaiting_payment": "En attente de paiement",
+      "paid": "Payé et validé",
+      "waived": "Renoncé",
+      "failed": "Paiement en échec",
+      "refunded": "Remboursé"
+    },
+    "clientChoice": {
+      "pay_now": "Paiement immédiat",
+      "pay_later": "Paiement différé",
+      "decline": "Renonciation au financement"
+    },
+    "signatureProvider": {
+      "internal_aes": "Signature électronique avancée MOONYP",
+      "administrative_validation": "Validation administrative du prêteur",
+      "qualified_eidas": "Signature électronique qualifiée (eIDAS)"
+    },
+    "common": {
+      "yes": "Oui",
+      "no": "Non",
+      "none": "Aucune",
+      "pending_assignment": "En cours d'attribution"
+    }
   }
 }
