@@ -42,21 +42,55 @@ function restore(text, tokens) {
   return out;
 }
 
+/**
+ * Moteurs interrogés dans l'ordre. Le moteur par défaut (Google) renvoie une
+ * réponse vide sur les mots isolés (« Cancel », « Password ») : Bing prend
+ * alors le relais. Sans ce repli, un mot court resterait en anglais.
+ */
+const ENGINES = [null, "bing"];
+
+function engineArgs(engine, source, target, masked) {
+  return [
+    ...(engine ? ["-e", engine] : []),
+    "-brief",
+    "-no-ansi",
+    "-no-warn",
+    "-s",
+    source,
+    "-t",
+    target,
+    masked,
+  ];
+}
+
+function firstLine(raw) {
+  return raw
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .pop();
+}
+
 /** Traduit une chaîne unique (source -> cible) en conservant la ponctuation. */
 export function translateOne(text, target, source = "en") {
   if (!text || !text.trim()) return text;
   const { masked, tokens } = protect(text);
   const { cmd, prefix } = resolveRunner();
-  const args = [...prefix, "-brief", "-no-warn", "-s", source, "-t", target, masked];
-  const raw = execFileSync(cmd, args, { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 });
-  const line = raw
-    .split("\n")
-    .map((l) => l.trim())
-    .filter(Boolean)
-    .pop();
-  if (!line) return text;
-  return restore(line, tokens).replace(/\s+([,.;:!?])/g, "$1").trim();
+  for (const engine of ENGINES) {
+    const args = [...prefix, ...engineArgs(engine, source, target, masked)];
+    let line;
+    try {
+      line = firstLine(execFileSync(cmd, args, { encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }));
+    } catch {
+      line = undefined;
+    }
+    if (line && !/\[ERROR\]/.test(line)) {
+      return restore(line, tokens).replace(/\s+([,.;:!?])/g, "$1").trim();
+    }
+  }
+  return text;
 }
+
 
 /** Traduit un dictionnaire plat `{ cle: texte }` avec journal de progression. */
 export function translateMap(entries, target, source = "en", onProgress) {
@@ -98,16 +132,21 @@ export async function translateOneAsync(text, target, source = "en") {
   if (!text || !text.trim()) return text;
   const { masked, tokens } = protect(text);
   const { cmd, prefix } = resolveRunner();
-  const args = [...prefix, "-brief", "-no-warn", "-s", source, "-t", target, masked];
-  const raw = await execFileAsync(cmd, args);
-  const line = raw
-    .split("\n")
-    .map((l) => l.trim())
-    .filter(Boolean)
-    .pop();
-  if (!line) return text;
-  return restore(line, tokens).replace(/\s+([,.;:!?])/g, "$1").trim();
+  for (const engine of ENGINES) {
+    const args = [...prefix, ...engineArgs(engine, source, target, masked)];
+    let line;
+    try {
+      line = firstLine(await execFileAsync(cmd, args));
+    } catch {
+      line = undefined;
+    }
+    if (line && !/\[ERROR\]/.test(line)) {
+      return restore(line, tokens).replace(/\s+([,.;:!?])/g, "$1").trim();
+    }
+  }
+  return text;
 }
+
 
 /**
  * Traduit un dictionnaire plat `{ cle: texte }` avec une file d'attente bornée.
