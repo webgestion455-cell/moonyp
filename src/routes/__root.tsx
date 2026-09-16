@@ -108,13 +108,18 @@ function RootComponent() {
   const immersive = useImmersive();
 
   // Staff area and the secure applicant portal render their own chrome.
-  const hideLayout =
-    immersive ||
+  // Important : cet indicateur ne dépend QUE de l'URL. Le mode immersif ne doit
+  // jamais entrer dans la clé de <main> — sinon activer l'immersif change la
+  // clé, React démonte tout le sous-arbre et le parcours KYC repart à zéro.
+  const chromelessRoute =
     basePath.startsWith("/admin") ||
     basePath.startsWith("/auth") ||
     basePath.startsWith("/secure") ||
     basePath === "/staff-invite" ||
     basePath === "/reset-password";
+
+  const hideLayout = immersive || chromelessRoute;
+
 
   // Détection de langue appliquée après hydratation (SSR déterministe en "en").
   useEffect(() => {
@@ -167,7 +172,10 @@ function RootComponent() {
         <div className="flex min-h-screen flex-col">
           {!hideLayout && <AppHeader />}
           {!hideLayout && <div className="h-16 shrink-0" aria-hidden />}
-          <main key={hideLayout ? "app" : pathname} className={`flex-1 ${hideLayout ? "" : "animate-page"}`}>
+          <main
+            key={chromelessRoute ? "app" : pathname}
+            className={`flex-1 ${chromelessRoute ? "" : "animate-page"}`}
+          >
             <Outlet />
           </main>
           {!hideLayout && <SiteFooter />}

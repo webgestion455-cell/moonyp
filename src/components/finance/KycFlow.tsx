@@ -1,4 +1,5 @@
-import { useCallback, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { documentLabel } from "@/lib/document-labels";
 import {
@@ -161,6 +162,17 @@ export function KycFlow({
   const [capturing, setCapturing] = useState<{ slug: string; side: number } | null>(null);
   /** Lecture OCR en cours : la pièce vient d'être prise, on lit la MRZ. */
   const [reading, setReading] = useState(false);
+  /**
+   * Le parcours plein écran est monté dans `document.body` (portail). C'est
+   * indispensable : la zone principale du site porte une animation de page
+   * avec `transform`, et un ancêtre transformé devient le référentiel de tout
+   * enfant `position: fixed` — l'écran de vérification se retrouvait alors
+   * enfermé dans la hauteur de l'étape, apparemment vide. Le portail n'est
+   * disponible qu'après hydratation, d'où ce drapeau.
+   */
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
 
   // Dès le lancement, le parcours occupe l'écran entier : le chrome du site
   // s'efface et la page ne défile plus. Une étape = un écran = un geste.
@@ -260,31 +272,36 @@ export function KycFlow({
    * du site est masqué, et chaque changement d'étape glisse latéralement : le
    * client perçoit une page qui succède à une page, pas un bloc qui s'ouvre.
    */
-  const screen = (key: string, content: ReactNode, bare = false) => (
-    <div className="fixed inset-0 z-[70] flex flex-col bg-background">
-      {bare ? (
-        <div key={key} className="flex flex-1 flex-col duration-300 animate-in fade-in">
-          {content}
-        </div>
-      ) : (
-        <div
-          key={key}
-          className="mx-auto flex w-full max-w-lg flex-1 flex-col gap-5 overflow-y-auto px-4 py-6 duration-300 animate-in fade-in slide-in-from-right-6"
-        >
-          {content}
-        </div>
-      )}
-      {reading && (
-        <div className="absolute inset-0 z-10 grid place-items-center bg-background/85 backdrop-blur-sm">
-          <div className="flex flex-col items-center gap-3 text-center">
-            <Loader2 className="h-7 w-7 animate-spin text-primary" aria-hidden />
-            <p className="text-sm font-medium">{t("kyc.reading.title")}</p>
-            <p className="max-w-xs text-xs text-muted-foreground">{t("kyc.reading.desc")}</p>
+  const screen = (key: string, content: ReactNode, bare = false) => {
+    const overlay = (
+      <div className="fixed inset-0 z-[70] flex min-h-0 flex-col overflow-hidden bg-background">
+        {bare ? (
+          <div key={key} className="flex min-h-0 flex-1 flex-col duration-300 animate-in fade-in">
+            {content}
           </div>
-        </div>
-      )}
-    </div>
-  );
+        ) : (
+          <div
+            key={key}
+            className="mx-auto flex w-full max-w-lg min-h-0 flex-1 flex-col gap-5 overflow-y-auto px-4 pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-[max(env(safe-area-inset-top),1.5rem)] duration-300 animate-in fade-in slide-in-from-right-6"
+          >
+            {content}
+          </div>
+        )}
+        {reading && (
+          <div className="absolute inset-0 z-10 grid place-items-center bg-background/85 backdrop-blur-sm">
+            <div className="flex flex-col items-center gap-3 text-center">
+              <Loader2 className="h-7 w-7 animate-spin text-primary" aria-hidden />
+              <p className="text-sm font-medium">{t("kyc.reading.title")}</p>
+              <p className="max-w-xs text-xs text-muted-foreground">{t("kyc.reading.desc")}</p>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+    // Hors du flux de la page : sinon l'animation de page (`transform`) de la
+    // zone principale confine ce `fixed` et l'écran paraît vide.
+    return mounted ? createPortal(overlay, document.body) : overlay;
+  };
 
   /** Barre supérieure commune : sortie du parcours et retour d'étape. */
   const topBar = (onBack?: () => void) => (
