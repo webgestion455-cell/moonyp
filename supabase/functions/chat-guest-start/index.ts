@@ -91,7 +91,7 @@ serve(async (req) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: "MOONYP <no-reply@zenvoriax.com>",
+            from: "MOONYP <no-reply@moonyp.com>",
             to: [ADMIN_EMAIL],
             subject: `🟢 Nouveau ticket #${conv.ticket_number} — ${name}`,
             html: `

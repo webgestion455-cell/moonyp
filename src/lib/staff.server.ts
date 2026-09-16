@@ -111,7 +111,7 @@ export async function sendInvitationEmail(to: string, html: string) {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
     body: JSON.stringify({
-      from: "MOONYP <no-reply@zenvoriax.com>",
+      from: "MOONYP <no-reply@moonyp.com>",
       to: [to],
       subject: "Votre accès à l'espace d'administration MOONYP",
       html,

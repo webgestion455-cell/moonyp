@@ -12,7 +12,7 @@ const ContactInput = z.object({
 });
 
 const TO_EMAIL = "support@bnpparibas.myinvest-capital.com";
-const FROM_EMAIL = "MOONYP <no-reply@zenvoriax.com>";
+const FROM_EMAIL = "MOONYP <no-reply@moonyp.com>";
 
 export const submitContactMessage = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => ContactInput.parse(d))

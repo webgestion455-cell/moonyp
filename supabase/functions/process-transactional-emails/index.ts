@@ -76,7 +76,7 @@ Deno.serve(async (req: Request) => {
           typeof payload.text === "string" ? payload.text : undefined;
 
         const { data, error } = await resend.emails.send({
-          from: "Moonyp <no-reply@zenvoriax.com>",
+          from: "Moonyp <no-reply@moonyp.com>",
           to: [email.to_email],
           subject: email.subject,
           html: email.body,
