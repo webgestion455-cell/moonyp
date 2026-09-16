@@ -314,17 +314,18 @@ function ApplyPage() {
       const created = await submitFn({ data: payload as never });
 
       const captures = Object.entries(kyc.files).flatMap(([slug, list]) =>
-        list.map((capture) => ({ slug, file: capture.file, evidence: capture.evidence })),
+        list.map((capture) => ({ slug, file: capture.file, evidence: capture.evidence, ocr: capture.ocr })),
       );
       setProgress({ done: 0, total: captures.length });
 
       const registered: Array<{
         document_type_slug: string; storage_path: string; file_name: string; mime_type: string; file_size: number;
         capture_evidence?: unknown;
+        ocr?: unknown;
       }> = [];
 
       for (const [index, capture] of captures.entries()) {
-        const { file, slug, evidence } = capture;
+        const { file, slug, evidence, ocr } = capture;
         const signed = await uploadUrlFn({
           data: { token: created.token, document_type_slug: slug, file_name: file.name, mime_type: file.type, file_size: file.size },
         });
@@ -337,12 +338,36 @@ function ApplyPage() {
           mime_type: file.type, file_size: file.size,
           // Preuve mesurée à la capture : revalidée côté serveur, jamais crue sur parole.
           ...(evidence ? { capture_evidence: evidence } : {}),
+          // Lecture OCR : seul le texte brut est transmis. Le serveur re-décode
+          // la MRZ et revérifie ses clés de contrôle avant toute décision.
+          ...(ocr
+            ? {
+                ocr: {
+                  mrz_text: ocr.mrz_text,
+                  viz_text: ocr.viz_text,
+                  confidence: ocr.confidence,
+                  engine: ocr.engine,
+                },
+              }
+            : {}),
         });
         setProgress({ done: index + 1, total: captures.length });
       }
 
       if (registered.length > 0) {
-        await registerFn({ data: { token: created.token, documents: registered } });
+        await registerFn({
+          data: {
+            token: created.token,
+            documents: registered,
+            // Identité déclarée : c'est elle qui est croisée avec la MRZ lue.
+            identity: {
+              first_name: String(form.first_name ?? ""),
+              last_name: String(form.last_name ?? ""),
+              birth_date: String(form.birth_date ?? ""),
+              nationality: String(form.nationality ?? ""),
+            },
+          },
+        });
       }
 
       localStorage.removeItem(APPLY_DRAFT_KEY);

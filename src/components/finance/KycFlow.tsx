@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { documentLabel } from "@/lib/document-labels";
 import {
@@ -17,6 +17,7 @@ import {
   ScanLine,
   ShieldCheck,
   Trash2,
+  X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DocumentScanner, type ScanShape } from "@/components/finance/DocumentScanner";
@@ -24,6 +25,8 @@ import { DocumentSource } from "@/components/finance/DocumentSource";
 import { LivenessCheck } from "@/components/finance/LivenessCheck";
 import type { CaptureEvidence } from "@/lib/kyc/image-analysis";
 import type { LivenessSessionEvidence } from "@/lib/kyc/liveness-engine";
+import { useImmersiveMode } from "@/lib/kyc/immersive";
+import { readIdentityDocument, type OcrResult } from "@/lib/kyc/ocr";
 import { cn } from "@/lib/utils";
 
 export interface KycDocumentType {
@@ -55,6 +58,12 @@ export interface KycCaptureFile {
   side: number;
   /** Mesures produites par le scanner, l'import mesuré ou la session de vivacité. */
   evidence?: KycEvidence;
+  /**
+   * Lecture OCR/MRZ de la pièce d'identité, faite sur l'appareil du client.
+   * Seul le texte brut part au serveur, qui re-décode et revérifie tout :
+   * la lecture du navigateur n'est jamais une décision, seulement une source.
+   */
+  ocr?: OcrResult;
 }
 
 export type KycFiles = Record<string, KycCaptureFile[]>;
@@ -150,6 +159,12 @@ export function KycFlow({
   const [started, setStarted] = useState(false);
   const [active, setActive] = useState<KycCategory | null>(null);
   const [capturing, setCapturing] = useState<{ slug: string; side: number } | null>(null);
+  /** Lecture OCR en cours : la pièce vient d'être prise, on lit la MRZ. */
+  const [reading, setReading] = useState(false);
+
+  // Dès le lancement, le parcours occupe l'écran entier : le chrome du site
+  // s'efface et la page ne défile plus. Une étape = un écran = un geste.
+  useImmersiveMode(started);
 
   const plan = useMemo(
     () => resolveKycPlan(documentTypes, { employmentStatus, productSlug, allowedIdDocuments, countryCode }),
@@ -179,17 +194,55 @@ export function KycFlow({
       delete files[previous];
     }
     patch({ choices: { ...state.choices, [category]: slug }, files });
+    // Le choix du type de pièce ouvre directement l'écran de capture, en plein
+    // écran : plus de cadre qui apparaît en bas de page, plus de défilement.
+    const doc = plan[category].find((d) => d.slug === slug);
+    if (doc) setCapturing({ slug, side: 1 });
   };
 
-  const addCapture = (slug: string, side: number, file: File, evidence?: KycEvidence) => {
-    const preview = URL.createObjectURL(file);
-    const current = state.files[slug] ?? [];
-    current.filter((f) => f.side === side).forEach((f) => URL.revokeObjectURL(f.preview));
-    const next = current.filter((f) => f.side !== side).concat({ file, preview, side, evidence });
-    next.sort((a, b) => a.side - b.side);
-    patch({ files: { ...state.files, [slug]: next } });
-    setCapturing(null);
-  };
+  /**
+   * Enregistre une capture puis enchaîne de lui-même : verso après recto, puis
+   * retour à l'écran de l'étape. Le client ne revient jamais chercher un
+   * bouton — l'écran suivant vient à lui.
+   *
+   * Pour une pièce d'identité, la bande MRZ est lue ici, sur l'appareil, avant
+   * l'enchaînement : l'image ne quitte pas le téléphone pour être lue.
+   */
+  const addCapture = useCallback(
+    async (category: KycCategory, doc: KycDocumentType, side: number, file: File, evidence?: KycEvidence) => {
+      const preview = URL.createObjectURL(file);
+      const current = state.files[doc.slug] ?? [];
+      current.filter((f) => f.side === side).forEach((f) => URL.revokeObjectURL(f.preview));
+
+      let ocr: OcrResult | undefined;
+      if (category === "identity" && file.type.startsWith("image/")) {
+        setReading(true);
+        try {
+          ocr = await readIdentityDocument(file);
+        } catch {
+          // Une lecture impossible n'arrête jamais le client : la pièce part
+          // telle quelle et la conformité tranchera.
+          ocr = undefined;
+        } finally {
+          setReading(false);
+        }
+      }
+
+      const next = current.filter((f) => f.side !== side).concat({ file, preview, side, evidence, ocr });
+      next.sort((a, b) => a.side - b.side);
+      patch({ files: { ...state.files, [doc.slug]: next } });
+
+      const needed = doc.capture_mode === "scan_double" ? doc.sides : 1;
+      const missing = Array.from({ length: needed }, (_, i) => i + 1).find(
+        (s) => !next.some((f) => f.side === s),
+      );
+      // Enchaînement immédiat sur la face manquante, sinon retour à l'étape.
+      setCapturing(missing ? { slug: doc.slug, side: missing } : null);
+    },
+    // `patch` et `state` sont relus à chaque rendu : dépendance explicite.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [state],
+  );
 
   const removeCapture = (slug: string, side: number) => {
     const current = state.files[slug] ?? [];
@@ -201,6 +254,63 @@ export function KycFlow({
   const index = active ? categories.indexOf(active) : categories.length;
   const goNext = () => setActive(categories[index + 1] ?? null);
   const goPrev = () => setActive(index > 0 ? categories[index - 1]! : null);
+
+  /**
+   * Écran plein du parcours. Le contenu occupe l'affichage entier, le chrome
+   * du site est masqué, et chaque changement d'étape glisse latéralement : le
+   * client perçoit une page qui succède à une page, pas un bloc qui s'ouvre.
+   */
+  const screen = (key: string, content: ReactNode, bare = false) => (
+    <div className="fixed inset-0 z-[70] flex flex-col bg-background">
+      {bare ? (
+        <div key={key} className="flex flex-1 flex-col duration-300 animate-in fade-in">
+          {content}
+        </div>
+      ) : (
+        <div
+          key={key}
+          className="mx-auto flex w-full max-w-lg flex-1 flex-col gap-5 overflow-y-auto px-4 py-6 duration-300 animate-in fade-in slide-in-from-right-6"
+        >
+          {content}
+        </div>
+      )}
+      {reading && (
+        <div className="absolute inset-0 z-10 grid place-items-center bg-background/85 backdrop-blur-sm">
+          <div className="flex flex-col items-center gap-3 text-center">
+            <Loader2 className="h-7 w-7 animate-spin text-primary" aria-hidden />
+            <p className="text-sm font-medium">{t("kyc.reading.title")}</p>
+            <p className="max-w-xs text-xs text-muted-foreground">{t("kyc.reading.desc")}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+  /** Barre supérieure commune : sortie du parcours et retour d'étape. */
+  const topBar = (onBack?: () => void) => (
+    <div className="flex items-center justify-between">
+      {onBack ? (
+        <button
+          type="button"
+          onClick={onBack}
+          className="-ml-2 flex items-center gap-1 rounded-md px-2 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ChevronRight className="h-4 w-4 rotate-180" aria-hidden />
+          {t("common.back")}
+        </button>
+      ) : (
+        <span />
+      )}
+      <button
+        type="button"
+        onClick={() => { setCapturing(null); setStarted(false); }}
+        aria-label={t("common.close")}
+        className="-mr-2 rounded-md p-1.5 text-muted-foreground transition-colors hover:text-foreground"
+      >
+        <X className="h-4 w-4" aria-hidden />
+      </button>
+    </div>
+  );
 
   /* ------------------------------- Intro ------------------------------- */
   if (!started) {
@@ -270,39 +380,39 @@ export function KycFlow({
       const close = () => setCapturing(null);
 
       if (doc.capture_mode === "selfie") {
-        return (
+        return screen(`${doc.slug}-liveness`, (
           <LivenessCheck
             title={label}
             hint={t("kyc.hint.selfie")}
-            onCapture={(file, evidence) => addCapture(doc.slug, capturing.side, file, evidence)}
+            onCapture={(file, evidence) => void addCapture(active, doc, capturing.side, file, evidence)}
             onCancel={close}
           />
-        );
+        ), true);
       }
 
       if (doc.capture_mode === "upload") {
-        return (
+        return screen(`${doc.slug}-upload-${capturing.side}`, (
           <DocumentSource
             title={label}
             hint={t("kyc.hint.upload")}
             accept={doc.allowed_mime}
             maxSizeMb={doc.max_size_mb}
-            onCapture={(file, evidence) => addCapture(doc.slug, capturing.side, file, evidence)}
+            onCapture={(file, evidence) => void addCapture(active, doc, capturing.side, file, evidence)}
             onCancel={close}
           />
-        );
+        ), true);
       }
 
-      return (
+      return screen(`${doc.slug}-scan-${capturing.side}`, (
         <DocumentScanner
           shape={scanShape(doc)}
           profile="identity"
           title={label}
           hint={t(`kyc.hint.${doc.capture_mode}`)}
-          onCapture={(file, evidence) => addCapture(doc.slug, capturing.side, file, evidence)}
+          onCapture={(file, evidence) => void addCapture(active, doc, capturing.side, file, evidence)}
           onCancel={close}
         />
-      );
+      ), true);
     }
   }
 
@@ -331,8 +441,9 @@ export function KycFlow({
 
   /* --------------------------- Final recap step ------------------------- */
   if (!active) {
-    return (
-      <div className="space-y-5">
+    return screen("recap", (
+      <>
+        {topBar()}
         {rail}
         <div className="flex items-start gap-4 rounded-xl border border-success/30 bg-success/5 p-5">
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-success text-white">
@@ -378,8 +489,8 @@ export function KycFlow({
           <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
           {t("kyc.storageNotice")}
         </p>
-      </div>
-    );
+      </>
+    ));
   }
 
   /* ------------------------- One category at a time --------------------- */
@@ -391,8 +502,9 @@ export function KycFlow({
   const ActiveIcon = CATEGORY_ICON[active];
   const canContinue = complete(active) || !docs.some((d) => d.required);
 
-  return (
-    <div className="space-y-5">
+  return screen(active, (
+    <>
+      {topBar(index > 0 ? goPrev : undefined)}
       {rail}
 
       <header className="flex items-start gap-3.5">
@@ -513,8 +625,8 @@ export function KycFlow({
         <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
         {t("kyc.storageNotice")}
       </p>
-    </div>
-  );
+    </>
+  ));
 }
 
 

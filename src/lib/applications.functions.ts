@@ -283,10 +283,21 @@ export const registerDocuments = createServerFn({ method: "POST" })
               file_size: z.coerce.number().int().min(1).max(25 * 1024 * 1024),
               /** Preuve de capture produite par le navigateur, revalidée ici. */
               capture_evidence: z.unknown().optional(),
+              /** Lecture OCR/MRZ produite par le navigateur (texte brut). */
+              ocr: z.unknown().optional(),
             }),
           )
           .min(1)
           .max(24),
+        /** Identité déclarée au formulaire, croisée avec la MRZ lue. */
+        identity: z
+          .object({
+            first_name: z.string().max(120).optional(),
+            last_name: z.string().max(120).optional(),
+            birth_date: z.string().max(40).optional(),
+            nationality: z.string().max(3).optional(),
+          })
+          .optional(),
       })
       .parse(input),
   )
@@ -302,10 +313,12 @@ export const registerDocuments = createServerFn({ method: "POST" })
      * jamais reprises telles quelles, elles sont bornées puis confrontées aux
      * mêmes seuils qu'à l'écran. Le verdict pilote le statut du contrôle KYC. */
     const verdicts = new Map<string, ReturnType<typeof verifyCaptureEvidence>>();
+    const ocrByPath = new Map<string, unknown>();
     const rows = data.documents
       .filter((d) => d.storage_path.startsWith(`${applicationId}/`))
       .map((d) => {
-        const { capture_evidence, ...doc } = d;
+        const { capture_evidence, ocr, ...doc } = d;
+        if (ocr) ocrByPath.set(d.storage_path, ocr);
         const verdict = verifyCaptureEvidence(capture_evidence);
         verdicts.set(d.storage_path, verdict);
         return {
@@ -466,6 +479,125 @@ export const registerDocuments = createServerFn({ method: "POST" })
         })),
       },
     });
+    /* ------------------------------------------------------------------
+     * DÉCISION KYC FINALE — OCR/MRZ, croisement, arbitrage.
+     *
+     * La MRZ transmise par le navigateur n'est jamais reprise décodée : le
+     * texte brut est re-parsé ici, ses clés de contrôle revérifiées, puis
+     * croisé avec l'identité déclarée. La décision (passed / manual_review /
+     * failed) est journalisée et reportée sur le dossier.
+     * ---------------------------------------------------------------- */
+    try {
+      const { decideKyc } = await import("@/lib/kyc/decision.server");
+      const { parseMrz } = await import("@/lib/kyc/mrz");
+
+      const docsForDecision = (insertedDocs ?? []).map((doc) => {
+        const path = (doc as { storage_path?: string }).storage_path ?? "";
+        const verdict = verdicts.get(path);
+        return {
+          document_type_slug: doc.document_type_slug,
+          category: categoryOf.get(doc.document_type_slug) ?? "other",
+          capture_status: (verdict?.status ?? "verifying") as
+            | "verifying" | "passed" | "manual_review" | "failed",
+          capture_reasons: verdict?.reasons ?? [],
+          capture_score: verdict?.score ?? null,
+          capture_method: (verdict?.method ?? "upload") as "scan" | "upload" | "liveness",
+          ocr: ocrByPath.get(path),
+        };
+      });
+
+      // Identité déclarée : celle transmise, complétée par le dossier en base.
+      const { data: application } = await supabaseAdmin
+        .from("loan_applications")
+        .select("first_name, last_name, birth_date, nationality")
+        .eq("id", applicationId)
+        .maybeSingle();
+
+      const declared = {
+        first_name: data.identity?.first_name ?? (application as never as { first_name?: string })?.first_name ?? null,
+        last_name: data.identity?.last_name ?? (application as never as { last_name?: string })?.last_name ?? null,
+        birth_date: data.identity?.birth_date ?? (application as never as { birth_date?: string })?.birth_date ?? null,
+        nationality: data.identity?.nationality ?? (application as never as { nationality?: string })?.nationality ?? null,
+      };
+
+      const result = decideKyc({ declared, documents: docsForDecision });
+
+      // Lecture MRZ conservée avec la pièce qui l'a portée.
+      for (const doc of insertedDocs ?? []) {
+        const path = (doc as { storage_path?: string }).storage_path ?? "";
+        const payload = ocrByPath.get(path);
+        if (!payload) continue;
+        const raw = payload as { mrz_text?: string; viz_text?: string; confidence?: number };
+        const parsed = parseMrz(`${raw.mrz_text ?? ""}\n${raw.viz_text ?? ""}`);
+        await supabaseAdmin
+          .from("application_documents")
+          .update({
+            ocr_mrz: parsed
+              ? ({
+                  format: parsed.format,
+                  document_code: parsed.document_code,
+                  issuing_state: parsed.issuing_state,
+                  document_number: parsed.document_number,
+                  surname: parsed.surname,
+                  given_names: parsed.given_names,
+                  nationality: parsed.nationality,
+                  birth_date: parsed.birth_date,
+                  expiry_date: parsed.expiry_date,
+                  sex: parsed.sex,
+                  checksums_valid: parsed.checksums_valid,
+                  checksum_ratio: parsed.checksum_ratio,
+                  checks: parsed.checks,
+                } as never)
+              : null,
+            ocr_confidence: typeof raw.confidence === "number" ? raw.confidence : null,
+          } as never)
+          .eq("id", doc.id);
+      }
+
+      await (supabaseAdmin.from as unknown as (t: string) => { insert: (v: unknown) => Promise<unknown> })("application_identity_decisions").insert({
+        application_id: applicationId,
+        decision: result.decision,
+        score: result.score,
+        reasons: result.reasons,
+        identity_match: (result.identity ?? null) as never,
+        mrz: (result.mrz ?? null) as never,
+        source_document: result.source_document,
+        ocr_confidence: result.ocr.confidence,
+        engine: result.ocr.engine,
+      } as never);
+
+      await supabaseAdmin
+        .from("loan_applications")
+        .update({
+          kyc_decision: result.decision,
+          kyc_decision_score: result.score,
+          kyc_decided_at: result.evaluated_at,
+          // Le statut global ne passe jamais à "passed" sur la seule machine :
+          // une décision positive reste "verifying" tant que la conformité n'a
+          // pas confirmé, une décision négative est immédiatement visible.
+          kyc_status: result.decision === "failed" ? "failed" : "verifying",
+        } as never)
+        .eq("id", applicationId);
+
+      await server.logEvent(applicationId, "kyc_decision", {
+        description: `Décision KYC automatique : ${result.decision} (${result.score}/100)`,
+        metadata: {
+          decision: result.decision,
+          score: result.score,
+          reasons: result.reasons,
+          source_document: result.source_document,
+          mrz_found: result.ocr.mrz_found,
+          ocr_confidence: result.ocr.confidence,
+        },
+      });
+
+      return { ok: true, count: rows.length, decision: result.decision, score: result.score, reasons: result.reasons };
+    } catch (decisionError) {
+      // Une décision impossible ne bloque jamais le dépôt : le dossier part en
+      // revue documentaire, comme avant cette automatisation.
+      console.error("[registerDocuments] kyc decision failed", decisionError);
+    }
+
     return { ok: true, count: rows.length };
   });
 

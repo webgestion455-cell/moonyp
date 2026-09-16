@@ -11,7 +11,7 @@ const ContactInput = z.object({
   website: z.string().max(0).optional().or(z.literal("")),
 });
 
-const TO_EMAIL = "support@bnpparibas.myinvest-capital.com";
+const TO_EMAIL = "support@moonyp.com";
 const FROM_EMAIL = "MOONYP <no-reply@moonyp.com>";
 
 export const submitContactMessage = createServerFn({ method: "POST" })

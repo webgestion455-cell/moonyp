@@ -45,7 +45,11 @@ interface Props {
 const ANALYSIS_INTERVAL_MS = 70;
 /** Une image sur cinq passe aussi par l'analyse photométrique / anti-écran. */
 const PHOTOMETRY_EVERY = 5;
-const CHALLENGE_COUNT = 3;
+/**
+ * Quatre défis tirés au hasard, dans un ordre imprévisible : c'est ce tirage
+ * qui rend inopérant le rejeu d'une vidéo préenregistrée du client.
+ */
+const CHALLENGE_COUNT = 4;
 
 type Phase = "loading" | "positioning" | "challenge" | "captured" | "error";
 

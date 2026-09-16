@@ -1593,7 +1593,20 @@
       "verifying": "Controleren"
     },
     "stepOf": "Stap {{current}} van {{total}}",
-    "storageNotice": "Uw documenten worden versleuteld opgeslagen in een beveiligde omgeving en zijn uitsluitend toegankelijk voor ons compliance-team."
+    "storageNotice": "Uw documenten worden versleuteld opgeslagen in een beveiligde omgeving en zijn uitsluitend toegankelijk voor ons compliance-team.",
+    "reading": {
+      "title": "Reading your document",
+      "desc": "We are reading the machine-readable zone on your device. The image does not leave your phone for this step."
+    },
+    "decision": {
+      "passed": "Identity verified",
+      "manual_review": "Identity under review",
+      "failed": "Identity could not be verified",
+      "reviewNotice": "Our compliance team is finishing the checks. You will be notified as soon as the decision is made."
+    },
+    "guard": {
+      "fullscreen": "Stay on this screen until the step is complete."
+    }
   },
   "landing": {
     "badge": "Beslissing binnen 24 uur",

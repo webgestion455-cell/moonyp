@@ -11,6 +11,7 @@ import { AppHeader } from "@/components/AppHeader";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { LiveChat } from "@/components/LiveChat";
+import { useImmersive } from "@/lib/kyc/immersive";
 import "@/i18n";
 import i18n, { applyDetectedLanguage, LANG_STORAGE_KEY } from "@/i18n";
 import { applyLang, isSupportedLang, normalizeLang } from "@/lib/lang-url";
@@ -102,8 +103,13 @@ function RootComponent() {
   // Chemin sans préfixe de langue (/de/secure/... → /secure/...)
   const basePath = routeLang ? pathname.slice(routeLang.length + 1) || "/" : pathname;
 
+  // Vérification d'identité en cours : le parcours occupe tout l'écran, le
+  // chrome du site s'efface (aucune distraction, aucun recouvrement caméra).
+  const immersive = useImmersive();
+
   // Staff area and the secure applicant portal render their own chrome.
   const hideLayout =
+    immersive ||
     basePath.startsWith("/admin") ||
     basePath.startsWith("/auth") ||
     basePath.startsWith("/secure") ||

@@ -45,14 +45,23 @@ const SCAN_LIMITS = {
 };
 
 const LIVENESS_LIMITS = {
-  minChallenges: 3,
-  minDurationMs: 1200,
+  // Quatre défis au lieu de trois : une séquence rejouée depuis un
+  // enregistrement a d'autant moins de chance de couvrir l'ordre tiré.
+  minChallenges: 4,
+  minDurationMs: 1800,
   maxDurationMs: 10 * 60 * 1000,
-  minAnalysedFrames: 20,
-  minDepthVariance: 0.008,
-  maxScreenLikelihood: 0.8,
-  maxNoFaceRatio: 0.75,
+  minAnalysedFrames: 30,
+  minDepthVariance: 0.01,
+  // Un visage rejoué depuis un écran est refusé plus tôt qu'auparavant.
+  maxScreenLikelihood: 0.7,
+  maxNoFaceRatio: 0.6,
   maxReactionMs: 60_000,
+  /**
+   * Anti-rejeu : une réaction plus rapide que la perception humaine ne vient
+   * pas d'une personne qui vient de lire la consigne, mais d'une vidéo qui
+   * exécutait déjà le geste.
+   */
+  minReactionMs: 120,
 };
 
 const KNOWN_CHALLENGES = new Set(["blink", "turn_left", "turn_right", "smile", "open_mouth"]);
@@ -238,6 +247,10 @@ function verdictForLiveness(raw: Record<string, unknown>): EvidenceVerdict {
     if (requested.length > 0 && !requested.includes(entry.challenge)) reasons.push("unexpected_challenge");
     if (entry.reaction_ms !== null && entry.reaction_ms > LIVENESS_LIMITS.maxReactionMs) {
       reasons.push("slow_reaction");
+    }
+    if (entry.reaction_ms !== null && entry.reaction_ms < LIVENESS_LIMITS.minReactionMs) {
+      // Le geste précédait la consigne : rejeu d'un enregistrement.
+      reasons.push("reaction_too_fast");
     }
   }
   if (duration === null || duration < LIVENESS_LIMITS.minDurationMs) reasons.push("session_too_short");

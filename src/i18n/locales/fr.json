@@ -1593,7 +1593,20 @@
       "verifying": "Vérification"
     },
     "stepOf": "Étape {{current}} sur {{total}}",
-    "storageNotice": "Vos documents sont chiffrés, conservés dans un espace privé et accessibles uniquement à notre équipe conformité."
+    "storageNotice": "Vos documents sont chiffrés, conservés dans un espace privé et accessibles uniquement à notre équipe conformité.",
+    "reading": {
+      "title": "Lecture de votre document",
+      "desc": "Nous lisons la bande de lecture automatique sur votre appareil. L'image ne quitte pas votre téléphone pour cette étape."
+    },
+    "decision": {
+      "passed": "Identité vérifiée",
+      "manual_review": "Identité en cours d'examen",
+      "failed": "Identité non vérifiée",
+      "reviewNotice": "Notre équipe conformité termine les contrôles. Vous serez prévenu dès que la décision est prise."
+    },
+    "guard": {
+      "fullscreen": "Restez sur cet écran jusqu'à la fin de l'étape."
+    }
   },
   "landing": {
     "badge": "Décision en moins de 24 heures",
