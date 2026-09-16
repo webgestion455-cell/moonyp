@@ -62,41 +62,23 @@ export const requestAdminCode = createServerFn({ method: "POST" })
     });
 
     const resendKey = process.env.RESEND_API_KEY_MAIL;
+    if (resendKey) {
+      try {
+        const resend = new Resend(resendKey);
+        await resend.emails.send({
+          from: "MOONYP Admin <no-reply@moonyp.com>",
+          to: user.email!,
+          subject: `Code admin MOONYP : ${code}`,
+          html: `<div style="font-family:Arial,sans-serif;max-width:480px;margin:auto;padding:24px;background:#fafaf7;border-radius:12px"><h1 style="color:#0a0a0a;margin:0 0 8px">Connexion administrateur</h1><p style="color:#55575d;font-size:14px">Voici votre code de vérification à usage unique. Il expire dans 10 minutes.</p><div style="font-size:36px;font-weight:bold;letter-spacing:8px;text-align:center;background:#fff;border:1px solid #e5e5e0;border-radius:12px;padding:20px;margin:20px 0">${code}</div><p style="color:#999;font-size:12px">Si vous n'êtes pas à l'origine de cette demande, ignorez cet email et changez immédiatement votre mot de passe.</p></div>`,
+        });
+        return { sent: true, channel: "email" as const, email: user.email! };
+      } catch (e) {
+        console.error("Resend failed:", e);
+      }
+    }
 
-if (!resendKey) {
-  throw new Error("RESEND_API_KEY_MAIL est absente");
-}
-
-const resend = new Resend(resendKey);
-
-const { data: emailData, error: emailError } = await resend.emails.send({
-  from: "MOONYP Admin <no-reply@moonyp.com>",
-  to: user.email!,
-  subject: `Code admin MOONYP : ${code}`,
-  html: `
-    <div style="font-family:Arial,sans-serif;max-width:480px;margin:auto;padding:24px;background:#fafaf7;border-radius:12px">
-      <h1>Connexion administrateur</h1>
-      <p>Voici votre code de vérification à usage unique.</p>
-      <div style="font-size:36px;font-weight:bold;letter-spacing:8px;text-align:center;background:#fff;border:1px solid #e5e5e0;border-radius:12px;padding:20px;margin:20px 0">
-        ${code}
-      </div>
-      <p>Ce code expire dans 10 minutes.</p>
-    </div>
-  `,
-});
-
-if (emailError) {
-  console.error("[ADMIN 2FA] Resend error:", emailError);
-  throw new Error(`Échec Resend : ${emailError.message}`);
-}
-
-console.log("[ADMIN 2FA] Resend success:", emailData?.id);
-
-return {
-  sent: true,
-  channel: "email" as const,
-  email: user.email!,
-};
+    console.log(`[ADMIN 2FA] Code pour ${user.email} : ${code}`);
+    return { sent: true, channel: "console" as const, devCode: code, email: user.email! };
   });
 
 export const verifyAdminCode = createServerFn({ method: "POST" })

@@ -104,7 +104,7 @@ const CTA_BY_TEMPLATE: Record<
 
 
 function siteUrl(): string {
-  return (process.env["PUBLIC_SITE_URL"] ?? "https://moonyp.webgestion95.workers.dev").replace(/\/$/, "");
+  return (process.env["PUBLIC_SITE_URL"] ?? "https://moonyp.com").replace(/\/$/, "");
 }
 
 /**
