@@ -26,6 +26,7 @@ import {
   challengeSatisfied,
   challengeValue,
   drawChallenges,
+  issueMutedDuring,
   loadFaceEngine,
   readFace,
   type ChallengeResult,
@@ -231,7 +232,13 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
           a.photoCount += 1;
         }
 
-        setIssue(verdict.issue);
+        // Consigne affichée. Pendant un défi de rotation, tourner la tête met
+        // forcément le visage de trois quarts : signaler « regardez droit vers
+        // la caméra » à ce moment-là contredit la consigne en cours et bloque
+        // la personne. Ces reproches-là sont donc tus tant que le défi dure.
+        const active =
+          challengeShownAt.current === 0 ? null : (challengesRef.current[stepRef.current] ?? null);
+        setIssue(issueMutedDuring(active, verdict.issue) ? null : verdict.issue);
 
         // Phase 1 — cadrage : le visage doit être conforme plusieurs images
         // d'affilée avant que le premier défi ne soit demandé.
@@ -327,8 +334,11 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
     }
 
     try {
-      const engine = await loadFaceEngine();
-      const stream = await navigator.mediaDevices.getUserMedia({
+      // Caméra et moteur d'analyse démarrent ENSEMBLE, pas l'un après l'autre :
+      // la demande d'accès part à la première milliseconde, si bien que l'image
+      // apparaît pendant que le moteur finit de se charger. C'est ce qui
+      // supprime l'attente écran noir avant l'ouverture de la caméra frontale.
+      const streamPromise = navigator.mediaDevices.getUserMedia({
         // Caméra frontale imposée : contrairement au scanner de documents,
         // le contrôle de vivacité ne s'ouvre jamais sur la caméra arrière.
         video: {
@@ -339,11 +349,22 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
         },
         audio: false,
       });
+      // Le moteur est lancé sans attendre la caméra ; si la personne refuse
+      // l'accès, le flux rejeté est signalé plus bas et le moteur préchargé
+      // resservira au prochain essai.
+      const enginePromise = loadFaceEngine();
+      streamPromise.catch(() => undefined);
+      enginePromise.catch(() => undefined);
+
+      const stream = await streamPromise;
       streamRef.current = stream;
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         await videoRef.current.play().catch(() => undefined);
       }
+      // L'aperçu est déjà à l'écran : il ne reste qu'à attendre le moteur, qui
+      // s'est chargé en même temps.
+      const engine = await enginePromise;
       startedAt.current = performance.now();
       startedIso.current = new Date().toISOString();
       setPhase("positioning");

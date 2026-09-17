@@ -68,16 +68,12 @@ export const assessKyc = createServerFn({ method: "POST" })
       documents,
     });
 
-    // Seul le strict nécessaire revient au navigateur : jamais la MRZ, jamais
-    // le détail d'identité lu sur la pièce.
+    // Le navigateur ne reçoit QUE la décision. Ni score, ni motifs machine, ni
+    // contrôles champ par champ, ni MRZ, ni identité lue sur la pièce : ces
+    // éléments sont des données de conformité, réservées au dossier interne et
+    // à la piste d'audit. Le client voit une décision, rien d'autre.
     return {
       decision: result.decision,
-      score: result.score,
-      reasons: result.reasons,
-      mrz_found: result.ocr.mrz_found,
-      checks: result.identity
-        ? result.identity.fields.map((f) => ({ field: f.field, status: f.status }))
-        : [],
       evaluated_at: result.evaluated_at,
     };
   });

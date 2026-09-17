@@ -131,24 +131,72 @@ type TesseractWorker = {
 };
 
 let workerPromise: Promise<TesseractWorker> | null = null;
+/** Derniers paramètres appliqués : on ne les repousse pas s'ils n'ont pas changé. */
+let currentProfile: "mrz" | "viz" | null = null;
 
 async function getWorker(): Promise<TesseractWorker> {
   if (!workerPromise) {
     workerPromise = (async () => {
       const { createWorker } = await import("tesseract.js");
-      return (await createWorker("eng")) as unknown as TesseractWorker;
+      const worker = (await createWorker("eng")) as unknown as TesseractWorker;
+      // Profil MRZ posé d'emblée : la première lecture n'attend plus la
+      // configuration du moteur, c'est la passe la plus fréquente.
+      await worker.setParameters({
+        tessedit_char_whitelist: MRZ_WHITELIST,
+        tessedit_pageseg_mode: "6",
+        preserve_interword_spaces: "0",
+      });
+      currentProfile = "mrz";
+      return worker;
     })().catch((error) => {
       workerPromise = null;
+      currentProfile = null;
       throw error;
     });
   }
   return workerPromise;
 }
 
+async function applyProfile(worker: TesseractWorker, profile: "mrz" | "viz"): Promise<void> {
+  if (currentProfile === profile) return;
+  await worker.setParameters(
+    profile === "mrz"
+      ? {
+          tessedit_char_whitelist: MRZ_WHITELIST,
+          tessedit_pageseg_mode: "6",
+          preserve_interword_spaces: "0",
+        }
+      : {
+          tessedit_char_whitelist: "",
+          tessedit_pageseg_mode: "4",
+          preserve_interword_spaces: "1",
+        },
+  );
+  currentProfile = profile;
+}
+
+/**
+ * Précharge le moteur de lecture, sans rien lire.
+ *
+ * Appelé à l'ouverture du parcours d'identité : le téléchargement du moteur
+ * (WebAssembly + données de langue) se fait pendant que la personne lit les
+ * consignes, si bien qu'au moment du scan la lecture démarre immédiatement.
+ * Ne lève jamais et n'impose rien : si le préchargement échoue, la lecture
+ * réelle retentera le chargement.
+ */
+export function warmOcrEngine(): Promise<void> {
+  if (typeof window === "undefined") return Promise.resolve();
+  return getWorker().then(
+    () => undefined,
+    () => undefined,
+  );
+}
+
 /** Libère le moteur OCR (fin de parcours KYC). */
 export async function releaseOcrEngine(): Promise<void> {
   const current = workerPromise;
   workerPromise = null;
+  currentProfile = null;
   if (!current) return;
   try {
     const worker = await current;
@@ -182,11 +230,9 @@ export async function readIdentityDocument(
     const worker = await getWorker();
 
     // Passe 1 — bande MRZ, alphabet contraint, segmentation par blocs de lignes.
-    await worker.setParameters({
-      tessedit_char_whitelist: MRZ_WHITELIST,
-      tessedit_pageseg_mode: "6",
-      preserve_interword_spaces: "0",
-    });
+    // C'est la seule passe exécutée quand la bande est lue du premier coup :
+    // les passes suivantes ne servent qu'en rattrapage.
+    await applyProfile(worker, "mrz");
     const mrzCanvas = renderCrop(bitmap, { ...band, targetWidth: 1600, binarise: true });
     const mrzPass = await worker.recognize(mrzCanvas);
     let mrzText = mrzPass.data.text ?? "";
@@ -212,14 +258,12 @@ export async function readIdentityDocument(
       }
     }
 
-    // Passe 2 — zone visuelle, uniquement si demandée (repli documentaire).
+    // Passe 2 — zone visuelle. Elle n'est utile que si la MRZ n'a pas été lue :
+    // quand la bande est exploitable, elle porte déjà toute l'identité et cette
+    // passe est purement du temps perdu pour la personne.
     let vizText = "";
-    if (options.viz !== false) {
-      await worker.setParameters({
-        tessedit_char_whitelist: "",
-        tessedit_pageseg_mode: "4",
-        preserve_interword_spaces: "1",
-      });
+    if (options.viz !== false && !mrz) {
+      await applyProfile(worker, "viz");
       const vizCanvas = renderCrop(bitmap, {
         top: 0,
         height: 0.7,

@@ -26,10 +26,21 @@ import { Button } from "@/components/ui/button";
 import { DocumentScanner, type ScanShape } from "@/components/finance/DocumentScanner";
 import { DocumentSource } from "@/components/finance/DocumentSource";
 import { LivenessCheck } from "@/components/finance/LivenessCheck";
+import {
+  KycArtApproved,
+  KycArtRejected,
+  KycArtReview,
+} from "@/components/finance/KycDecisionArt";
 import type { CaptureEvidence } from "@/lib/kyc/image-analysis";
 import type { LivenessSessionEvidence } from "@/lib/kyc/liveness-engine";
 import { useImmersiveMode } from "@/lib/kyc/immersive";
-import { readIdentityDocument, type OcrResult } from "@/lib/kyc/ocr";
+import {
+  readIdentityDocument,
+  releaseOcrEngine,
+  warmOcrEngine,
+  type OcrResult,
+} from "@/lib/kyc/ocr";
+import { loadFaceEngine } from "@/lib/kyc/liveness-engine";
 import { cn } from "@/lib/utils";
 
 export interface KycDocumentType {
@@ -181,6 +192,18 @@ export function KycFlow({
   useEffect(() => setMounted(true), []);
 
   /**
+   * Références toujours à jour sur l'état et sur le rappel de changement.
+   * Elles sont indispensables depuis la lecture de pièce, qui se termine en
+   * arrière-plan : sans elles, la lecture écraserait un état déjà périmé.
+   */
+  const stateRef = useRef(state);
+  stateRef.current = state;
+  const onChangeRef = useRef(onChange);
+  onChangeRef.current = onChange;
+  /** Nombre de lectures de pièce encore en cours. */
+  const readingCount = useRef(0);
+
+  /**
    * Décision d'identité rendue par le serveur. Le navigateur ne calcule rien :
    * il envoie les mesures et le texte lu, et affiche la réponse du back-end.
    */
@@ -193,6 +216,22 @@ export function KycFlow({
   // Dès le lancement, le parcours occupe l'écran entier : le chrome du site
   // s'efface et la page ne défile plus. Une étape = un écran = un geste.
   useImmersiveMode(started);
+
+  /**
+   * Préchargement. Dès que le parcours s'ouvre, le moteur de lecture de pièce
+   * et le moteur de repères faciaux sont téléchargés en tâche de fond, pendant
+   * que la personne lit les consignes. Quand elle scanne sa pièce ou lance le
+   * contrôle du visage, tout est déjà prêt : plus d'attente au moment du geste.
+   * Les moteurs sont relâchés à la sortie du parcours.
+   */
+  useEffect(() => {
+    if (!started) return;
+    void warmOcrEngine();
+    void loadFaceEngine().catch(() => undefined);
+    return () => {
+      void releaseOcrEngine();
+    };
+  }, [started]);
 
   const plan = useMemo(
     () => resolveKycPlan(documentTypes, { employmentStatus, productSlug, allowedIdDocuments, countryCode }),
@@ -239,37 +278,54 @@ export function KycFlow({
   const addCapture = useCallback(
     async (category: KycCategory, doc: KycDocumentType, side: number, file: File, evidence?: KycEvidence) => {
       const preview = URL.createObjectURL(file);
-      const current = state.files[doc.slug] ?? [];
+      const current = stateRef.current.files[doc.slug] ?? [];
       current.filter((f) => f.side === side).forEach((f) => URL.revokeObjectURL(f.preview));
 
-      let ocr: OcrResult | undefined;
-      if (category === "identity" && file.type.startsWith("image/")) {
-        setReading(true);
-        try {
-          ocr = await readIdentityDocument(file);
-        } catch {
-          // Une lecture impossible n'arrête jamais le client : la pièce part
-          // telle quelle et la conformité tranchera.
-          ocr = undefined;
-        } finally {
-          setReading(false);
-        }
-      }
-
-      const next = current.filter((f) => f.side !== side).concat({ file, preview, side, evidence, ocr });
+      // L'enchaînement est immédiat : la capture est retenue tout de suite et
+      // l'écran suivant s'affiche sans attendre quoi que ce soit.
+      const next = current.filter((f) => f.side !== side).concat({ file, preview, side, evidence });
       next.sort((a, b) => a.side - b.side);
-      patch({ files: { ...state.files, [doc.slug]: next } });
+      onChangeRef.current({
+        ...stateRef.current,
+        files: { ...stateRef.current.files, [doc.slug]: next },
+      });
 
       const needed = doc.capture_mode === "scan_double" ? doc.sides : 1;
       const missing = Array.from({ length: needed }, (_, i) => i + 1).find(
         (s) => !next.some((f) => f.side === s),
       );
-      // Enchaînement immédiat sur la face manquante, sinon retour à l'étape.
       setCapturing(missing ? { slug: doc.slug, side: missing } : null);
+
+      // Lecture de la pièce : en arrière-plan, jamais devant le client. Elle se
+      // fait sur l'appareil pendant que la personne continue son parcours, et
+      // vient compléter la capture déjà enregistrée dès qu'elle aboutit.
+      if (category !== "identity" || !file.type.startsWith("image/")) return;
+      readingCount.current += 1;
+      setReading(true);
+      void readIdentityDocument(file)
+        .then((ocr) => {
+          const shots = stateRef.current.files[doc.slug] ?? [];
+          // La capture a pu être reprise ou supprimée entre-temps : dans ce
+          // cas la lecture est simplement abandonnée.
+          if (!shots.some((f) => f.side === side && f.file === file)) return;
+          onChangeRef.current({
+            ...stateRef.current,
+            files: {
+              ...stateRef.current.files,
+              [doc.slug]: shots.map((f) => (f.side === side && f.file === file ? { ...f, ocr } : f)),
+            },
+          });
+        })
+        .catch(() => {
+          // Une lecture impossible n'arrête jamais le client : la pièce part
+          // telle quelle et la conformité tranchera.
+        })
+        .finally(() => {
+          readingCount.current = Math.max(0, readingCount.current - 1);
+          if (readingCount.current === 0) setReading(false);
+        });
     },
-    // `patch` et `state` sont relus à chaque rendu : dépendance explicite.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [state],
+    [],
   );
 
   const removeCapture = (slug: string, side: number) => {
@@ -394,12 +450,14 @@ export function KycFlow({
             {content}
           </div>
         )}
+        {/* La lecture de la pièce se fait en arrière-plan : elle ne barre plus
+            l'écran ni n'interrompt le parcours. Un simple bandeau discret
+            indique qu'elle est en cours, et la personne continue. */}
         {reading && (
-          <div className="absolute inset-0 z-10 grid place-items-center bg-background/85 backdrop-blur-sm">
-            <div className="flex flex-col items-center gap-3 text-center">
-              <Loader2 className="h-7 w-7 animate-spin text-primary" aria-hidden />
-              <p className="text-sm font-medium">{t("kyc.reading.title")}</p>
-              <p className="max-w-xs text-xs text-muted-foreground">{t("kyc.reading.desc")}</p>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center p-4">
+            <div className="flex items-center gap-2 rounded-full border border-border bg-background/95 px-3.5 py-2 shadow-lg backdrop-blur-sm">
+              <Loader2 className="h-4 w-4 shrink-0 animate-spin text-primary" aria-hidden />
+              <p className="text-xs font-medium">{t("kyc.reading.title")}</p>
             </div>
           </div>
         )}
@@ -825,9 +883,15 @@ function StatusPill({ status }: { status: KycStatus }) {
 }
 
 /**
- * Verdict d'identité affiché au client. Le composant ne juge rien : il rend
- * la décision calculée par le serveur (`assessKyc`), avec ses motifs machine
- * traduits. En l'absence de réponse, le dossier part simplement en revue.
+ * Verdict d'identité affiché au client.
+ *
+ * Le composant ne juge rien et ne montre rien d'interne : il rend la seule
+ * décision renvoyée par le serveur — vérifiée, en examen par le service
+ * conformité, ou non vérifiée — avec son illustration dédiée et une phrase
+ * claire. Le score, les motifs machine et les contrôles champ par champ
+ * restent dans le dossier de conformité ; ils ne sont jamais présentés au
+ * client. En l'absence de réponse du serveur, le dossier est simplement
+ * annoncé en examen.
  */
 function DecisionCard({
   assessment,
@@ -852,70 +916,30 @@ function DecisionCard({
     );
   }
 
-  if (failed || !assessment) {
-    return (
-      <div className="flex items-start gap-3 rounded-xl border border-warning/40 bg-warning/10 p-4">
-        <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-warning" aria-hidden />
-        <div className="min-w-0">
-          <p className="text-sm font-medium">{t("kyc.decision.manual_review")}</p>
-          <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{t("kyc.decision.reviewNotice")}</p>
-        </div>
-      </div>
-    );
-  }
+  // Décision effective : sans réponse exploitable, la conformité tranche.
+  const decision = failed || !assessment ? "manual_review" : assessment.decision;
 
-  const tone =
-    assessment.decision === "passed"
-      ? { box: "border-success/40 bg-success/10", icon: "text-success", Icon: BadgeCheck }
-      : assessment.decision === "failed"
-        ? { box: "border-destructive/40 bg-destructive/10", icon: "text-destructive", Icon: X }
-        : { box: "border-warning/40 bg-warning/10", icon: "text-warning", Icon: ShieldCheck };
+  const view =
+    decision === "passed"
+      ? { box: "border-success/40 bg-success/5", Art: KycArtApproved, notice: "kyc.decision.passedNotice" }
+      : decision === "failed"
+        ? { box: "border-destructive/40 bg-destructive/5", Art: KycArtRejected, notice: "kyc.decision.failedNotice" }
+        : { box: "border-warning/40 bg-warning/5", Art: KycArtReview, notice: "kyc.decision.reviewNotice" };
 
   return (
-    <div className={cn("space-y-3 rounded-xl border p-4", tone.box)}>
-      <div className="flex items-start gap-3">
-        <tone.Icon className={cn("mt-0.5 h-5 w-5 shrink-0", tone.icon)} aria-hidden />
-        <div className="min-w-0 flex-1">
-          <p className="text-sm font-semibold">{t(`kyc.decision.${assessment.decision}`)}</p>
-          <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-            {assessment.decision === "passed"
-              ? t("kyc.decision.passedNotice")
-              : assessment.decision === "failed"
-                ? t("kyc.decision.failedNotice")
-                : t("kyc.decision.reviewNotice")}
-          </p>
-        </div>
-        <span className="shrink-0 rounded-full bg-background/70 px-2.5 py-1 text-[11px] font-semibold tabular-nums">
-          {assessment.score}/100
-        </span>
+    <div
+      role="status"
+      aria-live="polite"
+      className={cn(
+        "flex flex-col items-center gap-4 rounded-xl border p-6 text-center sm:flex-row sm:items-center sm:gap-5 sm:text-left",
+        view.box,
+      )}
+    >
+      <view.Art />
+      <div className="min-w-0">
+        <p className="text-base font-semibold">{t(`kyc.decision.${decision}`)}</p>
+        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t(view.notice)}</p>
       </div>
-
-      {assessment.checks.length > 0 && (
-        <ul className="grid gap-1.5 sm:grid-cols-2">
-          {assessment.checks.map((check) => (
-            <li key={check.field} className="flex items-center gap-2 text-xs">
-              {check.status === "match" ? (
-                <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success" aria-hidden />
-              ) : check.status === "mismatch" ? (
-                <X className="h-3.5 w-3.5 shrink-0 text-destructive" aria-hidden />
-              ) : (
-                <CircleDashed className="h-3.5 w-3.5 shrink-0 text-muted-foreground" aria-hidden />
-              )}
-              <span className="truncate text-muted-foreground">{t(`kyc.decision.field.${check.field}`)}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {assessment.reasons.length > 0 && assessment.decision !== "passed" && (
-        <ul className="space-y-1 border-t border-border/60 pt-2">
-          {assessment.reasons.slice(0, 6).map((reason) => (
-            <li key={reason} className="text-xs leading-relaxed text-muted-foreground">
-              · {t(`kyc.decision.reason.${reason.split(":")[0]}`, { defaultValue: t("kyc.decision.reason.generic") })}
-            </li>
-          ))}
-        </ul>
-      )}
     </div>
   );
 }

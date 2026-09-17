@@ -591,7 +591,10 @@ export const registerDocuments = createServerFn({ method: "POST" })
         },
       });
 
-      return { ok: true, count: rows.length, decision: result.decision, score: result.score, reasons: result.reasons };
+      // Le navigateur ne reçoit que la décision. Le score et les motifs
+      // machine restent en base et dans la piste d'audit, à l'usage exclusif
+      // du service conformité.
+      return { ok: true, count: rows.length, decision: result.decision };
     } catch (decisionError) {
       // Une décision impossible ne bloque jamais le dépôt : le dossier part en
       // revue documentaire, comme avant cette automatisation.
