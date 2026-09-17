@@ -1,6 +1,8 @@
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { useServerFn } from "@tanstack/react-start";
 import { useTranslation } from "react-i18next";
+import { assessKyc, type KycAssessment } from "@/lib/kyc.functions";
 import { documentLabel } from "@/lib/document-labels";
 import {
   BadgeCheck,
@@ -151,10 +153,15 @@ interface Props {
   countryCode: string;
   state: KycState;
   onChange: (next: KycState) => void;
+  /** Identité déclarée au formulaire, croisée au serveur avec la MRZ lue. */
+  identity?: { first_name?: string; last_name?: string; birth_date?: string; nationality?: string };
+  /** Sortie du parcours vers l'étape suivante de la demande (récapitulatif). */
+  onComplete?: () => void;
 }
 
 export function KycFlow({
   documentTypes, employmentStatus, productSlug, allowedIdDocuments, countryCode, state, onChange,
+  identity, onComplete,
 }: Props) {
   const { t } = useTranslation();
   const [started, setStarted] = useState(false);
@@ -173,6 +180,15 @@ export function KycFlow({
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
+  /**
+   * Décision d'identité rendue par le serveur. Le navigateur ne calcule rien :
+   * il envoie les mesures et le texte lu, et affiche la réponse du back-end.
+   */
+  const assessFn = useServerFn(assessKyc);
+  const [assessment, setAssessment] = useState<KycAssessment | null>(null);
+  const [assessing, setAssessing] = useState(false);
+  const [assessError, setAssessError] = useState(false);
+  const assessedSignature = useRef<string>("");
 
   // Dès le lancement, le parcours occupe l'écran entier : le chrome du site
   // s'efface et la page ne défile plus. Une étape = un écran = un geste.
@@ -266,6 +282,97 @@ export function KycFlow({
   const index = active ? categories.indexOf(active) : categories.length;
   const goNext = () => setActive(categories[index + 1] ?? null);
   const goPrev = () => setActive(index > 0 ? categories[index - 1]! : null);
+
+  /* --------------------- Décision d'identité (serveur) -------------------
+   * Le récapitulatif n'affiche jamais un verdict fabriqué à l'écran : les
+   * mesures de capture et le texte OCR/MRZ partent au serveur, qui revalide
+   * tout et renvoie la décision. Rien n'est conservé côté navigateur. */
+  const assessPayload = useMemo(() => {
+    const documents: {
+      document_type_slug: string;
+      category: string;
+      capture_method: "scan" | "upload" | "liveness";
+      capture_evidence?: unknown;
+      ocr?: unknown;
+    }[] = [];
+    for (const category of categories) {
+      const docs = plan[category];
+      const chosen = state.choices[category] ?? (docs.length === 1 ? docs[0]!.slug : "");
+      const doc = docs.find((d) => d.slug === chosen);
+      if (!doc) continue;
+      for (const shot of state.files[doc.slug] ?? []) {
+        documents.push({
+          document_type_slug: doc.slug,
+          category: doc.category,
+          capture_method:
+            doc.capture_mode === "selfie" ? "liveness" : doc.capture_mode === "upload" ? "upload" : "scan",
+          capture_evidence: shot.evidence,
+          ocr: shot.ocr
+            ? {
+                mrz_text: shot.ocr.mrz_text,
+                viz_text: shot.ocr.viz_text,
+                confidence: shot.ocr.confidence,
+                engine: shot.ocr.engine,
+              }
+            : undefined,
+        });
+      }
+    }
+    return documents;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state, categories.join("|")]);
+
+  const assessSignature = useMemo(
+    () =>
+      JSON.stringify([
+        assessPayload.map((d) => [d.document_type_slug, d.capture_method, Boolean(d.ocr)]),
+        identity?.first_name,
+        identity?.last_name,
+        identity?.birth_date,
+        identity?.nationality,
+      ]),
+    [assessPayload, identity],
+  );
+
+  const onRecap = started && !active;
+
+  useEffect(() => {
+    if (!onRecap || assessPayload.length === 0) return;
+    if (assessedSignature.current === assessSignature) return;
+    assessedSignature.current = assessSignature;
+    let cancelled = false;
+    setAssessing(true);
+    setAssessError(false);
+    void assessFn({
+      data: {
+        identity: {
+          first_name: identity?.first_name ?? "",
+          last_name: identity?.last_name ?? "",
+          birth_date: identity?.birth_date ?? "",
+          nationality: identity?.nationality ?? "",
+        },
+        documents: assessPayload,
+      },
+    })
+      .then((res) => {
+        if (!cancelled) setAssessment(res);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        // Une évaluation indisponible ne bloque jamais le client : le dossier
+        // part en revue documentaire, comme avant cette automatisation.
+        assessedSignature.current = "";
+        setAssessError(true);
+      })
+      .finally(() => {
+        if (!cancelled) setAssessing(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onRecap, assessSignature]);
+
 
   /**
    * Écran plein du parcours. Le contenu occupe l'affichage entier, le chrome
@@ -472,6 +579,14 @@ export function KycFlow({
           </div>
         </div>
 
+        {/* Verdict d'identité — rendu par le serveur, jamais par l'écran. */}
+        <DecisionCard
+          assessment={assessment}
+          loading={assessing}
+          failed={assessError}
+        />
+
+
         <ul className="space-y-2">
           {categories.map((category) => {
             const Icon = CATEGORY_ICON[category];
@@ -506,9 +621,50 @@ export function KycFlow({
           <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
           {t("kyc.storageNotice")}
         </p>
+
+        {/* Sortie du parcours : retour à la dernière étape, ou passage au
+         * récapitulatif de la demande. Une identité refusée ne peut pas
+         * continuer : la pièce doit être reprise. */}
+        <div className="flex items-center gap-3 border-t border-border pt-4">
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={() => setActive(categories[categories.length - 1] ?? null)}
+            disabled={categories.length === 0}
+          >
+            {t("common.back")}
+          </Button>
+          {assessment?.decision === "failed" ? (
+            <Button
+              type="button"
+              variant="destructive"
+              className="flex-1"
+              onClick={() => setActive(categories[0] ?? null)}
+            >
+              <RefreshCw className="h-4 w-4" aria-hidden />
+              {t("kyc.decision.retry")}
+            </Button>
+          ) : (
+            <Button
+              type="button"
+              className="flex-1"
+              disabled={assessing}
+              onClick={() => {
+                setCapturing(null);
+                setStarted(false);
+                onComplete?.();
+              }}
+            >
+              {assessing && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
+              {t("common.continue")}
+              <ChevronRight className="h-4 w-4" aria-hidden />
+            </Button>
+          )}
+        </div>
       </>
     ));
   }
+
 
   /* ------------------------- One category at a time --------------------- */
   const docs = plan[active];
@@ -665,5 +821,101 @@ function StatusPill({ status }: { status: KycStatus }) {
       <Icon className="h-3 w-3" aria-hidden />
       <span className="hidden sm:inline">{t(`kyc.status.${status}`)}</span>
     </span>
+  );
+}
+
+/**
+ * Verdict d'identité affiché au client. Le composant ne juge rien : il rend
+ * la décision calculée par le serveur (`assessKyc`), avec ses motifs machine
+ * traduits. En l'absence de réponse, le dossier part simplement en revue.
+ */
+function DecisionCard({
+  assessment,
+  loading,
+  failed,
+}: {
+  assessment: KycAssessment | null;
+  loading: boolean;
+  failed: boolean;
+}) {
+  const { t } = useTranslation();
+
+  if (loading) {
+    return (
+      <div className="flex items-center gap-3 rounded-xl border border-border bg-muted/40 p-4">
+        <Loader2 className="h-5 w-5 shrink-0 animate-spin text-primary" aria-hidden />
+        <div className="min-w-0">
+          <p className="text-sm font-medium">{t("kyc.decision.checking")}</p>
+          <p className="mt-0.5 text-xs text-muted-foreground">{t("kyc.decision.checkingDesc")}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (failed || !assessment) {
+    return (
+      <div className="flex items-start gap-3 rounded-xl border border-warning/40 bg-warning/10 p-4">
+        <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-warning" aria-hidden />
+        <div className="min-w-0">
+          <p className="text-sm font-medium">{t("kyc.decision.manual_review")}</p>
+          <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{t("kyc.decision.reviewNotice")}</p>
+        </div>
+      </div>
+    );
+  }
+
+  const tone =
+    assessment.decision === "passed"
+      ? { box: "border-success/40 bg-success/10", icon: "text-success", Icon: BadgeCheck }
+      : assessment.decision === "failed"
+        ? { box: "border-destructive/40 bg-destructive/10", icon: "text-destructive", Icon: X }
+        : { box: "border-warning/40 bg-warning/10", icon: "text-warning", Icon: ShieldCheck };
+
+  return (
+    <div className={cn("space-y-3 rounded-xl border p-4", tone.box)}>
+      <div className="flex items-start gap-3">
+        <tone.Icon className={cn("mt-0.5 h-5 w-5 shrink-0", tone.icon)} aria-hidden />
+        <div className="min-w-0 flex-1">
+          <p className="text-sm font-semibold">{t(`kyc.decision.${assessment.decision}`)}</p>
+          <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+            {assessment.decision === "passed"
+              ? t("kyc.decision.passedNotice")
+              : assessment.decision === "failed"
+                ? t("kyc.decision.failedNotice")
+                : t("kyc.decision.reviewNotice")}
+          </p>
+        </div>
+        <span className="shrink-0 rounded-full bg-background/70 px-2.5 py-1 text-[11px] font-semibold tabular-nums">
+          {assessment.score}/100
+        </span>
+      </div>
+
+      {assessment.checks.length > 0 && (
+        <ul className="grid gap-1.5 sm:grid-cols-2">
+          {assessment.checks.map((check) => (
+            <li key={check.field} className="flex items-center gap-2 text-xs">
+              {check.status === "match" ? (
+                <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success" aria-hidden />
+              ) : check.status === "mismatch" ? (
+                <X className="h-3.5 w-3.5 shrink-0 text-destructive" aria-hidden />
+              ) : (
+                <CircleDashed className="h-3.5 w-3.5 shrink-0 text-muted-foreground" aria-hidden />
+              )}
+              <span className="truncate text-muted-foreground">{t(`kyc.decision.field.${check.field}`)}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {assessment.reasons.length > 0 && assessment.decision !== "passed" && (
+        <ul className="space-y-1 border-t border-border/60 pt-2">
+          {assessment.reasons.slice(0, 6).map((reason) => (
+            <li key={reason} className="text-xs leading-relaxed text-muted-foreground">
+              · {t(`kyc.decision.reason.${reason.split(":")[0]}`, { defaultValue: t("kyc.decision.reason.generic") })}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }

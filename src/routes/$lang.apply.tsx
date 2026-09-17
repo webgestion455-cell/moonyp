@@ -679,6 +679,13 @@ function ApplyPage() {
             countryCode={String(form.country ?? "")}
             state={kyc}
             onChange={setKyc}
+            identity={{
+              first_name: String(form.first_name ?? ""),
+              last_name: String(form.last_name ?? ""),
+              birth_date: String(form.birth_date ?? ""),
+              nationality: String(form.nationality ?? ""),
+            }}
+            onComplete={() => validateStep(5) && goTo(6)}
           />
         )}
 
