@@ -362,7 +362,7 @@ function Landing() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-accent" /><a href="mailto:support@moonyp.com" className="hover:text-accent">support@moonyp.com</a></li>
               <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-accent" /><a href="tel:+393500366867" className="hover:text-accent">+39 350 036 6867</a></li>
-              <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-accent" />16 Boulevard des Italiens, 75009 Paris, France</li>
+              <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-accent" />1 Centenary Square, Birmingham, B1 2DR, United Kingdom</li>
             </ul>
             <Button asChild className="mt-6 w-full rounded-full">
               <Link to="/$lang/contact" params={{ lang }}>{t("contactSection.cta", "Open contact form")}</Link>

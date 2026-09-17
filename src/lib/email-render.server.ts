@@ -72,7 +72,7 @@ export interface EmailTemplateInput {
  * ----------------------------------------------------------------------- */
 
 const BRAND_NAME = "MOONYP";
-const BRAND_ADDRESS = "16 Boulevard des Italiens, 75009 Paris, France";
+const BRAND_ADDRESS = "1 Centenary Square, Birmingham, B1 2DR, United Kingdom";
 const BRAND_EMAIL = "support@moonyp.com";
 const BRAND_PHONE = "+39 350 036 6867";
 

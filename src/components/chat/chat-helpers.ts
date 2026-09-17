@@ -5,7 +5,7 @@
 
 export const CHAT_BRAND = {
   bankName: "MOONYP",
-  address: "16 boulevard des Italiens, 75009 Paris, France",
+  address: "1 centenary Square, Birmingham, B1 2DR, United Kingdom",
   companyNumber: "662 042 449",
   copyright: `© 2000-${new Date().getFullYear()} Moonyp, All rights reserved.`,
   primary: "#00915A",

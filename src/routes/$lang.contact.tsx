@@ -149,7 +149,7 @@ function ContactPage() {
               <div>
                 <p className="font-medium">{t("contact.addressLabel")}</p>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=103+avenue+des+Champs-Élysées+75008+Paris"
+                  href="https://maps.app.goo.gl/7U5y453Ku2UPFk3d6"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary hover:underline transition cursor-pointer">{t("contact.address")}<br />{t("contact.addressCity")}</a>

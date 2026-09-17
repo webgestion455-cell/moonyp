@@ -127,10 +127,10 @@ const BODY_BOTTOM = FOOTER_Y + 30;
 
 /** Identité complète du prêteur (mentions légales du site). */
 export const LENDER = {
-  name: "MOONYP SAS",
+  name: "MOONYP LTD",
   legalForm: "Société par actions simplifiée au capital de 1 000 000 EUR",
-  address: "1 Centenary Square, Birmingham, B1 1HQ, Royaume-Uni",
-  registry: "RCS Birmingham 000 000 000",
+  address: "1 Centenary Square, Birmingham, B1 2DR, United Kingdom",
+  registry: "Company No. MN657309",
   email: "support@moonyp.com",
   site: "moonyp.com",
   compliance: "Service Conformité MOONYP",
@@ -190,7 +190,7 @@ export class BankDocument {
     pdf.registerFontkit(fontkit);
     pdf.setTitle(winAnsi(`${meta.title} — ${meta.fileReference}`));
     pdf.setSubject(winAnsi(meta.kicker));
-    pdf.setAuthor("MOONYP SAS");
+    pdf.setAuthor("MOONYP LTD");
     pdf.setCreator("MOONYP — Fabrique documentaire");
     pdf.setProducer("MOONYP Document Engine");
     pdf.setCreationDate(meta.issuedAt);

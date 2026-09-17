@@ -102,7 +102,7 @@ export function SiteFooter() {
               </li>
               <li className="flex items-start gap-1.5">
                 <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" aria-hidden />
-                <span>16 Boulevard des Italiens, 75009 Paris</span>
+                <span>1 Centenary Square, Birmingham, B1 2DR</span>
               </li>
             </ul>
           </div>
