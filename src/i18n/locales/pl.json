@@ -551,8 +551,8 @@
     "yes": "Tak"
   },
   "contact": {
-    "address": "103 avenue des Champs-Élysées",
-    "addressCity": "75008 Paryż, Francja",
+    "address": "1 centenary Square",
+    "addressCity": "Birmingham, B1 2DR, United Kingdom",
     "addressLabel": "Siedziba główna",
     "back": "Wstecz",
     "defaultEmailPlaceholder": "ty@przyklad.com",
@@ -1896,7 +1896,7 @@
         },
         {
           "h": "Kontakt",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
+          "p": "<a href=\"mailto:support@moonyp.com\">support@moonyp.com</a>"
         },
         {
           "h": "Własność intelektualna",

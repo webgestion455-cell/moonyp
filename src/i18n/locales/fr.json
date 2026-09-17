@@ -43,7 +43,7 @@
     "timeline": {
       "title": "Notre histoire",
       "y1d": "Trois spécialistes du crédit lancent MOONYP pour réduire les délais de décision de plusieurs semaines à quelques heures.",
-      "y1t": "Création à Paris",
+      "y1t": "Création à Birmingham",
       "y2d": "Ouverture à onze marchés et localisation complète des contrats et des communications.",
       "y2t": "Expansion européenne",
       "y3d": "Parcours 100 % dématérialisé avec signature certifiée et vérification d'identité automatisée.",
@@ -551,8 +551,8 @@
     "yes": "Oui"
   },
   "contact": {
-    "address": "103 avenue des Champs-Élysées",
-    "addressCity": "75008 Paris, France",
+    "address": "1 centenary Square",
+    "addressCity": "Birmingham, B1 2DR, United Kingdom",
     "addressLabel": "Siège social",
     "back": "Retour",
     "defaultEmailPlaceholder": "vous@exemple.fr",
@@ -1896,7 +1896,7 @@
         },
         {
           "h": "Contact",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
+          "p": "<a href=\"mailto:support@moonyp.com\">support@moonyp.com</a>"
         },
         {
           "h": "Propriété intellectuelle",
@@ -1929,7 +1929,7 @@
         },
         {
           "h": "6. Vos droits",
-          "p": "Accès, rectification, suppression, limitation, portabilité et opposition. Contact <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@moonyp.com</a>. Vous pouvez saisir l'autorité de protection des données de votre pays."
+          "p": "Accès, rectification, suppression, limitation, portabilité et opposition. Contact <a href=\"mailto:support@moonyp.com\">privacy@moonyp.com</a>. Vous pouvez saisir l'autorité de protection des données de votre pays."
         },
         {
           "h": "7. Sécurité",

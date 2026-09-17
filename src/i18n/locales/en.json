@@ -43,7 +43,7 @@
     "timeline": {
       "title": "Our story",
       "y1d": "Three credit specialists launch MOONYP to shorten loan decisions from weeks to hours.",
-      "y1t": "Founded in Paris",
+      "y1t": "Founded in Birmingham",
       "y2d": "Opening to eleven markets and full localisation of contracts and communications.",
       "y2t": "European expansion",
       "y3d": "End-to-end paperless journey with certified electronic signature and automated identity checks.",
@@ -551,8 +551,8 @@
     "yes": "Yes"
   },
   "contact": {
-    "address": "103 avenue des Champs-Élysées",
-    "addressCity": "75008 Paris, France",
+    "address": "1 centenary Square",
+    "addressCity": "Birmingham, B1 2DR, United Kingdom",
     "addressLabel": "Head office",
     "back": "Back",
     "defaultEmailPlaceholder": "you@example.com",
@@ -1896,7 +1896,7 @@
         },
         {
           "h": "Contact",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
+          "p": "<a href=\"mailto:support@moonyp.com\">support@moonyp.com</a>"
         },
         {
           "h": "Intellectual property",
@@ -1929,7 +1929,7 @@
         },
         {
           "h": "6. Your rights",
-          "p": "Access, rectification, deletion, restriction, portability, and objection. Contact <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@moonyp.com</a>. You may file a complaint with your national data protection authority."
+          "p": "Access, rectification, deletion, restriction, portability, and objection. Contact <a href=\"mailto:support@moonyp.com\">privacy@moonyp.com</a>. You may file a complaint with your national data protection authority."
         },
         {
           "h": "7. Security",

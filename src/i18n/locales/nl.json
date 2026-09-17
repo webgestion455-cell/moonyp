@@ -551,8 +551,8 @@
     "yes": "Ja"
   },
   "contact": {
-    "address": "103 avenue des Champs-Élysées",
-    "addressCity": "75008 Parijs, Frankrijk",
+    "address": "1 centenary Square",
+    "addressCity": "Birmingham, B1 2DR, United Kingdom",
     "addressLabel": "Hoofdkantoor",
     "back": "Terug",
     "defaultEmailPlaceholder": "jij@voorbeeld.nl",
@@ -1896,7 +1896,7 @@
         },
         {
           "h": "Contact",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
+          "p": "<a href=\"mailto:support@moonyp.com\">support@moonyp.com</a>"
         },
         {
           "h": "Intellectueel eigendom",
@@ -1929,7 +1929,7 @@
         },
         {
           "h": "6. Uw rechten",
-          "p": "Inzage, rectificatie, verwijdering, beperking, overdraagbaarheid, bezwaar. <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@moonyp.com</a>."
+          "p": "Inzage, rectificatie, verwijdering, beperking, overdraagbaarheid, bezwaar. <a href=\"mailto:support@moonyp.com\">privacy@moonyp.com</a>."
         },
         {
           "h": "7. Beveiliging",

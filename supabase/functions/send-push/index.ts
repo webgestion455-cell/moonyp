@@ -9,7 +9,7 @@ const supabase = createClient(
 );
 
 webpush.setVapidDetails(
-  "mailto:info@moonyp.com",
+  "mailto:support@moonyp.com",
   Deno.env.get("VAPID_PUBLIC_KEY")!,
   Deno.env.get("VAPID_PRIVATE_KEY")!,
 );

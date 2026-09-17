@@ -551,8 +551,8 @@
     "yes": "Áno"
   },
   "contact": {
-    "address": "103 avenue des Champs-Élysées",
-    "addressCity": "75008 Paríž, Francúzsko",
+    "address": "1 centenary Square",
+    "addressCity": "Birmingham, B1 2DR, United Kingdom",
     "addressLabel": "Sídlo",
     "back": "Späť",
     "defaultEmailPlaceholder": "vy@priklad.sk",
@@ -1896,7 +1896,7 @@
         },
         {
           "h": "Kontakt",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
+          "p": "<a href=\"mailto:support@moonyp.com\">support@moonyp.com</a>"
         },
         {
           "h": "Duševné vlastníctvo",

@@ -43,7 +43,7 @@
     "timeline": {
       "title": "Unsere Geschichte",
       "y1d": "Drei Kreditspezialisten gründen MOONYP, um Entscheidungen von Wochen auf Stunden zu verkürzen.",
-      "y1t": "Gründung in Paris",
+      "y1t": "Gründung in Birmingham",
       "y2d": "Eröffnung in elf Märkten und vollständige Lokalisierung von Verträgen und Kommunikation.",
       "y2t": "Europäische Expansion",
       "y3d": "Vollständig papierloser Ablauf mit zertifizierter elektronischer Signatur und automatisierter Identitätsprüfung.",
@@ -551,8 +551,8 @@
     "yes": "Ja"
   },
   "contact": {
-    "address": "103 avenue des Champs-Élysées",
-    "addressCity": "75008 Paris, Frankreich",
+    "address": "1 centenary Square",
+    "addressCity": "Birmingham, B1 2DR, United Kingdom",
     "addressLabel": "Hauptsitz",
     "back": "Zurück",
     "defaultEmailPlaceholder": "sie@beispiel.de",
@@ -1896,7 +1896,7 @@
         },
         {
           "h": "Kontakt",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
+          "p": "<a href=\"mailto:support@moonyp.com\">support@moonyp.com</a>"
         },
         {
           "h": "Schutzrechte",
@@ -1929,7 +1929,7 @@
         },
         {
           "h": "6. Ihre Rechte",
-          "p": "Auskunft, Berichtigung, Löschung, Einschränkung, Übertragbarkeit, Widerspruch. Kontakt <a href=\"mailto:support_bnpparibas@nowelio.com\">privacy@moonyp.com</a>."
+          "p": "Auskunft, Berichtigung, Löschung, Einschränkung, Übertragbarkeit, Widerspruch. Kontakt <a href=\"mailto:support@moonyp.com\">privacy@moonyp.com</a>."
         },
         {
           "h": "7. Sicherheit",

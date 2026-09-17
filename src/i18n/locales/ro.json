@@ -43,7 +43,7 @@
     "timeline": {
       "title": "Povestea noastră",
       "y1d": "Trei specialiști în credite lansează MOONYP pentru a reduce deciziile de la săptămâni la ore.",
-      "y1t": "Înființare la Paris",
+      "y1t": "Înființare la Birmingham",
       "y2d": "Deschidere pe unsprezece piețe și localizare completă a contractelor și comunicărilor.",
       "y2t": "Expansiune europeană",
       "y3d": "Parcurs complet digital, cu semnătură certificată și verificare automată a identității.",
@@ -551,8 +551,8 @@
     "yes": "Da"
   },
   "contact": {
-    "address": "103 avenue des Champs-Élysées",
-    "addressCity": "75008 Paris, Franța",
+    "address": "1 centenary Square,",
+    "addressCity": "Birmingham, B1 2DR, United Kingdom",
     "addressLabel": "Sediul central",
     "back": "Spate",
     "defaultEmailPlaceholder": "tu@example.com",
@@ -1896,7 +1896,7 @@
         },
         {
           "h": "Contact",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
+          "p": "<a href=\"mailto:support@moonyp.com\">support@moonyp.com</a>"
         },
         {
           "h": "Proprietate intelectuală",

@@ -138,7 +138,7 @@ function ContactPage() {
               <div>
                 <p className="font-medium">{t("contact.emailLabel")}</p>
                 <a
-                 href="mailto:support_bnpparibas@nowelio.com"
+                 href="mailto:support@moonyp.com"
                  className="text-muted-foreground hover:text-primary hover:underline transition break-all cursor-pointer">support@moonyp.com</a>
               </div>
             </div>

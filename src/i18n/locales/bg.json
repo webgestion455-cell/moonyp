@@ -551,8 +551,8 @@
     "yes": "Да"
   },
   "contact": {
-    "address": "103 avenue des Champs-Élysées",
-    "addressCity": "75008 Париж, Франция",
+    "address": "1 centenary Square",
+    "addressCity": "Birmingham, B1 2DR, United Kingdom",
     "addressLabel": "Централа",
     "back": "Назад",
     "defaultEmailPlaceholder": "vie@primer.bg",
@@ -1896,7 +1896,7 @@
         },
         {
           "h": "Контакт",
-          "p": "<a href=\"mailto:support_bnpparibas@nowelio.com\">support@moonyp.com</a>"
+          "p": "<a href=\"mailto:support@moonyp.com\">support@moonyp.com</a>"
         },
         {
           "h": "Интелектуална собственост",
