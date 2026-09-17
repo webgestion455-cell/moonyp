@@ -89,7 +89,7 @@ serve(async (req) => {
   <h3 style="color:#fff">Récapitulatif</h3>
   <div style="color:#111">${recap || "<p>(aucun message)</p>"}</div>
   <hr style="border-color:#333;margin-top:24px"/>
-  <p style="font-size:12px;color:#999;text-align:center">MOONYP SA — 1 centenary Square, Birmingham, B1 2DR</p>
+  <p style="font-size:12px;color:#999;text-align:center">MOONYP LTD — 1 centenary Square, Birmingham, B1 2DR</p>
 </div>`,
           }),
         });
