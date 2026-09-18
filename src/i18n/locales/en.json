@@ -1600,14 +1600,14 @@
     },
     "decision": {
       "passed": "Identity verified",
-      "manual_review": "Identity under review",
+      "manual_review": "Additional verification required",
       "failed": "Identity could not be verified",
-      "reviewNotice": "Our compliance team is finishing the checks. You will be notified as soon as the decision is made.",
-      "checking": "Checking your identity",
-      "checkingDesc": "Our verification engine is cross-checking your document with your declared details.",
-      "passedNotice": "Your document and your selfie match the details you provided.",
-      "failedNotice": "The checks could not confirm your identity. Please capture your document again.",
-      "retry": "Start the verification again",
+      "reviewNotice": "Additional checks by the compliance team are required.",
+      "checking": "Checking your document",
+      "checkingDesc": "Reading the document and comparing the available identity details.",
+      "passedNotice": "Your identity verification is complete.",
+      "failedNotice": "Please capture a valid, legible identity document and complete the live face check.",
+      "retry": "Restart verification",
       "field": {
         "surname": "Surname",
         "given_names": "Given names",
@@ -1651,7 +1651,9 @@
         "insufficient_analysis": "The capture was too brief to be analysed.",
         "missing_score": "The capture measurements are missing.",
         "manual_review_required": "A compliance review is required."
-      }
+      },
+      "unavailable": "Verification unavailable",
+      "unavailableNotice": "No decision was made. Please try again."
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

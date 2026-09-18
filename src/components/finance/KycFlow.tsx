@@ -381,7 +381,7 @@ export function KycFlow({
   const assessSignature = useMemo(
     () =>
       JSON.stringify([
-        assessPayload.map((d) => [d.document_type_slug, d.capture_method, Boolean(d.ocr)]),
+        assessPayload,
         identity?.first_name,
         identity?.last_name,
         identity?.birth_date,
@@ -393,11 +393,12 @@ export function KycFlow({
   const onRecap = started && !active;
 
   useEffect(() => {
-    if (!onRecap || assessPayload.length === 0) return;
+    if (!onRecap || reading || assessPayload.length === 0) return;
     if (assessedSignature.current === assessSignature) return;
     assessedSignature.current = assessSignature;
     let cancelled = false;
     setAssessing(true);
+    setAssessment(null);
     setAssessError(false);
     void assessFn({
       data: {
@@ -415,8 +416,7 @@ export function KycFlow({
       })
       .catch(() => {
         if (cancelled) return;
-        // Une évaluation indisponible ne bloque jamais le client : le dossier
-        // part en revue documentaire, comme avant cette automatisation.
+        // Une erreur technique n'est jamais une décision de conformité.
         assessedSignature.current = "";
         setAssessError(true);
       })
@@ -425,9 +425,10 @@ export function KycFlow({
       });
     return () => {
       cancelled = true;
+      assessedSignature.current = "";
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onRecap, assessSignature]);
+  }, [onRecap, assessSignature, reading]);
 
 
   /**
@@ -640,7 +641,7 @@ export function KycFlow({
         {/* Verdict d'identité — rendu par le serveur, jamais par l'écran. */}
         <DecisionCard
           assessment={assessment}
-          loading={assessing}
+          loading={assessing || reading}
           failed={assessError}
         />
 
@@ -916,8 +917,15 @@ function DecisionCard({
     );
   }
 
-  // Décision effective : sans réponse exploitable, la conformité tranche.
-  const decision = failed || !assessment ? "manual_review" : assessment.decision;
+  if (failed || !assessment) {
+    return (
+      <div role="alert" className="border border-border bg-muted/40 p-4">
+        <p className="text-sm font-medium">{t("kyc.decision.unavailable")}</p>
+        <p className="mt-1 text-xs text-muted-foreground">{t("kyc.decision.unavailableNotice")}</p>
+      </div>
+    );
+  }
+  const decision = assessment.decision;
 
   const view =
     decision === "passed"

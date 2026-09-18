@@ -1599,15 +1599,15 @@
       "desc": "We are reading the machine-readable zone on your device. The image does not leave your phone for this step."
     },
     "decision": {
-      "passed": "Identity verified",
-      "manual_review": "Identity under review",
-      "failed": "Identity could not be verified",
-      "reviewNotice": "Our compliance team is finishing the checks. You will be notified as soon as the decision is made.",
-      "checking": "Checking your identity",
-      "checkingDesc": "Our verification engine is cross-checking your document with your declared details.",
-      "passedNotice": "Your document and your selfie match the details you provided.",
-      "failedNotice": "The checks could not confirm your identity. Please capture your document again.",
-      "retry": "Start the verification again",
+      "passed": "Identiteta potrjena",
+      "manual_review": "Potrebno je dodatno preverjanje",
+      "failed": "Identiteta ni potrjena",
+      "reviewNotice": "Potrebna so dodatna preverjanja oddelka za skladnost.",
+      "checking": "Preverjanje vašega dokumenta",
+      "checkingDesc": "Branje dokumenta in primerjava razpoložljivih podatkov o identiteti.",
+      "passedNotice": "Preverjanje vaše identitete je zaključeno.",
+      "failedNotice": "Ponovno zajemite veljaven in čitljiv osebni dokument ter opravite preverjanje obraza v živo.",
+      "retry": "Znova začni preverjanje",
       "field": {
         "surname": "Surname",
         "given_names": "Given names",
@@ -1651,7 +1651,9 @@
         "insufficient_analysis": "The capture was too brief to be analysed.",
         "missing_score": "The capture measurements are missing.",
         "manual_review_required": "A compliance review is required."
-      }
+      },
+      "unavailable": "Preverjanje ni na voljo",
+      "unavailableNotice": "Odločitev ni bila sprejeta. Poskusite znova."
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

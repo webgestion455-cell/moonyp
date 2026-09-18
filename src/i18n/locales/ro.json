@@ -1599,15 +1599,15 @@
       "desc": "We are reading the machine-readable zone on your device. The image does not leave your phone for this step."
     },
     "decision": {
-      "passed": "Identity verified",
-      "manual_review": "Identity under review",
-      "failed": "Identity could not be verified",
-      "reviewNotice": "Our compliance team is finishing the checks. You will be notified as soon as the decision is made.",
-      "checking": "Checking your identity",
-      "checkingDesc": "Our verification engine is cross-checking your document with your declared details.",
-      "passedNotice": "Your document and your selfie match the details you provided.",
-      "failedNotice": "The checks could not confirm your identity. Please capture your document again.",
-      "retry": "Start the verification again",
+      "passed": "Identitate verificată",
+      "manual_review": "Este necesară o verificare suplimentară",
+      "failed": "Identitatea nu a fost verificată",
+      "reviewNotice": "Sunt necesare verificări suplimentare din partea departamentului de conformitate.",
+      "checking": "Se verifică documentul",
+      "checkingDesc": "Se citește documentul și se compară datele de identitate disponibile.",
+      "passedNotice": "Verificarea identității a fost finalizată.",
+      "failedNotice": "Fotografiați din nou un act de identitate valabil și lizibil și efectuați verificarea facială în direct.",
+      "retry": "Reîncepeți verificarea",
       "field": {
         "surname": "Surname",
         "given_names": "Given names",
@@ -1651,7 +1651,9 @@
         "insufficient_analysis": "The capture was too brief to be analysed.",
         "missing_score": "The capture measurements are missing.",
         "manual_review_required": "A compliance review is required."
-      }
+      },
+      "unavailable": "Verificare indisponibilă",
+      "unavailableNotice": "Nu a fost luată nicio decizie. Încercați din nou."
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

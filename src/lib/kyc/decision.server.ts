@@ -13,10 +13,9 @@
  * `failed` — accompagnée d'un score, des motifs machine et de la piste
  * d'audit complète (comparaison champ par champ).
  *
- * Principe de prudence : aucune décision positive automatique n'est rendue si
- * une pièce d'identité lisible et une vivacité conforme ne sont pas toutes
- * deux présentes. Le doute va toujours en revue manuelle, jamais en
- * acceptation.
+ * Les mesures et l'OCR reçus du navigateur ne prouvent ni l'authenticité de
+ * la pièce ni l'identité biométrique. Ce moteur de précontrôle ne peut donc
+ * jamais rendre une validation KYC automatique.
  */
 
 import { parseMrz, type MrzData } from "./mrz";
@@ -162,11 +161,17 @@ export function decideKyc(input: DecisionInput): DecisionResult {
   /* --------------------------- 4. Vivacité -------------------------------- */
   if (selfieDocs.length === 0) reasons.push("no_liveness_session");
   const livenessFailed = selfieDocs.some((d) => d.capture_status === "failed");
-  const livenessDoubt = selfieDocs.some((d) => d.capture_status === "manual_review");
+  const livenessDoubt = selfieDocs.some((d) => d.capture_status !== "passed" || d.capture_method !== "liveness");
   if (livenessFailed) reasons.push("liveness_failed");
   if (livenessDoubt) reasons.push("liveness_doubt");
 
   /* --------------------------- 5. Arbitrage ------------------------------- */
+  // Absence de lecture exploitable : vérification non aboutie, pas une
+  // reconnaissance positive du type de document ou un refus de crédit.
+  if (!mrz) reasons.push("identity_not_extracted");
+  // Ces vérifications ne sont pas implémentées par le moteur local. Les
+  // déclarer explicitement dans la piste d'audit, sans fabriquer un score.
+  reasons.push("independent_document_verification_required", "face_match_not_performed", "address_verification_not_performed", "bank_statement_verification_not_performed");
   const unique = [...new Set(reasons)];
   const identityScore = identity?.score ?? 0;
   const qualityFactor =
@@ -174,28 +179,18 @@ export function decideKyc(input: DecisionInput): DecisionResult {
   const score = Math.round(Math.max(0, Math.min(100, identityScore * qualityFactor)));
 
   const hardFail =
+    !mrz ||
+    selfieDocs.length === 0 ||
+    selfieDocs.some((d) => d.capture_method !== "liveness") ||
     unique.includes("birth_date_mismatch") ||
     unique.includes("surname_mismatch") ||
     unique.includes("document_expired") ||
     unique.includes("liveness_failed") ||
     (identity !== null && identityScore < DECISION_LIMITS.hardFailScore);
 
-  const autoPass =
-    !hardFail &&
-    identity !== null &&
-    mrz !== null &&
-    mrz.checksums_valid &&
-    identityScore >= DECISION_LIMITS.autoPassScore &&
-    selfieDocs.length > 0 &&
-    !livenessFailed &&
-    !livenessDoubt &&
-    (minCapture === null || minCapture >= DECISION_LIMITS.minCaptureScore) &&
-    (confidence === null || confidence >= DECISION_LIMITS.minOcrConfidence) &&
-    !unique.includes("screen_presentation_suspected") &&
-    !unique.includes("identity_document_uploaded") &&
-    !unique.some((r) => r.startsWith("capture_failed:"));
-
-  const decision: KycDecision = hardFail ? "failed" : autoPass ? "passed" : "manual_review";
+  // Aucun nombre de tentatives, checksum ou score client ne constitue une
+  // preuve indépendante. Même une MRZ parfaite peut être recopiée/fabriquée.
+  const decision: KycDecision = hardFail ? "failed" : "manual_review";
 
   return {
     decision,

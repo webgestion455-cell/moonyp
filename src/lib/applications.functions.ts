@@ -506,19 +506,15 @@ export const registerDocuments = createServerFn({ method: "POST" })
         };
       });
 
-      // Identité déclarée : celle transmise, complétée par le dossier en base.
-      const { data: application } = await supabaseAdmin
+      // Seule l'identité du dossier fait foi. Un dépôt ne peut pas la remplacer.
+      const { data: application, error: identityError } = await supabaseAdmin
         .from("loan_applications")
         .select("first_name, last_name, birth_date, nationality")
         .eq("id", applicationId)
         .maybeSingle();
 
-      const declared = {
-        first_name: data.identity?.first_name ?? (application as never as { first_name?: string })?.first_name ?? null,
-        last_name: data.identity?.last_name ?? (application as never as { last_name?: string })?.last_name ?? null,
-        birth_date: data.identity?.birth_date ?? (application as never as { birth_date?: string })?.birth_date ?? null,
-        nationality: data.identity?.nationality ?? (application as never as { nationality?: string })?.nationality ?? null,
-      };
+      if (identityError || !application) throw new Error("kyc_identity_unavailable");
+      const declared = application;
 
       const result = decideKyc({ declared, documents: docsForDecision });
 
@@ -554,7 +550,7 @@ export const registerDocuments = createServerFn({ method: "POST" })
           .eq("id", doc.id);
       }
 
-      await (supabaseAdmin.from as unknown as (t: string) => { insert: (v: unknown) => Promise<unknown> })("application_identity_decisions").insert({
+      const { error: decisionWriteError } = await (supabaseAdmin.from as unknown as (t: string) => { insert: (v: unknown) => Promise<{ error: unknown }> })("application_identity_decisions").insert({
         application_id: applicationId,
         decision: result.decision,
         score: result.score,
@@ -566,7 +562,8 @@ export const registerDocuments = createServerFn({ method: "POST" })
         engine: result.ocr.engine,
       } as never);
 
-      await supabaseAdmin
+      if (decisionWriteError) throw new Error("kyc_audit_write_failed");
+      const { error: statusWriteError } = await supabaseAdmin
         .from("loan_applications")
         .update({
           kyc_decision: result.decision,
@@ -579,6 +576,7 @@ export const registerDocuments = createServerFn({ method: "POST" })
         } as never)
         .eq("id", applicationId);
 
+      if (statusWriteError) throw new Error("kyc_status_write_failed");
       await server.logEvent(applicationId, "kyc_decision", {
         description: `Décision KYC automatique : ${result.decision} (${result.score}/100)`,
         metadata: {
@@ -596,9 +594,9 @@ export const registerDocuments = createServerFn({ method: "POST" })
       // du service conformité.
       return { ok: true, count: rows.length, decision: result.decision };
     } catch (decisionError) {
-      // Une décision impossible ne bloque jamais le dépôt : le dossier part en
-      // revue documentaire, comme avant cette automatisation.
+      // Les fichiers sont déposés, mais aucune décision ne doit être inventée.
       console.error("[registerDocuments] kyc decision failed", decisionError);
+      throw new Error("kyc_assessment_unavailable");
     }
 
     return { ok: true, count: rows.length };

@@ -13,6 +13,14 @@ import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/admin/kyc")({
+  head: () => ({ meta: [
+    { title: "Conformité KYC — MOONYP" },
+    { name: "description", content: "Suivi interne des contrôles documentaires et décisions de conformité MOONYP." },
+    { property: "og:title", content: "Conformité KYC — MOONYP" },
+    { property: "og:description", content: "Suivi interne des contrôles documentaires et décisions de conformité MOONYP." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   component: AdminKycQueue,
 });
 
@@ -44,6 +52,8 @@ const STATUS_STYLES: Record<string, string> = {
 };
 
 const STATUS_LABELS: Record<string, string> = {
+  manual_review: "Examen manuel requis",
+  retry: "Nouvelle capture requise",
   passed: "Validé",
   failed: "Rejeté",
   verifying: "À vérifier",
@@ -112,7 +122,7 @@ function AdminKycQueue() {
         <div>
           <h1 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">Conformité — KYC</h1>
           <p className="text-sm text-muted-foreground">
-            Contrôles d'identité de tous les dossiers, dans chacun de leurs états. Mise à jour automatique.
+            Précontrôles documentaires — les mesures de capture et la lecture automatique ne certifient pas l’identité.
           </p>
         </div>
         <div className="flex flex-wrap gap-1.5">
@@ -132,6 +142,11 @@ function AdminKycQueue() {
           ))}
         </div>
       </header>
+
+      <div role="note" className="border-l-4 border-warning bg-warning/10 p-4 text-sm text-foreground">
+        <p className="font-semibold">Vérifications indépendantes non raccordées</p>
+        <p className="mt-1">Authenticité des pièces, correspondance visage–portrait, justificatif de domicile et relevé bancaire : non vérifiés automatiquement. Aucun résultat de capture ne doit être interprété comme une validation bancaire.</p>
+      </div>
 
       {/* Compteurs réels : la section reste informative même sans file active. */}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
@@ -187,11 +202,11 @@ function AdminKycQueue() {
                         variant="outline"
                         className={cn("shrink-0 text-[10px]", STATUS_STYLES[String(r.status)] ?? STATUS_STYLES.todo)}
                       >
-                        {STATUS_LABELS[String(r.status)] ?? String(r.status)}
+                         {STATUS_LABELS[String(r.status)] ?? "État à examiner"}
                       </Badge>
                     </p>
                     <p className="truncate text-xs text-muted-foreground">
-                      {r.category} · {r.document_type_slug ?? r.step_key} ·{" "}
+                      {({ identity: "Identité", address: "Domicile", bank: "Banque", income: "Revenus", selfie: "Visage", other: "Autre" } as Record<string, string>)[r.category] ?? "Document"} · {r.document_type_slug ?? r.step_key} ·{" "}
                       {new Date(r.created_at).toLocaleString("fr-FR")}
                     </p>
                     {r.review_note && (

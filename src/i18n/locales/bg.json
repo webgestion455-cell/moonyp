@@ -1599,15 +1599,15 @@
       "desc": "We are reading the machine-readable zone on your device. The image does not leave your phone for this step."
     },
     "decision": {
-      "passed": "Identity verified",
-      "manual_review": "Identity under review",
-      "failed": "Identity could not be verified",
-      "reviewNotice": "Our compliance team is finishing the checks. You will be notified as soon as the decision is made.",
-      "checking": "Checking your identity",
-      "checkingDesc": "Our verification engine is cross-checking your document with your declared details.",
-      "passedNotice": "Your document and your selfie match the details you provided.",
-      "failedNotice": "The checks could not confirm your identity. Please capture your document again.",
-      "retry": "Start the verification again",
+      "passed": "Самоличността е потвърдена",
+      "manual_review": "Необходима е допълнителна проверка",
+      "failed": "Самоличността не е потвърдена",
+      "reviewNotice": "Необходими са допълнителни проверки от отдела за съответствие.",
+      "checking": "Документът ви се проверява",
+      "checkingDesc": "Документът се прочита и наличните данни за самоличност се сравняват.",
+      "passedNotice": "Проверката на самоличността ви е завършена.",
+      "failedNotice": "Заснемете отново валиден и четлив документ за самоличност и извършете проверката на лицето на живо.",
+      "retry": "Започнете проверката отново",
       "field": {
         "surname": "Surname",
         "given_names": "Given names",
@@ -1651,7 +1651,9 @@
         "insufficient_analysis": "The capture was too brief to be analysed.",
         "missing_score": "The capture measurements are missing.",
         "manual_review_required": "A compliance review is required."
-      }
+      },
+      "unavailable": "Проверката е недостъпна",
+      "unavailableNotice": "Не е взето решение. Моля, опитайте отново."
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

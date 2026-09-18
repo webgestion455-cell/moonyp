@@ -1599,15 +1599,15 @@
       "desc": "We are reading the machine-readable zone on your device. The image does not leave your phone for this step."
     },
     "decision": {
-      "passed": "Identity verified",
-      "manual_review": "Identity under review",
-      "failed": "Identity could not be verified",
-      "reviewNotice": "Our compliance team is finishing the checks. You will be notified as soon as the decision is made.",
-      "checking": "Checking your identity",
-      "checkingDesc": "Our verification engine is cross-checking your document with your declared details.",
-      "passedNotice": "Your document and your selfie match the details you provided.",
-      "failedNotice": "The checks could not confirm your identity. Please capture your document again.",
-      "retry": "Start the verification again",
+      "passed": "Identità verificata",
+      "manual_review": "Sono necessarie ulteriori verifiche",
+      "failed": "Identità non verificata",
+      "reviewNotice": "Sono necessari ulteriori controlli da parte del servizio di conformità.",
+      "checking": "Analisi del documento",
+      "checkingDesc": "Lettura del documento e confronto dei dati di identità disponibili.",
+      "passedNotice": "La verifica della sua identità è completata.",
+      "failedNotice": "Acquisisca nuovamente un documento valido e leggibile e completi il controllo del volto in tempo reale.",
+      "retry": "Ricominciare la verifica",
       "field": {
         "surname": "Surname",
         "given_names": "Given names",
@@ -1651,7 +1651,9 @@
         "insufficient_analysis": "The capture was too brief to be analysed.",
         "missing_score": "The capture measurements are missing.",
         "manual_review_required": "A compliance review is required."
-      }
+      },
+      "unavailable": "Verifica non disponibile",
+      "unavailableNotice": "Non è stata presa alcuna decisione. Riprovi."
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

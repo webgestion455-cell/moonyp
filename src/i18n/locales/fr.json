@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Identité vérifiée",
-      "manual_review": "Identité en cours d'examen",
+      "manual_review": "Vérifications complémentaires nécessaires",
       "failed": "Identité non vérifiée",
-      "reviewNotice": "Notre équipe conformité termine les contrôles. Vous serez prévenu dès que la décision est prise.",
-      "checking": "Vérification de votre identité",
-      "checkingDesc": "Nos contrôles croisent votre pièce avec les informations que vous avez déclarées.",
-      "passedNotice": "Votre pièce et votre selfie correspondent aux informations déclarées.",
-      "failedNotice": "Les contrôles n'ont pas pu confirmer votre identité. Reprenez la capture de votre pièce.",
+      "reviewNotice": "Des contrôles complémentaires par le service conformité sont nécessaires.",
+      "checking": "Analyse de votre document",
+      "checkingDesc": "Lecture du document et comparaison des informations d’identité disponibles.",
+      "passedNotice": "La vérification de votre identité est terminée.",
+      "failedNotice": "Veuillez reprendre une pièce d’identité valide et lisible et effectuer le contrôle du visage en direct.",
       "retry": "Recommencer la vérification",
       "field": {
         "surname": "Nom",
@@ -1651,7 +1651,9 @@
         "insufficient_analysis": "La capture a été trop brève pour être analysée.",
         "missing_score": "Les mesures de capture sont absentes.",
         "manual_review_required": "Un examen de conformité est nécessaire."
-      }
+      },
+      "unavailable": "Vérification indisponible",
+      "unavailableNotice": "Aucune décision n’a été rendue. Veuillez réessayer."
     },
     "guard": {
       "fullscreen": "Restez sur cet écran jusqu'à la fin de l'étape."

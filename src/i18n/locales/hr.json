@@ -1599,15 +1599,15 @@
       "desc": "We are reading the machine-readable zone on your device. The image does not leave your phone for this step."
     },
     "decision": {
-      "passed": "Identity verified",
-      "manual_review": "Identity under review",
-      "failed": "Identity could not be verified",
-      "reviewNotice": "Our compliance team is finishing the checks. You will be notified as soon as the decision is made.",
-      "checking": "Checking your identity",
-      "checkingDesc": "Our verification engine is cross-checking your document with your declared details.",
-      "passedNotice": "Your document and your selfie match the details you provided.",
-      "failedNotice": "The checks could not confirm your identity. Please capture your document again.",
-      "retry": "Start the verification again",
+      "passed": "Identitet potvrđen",
+      "manual_review": "Potrebna je dodatna provjera",
+      "failed": "Identitet nije potvrđen",
+      "reviewNotice": "Potrebne su dodatne provjere odjela za usklađenost.",
+      "checking": "Provjera vašeg dokumenta",
+      "checkingDesc": "Čitanje dokumenta i usporedba dostupnih podataka o identitetu.",
+      "passedNotice": "Provjera vašeg identiteta je završena.",
+      "failedNotice": "Ponovno snimite valjan i čitljiv identifikacijski dokument te dovršite provjeru lica uživo.",
+      "retry": "Ponovno pokreni provjeru",
       "field": {
         "surname": "Surname",
         "given_names": "Given names",
@@ -1651,7 +1651,9 @@
         "insufficient_analysis": "The capture was too brief to be analysed.",
         "missing_score": "The capture measurements are missing.",
         "manual_review_required": "A compliance review is required."
-      }
+      },
+      "unavailable": "Provjera nije dostupna",
+      "unavailableNotice": "Odluka nije donesena. Pokušajte ponovno."
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

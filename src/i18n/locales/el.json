@@ -1599,15 +1599,15 @@
       "desc": "We are reading the machine-readable zone on your device. The image does not leave your phone for this step."
     },
     "decision": {
-      "passed": "Identity verified",
-      "manual_review": "Identity under review",
-      "failed": "Identity could not be verified",
-      "reviewNotice": "Our compliance team is finishing the checks. You will be notified as soon as the decision is made.",
-      "checking": "Checking your identity",
-      "checkingDesc": "Our verification engine is cross-checking your document with your declared details.",
-      "passedNotice": "Your document and your selfie match the details you provided.",
-      "failedNotice": "The checks could not confirm your identity. Please capture your document again.",
-      "retry": "Start the verification again",
+      "passed": "Η ταυτότητα επαληθεύτηκε",
+      "manual_review": "Απαιτείται πρόσθετη επαλήθευση",
+      "failed": "Η ταυτότητα δεν επαληθεύτηκε",
+      "reviewNotice": "Απαιτούνται πρόσθετοι έλεγχοι από το τμήμα συμμόρφωσης.",
+      "checking": "Έλεγχος του εγγράφου σας",
+      "checkingDesc": "Ανάγνωση του εγγράφου και σύγκριση των διαθέσιμων στοιχείων ταυτότητας.",
+      "passedNotice": "Η επαλήθευση της ταυτότητάς σας ολοκληρώθηκε.",
+      "failedNotice": "Φωτογραφίστε ξανά ένα έγκυρο και ευανάγνωστο έγγραφο ταυτότητας και ολοκληρώστε τον ζωντανό έλεγχο προσώπου.",
+      "retry": "Επανεκκίνηση επαλήθευσης",
       "field": {
         "surname": "Surname",
         "given_names": "Given names",
@@ -1651,7 +1651,9 @@
         "insufficient_analysis": "The capture was too brief to be analysed.",
         "missing_score": "The capture measurements are missing.",
         "manual_review_required": "A compliance review is required."
-      }
+      },
+      "unavailable": "Η επαλήθευση δεν είναι διαθέσιμη",
+      "unavailableNotice": "Δεν έχει ληφθεί απόφαση. Δοκιμάστε ξανά."
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."
