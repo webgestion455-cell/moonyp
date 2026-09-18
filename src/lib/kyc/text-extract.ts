@@ -6,7 +6,7 @@
  * montants, nature du document, qualité du texte. Toutes les fonctions
  * renvoient des mesures factuelles ; aucune ne décide.
  */
-import { normaliseIban, validateIban } from "@/lib/iban";
+import { IBAN_LENGTHS, normaliseIban, validateIban } from "@/lib/iban";
 
 /* --------------------------------------------------------------------- */
 /* Normalisation                                                          */
@@ -283,13 +283,17 @@ export function extractIbans(text: string): ExtractedIban[] {
   for (const m of upper.matchAll(/\b([A-Z]{2})\s?([0-9OIl]{2})((?:\s?[A-Z0-9OIl]){11,30})/g)) {
     const country = m[1]!;
     const body = (m[2]! + m[3]!).replace(/\s+/g, "").replace(/O/g, "0").replace(/[Il]/g, "1");
-    const candidate = normaliseIban(country + body);
-    // Coupe à la longueur du pays si connue, sinon garde tel quel.
+    const full = normaliseIban(country + body);
+    // Coupe à la longueur officielle du pays si elle est connue : une capture
+    // trop longue (texte collé derrière l'IBAN) reste ainsi exploitable.
+    const expected = IBAN_LENGTHS[country];
+    const candidate = expected && full.length > expected ? full.slice(0, expected) : full;
+    // `validateIban` renvoie un verdict structuré (MOD-97 + longueur pays),
+    // jamais une chaîne : la validité est lue sur `check.valid`.
     const check = validateIban(candidate);
-    const iban = candidate;
-    if (seen.has(iban)) continue;
-    seen.add(iban);
-    out.push({ iban, valid: check === "valid", raw: m[0]! });
+    if (seen.has(candidate)) continue;
+    seen.add(candidate);
+    out.push({ iban: candidate, valid: check.valid === true, raw: m[0]! });
   }
   return out;
 }
