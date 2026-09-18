@@ -33,12 +33,16 @@ export function MobileBottomNav() {
               params={{ lang }}
               search={{ product: undefined, amount: undefined, months: undefined } as never}
               aria-current={active ? "page" : undefined}
-
               className={`flex min-h-[48px] flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1.5 text-[10.5px] font-medium transition-colors ${
-                active ? "bg-secondary text-foreground" : "text-muted-foreground hover:text-foreground"
+                active
+                  ? "bg-secondary text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              <Icon className={`h-5 w-5 transition-transform ${active ? "scale-110" : ""}`} aria-hidden />
+              <Icon
+                className={`h-5 w-5 transition-transform ${active ? "scale-110" : ""}`}
+                aria-hidden
+              />
               <span className="truncate">{t(item.key)}</span>
             </Link>
           );

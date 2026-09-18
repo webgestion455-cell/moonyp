@@ -104,7 +104,7 @@ export type SecurityAction =
 
 export async function logSecurityEvent(
   action: SecurityAction,
-  opts: { userId?: string | null; success?: boolean; metadata?: Record<string, unknown> } = {}
+  opts: { userId?: string | null; success?: boolean; metadata?: Record<string, unknown> } = {},
 ): Promise<void> {
   try {
     const [device, ip] = await Promise.all([getDeviceInfo(), getIpInfo()]);

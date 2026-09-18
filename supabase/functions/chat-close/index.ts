@@ -8,7 +8,8 @@ const CORS = {
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: CORS });
-  if (req.method !== "POST") return new Response("Method Not Allowed", { status: 405, headers: CORS });
+  if (req.method !== "POST")
+    return new Response("Method Not Allowed", { status: 405, headers: CORS });
 
   try {
     const { conversationId, reason, closedBy, guestToken } = await req.json();

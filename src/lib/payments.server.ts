@@ -67,7 +67,11 @@ function env(name: string): string | undefined {
   return value && value.trim().length > 0 ? value.trim() : undefined;
 }
 
-function buildStatus(id: PaymentProviderId, requiredEnv: string[], requiresMethod: boolean): ProviderStatus {
+function buildStatus(
+  id: PaymentProviderId,
+  requiredEnv: string[],
+  requiresMethod: boolean,
+): ProviderStatus {
   const missingEnv = requiredEnv.filter((key) => !env(key));
   return { id, requiredEnv, missingEnv, configured: missingEnv.length === 0, requiresMethod };
 }
@@ -111,7 +115,12 @@ const stripe: PaymentProvider = {
     });
     const json = (await res.json()) as { id?: string; url?: string; error?: { message?: string } };
     if (!res.ok || !json.url) throw new Error(json.error?.message ?? "stripe_error");
-    return { mode: "redirect", url: json.url, providerReference: json.id ?? null, status: "processing" };
+    return {
+      mode: "redirect",
+      url: json.url,
+      providerReference: json.id ?? null,
+      status: "processing",
+    };
   },
 };
 
@@ -138,17 +147,17 @@ const paypal: PaymentProvider = {
       body: "grant_type=client_credentials",
     });
     const tokenJson = (await tokenRes.json()) as {
-  access_token?: string;
-};
+      access_token?: string;
+    };
 
-if (!tokenRes.ok || !tokenJson.access_token) {
-  console.error("[PAYPAL AUTH ERROR]", {
-    status: tokenRes.status,
-    environment: env("PAYPAL_ENVIRONMENT") ?? "sandbox",
-  });
+    if (!tokenRes.ok || !tokenJson.access_token) {
+      console.error("[PAYPAL AUTH ERROR]", {
+        status: tokenRes.status,
+        environment: env("PAYPAL_ENVIRONMENT") ?? "sandbox",
+      });
 
-  throw new Error("paypal_auth_error");
-}
+      throw new Error("paypal_auth_error");
+    }
 
     const orderRes = await fetch(`${base}/v2/checkout/orders`, {
       method: "POST",
@@ -174,7 +183,12 @@ if (!tokenRes.ok || !tokenJson.access_token) {
     };
     const approve = orderJson.links?.find((l) => l.rel === "approve")?.href;
     if (!orderRes.ok || !approve) throw new Error("paypal_order_error");
-    return { mode: "redirect", url: approve, providerReference: orderJson.id ?? null, status: "processing" };
+    return {
+      mode: "redirect",
+      url: approve,
+      providerReference: orderJson.id ?? null,
+      status: "processing",
+    };
   },
 };
 

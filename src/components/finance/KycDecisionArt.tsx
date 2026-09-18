@@ -70,25 +70,14 @@ export function KycArtReview({ className }: ArtProps) {
         strokeWidth="2.5"
       />
       <path d="M22 38h52" className="stroke-warning/60" strokeWidth="2" />
-      <circle
-        cx="45"
-        cy="52"
-        r="9"
-        className="fill-background stroke-warning"
-        strokeWidth="2.5"
-      />
+      <circle cx="45" cy="52" r="9" className="fill-background stroke-warning" strokeWidth="2.5" />
       <path
         d="M45 47v5.5l3.5 2.5"
         className="fill-none stroke-warning"
         strokeWidth="2.5"
         strokeLinecap="round"
       />
-      <path
-        d="M52 59l9 9"
-        className="stroke-warning"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-      />
+      <path d="M52 59l9 9" className="stroke-warning" strokeWidth="3.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -122,13 +111,13 @@ export function KycArtRejected({ className }: ArtProps) {
         strokeWidth="2.5"
         strokeLinecap="round"
       />
-      <path d="M52 44h16M52 53h11" className="stroke-destructive/50" strokeWidth="2.5" strokeLinecap="round" />
       <path
-        d="M34 34l30 30"
-        className="stroke-destructive"
-        strokeWidth="4"
+        d="M52 44h16M52 53h11"
+        className="stroke-destructive/50"
+        strokeWidth="2.5"
         strokeLinecap="round"
       />
+      <path d="M34 34l30 30" className="stroke-destructive" strokeWidth="4" strokeLinecap="round" />
     </svg>
   );
 }

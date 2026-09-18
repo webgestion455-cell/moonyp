@@ -45,7 +45,11 @@ function toneOf(tone: string): StatTone {
 }
 
 function money(n: number) {
-  return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+  return new Intl.NumberFormat("fr-FR", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  }).format(n);
 }
 
 function AdminOverview() {
@@ -81,7 +85,11 @@ function AdminOverview() {
   useEffect(() => {
     const channel = supabase
       .channel(`admin-overview-${Math.random().toString(36).slice(2)}`)
-      .on("postgres_changes", { event: "*", schema: "public", table: "loan_applications" }, () => void load())
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "loan_applications" },
+        () => void load(),
+      )
       .subscribe();
     return () => {
       void supabase.removeChannel(channel);
@@ -93,48 +101,183 @@ function AdminOverview() {
       {
         title: "Instruction",
         items: [
-          { label: "Dossiers totaux", value: String(stats?.total ?? 0), icon: FileText, tone: "text-sky-600" },
-          { label: "Nouvelles demandes", value: String(stats?.newRequests ?? 0), icon: ArrowUpRight, tone: "text-sky-600" },
-          { label: "En vérification", value: String(stats?.verification ?? 0), icon: ShieldCheck, tone: "text-amber-600" },
-          { label: "En analyse", value: String(stats?.analysis ?? 0), icon: Clock, tone: "text-amber-600" },
-          { label: "Documents manquants", value: String(stats?.documentsMissing ?? 0), icon: ScanFace, tone: "text-orange-600" },
-          { label: "Infos demandées", value: String(stats?.infoRequested ?? 0), icon: AlertTriangle, tone: "text-orange-600" },
-          { label: "Approuvés", value: String(stats?.approved ?? 0), icon: CheckCircle2, tone: "text-emerald-600" },
-          { label: "Refusés", value: String(stats?.rejected ?? 0), icon: XCircle, tone: "text-rose-600" },
+          {
+            label: "Dossiers totaux",
+            value: String(stats?.total ?? 0),
+            icon: FileText,
+            tone: "text-sky-600",
+          },
+          {
+            label: "Nouvelles demandes",
+            value: String(stats?.newRequests ?? 0),
+            icon: ArrowUpRight,
+            tone: "text-sky-600",
+          },
+          {
+            label: "En vérification",
+            value: String(stats?.verification ?? 0),
+            icon: ShieldCheck,
+            tone: "text-amber-600",
+          },
+          {
+            label: "En analyse",
+            value: String(stats?.analysis ?? 0),
+            icon: Clock,
+            tone: "text-amber-600",
+          },
+          {
+            label: "Documents manquants",
+            value: String(stats?.documentsMissing ?? 0),
+            icon: ScanFace,
+            tone: "text-orange-600",
+          },
+          {
+            label: "Infos demandées",
+            value: String(stats?.infoRequested ?? 0),
+            icon: AlertTriangle,
+            tone: "text-orange-600",
+          },
+          {
+            label: "Approuvés",
+            value: String(stats?.approved ?? 0),
+            icon: CheckCircle2,
+            tone: "text-emerald-600",
+          },
+          {
+            label: "Refusés",
+            value: String(stats?.rejected ?? 0),
+            icon: XCircle,
+            tone: "text-rose-600",
+          },
         ],
       },
       {
         title: "Contrats, garanties et assurances",
         items: [
-          { label: "Contrats en attente", value: String(stats?.contractsPending ?? 0), icon: FileSignature, tone: "text-amber-600" },
-          { label: "Contrats signés", value: String(stats?.contractsSigned ?? 0), icon: FileSignature, tone: "text-emerald-600" },
-          { label: "Garanties en cours", value: String(stats?.guaranteesPending ?? 0), icon: ShieldCheck, tone: "text-amber-600" },
-          { label: "Garanties validées", value: String(stats?.guaranteesValidated ?? 0), icon: ShieldCheck, tone: "text-emerald-600" },
-          { label: "Assurances en attente", value: String(stats?.insurancesPending ?? 0), icon: ShieldCheck, tone: "text-amber-600" },
-          { label: "Assurances validées", value: String(stats?.insurancesValidated ?? 0), icon: ShieldCheck, tone: "text-emerald-600" },
+          {
+            label: "Contrats en attente",
+            value: String(stats?.contractsPending ?? 0),
+            icon: FileSignature,
+            tone: "text-amber-600",
+          },
+          {
+            label: "Contrats signés",
+            value: String(stats?.contractsSigned ?? 0),
+            icon: FileSignature,
+            tone: "text-emerald-600",
+          },
+          {
+            label: "Garanties en cours",
+            value: String(stats?.guaranteesPending ?? 0),
+            icon: ShieldCheck,
+            tone: "text-amber-600",
+          },
+          {
+            label: "Garanties validées",
+            value: String(stats?.guaranteesValidated ?? 0),
+            icon: ShieldCheck,
+            tone: "text-emerald-600",
+          },
+          {
+            label: "Assurances en attente",
+            value: String(stats?.insurancesPending ?? 0),
+            icon: ShieldCheck,
+            tone: "text-amber-600",
+          },
+          {
+            label: "Assurances validées",
+            value: String(stats?.insurancesValidated ?? 0),
+            icon: ShieldCheck,
+            tone: "text-emerald-600",
+          },
         ],
       },
       {
         title: "Paiements et décaissements",
         items: [
-          { label: "Paiements en attente", value: String(stats?.paymentsPending ?? 0), icon: CreditCard, tone: "text-amber-600" },
-          { label: "Paiements encaissés", value: money(stats?.paymentsPaidVolume ?? 0), icon: CreditCard, tone: "text-emerald-600" },
-          { label: "Décaissements à préparer", value: String(stats?.disbursementsPreparing ?? 0), icon: Landmark, tone: "text-amber-600" },
-          { label: "Montant décaissé", value: money(stats?.disbursedVolume ?? 0), icon: Banknote, tone: "text-emerald-600" },
-          { label: "Volume demandé", value: money(stats?.totalVolume ?? 0), icon: ArrowUpRight, tone: "text-primary" },
-          { label: "Volume approuvé", value: money(stats?.approvedVolume ?? 0), icon: CheckCircle2, tone: "text-primary" },
+          {
+            label: "Paiements en attente",
+            value: String(stats?.paymentsPending ?? 0),
+            icon: CreditCard,
+            tone: "text-amber-600",
+          },
+          {
+            label: "Paiements encaissés",
+            value: money(stats?.paymentsPaidVolume ?? 0),
+            icon: CreditCard,
+            tone: "text-emerald-600",
+          },
+          {
+            label: "Décaissements à préparer",
+            value: String(stats?.disbursementsPreparing ?? 0),
+            icon: Landmark,
+            tone: "text-amber-600",
+          },
+          {
+            label: "Montant décaissé",
+            value: money(stats?.disbursedVolume ?? 0),
+            icon: Banknote,
+            tone: "text-emerald-600",
+          },
+          {
+            label: "Volume demandé",
+            value: money(stats?.totalVolume ?? 0),
+            icon: ArrowUpRight,
+            tone: "text-primary",
+          },
+          {
+            label: "Volume approuvé",
+            value: money(stats?.approvedVolume ?? 0),
+            icon: CheckCircle2,
+            tone: "text-primary",
+          },
         ],
       },
       {
         title: "Portefeuille et remboursements",
         items: [
-          { label: "Prêts actifs", value: String(stats?.activeLoans ?? 0), icon: Wallet, tone: "text-sky-600" },
-          { label: "Prêts soldés", value: String(stats?.repaidLoans ?? 0), icon: CheckCircle2, tone: "text-emerald-600" },
-          { label: "Dossiers en retard", value: String(stats?.lateLoans ?? 0), icon: AlertTriangle, tone: "text-rose-600" },
-          { label: "Échéances en retard", value: String(stats?.installmentsLate ?? 0), icon: AlertTriangle, tone: "text-rose-600" },
-          { label: "Échéances à venir", value: String(stats?.installmentsUpcoming ?? 0), icon: Repeat, tone: "text-sky-600" },
-          { label: "Capital remboursé", value: money(stats?.repaidVolume ?? 0), icon: Banknote, tone: "text-emerald-600" },
-          { label: "Encours restant", value: money(stats?.outstandingVolume ?? 0), icon: Wallet, tone: "text-primary" },
+          {
+            label: "Prêts actifs",
+            value: String(stats?.activeLoans ?? 0),
+            icon: Wallet,
+            tone: "text-sky-600",
+          },
+          {
+            label: "Prêts soldés",
+            value: String(stats?.repaidLoans ?? 0),
+            icon: CheckCircle2,
+            tone: "text-emerald-600",
+          },
+          {
+            label: "Dossiers en retard",
+            value: String(stats?.lateLoans ?? 0),
+            icon: AlertTriangle,
+            tone: "text-rose-600",
+          },
+          {
+            label: "Échéances en retard",
+            value: String(stats?.installmentsLate ?? 0),
+            icon: AlertTriangle,
+            tone: "text-rose-600",
+          },
+          {
+            label: "Échéances à venir",
+            value: String(stats?.installmentsUpcoming ?? 0),
+            icon: Repeat,
+            tone: "text-sky-600",
+          },
+          {
+            label: "Capital remboursé",
+            value: money(stats?.repaidVolume ?? 0),
+            icon: Banknote,
+            tone: "text-emerald-600",
+          },
+          {
+            label: "Encours restant",
+            value: money(stats?.outstandingVolume ?? 0),
+            icon: Wallet,
+            tone: "text-primary",
+          },
         ],
       },
     ],
@@ -160,10 +303,43 @@ function AdminOverview() {
 
       {/* Bandeau prioritaire : ce qu'un responsable regarde en premier. */}
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <StatTile size="lg" tone="primary" icon={FileText} label="Dossiers totaux" value={String(stats?.total ?? 0)} hint={`${stats?.newRequests ?? 0} nouvelle(s) demande(s)`} />
-        <StatTile size="lg" tone="warning" icon={Clock} label="À traiter" value={String((stats?.verification ?? 0) + (stats?.analysis ?? 0) + (stats?.documentsMissing ?? 0) + (stats?.infoRequested ?? 0))} hint="Vérification, analyse, pièces et infos" />
-        <StatTile size="lg" tone="positive" icon={Banknote} label="Montant décaissé" value={money(stats?.disbursedVolume ?? 0)} hint={`${stats?.activeLoans ?? 0} prêt(s) actif(s)`} />
-        <StatTile size="lg" tone="critical" icon={AlertTriangle} label="Dossiers en retard" value={String(stats?.lateLoans ?? 0)} hint={`${stats?.installmentsLate ?? 0} échéance(s) en retard`} />
+        <StatTile
+          size="lg"
+          tone="primary"
+          icon={FileText}
+          label="Dossiers totaux"
+          value={String(stats?.total ?? 0)}
+          hint={`${stats?.newRequests ?? 0} nouvelle(s) demande(s)`}
+        />
+        <StatTile
+          size="lg"
+          tone="warning"
+          icon={Clock}
+          label="À traiter"
+          value={String(
+            (stats?.verification ?? 0) +
+              (stats?.analysis ?? 0) +
+              (stats?.documentsMissing ?? 0) +
+              (stats?.infoRequested ?? 0),
+          )}
+          hint="Vérification, analyse, pièces et infos"
+        />
+        <StatTile
+          size="lg"
+          tone="positive"
+          icon={Banknote}
+          label="Montant décaissé"
+          value={money(stats?.disbursedVolume ?? 0)}
+          hint={`${stats?.activeLoans ?? 0} prêt(s) actif(s)`}
+        />
+        <StatTile
+          size="lg"
+          tone="critical"
+          icon={AlertTriangle}
+          label="Dossiers en retard"
+          value={String(stats?.lateLoans ?? 0)}
+          hint={`${stats?.installmentsLate ?? 0} échéance(s) en retard`}
+        />
       </div>
 
       {groups.map((group) => (
@@ -171,7 +347,13 @@ function AdminOverview() {
           <SectionTitle>{group.title}</SectionTitle>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             {group.items.map((k) => (
-              <StatTile key={k.label} label={k.label} value={k.value} icon={k.icon} tone={toneOf(k.tone)} />
+              <StatTile
+                key={k.label}
+                label={k.label}
+                value={k.value}
+                icon={k.icon}
+                tone={toneOf(k.tone)}
+              />
             ))}
           </div>
         </section>
@@ -197,7 +379,9 @@ function AdminOverview() {
         </CardHeader>
         <CardContent className="p-0">
           {recent.length === 0 ? (
-            <p className="px-6 py-10 text-center text-sm text-muted-foreground">Aucun dossier pour le moment.</p>
+            <p className="px-6 py-10 text-center text-sm text-muted-foreground">
+              Aucun dossier pour le moment.
+            </p>
           ) : (
             <ul className="divide-y divide-border">
               {recent.map((r) => (
@@ -209,7 +393,8 @@ function AdminOverview() {
                   >
                     <div className="min-w-0">
                       <p className="truncate text-sm font-semibold">
-                        {r.reference} · {[r.first_name, r.last_name].filter(Boolean).join(" ") || r.email}
+                        {r.reference} ·{" "}
+                        {[r.first_name, r.last_name].filter(Boolean).join(" ") || r.email}
                       </p>
                       <p className="truncate text-xs text-muted-foreground">
                         {money(Number(r.amount ?? 0))} · {r.duration_months ?? "—"} mois ·{" "}

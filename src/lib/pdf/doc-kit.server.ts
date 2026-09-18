@@ -41,9 +41,21 @@ export function winAnsi(input: string): string {
  * ------------------------------------------------------------------------ */
 
 const LOCALE_MAP: Record<string, string> = {
-  fr: "fr-FR", en: "en-GB", de: "de-DE", es: "es-ES", it: "it-IT", nl: "nl-NL",
-  pl: "pl-PL", ro: "ro-RO", sk: "sk-SK", sl: "sl-SI", hr: "hr-HR", hu: "hu-HU",
-  fi: "fi-FI", bg: "bg-BG", el: "el-GR",
+  fr: "fr-FR",
+  en: "en-GB",
+  de: "de-DE",
+  es: "es-ES",
+  it: "it-IT",
+  nl: "nl-NL",
+  pl: "pl-PL",
+  ro: "ro-RO",
+  sk: "sk-SK",
+  sl: "sl-SI",
+  hr: "hr-HR",
+  hu: "hu-HU",
+  fi: "fi-FI",
+  bg: "bg-BG",
+  el: "el-GR",
 };
 
 export function intlLocale(language: string | null | undefined): string {
@@ -71,7 +83,9 @@ export function money(value: number, currency: string, language: string): string
 export function percent(value: number, language: string): string {
   const n = Number.isFinite(value) ? value : 0;
   try {
-    return winAnsi(`${new Intl.NumberFormat(intlLocale(language), { minimumFractionDigits: 2, maximumFractionDigits: 3 }).format(n)} %`);
+    return winAnsi(
+      `${new Intl.NumberFormat(intlLocale(language), { minimumFractionDigits: 2, maximumFractionDigits: 3 }).format(n)} %`,
+    );
   } catch {
     return `${n.toFixed(2)} %`;
   }
@@ -82,7 +96,13 @@ export function longDate(value: Date | string | null | undefined, language: stri
   const d = value instanceof Date ? value : new Date(value);
   if (Number.isNaN(d.getTime())) return "—";
   try {
-    return winAnsi(new Intl.DateTimeFormat(intlLocale(language), { day: "2-digit", month: "long", year: "numeric" }).format(d));
+    return winAnsi(
+      new Intl.DateTimeFormat(intlLocale(language), {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }).format(d),
+    );
   } catch {
     return d.toISOString().slice(0, 10);
   }
@@ -95,7 +115,12 @@ export function dateTime(value: Date | string | null | undefined, language: stri
   try {
     return winAnsi(
       new Intl.DateTimeFormat(intlLocale(language), {
-        day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "UTC",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: "UTC",
       }).format(d) + " UTC",
     );
   } catch {
@@ -196,9 +221,15 @@ export class BankDocument {
     pdf.setCreationDate(meta.issuedAt);
     pdf.setLanguage(meta.language.slice(0, 2).toLowerCase());
 
-    const font = await pdf.embedFont(Buffer.from(NOTO_SANS_REGULAR_BASE64, "base64"), { subset: true });
-    const bold = await pdf.embedFont(Buffer.from(NOTO_SANS_BOLD_BASE64, "base64"), { subset: true });
-    const italic = await pdf.embedFont(Buffer.from(NOTO_SANS_ITALIC_BASE64, "base64"), { subset: true });
+    const font = await pdf.embedFont(Buffer.from(NOTO_SANS_REGULAR_BASE64, "base64"), {
+      subset: true,
+    });
+    const bold = await pdf.embedFont(Buffer.from(NOTO_SANS_BOLD_BASE64, "base64"), {
+      subset: true,
+    });
+    const italic = await pdf.embedFont(Buffer.from(NOTO_SANS_ITALIC_BASE64, "base64"), {
+      subset: true,
+    });
     const logo = await pdf.embedPng(Buffer.from(MOONYP_LOGO_PNG_BASE64, "base64"));
 
     return new BankDocument(pdf, font, bold, italic, logo, meta);
@@ -221,13 +252,32 @@ export class BankDocument {
   private drawRunningHeader() {
     const logoW = 84;
     const logoH = (this.logo.height / this.logo.width) * logoW;
-    this.page.drawImage(this.logo, { x: MARGIN, y: PAGE_H - 34 - logoH / 2, width: logoW, height: logoH });
+    this.page.drawImage(this.logo, {
+      x: MARGIN,
+      y: PAGE_H - 34 - logoH / 2,
+      width: logoW,
+      height: logoH,
+    });
 
     const right = PAGE_W - MARGIN;
     const l1 = winAnsi(`${this.meta.labels.docRef} ${this.meta.documentReference}`);
-    const l2 = winAnsi(`${this.meta.labels.fileRef} ${this.meta.fileReference} · ${this.meta.labels.version} ${this.meta.version}`);
-    this.page.drawText(l1, { x: right - this.bold.widthOfTextAtSize(l1, 8), y: PAGE_H - 32, size: 8, font: this.bold, color: NAVY });
-    this.page.drawText(l2, { x: right - this.font.widthOfTextAtSize(l2, 7.5), y: PAGE_H - 43, size: 7.5, font: this.font, color: MUTED });
+    const l2 = winAnsi(
+      `${this.meta.labels.fileRef} ${this.meta.fileReference} · ${this.meta.labels.version} ${this.meta.version}`,
+    );
+    this.page.drawText(l1, {
+      x: right - this.bold.widthOfTextAtSize(l1, 8),
+      y: PAGE_H - 32,
+      size: 8,
+      font: this.bold,
+      color: NAVY,
+    });
+    this.page.drawText(l2, {
+      x: right - this.font.widthOfTextAtSize(l2, 7.5),
+      y: PAGE_H - 43,
+      size: 7.5,
+      font: this.font,
+      color: MUTED,
+    });
 
     this.page.drawLine({
       start: { x: MARGIN, y: PAGE_H - HEADER_H },
@@ -263,13 +313,27 @@ export class BankDocument {
     this.newPage(true);
     const logoW = 168;
     const logoH = (this.logo.height / this.logo.width) * logoW;
-    this.page.drawImage(this.logo, { x: MARGIN, y: PAGE_H - 78 - logoH, width: logoW, height: logoH });
+    this.page.drawImage(this.logo, {
+      x: MARGIN,
+      y: PAGE_H - 78 - logoH,
+      width: logoW,
+      height: logoH,
+    });
 
-    this.page.drawLine({ start: { x: MARGIN, y: PAGE_H - 170 }, end: { x: PAGE_W - MARGIN, y: PAGE_H - 170 }, thickness: 1.4, color: NAVY });
+    this.page.drawLine({
+      start: { x: MARGIN, y: PAGE_H - 170 },
+      end: { x: PAGE_W - MARGIN, y: PAGE_H - 170 },
+      thickness: 1.4,
+      color: NAVY,
+    });
 
     let y = PAGE_H - 208;
     this.page.drawText(winAnsi(this.meta.kicker.toUpperCase()), {
-      x: MARGIN, y, size: 9, font: this.bold, color: MUTED,
+      x: MARGIN,
+      y,
+      size: 9,
+      font: this.bold,
+      color: MUTED,
     });
     y -= 34;
     for (const line of this.wrapLines(this.meta.title, this.bold, 26, CONTENT_W)) {
@@ -284,7 +348,15 @@ export class BankDocument {
     // Bloc références du document / dossier
     y -= 18;
     const refH = 74;
-    this.page.drawRectangle({ x: MARGIN, y: y - refH, width: CONTENT_W, height: refH, color: NAVY_SOFT, borderColor: RULE, borderWidth: 0.8 });
+    this.page.drawRectangle({
+      x: MARGIN,
+      y: y - refH,
+      width: CONTENT_W,
+      height: refH,
+      color: NAVY_SOFT,
+      borderColor: RULE,
+      borderWidth: 0.8,
+    });
     const cellW = CONTENT_W / 3;
     const refs: Array<[string, string]> = [
       [this.meta.labels.fileRef, this.meta.fileReference],
@@ -293,15 +365,29 @@ export class BankDocument {
     ];
     refs.forEach(([label, value], i) => {
       const x = MARGIN + cellW * i + 14;
-      this.page.drawText(winAnsi(label.toUpperCase()), { x, y: y - 26, size: 7.5, font: this.bold, color: MUTED });
-      for (const [j, line] of this.wrapLines(value, this.bold, 11, cellW - 24).slice(0, 2).entries()) {
+      this.page.drawText(winAnsi(label.toUpperCase()), {
+        x,
+        y: y - 26,
+        size: 7.5,
+        font: this.bold,
+        color: MUTED,
+      });
+      for (const [j, line] of this.wrapLines(value, this.bold, 11, cellW - 24)
+        .slice(0, 2)
+        .entries()) {
         this.page.drawText(line, { x, y: y - 44 - j * 13, size: 11, font: this.bold, color: NAVY });
       }
     });
     y -= refH + 26;
 
     if (input.partiesTitle) {
-      this.page.drawText(winAnsi(input.partiesTitle.toUpperCase()), { x: MARGIN, y, size: 8.5, font: this.bold, color: MUTED });
+      this.page.drawText(winAnsi(input.partiesTitle.toUpperCase()), {
+        x: MARGIN,
+        y,
+        size: 8.5,
+        font: this.bold,
+        color: MUTED,
+      });
       y -= 16;
     }
 
@@ -311,7 +397,13 @@ export class BankDocument {
     input.blocks.forEach((block, i) => {
       const x = MARGIN + (colW + 18) * (i % 2);
       let by = y - Math.floor(i / 2) * 132;
-      this.page.drawText(winAnsi(block.label.toUpperCase()), { x, y: by, size: 7.5, font: this.bold, color: NAVY });
+      this.page.drawText(winAnsi(block.label.toUpperCase()), {
+        x,
+        y: by,
+        size: 7.5,
+        font: this.bold,
+        color: NAVY,
+      });
       by -= 15;
       for (const raw of block.lines) {
         for (const line of this.wrapLines(raw, this.font, 9.5, colW)) {
@@ -325,12 +417,38 @@ export class BankDocument {
 
     if (input.highlight) {
       const boxH = 82;
-      this.page.drawRectangle({ x: MARGIN, y: y - boxH, width: CONTENT_W, height: boxH, color: WHITE, borderColor: NAVY, borderWidth: 1 });
+      this.page.drawRectangle({
+        x: MARGIN,
+        y: y - boxH,
+        width: CONTENT_W,
+        height: boxH,
+        color: WHITE,
+        borderColor: NAVY,
+        borderWidth: 1,
+      });
       this.page.drawRectangle({ x: MARGIN, y: y - boxH, width: 4, height: boxH, color: NAVY });
-      this.page.drawText(winAnsi(input.highlight.label.toUpperCase()), { x: MARGIN + 20, y: y - 26, size: 8, font: this.bold, color: MUTED });
-      this.page.drawText(winAnsi(input.highlight.value), { x: MARGIN + 20, y: y - 56, size: 24, font: this.bold, color: NAVY });
+      this.page.drawText(winAnsi(input.highlight.label.toUpperCase()), {
+        x: MARGIN + 20,
+        y: y - 26,
+        size: 8,
+        font: this.bold,
+        color: MUTED,
+      });
+      this.page.drawText(winAnsi(input.highlight.value), {
+        x: MARGIN + 20,
+        y: y - 56,
+        size: 24,
+        font: this.bold,
+        color: NAVY,
+      });
       if (input.highlight.note) {
-        this.page.drawText(winAnsi(input.highlight.note), { x: MARGIN + 20, y: y - 72, size: 8.5, font: this.font, color: MUTED });
+        this.page.drawText(winAnsi(input.highlight.note), {
+          x: MARGIN + 20,
+          y: y - 72,
+          size: 8.5,
+          font: this.font,
+          color: MUTED,
+        });
       }
       y -= boxH + 22;
     }
@@ -348,8 +466,20 @@ export class BankDocument {
   /** Titre de section (« Titre I — Parties »). */
   sectionTitle(text: string) {
     this.ensure(52);
-    this.page.drawRectangle({ x: MARGIN, y: this.y - 4, width: CONTENT_W, height: 22, color: NAVY });
-    this.page.drawText(winAnsi(text.toUpperCase()), { x: MARGIN + 12, y: this.y + 2, size: 9.5, font: this.bold, color: WHITE });
+    this.page.drawRectangle({
+      x: MARGIN,
+      y: this.y - 4,
+      width: CONTENT_W,
+      height: 22,
+      color: NAVY,
+    });
+    this.page.drawText(winAnsi(text.toUpperCase()), {
+      x: MARGIN + 12,
+      y: this.y + 2,
+      size: 9.5,
+      font: this.bold,
+      color: WHITE,
+    });
     this.y -= 34;
   }
 
@@ -360,14 +490,28 @@ export class BankDocument {
     this.page.drawText(label, { x: MARGIN, y: this.y, size: 10, font: this.bold, color: NAVY });
     const offset = this.bold.widthOfTextAtSize(label, 10) + 8;
     for (const [i, line] of this.wrapLines(title, this.bold, 10, CONTENT_W - offset).entries()) {
-      this.page.drawText(line, { x: MARGIN + offset, y: this.y - i * 13, size: 10, font: this.bold, color: INK });
+      this.page.drawText(line, {
+        x: MARGIN + offset,
+        y: this.y - i * 13,
+        size: 10,
+        font: this.bold,
+        color: INK,
+      });
     }
     this.y -= 18;
-    this.page.drawLine({ start: { x: MARGIN, y: this.y }, end: { x: PAGE_W - MARGIN, y: this.y }, thickness: 0.5, color: RULE_SOFT });
+    this.page.drawLine({
+      start: { x: MARGIN, y: this.y },
+      end: { x: PAGE_W - MARGIN, y: this.y },
+      thickness: 0.5,
+      color: RULE_SOFT,
+    });
     this.y -= 12;
   }
 
-  paragraph(text: string, options: { size?: number; italic?: boolean; muted?: boolean; indent?: number } = {}) {
+  paragraph(
+    text: string,
+    options: { size?: number; italic?: boolean; muted?: boolean; indent?: number } = {},
+  ) {
     const size = options.size ?? 9.5;
     const font = options.italic ? this.italic : this.font;
     const color = options.muted ? MUTED : INK;
@@ -384,9 +528,21 @@ export class BankDocument {
     for (const item of items) {
       const lines = this.wrapLines(item, this.font, 9.5, CONTENT_W - 16);
       this.ensure(lines.length * 14);
-      this.page.drawText("\u2022", { x: MARGIN + 3, y: this.y, size: 9.5, font: this.bold, color: NAVY });
+      this.page.drawText("\u2022", {
+        x: MARGIN + 3,
+        y: this.y,
+        size: 9.5,
+        font: this.bold,
+        color: NAVY,
+      });
       for (const line of lines) {
-        this.page.drawText(line, { x: MARGIN + 16, y: this.y, size: 9.5, font: this.font, color: INK });
+        this.page.drawText(line, {
+          x: MARGIN + 16,
+          y: this.y,
+          size: 9.5,
+          font: this.font,
+          color: INK,
+        });
         this.y -= 13.6;
       }
       this.y -= 2;
@@ -398,9 +554,21 @@ export class BankDocument {
   keyValue(label: string, value: string) {
     const lines = this.wrapLines(value, this.bold, 9.5, CONTENT_W - 210);
     this.ensure(Math.max(18, lines.length * 14));
-    this.page.drawText(winAnsi(label), { x: MARGIN, y: this.y, size: 9, font: this.font, color: MUTED });
+    this.page.drawText(winAnsi(label), {
+      x: MARGIN,
+      y: this.y,
+      size: 9,
+      font: this.font,
+      color: MUTED,
+    });
     lines.forEach((line, i) => {
-      this.page.drawText(line, { x: MARGIN + 200, y: this.y - i * 13, size: 9.5, font: this.bold, color: INK });
+      this.page.drawText(line, {
+        x: MARGIN + 200,
+        y: this.y - i * 13,
+        size: 9.5,
+        font: this.bold,
+        color: INK,
+      });
     });
     this.y -= Math.max(17, lines.length * 13 + 4);
   }
@@ -419,10 +587,21 @@ export class BankDocument {
 
     const drawHead = () => {
       this.ensure(30);
-      this.page.drawRectangle({ x: MARGIN, y: this.y - 6, width: CONTENT_W, height: 22, color: NAVY_SOFT, borderColor: RULE, borderWidth: 0.6 });
+      this.page.drawRectangle({
+        x: MARGIN,
+        y: this.y - 6,
+        width: CONTENT_W,
+        height: 22,
+        color: NAVY_SOFT,
+        borderColor: RULE,
+        borderWidth: 0.6,
+      });
       columns.forEach((col, i) => {
         const text = winAnsi(col.header);
-        const x = col.align === "right" ? xs[i]! + widths[i]! - 10 - this.bold.widthOfTextAtSize(text, 8) : xs[i]! + 10;
+        const x =
+          col.align === "right"
+            ? xs[i]! + widths[i]! - 10 - this.bold.widthOfTextAtSize(text, 8)
+            : xs[i]! + 10;
         this.page.drawText(text, { x, y: this.y, size: 8, font: this.bold, color: NAVY });
       });
       this.y -= 26;
@@ -439,7 +618,13 @@ export class BankDocument {
       }
       const emphasise = options.highlightLast && rIndex === rows.length - 1;
       if (emphasise) {
-        this.page.drawRectangle({ x: MARGIN, y: this.y - height + 12, width: CONTENT_W, height, color: NAVY_SOFT });
+        this.page.drawRectangle({
+          x: MARGIN,
+          y: this.y - height + 12,
+          width: CONTENT_W,
+          height,
+          color: NAVY_SOFT,
+        });
       }
       cellLines.forEach((lines, i) => {
         const font = emphasise ? this.bold : i === 0 ? this.font : this.bold;
@@ -448,7 +633,13 @@ export class BankDocument {
             columns[i]!.align === "right"
               ? xs[i]! + widths[i]! - 10 - font.widthOfTextAtSize(line, 9)
               : xs[i]! + 10;
-          this.page.drawText(line, { x, y: this.y - j * 12, size: 9, font, color: emphasise ? NAVY : INK });
+          this.page.drawText(line, {
+            x,
+            y: this.y - j * 12,
+            size: 9,
+            font,
+            color: emphasise ? NAVY : INK,
+          });
         });
       });
       this.y -= height;
@@ -467,8 +658,22 @@ export class BankDocument {
     const lines = this.wrapLines(body, this.font, 8.8, CONTENT_W - 28);
     const height = lines.length * 12 + 34;
     this.ensure(height + 8);
-    this.page.drawRectangle({ x: MARGIN, y: this.y - height + 14, width: CONTENT_W, height, color: NAVY_SOFT, borderColor: RULE, borderWidth: 0.6 });
-    this.page.drawText(winAnsi(title.toUpperCase()), { x: MARGIN + 14, y: this.y, size: 8, font: this.bold, color: NAVY });
+    this.page.drawRectangle({
+      x: MARGIN,
+      y: this.y - height + 14,
+      width: CONTENT_W,
+      height,
+      color: NAVY_SOFT,
+      borderColor: RULE,
+      borderWidth: 0.6,
+    });
+    this.page.drawText(winAnsi(title.toUpperCase()), {
+      x: MARGIN + 14,
+      y: this.y,
+      size: 8,
+      font: this.bold,
+      color: NAVY,
+    });
     let y = this.y - 15;
     for (const line of lines) {
       this.page.drawText(line, { x: MARGIN + 14, y, size: 8.8, font: this.font, color: INK });
@@ -495,34 +700,139 @@ export class BankDocument {
     const top = this.y;
 
     // Prêteur
-    this.page.drawRectangle({ x: MARGIN, y: top - boxH, width: colW, height: boxH, borderColor: RULE, borderWidth: 0.8, color: WHITE });
-    this.page.drawText(winAnsi(input.left.title.toUpperCase()), { x: MARGIN + 12, y: top - 18, size: 7.5, font: this.bold, color: MUTED });
-    this.page.drawText(winAnsi(input.left.name), { x: MARGIN + 12, y: top - 36, size: 11, font: this.bold, color: NAVY });
-    this.page.drawText(winAnsi(input.left.place), { x: MARGIN + 12, y: top - 50, size: 8, font: this.font, color: MUTED });
+    this.page.drawRectangle({
+      x: MARGIN,
+      y: top - boxH,
+      width: colW,
+      height: boxH,
+      borderColor: RULE,
+      borderWidth: 0.8,
+      color: WHITE,
+    });
+    this.page.drawText(winAnsi(input.left.title.toUpperCase()), {
+      x: MARGIN + 12,
+      y: top - 18,
+      size: 7.5,
+      font: this.bold,
+      color: MUTED,
+    });
+    this.page.drawText(winAnsi(input.left.name), {
+      x: MARGIN + 12,
+      y: top - 36,
+      size: 11,
+      font: this.bold,
+      color: NAVY,
+    });
+    this.page.drawText(winAnsi(input.left.place), {
+      x: MARGIN + 12,
+      y: top - 50,
+      size: 8,
+      font: this.font,
+      color: MUTED,
+    });
 
     const cx = MARGIN + colW - 52;
     const cy = top - boxH / 2 - 8;
-    this.page.drawCircle({ x: cx, y: cy, size: 30, borderColor: SEAL, borderWidth: 1.6, color: WHITE });
-    this.page.drawCircle({ x: cx, y: cy, size: 25.5, borderColor: SEAL, borderWidth: 0.5, color: WHITE });
-    this.page.drawText("MOONYP", { x: cx - this.bold.widthOfTextAtSize("MOONYP", 7.5) / 2, y: cy + 6, size: 7.5, font: this.bold, color: SEAL });
-    this.page.drawText("CREDIT", { x: cx - this.bold.widthOfTextAtSize("CREDIT", 6.5) / 2, y: cy - 3, size: 6.5, font: this.bold, color: SEAL });
-    this.page.drawText("BIRMINGHAM", { x: cx - this.font.widthOfTextAtSize("BIRMINGHAM", 5.5) / 2, y: cy - 13, size: 5.5, font: this.font, color: SEAL });
+    this.page.drawCircle({
+      x: cx,
+      y: cy,
+      size: 30,
+      borderColor: SEAL,
+      borderWidth: 1.6,
+      color: WHITE,
+    });
+    this.page.drawCircle({
+      x: cx,
+      y: cy,
+      size: 25.5,
+      borderColor: SEAL,
+      borderWidth: 0.5,
+      color: WHITE,
+    });
+    this.page.drawText("MOONYP", {
+      x: cx - this.bold.widthOfTextAtSize("MOONYP", 7.5) / 2,
+      y: cy + 6,
+      size: 7.5,
+      font: this.bold,
+      color: SEAL,
+    });
+    this.page.drawText("CREDIT", {
+      x: cx - this.bold.widthOfTextAtSize("CREDIT", 6.5) / 2,
+      y: cy - 3,
+      size: 6.5,
+      font: this.bold,
+      color: SEAL,
+    });
+    this.page.drawText("BIRMINGHAM", {
+      x: cx - this.font.widthOfTextAtSize("BIRMINGHAM", 5.5) / 2,
+      y: cy - 13,
+      size: 5.5,
+      font: this.font,
+      color: SEAL,
+    });
 
-    for (const [i, line] of this.wrapLines(input.left.mention, this.font, 7, colW - 24).slice(0, 3).entries()) {
-      this.page.drawText(line, { x: MARGIN + 12, y: top - boxH + 26 - i * 9, size: 7, font: this.font, color: MUTED });
+    for (const [i, line] of this.wrapLines(input.left.mention, this.font, 7, colW - 24)
+      .slice(0, 3)
+      .entries()) {
+      this.page.drawText(line, {
+        x: MARGIN + 12,
+        y: top - boxH + 26 - i * 9,
+        size: 7,
+        font: this.font,
+        color: MUTED,
+      });
     }
 
     // Emprunteur
     const rx = MARGIN + colW + 18;
-    this.page.drawRectangle({ x: rx, y: top - boxH, width: colW, height: boxH, borderColor: RULE, borderWidth: 0.8, color: WHITE });
-    this.page.drawText(winAnsi(input.right.title.toUpperCase()), { x: rx + 12, y: top - 18, size: 7.5, font: this.bold, color: MUTED });
-    this.page.drawText(winAnsi(input.right.name), { x: rx + 12, y: top - 36, size: 11, font: this.bold, color: INK });
+    this.page.drawRectangle({
+      x: rx,
+      y: top - boxH,
+      width: colW,
+      height: boxH,
+      borderColor: RULE,
+      borderWidth: 0.8,
+      color: WHITE,
+    });
+    this.page.drawText(winAnsi(input.right.title.toUpperCase()), {
+      x: rx + 12,
+      y: top - 18,
+      size: 7.5,
+      font: this.bold,
+      color: MUTED,
+    });
+    this.page.drawText(winAnsi(input.right.name), {
+      x: rx + 12,
+      y: top - 36,
+      size: 11,
+      font: this.bold,
+      color: INK,
+    });
     if (input.right.signedLine) {
-      this.page.drawText(winAnsi(input.right.signedLine), { x: rx + 12, y: top - 52, size: 8, font: this.italic, color: NAVY });
+      this.page.drawText(winAnsi(input.right.signedLine), {
+        x: rx + 12,
+        y: top - 52,
+        size: 8,
+        font: this.italic,
+        color: NAVY,
+      });
     }
-    this.page.drawLine({ start: { x: rx + 12, y: top - boxH + 40 }, end: { x: rx + colW - 12, y: top - boxH + 40 }, thickness: 0.6, color: RULE });
-    for (const [i, line] of this.wrapLines(input.right.mention, this.font, 7, colW - 24).slice(0, 3).entries()) {
-      this.page.drawText(line, { x: rx + 12, y: top - boxH + 26 - i * 9, size: 7, font: this.font, color: MUTED });
+    this.page.drawLine({
+      start: { x: rx + 12, y: top - boxH + 40 },
+      end: { x: rx + colW - 12, y: top - boxH + 40 },
+      thickness: 0.6,
+      color: RULE,
+    });
+    for (const [i, line] of this.wrapLines(input.right.mention, this.font, 7, colW - 24)
+      .slice(0, 3)
+      .entries()) {
+      this.page.drawText(line, {
+        x: rx + 12,
+        y: top - boxH + 26 - i * 9,
+        size: 7,
+        font: this.font,
+        color: MUTED,
+      });
     }
 
     this.y = top - boxH - 16;
@@ -531,14 +841,32 @@ export class BankDocument {
   /** Bloc d'empreinte documentaire (chaîne de preuve). */
   fingerprint(title: string, rows: Array<[string, string]>, note?: string) {
     this.ensure(60 + rows.length * 14);
-    this.page.drawText(winAnsi(title.toUpperCase()), { x: MARGIN, y: this.y, size: 8, font: this.bold, color: MUTED });
+    this.page.drawText(winAnsi(title.toUpperCase()), {
+      x: MARGIN,
+      y: this.y,
+      size: 8,
+      font: this.bold,
+      color: MUTED,
+    });
     this.y -= 16;
     for (const [label, value] of rows) {
       this.ensure(16);
-      this.page.drawText(winAnsi(label), { x: MARGIN, y: this.y, size: 8, font: this.font, color: MUTED });
+      this.page.drawText(winAnsi(label), {
+        x: MARGIN,
+        y: this.y,
+        size: 8,
+        font: this.font,
+        color: MUTED,
+      });
       const chunks = this.wrapLines(value, this.font, 8, CONTENT_W - 190);
       chunks.forEach((line, i) => {
-        this.page.drawText(line, { x: MARGIN + 180, y: this.y - i * 10, size: 8, font: this.bold, color: INK });
+        this.page.drawText(line, {
+          x: MARGIN + 180,
+          y: this.y - i * 10,
+          size: 8,
+          font: this.bold,
+          color: INK,
+        });
       });
       this.y -= Math.max(13, chunks.length * 10 + 3);
     }
@@ -560,7 +888,13 @@ export class BankDocument {
       const left = winAnsi(this.meta.footerNote);
       page.drawText(left, { x: MARGIN, y: FOOTER_Y, size: 7, font: this.font, color: MUTED });
       const legal = winAnsi(`${LENDER.name} · ${LENDER.address} · ${LENDER.registry}`);
-      page.drawText(legal, { x: MARGIN, y: FOOTER_Y - 9, size: 6.5, font: this.font, color: MUTED });
+      page.drawText(legal, {
+        x: MARGIN,
+        y: FOOTER_Y - 9,
+        size: 6.5,
+        font: this.font,
+        color: MUTED,
+      });
 
       const pageLabel = winAnsi(`${this.meta.labels.page} ${index + 1} / ${total}`);
       page.drawText(pageLabel, {
@@ -598,7 +932,10 @@ export class BankDocument {
       let current = "";
       for (const word of paragraph.split(/\s+/)) {
         const candidate = current ? `${current} ${word}` : word;
-        if (font.widthOfTextAtSize(candidate, size) <= maxWidth || (!current && font.widthOfTextAtSize(word, size) <= maxWidth)) {
+        if (
+          font.widthOfTextAtSize(candidate, size) <= maxWidth ||
+          (!current && font.widthOfTextAtSize(word, size) <= maxWidth)
+        ) {
           current = candidate;
         } else {
           if (current) out.push(current);

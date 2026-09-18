@@ -35,11 +35,13 @@ Authenticité des pièces, extraction indépendante des justificatifs/relevés, 
 ## Inventaire exhaustif de cette phase uniquement
 
 ### Fichiers ajoutés
+
 - `roadmap.md`
 - `KYC-PHASE-INVENTAIRE.md`
 - `scripts/kyc-decision-i18n-audit.mjs`
 
 ### Fichiers modifiés
+
 - `src/lib/kyc/decision.server.ts`
 - `src/lib/applications.functions.ts`
 - `src/components/finance/KycFlow.tsx`
@@ -62,21 +64,27 @@ Authenticité des pièces, extraction indépendante des justificatifs/relevés, 
 - `src/i18n/locales/sl.json`
 
 ### Fichiers supprimés
+
 Aucun.
 
 ### Fichiers renommés
+
 Aucun.
 
 ### SQL ajoutés
+
 Aucun.
 
 ### SQL modifiés
+
 Aucun.
 
 ### SQL supprimés
+
 Aucun.
 
 ### SQL renommés
+
 Aucun.
 
 Aucune migration ni modification de données n'a été exécutée contre votre base. Les scripts temporaires et captures de diagnostic sous `/tmp` ne sont pas des fichiers du projet à transférer.

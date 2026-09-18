@@ -114,7 +114,10 @@ export function AddressField({ value, onChange, errors = {} }: Props) {
         const list = (json.features ?? [])
           .map(toSuggestion)
           .filter((s): s is Suggestion => s !== null)
-          .filter((s, i, arr) => arr.findIndex((o) => o.line === s.line && o.secondary === s.secondary) === i);
+          .filter(
+            (s, i, arr) =>
+              arr.findIndex((o) => o.line === s.line && o.secondary === s.secondary) === i,
+          );
         setSuggestions(list);
         setNoResult(list.length === 0);
       } catch (err) {
@@ -145,10 +148,15 @@ export function AddressField({ value, onChange, errors = {} }: Props) {
       <div className="space-y-1.5" ref={boxRef}>
         <Label htmlFor="address" className="text-sm">
           {t("finance.fields.address")}
-          <span className="ml-1 text-destructive" aria-hidden>*</span>
+          <span className="ml-1 text-destructive" aria-hidden>
+            *
+          </span>
         </Label>
         <div className="relative">
-          <MapPin className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden />
+          <MapPin
+            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+            aria-hidden
+          />
           <Input
             id="address"
             value={value.address}
@@ -156,10 +164,16 @@ export function AddressField({ value, onChange, errors = {} }: Props) {
             onFocus={() => suggestions.length > 0 && setOpen(true)}
             onKeyDown={(e) => {
               if (!open || suggestions.length === 0) return;
-              if (e.key === "ArrowDown") { e.preventDefault(); setHighlight((h) => Math.min(h + 1, suggestions.length - 1)); }
-              else if (e.key === "ArrowUp") { e.preventDefault(); setHighlight((h) => Math.max(h - 1, 0)); }
-              else if (e.key === "Enter" && highlight >= 0) { e.preventDefault(); choose(suggestions[highlight]!); }
-              else if (e.key === "Escape") setOpen(false);
+              if (e.key === "ArrowDown") {
+                e.preventDefault();
+                setHighlight((h) => Math.min(h + 1, suggestions.length - 1));
+              } else if (e.key === "ArrowUp") {
+                e.preventDefault();
+                setHighlight((h) => Math.max(h - 1, 0));
+              } else if (e.key === "Enter" && highlight >= 0) {
+                e.preventDefault();
+                choose(suggestions[highlight]!);
+              } else if (e.key === "Escape") setOpen(false);
             }}
             placeholder={t("finance.fields.addressPlaceholder")}
             autoComplete="street-address"
@@ -169,7 +183,10 @@ export function AddressField({ value, onChange, errors = {} }: Props) {
             className="h-11 pl-9 pr-9"
           />
           {loading && (
-            <Loader2 className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-muted-foreground" aria-hidden />
+            <Loader2
+              className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-muted-foreground"
+              aria-hidden
+            />
           )}
 
           {open && suggestions.length > 0 && (
@@ -193,7 +210,9 @@ export function AddressField({ value, onChange, errors = {} }: Props) {
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
                     <span className="min-w-0">
                       <span className="block truncate text-sm font-medium">{s.line}</span>
-                      <span className="block truncate text-xs text-muted-foreground">{s.secondary}</span>
+                      <span className="block truncate text-xs text-muted-foreground">
+                        {s.secondary}
+                      </span>
                     </span>
                   </button>
                 </li>
@@ -202,7 +221,11 @@ export function AddressField({ value, onChange, errors = {} }: Props) {
           )}
         </div>
 
-        {errors.address && <p role="alert" className="text-xs font-medium text-destructive">{errors.address}</p>}
+        {errors.address && (
+          <p role="alert" className="text-xs font-medium text-destructive">
+            {errors.address}
+          </p>
+        )}
 
         {/* Discreet fallback: only after a lookup came back empty. */}
         {noResult && !picked && value.address.trim().length >= 3 && !loading && (
@@ -214,7 +237,9 @@ export function AddressField({ value, onChange, errors = {} }: Props) {
         <div className="space-y-1.5">
           <Label htmlFor="postal_code" className="text-sm">
             {t("finance.fields.postalCode")}
-            <span className="ml-1 text-destructive" aria-hidden>*</span>
+            <span className="ml-1 text-destructive" aria-hidden>
+              *
+            </span>
           </Label>
           <Input
             id="postal_code"
@@ -224,13 +249,19 @@ export function AddressField({ value, onChange, errors = {} }: Props) {
             aria-invalid={Boolean(errors.postal_code)}
             className="h-11"
           />
-          {errors.postal_code && <p role="alert" className="text-xs font-medium text-destructive">{errors.postal_code}</p>}
+          {errors.postal_code && (
+            <p role="alert" className="text-xs font-medium text-destructive">
+              {errors.postal_code}
+            </p>
+          )}
         </div>
 
         <div className="space-y-1.5">
           <Label htmlFor="city" className="text-sm">
             {t("finance.fields.city")}
-            <span className="ml-1 text-destructive" aria-hidden>*</span>
+            <span className="ml-1 text-destructive" aria-hidden>
+              *
+            </span>
           </Label>
           <Input
             id="city"
@@ -240,7 +271,11 @@ export function AddressField({ value, onChange, errors = {} }: Props) {
             aria-invalid={Boolean(errors.city)}
             className="h-11"
           />
-          {errors.city && <p role="alert" className="text-xs font-medium text-destructive">{errors.city}</p>}
+          {errors.city && (
+            <p role="alert" className="text-xs font-medium text-destructive">
+              {errors.city}
+            </p>
+          )}
         </div>
 
         <div className="sm:col-span-2">

@@ -15,8 +15,16 @@ function urlBase64ToUint8Array(base64String: string) {
 export async function ensureServiceWorker(): Promise<ServiceWorkerRegistration | null> {
   if (typeof window === "undefined" || !("serviceWorker" in navigator)) return null;
   // Avoid registering when in iframe / preview hosts (per Lovable guidance)
-  const inIframe = (() => { try { return window.self !== window.top; } catch { return true; } })();
-  const isPreview = window.location.hostname.includes("lovableproject.com") || window.location.hostname.includes("id-preview--");
+  const inIframe = (() => {
+    try {
+      return window.self !== window.top;
+    } catch {
+      return true;
+    }
+  })();
+  const isPreview =
+    window.location.hostname.includes("lovableproject.com") ||
+    window.location.hostname.includes("id-preview--");
   if (inIframe || isPreview) return null;
   try {
     return await navigator.serviceWorker.register("/sw.js");
@@ -27,7 +35,12 @@ export async function ensureServiceWorker(): Promise<ServiceWorkerRegistration |
 
 export async function subscribeToPush(userId: string): Promise<boolean> {
   if (!VAPID_PUBLIC_KEY) return false;
-  if (typeof window === "undefined" || !("Notification" in window) || !("serviceWorker" in navigator)) return false;
+  if (
+    typeof window === "undefined" ||
+    !("Notification" in window) ||
+    !("serviceWorker" in navigator)
+  )
+    return false;
   if (Notification.permission === "denied") return false;
 
   // Ensure the current session actually matches the userId — avoids the

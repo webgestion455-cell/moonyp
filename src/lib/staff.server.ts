@@ -17,7 +17,10 @@ export async function requireStaff(accessToken: string, permission?: string) {
   if (error || !data.user) throw new Error("Non authentifié");
   const user = data.user;
 
-  const { data: roleRows } = await supabase.from("user_roles").select("role").eq("user_id", user.id);
+  const { data: roleRows } = await supabase
+    .from("user_roles")
+    .select("role")
+    .eq("user_id", user.id);
   const roles = (roleRows ?? []).map((r: { role: string }) => r.role);
   const isSuper = roles.includes("super_admin");
   const isStaff = isSuper || roles.includes("admin") || roles.includes("agent");
@@ -73,7 +76,11 @@ export function invitationEmailHtml(params: {
   declineLink?: string;
 }) {
   const roleLabel =
-    params.role === "super_admin" ? "Super administrateur" : params.role === "admin" ? "Administrateur" : "Agent / Conseiller";
+    params.role === "super_admin"
+      ? "Super administrateur"
+      : params.role === "admin"
+        ? "Administrateur"
+        : "Agent / Conseiller";
   return `<div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:auto;background:#ffffff;border:1px solid #e6e8e6;border-radius:14px;overflow:hidden">
     <div style="background:#00915A;padding:20px 24px;color:#fff">
       <div style="font-size:18px;font-weight:700;letter-spacing:.5px">MOONYP</div>

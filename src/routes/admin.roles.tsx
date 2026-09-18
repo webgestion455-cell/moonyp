@@ -94,18 +94,31 @@ function AdminRoles() {
   }
 
   if (loading) {
-    return <div className="grid h-96 place-items-center"><Loader2 className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
+    return (
+      <div className="grid h-96 place-items-center">
+        <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+      </div>
+    );
   }
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 space-y-6">
       <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
         <div className="min-w-0">
-          <h1 className="truncate text-xl sm:text-2xl font-bold tracking-tight">Matrice des permissions</h1>
-          <p className="text-sm text-muted-foreground">Définissez précisément ce que chaque rôle peut faire</p>
+          <h1 className="truncate text-xl sm:text-2xl font-bold tracking-tight">
+            Matrice des permissions
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            Définissez précisément ce que chaque rôle peut faire
+          </p>
         </div>
         <Button onClick={save} disabled={saving} className="shrink-0">
-          {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />} Enregistrer
+          {saving ? (
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          ) : (
+            <Save className="mr-2 h-4 w-4" />
+          )}{" "}
+          Enregistrer
         </Button>
       </header>
 
@@ -117,7 +130,9 @@ function AdminRoles() {
               <div className="min-w-0">
                 <p className="text-sm font-semibold">{r.label}</p>
                 <p className="text-xs text-muted-foreground">{r.description}</p>
-                <p className="mt-1 text-xs font-medium text-[#00915A]">{matrix[r.value].size} permission(s)</p>
+                <p className="mt-1 text-xs font-medium text-[#00915A]">
+                  {matrix[r.value].size} permission(s)
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -129,7 +144,11 @@ function AdminRoles() {
         if (!perms.length) return null;
         return (
           <Card key={mod}>
-            <CardHeader className="pb-2"><CardTitle className="text-sm uppercase tracking-wide text-muted-foreground">{mod}</CardTitle></CardHeader>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm uppercase tracking-wide text-muted-foreground">
+                {mod}
+              </CardTitle>
+            </CardHeader>
             <CardContent className="p-0">
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[640px] text-sm">
@@ -137,7 +156,9 @@ function AdminRoles() {
                     <tr className="border-b border-border text-left text-xs uppercase text-muted-foreground">
                       <th className="px-4 py-2 font-medium">Permission</th>
                       {STAFF_ROLES.map((r) => (
-                        <th key={r.value} className="px-4 py-2 text-center font-medium">{r.label}</th>
+                        <th key={r.value} className="px-4 py-2 text-center font-medium">
+                          {r.label}
+                        </th>
                       ))}
                     </tr>
                   </thead>
@@ -167,7 +188,8 @@ function AdminRoles() {
         );
       })}
       <p className="text-xs text-muted-foreground">
-        Le rôle « Super administrateur » dispose en permanence de l'ensemble des droits et ne peut pas être restreint.
+        Le rôle « Super administrateur » dispose en permanence de l'ensemble des droits et ne peut
+        pas être restreint.
       </p>
     </div>
   );

@@ -81,7 +81,6 @@ function ContractPage() {
   // Suspendu pendant une opération de signature pour ne rien interrompre.
   useAutoRefresh(() => refresh(true), { enabled: !busy && !requestId });
 
-
   async function openDocument(kind: "contract" | "signed_contract") {
     try {
       const res = await fetchDocUrl({ data: { token, kind } });
@@ -115,10 +114,18 @@ function ContractPage() {
     setBusy(true);
     try {
       const res = await finalize({
-        data: { token, request_id: requestId, code: code.trim(), full_name: fullName.trim(), consent: true },
+        data: {
+          token,
+          request_id: requestId,
+          code: code.trim(),
+          full_name: fullName.trim(),
+          consent: true,
+        },
       });
       if (!res.ok) {
-        toast.error(t((res as { reason: string }).reason, { defaultValue: t("finance.contract.signError") }));
+        toast.error(
+          t((res as { reason: string }).reason, { defaultValue: t("finance.contract.signError") }),
+        );
         return;
       }
       toast.success(t("finance.contract.signed"));
@@ -149,9 +156,12 @@ function ContractPage() {
   const offer = data.offer;
   const contract = data.contract;
   const currency = (offer?.currency as string | undefined) ?? "EUR";
-  const money = (v: number | null | undefined) => (v == null ? "—" : formatMoney(Number(v), currency, locale));
+  const money = (v: number | null | undefined) =>
+    v == null ? "—" : formatMoney(Number(v), currency, locale);
   const date = (v: string | null | undefined) =>
-    v ? new Date(v).toLocaleString(locale, { day: "2-digit", month: "long", year: "numeric" }) : "—";
+    v
+      ? new Date(v).toLocaleString(locale, { day: "2-digit", month: "long", year: "numeric" })
+      : "—";
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 pb-24 pt-8 sm:px-6">
@@ -177,7 +187,9 @@ function ContractPage() {
       </header>
 
       {!contract ? (
-        <Card className="mt-5 p-6 text-sm text-muted-foreground">{t("finance.contract.notAvailable")}</Card>
+        <Card className="mt-5 p-6 text-sm text-muted-foreground">
+          {t("finance.contract.notAvailable")}
+        </Card>
       ) : (
         <>
           <Card className="mt-5 p-5">
@@ -190,10 +202,22 @@ function ContractPage() {
               />
               <Row
                 label={t("finance.contract.rate")}
-                value={offer?.annual_rate != null ? `${Number(offer.annual_rate).toFixed(2)} %` : app.apr != null ? `${Number(app.apr).toFixed(2)} %` : "—"}
+                value={
+                  offer?.annual_rate != null
+                    ? `${Number(offer.annual_rate).toFixed(2)} %`
+                    : app.apr != null
+                      ? `${Number(app.apr).toFixed(2)} %`
+                      : "—"
+                }
               />
-              <Row label={t("finance.portal.monthly")} value={money(offer?.monthly_payment ?? app.monthly_payment)} />
-              <Row label={t("finance.portal.totalCost")} value={money(offer?.total_cost ?? app.total_cost)} />
+              <Row
+                label={t("finance.portal.monthly")}
+                value={money(offer?.monthly_payment ?? app.monthly_payment)}
+              />
+              <Row
+                label={t("finance.portal.totalCost")}
+                value={money(offer?.total_cost ?? app.total_cost)}
+              />
               <Row label={t("finance.portal.fees")} value={money(offer?.fees_total ?? app.fees)} />
             </dl>
           </Card>
@@ -207,24 +231,40 @@ function ContractPage() {
               <Row label={t("finance.contract.version")} value={`v${contract.version}`} />
               <Row
                 label={t("finance.contract.state")}
-                value={t(`finance.contract.states.${contract.status}`, { defaultValue: contract.status })}
+                value={t(`finance.contract.states.${contract.status}`, {
+                  defaultValue: contract.status,
+                })}
               />
               <Row label={t("finance.portal.sentOn")} value={date(contract.sent_at)} />
               <Row label={t("finance.portal.signedOn")} value={date(contract.signed_at)} />
               <Row
                 label={t("finance.contract.hash")}
-                value={(contract.signed_document_hash ?? contract.document_hash ?? "—").slice(0, 24)}
+                value={(contract.signed_document_hash ?? contract.document_hash ?? "—").slice(
+                  0,
+                  24,
+                )}
               />
               <Row label={t("finance.contract.providerLabel")} value={contract.provider} />
             </dl>
             <div className="mt-4 flex flex-wrap gap-2">
               {contract.has_document && (
-                <Button variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("contract")}>
-                  <Download className="h-4 w-4" aria-hidden /> {t("finance.portal.downloadContract")}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="gap-2"
+                  onClick={() => void openDocument("contract")}
+                >
+                  <Download className="h-4 w-4" aria-hidden />{" "}
+                  {t("finance.portal.downloadContract")}
                 </Button>
               )}
               {contract.has_signed_document && (
-                <Button variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("signed_contract")}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="gap-2"
+                  onClick={() => void openDocument("signed_contract")}
+                >
                   <Download className="h-4 w-4" aria-hidden /> {t("finance.portal.downloadSigned")}
                 </Button>
               )}
@@ -245,11 +285,18 @@ function ContractPage() {
               <div className="mt-4 space-y-3">
                 <label className="block text-sm">
                   <span className="mb-1.5 block font-medium">{t("finance.contract.fullName")}</span>
-                  <Input value={fullName} onChange={(e) => setFullName(e.target.value)} maxLength={120} />
+                  <Input
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    maxLength={120}
+                  />
                 </label>
 
                 {!requestId ? (
-                  <Button disabled={busy || fullName.trim().length < 3} onClick={() => void onStart()}>
+                  <Button
+                    disabled={busy || fullName.trim().length < 3}
+                    onClick={() => void onStart()}
+                  >
                     {t("finance.contract.startSignature")}
                   </Button>
                 ) : (
@@ -263,7 +310,9 @@ function ContractPage() {
                         maxLength={8}
                         className="max-w-[180px] font-mono tracking-widest"
                       />
-                      <span className="mt-1 block text-xs text-muted-foreground">{t("finance.contract.codeHint")}</span>
+                      <span className="mt-1 block text-xs text-muted-foreground">
+                        {t("finance.contract.codeHint")}
+                      </span>
                     </label>
                     <label className="flex items-start gap-2 text-xs leading-relaxed">
                       <input
@@ -275,7 +324,10 @@ function ContractPage() {
                       <span>{t("finance.contract.consent")}</span>
                     </label>
                     <div className="flex flex-wrap gap-2">
-                      <Button disabled={busy || code.trim().length < 4 || !consent} onClick={() => void onSign()}>
+                      <Button
+                        disabled={busy || code.trim().length < 4 || !consent}
+                        onClick={() => void onSign()}
+                      >
                         {t("finance.contract.confirmSignature")}
                       </Button>
                       <Button variant="ghost" disabled={busy} onClick={() => void onStart()}>
@@ -293,9 +345,16 @@ function ContractPage() {
               <h2 className="text-sm font-semibold">{t("finance.contract.history")}</h2>
               <ul className="mt-4 space-y-2 text-sm">
                 {data.events.map((e, i) => (
-                  <li key={`${e.created_at}-${i}`} className="flex flex-wrap justify-between gap-2 rounded-lg bg-muted/40 px-3 py-2">
-                    <span>{t(`finance.contract.events.${e.event_type}`, { defaultValue: e.event_type })}</span>
-                    <span className="text-xs text-muted-foreground">{new Date(e.created_at).toLocaleString(locale)}</span>
+                  <li
+                    key={`${e.created_at}-${i}`}
+                    className="flex flex-wrap justify-between gap-2 rounded-lg bg-muted/40 px-3 py-2"
+                  >
+                    <span>
+                      {t(`finance.contract.events.${e.event_type}`, { defaultValue: e.event_type })}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {new Date(e.created_at).toLocaleString(locale)}
+                    </span>
                   </li>
                 ))}
               </ul>

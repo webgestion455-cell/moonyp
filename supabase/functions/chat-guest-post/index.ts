@@ -53,17 +53,14 @@ serve(async (req) => {
     // Appel IA si pas encore assigné à un agent
     if (conv.status !== "assigned") {
       try {
-        const aiResp = await fetch(
-          `${Deno.env.get("SUPABASE_URL")}/functions/v1/chat-ai`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")}`,
-            },
-            body: JSON.stringify({ message: clean, history: [], lang }),
+        const aiResp = await fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/chat-ai`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")}`,
           },
-        );
+          body: JSON.stringify({ message: clean, history: [], lang }),
+        });
         const aiData = await aiResp.json();
         const html = String(aiData?.html ?? "");
         const handoff = Boolean(aiData?.handoff);

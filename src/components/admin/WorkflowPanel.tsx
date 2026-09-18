@@ -17,10 +17,7 @@ import {
   statusLabel,
   type ApplicationStatus,
 } from "@/lib/application-status";
-import {
-  DECISION_STATUSES,
-  type TransitionCheck,
-} from "@/lib/application-workflow";
+import { DECISION_STATUSES, type TransitionCheck } from "@/lib/application-workflow";
 
 export type Transition = { status: ApplicationStatus; check: TransitionCheck };
 
@@ -116,7 +113,9 @@ export function WorkflowPanel({
       <CardContent className="space-y-5">
         {/* A — Étape actuelle */}
         <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-primary">Étape actuelle</p>
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-primary">
+            Étape actuelle
+          </p>
           <p className="mt-1 text-base font-semibold">{statusLabel(status)}</p>
           {lastTransitionAt && (
             <p className="mt-0.5 text-xs text-muted-foreground">
@@ -178,7 +177,9 @@ export function WorkflowPanel({
                 key={step}
                 className={cn(
                   "rounded-full border px-2.5 py-0.5 text-[11px] font-medium",
-                  step === status ? STEP_STYLE.terminal : "border-border bg-muted/40 text-muted-foreground",
+                  step === status
+                    ? STEP_STYLE.terminal
+                    : "border-border bg-muted/40 text-muted-foreground",
                 )}
               >
                 {statusLabel(step)}
@@ -227,7 +228,8 @@ export function WorkflowPanel({
                           variant={s === "approved" ? "default" : "outline"}
                           className={cn(
                             "w-full justify-center",
-                            s === "rejected" && "border-destructive/50 text-destructive hover:bg-destructive/10",
+                            s === "rejected" &&
+                              "border-destructive/50 text-destructive hover:bg-destructive/10",
                           )}
                           disabled={busy || !check.ok}
                           onClick={() => onSelect(s)}
@@ -245,8 +247,8 @@ export function WorkflowPanel({
 
               {!decisions.some((d) => d.status === "approved") && !isTerminalStatus && (
                 <p className="rounded-lg border border-border bg-muted/40 p-3 text-[11px] leading-relaxed text-muted-foreground">
-                  L'accord définitif se prononce depuis l'étape « {statusLabel("analysis")} ». Faites
-                  progresser le dossier jusqu'à cette étape pour voir apparaître «{" "}
+                  L'accord définitif se prononce depuis l'étape « {statusLabel("analysis")} ».
+                  Faites progresser le dossier jusqu'à cette étape pour voir apparaître «{" "}
                   {statusLabel("approved")} ».
                 </p>
               )}

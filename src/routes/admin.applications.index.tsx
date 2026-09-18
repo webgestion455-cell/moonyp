@@ -23,7 +23,11 @@ export const Route = createFileRoute("/admin/applications/")({
 type Row = Awaited<ReturnType<typeof adminListApplications>>[number];
 
 function money(n: number) {
-  return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+  return new Intl.NumberFormat("fr-FR", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  }).format(n);
 }
 
 function ApplicationsList() {
@@ -60,7 +64,11 @@ function ApplicationsList() {
       <PageHeader
         title="Dossiers de financement"
         subtitle="Instruction, décision et suivi des demandes clients."
-        actions={<span className="text-xs text-muted-foreground tabular-nums">{rows.length} dossier(s)</span>}
+        actions={
+          <span className="text-xs text-muted-foreground tabular-nums">
+            {rows.length} dossier(s)
+          </span>
+        }
       />
 
       <form
@@ -89,7 +97,9 @@ function ApplicationsList() {
           to="/admin/applications"
           search={{ status: undefined, q }}
           className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
-            !status ? "border-primary bg-primary text-primary-foreground" : "border-border hover:bg-muted"
+            !status
+              ? "border-primary bg-primary text-primary-foreground"
+              : "border-border hover:bg-muted"
           }`}
         >
           Tous
@@ -100,7 +110,9 @@ function ApplicationsList() {
             to="/admin/applications"
             search={{ status: s, q }}
             className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
-              status === s ? "border-primary bg-primary text-primary-foreground" : "border-border hover:bg-muted"
+              status === s
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-border hover:bg-muted"
             }`}
           >
             {statusLabel(s)}
@@ -118,26 +130,28 @@ function ApplicationsList() {
         />
       ) : (
         <ListCard>
-            {rows.map((r) => (
-                <li key={r.id}>
-                  <Link
-                    to="/admin/applications/$applicationId"
-                    params={{ applicationId: r.id }}
-                    className="flex flex-col gap-2 px-4 py-3.5 transition-colors hover:bg-muted/50 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-                  >
-                    <div className="min-w-0">
-                      <p className="truncate text-sm font-semibold">
-                        {r.reference} · {[r.first_name, r.last_name].filter(Boolean).join(" ") || r.email}
-                      </p>
-                      <p className="truncate text-xs text-muted-foreground">
-                        {money(Number(r.amount ?? 0))} · {r.duration_months ?? "—"} mois · {r.city ?? ""} {r.country ?? ""} ·{" "}
-                        {new Date(r.created_at).toLocaleDateString("fr-FR")}
-                      </p>
-                    </div>
-                    <StatusBadge status={r.status} />
-                  </Link>
-                </li>
-            ))}
+          {rows.map((r) => (
+            <li key={r.id}>
+              <Link
+                to="/admin/applications/$applicationId"
+                params={{ applicationId: r.id }}
+                className="flex flex-col gap-2 px-4 py-3.5 transition-colors hover:bg-muted/50 sm:flex-row sm:items-center sm:justify-between sm:px-6"
+              >
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-semibold">
+                    {r.reference} ·{" "}
+                    {[r.first_name, r.last_name].filter(Boolean).join(" ") || r.email}
+                  </p>
+                  <p className="truncate text-xs text-muted-foreground">
+                    {money(Number(r.amount ?? 0))} · {r.duration_months ?? "—"} mois ·{" "}
+                    {r.city ?? ""} {r.country ?? ""} ·{" "}
+                    {new Date(r.created_at).toLocaleDateString("fr-FR")}
+                  </p>
+                </div>
+                <StatusBadge status={r.status} />
+              </Link>
+            </li>
+          ))}
         </ListCard>
       )}
     </div>

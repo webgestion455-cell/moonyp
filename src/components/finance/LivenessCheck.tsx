@@ -10,14 +10,7 @@
  */
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  AlertTriangle,
-  CheckCircle2,
-  Loader2,
-  RotateCcw,
-  ScanFace,
-  X,
-} from "lucide-react";
+import { AlertTriangle, CheckCircle2, Loader2, RotateCcw, ScanFace, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
@@ -94,7 +87,9 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
   const [challenges, setChallenges] = useState<LivenessChallenge[]>([]);
   const [progress, setProgress] = useState(0);
   const [preview, setPreview] = useState<string | null>(null);
-  const [pending, setPending] = useState<{ file: File; evidence: LivenessSessionEvidence } | null>(null);
+  const [pending, setPending] = useState<{ file: File; evidence: LivenessSessionEvidence } | null>(
+    null,
+  );
 
   const stop = useCallback(() => {
     if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
@@ -104,7 +99,12 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
   }, []);
 
   useEffect(() => () => stop(), [stop]);
-  useEffect(() => () => { if (preview) URL.revokeObjectURL(preview); }, [preview]);
+  useEffect(
+    () => () => {
+      if (preview) URL.revokeObjectURL(preview);
+    },
+    [preview],
+  );
 
   /* ----------------------- Portrait + preuve finale ---------------------- */
   const finish = useCallback(
@@ -150,7 +150,9 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
               smile_peak: Math.round(a.smile * 100) / 100,
               jaw_peak: Math.round(a.jaw * 100) / 100,
               depth_variance_avg:
-                Math.round((a.depthCount ? a.depthSum / a.depthCount : metrics.depthVariance) * 1000) / 1000,
+                Math.round(
+                  (a.depthCount ? a.depthSum / a.depthCount : metrics.depthVariance) * 1000,
+                ) / 1000,
               screen_likelihood_max: Math.round(a.screenMax * 100) / 100,
               brightness_avg: Math.round((a.photoCount ? a.brightSum / a.photoCount : 0) * 10) / 10,
               sharpness_avg: Math.round((a.photoCount ? a.sharpSum / a.photoCount : 0) * 10) / 10,
@@ -197,7 +199,10 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
           if (!workRef.current) workRef.current = document.createElement("canvas");
           const work = workRef.current;
           const width = 256;
-          const height = Math.max(2, Math.round((video.videoHeight / (video.videoWidth || 1)) * width));
+          const height = Math.max(
+            2,
+            Math.round((video.videoHeight / (video.videoWidth || 1)) * width),
+          );
           work.width = width;
           work.height = height;
           const ctx = work.getContext("2d", { willReadFrequently: true });
@@ -242,7 +247,11 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
 
         // Phase 1 — cadrage : le visage doit être conforme plusieurs images
         // d'affilée avant que le premier défi ne soit demandé.
-        if (stepRef.current === 0 && challengesRef.current.length > 0 && challengeShownAt.current === 0) {
+        if (
+          stepRef.current === 0 &&
+          challengesRef.current.length > 0 &&
+          challengeShownAt.current === 0
+        ) {
           readyStreak.current = verdict.ready ? readyStreak.current + 1 : 0;
           setProgress(Math.min(1, readyStreak.current / LIVENESS_THRESHOLDS.readyFrames));
           if (readyStreak.current >= LIVENESS_THRESHOLDS.readyFrames) {
@@ -319,9 +328,19 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
     challengeShownAt.current = 0;
     frameCount.current = 0;
     agg.current = {
-      yawMin: 0, yawMax: 0, blink: 0, smile: 0, jaw: 0,
-      depthSum: 0, depthCount: 0, screenMax: 0,
-      brightSum: 0, sharpSum: 0, photoCount: 0, multiFace: 0, noFace: 0,
+      yawMin: 0,
+      yawMax: 0,
+      blink: 0,
+      smile: 0,
+      jaw: 0,
+      depthSum: 0,
+      depthCount: 0,
+      screenMax: 0,
+      brightSum: 0,
+      sharpSum: 0,
+      photoCount: 0,
+      multiFace: 0,
+      noFace: 0,
     };
     const drawn = drawChallenges(CHALLENGE_COUNT);
     challengesRef.current = drawn;
@@ -409,7 +428,10 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
         {onCancel && (
           <button
             type="button"
-            onClick={() => { stop(); onCancel(); }}
+            onClick={() => {
+              stop();
+              onCancel();
+            }}
             aria-label={t("common.close")}
             className="shrink-0 rounded-md p-1.5 text-muted-foreground hover:text-foreground"
           >
@@ -421,7 +443,11 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
       <div className="relative bg-black">
         <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden sm:aspect-[4/3]">
           {phase === "captured" && preview ? (
-            <img src={preview} alt="" className="absolute inset-0 h-full w-full scale-x-[-1] object-cover" />
+            <img
+              src={preview}
+              alt=""
+              className="absolute inset-0 h-full w-full scale-x-[-1] object-cover"
+            />
           ) : (
             <video
               ref={videoRef}
@@ -501,14 +527,20 @@ export function LivenessCheck({ title, hint, onCapture, onCancel }: Props) {
                   <span
                     className={cn(
                       "h-1.5 w-1.5 shrink-0 rounded-full",
-                      i < step ? "bg-success" : i === step ? "bg-primary" : "bg-muted-foreground/50",
+                      i < step
+                        ? "bg-success"
+                        : i === step
+                          ? "bg-primary"
+                          : "bg-muted-foreground/50",
                     )}
                   />
                   <span className="truncate">{t(`kyc.liveness.short.${c}`)}</span>
                 </li>
               ))}
             </ol>
-            <p className="text-[11px] leading-relaxed text-muted-foreground">{t("kyc.liveness.notice")}</p>
+            <p className="text-[11px] leading-relaxed text-muted-foreground">
+              {t("kyc.liveness.notice")}
+            </p>
           </>
         )}
 

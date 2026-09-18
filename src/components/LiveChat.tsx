@@ -57,7 +57,6 @@ export function LiveChat() {
       .finally(() => setLoading(false));
   }, [open, user, conversationId, t]);
 
-
   // Cachée sur mobile pour utilisateurs connectés (dashboard/admin) —
   // ils accèdent via /chat ou /admin/chat
   if (isMobile && user) return null;
@@ -67,7 +66,7 @@ export function LiveChat() {
     setGuest(session);
   };
 
-  const activeConversationId = user ? conversationId : guest?.conversationId ?? null;
+  const activeConversationId = user ? conversationId : (guest?.conversationId ?? null);
   const chatMode: "client" | "guest" | null = user ? "client" : guest ? "guest" : null;
 
   return (
@@ -90,7 +89,6 @@ export function LiveChat() {
           aria-label="Live chat MOONYP"
           className="fixed z-40 inset-x-2 bottom-2 top-2 sm:inset-auto sm:top-auto sm:bottom-24 sm:right-6 sm:w-[min(400px,calc(100vw-3rem))] sm:h-[620px] sm:max-h-[85vh]"
         >
-
           {chatMode === null ? (
             <GuestForm onCreated={handleGuestCreated} onCancel={() => setOpen(false)} />
           ) : loading ? (
@@ -131,8 +129,7 @@ function GuestForm({
   });
   const [sending, setSending] = useState(false);
 
-  const set = <K extends keyof typeof form>(k: K, v: string) =>
-    setForm((f) => ({ ...f, [k]: v }));
+  const set = <K extends keyof typeof form>(k: K, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -226,9 +223,7 @@ function GuestForm({
           onChange={(e) => set("message", e.target.value)}
         />
 
-        <p className="text-[11px] text-muted-foreground">
-          {t("chat.guest.privacy")}
-        </p>
+        <p className="text-[11px] text-muted-foreground">{t("chat.guest.privacy")}</p>
       </div>
 
       <div className="border-t border-border p-3 bg-muted/30">

@@ -115,7 +115,11 @@ const nominal = decideKyc({
     },
   ],
 });
-check("mesures client seules → jamais de validation bancaire", nominal.decision === "manual_review", nominal);
+check(
+  "mesures client seules → jamais de validation bancaire",
+  nominal.decision === "manual_review",
+  nominal,
+);
 
 const noLiveness = decideKyc({
   declared,
@@ -227,10 +231,19 @@ check(
 
 for (let attempt = 0; attempt < 3; attempt += 1) {
   const result = decideKyc({ declared, at, documents: [] });
-  check(`tentative ${attempt + 1} sans pièce → toujours non vérifiée`, result.decision === "failed");
+  check(
+    `tentative ${attempt + 1} sans pièce → toujours non vérifiée`,
+    result.decision === "failed",
+  );
 }
 check("comparaison faciale non inventée", nominal.reasons.includes("face_match_not_performed"));
-check("contrôle adresse non inventé", nominal.reasons.includes("address_verification_not_performed"));
-check("contrôle bancaire non inventé", nominal.reasons.includes("bank_statement_verification_not_performed"));
+check(
+  "contrôle adresse non inventé",
+  nominal.reasons.includes("address_verification_not_performed"),
+);
+check(
+  "contrôle bancaire non inventé",
+  nominal.reasons.includes("bank_statement_verification_not_performed"),
+);
 console.log(`\n${passed} test(s) réussi(s), ${failed} échec(s).`);
 process.exit(failed === 0 ? 0 : 1);

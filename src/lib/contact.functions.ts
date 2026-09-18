@@ -50,22 +50,25 @@ export const submitContactMessage = createServerFn({ method: "POST" })
             )}</pre>
           </div>`;
         const res = await fetch("https://api.resend.com/emails", {
-  method: "POST",
-  headers: {
-    "Authorization": `Bearer ${RESEND_API_KEY_MAIL}`,
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    from: FROM_EMAIL,
-    to: [TO_EMAIL],
-    reply_to: data.email,
-    subject: `[Contact] ${data.subject}`,
-    html,
-  }),
-});
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${RESEND_API_KEY_MAIL}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: FROM_EMAIL,
+            to: [TO_EMAIL],
+            reply_to: data.email,
+            subject: `[Contact] ${data.subject}`,
+            html,
+          }),
+        });
         emailSent = res.ok;
         if (emailSent && row?.id) {
-          await (supabaseAdmin as any).from("contact_messages").update({ sent_email: true }).eq("id", row.id);
+          await (supabaseAdmin as any)
+            .from("contact_messages")
+            .update({ sent_email: true })
+            .eq("id", row.id);
         }
       } catch {
         /* silent — message is still persisted */

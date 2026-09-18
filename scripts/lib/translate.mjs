@@ -85,12 +85,13 @@ export function translateOne(text, target, source = "en") {
       line = undefined;
     }
     if (line && !/\[ERROR\]/.test(line)) {
-      return restore(line, tokens).replace(/\s+([,.;:!?])/g, "$1").trim();
+      return restore(line, tokens)
+        .replace(/\s+([,.;:!?])/g, "$1")
+        .trim();
     }
   }
   return text;
 }
-
 
 /** Traduit un dictionnaire plat `{ cle: texte }` avec journal de progression. */
 export function translateMap(entries, target, source = "en", onProgress) {
@@ -141,18 +142,25 @@ export async function translateOneAsync(text, target, source = "en") {
       line = undefined;
     }
     if (line && !/\[ERROR\]/.test(line)) {
-      return restore(line, tokens).replace(/\s+([,.;:!?])/g, "$1").trim();
+      return restore(line, tokens)
+        .replace(/\s+([,.;:!?])/g, "$1")
+        .trim();
     }
   }
   return text;
 }
 
-
 /**
  * Traduit un dictionnaire plat `{ cle: texte }` avec une file d'attente bornée.
  * En cas d'échec réseau la valeur source est conservée : aucune clé n'est perdue.
  */
-export async function translateMapAsync(entries, target, source = "en", concurrency = 6, onProgress) {
+export async function translateMapAsync(
+  entries,
+  target,
+  source = "en",
+  concurrency = 6,
+  onProgress,
+) {
   const keys = Object.keys(entries);
   const out = {};
   let cursor = 0;

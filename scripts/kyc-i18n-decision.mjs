@@ -12,9 +12,11 @@ const DIR = "src/i18n/locales";
 
 const EN = {
   "kyc.decision.checking": "Checking your identity",
-  "kyc.decision.checkingDesc": "Our verification engine is cross-checking your document with your declared details.",
+  "kyc.decision.checkingDesc":
+    "Our verification engine is cross-checking your document with your declared details.",
   "kyc.decision.passedNotice": "Your document and your selfie match the details you provided.",
-  "kyc.decision.failedNotice": "The checks could not confirm your identity. Please capture your document again.",
+  "kyc.decision.failedNotice":
+    "The checks could not confirm your identity. Please capture your document again.",
   "kyc.decision.retry": "Start the verification again",
   "kyc.decision.field.surname": "Surname",
   "kyc.decision.field.given_names": "Given names",
@@ -35,7 +37,8 @@ const EN = {
   "kyc.decision.reason.document_expired": "The document has expired.",
   "kyc.decision.reason.low_capture_quality": "The capture quality is too low.",
   "kyc.decision.reason.screen_presentation_suspected": "A screen presentation is suspected.",
-  "kyc.decision.reason.identity_document_uploaded": "The identity document was uploaded instead of scanned.",
+  "kyc.decision.reason.identity_document_uploaded":
+    "The identity document was uploaded instead of scanned.",
   "kyc.decision.reason.capture_failed": "One capture did not pass the checks.",
   "kyc.decision.reason.no_liveness_session": "The liveness check is missing.",
   "kyc.decision.reason.liveness_failed": "The liveness check did not pass.",
@@ -60,9 +63,12 @@ const EN = {
 
 const FR = {
   "kyc.decision.checking": "Vérification de votre identité",
-  "kyc.decision.checkingDesc": "Nos contrôles croisent votre pièce avec les informations que vous avez déclarées.",
-  "kyc.decision.passedNotice": "Votre pièce et votre selfie correspondent aux informations déclarées.",
-  "kyc.decision.failedNotice": "Les contrôles n'ont pas pu confirmer votre identité. Reprenez la capture de votre pièce.",
+  "kyc.decision.checkingDesc":
+    "Nos contrôles croisent votre pièce avec les informations que vous avez déclarées.",
+  "kyc.decision.passedNotice":
+    "Votre pièce et votre selfie correspondent aux informations déclarées.",
+  "kyc.decision.failedNotice":
+    "Les contrôles n'ont pas pu confirmer votre identité. Reprenez la capture de votre pièce.",
   "kyc.decision.retry": "Recommencer la vérification",
   "kyc.decision.field.surname": "Nom",
   "kyc.decision.field.given_names": "Prénoms",
@@ -77,13 +83,16 @@ const FR = {
   "kyc.decision.reason.low_ocr_confidence": "La lecture de la pièce manque de netteté.",
   "kyc.decision.reason.surname_mismatch": "Le nom ne correspond pas à votre pièce.",
   "kyc.decision.reason.given_names_mismatch": "Les prénoms ne correspondent pas à votre pièce.",
-  "kyc.decision.reason.birth_date_mismatch": "La date de naissance ne correspond pas à votre pièce.",
+  "kyc.decision.reason.birth_date_mismatch":
+    "La date de naissance ne correspond pas à votre pièce.",
   "kyc.decision.reason.birth_date_not_readable": "La date de naissance n'a pas pu être lue.",
   "kyc.decision.reason.nationality_differs": "La nationalité diffère de celle de votre pièce.",
   "kyc.decision.reason.document_expired": "La pièce est expirée.",
   "kyc.decision.reason.low_capture_quality": "La qualité de capture est insuffisante.",
-  "kyc.decision.reason.screen_presentation_suspected": "Une présentation depuis un écran est suspectée.",
-  "kyc.decision.reason.identity_document_uploaded": "La pièce d'identité a été importée au lieu d'être scannée.",
+  "kyc.decision.reason.screen_presentation_suspected":
+    "Une présentation depuis un écran est suspectée.",
+  "kyc.decision.reason.identity_document_uploaded":
+    "La pièce d'identité a été importée au lieu d'être scannée.",
   "kyc.decision.reason.capture_failed": "Une capture n'a pas passé les contrôles.",
   "kyc.decision.reason.no_liveness_session": "Le contrôle de vivacité est manquant.",
   "kyc.decision.reason.liveness_failed": "Le contrôle de vivacité n'a pas abouti.",

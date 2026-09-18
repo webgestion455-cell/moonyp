@@ -99,7 +99,10 @@ function record(value: unknown): Record<string, unknown> {
 /* Scan / import de document                                              */
 /* --------------------------------------------------------------------- */
 
-function verdictForDocument(raw: Record<string, unknown>, method: "scan" | "upload"): EvidenceVerdict {
+function verdictForDocument(
+  raw: Record<string, unknown>,
+  method: "scan" | "upload",
+): EvidenceVerdict {
   const device = record(raw["device"]);
   const evidence: Record<string, unknown> = {
     method,
@@ -152,9 +155,11 @@ function verdictForDocument(raw: Record<string, unknown>, method: "scan" | "uplo
   if (brightness !== null && brightness < SCAN_LIMITS.minBrightness) reasons.push("too_dark");
   if (brightness !== null && brightness > SCAN_LIMITS.maxBrightness) reasons.push("overexposed");
   if (glare !== null && glare > SCAN_LIMITS.maxGlare) reasons.push("glare");
-  if (screen !== null && screen > SCAN_LIMITS.maxScreenLikelihood) reasons.push("screen_presentation_suspected");
+  if (screen !== null && screen > SCAN_LIMITS.maxScreenLikelihood)
+    reasons.push("screen_presentation_suspected");
   if (stable !== null && stable < SCAN_LIMITS.minStableFrames) reasons.push("unstable_capture");
-  if (analysed !== null && analysed < SCAN_LIMITS.minAnalysedFrames) reasons.push("insufficient_analysis");
+  if (analysed !== null && analysed < SCAN_LIMITS.minAnalysedFrames)
+    reasons.push("insufficient_analysis");
 
   const blocking = reasons.includes("screen_presentation_suspected");
   return {
@@ -241,10 +246,13 @@ function verdictForLiveness(raw: Record<string, unknown>): EvidenceVerdict {
   const reasons: string[] = [];
 
   if (passed.length < LIVENESS_LIMITS.minChallenges) reasons.push("not_enough_challenges");
-  if (requested.length > 0 && passed.length < requested.length) reasons.push("challenges_incomplete");
-  if (new Set(passed.map((p) => p.challenge)).size < passed.length) reasons.push("duplicated_challenges");
+  if (requested.length > 0 && passed.length < requested.length)
+    reasons.push("challenges_incomplete");
+  if (new Set(passed.map((p) => p.challenge)).size < passed.length)
+    reasons.push("duplicated_challenges");
   for (const entry of passed) {
-    if (requested.length > 0 && !requested.includes(entry.challenge)) reasons.push("unexpected_challenge");
+    if (requested.length > 0 && !requested.includes(entry.challenge))
+      reasons.push("unexpected_challenge");
     if (entry.reaction_ms !== null && entry.reaction_ms > LIVENESS_LIMITS.maxReactionMs) {
       reasons.push("slow_reaction");
     }
@@ -253,9 +261,12 @@ function verdictForLiveness(raw: Record<string, unknown>): EvidenceVerdict {
       reasons.push("reaction_too_fast");
     }
   }
-  if (duration === null || duration < LIVENESS_LIMITS.minDurationMs) reasons.push("session_too_short");
-  if (duration !== null && duration > LIVENESS_LIMITS.maxDurationMs) reasons.push("session_expired");
-  if (analysed === null || analysed < LIVENESS_LIMITS.minAnalysedFrames) reasons.push("insufficient_analysis");
+  if (duration === null || duration < LIVENESS_LIMITS.minDurationMs)
+    reasons.push("session_too_short");
+  if (duration !== null && duration > LIVENESS_LIMITS.maxDurationMs)
+    reasons.push("session_expired");
+  if (analysed === null || analysed < LIVENESS_LIMITS.minAnalysedFrames)
+    reasons.push("insufficient_analysis");
   if (
     normalisedMetrics.depth_variance_avg !== null &&
     normalisedMetrics.depth_variance_avg < LIVENESS_LIMITS.minDepthVariance
@@ -279,14 +290,20 @@ function verdictForLiveness(raw: Record<string, unknown>): EvidenceVerdict {
   ) {
     reasons.push("face_rarely_detected");
   }
-  if (started && completed && Date.parse(completed) < Date.parse(started)) reasons.push("inconsistent_timestamps");
+  if (started && completed && Date.parse(completed) < Date.parse(started))
+    reasons.push("inconsistent_timestamps");
 
   // Score de vivacité : base sur les défis validés, pénalisé par les motifs.
   const base = Math.min(100, (passed.length / Math.max(1, LIVENESS_LIMITS.minChallenges)) * 100);
   const score = Math.max(0, Math.round(base - reasons.length * 15));
 
   const blocking = reasons.some((r) =>
-    ["not_enough_challenges", "flat_face_suspected", "screen_presentation_suspected", "session_too_short"].includes(r),
+    [
+      "not_enough_challenges",
+      "flat_face_suspected",
+      "screen_presentation_suspected",
+      "session_too_short",
+    ].includes(r),
   );
 
   return {

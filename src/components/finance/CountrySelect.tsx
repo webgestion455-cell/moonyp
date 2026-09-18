@@ -21,7 +21,16 @@ interface Props {
  * Searchable country combobox covering every ISO 3166-1 territory, with
  * SVG flags and accent-insensitive instant search. Keyboard accessible.
  */
-export function CountrySelect({ id, label, value, onChange, placeholder, error, required, className }: Props) {
+export function CountrySelect({
+  id,
+  label,
+  value,
+  onChange,
+  placeholder,
+  error,
+  required,
+  className,
+}: Props) {
   const { t, i18n } = useTranslation();
   const locale = i18n.resolvedLanguage ?? "en";
   const [open, setOpen] = useState(false);
@@ -64,7 +73,11 @@ export function CountrySelect({ id, label, value, onChange, placeholder, error, 
     <div className={cn("space-y-1.5", className)} ref={boxRef}>
       <Label htmlFor={id} className="text-sm">
         {label}
-        {required && <span className="ml-1 text-destructive" aria-hidden>*</span>}
+        {required && (
+          <span className="ml-1 text-destructive" aria-hidden>
+            *
+          </span>
+        )}
       </Label>
 
       <div className="relative">
@@ -97,7 +110,13 @@ export function CountrySelect({ id, label, value, onChange, placeholder, error, 
               {placeholder ?? t("finance.fields.chooseCountry")}
             </span>
           )}
-          <ChevronDown className={cn("h-4 w-4 shrink-0 text-muted-foreground transition-transform", open && "rotate-180")} aria-hidden />
+          <ChevronDown
+            className={cn(
+              "h-4 w-4 shrink-0 text-muted-foreground transition-transform",
+              open && "rotate-180",
+            )}
+            aria-hidden
+          />
         </button>
 
         {open && (
@@ -107,12 +126,22 @@ export function CountrySelect({ id, label, value, onChange, placeholder, error, 
               <input
                 ref={inputRef}
                 value={query}
-                onChange={(e) => { setQuery(e.target.value); setHighlight(0); }}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setHighlight(0);
+                }}
                 onKeyDown={(e) => {
-                  if (e.key === "ArrowDown") { e.preventDefault(); setHighlight((h) => Math.min(h + 1, results.length - 1)); }
-                  else if (e.key === "ArrowUp") { e.preventDefault(); setHighlight((h) => Math.max(h - 1, 0)); }
-                  else if (e.key === "Enter") { e.preventDefault(); const c = results[highlight]; if (c) pick(c.code); }
-                  else if (e.key === "Escape") setOpen(false);
+                  if (e.key === "ArrowDown") {
+                    e.preventDefault();
+                    setHighlight((h) => Math.min(h + 1, results.length - 1));
+                  } else if (e.key === "ArrowUp") {
+                    e.preventDefault();
+                    setHighlight((h) => Math.max(h - 1, 0));
+                  } else if (e.key === "Enter") {
+                    e.preventDefault();
+                    const c = results[highlight];
+                    if (c) pick(c.code);
+                  } else if (e.key === "Escape") setOpen(false);
                 }}
                 placeholder={t("finance.fields.searchCountry")}
                 aria-label={t("finance.fields.searchCountry")}
@@ -121,7 +150,9 @@ export function CountrySelect({ id, label, value, onChange, placeholder, error, 
             </div>
             <ul ref={listRef} role="listbox" className="max-h-72 overflow-y-auto py-1">
               {results.length === 0 && (
-                <li className="px-3 py-6 text-center text-sm text-muted-foreground">{t("common.noResults")}</li>
+                <li className="px-3 py-6 text-center text-sm text-muted-foreground">
+                  {t("common.noResults")}
+                </li>
               )}
               {results.map((c, index) => {
                 const active = c.code === value?.toUpperCase();
@@ -148,7 +179,9 @@ export function CountrySelect({ id, label, value, onChange, placeholder, error, 
                         className="h-4 w-[22px] shrink-0 rounded-[2px] object-cover ring-1 ring-border"
                       />
                       <span className="min-w-0 flex-1 truncate">{countryName(c.code, locale)}</span>
-                      <span className="shrink-0 text-xs tabular-nums text-muted-foreground">{c.code}</span>
+                      <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
+                        {c.code}
+                      </span>
                       {active && <Check className="h-4 w-4 shrink-0 text-primary" aria-hidden />}
                     </button>
                   </li>
@@ -159,7 +192,11 @@ export function CountrySelect({ id, label, value, onChange, placeholder, error, 
         )}
       </div>
 
-      {error && <p role="alert" className="text-xs font-medium text-destructive">{error}</p>}
+      {error && (
+        <p role="alert" className="text-xs font-medium text-destructive">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

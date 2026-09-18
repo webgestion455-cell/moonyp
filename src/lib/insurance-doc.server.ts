@@ -66,7 +66,8 @@ export async function buildInsurancePdf(
   const issuedAt = input.issuedAt ? new Date(input.issuedAt) : new Date();
   const cur = (input.currency || "EUR").toUpperCase();
   const amount = (value: number) => money(value, cur, lang);
-  const orDash = (value: string | null | undefined) => (value && String(value).trim() ? String(value).trim() : t("notSpecified"));
+  const orDash = (value: string | null | undefined) =>
+    value && String(value).trim() ? String(value).trim() : t("notSpecified");
   /** Valeur technique de la base traduite en libellé contractuel. */
   const enumOrDash = (group: Parameters<typeof docEnum>[1], value: string | null | undefined) =>
     docEnum(lang, group, value) ?? t("notSpecified");
@@ -74,9 +75,10 @@ export async function buildInsurancePdf(
    * Numéro de police : tant que l'assureur ne l'a pas attribué, la notice
    * imprime « En cours d'attribution » et jamais « Non précisé ».
    */
-  const policyNumber = input.policyNumber && String(input.policyNumber).trim()
-    ? String(input.policyNumber).trim()
-    : docText(lang, "enums.common.pending_assignment");
+  const policyNumber =
+    input.policyNumber && String(input.policyNumber).trim()
+      ? String(input.policyNumber).trim()
+      : docText(lang, "enums.common.pending_assignment");
   const docRef = documentReference("ASS", input.reference, input.version);
 
   const doc = await BankDocument.create({
@@ -103,7 +105,11 @@ export async function buildInsurancePdf(
     subtitle: t("subtitle"),
     partiesTitle: t("partiesTitle"),
     notice: t("coverNotice"),
-    highlight: { label: t("amountLabel"), value: amount(input.monthlyPremium), note: t("amountNote") },
+    highlight: {
+      label: t("amountLabel"),
+      value: amount(input.monthlyPremium),
+      note: t("amountNote"),
+    },
     blocks: [
       {
         label: p("insured"),
@@ -129,7 +135,8 @@ export async function buildInsurancePdf(
   });
 
   doc.pageBreak();
-  const article = (number: number, title: string) => doc.article(`${label("article")} ${number}`, title);
+  const article = (number: number, title: string) =>
+    doc.article(`${label("article")} ${number}`, title);
   doc.sectionTitle(t("s1"));
   article(1, t("a1t"));
   doc.paragraph(t("a1b"));
@@ -155,7 +162,8 @@ export async function buildInsurancePdf(
     [t("rowCoverage"), enumOrDash("insuranceCoverage", input.coverage)],
     [t("rowPremium"), amount(input.monthlyPremium)],
   ];
-  if (typeof input.feeAmount === "number" && input.feeAmount > 0) rows.push([t("rowFee"), amount(input.feeAmount)]);
+  if (typeof input.feeAmount === "number" && input.feeAmount > 0)
+    rows.push([t("rowFee"), amount(input.feeAmount)]);
   rows.push([t("rowCurrency"), cur]);
   rows.push([t("rowRequired"), input.required ? t("yes") : t("no")]);
   if (input.startsOn) rows.push([t("rowStartsOn"), longDate(input.startsOn, lang)]);
@@ -164,9 +172,12 @@ export async function buildInsurancePdf(
     rows.push([t("rowDuration"), `${input.months} ${t("rowMonths")}`]);
   }
   rows.push([t("rowStatus"), enumOrDash("status", input.status)]);
-  if (input.paymentStatus) rows.push([t("rowPaymentStatus"), enumOrDash("paymentStatus", input.paymentStatus)]);
-  if (input.clientChoice) rows.push([t("rowClientChoice"), enumOrDash("clientChoice", input.clientChoice)]);
-  if (input.scheduledPaymentDate) rows.push([t("rowScheduled"), longDate(input.scheduledPaymentDate, lang)]);
+  if (input.paymentStatus)
+    rows.push([t("rowPaymentStatus"), enumOrDash("paymentStatus", input.paymentStatus)]);
+  if (input.clientChoice)
+    rows.push([t("rowClientChoice"), enumOrDash("clientChoice", input.clientChoice)]);
+  if (input.scheduledPaymentDate)
+    rows.push([t("rowScheduled"), longDate(input.scheduledPaymentDate, lang)]);
   rows.push([t("rowBeneficiary"), LENDER.name]);
 
   doc.table(
@@ -198,17 +209,27 @@ export async function buildInsurancePdf(
   doc.space(4);
   doc.paragraph(c("sigIntro"));
   doc.signatureBlocks({
-    left: { title: c("sigLender"), name: LENDER.name, place: c("sigPlace"), mention: c("sigLenderMention") },
+    left: {
+      title: c("sigLender"),
+      name: LENDER.name,
+      place: c("sigPlace"),
+      mention: c("sigLenderMention"),
+    },
     right: {
       title: c("sigBorrower"),
       name: input.signature?.name || orDash(input.borrower),
       mention: input.signature ? c("sigBorrowerMention") : c("pendingMention"),
-      signedLine: input.signature ? `${c("signedOn")} ${dateTime(input.signature.signedAt, lang)}` : undefined,
+      signedLine: input.signature
+        ? `${c("signedOn")} ${dateTime(input.signature.signedAt, lang)}`
+        : undefined,
     },
   });
   if (input.signature) {
     doc.keyValue(c("signedBy"), input.signature.name);
-    doc.keyValue(c("provider"), docEnum(lang, "signatureProvider", input.signature.provider) ?? input.signature.provider);
+    doc.keyValue(
+      c("provider"),
+      docEnum(lang, "signatureProvider", input.signature.provider) ?? input.signature.provider,
+    );
     doc.keyValue(c("signatureRef"), input.signature.reference);
     doc.paragraph(input.signature.qualified ? c("qualifiedNotice") : c("advancedNotice"), {
       size: 8.2,

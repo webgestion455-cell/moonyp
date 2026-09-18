@@ -82,7 +82,13 @@ export interface SubjectData {
 /** Résultat du moteur facial auto-hébergé (`face-engine.node.ts`). */
 export interface FacePortraitResult {
   faces: number;
-  quality: { width: number; area_ratio: number; detection_score: number; sharpness: number; brightness: number };
+  quality: {
+    width: number;
+    area_ratio: number;
+    detection_score: number;
+    sharpness: number;
+    brightness: number;
+  };
   usable: boolean;
   reasons: string[];
   engine: string;
@@ -103,7 +109,12 @@ export interface FaceMatchResult {
 export interface ScreeningInput {
   /** Entrées réellement importées en base ; jamais de liste fabriquée. */
   entries: ScreeningEntry[];
-  list: { version: string | null; source: string | null; imported_at: string | null; entry_count: number } | null;
+  list: {
+    version: string | null;
+    source: string | null;
+    imported_at: string | null;
+    entry_count: number;
+  } | null;
 }
 
 export interface EngineContext {
@@ -181,14 +192,16 @@ function qualityControl(control: ControlKey, file: AnalysedFile): ControlResult 
   });
 }
 
-function readabilityControl(control: ControlKey, file: AnalysedFile, minWords: number): ControlResult {
+function readabilityControl(
+  control: ControlKey,
+  file: AnalysedFile,
+  minWords: number,
+): ControlResult {
   if (file.text.source === "none") {
-    return notExecuted(
-      control,
-      file.text.reasons[0] ?? "no_text_available",
-      "INCONCLUSIVE",
-      { engine: file.text.engine, storage_path: file.storage_path },
-    );
+    return notExecuted(control, file.text.reasons[0] ?? "no_text_available", "INCONCLUSIVE", {
+      engine: file.text.engine,
+      storage_path: file.storage_path,
+    });
   }
   const quality = textQuality(file.text.text, minWords);
   const base = result(
@@ -224,14 +237,23 @@ function natureControl(
     accepted ? [] : [`unexpected_nature:${guess.nature}`],
     {
       library: "moonyp/text-extract",
-      details: { nature: guess.nature, hits: guess.hits, by_nature: guess.by_nature, expected: ACCEPTED_NATURES[category] },
+      details: {
+        nature: guess.nature,
+        hits: guess.hits,
+        by_nature: guess.by_nature,
+        expected: ACCEPTED_NATURES[category],
+      },
       document_id: file.document_id ?? null,
     },
   );
   return capByTextSource(base, file.text);
 }
 
-function recencyControl(control: ControlKey, file: AnalysedFile, ctx: EngineContext): ControlResult {
+function recencyControl(
+  control: ControlKey,
+  file: AnalysedFile,
+  ctx: EngineContext,
+): ControlResult {
   if (!file.text.text.trim()) return notExecuted(control, "no_text_available", "INCONCLUSIVE");
   const nowIso = ctx.now.toISOString();
   const ref = documentReferenceDate(file.text.text, nowIso);
@@ -276,7 +298,14 @@ export function runIdentityControls(input: IdentityStepInput, ctx: EngineContext
   const file = input.file;
 
   if (!file) {
-    for (const key of ["document_capture_quality", "document_readability", "mrz_integrity", "identity_data_match", "document_expiry", "id_portrait_extraction"] as ControlKey[]) {
+    for (const key of [
+      "document_capture_quality",
+      "document_readability",
+      "mrz_integrity",
+      "identity_data_match",
+      "document_expiry",
+      "id_portrait_extraction",
+    ] as ControlKey[]) {
       out.push(notExecuted(key, "no_identity_document_submitted", "NOT_STARTED"));
     }
   } else {
@@ -300,7 +329,8 @@ export function runIdentityControls(input: IdentityStepInput, ctx: EngineContext
 }
 
 function mrzControl(file: AnalysedFile, mrz: MrzData | null): ControlResult {
-  if (!file.text.text.trim()) return notExecuted("mrz_integrity", "no_text_available", "INCONCLUSIVE");
+  if (!file.text.text.trim())
+    return notExecuted("mrz_integrity", "no_text_available", "INCONCLUSIVE");
   if (!mrz) {
     return result("mrz_integrity", "INCONCLUSIVE", "mrz_parser", ["no_mrz_band_detected"], {
       library: "moonyp/mrz",
@@ -308,17 +338,33 @@ function mrzControl(file: AnalysedFile, mrz: MrzData | null): ControlResult {
       document_id: file.document_id ?? null,
     });
   }
-  const status: ControlStatus = mrz.checksums_valid ? "PASS" : mrz.checksum_ratio >= 0.5 ? "REVIEW_REQUIRED" : "FAIL";
+  const status: ControlStatus = mrz.checksums_valid
+    ? "PASS"
+    : mrz.checksum_ratio >= 0.5
+      ? "REVIEW_REQUIRED"
+      : "FAIL";
   const base = result(
     "mrz_integrity",
     status,
     "mrz_checksum_mod_7_3_1",
-    mrz.checksums_valid ? [] : [`mrz_checksum_invalid:${mrz.checks.filter((c) => !c.ok).map((c) => c.field).join(",")}`],
+    mrz.checksums_valid
+      ? []
+      : [
+          `mrz_checksum_invalid:${mrz.checks
+            .filter((c) => !c.ok)
+            .map((c) => c.field)
+            .join(",")}`,
+        ],
     {
       score: Math.round(mrz.checksum_ratio * 100),
       threshold: 100,
       library: "moonyp/mrz",
-      details: { format: mrz.format, checks: mrz.checks, issuing_state: mrz.issuing_state, text_source: file.text.source },
+      details: {
+        format: mrz.format,
+        checks: mrz.checks,
+        issuing_state: mrz.issuing_state,
+        text_source: file.text.source,
+      },
       document_id: file.document_id ?? null,
     },
   );
@@ -327,7 +373,11 @@ function mrzControl(file: AnalysedFile, mrz: MrzData | null): ControlResult {
   return base;
 }
 
-function identityMatchControl(file: AnalysedFile, mrz: MrzData | null, ctx: EngineContext): ControlResult {
+function identityMatchControl(
+  file: AnalysedFile,
+  mrz: MrzData | null,
+  ctx: EngineContext,
+): ControlResult {
   if (!mrz) return notExecuted("identity_data_match", "no_mrz_to_compare", "INCONCLUSIVE");
   const cross = crossCheckIdentity(
     {
@@ -341,7 +391,11 @@ function identityMatchControl(file: AnalysedFile, mrz: MrzData | null, ctx: Engi
   );
   const mismatch = cross.fields.some((f) => f.status === "mismatch");
   const partial = cross.fields.some((f) => f.status === "partial" || f.status === "unknown");
-  const status: ControlStatus = mismatch ? "FAIL" : cross.score >= 85 && !partial ? "PASS" : "REVIEW_REQUIRED";
+  const status: ControlStatus = mismatch
+    ? "FAIL"
+    : cross.score >= 85 && !partial
+      ? "PASS"
+      : "REVIEW_REQUIRED";
   return result("identity_data_match", status, "ocr_mrz_vs_declared", cross.reasons, {
     score: cross.score,
     threshold: 85,
@@ -355,16 +409,28 @@ function expiryControl(file: AnalysedFile, mrz: MrzData | null, ctx: EngineConte
   if (!mrz) return notExecuted("document_expiry", "no_expiry_date_available", "INCONCLUSIVE");
   const expired = mrzExpired(mrz, ctx.now);
   if (expired === null) {
-    return result("document_expiry", "INCONCLUSIVE", "mrz_expiry_date", ["expiry_date_unreadable"], {
-      library: "moonyp/mrz",
-      document_id: file.document_id ?? null,
-    });
+    return result(
+      "document_expiry",
+      "INCONCLUSIVE",
+      "mrz_expiry_date",
+      ["expiry_date_unreadable"],
+      {
+        library: "moonyp/mrz",
+        document_id: file.document_id ?? null,
+      },
+    );
   }
-  return result("document_expiry", expired ? "FAIL" : "PASS", "mrz_expiry_date", expired ? ["document_expired"] : [], {
-    library: "moonyp/mrz",
-    details: { expiry_date: mrz.expiry_date, evaluated_at: ctx.now.toISOString() },
-    document_id: file.document_id ?? null,
-  });
+  return result(
+    "document_expiry",
+    expired ? "FAIL" : "PASS",
+    "mrz_expiry_date",
+    expired ? ["document_expired"] : [],
+    {
+      library: "moonyp/mrz",
+      details: { expiry_date: mrz.expiry_date, evaluated_at: ctx.now.toISOString() },
+      document_id: file.document_id ?? null,
+    },
+  );
 }
 
 function portraitControl(portrait: FacePortraitResult | null, file: AnalysedFile): ControlResult {
@@ -381,13 +447,23 @@ function portraitControl(portrait: FacePortraitResult | null, file: AnalysedFile
         : portrait.faces > 1
           ? "REVIEW_REQUIRED"
           : "INCONCLUSIVE";
-  return result("id_portrait_extraction", status, "face_detection_ssd_mobilenetv1", portrait.reasons, {
-    score: Math.round(portrait.quality.detection_score * 100),
-    library: portrait.engine,
-    library_version: portrait.engine_version,
-    details: { faces: portrait.faces, quality: portrait.quality, computed_at: portrait.computed_at },
-    document_id: file.document_id ?? null,
-  });
+  return result(
+    "id_portrait_extraction",
+    status,
+    "face_detection_ssd_mobilenetv1",
+    portrait.reasons,
+    {
+      score: Math.round(portrait.quality.detection_score * 100),
+      library: portrait.engine,
+      library_version: portrait.engine_version,
+      details: {
+        faces: portrait.faces,
+        quality: portrait.quality,
+        computed_at: portrait.computed_at,
+      },
+      document_id: file.document_id ?? null,
+    },
+  );
 }
 
 function screeningControls(input: ScreeningInput, ctx: EngineContext): ControlResult[] {
@@ -415,21 +491,31 @@ function screeningControls(input: ScreeningInput, ctx: EngineContext): ControlRe
       ctx.now,
     );
     const status: ControlStatus =
-      res.status === "no_match" ? "PASS" : res.status === "possible_match" ? "REVIEW_REQUIRED" : "REVIEW_REQUIRED";
-    return result(key, status, "local_name_screening", res.status === "no_match" ? [] : [res.status], {
-      score: res.hits[0]?.score !== undefined ? Math.round(res.hits[0].score * 100) : undefined,
-      threshold: 82,
-      library: "moonyp/sanctions",
-      details: {
-        screening_status: res.status,
-        entries_screened: res.entries_screened,
-        list_version: res.list_version,
-        list_source: res.list_source,
-        imported_at: input.list.imported_at,
-        entry_count: input.list.entry_count,
-        hits: res.hits,
+      res.status === "no_match"
+        ? "PASS"
+        : res.status === "possible_match"
+          ? "REVIEW_REQUIRED"
+          : "REVIEW_REQUIRED";
+    return result(
+      key,
+      status,
+      "local_name_screening",
+      res.status === "no_match" ? [] : [res.status],
+      {
+        score: res.hits[0]?.score !== undefined ? Math.round(res.hits[0].score * 100) : undefined,
+        threshold: 82,
+        library: "moonyp/sanctions",
+        details: {
+          screening_status: res.status,
+          entries_screened: res.entries_screened,
+          list_version: res.list_version,
+          list_source: res.list_source,
+          imported_at: input.list.imported_at,
+          entry_count: input.list.entry_count,
+          hits: res.hits,
+        },
       },
-    });
+    );
   });
 }
 
@@ -438,12 +524,21 @@ function fraudControl(facts: RiskFacts | null, ctx: EngineContext): ControlResul
   const risk = assessRisk(facts, ctx.now);
   // Les signaux de risque ne sont jamais une preuve de fraude : ils orientent
   // vers la revue humaine, ils ne condamnent pas un dossier.
-  const status: ControlStatus = risk.review_required || risk.status === "high" || risk.status === "medium" ? "REVIEW_REQUIRED" : "PASS";
-  return result("fraud_signals", status, "rule_based_risk_signals", risk.signals.map((s) => s.code), {
-    score: risk.score,
-    library: "moonyp/fraud",
-    details: { risk_status: risk.status, signals: risk.signals, evaluated_at: risk.evaluated_at },
-  });
+  const status: ControlStatus =
+    risk.review_required || risk.status === "high" || risk.status === "medium"
+      ? "REVIEW_REQUIRED"
+      : "PASS";
+  return result(
+    "fraud_signals",
+    status,
+    "rule_based_risk_signals",
+    risk.signals.map((s) => s.code),
+    {
+      score: risk.score,
+      library: "moonyp/fraud",
+      details: { risk_status: risk.status, signals: risk.signals, evaluated_at: risk.evaluated_at },
+    },
+  );
 }
 
 /* --------------------------------------------------------------------- */
@@ -452,9 +547,14 @@ function fraudControl(facts: RiskFacts | null, ctx: EngineContext): ControlResul
 
 export function runAddressControls(file: AnalysedFile | null, ctx: EngineContext): ControlResult[] {
   if (!file) {
-    return (["address_document_readability", "address_document_nature", "address_match", "address_document_recency"] as ControlKey[]).map(
-      (k) => notExecuted(k, "no_address_document_submitted", "NOT_STARTED"),
-    );
+    return (
+      [
+        "address_document_readability",
+        "address_document_nature",
+        "address_match",
+        "address_document_recency",
+      ] as ControlKey[]
+    ).map((k) => notExecuted(k, "no_address_document_submitted", "NOT_STARTED"));
   }
   const out: ControlResult[] = [
     readabilityControl("address_document_readability", file, 20),
@@ -481,13 +581,19 @@ export function runAddressControls(file: AnalysedFile | null, ctx: EngineContext
     if (!holderOk) reasons.push("holder_name_not_found");
     out.push(
       capByTextSource(
-        result("address_match", strong ? "PASS" : partial ? "REVIEW_REQUIRED" : "FAIL", "address_and_name_matching", reasons, {
-          score: addr.score,
-          threshold: 70,
-          library: "moonyp/text-extract",
-          details: { address: addr, name },
-          document_id: file.document_id ?? null,
-        }),
+        result(
+          "address_match",
+          strong ? "PASS" : partial ? "REVIEW_REQUIRED" : "FAIL",
+          "address_and_name_matching",
+          reasons,
+          {
+            score: addr.score,
+            threshold: 70,
+            library: "moonyp/text-extract",
+            details: { address: addr, name },
+            document_id: file.document_id ?? null,
+          },
+        ),
         file.text,
       ),
     );
@@ -505,7 +611,12 @@ export interface LivenessStepInput {
   /** Preuve mesurée par la session de vivacité (revalidée serveur). */
   evidence: unknown;
   /** Session réellement enregistrée côté serveur (référence biométrique). */
-  serverSession: { asset_id: string; frames: number; challenges: string[]; recorded_at: string } | null;
+  serverSession: {
+    asset_id: string;
+    frames: number;
+    challenges: string[];
+    recorded_at: string;
+  } | null;
   faceMatch: FaceMatchResult | null;
   liveFace: FacePortraitResult | null;
 }
@@ -525,7 +636,13 @@ export function runLivenessControls(input: LivenessStepInput): ControlResult[] {
     out.push(
       result(
         "liveness_challenges",
-        challenges >= 4 ? (verdict.status === "failed" ? "FAIL" : "PASS") : challenges > 0 ? "INCONCLUSIVE" : "FAIL",
+        challenges >= 4
+          ? verdict.status === "failed"
+            ? "FAIL"
+            : "PASS"
+          : challenges > 0
+            ? "INCONCLUSIVE"
+            : "FAIL",
         "randomised_challenge_sequence",
         challenges >= 4 ? [] : [`insufficient_challenges:${challenges}`],
         {
@@ -540,38 +657,62 @@ export function runLivenessControls(input: LivenessStepInput): ControlResult[] {
     // Validation serveur : la session doit exister côté serveur avec ses
     // images. « La caméra s'est ouverte » n'est jamais un PASS.
     if (!input.serverSession) {
-      out.push(notExecuted("liveness_server_validation", "no_server_side_liveness_session", "INCONCLUSIVE"));
+      out.push(
+        notExecuted(
+          "liveness_server_validation",
+          "no_server_side_liveness_session",
+          "INCONCLUSIVE",
+        ),
+      );
     } else {
       const status: ControlStatus =
-        verdict.status === "passed" ? "PASS" : verdict.status === "failed" ? "FAIL" : "REVIEW_REQUIRED";
+        verdict.status === "passed"
+          ? "PASS"
+          : verdict.status === "failed"
+            ? "FAIL"
+            : "REVIEW_REQUIRED";
       out.push(
-        result("liveness_server_validation", status, "server_revalidation_of_measured_evidence", verdict.reasons, {
-          score: verdict.score ?? undefined,
-          library: "moonyp/evidence.server",
-          details: {
-            frames: input.serverSession.frames,
-            challenges: input.serverSession.challenges,
-            asset_id: input.serverSession.asset_id,
-            recorded_at: input.serverSession.recorded_at,
-            evidence: verdict.evidence,
+        result(
+          "liveness_server_validation",
+          status,
+          "server_revalidation_of_measured_evidence",
+          verdict.reasons,
+          {
+            score: verdict.score ?? undefined,
+            library: "moonyp/evidence.server",
+            details: {
+              frames: input.serverSession.frames,
+              challenges: input.serverSession.challenges,
+              asset_id: input.serverSession.asset_id,
+              recorded_at: input.serverSession.recorded_at,
+              evidence: verdict.evidence,
+            },
           },
-        }),
+        ),
       );
     }
 
-    const screen = typeof ev["screen_likelihood"] === "number" ? (ev["screen_likelihood"] as number) : null;
-    const depth = typeof ev["depth_variance"] === "number" ? (ev["depth_variance"] as number) : null;
+    const screen =
+      typeof ev["screen_likelihood"] === "number" ? (ev["screen_likelihood"] as number) : null;
+    const depth =
+      typeof ev["depth_variance"] === "number" ? (ev["depth_variance"] as number) : null;
     if (screen === null && depth === null) {
       out.push(notExecuted("anti_spoofing", "no_spoofing_metrics_in_evidence", "INCONCLUSIVE"));
     } else {
       const spoof = (screen !== null && screen > 0.7) || (depth !== null && depth < 0.01);
       out.push(
-        result("anti_spoofing", spoof ? "FAIL" : "PASS", "screen_likelihood+depth_variance", spoof ? ["presentation_attack_suspected"] : [], {
-          score: screen !== null ? Math.round(screen * 100) : undefined,
-          threshold: 70,
-          library: "moonyp/liveness-engine",
-          details: { screen_likelihood: screen, depth_variance: depth },
-        }),
+        result(
+          "anti_spoofing",
+          spoof ? "FAIL" : "PASS",
+          "screen_likelihood+depth_variance",
+          spoof ? ["presentation_attack_suspected"] : [],
+          {
+            score: screen !== null ? Math.round(screen * 100) : undefined,
+            threshold: 70,
+            library: "moonyp/liveness-engine",
+            details: { screen_likelihood: screen, depth_variance: depth },
+          },
+        ),
       );
     }
   }
@@ -581,7 +722,9 @@ export function runLivenessControls(input: LivenessStepInput): ControlResult[] {
     out.push(
       notExecuted("face_match", "face_match_job_pending", "NOT_VERIFIED", {
         note: "le face match exige le moteur facial serveur ; la vivacité ne vaut jamais face match",
-        live_face: input.liveFace ? { faces: input.liveFace.faces, usable: input.liveFace.usable } : null,
+        live_face: input.liveFace
+          ? { faces: input.liveFace.faces, usable: input.liveFace.usable }
+          : null,
       }),
     );
   } else {
@@ -592,7 +735,11 @@ export function runLivenessControls(input: LivenessStepInput): ControlResult[] {
         threshold: Math.round((1 - m.threshold) * 100),
         library: m.engine,
         library_version: m.engine_version,
-        details: { distance: m.distance, distance_threshold: m.threshold, computed_at: m.computed_at },
+        details: {
+          distance: m.distance,
+          distance_threshold: m.threshold,
+          computed_at: m.computed_at,
+        },
       }),
     );
   }
@@ -613,15 +760,25 @@ export function runIbanControls(file: AnalysedFile | null, ctx: EngineContext): 
   } else {
     const check = validateIban(declared);
     out.push(
-      result("iban_format", check.valid ? "PASS" : "FAIL", "iban_structure+mod_97", check.valid ? [] : [check.reason ?? "iban_invalid"], {
-        library: "moonyp/iban",
-        details: { country: declared.slice(0, 2), length: declared.length },
-      }),
+      result(
+        "iban_format",
+        check.valid ? "PASS" : "FAIL",
+        "iban_structure+mod_97",
+        check.valid ? [] : [check.reason ?? "iban_invalid"],
+        {
+          library: "moonyp/iban",
+          details: { country: declared.slice(0, 2), length: declared.length },
+        },
+      ),
     );
   }
 
   if (!file) {
-    for (const k of ["iban_document_readability", "iban_document_match", "iban_holder_match"] as ControlKey[]) {
+    for (const k of [
+      "iban_document_readability",
+      "iban_document_match",
+      "iban_holder_match",
+    ] as ControlKey[]) {
       out.push(notExecuted(k, "no_bank_document_submitted", "NOT_STARTED"));
     }
     return out.map(sanitizeResult);
@@ -637,11 +794,22 @@ export function runIbanControls(file: AnalysedFile | null, ctx: EngineContext): 
     const status: ControlStatus = exact ? "PASS" : found.length > 0 ? "FAIL" : "INCONCLUSIVE";
     out.push(
       capByTextSource(
-        result("iban_document_match", status, "iban_extraction_vs_declared", exact ? [] : found.length ? ["iban_on_document_differs"] : ["no_iban_found_on_document"], {
-          library: "moonyp/text-extract",
-          details: { found: found.map((f) => ({ masked: `${f.iban.slice(0, 4)}…${f.iban.slice(-4)}`, valid: f.valid })) },
-          document_id: file.document_id ?? null,
-        }),
+        result(
+          "iban_document_match",
+          status,
+          "iban_extraction_vs_declared",
+          exact ? [] : found.length ? ["iban_on_document_differs"] : ["no_iban_found_on_document"],
+          {
+            library: "moonyp/text-extract",
+            details: {
+              found: found.map((f) => ({
+                masked: `${f.iban.slice(0, 4)}…${f.iban.slice(-4)}`,
+                valid: f.valid,
+              })),
+            },
+            document_id: file.document_id ?? null,
+          },
+        ),
         file.text,
       ),
     );
@@ -650,9 +818,15 @@ export function runIbanControls(file: AnalysedFile | null, ctx: EngineContext): 
   // Titularité du compte : sans preuve bancaire réelle portant le nom du
   // demandeur, le contrôle reste non vérifié — jamais PASS par défaut.
   if (!file.text.text.trim()) {
-    out.push(notExecuted("iban_holder_match", "account_ownership_unverified:no_text", "NOT_VERIFIED"));
+    out.push(
+      notExecuted("iban_holder_match", "account_ownership_unverified:no_text", "NOT_VERIFIED"),
+    );
   } else {
-    const name = matchName(file.text.text, ctx.subject.first_name ?? "", ctx.subject.last_name ?? "");
+    const name = matchName(
+      file.text.text,
+      ctx.subject.first_name ?? "",
+      ctx.subject.last_name ?? "",
+    );
     const both = name.last_name && name.first_name;
     out.push(
       capByTextSource(
@@ -681,9 +855,14 @@ export function runIbanControls(file: AnalysedFile | null, ctx: EngineContext): 
 
 export function runIncomeControls(file: AnalysedFile | null, ctx: EngineContext): ControlResult[] {
   if (!file) {
-    return (["income_document_readability", "income_document_nature", "income_amount_consistency", "income_document_recency"] as ControlKey[]).map(
-      (k) => notExecuted(k, "no_income_document_submitted", "NOT_STARTED"),
-    );
+    return (
+      [
+        "income_document_readability",
+        "income_document_nature",
+        "income_amount_consistency",
+        "income_document_recency",
+      ] as ControlKey[]
+    ).map((k) => notExecuted(k, "no_income_document_submitted", "NOT_STARTED"));
   }
   const out: ControlResult[] = [
     readabilityControl("income_document_readability", file, 20),
@@ -696,13 +875,18 @@ export function runIncomeControls(file: AnalysedFile | null, ctx: EngineContext)
   } else if (!file.text.text.trim()) {
     out.push(notExecuted("income_amount_consistency", "no_text_available", "INCONCLUSIVE"));
   } else {
-    const name = matchName(file.text.text, ctx.subject.first_name ?? "", ctx.subject.last_name ?? "");
+    const name = matchName(
+      file.text.text,
+      ctx.subject.first_name ?? "",
+      ctx.subject.last_name ?? "",
+    );
     const amounts = extractAmounts(file.text.text);
     const closest = closestAmount(amounts, expected);
     const reasons: string[] = [];
     if (!name.last_name) reasons.push("holder_name_not_found");
     if (!closest) reasons.push("no_amount_found");
-    else if (closest.deviation > 0.15) reasons.push(`declared_income_deviation:${Math.round(closest.deviation * 100)}%`);
+    else if (closest.deviation > 0.15)
+      reasons.push(`declared_income_deviation:${Math.round(closest.deviation * 100)}%`);
     const status: ControlStatus = !closest
       ? "INCONCLUSIVE"
       : closest.deviation <= 0.15 && name.last_name

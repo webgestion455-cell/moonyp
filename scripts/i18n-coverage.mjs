@@ -548,7 +548,8 @@ const T = {
         pay_later: "Wybrano płatność późniejszą.",
       },
       instructions: "Instrukcje płatności",
-      validationNotice: "Płatność uznaje się za otrzymaną dopiero po weryfikacji przez nasz zespół.",
+      validationNotice:
+        "Płatność uznaje się za otrzymaną dopiero po weryfikacji przez nasz zespół.",
       question: "Czy chcesz opłacić ubezpieczenie?",
       options: {
         pay_now: "Tak, zapłać teraz",
@@ -1115,8 +1116,7 @@ const T = {
       },
       pickDate: "Želaný dátum platby",
       confirmChoice: "Potvrdiť voľbu",
-      noPaymentNotice:
-        "Táto voľba nevykonáva platbu: potvrdzuje sa až po overení naším tímom.",
+      noPaymentNotice: "Táto voľba nevykonáva platbu: potvrdzuje sa až po overení naším tímom.",
       choiceSaved: "Voľba uložená",
       error: {
         dateRequired: "Vyberte dátum platby.",
@@ -1194,8 +1194,7 @@ const T = {
       },
       pickDate: "Želeni datum plačila",
       confirmChoice: "Potrdi izbiro",
-      noPaymentNotice:
-        "Ta izbira ne izvede plačila: potrjena je šele po preveritvi naše ekipe.",
+      noPaymentNotice: "Ta izbira ne izvede plačila: potrjena je šele po preveritvi naše ekipe.",
       choiceSaved: "Izbira shranjena",
       error: {
         dateRequired: "Izberite datum plačila.",

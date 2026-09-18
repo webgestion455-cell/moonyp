@@ -1,6 +1,16 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { Send, X, Bold, Italic, Link2, Loader2, Check, ArrowRight, MessageCircle } from "lucide-react";
+import {
+  Send,
+  X,
+  Bold,
+  Italic,
+  Link2,
+  Loader2,
+  Check,
+  ArrowRight,
+  MessageCircle,
+} from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import i18n from "@/i18n";
@@ -103,7 +113,6 @@ function escapeHtml(s: string) {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-
 // ------------------ Composant ------------------
 interface ChatWindowProps {
   conversationId: string;
@@ -172,7 +181,12 @@ export function ChatWindow({
       .channel(`chat:${conversationId}`)
       .on(
         "postgres_changes",
-        { event: "INSERT", schema: "public", table: "chat_messages", filter: `conversation_id=eq.${conversationId}` },
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "chat_messages",
+          filter: `conversation_id=eq.${conversationId}`,
+        },
         (payload) => {
           setMsgs((prev) => {
             const next = payload.new as ChatMessage;
@@ -183,7 +197,12 @@ export function ChatWindow({
       )
       .on(
         "postgres_changes",
-        { event: "UPDATE", schema: "public", table: "chat_conversations", filter: `id=eq.${conversationId}` },
+        {
+          event: "UPDATE",
+          schema: "public",
+          table: "chat_conversations",
+          filter: `id=eq.${conversationId}`,
+        },
         (payload) => setConv(payload.new as ChatConversation),
       )
       .subscribe();
@@ -427,7 +446,6 @@ export function ChatWindow({
       {/* Bandeau signature de tête (branding) */}
       <BrandBanner position="top" />
 
-
       {/* Corps */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 space-y-3 bg-muted/30">
         {grouped.map((group, gi) => (
@@ -523,9 +541,10 @@ function TicketInfo({ conv }: { conv: ChatConversation }) {
     {
       label: t("common.date"),
       value: conv.created_at
-        ? new Intl.DateTimeFormat(i18n.language, { dateStyle: "medium", timeStyle: "short" }).format(
-            new Date(conv.created_at),
-          )
+        ? new Intl.DateTimeFormat(i18n.language, {
+            dateStyle: "medium",
+            timeStyle: "short",
+          }).format(new Date(conv.created_at))
         : null,
     },
     { label: t("common.status"), value: t(`chat.status.${conv.status}`) },

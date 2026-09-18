@@ -2,7 +2,21 @@ import { createIsomorphicFn } from "@tanstack/react-start";
 import { getRequestHeader } from "@tanstack/react-start/server";
 
 const CODES = new Set([
-  "en", "fr", "de", "es", "it", "nl", "sl", "bg", "sk", "el", "fi", "ro", "pl", "hr", "hu",
+  "en",
+  "fr",
+  "de",
+  "es",
+  "it",
+  "nl",
+  "sl",
+  "bg",
+  "sk",
+  "el",
+  "fi",
+  "ro",
+  "pl",
+  "hr",
+  "hu",
 ]);
 
 /**

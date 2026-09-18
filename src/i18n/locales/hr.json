@@ -1953,11 +1953,7 @@
         },
         {
           "h": "Kašnjenje",
-          "list": [
-            "Dan 1–7: podsjetnik.",
-            "Dan 8–30: naknade + kamata.",
-            "Od 31. dana: opomena."
-          ]
+          "list": ["Dan 1–7: podsjetnik.", "Dan 8–30: naknade + kamata.", "Od 31. dana: opomena."]
         },
         {
           "h": "Naplata",

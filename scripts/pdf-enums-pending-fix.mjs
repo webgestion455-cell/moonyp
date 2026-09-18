@@ -59,7 +59,11 @@ for (const [lang, value] of Object.entries(PENDING_ASSIGNMENT)) {
   const file = join(DIR, `${lang}.json`);
   const json = JSON.parse(readFileSync(file, "utf8"));
   json.enums = json.enums ?? {};
-  json.enums.common = { ...(json.enums.common ?? {}), ...COMMON_EXTRA[lang], pending_assignment: value };
+  json.enums.common = {
+    ...(json.enums.common ?? {}),
+    ...COMMON_EXTRA[lang],
+    pending_assignment: value,
+  };
   writeFileSync(file, `${JSON.stringify(json, null, 2)}\n`, "utf8");
   changed += 1;
   console.log(`${lang}: ${value}`);

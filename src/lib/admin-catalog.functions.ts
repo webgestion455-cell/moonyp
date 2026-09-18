@@ -51,7 +51,10 @@ export const adminUpdateProduct = createServerFn({ method: "POST" })
     await assertStaff(context.supabase as never, context.userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { id, ...patch } = data;
-    const { error } = await supabaseAdmin.from("loan_products").update(patch as never).eq("id", id);
+    const { error } = await supabaseAdmin
+      .from("loan_products")
+      .update(patch as never)
+      .eq("id", id);
     if (error) throw new Error(error.message);
     return { ok: true };
   });
@@ -65,7 +68,10 @@ export const adminKycQueue = createServerFn({ method: "POST" })
   .inputValidator((input) =>
     z
       .object({
-        status: z.enum(["all", "verifying", "todo", "failed", "passed"]).optional().default("verifying"),
+        status: z
+          .enum(["all", "verifying", "todo", "failed", "passed"])
+          .optional()
+          .default("verifying"),
         limit: z.coerce.number().int().min(1).max(200).optional().default(100),
       })
       .parse(input ?? {}),
@@ -76,7 +82,9 @@ export const adminKycQueue = createServerFn({ method: "POST" })
 
     let query = supabaseAdmin
       .from("application_kyc_checks")
-      .select("id, application_id, step_key, category, document_type_slug, status, review_note, created_at")
+      .select(
+        "id, application_id, step_key, category, document_type_slug, status, review_note, created_at",
+      )
       .order("created_at", { ascending: true })
       .limit(data.limit);
     if (data.status !== "all") query = query.eq("status", data.status);
@@ -115,11 +123,20 @@ export const adminKycCounters = createServerFn({ method: "POST" })
       .limit(20000);
     if (error) throw new Error(error.message);
 
-    const counters = { all: 0, todo: 0, verifying: 0, passed: 0, failed: 0 } as Record<string, number>;
+    const counters = { all: 0, todo: 0, verifying: 0, passed: 0, failed: 0 } as Record<
+      string,
+      number
+    >;
     for (const row of data ?? []) {
       const status = String((row as { status: string | null }).status ?? "todo");
       counters.all += 1;
       counters[status] = (counters[status] ?? 0) + 1;
     }
-    return counters as { all: number; todo: number; verifying: number; passed: number; failed: number };
+    return counters as {
+      all: number;
+      todo: number;
+      verifying: number;
+      passed: number;
+      failed: number;
+    };
   });

@@ -9,8 +9,10 @@ const STATUSES = APPLICATION_STATUS_ORDER as unknown as [
   ...(typeof APPLICATION_STATUS_ORDER)[number][],
 ];
 
-
-async function assertStaff(supabase: { rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown }> }, userId: string) {
+async function assertStaff(
+  supabase: { rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown }> },
+  userId: string,
+) {
   // super_admin / admin / agent — la granularité fine est portée par les policies RLS.
   const { data } = await supabase.rpc("is_staff", { _user_id: userId });
   if (data !== true) throw new Error("forbidden");
@@ -78,13 +80,22 @@ export const adminApplicationStats = createServerFn({ method: "POST" })
         .select("status, amount, created_at, country, product_id")
         .order("created_at", { ascending: true })
         .limit(5000),
-      supabaseAdmin.from("application_offers").select("amount, accepted_at, declined_at, created_at").limit(5000),
+      supabaseAdmin
+        .from("application_offers")
+        .select("amount, accepted_at, declined_at, created_at")
+        .limit(5000),
       supabaseAdmin.from("application_contracts").select("status, signed_at").limit(5000),
       supabaseAdmin.from("application_guarantees").select("status, payment_status").limit(5000),
       supabaseAdmin.from("application_insurances").select("status, payment_status").limit(5000),
       supabaseAdmin.from("application_payments").select("status, amount, created_at").limit(5000),
-      supabaseAdmin.from("disbursements").select("status, amount, processed_at, created_at").limit(5000),
-      supabaseAdmin.from("repayment_schedule").select("status, amount, paid_amount, due_date, paid_at").limit(20000),
+      supabaseAdmin
+        .from("disbursements")
+        .select("status, amount, processed_at, created_at")
+        .limit(5000),
+      supabaseAdmin
+        .from("repayment_schedule")
+        .select("status, amount, paid_amount, due_date, paid_at")
+        .limit(20000),
       supabaseAdmin.from("loan_products").select("id, slug, name").limit(200),
     ]);
     if (error) throw new Error(error.message);
@@ -173,7 +184,13 @@ export const adminApplicationStats = createServerFn({ method: "POST" })
       analysis: countOf("analysis"),
       documentsMissing: countOf("documents_missing"),
       infoRequested: countOf("info_requested"),
-      pending: countOf("received", "verification", "analysis", "documents_missing", "info_requested"),
+      pending: countOf(
+        "received",
+        "verification",
+        "analysis",
+        "documents_missing",
+        "info_requested",
+      ),
       approved: countOf("approved", "offer_available"),
       rejected: countOf("rejected"),
       cancelled: countOf("cancelled"),
@@ -181,27 +198,38 @@ export const adminApplicationStats = createServerFn({ method: "POST" })
       // Offres et contrats
       offersTotal: (offerRows ?? []).length,
       offersAccepted: (offerRows ?? []).filter((o) => o.accepted_at).length,
-      contractsPending: (contractRows ?? []).filter((c) => ["sent", "viewed"].includes(String(c.status))).length,
+      contractsPending: (contractRows ?? []).filter((c) =>
+        ["sent", "viewed"].includes(String(c.status)),
+      ).length,
       contractsSigned: (contractRows ?? []).filter((c) => c.signed_at).length,
 
       // Garanties / assurances
-      guaranteesPending: (guaranteeRows ?? []).filter((g) => g.status !== "validated" && g.status !== "cancelled").length,
+      guaranteesPending: (guaranteeRows ?? []).filter(
+        (g) => g.status !== "validated" && g.status !== "cancelled",
+      ).length,
       guaranteesValidated: (guaranteeRows ?? []).filter((g) => g.status === "validated").length,
-      insurancesPending: (insuranceRows ?? []).filter((i) => i.status === "pending" || i.status === "sent").length,
+      insurancesPending: (insuranceRows ?? []).filter(
+        (i) => i.status === "pending" || i.status === "sent",
+      ).length,
       insurancesValidated: (insuranceRows ?? []).filter((i) => i.status === "validated").length,
 
       // Paiements
-      paymentsPending: (paymentRows ?? []).filter((p) => ["pending", "processing"].includes(String(p.status))).length,
+      paymentsPending: (paymentRows ?? []).filter((p) =>
+        ["pending", "processing"].includes(String(p.status)),
+      ).length,
       paymentsPaidCount: paidPayments.length,
       paymentsPaidVolume: paidPayments.reduce((s, p) => s + Number(p.amount ?? 0), 0),
 
       // Décaissements
-      disbursementsPreparing: (disbursementRows ?? []).filter((d) => ["preparing", "sent"].includes(String(d.status))).length,
+      disbursementsPreparing: (disbursementRows ?? []).filter((d) =>
+        ["preparing", "sent"].includes(String(d.status)),
+      ).length,
       disbursedCount: confirmedDisbursements.length,
       disbursedVolume: confirmedDisbursements.reduce((s, d) => s + Number(d.amount ?? 0), 0),
 
       // Portefeuille
-      activeLoans: rows.filter((r) => disbursedStatuses.has(r.status) && r.status !== "repaid").length,
+      activeLoans: rows.filter((r) => disbursedStatuses.has(r.status) && r.status !== "repaid")
+        .length,
       repaidLoans: countOf("repaid"),
       lateLoans: countOf("late"),
       installmentsLate: schedule.filter((r) => r.status === "late").length,
@@ -212,7 +240,9 @@ export const adminApplicationStats = createServerFn({ method: "POST" })
         .reduce((s, r) => s + Number(r.amount ?? 0), 0),
 
       totalVolume: rows.reduce((s, r) => s + Number(r.amount ?? 0), 0),
-      approvedVolume: (offerRows ?? []).filter((o) => o.accepted_at).reduce((s, o) => s + Number(o.amount ?? 0), 0),
+      approvedVolume: (offerRows ?? [])
+        .filter((o) => o.accepted_at)
+        .reduce((s, o) => s + Number(o.amount ?? 0), 0),
     };
   });
 
@@ -232,35 +262,40 @@ export const adminGetApplication = createServerFn({ method: "POST" })
       { data: kyc },
       { data: infoRequests },
     ] = await Promise.all([
-        supabaseAdmin.from("loan_applications").select("*").eq("id", data.id).maybeSingle(),
-        supabaseAdmin
-          .from("application_status_history")
-          .select("id, old_status, new_status, actor, note, reason, created_at")
-          .eq("application_id", data.id)
-          .order("created_at", { ascending: true }),
-        supabaseAdmin
-          .from("application_documents")
-          .select("id, document_type_slug, file_name, storage_path, mime_type, file_size, status, review_note, created_at")
-          .eq("application_id", data.id)
-          .order("created_at", { ascending: true }),
-        supabaseAdmin
-          .from("application_events")
-          .select("id, event_type, actor, description, created_at")
-          .eq("application_id", data.id)
-          .order("created_at", { ascending: false })
-          .limit(50),
-        supabaseAdmin
-          .from("application_kyc_checks")
-          .select("id, step_key, category, document_type_slug, document_id, status, attempts, review_note, reviewed_at, created_at")
-          .eq("application_id", data.id)
-          .order("created_at", { ascending: true }),
-        supabaseAdmin
-          .from("application_info_requests")
-          .select("id, kind, message, status, document_type_slug, response_text, responded_at, created_at")
-          .eq("application_id", data.id)
-          .order("created_at", { ascending: false }),
-      ]);
-
+      supabaseAdmin.from("loan_applications").select("*").eq("id", data.id).maybeSingle(),
+      supabaseAdmin
+        .from("application_status_history")
+        .select("id, old_status, new_status, actor, note, reason, created_at")
+        .eq("application_id", data.id)
+        .order("created_at", { ascending: true }),
+      supabaseAdmin
+        .from("application_documents")
+        .select(
+          "id, document_type_slug, file_name, storage_path, mime_type, file_size, status, review_note, created_at",
+        )
+        .eq("application_id", data.id)
+        .order("created_at", { ascending: true }),
+      supabaseAdmin
+        .from("application_events")
+        .select("id, event_type, actor, description, created_at")
+        .eq("application_id", data.id)
+        .order("created_at", { ascending: false })
+        .limit(50),
+      supabaseAdmin
+        .from("application_kyc_checks")
+        .select(
+          "id, step_key, category, document_type_slug, document_id, status, attempts, review_note, reviewed_at, created_at",
+        )
+        .eq("application_id", data.id)
+        .order("created_at", { ascending: true }),
+      supabaseAdmin
+        .from("application_info_requests")
+        .select(
+          "id, kind, message, status, document_type_slug, response_text, responded_at, created_at",
+        )
+        .eq("application_id", data.id)
+        .order("created_at", { ascending: false }),
+    ]);
 
     if (!application) return null;
 
@@ -274,7 +309,11 @@ export const adminGetApplication = createServerFn({ method: "POST" })
     );
 
     const { data: product } = application.product_id
-      ? await supabaseAdmin.from("loan_products").select("*").eq("id", application.product_id).maybeSingle()
+      ? await supabaseAdmin
+          .from("loan_products")
+          .select("*")
+          .eq("id", application.product_id)
+          .maybeSingle()
       : { data: null };
 
     const { loadWorkflowContext } = await import("@/lib/workflow.server");
@@ -290,8 +329,6 @@ export const adminGetApplication = createServerFn({ method: "POST" })
       infoRequests: infoRequests ?? [],
       workflowContext: workflow?.context ?? {},
     };
-
-
   });
 
 /** Moves an application through the workflow (règles centralisées). */
@@ -408,7 +445,6 @@ export const adminCloseInfoRequest = createServerFn({ method: "POST" })
     if (error) throw new Error(error.message);
     return { ok: true };
   });
-
 
 /** Approves or rejects a KYC document. */
 export const adminReviewDocument = createServerFn({ method: "POST" })
@@ -555,7 +591,6 @@ export const adminReviewKycCheck = createServerFn({ method: "POST" })
     if (row?.application_id) await refreshKycStatus(row.application_id);
     return { ok: true };
   });
-
 
 /** Issues a fresh secure link for the applicant. */
 export const adminIssuePortalLink = createServerFn({ method: "POST" })

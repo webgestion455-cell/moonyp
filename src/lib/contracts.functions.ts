@@ -25,7 +25,7 @@ async function assertStaff(
   supabase: { rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown }> },
   userId: string,
 ) {
-  const { data } = await supabase.rpc("is_staff", { _user_id: userId, });
+  const { data } = await supabase.rpc("is_staff", { _user_id: userId });
   if (data !== true) throw new Error("forbidden");
 }
 
@@ -55,7 +55,11 @@ export const adminPrepareContract = createServerFn({ method: "POST" })
       .maybeSingle();
 
     const { data: product } = app.product_id
-      ? await supabaseAdmin.from("loan_products").select("currency, annual_rate").eq("id", app.product_id).maybeSingle()
+      ? await supabaseAdmin
+          .from("loan_products")
+          .select("currency, annual_rate")
+          .eq("id", app.product_id)
+          .maybeSingle()
       : { data: null };
 
     const { data: last } = await supabaseAdmin
@@ -95,7 +99,6 @@ export const adminPrepareContract = createServerFn({ method: "POST" })
       offerValidUntil: (offer?.valid_until as string | null | undefined) ?? null,
     });
 
-
     const path = await storeContractPdf(data.application_id, `contract-v${version}.pdf`, bytes);
 
     const { data: inserted, error } = await supabaseAdmin
@@ -121,8 +124,15 @@ export const adminPrepareContract = createServerFn({ method: "POST" })
       metadata: { version, hash },
     });
 
-    const { data: signed } = await supabaseAdmin.storage.from("contracts").createSignedUrl(path, 600);
-    return { id: inserted.id, version: inserted.version, hash, previewUrl: signed?.signedUrl ?? null };
+    const { data: signed } = await supabaseAdmin.storage
+      .from("contracts")
+      .createSignedUrl(path, 600);
+    return {
+      id: inserted.id,
+      version: inserted.version,
+      hash,
+      previewUrl: signed?.signedUrl ?? null,
+    };
   });
 
 /** Liste des versions de contrat + preuves de signature (back-office). */
@@ -143,7 +153,9 @@ export const adminListContracts = createServerFn({ method: "POST" })
         .order("version", { ascending: false }),
       supabaseAdmin
         .from("contract_signature_requests")
-        .select("id, contract_id, provider, provider_reference, qualified, status, signer_name, signer_ip, requested_at, completed_at, evidence")
+        .select(
+          "id, contract_id, provider, provider_reference, qualified, status, signer_name, signer_ip, requested_at, completed_at, evidence",
+        )
         .eq("application_id", data.application_id)
         .order("created_at", { ascending: false }),
     ]);
@@ -151,10 +163,15 @@ export const adminListContracts = createServerFn({ method: "POST" })
     const withUrls = await Promise.all(
       (contracts ?? []).map(async (c) => {
         const draft = c.storage_path
-          ? (await supabaseAdmin.storage.from("contracts").createSignedUrl(c.storage_path, 600)).data?.signedUrl ?? null
+          ? ((await supabaseAdmin.storage.from("contracts").createSignedUrl(c.storage_path, 600))
+              .data?.signedUrl ?? null)
           : null;
         const signedDoc = c.signed_storage_path
-          ? (await supabaseAdmin.storage.from("contracts").createSignedUrl(c.signed_storage_path, 600)).data?.signedUrl ?? null
+          ? ((
+              await supabaseAdmin.storage
+                .from("contracts")
+                .createSignedUrl(c.signed_storage_path, 600)
+            ).data?.signedUrl ?? null)
           : null;
         return { ...c, previewUrl: draft, signedUrl: signedDoc };
       }),
@@ -232,14 +249,18 @@ export const getContractByToken = createServerFn({ method: "POST" })
 
     const { data: app } = await supabaseAdmin
       .from("loan_applications")
-      .select("id, reference, status, language, first_name, last_name, email, amount, duration_months, apr, monthly_payment, insurance_monthly, total_cost, fees, purpose")
+      .select(
+        "id, reference, status, language, first_name, last_name, email, amount, duration_months, apr, monthly_payment, insurance_monthly, total_cost, fees, purpose",
+      )
       .eq("id", applicationId)
       .maybeSingle();
     if (!app) return null;
 
     const { data: contract } = await supabaseAdmin
       .from("application_contracts")
-      .select("id, version, status, language, sent_at, viewed_at, signed_at, signature_name, signature_method, document_hash, signed_document_hash, storage_path, signed_storage_path, provider, created_at")
+      .select(
+        "id, version, status, language, sent_at, viewed_at, signed_at, signature_name, signature_method, document_hash, signed_document_hash, storage_path, signed_storage_path, provider, created_at",
+      )
       .eq("application_id", applicationId)
       .neq("status", "draft")
       .order("version", { ascending: false })
@@ -248,23 +269,36 @@ export const getContractByToken = createServerFn({ method: "POST" })
 
     const { data: offer } = await supabaseAdmin
       .from("application_offers")
-      .select("amount, duration_months, annual_rate, monthly_payment, total_cost, insurance_total, fees_total, currency, valid_until")
+      .select(
+        "amount, duration_months, annual_rate, monthly_payment, total_cost, insurance_total, fees_total, currency, valid_until",
+      )
       .eq("application_id", applicationId)
       .order("created_at", { ascending: false })
       .limit(1)
       .maybeSingle();
 
     let events: Array<{ event_type: string; created_at: string; actor: string }> = [];
-    let signature: { id: string; status: string; provider: string; qualified: boolean; reference: string | null } | null =
-      null;
+    let signature: {
+      id: string;
+      status: string;
+      provider: string;
+      qualified: boolean;
+      reference: string | null;
+    } | null = null;
 
     if (contract) {
       if (!contract.viewed_at) {
         await supabaseAdmin
           .from("application_contracts")
-          .update({ viewed_at: new Date().toISOString(), status: contract.status === "sent" ? "viewed" : contract.status } as never)
+          .update({
+            viewed_at: new Date().toISOString(),
+            status: contract.status === "sent" ? "viewed" : contract.status,
+          } as never)
           .eq("id", contract.id);
-        await server.logEvent(applicationId, "contract_viewed", { actor: "applicant", description: `v${contract.version}` });
+        await server.logEvent(applicationId, "contract_viewed", {
+          actor: "applicant",
+          description: `v${contract.version}`,
+        });
       }
       const { data: req } = await supabaseAdmin
         .from("contract_signature_requests")
@@ -318,7 +352,9 @@ export const getContractByToken = createServerFn({ method: "POST" })
 /** Démarre la signature : le SignatureService envoie le défi au demandeur. */
 export const requestContractSignature = createServerFn({ method: "POST" })
   .inputValidator((input) =>
-    z.object({ token: z.string().min(20).max(200), full_name: z.string().min(3).max(120) }).parse(input),
+    z
+      .object({ token: z.string().min(20).max(200), full_name: z.string().min(3).max(120) })
+      .parse(input),
   )
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -328,7 +364,8 @@ export const requestContractSignature = createServerFn({ method: "POST" })
 
     const applicationId = await server.resolveToken(data.token);
     if (!applicationId) throw new Error("invalid_token");
-    if (!server.rateLimit(`sign:${applicationId}`, 6, 15 * 60 * 1000)) throw new Error("rate_limited");
+    if (!server.rateLimit(`sign:${applicationId}`, 6, 15 * 60 * 1000))
+      throw new Error("rate_limited");
 
     const { data: app } = await supabaseAdmin
       .from("loan_applications")
@@ -427,7 +464,8 @@ export const signContract = createServerFn({ method: "POST" })
 
     const applicationId = await server.resolveToken(data.token);
     if (!applicationId) throw new Error("invalid_token");
-    if (!server.rateLimit(`signv:${applicationId}`, 10, 15 * 60 * 1000)) throw new Error("rate_limited");
+    if (!server.rateLimit(`signv:${applicationId}`, 10, 15 * 60 * 1000))
+      throw new Error("rate_limited");
 
     const { data: app } = await supabaseAdmin
       .from("loan_applications")
@@ -462,13 +500,22 @@ export const signContract = createServerFn({ method: "POST" })
       code: data.code,
       documentHash: contract.document_hash,
     });
-    if (!result.ok) return { ok: false as const, reason: result.reason ?? "signature.error.invalidCode" };
+    if (!result.ok)
+      return { ok: false as const, reason: result.reason ?? "signature.error.invalidCode" };
 
     const { data: offer } = contract.offer_id
-      ? await supabaseAdmin.from("application_offers").select("*").eq("id", contract.offer_id).maybeSingle()
+      ? await supabaseAdmin
+          .from("application_offers")
+          .select("*")
+          .eq("id", contract.offer_id)
+          .maybeSingle()
       : { data: null };
     const { data: product } = app.product_id
-      ? await supabaseAdmin.from("loan_products").select("currency, annual_rate").eq("id", app.product_id).maybeSingle()
+      ? await supabaseAdmin
+          .from("loan_products")
+          .select("currency, annual_rate")
+          .eq("id", app.product_id)
+          .maybeSingle()
       : { data: null };
 
     const signedAt = new Date().toISOString();
@@ -512,7 +559,11 @@ export const signContract = createServerFn({ method: "POST" })
       },
     });
 
-    const path = await storeContractPdf(applicationId, `contract-v${contract.version}-signed.pdf`, bytes);
+    const path = await storeContractPdf(
+      applicationId,
+      `contract-v${contract.version}-signed.pdf`,
+      bytes,
+    );
 
     await supabaseAdmin
       .from("application_contracts")
@@ -531,7 +582,11 @@ export const signContract = createServerFn({ method: "POST" })
     await server.logEvent(applicationId, "contract_signed", {
       actor: "applicant",
       description: `v${contract.version}`,
-      metadata: { hash, provider: sigRow?.provider ?? "internal_aes", qualified: Boolean(sigRow?.qualified) },
+      metadata: {
+        hash,
+        provider: sigRow?.provider ?? "internal_aes",
+        qualified: Boolean(sigRow?.qualified),
+      },
       ip,
     });
 

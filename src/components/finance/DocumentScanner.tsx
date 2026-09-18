@@ -62,7 +62,14 @@ const ANALYSIS_INTERVAL_MS = 90;
  * résolution, accompagnée de ses mesures de qualité (preuve de capture
  * exploitable côté serveur).
  */
-export function DocumentScanner({ shape, profile = "identity", title, hint, onCapture, onCancel }: Props) {
+export function DocumentScanner({
+  shape,
+  profile = "identity",
+  title,
+  hint,
+  onCapture,
+  onCancel,
+}: Props) {
   const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -75,13 +82,18 @@ export function DocumentScanner({ shape, profile = "identity", title, hint, onCa
   const startedAt = useRef(0);
   const capturedRef = useRef(false);
 
-  const [status, setStatus] = useState<"idle" | "starting" | "live" | "captured" | "denied">("idle");
+  const [status, setStatus] = useState<"idle" | "starting" | "live" | "captured" | "denied">(
+    "idle",
+  );
   const [error, setError] = useState<string | null>(null);
   const [verdict, setVerdict] = useState<FrameVerdict | null>(null);
   const [stable, setStable] = useState(0);
   const [preview, setPreview] = useState<string | null>(null);
   const [pending, setPending] = useState<{ file: File; evidence: CaptureEvidence } | null>(null);
-  const [torch, setTorch] = useState<{ available: boolean; on: boolean }>({ available: false, on: false });
+  const [torch, setTorch] = useState<{ available: boolean; on: boolean }>({
+    available: false,
+    on: false,
+  });
 
   const thresholds = profile === "identity" ? ID_THRESHOLDS : PAPER_THRESHOLDS;
   const ratio = SHAPE_RATIO[shape];
@@ -94,7 +106,12 @@ export function DocumentScanner({ shape, profile = "identity", title, hint, onCa
   }, []);
 
   useEffect(() => () => stop(), [stop]);
-  useEffect(() => () => { if (preview) URL.revokeObjectURL(preview); }, [preview]);
+  useEffect(
+    () => () => {
+      if (preview) URL.revokeObjectURL(preview);
+    },
+    [preview],
+  );
 
   /* --------------------------- Capture réelle --------------------------- */
   const capture = useCallback(
@@ -219,7 +236,9 @@ export function DocumentScanner({ shape, profile = "identity", title, hint, onCa
       });
       streamRef.current = stream;
       const track = stream.getVideoTracks()[0];
-      const caps = (track?.getCapabilities?.() ?? {}) as MediaTrackCapabilities & { torch?: boolean };
+      const caps = (track?.getCapabilities?.() ?? {}) as MediaTrackCapabilities & {
+        torch?: boolean;
+      };
       setTorch({ available: Boolean(caps.torch), on: false });
       try {
         await track?.applyConstraints({
@@ -251,7 +270,9 @@ export function DocumentScanner({ shape, profile = "identity", title, hint, onCa
     if (!track) return;
     const next = !torch.on;
     try {
-      await track.applyConstraints({ advanced: [{ torch: next }] } as unknown as MediaTrackConstraints);
+      await track.applyConstraints({
+        advanced: [{ torch: next }],
+      } as unknown as MediaTrackConstraints);
       setTorch((prev) => ({ ...prev, on: next }));
     } catch {
       setTorch((prev) => ({ ...prev, available: false }));
@@ -298,7 +319,10 @@ export function DocumentScanner({ shape, profile = "identity", title, hint, onCa
           {onCancel && (
             <button
               type="button"
-              onClick={() => { stop(); onCancel(); }}
+              onClick={() => {
+                stop();
+                onCancel();
+              }}
               aria-label={t("common.close")}
               className="rounded-md p-1.5 text-muted-foreground hover:text-foreground"
             >
@@ -313,7 +337,12 @@ export function DocumentScanner({ shape, profile = "identity", title, hint, onCa
           {status === "captured" && preview ? (
             <img src={preview} alt="" className="absolute inset-0 h-full w-full object-contain" />
           ) : (
-            <video ref={videoRef} playsInline muted className="absolute inset-0 h-full w-full object-cover" />
+            <video
+              ref={videoRef}
+              playsInline
+              muted
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           )}
 
           {/* Zone de visée + rectangle détecté en temps réel */}
@@ -421,9 +450,9 @@ export function DocumentScanner({ shape, profile = "identity", title, hint, onCa
               <Check
                 ok={Boolean(
                   verdict &&
-                    verdict.signals.brightness >= thresholds.minBrightness &&
-                    verdict.signals.brightness <= thresholds.maxBrightness &&
-                    verdict.signals.glare <= thresholds.maxGlare,
+                  verdict.signals.brightness >= thresholds.minBrightness &&
+                  verdict.signals.brightness <= thresholds.maxBrightness &&
+                  verdict.signals.glare <= thresholds.maxGlare,
                 )}
                 label={t("kyc.scanner.check.light")}
               />
@@ -448,7 +477,12 @@ function Check({ ok, label }: { ok: boolean; label: string }) {
         ok ? "bg-success/10 text-success" : "bg-muted text-muted-foreground",
       )}
     >
-      <span className={cn("h-1.5 w-1.5 shrink-0 rounded-full", ok ? "bg-success" : "bg-muted-foreground/50")} />
+      <span
+        className={cn(
+          "h-1.5 w-1.5 shrink-0 rounded-full",
+          ok ? "bg-success" : "bg-muted-foreground/50",
+        )}
+      />
       <span className="truncate">{label}</span>
     </li>
   );

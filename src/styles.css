@@ -75,7 +75,7 @@
   --popover: 0 0% 100%;
   --popover-foreground: 220 40% 11%;
 
-  --primary: 220 70% 16%;            /* deep navy #0b1e3f */
+  --primary: 220 70% 16%; /* deep navy #0b1e3f */
   --primary-foreground: 0 0% 100%;
 
   --secondary: 220 20% 96%;
@@ -84,16 +84,16 @@
   --muted: 220 20% 95%;
   --muted-foreground: 220 15% 45%;
 
-  --accent: 213 100% 56%;            /* electric blue #1e88ff */
+  --accent: 213 100% 56%; /* electric blue #1e88ff */
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 75% 55%;
   --destructive-foreground: 0 0% 100%;
 
-  --success: 162 90% 41%;            /* mint #00d09c */
+  --success: 162 90% 41%; /* mint #00d09c */
   --success-foreground: 0 0% 100%;
 
-  --warning: 32 100% 50%;             /* banking orange */
+  --warning: 32 100% 50%; /* banking orange */
   --warning-foreground: 0 0% 100%;
 
   --info: 213 100% 56%;
@@ -108,10 +108,15 @@
   --font-serif: "Fraunces", Georgia, serif;
 
   --gradient-hero:
-    radial-gradient(ellipse 80% 60% at 50% 0%, hsl(213 100% 56% / 0.10), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 0%, hsl(213 100% 56% / 0.1), transparent 70%),
     radial-gradient(ellipse 60% 50% at 100% 100%, hsl(220 70% 16% / 0.06), transparent 60%);
   --gradient-accent: linear-gradient(135deg, hsl(213 100% 56%), hsl(220 70% 16%));
-  --gradient-wallet: linear-gradient(135deg, hsl(220 70% 16%) 0%, hsl(220 75% 12%) 50%, hsl(220 80% 8%) 100%);
+  --gradient-wallet: linear-gradient(
+    135deg,
+    hsl(220 70% 16%) 0%,
+    hsl(220 75% 12%) 50%,
+    hsl(220 80% 8%) 100%
+  );
   --shadow-glow: 0 8px 24px -8px hsl(213 100% 56% / 0.35);
   --shadow-card: 0 1px 2px hsl(220 40% 11% / 0.04), 0 4px 12px -4px hsl(220 40% 11% / 0.06);
   --shadow-elevated: 0 10px 30px -10px hsl(220 40% 11% / 0.18);
@@ -163,10 +168,15 @@
 
   --gradient-hero:
     radial-gradient(ellipse 80% 60% at 50% 0%, hsl(213 100% 56% / 0.15), transparent 70%),
-    radial-gradient(ellipse 60% 50% at 100% 100%, hsl(220 70% 16% / 0.30), transparent 60%);
+    radial-gradient(ellipse 60% 50% at 100% 100%, hsl(220 70% 16% / 0.3), transparent 60%);
   --gradient-accent: linear-gradient(135deg, hsl(213 100% 56%), hsl(220 70% 25%));
-  --gradient-wallet: linear-gradient(135deg, hsl(220 70% 16%) 0%, hsl(220 75% 10%) 50%, hsl(220 80% 6%) 100%);
-  --shadow-glow: 0 8px 32px -8px hsl(213 100% 56% / 0.40);
+  --gradient-wallet: linear-gradient(
+    135deg,
+    hsl(220 70% 16%) 0%,
+    hsl(220 75% 10%) 50%,
+    hsl(220 80% 6%) 100%
+  );
+  --shadow-glow: 0 8px 32px -8px hsl(213 100% 56% / 0.4);
   --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.4), 0 8px 24px -8px hsl(0 0% 0% / 0.5);
   --shadow-elevated: 0 10px 30px -10px hsl(0 0% 0% / 0.6);
 }
@@ -176,7 +186,8 @@
     border-color: hsl(var(--border));
   }
 
-  html, body {
+  html,
+  body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     font-family: var(--font-sans);
@@ -187,18 +198,36 @@
     max-width: 100%;
   }
 
-  img, svg, video, canvas, iframe {
+  img,
+  svg,
+  video,
+  canvas,
+  iframe {
     max-width: 100%;
     height: auto;
   }
 
   /* Les longues chaînes (IBAN, e-mails, références) ne cassent jamais la grille */
-  p, span, td, th, li, h1, h2, h3, h4, h5, h6 {
+  p,
+  span,
+  td,
+  th,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     overflow-wrap: anywhere;
   }
 
-
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-serif);
     letter-spacing: -0.02em;
     font-weight: 500;
@@ -210,12 +239,24 @@
 }
 
 @layer utilities {
-  .bg-hero { background-image: var(--gradient-hero); }
-  .bg-gradient-accent { background-image: var(--gradient-accent); }
-  .bg-gradient-wallet { background-image: var(--gradient-wallet); }
-  .shadow-glow { box-shadow: var(--shadow-glow); }
-  .shadow-card { box-shadow: var(--shadow-card); }
-  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .bg-hero {
+    background-image: var(--gradient-hero);
+  }
+  .bg-gradient-accent {
+    background-image: var(--gradient-accent);
+  }
+  .bg-gradient-wallet {
+    background-image: var(--gradient-wallet);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
 
   .text-gradient {
     background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--accent)));
@@ -233,24 +274,44 @@
   }
 
   /* Stepper utilities */
-  .stepper-line { background: hsl(var(--border)); }
-  .stepper-line-done { background: hsl(var(--success)); }
+  .stepper-line {
+    background: hsl(var(--border));
+  }
+  .stepper-line-done {
+    background: hsl(var(--success));
+  }
 }
 
-.pt-safe {padding-top: env(safe-area-inset-top,0px);}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
 /* Skeletons premium (loader.tsx) */
 @keyframes shimmer {
-  100% { transform: translateX(100%); }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 /* ── Transitions de navigation & d'étapes (fintech premium) ───────────── */
 @keyframes page-enter {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes step-enter {
-  from { opacity: 0; transform: translateX(16px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .animate-page {

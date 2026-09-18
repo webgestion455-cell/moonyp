@@ -42,8 +42,17 @@ export const Route = createFileRoute("/$lang/")({
 });
 
 const PARTNER_BANKS = [
-  "Société Générale", "Crédit Agricole", "ING", "Revolut", "N26",
-  "Boursorama", "LCL", "Caisse d'Épargne", "Crédit Mutuel", "Deutsche Bank", "Santander",
+  "Société Générale",
+  "Crédit Agricole",
+  "ING",
+  "Revolut",
+  "N26",
+  "Boursorama",
+  "LCL",
+  "Caisse d'Épargne",
+  "Crédit Mutuel",
+  "Deutsche Bank",
+  "Santander",
 ];
 
 function Landing() {
@@ -71,9 +80,21 @@ function Landing() {
   ];
 
   const values = [
-    { Icon: Zap, title: t("landing.values.response.title"), desc: t("landing.values.response.desc") },
-    { Icon: ShieldCheck, title: t("landing.values.secure.title"), desc: t("landing.values.secure.desc") },
-    { Icon: CheckCircle2, title: t("landing.values.nofees.title"), desc: t("landing.values.nofees.desc") },
+    {
+      Icon: Zap,
+      title: t("landing.values.response.title"),
+      desc: t("landing.values.response.desc"),
+    },
+    {
+      Icon: ShieldCheck,
+      title: t("landing.values.secure.title"),
+      desc: t("landing.values.secure.desc"),
+    },
+    {
+      Icon: CheckCircle2,
+      title: t("landing.values.nofees.title"),
+      desc: t("landing.values.nofees.desc"),
+    },
   ];
 
   const kpis = [
@@ -114,27 +135,49 @@ function Landing() {
               {t("landing.badge")}
             </div>
             <h1 className="mt-6 max-w-2xl font-serif text-3xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-4xl md:text-5xl xl:text-6xl">
-              {t("landing.heroTitleA")}<br />
+              {t("landing.heroTitleA")}
+              <br />
               <span className="text-gradient">{t("landing.heroTitleB")}</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
               {t("landing.heroDesc")}
             </p>
             <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <Button asChild size="lg" className="h-12 w-full rounded-full px-6 text-sm shadow-glow sm:h-14 sm:w-auto sm:px-8 sm:text-base">
-                <Link to="/$lang/apply" params={{ lang }} search={{ product: undefined, amount: undefined, months: undefined }}>
+              <Button
+                asChild
+                size="lg"
+                className="h-12 w-full rounded-full px-6 text-sm shadow-glow sm:h-14 sm:w-auto sm:px-8 sm:text-base"
+              >
+                <Link
+                  to="/$lang/apply"
+                  params={{ lang }}
+                  search={{ product: undefined, amount: undefined, months: undefined }}
+                >
                   {t("landing.ctaPrimary")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 w-full rounded-full bg-card px-6 text-sm sm:h-14 sm:w-auto sm:px-8 sm:text-base">
-                <Link to="/$lang/simulation" params={{ lang }} search={{ product: undefined }}>{t("landing.ctaSecondary")}</Link>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="h-12 w-full rounded-full bg-card px-6 text-sm sm:h-14 sm:w-auto sm:px-8 sm:text-base"
+              >
+                <Link to="/$lang/simulation" params={{ lang }} search={{ product: undefined }}>
+                  {t("landing.ctaSecondary")}
+                </Link>
               </Button>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2"><Lock className="h-4 w-4 text-accent" /> {t("landing.trust1")}</div>
-              <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-accent" /> {t("landing.trust2")}</div>
-              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-accent" /> {t("landing.trust3")}</div>
+              <div className="flex items-center gap-2">
+                <Lock className="h-4 w-4 text-accent" /> {t("landing.trust1")}
+              </div>
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4 text-accent" /> {t("landing.trust2")}
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-accent" /> {t("landing.trust3")}
+              </div>
             </div>
           </div>
 
@@ -183,7 +226,9 @@ function Landing() {
           {kpis.map((k) => (
             <div key={k.l} className="text-center">
               <div className="font-serif text-3xl font-medium text-primary md:text-4xl">{k.v}</div>
-              <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{k.l}</div>
+              <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
+                {k.l}
+              </div>
             </div>
           ))}
         </div>
@@ -210,11 +255,22 @@ function Landing() {
       <section className="bg-surface py-24">
         <div className="container mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2 md:items-center">
           <div className="relative overflow-hidden rounded-3xl border border-border shadow-card">
-            <img src={dashboardImg} alt={t("landing.security.title")} className="h-full w-full object-cover" loading="lazy" width={1536} height={896} />
+            <img
+              src={dashboardImg}
+              alt={t("landing.security.title")}
+              className="h-full w-full object-cover"
+              loading="lazy"
+              width={1536}
+              height={896}
+            />
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{t("landing.security.eyebrow")}</p>
-            <h2 className="mt-3 font-serif text-3xl font-medium text-foreground md:text-4xl">{t("landing.security.title")}</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              {t("landing.security.eyebrow")}
+            </p>
+            <h2 className="mt-3 font-serif text-3xl font-medium text-foreground md:text-4xl">
+              {t("landing.security.title")}
+            </h2>
             <p className="mt-4 text-muted-foreground">{t("landing.security.desc")}</p>
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
               {securityFeatures.map(({ Icon, title, desc }) => (
@@ -236,10 +292,15 @@ function Landing() {
       {/* How it works */}
       <section className="bg-background py-24">
         <div className="container mx-auto max-w-4xl px-4">
-          <h2 className="text-center font-serif text-4xl font-medium text-primary md:text-5xl">{t("landing.how.title")}</h2>
+          <h2 className="text-center font-serif text-4xl font-medium text-primary md:text-5xl">
+            {t("landing.how.title")}
+          </h2>
           <div className="relative mt-16 space-y-8 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent md:before:mx-auto md:before:translate-x-0">
             {steps.map((step, i) => (
-              <div key={i} className="group relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse">
+              <div
+                key={i}
+                className="group relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse"
+              >
                 <div className="z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-4 border-background bg-primary font-bold text-primary-foreground shadow-md md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                   {i + 1}
                 </div>
@@ -260,16 +321,25 @@ function Landing() {
       <section className="bg-surface py-24">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{t("landing.testi.eyebrow")}</p>
-            <h2 className="mt-4 font-serif text-3xl font-medium text-foreground md:text-4xl">{t("landing.testi.title")}</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              {t("landing.testi.eyebrow")}
+            </p>
+            <h2 className="mt-4 font-serif text-3xl font-medium text-foreground md:text-4xl">
+              {t("landing.testi.title")}
+            </h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {testimonials.map((tm) => (
-              <div key={tm.name} className="rounded-2xl border border-border bg-card p-8 shadow-card">
+              <div
+                key={tm.name}
+                className="rounded-2xl border border-border bg-card p-8 shadow-card"
+              >
                 <Quote className="h-6 w-6 text-accent" />
                 <p className="mt-4 leading-relaxed text-foreground">"{tm.quote}"</p>
                 <div className="mt-6 flex items-center gap-1 text-accent">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" />
+                  ))}
                 </div>
                 <div className="mt-4 border-t border-border pt-4">
                   <div className="font-semibold text-foreground">{tm.name}</div>
@@ -285,17 +355,34 @@ function Landing() {
       <section className="bg-background py-24">
         <div className="container mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2 md:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{t("landing.mobile.eyebrow")}</p>
-            <h2 className="mt-3 font-serif text-3xl font-medium text-foreground md:text-4xl">{t("landing.mobile.title")}</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              {t("landing.mobile.eyebrow")}
+            </p>
+            <h2 className="mt-3 font-serif text-3xl font-medium text-foreground md:text-4xl">
+              {t("landing.mobile.title")}
+            </h2>
             <p className="mt-4 text-muted-foreground">{t("landing.mobile.desc")}</p>
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-3"><TrendingUp className="h-4 w-4 text-accent" /> {t("landing.mobile.b1")}</li>
-              <li className="flex items-center gap-3"><Globe2 className="h-4 w-4 text-accent" /> {t("landing.mobile.b2")}</li>
-              <li className="flex items-center gap-3"><ShieldCheck className="h-4 w-4 text-accent" /> {t("landing.mobile.b3")}</li>
+              <li className="flex items-center gap-3">
+                <TrendingUp className="h-4 w-4 text-accent" /> {t("landing.mobile.b1")}
+              </li>
+              <li className="flex items-center gap-3">
+                <Globe2 className="h-4 w-4 text-accent" /> {t("landing.mobile.b2")}
+              </li>
+              <li className="flex items-center gap-3">
+                <ShieldCheck className="h-4 w-4 text-accent" /> {t("landing.mobile.b3")}
+              </li>
             </ul>
           </div>
           <div className="relative overflow-hidden rounded-3xl border border-border shadow-card">
-            <img src={mobileImg} alt={t("landing.mobile.title")} className="h-full w-full object-cover" loading="lazy" width={1536} height={896} />
+            <img
+              src={mobileImg}
+              alt={t("landing.mobile.title")}
+              className="h-full w-full object-cover"
+              loading="lazy"
+              width={1536}
+              height={896}
+            />
           </div>
         </div>
       </section>
@@ -303,13 +390,20 @@ function Landing() {
       {/* FAQ */}
       <section className="bg-surface py-24">
         <div className="container mx-auto max-w-3xl px-4">
-          <h2 className="text-center font-serif text-3xl font-medium text-foreground md:text-4xl">{t("landing.faq.title")}</h2>
+          <h2 className="text-center font-serif text-3xl font-medium text-foreground md:text-4xl">
+            {t("landing.faq.title")}
+          </h2>
           <div className="mt-12 space-y-4">
             {faqs.map((f, i) => (
-              <details key={i} className="group rounded-2xl border border-border bg-card p-6 shadow-card">
+              <details
+                key={i}
+                className="group rounded-2xl border border-border bg-card p-6 shadow-card"
+              >
                 <summary className="flex cursor-pointer items-center justify-between font-semibold text-foreground">
                   {f.q}
-                  <span className="ml-4 text-accent transition-transform group-open:rotate-45">+</span>
+                  <span className="ml-4 text-accent transition-transform group-open:rotate-45">
+                    +
+                  </span>
                 </summary>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
               </details>
@@ -322,13 +416,22 @@ function Landing() {
       <section className="border-t border-border bg-background py-20">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{t("landing.partners.eyebrow")}</p>
-            <h2 className="mt-4 font-serif text-3xl font-medium text-foreground md:text-4xl">{t("landing.partners.title")}</h2>
-            <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">{t("landing.partners.desc")}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              {t("landing.partners.eyebrow")}
+            </p>
+            <h2 className="mt-4 font-serif text-3xl font-medium text-foreground md:text-4xl">
+              {t("landing.partners.title")}
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
+              {t("landing.partners.desc")}
+            </p>
           </div>
           <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3 xl:grid-cols-6">
             {PARTNER_BANKS.map((bank) => (
-              <div key={bank} className="flex items-center justify-center bg-card px-4 py-8 text-center text-sm font-semibold text-muted-foreground transition-colors hover:bg-surface hover:text-foreground">
+              <div
+                key={bank}
+                className="flex items-center justify-center bg-card px-4 py-8 text-center text-sm font-semibold text-muted-foreground transition-colors hover:bg-surface hover:text-foreground"
+              >
                 {bank}
               </div>
             ))}
@@ -339,10 +442,21 @@ function Landing() {
       {/* Final CTA */}
       <section className="bg-gradient-wallet py-20 text-center text-white">
         <div className="container mx-auto px-4">
-          <h2 className="font-serif text-2xl font-medium leading-tight sm:text-3xl lg:text-5xl">{t("landing.finalCta.title")}</h2>
+          <h2 className="font-serif text-2xl font-medium leading-tight sm:text-3xl lg:text-5xl">
+            {t("landing.finalCta.title")}
+          </h2>
           <p className="mx-auto mt-4 max-w-xl text-white/70">{t("landing.finalCta.desc")}</p>
-          <Button asChild size="lg" variant="secondary" className="mt-8 h-14 rounded-full bg-white px-8 text-base font-semibold text-primary hover:bg-white/90">
-            <Link to="/$lang/apply" params={{ lang }} search={{ product: undefined, amount: undefined, months: undefined }}>
+          <Button
+            asChild
+            size="lg"
+            variant="secondary"
+            className="mt-8 h-14 rounded-full bg-white px-8 text-base font-semibold text-primary hover:bg-white/90"
+          >
+            <Link
+              to="/$lang/apply"
+              params={{ lang }}
+              search={{ product: undefined, amount: undefined, months: undefined }}
+            >
               {t("landing.finalCta.button")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
@@ -354,23 +468,43 @@ function Landing() {
       <section id="contact" className="border-t border-border bg-card py-16">
         <div className="container mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2 md:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{t("contactSection.eyebrow", "Support")}</p>
-            <h2 className="mt-3 font-serif text-3xl font-medium text-foreground md:text-4xl">{t("contactSection.title", "Get in touch")}</h2>
-            <p className="mt-4 text-muted-foreground">{t("contactSection.desc", "Our advisors answer within one business hour.")}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              {t("contactSection.eyebrow", "Support")}
+            </p>
+            <h2 className="mt-3 font-serif text-3xl font-medium text-foreground md:text-4xl">
+              {t("contactSection.title", "Get in touch")}
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              {t("contactSection.desc", "Our advisors answer within one business hour.")}
+            </p>
           </div>
           <div className="rounded-3xl border border-border bg-background p-8 shadow-card">
             <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-accent" /><a href="mailto:support@moonyp.com" className="hover:text-accent">support@moonyp.com</a></li>
-              <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-accent" /><a href="tel:+393500366867" className="hover:text-accent">+39 350 036 6867</a></li>
-              <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-accent" />1 Centenary Square, Birmingham, B1 2DR, United Kingdom</li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-4 w-4 text-accent" />
+                <a href="mailto:support@moonyp.com" className="hover:text-accent">
+                  support@moonyp.com
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-4 w-4 text-accent" />
+                <a href="tel:+393500366867" className="hover:text-accent">
+                  +39 350 036 6867
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <MapPin className="h-4 w-4 text-accent" />1 Centenary Square, Birmingham, B1 2DR,
+                United Kingdom
+              </li>
             </ul>
             <Button asChild className="mt-6 w-full rounded-full">
-              <Link to="/$lang/contact" params={{ lang }}>{t("contactSection.cta", "Open contact form")}</Link>
+              <Link to="/$lang/contact" params={{ lang }}>
+                {t("contactSection.cta", "Open contact form")}
+              </Link>
             </Button>
           </div>
         </div>
       </section>
-
     </div>
   );
 }

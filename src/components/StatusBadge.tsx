@@ -15,7 +15,13 @@ const VARIANT_STYLES: Record<string, string> = {
   muted: "bg-muted text-muted-foreground border-border",
 };
 
-export function StatusBadge({ status, className }: { status: ApplicationStatus; className?: string }) {
+export function StatusBadge({
+  status,
+  className,
+}: {
+  status: ApplicationStatus;
+  className?: string;
+}) {
   // re-render when the language changes
   useTranslation();
   const variant = APPLICATION_STATUS_VARIANT[status] ?? "default";

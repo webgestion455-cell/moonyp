@@ -7,7 +7,13 @@
  * nom.
  */
 
-export type SniffedKind = "image/jpeg" | "image/png" | "image/webp" | "image/heic" | "application/pdf" | "unknown";
+export type SniffedKind =
+  | "image/jpeg"
+  | "image/png"
+  | "image/webp"
+  | "image/heic"
+  | "application/pdf"
+  | "unknown";
 
 export const ACCEPTED_KINDS: readonly SniffedKind[] = [
   "image/jpeg",
@@ -33,7 +39,8 @@ export interface SniffResult {
 
 function ascii(bytes: Uint8Array, start: number, length: number): string {
   let out = "";
-  for (let i = start; i < start + length && i < bytes.length; i++) out += String.fromCharCode(bytes[i]!);
+  for (let i = start; i < start + length && i < bytes.length; i++)
+    out += String.fromCharCode(bytes[i]!);
   return out;
 }
 
@@ -46,12 +53,17 @@ export function sniffKind(bytes: Uint8Array): SniffedKind {
   if (ascii(bytes, 0, 4) === "RIFF" && ascii(bytes, 8, 4) === "WEBP") return "image/webp";
   if (ascii(bytes, 4, 4) === "ftyp") {
     const brand = ascii(bytes, 8, 4);
-    if (["heic", "heix", "hevc", "heim", "heis", "mif1", "msf1"].includes(brand)) return "image/heic";
+    if (["heic", "heix", "hevc", "heim", "heis", "mif1", "msf1"].includes(brand))
+      return "image/heic";
   }
   return "unknown";
 }
 
-export function sniffFile(bytes: Uint8Array, declaredMime: string, declaredSize?: number): SniffResult {
+export function sniffFile(
+  bytes: Uint8Array,
+  declaredMime: string,
+  declaredSize?: number,
+): SniffResult {
   const kind = sniffKind(bytes);
   const reasons: string[] = [];
   const declared = (declaredMime || "").toLowerCase().split(";")[0]!.trim();
@@ -67,7 +79,11 @@ export function sniffFile(bytes: Uint8Array, declaredMime: string, declaredSize?
 
   return {
     kind,
-    accepted: kind !== "unknown" && ACCEPTED_KINDS.includes(kind) && bytes.length <= MAX_FILE_BYTES && bytes.length >= MIN_FILE_BYTES,
+    accepted:
+      kind !== "unknown" &&
+      ACCEPTED_KINDS.includes(kind) &&
+      bytes.length <= MAX_FILE_BYTES &&
+      bytes.length >= MIN_FILE_BYTES,
     declared_mismatch,
     bytes: bytes.length,
     reasons,

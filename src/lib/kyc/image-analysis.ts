@@ -116,7 +116,13 @@ interface Grey {
   height: number;
 }
 
-function toGrey(image: ImageData): { grey: Grey; brightness: number; contrast: number; glare: number; banding: number } {
+function toGrey(image: ImageData): {
+  grey: Grey;
+  brightness: number;
+  contrast: number;
+  glare: number;
+  banding: number;
+} {
   const { width: sw, height: sh, data } = image;
   const scale = Math.max(1, Math.round(sw / ANALYSIS_WIDTH));
   const width = Math.max(2, Math.floor(sw / scale));
@@ -130,7 +136,7 @@ function toGrey(image: ImageData): { grey: Grey; brightness: number; contrast: n
 
   for (let y = 0; y < height; y += 1) {
     for (let x = 0; x < width; x += 1) {
-      const si = ((y * scale) * sw + x * scale) * 4;
+      const si = (y * scale * sw + x * scale) * 4;
       const r = data[si]!;
       const g = data[si + 1]!;
       const b = data[si + 2]!;
@@ -212,7 +218,11 @@ function sobel(grey: Grey): Gradients {
 }
 
 /** Recherche d'un maximum de profil dans une bande, en évitant le bord exact. */
-function bestLine(profile: Float32Array, from: number, to: number): { index: number; value: number } {
+function bestLine(
+  profile: Float32Array,
+  from: number,
+  to: number,
+): { index: number; value: number } {
   let index = -1;
   let value = 0;
   for (let i = from; i < to; i += 1) {
@@ -271,10 +281,7 @@ function detectRect(g: Gradients): { rect: DocumentRect | null; straightness: nu
     Math.min(left.value, right.value) / Math.max(colBase, 0.5);
   if (contrastRatio < 3.2) return { rect: null, straightness: 0 };
 
-  const straightOf = (
-    lineIndex: number,
-    axis: "row" | "col",
-  ): number => {
+  const straightOf = (lineIndex: number, axis: "row" | "col"): number => {
     let hits = 0;
     let total = 0;
     if (axis === "row") {

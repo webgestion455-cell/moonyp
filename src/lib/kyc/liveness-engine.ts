@@ -77,7 +77,6 @@ export interface FaceMetrics {
   screenLikelihood: number;
 }
 
-
 export interface FaceVerdict {
   metrics: FaceMetrics;
   /** Le visage est utilisable pour demander un défi. */
@@ -158,7 +157,6 @@ export const LIVENESS_THRESHOLDS = {
   /** Nombre d'images consécutives conformes avant de considérer le visage prêt. */
   readyFrames: 4,
 } as const;
-
 
 const WASM_BASE = "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@1.0.1/wasm";
 const MODEL_URL =
@@ -267,7 +265,6 @@ function yawRatioFromLandmarks(points: Array<{ x: number; y: number; z: number }
   const ratio = ((nose.x - centre) / width) * 2;
   return Math.max(-1, Math.min(1, ratio));
 }
-
 
 /**
  * Relief du visage : écart-type des profondeurs des repères, rapporté à la
@@ -405,7 +402,6 @@ export function readFace(raw: unknown, context: FrameContext = {}): FaceVerdict 
   return { metrics, ready: issue === null, issue };
 }
 
-
 /* --------------------------------------------------------------------- */
 /* Défis                                                                  */
 /* --------------------------------------------------------------------- */
@@ -505,10 +501,12 @@ export function challengeAtRest(challenge: LivenessChallenge, m: FaceMetrics): b
  * ces défis, la consigne de cadrage « regardez droit vers la caméra » est un
  * contresens. Cette fonction dit quels signalements doivent être tus.
  */
-export function issueMutedDuring(challenge: LivenessChallenge | null, issue: FaceIssue | null): boolean {
+export function issueMutedDuring(
+  challenge: LivenessChallenge | null,
+  issue: FaceIssue | null,
+): boolean {
   if (!issue || !challenge) return false;
   const turning = challenge === "turn_left" || challenge === "turn_right";
   if (turning) return issue === "not_frontal" || issue === "off_center";
   return false;
 }
-

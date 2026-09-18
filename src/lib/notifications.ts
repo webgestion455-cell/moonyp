@@ -150,7 +150,8 @@ export async function sendPush(params: {
 }
 
 export function ensureBrowserPermission() {
-  if (typeof window === "undefined" || !("Notification" in window)) return Promise.resolve("unsupported" as const);
+  if (typeof window === "undefined" || !("Notification" in window))
+    return Promise.resolve("unsupported" as const);
   if (Notification.permission === "granted") return Promise.resolve("granted" as const);
   if (Notification.permission === "denied") return Promise.resolve("denied" as const);
   return Notification.requestPermission().then((p) => p as "granted" | "denied" | "default");

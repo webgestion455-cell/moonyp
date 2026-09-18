@@ -7,25 +7,27 @@ import type { LoanProduct, Quotation } from "@/lib/loan-math";
 
 import { submitPayloadSchema } from "@/lib/application-schema";
 
-export const listProducts = createServerFn({ method: "GET" }).handler(async (): Promise<LoanProduct[]> => {
-  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-  const { data, error } = await supabaseAdmin
-    .from("loan_products")
-    .select("*")
-    .eq("active", true)
-    .order("sort_order", { ascending: true });
-  if (error) throw new Error(error.message);
-  return (data ?? []).map((p) => ({
-    ...p,
-    min_amount: Number(p.min_amount),
-    max_amount: Number(p.max_amount),
-    amount_step: Number(p.amount_step),
-    annual_rate: Number(p.annual_rate),
-    insurance_monthly_rate: Number(p.insurance_monthly_rate),
-    fee_fixed: Number(p.fee_fixed),
-    fee_percent: Number(p.fee_percent),
-  })) as LoanProduct[];
-});
+export const listProducts = createServerFn({ method: "GET" }).handler(
+  async (): Promise<LoanProduct[]> => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data, error } = await supabaseAdmin
+      .from("loan_products")
+      .select("*")
+      .eq("active", true)
+      .order("sort_order", { ascending: true });
+    if (error) throw new Error(error.message);
+    return (data ?? []).map((p) => ({
+      ...p,
+      min_amount: Number(p.min_amount),
+      max_amount: Number(p.max_amount),
+      amount_step: Number(p.amount_step),
+      annual_rate: Number(p.annual_rate),
+      insurance_monthly_rate: Number(p.insurance_monthly_rate),
+      fee_fixed: Number(p.fee_fixed),
+      fee_percent: Number(p.fee_percent),
+    })) as LoanProduct[];
+  },
+);
 
 export const listDocumentTypes = createServerFn({ method: "GET" }).handler(async () => {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -56,7 +58,6 @@ export const listDocumentTypes = createServerFn({ method: "GET" }).handler(async
   }>;
 });
 
-
 /** Authoritative quotation: pricing always comes from the stored product. */
 export const simulate = createServerFn({ method: "POST" })
   .inputValidator((input) =>
@@ -80,7 +81,10 @@ export const simulate = createServerFn({ method: "POST" })
     if (error) throw new Error(error.message);
     if (!product) throw new Error("product_not_found");
 
-    const amount = Math.min(Math.max(data.amount, Number(product.min_amount)), Number(product.max_amount));
+    const amount = Math.min(
+      Math.max(data.amount, Number(product.min_amount)),
+      Number(product.max_amount),
+    );
     const months = Math.min(Math.max(data.months, product.min_months), product.max_months);
 
     return {
@@ -128,7 +132,10 @@ export const submitApplication = createServerFn({ method: "POST" })
     }
     if (!product) throw new Error("product_not_found");
 
-    const amount = Math.min(Math.max(data.amount, Number(product.min_amount)), Number(product.max_amount));
+    const amount = Math.min(
+      Math.max(data.amount, Number(product.min_amount)),
+      Number(product.max_amount),
+    );
     const months = Math.min(Math.max(data.duration_months, product.min_months), product.max_months);
 
     // Authoritative pricing — the client quotation is never trusted.
@@ -154,10 +161,19 @@ export const submitApplication = createServerFn({ method: "POST" })
       last_name: data.last_name,
       residence_country: data.country,
     });
-    if (!audit.valid) throw new Error(`payout_invalid:${audit.issues.map((i) => i.code).join(",")}`);
+    if (!audit.valid)
+      throw new Error(`payout_invalid:${audit.issues.map((i) => i.code).join(",")}`);
 
-    const dti = debtRatio(pricing.totalMonthly, data.monthly_income + (data.other_income ?? 0), data.monthly_charges);
-    const complianceFlags = audit.issues.map((i) => ({ field: i.field, code: i.code, severity: i.severity }));
+    const dti = debtRatio(
+      pricing.totalMonthly,
+      data.monthly_income + (data.other_income ?? 0),
+      data.monthly_charges,
+    );
+    const complianceFlags = audit.issues.map((i) => ({
+      field: i.field,
+      code: i.code,
+      severity: i.severity,
+    }));
     if (dti !== null && dti > 40) {
       complianceFlags.push({ field: "bank_iban", code: "risk.dtiAbove40", severity: "warning" });
     }
@@ -264,7 +280,6 @@ export const submitApplication = createServerFn({ method: "POST" })
       created_at: inserted.created_at,
       token,
     };
-
   });
 
 /** Attaches documents that were uploaded through a signed URL. */
@@ -280,7 +295,11 @@ export const registerDocuments = createServerFn({ method: "POST" })
               storage_path: z.string().min(1).max(400),
               file_name: z.string().min(1).max(255),
               mime_type: z.string().min(1).max(120),
-              file_size: z.coerce.number().int().min(1).max(25 * 1024 * 1024),
+              file_size: z.coerce
+                .number()
+                .int()
+                .min(1)
+                .max(25 * 1024 * 1024),
               /** Preuve de capture produite par le navigateur, revalidée ici. */
               capture_evidence: z.unknown().optional(),
               /** Lecture OCR/MRZ produite par le navigateur (texte brut). */
@@ -430,14 +449,18 @@ export const registerDocuments = createServerFn({ method: "POST" })
       });
     }
 
-
     // Mirror every uploaded piece into the KYC verification trail so the
     // compliance officer sees one auditable row per check.
     const { data: types } = await supabaseAdmin
       .from("document_types")
       .select("slug, category")
-      .in("slug", rows.map((r) => r.document_type_slug));
-    const categoryOf = new Map((types ?? []).map((t) => [t.slug, (t as { category?: string }).category ?? "other"]));
+      .in(
+        "slug",
+        rows.map((r) => r.document_type_slug),
+      );
+    const categoryOf = new Map(
+      (types ?? []).map((t) => [t.slug, (t as { category?: string }).category ?? "other"]),
+    );
 
     const checks = (insertedDocs ?? []).map((doc) => {
       const verdict = verdicts.get((doc as { storage_path?: string }).storage_path ?? "");
@@ -464,7 +487,6 @@ export const registerDocuments = createServerFn({ method: "POST" })
         .update({ kyc_status: "verifying", kyc_completed_at: new Date().toISOString() } as never)
         .eq("id", applicationId);
     }
-
 
     await server.logEvent(applicationId, "documents_uploaded", {
       description: `${rows.length} document(s) déposé(s)`,
@@ -498,7 +520,10 @@ export const registerDocuments = createServerFn({ method: "POST" })
           document_type_slug: doc.document_type_slug,
           category: categoryOf.get(doc.document_type_slug) ?? "other",
           capture_status: (verdict?.status ?? "verifying") as
-            | "verifying" | "passed" | "manual_review" | "failed",
+            | "verifying"
+            | "passed"
+            | "manual_review"
+            | "failed",
           capture_reasons: verdict?.reasons ?? [],
           capture_score: verdict?.score ?? null,
           capture_method: (verdict?.method ?? "upload") as "scan" | "upload" | "liveness",
@@ -550,7 +575,11 @@ export const registerDocuments = createServerFn({ method: "POST" })
           .eq("id", doc.id);
       }
 
-      const { error: decisionWriteError } = await (supabaseAdmin.from as unknown as (t: string) => { insert: (v: unknown) => Promise<{ error: unknown }> })("application_identity_decisions").insert({
+      const { error: decisionWriteError } = await (
+        supabaseAdmin.from as unknown as (t: string) => {
+          insert: (v: unknown) => Promise<{ error: unknown }>;
+        }
+      )("application_identity_decisions").insert({
         application_id: applicationId,
         decision: result.decision,
         score: result.score,
@@ -668,7 +697,9 @@ export const getApplicationByToken = createServerFn({ method: "POST" })
           .order("created_at", { ascending: true }),
         supabaseAdmin
           .from("application_kyc_checks")
-          .select("id, step_key, category, document_type_slug, status, review_note, reviewed_at, created_at")
+          .select(
+            "id, step_key, category, document_type_slug, status, review_note, reviewed_at, created_at",
+          )
           .eq("application_id", applicationId)
           .order("created_at", { ascending: true }),
       ]);
@@ -678,7 +709,9 @@ export const getApplicationByToken = createServerFn({ method: "POST" })
     const { data: product } = application.product_id
       ? await supabaseAdmin
           .from("loan_products")
-          .select("slug, name, i18n_key, currency, annual_rate, insurance_monthly_rate, fee_fixed, fee_percent")
+          .select(
+            "slug, name, i18n_key, currency, annual_rate, insurance_monthly_rate, fee_fixed, fee_percent",
+          )
           .eq("id", application.product_id)
           .maybeSingle()
       : { data: null };
@@ -694,48 +727,62 @@ export const getApplicationByToken = createServerFn({ method: "POST" })
     ] = await Promise.all([
       supabaseAdmin
         .from("application_info_requests")
-        .select("id, kind, message, status, document_type_slug, response_text, responded_at, created_at")
+        .select(
+          "id, kind, message, status, document_type_slug, response_text, responded_at, created_at",
+        )
         .eq("application_id", applicationId)
         .neq("status", "cancelled")
         .order("created_at", { ascending: false }),
       supabaseAdmin
         .from("application_offers")
-        .select("id, amount, duration_months, annual_rate, monthly_payment, total_cost, insurance_total, fees_total, currency, valid_until, accepted_at, declined_at, created_at")
+        .select(
+          "id, amount, duration_months, annual_rate, monthly_payment, total_cost, insurance_total, fees_total, currency, valid_until, accepted_at, declined_at, created_at",
+        )
         .eq("application_id", applicationId)
         .order("created_at", { ascending: false })
         .limit(1)
         .maybeSingle(),
       supabaseAdmin
         .from("application_contracts")
-        .select("id, language, sent_at, signed_at, signature_name, signature_method, storage_path, signed_storage_path")
+        .select(
+          "id, language, sent_at, signed_at, signature_name, signature_method, storage_path, signed_storage_path",
+        )
         .eq("application_id", applicationId)
         .order("created_at", { ascending: false })
         .limit(1)
         .maybeSingle(),
       supabaseAdmin
         .from("application_guarantees")
-        .select("id, kind, guarantor_name, amount, currency, status, sent_at, signed_at, fee_amount, fee_description, payment_instructions, payment_status, client_choice, choice_at, scheduled_payment_date, payment_validated_at, storage_path, signed_storage_path, document_version, document_hash, signed_document_hash")
+        .select(
+          "id, kind, guarantor_name, amount, currency, status, sent_at, signed_at, fee_amount, fee_description, payment_instructions, payment_status, client_choice, choice_at, scheduled_payment_date, payment_validated_at, storage_path, signed_storage_path, document_version, document_hash, signed_document_hash",
+        )
         .eq("application_id", applicationId)
         .order("created_at", { ascending: false })
         .limit(1)
         .maybeSingle(),
       supabaseAdmin
         .from("application_insurances")
-        .select("id, provider, policy_number, coverage, monthly_premium, currency, status, starts_on, due_date, validated_at, sent_at, signed_at, fee_amount, fee_description, payment_instructions, payment_status, client_choice, choice_at, scheduled_payment_date, payment_validated_at, storage_path, signed_storage_path, document_version, document_hash, signed_document_hash")
+        .select(
+          "id, provider, policy_number, coverage, monthly_premium, currency, status, starts_on, due_date, validated_at, sent_at, signed_at, fee_amount, fee_description, payment_instructions, payment_status, client_choice, choice_at, scheduled_payment_date, payment_validated_at, storage_path, signed_storage_path, document_version, document_hash, signed_document_hash",
+        )
         .eq("application_id", applicationId)
         .order("created_at", { ascending: false })
         .limit(1)
         .maybeSingle(),
       supabaseAdmin
         .from("disbursements")
-        .select("id, amount, currency, beneficiary, iban, bank_name, reference, status, processed_at, created_at")
+        .select(
+          "id, amount, currency, beneficiary, iban, bank_name, reference, status, processed_at, created_at",
+        )
         .eq("application_id", applicationId)
         .order("created_at", { ascending: false })
         .limit(1)
         .maybeSingle(),
       supabaseAdmin
         .from("repayment_schedule")
-        .select("id, installment_no, due_date, amount, principal, interest, insurance, remaining_balance, paid, paid_at")
+        .select(
+          "id, installment_no, due_date, amount, principal, interest, insurance, remaining_balance, paid, paid_at",
+        )
         .eq("application_id", applicationId)
         .order("installment_no", { ascending: true })
         .limit(360),
@@ -761,8 +808,20 @@ export const getApplicationByToken = createServerFn({ method: "POST" })
             has_signed_document: Boolean(contract.signed_storage_path),
           }
         : null,
-      guarantee: guarantee ? { ...guarantee, has_document: Boolean(guarantee.storage_path), has_signed_document: Boolean(guarantee.signed_storage_path) } : null,
-      insurance: insurance ? { ...insurance, has_document: Boolean(insurance.storage_path), has_signed_document: Boolean(insurance.signed_storage_path) } : null,
+      guarantee: guarantee
+        ? {
+            ...guarantee,
+            has_document: Boolean(guarantee.storage_path),
+            has_signed_document: Boolean(guarantee.signed_storage_path),
+          }
+        : null,
+      insurance: insurance
+        ? {
+            ...insurance,
+            has_document: Boolean(insurance.storage_path),
+            has_signed_document: Boolean(insurance.signed_storage_path),
+          }
+        : null,
       disbursement: disbursement
         ? { ...disbursement, iban: server.maskIban(disbursement.iban) }
         : null,
@@ -780,7 +839,17 @@ export const getSecureDocumentUrl = createServerFn({ method: "POST" })
     z
       .object({
         token: z.string().min(20).max(200),
-        kind: z.enum(["document", "contract", "signed_contract", "guarantee", "signed_guarantee", "insurance", "signed_insurance"]).default("document"),
+        kind: z
+          .enum([
+            "document",
+            "contract",
+            "signed_contract",
+            "guarantee",
+            "signed_guarantee",
+            "insurance",
+            "signed_insurance",
+          ])
+          .default("document"),
         document_id: z.string().uuid().optional(),
       })
       .parse(input),
@@ -796,7 +865,8 @@ export const getSecureDocumentUrl = createServerFn({ method: "POST" })
       getRequestHeader("cf-connecting-ip") ??
       getRequestHeader("x-forwarded-for")?.split(",")[0]?.trim() ??
       null;
-    if (!server.rateLimit(`doc:${applicationId}`, 60, 10 * 60 * 1000)) throw new Error("rate_limited");
+    if (!server.rateLimit(`doc:${applicationId}`, 60, 10 * 60 * 1000))
+      throw new Error("rate_limited");
 
     let bucket = "kyc-documents";
     let path: string | null = null;
@@ -819,7 +889,10 @@ export const getSecureDocumentUrl = createServerFn({ method: "POST" })
         .order("created_at", { ascending: false })
         .limit(1)
         .maybeSingle();
-      path = (data.kind === "signed_contract" ? contract?.signed_storage_path : contract?.storage_path) ?? null;
+      path =
+        (data.kind === "signed_contract"
+          ? contract?.signed_storage_path
+          : contract?.storage_path) ?? null;
     } else {
       bucket = "contracts";
       const isGuarantee = data.kind === "guarantee" || data.kind === "signed_guarantee";
@@ -837,7 +910,9 @@ export const getSecureDocumentUrl = createServerFn({ method: "POST" })
 
     if (!path) throw new Error("not_found");
 
-    const { data: signed, error } = await supabaseAdmin.storage.from(bucket).createSignedUrl(path, 120);
+    const { data: signed, error } = await supabaseAdmin.storage
+      .from(bucket)
+      .createSignedUrl(path, 120);
     if (error || !signed?.signedUrl) throw new Error("signing_failed");
 
     await server.logEvent(applicationId, "document_accessed", {
@@ -849,7 +924,6 @@ export const getSecureDocumentUrl = createServerFn({ method: "POST" })
 
     return { url: signed.signedUrl, expiresIn: 120 };
   });
-
 
 /** Réponse du demandeur à une demande d'information, via le lien sécurisé. */
 export const respondToInfoRequest = createServerFn({ method: "POST" })
@@ -905,4 +979,3 @@ export const respondToInfoRequest = createServerFn({ method: "POST" })
 
     return { ok: true };
   });
-

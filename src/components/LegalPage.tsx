@@ -26,11 +26,7 @@ export function LegalPage({ i18nKey, updated, showSubtitle = true }: Props) {
   const subtitle = showSubtitle ? (t(`${i18nKey}.subtitle`, { defaultValue: "" }) as string) : "";
 
   return (
-    <LegalLayout
-      title={t(`${i18nKey}.title`)}
-      subtitle={subtitle || undefined}
-      updated={updated}
-    >
+    <LegalLayout title={t(`${i18nKey}.title`)} subtitle={subtitle || undefined} updated={updated}>
       {safeSections.map((s, i) => (
         <Fragment key={i}>
           {s.h && <h2>{s.h}</h2>}

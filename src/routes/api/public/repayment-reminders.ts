@@ -63,7 +63,6 @@ export const Route = createFileRoute("/api/public/repayment-reminders")({
           }
         }
 
-
         // 2. Rappels des échéances à venir
         const { data: upcoming } = await supabaseAdmin
           .from("repayment_schedule")

@@ -67,10 +67,22 @@ function StaffInvitePage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!token) { toast.error("Lien d'invitation invalide"); return; }
-    if (!fullName.trim()) { toast.error("Nom complet requis"); return; }
-    if (password.length < 10) { toast.error("Mot de passe : 10 caractères minimum"); return; }
-    if (password !== confirm) { toast.error("Les mots de passe ne correspondent pas"); return; }
+    if (!token) {
+      toast.error("Lien d'invitation invalide");
+      return;
+    }
+    if (!fullName.trim()) {
+      toast.error("Nom complet requis");
+      return;
+    }
+    if (password.length < 10) {
+      toast.error("Mot de passe : 10 caractères minimum");
+      return;
+    }
+    if (password !== confirm) {
+      toast.error("Les mots de passe ne correspondent pas");
+      return;
+    }
     setLoading(true);
     try {
       const res = await acceptStaffInvite({ data: { token, password, fullName: fullName.trim() } });
@@ -92,7 +104,8 @@ function StaffInvitePage() {
     return (
       <Shell title="Lien invalide">
         <p className="text-sm text-muted-foreground">
-          Ce lien d'invitation est incomplet. Contactez votre administrateur pour en recevoir un nouveau.
+          Ce lien d'invitation est incomplet. Contactez votre administrateur pour en recevoir un
+          nouveau.
         </p>
       </Shell>
     );
@@ -110,8 +123,8 @@ function StaffInvitePage() {
     return (
       <Shell title="Invitation refusée" icon={<XCircle className="h-6 w-6" />}>
         <p className="text-sm text-muted-foreground">
-          L'invitation envoyée à <span className="font-medium text-foreground">{declined}</span> a bien été
-          refusée. Aucun compte n'a été créé et le lien n'est plus valable.
+          L'invitation envoyée à <span className="font-medium text-foreground">{declined}</span> a
+          bien été refusée. Aucun compte n'a été créé et le lien n'est plus valable.
         </p>
         <Button variant="outline" className="w-full" onClick={() => navigate({ to: "/" })}>
           Retour à l'accueil
@@ -124,7 +137,8 @@ function StaffInvitePage() {
     return (
       <Shell title="Compte activé" icon={<CheckCircle2 className="h-6 w-6" />}>
         <p className="text-sm text-muted-foreground">
-          Bienvenue dans l'équipe. Votre compte <span className="font-medium text-foreground">{done}</span> est prêt.
+          Bienvenue dans l'équipe. Votre compte{" "}
+          <span className="font-medium text-foreground">{done}</span> est prêt.
         </p>
         <Button className="w-full" onClick={() => navigate({ to: "/admin/verify", replace: true })}>
           Accéder à l'espace équipe
@@ -149,18 +163,44 @@ function StaffInvitePage() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <Label htmlFor="fullName">Nom complet</Label>
-              <Input id="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} required className="mt-1.5" />
+              <Input
+                id="fullName"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                required
+                className="mt-1.5"
+              />
             </div>
             <div>
               <Label htmlFor="password">Mot de passe (10 car. min.)</Label>
-              <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="mt-1.5" />
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="mt-1.5"
+              />
             </div>
             <div>
               <Label htmlFor="confirm">Confirmation</Label>
-              <Input id="confirm" type="password" value={confirm} onChange={(e) => setConfirm(e.target.value)} required className="mt-1.5" />
+              <Input
+                id="confirm"
+                type="password"
+                value={confirm}
+                onChange={(e) => setConfirm(e.target.value)}
+                required
+                className="mt-1.5"
+              />
             </div>
             <Button type="submit" disabled={loading} className="w-full">
-              {loading ? <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Activation…</> : "Activer mon compte"}
+              {loading ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" /> Activation…
+                </>
+              ) : (
+                "Activer mon compte"
+              )}
             </Button>
             <Button
               type="button"

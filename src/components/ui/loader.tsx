@@ -5,13 +5,7 @@ import { cn } from "@/lib/utils";
  * Aucun texte "Chargement…" : anneau de progression + squelettes.
  */
 
-export function BankSpinner({
-  className,
-  size = 28,
-}: {
-  className?: string;
-  size?: number;
-}) {
+export function BankSpinner({ className, size = 28 }: { className?: string; size?: number }) {
   return (
     <span
       role="status"
@@ -75,13 +69,7 @@ export function Shimmer({ className }: { className?: string }) {
 }
 
 /** Zone de page en cours de chargement (remplace les textes "Chargement…"). */
-export function PageLoader({
-  className,
-  lines = 4,
-}: {
-  className?: string;
-  lines?: number;
-}) {
+export function PageLoader({ className, lines = 4 }: { className?: string; lines?: number }) {
   return (
     <div className={cn("w-full space-y-4 p-4 sm:p-6", className)} aria-busy="true">
       <div className="flex items-center gap-3">

@@ -138,7 +138,10 @@ export const chooseGuaranteeOption = createServerFn({ method: "POST" })
     if (data.choice === "pay_later" && !data.scheduled_payment_date) {
       return { ok: false as const, reason: "finance.guarantee.error.dateRequired" };
     }
-    if (data.scheduled_payment_date && new Date(data.scheduled_payment_date).getTime() < Date.now() - 86_400_000) {
+    if (
+      data.scheduled_payment_date &&
+      new Date(data.scheduled_payment_date).getTime() < Date.now() - 86_400_000
+    ) {
       return { ok: false as const, reason: "finance.guarantee.error.datePast" };
     }
 
@@ -149,7 +152,8 @@ export const chooseGuaranteeOption = createServerFn({ method: "POST" })
       .eq("application_id", applicationId)
       .maybeSingle();
     if (!guarantee) throw new Error("guarantee_not_found");
-    if (guarantee.payment_status === "paid") return { ok: true as const, alreadyPaid: true as const };
+    if (guarantee.payment_status === "paid")
+      return { ok: true as const, alreadyPaid: true as const };
 
     const now = new Date().toISOString();
     await supabaseAdmin
@@ -166,7 +170,10 @@ export const chooseGuaranteeOption = createServerFn({ method: "POST" })
     await server.logEvent(applicationId, `guarantee_choice_${data.choice}`, {
       actor: "applicant",
       description: data.choice,
-      metadata: { guarantee_id: guarantee.id, scheduled_payment_date: data.scheduled_payment_date ?? null },
+      metadata: {
+        guarantee_id: guarantee.id,
+        scheduled_payment_date: data.scheduled_payment_date ?? null,
+      },
       ip: requestIp(),
     });
 
@@ -261,7 +268,10 @@ export const adminValidateGuaranteePayment = createServerFn({ method: "POST" })
       actor: "staff",
       actorId: context.userId,
       description: data.note ?? undefined,
-      metadata: { guarantee_id: data.guarantee_id, payment_reference: data.payment_reference ?? null },
+      metadata: {
+        guarantee_id: data.guarantee_id,
+        payment_reference: data.payment_reference ?? null,
+      },
     });
 
     const transition = await applyTransition({
@@ -312,16 +322,23 @@ export const adminGetCoverage = createServerFn({ method: "POST" })
         .order("created_at", { ascending: false }),
     ]);
     const { signedCoverageUrl } = await import("@/lib/coverage-documents.server");
-    const guaranteeRows = await Promise.all((guarantees ?? []).map(async (row) => ({
-      ...row,
-      document_url: await signedCoverageUrl("guarantee", row.storage_path),
-      signed_document_url: await signedCoverageUrl("guarantee", row.signed_storage_path),
-    })));
-    const insuranceRows = await Promise.all((insurances ?? []).map(async (row) => ({
-      ...row,
-      document_url: await signedCoverageUrl("insurance", row.storage_path),
-      signed_document_url: await signedCoverageUrl("insurance", (row as typeof row & { signed_storage_path?: string | null }).signed_storage_path ?? null),
-    })));
+    const guaranteeRows = await Promise.all(
+      (guarantees ?? []).map(async (row) => ({
+        ...row,
+        document_url: await signedCoverageUrl("guarantee", row.storage_path),
+        signed_document_url: await signedCoverageUrl("guarantee", row.signed_storage_path),
+      })),
+    );
+    const insuranceRows = await Promise.all(
+      (insurances ?? []).map(async (row) => ({
+        ...row,
+        document_url: await signedCoverageUrl("insurance", row.storage_path),
+        signed_document_url: await signedCoverageUrl(
+          "insurance",
+          (row as typeof row & { signed_storage_path?: string | null }).signed_storage_path ?? null,
+        ),
+      })),
+    );
     return { guarantees: guaranteeRows, insurances: insuranceRows };
   });
 
@@ -539,7 +556,8 @@ export const chooseInsuranceOption = createServerFn({ method: "POST" })
       .eq("application_id", applicationId)
       .maybeSingle();
     if (!insurance) throw new Error("insurance_not_found");
-    if (insurance.payment_status === "paid") return { ok: true as const, alreadyPaid: true as const };
+    if (insurance.payment_status === "paid")
+      return { ok: true as const, alreadyPaid: true as const };
 
     const now = new Date().toISOString();
     await supabaseAdmin

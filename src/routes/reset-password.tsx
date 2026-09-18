@@ -63,7 +63,9 @@ function ResetPasswordPage() {
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
         <Button asChild variant="ghost" size="sm" className="mb-4">
-          <Link to="/auth"><ArrowLeft className="mr-2 h-4 w-4" /> {t("auth.backHome")}</Link>
+          <Link to="/auth">
+            <ArrowLeft className="mr-2 h-4 w-4" /> {t("auth.backHome")}
+          </Link>
         </Button>
         <div className="rounded-2xl border border-border bg-card p-6 shadow-elevated md:p-8">
           <div className="mb-5 flex items-center gap-2">

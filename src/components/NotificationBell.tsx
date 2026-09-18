@@ -46,7 +46,12 @@ export function NotificationBell() {
     channel
       .on(
         "postgres_changes",
-        { event: "INSERT", schema: "public", table: "notifications", filter: `user_id=eq.${user.id}` },
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "notifications",
+          filter: `user_id=eq.${user.id}`,
+        },
         (payload) => {
           const n = payload.new as AppNotification;
           setItems((prev) => {
@@ -59,7 +64,12 @@ export function NotificationBell() {
       )
       .on(
         "postgres_changes",
-        { event: "UPDATE", schema: "public", table: "notifications", filter: `user_id=eq.${user.id}` },
+        {
+          event: "UPDATE",
+          schema: "public",
+          table: "notifications",
+          filter: `user_id=eq.${user.id}`,
+        },
         (payload) => {
           const n = payload.new as AppNotification;
           setItems((prev) => prev.map((p) => (p.id === n.id ? n : p)));
@@ -86,7 +96,11 @@ export function NotificationBell() {
 
   async function markAllRead() {
     if (!user) return;
-    await supabase.from("notifications").update({ read: true }).eq("user_id", user.id).eq("read", false);
+    await supabase
+      .from("notifications")
+      .update({ read: true })
+      .eq("user_id", user.id)
+      .eq("read", false);
     setItems((prev) => prev.map((n) => ({ ...n, read: true })));
   }
 
@@ -96,7 +110,12 @@ export function NotificationBell() {
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label={t("notifications.title")} className="relative h-9 w-9">
+        <Button
+          variant="ghost"
+          size="icon"
+          aria-label={t("notifications.title")}
+          className="relative h-9 w-9"
+        >
           <Bell className="h-4 w-4" />
           {unread > 0 && (
             <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-primary-foreground">
@@ -119,56 +138,47 @@ export function NotificationBell() {
         </div>
         <div className="max-h-96 overflow-y-auto">
           {items.length === 0 ? (
-            <div className="px-4 py-8 text-center text-sm text-muted-foreground">{t("notifications.empty")}</div>
+            <div className="px-4 py-8 text-center text-sm text-muted-foreground">
+              {t("notifications.empty")}
+            </div>
           ) : (
             items.map((n) => (
               <button
-  key={n.id}
-  type="button"
-  onClick={async () => {
-    setOpen(false);
+                key={n.id}
+                type="button"
+                onClick={async () => {
+                  setOpen(false);
 
-    if (!n.read) {
-      await supabase
-        .from("notifications")
-        .update({ read: true })
-        .eq("id", n.id);
+                  if (!n.read) {
+                    await supabase.from("notifications").update({ read: true }).eq("id", n.id);
 
-      setItems((prev) =>
-        prev.map((p) =>
-          p.id === n.id ? { ...p, read: true } : p
-        )
-      );
-    }
+                    setItems((prev) => prev.map((p) => (p.id === n.id ? { ...p, read: true } : p)));
+                  }
 
-    if (n.link) {
-      // Le lien peut cibler une section précise (…/applications/x#documents).
-      const [path, hash] = n.link.split("#");
-      navigate({ to: path as never, ...(hash ? { hash } : {}) });
-    }
-  }}
-  className={`block w-full text-left border-b border-border/50 px-4 py-3 text-sm transition-colors hover:bg-secondary ${
-    n.read ? "" : "bg-primary/5"
-  }`}
->
-  <div className="flex items-start justify-between gap-2">
-    <span className="font-medium">{n.title}</span>
-    {!n.read && (
-      <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
-    )}
-  </div>
+                  if (n.link) {
+                    // Le lien peut cibler une section précise (…/applications/x#documents).
+                    const [path, hash] = n.link.split("#");
+                    navigate({ to: path as never, ...(hash ? { hash } : {}) });
+                  }
+                }}
+                className={`block w-full text-left border-b border-border/50 px-4 py-3 text-sm transition-colors hover:bg-secondary ${
+                  n.read ? "" : "bg-primary/5"
+                }`}
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <span className="font-medium">{n.title}</span>
+                  {!n.read && <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />}
+                </div>
 
-  <p className="mt-0.5 text-xs text-muted-foreground">
-    {n.message}
-  </p>
+                <p className="mt-0.5 text-xs text-muted-foreground">{n.message}</p>
 
-  <p className="mt-1 text-[10px] text-muted-foreground">
-    {formatDistanceToNow(new Date(n.created_at), {
-      addSuffix: true,
-      locale: dateLocale,
-    })}
-  </p>
-</button>
+                <p className="mt-1 text-[10px] text-muted-foreground">
+                  {formatDistanceToNow(new Date(n.created_at), {
+                    addSuffix: true,
+                    locale: dateLocale,
+                  })}
+                </p>
+              </button>
             ))
           )}
         </div>

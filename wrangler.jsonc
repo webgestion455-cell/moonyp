@@ -1,49 +1,39 @@
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
 
- "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "moonyp",
 
- "name": "moonyp",
+  "compatibility_date": "2025-09-24",
 
- "compatibility_date": "2025-09-24",
+  "compatibility_flags": ["nodejs_compat"],
 
- "compatibility_flags": ["nodejs_compat"],
+  "main": "dist/server/server.js",
 
- "main": "dist/server/server.js",
+  "assets": {
+    "directory": "./dist/client",
+  },
 
- "assets": {
+  "observability": {
+    "enabled": false,
 
- "directory": "./dist/client"
+    "head_sampling_rate": 1,
 
- },
+    "logs": {
+      "enabled": true,
 
- "observability": {
+      "head_sampling_rate": 1,
 
- "enabled": false,
+      "persist": true,
 
- "head_sampling_rate": 1,
+      "invocation_logs": true,
+    },
 
- "logs": {
+    "traces": {
+      "enabled": false,
 
- "enabled": true,
+      "persist": true,
 
- "head_sampling_rate": 1,
-
- "persist": true,
-
- "invocation_logs": true
-
- },
-
- "traces": {
-
- "enabled": false,
-
- "persist": true,
-
- "head_sampling_rate": 1
-
- }
-
- }
-
+      "head_sampling_rate": 1,
+    },
+  },
 }

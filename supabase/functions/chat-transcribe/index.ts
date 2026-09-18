@@ -8,7 +8,8 @@ const CORS = {
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: CORS });
-  if (req.method !== "POST") return new Response("Method Not Allowed", { status: 405, headers: CORS });
+  if (req.method !== "POST")
+    return new Response("Method Not Allowed", { status: 405, headers: CORS });
 
   const apiKey = Deno.env.get("LOVABLE_API_KEY");
   if (!apiKey) {
@@ -42,9 +43,12 @@ Deno.serve(async (req) => {
       });
     }
     const json = await res.json();
-    return new Response(JSON.stringify({ text: json.text ?? "", language: json.language ?? null }), {
-      headers: { ...CORS, "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ text: json.text ?? "", language: json.language ?? null }),
+      {
+        headers: { ...CORS, "Content-Type": "application/json" },
+      },
+    );
   } catch (e) {
     return new Response(JSON.stringify({ error: String((e as Error)?.message ?? e) }), {
       status: 400,

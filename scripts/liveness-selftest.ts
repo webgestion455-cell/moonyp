@@ -102,10 +102,16 @@ check("seuil de tour de tête resté accessible", TH.turnYaw <= 20, TH.turnYaw);
 
 /* --------------------------- 2. Autres gestes --------------------------- */
 console.log("\nClignement, sourire, bouche");
-check("clignement validé", challengeSatisfied("blink", face({ blinkLeft: 0.62, blinkRight: 0.58 })));
+check(
+  "clignement validé",
+  challengeSatisfied("blink", face({ blinkLeft: 0.62, blinkRight: 0.58 })),
+);
 check("sourire validé", challengeSatisfied("smile", face({ smile: 0.55 })));
 check("bouche ouverte validée", challengeSatisfied("open_mouth", face({ jawOpen: 0.45 })));
-check("bouche à peine entrouverte refusée", !challengeSatisfied("open_mouth", face({ jawOpen: 0.1 })));
+check(
+  "bouche à peine entrouverte refusée",
+  !challengeSatisfied("open_mouth", face({ jawOpen: 0.1 })),
+);
 
 /* ------------------------------ 3. Repos -------------------------------- */
 console.log("\nRetour au repos");
@@ -147,7 +153,10 @@ const perfect: Record<LivenessChallenge, FaceMetrics> = {
   open_mouth: face({ jawOpen: 0.5 }),
 };
 for (const c of drawn) {
-  check(`défi « ${c} » réalisable`, challengeValue(c, perfect[c]) > 0 && challengeSatisfied(c, perfect[c]));
+  check(
+    `défi « ${c} » réalisable`,
+    challengeValue(c, perfect[c]) > 0 && challengeSatisfied(c, perfect[c]),
+  );
 }
 
 /* -------------------------------- Bilan --------------------------------- */

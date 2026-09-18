@@ -22,7 +22,11 @@ const fileSchema = z.object({
   storage_path: z.string().min(1).max(400),
   file_name: z.string().min(1).max(255),
   mime_type: z.string().min(1).max(120),
-  file_size: z.coerce.number().int().min(1).max(25 * 1024 * 1024),
+  file_size: z.coerce
+    .number()
+    .int()
+    .min(1)
+    .max(25 * 1024 * 1024),
   /** Mesures brutes de la capture, revalidées côté serveur. */
   capture_evidence: z.unknown().optional(),
   /** Texte lu par le navigateur (images) — source non authentifiée. */
@@ -52,7 +56,12 @@ export const startKycSession = createServerFn({ method: "POST" })
 /** État courant du parcours, sans rien recalculer. */
 export const getKycSession = createServerFn({ method: "POST" })
   .inputValidator((input) =>
-    z.object({ token: z.string().min(20).max(200), language: z.string().max(10).nullable().optional() }).parse(input),
+    z
+      .object({
+        token: z.string().min(20).max(200),
+        language: z.string().max(10).nullable().optional(),
+      })
+      .parse(input),
   )
   .handler(async ({ data }) => {
     const server = await import("@/lib/applications.server");
@@ -95,7 +104,8 @@ export const submitKycStep = createServerFn({ method: "POST" })
     const applicationId = await server.resolveToken(data.token);
     if (!applicationId) throw new Error("invalid_token");
 
-    if (!server.rateLimit(`kyc-step:${applicationId}`, 40, 10 * 60 * 1000)) throw new Error("rate_limited");
+    if (!server.rateLimit(`kyc-step:${applicationId}`, 40, 10 * 60 * 1000))
+      throw new Error("rate_limited");
 
     const { processStep, readSession } = await import("@/lib/kyc/orchestrator.server");
     const outcome = await processStep({
@@ -126,14 +136,28 @@ function publicView(view: {
   required_steps: readonly string[];
   steps: { step: string; status: string; attempt: number }[];
   current_step: string | null;
-  controls: { control_key: string; step_key: string; status: string; executed: boolean; attempt: number }[];
+  controls: {
+    control_key: string;
+    step_key: string;
+    status: string;
+    executed: boolean;
+    attempt: number;
+  }[];
   aggregate: string;
 }) {
-  const latest = new Map<string, { status: string; executed: boolean; attempt: number; step: string }>();
+  const latest = new Map<
+    string,
+    { status: string; executed: boolean; attempt: number; step: string }
+  >();
   for (const c of view.controls) {
     const known = latest.get(c.control_key);
     if (!known || c.attempt >= known.attempt) {
-      latest.set(c.control_key, { status: c.status, executed: c.executed, attempt: c.attempt, step: c.step_key });
+      latest.set(c.control_key, {
+        status: c.status,
+        executed: c.executed,
+        attempt: c.attempt,
+        step: c.step_key,
+      });
     }
   }
   return {

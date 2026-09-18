@@ -11,8 +11,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY")!;
 const GEMINI_MODEL = "gemini-3.5-flash-lite";
 
-const GEMINI_URL =
-  `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -102,7 +101,10 @@ function wantsHandoff(msg: string): boolean {
 function sanitizeHtml(html: string): string {
   // whitelist minimale : on retire scripts/styles/iframes et attributs on*, javascript:
   let s = html
-    .replace(/<\s*(script|style|iframe|object|embed|form|input|button)[^>]*>[\s\S]*?<\s*\/\s*\1\s*>/gi, "")
+    .replace(
+      /<\s*(script|style|iframe|object|embed|form|input|button)[^>]*>[\s\S]*?<\s*\/\s*\1\s*>/gi,
+      "",
+    )
     .replace(/<\s*(script|style|iframe|object|embed|form|input|button)[^>]*\/?>/gi, "")
     .replace(/\son[a-z]+\s*=\s*"[^"]*"/gi, "")
     .replace(/\son[a-z]+\s*=\s*'[^']*'/gi, "")
@@ -112,11 +114,11 @@ function sanitizeHtml(html: string): string {
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
-  return new Response("ok", {
-    status: 200,
-    headers: CORS,
-  });
-}
+    return new Response("ok", {
+      status: 200,
+      headers: CORS,
+    });
+  }
   try {
     const { message, history = [], lang = "fr" } = await req.json();
     if (typeof message !== "string" || message.trim().length === 0) {
@@ -147,29 +149,27 @@ serve(async (req) => {
     ];
 
     const r = await fetch(`${GEMINI_URL}?key=${GEMINI_API_KEY}`, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    contents: [
-      {
-        role: "user",
-        parts: [
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contents: [
           {
-            text: messages
-              .map((m) => `${m.role}: ${m.content}`)
-              .join("\n\n"),
+            role: "user",
+            parts: [
+              {
+                text: messages.map((m) => `${m.role}: ${m.content}`).join("\n\n"),
+              },
+            ],
           },
         ],
-      },
-    ],
-    generationConfig: {
-      temperature: 0.4,
-      maxOutputTokens: 2048,
-    },
-  }),
-});
+        generationConfig: {
+          temperature: 0.4,
+          maxOutputTokens: 2048,
+        },
+      }),
+    });
 
     if (r.status === 429) return json({ error: "rate_limited" }, 429);
     if (r.status === 402) return json({ error: "credits_exhausted" }, 402);
@@ -181,10 +181,10 @@ serve(async (req) => {
 
     const data = await r.json();
 
-    const raw = String(
-        data?.candidates?.[0]?.content?.parts?.[0]?.text ?? ""
-             ).trim();
-    const html = sanitizeHtml(raw || "<p>Désolé, je n'ai pas compris. Reformulez votre question ?</p>");
+    const raw = String(data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "").trim();
+    const html = sanitizeHtml(
+      raw || "<p>Désolé, je n'ai pas compris. Reformulez votre question ?</p>",
+    );
 
     return json({ html, handoff, blocked: false });
   } catch (e) {

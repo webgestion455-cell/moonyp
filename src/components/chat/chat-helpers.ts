@@ -13,8 +13,22 @@ export const CHAT_BRAND = {
 };
 
 const ALLOWED_TAGS = new Set([
-  "P", "BR", "STRONG", "EM", "B", "I", "U",
-  "UL", "OL", "LI", "A", "SPAN", "DIV", "H4", "H5", "BLOCKQUOTE",
+  "P",
+  "BR",
+  "STRONG",
+  "EM",
+  "B",
+  "I",
+  "U",
+  "UL",
+  "OL",
+  "LI",
+  "A",
+  "SPAN",
+  "DIV",
+  "H4",
+  "H5",
+  "BLOCKQUOTE",
 ]);
 const ALLOWED_ATTRS: Record<string, string[]> = {
   A: ["href", "title", "target", "rel"],
@@ -28,7 +42,10 @@ export function sanitizeHtml(input: string): string {
   if (typeof window === "undefined") {
     // Fallback SSR : strip tags dangereux basiquement
     return input
-      .replace(/<\s*(script|style|iframe|object|embed|form|input|button)[^>]*>[\s\S]*?<\s*\/\s*\1\s*>/gi, "")
+      .replace(
+        /<\s*(script|style|iframe|object|embed|form|input|button)[^>]*>[\s\S]*?<\s*\/\s*\1\s*>/gi,
+        "",
+      )
       .replace(/<\s*(script|style|iframe|object|embed)[^>]*\/?>/gi, "")
       .replace(/\son[a-z]+\s*=\s*"[^"]*"/gi, "")
       .replace(/\son[a-z]+\s*=\s*'[^']*'/gi, "")
@@ -65,10 +82,7 @@ function walk(node: Element) {
 
 /** Convertit du texte brut en HTML sûr (paragraphes + <br>). */
 export function textToHtml(text: string): string {
-  const esc = text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+  const esc = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   return esc
     .split(/\n{2,}/)
     .map((p) => `<p>${p.replace(/\n/g, "<br/>")}</p>`)

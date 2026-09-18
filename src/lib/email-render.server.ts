@@ -85,8 +85,7 @@ const LINE = "#E4E4E7";
 const SURFACE = "#FAFAFA";
 const CANVAS = "#F4F4F5";
 
-const FONT =
-  "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
+const FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
 
 /* --------------------------------------------------------------------------
  * Sécurité HTML
@@ -112,30 +111,18 @@ function esc(value: string): string {
  * toujours disposer d'un lien utilisable.
  */
 export function renderEmailText(input: EmailTemplateInput): string {
-  const lines = [
-    BRAND_NAME.toUpperCase(),
-    "",
-    input.title,
-    "",
-    input.intro,
-  ];
+  const lines = [BRAND_NAME.toUpperCase(), "", input.title, "", input.intro];
 
   for (const p of input.paragraphs ?? []) {
     if (p) lines.push("", p);
   }
 
   if (input.code) {
-    lines.push(
-      "",
-      `${input.noticeTitle ?? ""} ${input.code}`.trim(),
-    );
+    lines.push("", `${input.noticeTitle ?? ""} ${input.code}`.trim());
   }
 
   if (input.details?.length) {
-    lines.push(
-      "",
-      (input.detailsTitle ?? "").toUpperCase(),
-    );
+    lines.push("", (input.detailsTitle ?? "").toUpperCase());
 
     for (const d of input.details) {
       lines.push(`- ${d.label} : ${d.value}`);
@@ -151,10 +138,7 @@ export function renderEmailText(input: EmailTemplateInput): string {
    * explicitement.
    */
   if (input.ctaUrl) {
-    lines.push(
-      "",
-      `${input.ctaLabel ?? ""} : ${input.ctaUrl}`.trim(),
-    );
+    lines.push("", `${input.ctaLabel ?? ""} : ${input.ctaUrl}`.trim());
   }
 
   lines.push(
@@ -175,14 +159,10 @@ export function renderEmailText(input: EmailTemplateInput): string {
  * Version HTML
  * ----------------------------------------------------------------------- */
 
-export function renderEmailHtml(
-  input: EmailTemplateInput,
-): string {
+export function renderEmailHtml(input: EmailTemplateInput): string {
   /* ------------------------------- Tableau ------------------------------ */
 
-  const details = (input.details ?? []).filter(
-    (d) => d.value && d.value !== "—",
-  );
+  const details = (input.details ?? []).filter((d) => d.value && d.value !== "—");
 
   const detailRows = details
     .map(
@@ -196,11 +176,7 @@ export function renderEmailHtml(
                     font-size:13px;
                     line-height:1.45;
                     color:${GREY};
-                    ${
-                      i === 0
-                        ? ""
-                        : `border-top:1px solid ${LINE};`
-                    }
+                    ${i === 0 ? "" : `border-top:1px solid ${LINE};`}
                   "
                 >${esc(d.label)}</td>
 
@@ -215,11 +191,7 @@ export function renderEmailHtml(
                     font-weight:600;
                     color:${INK};
                     white-space:nowrap;
-                    ${
-                      i === 0
-                        ? ""
-                        : `border-top:1px solid ${LINE};`
-                    }
+                    ${i === 0 ? "" : `border-top:1px solid ${LINE};`}
                   "
                 >${esc(d.value)}</td>
               </tr>`,
@@ -408,10 +380,10 @@ export function renderEmailHtml(
    * Mobile :
    *   largeur = 100 % de l'espace disponible.
    */
-  
-const ctaBlock =
-  input.ctaUrl && input.ctaLabel
-    ? `
+
+  const ctaBlock =
+    input.ctaUrl && input.ctaLabel
+      ? `
           <tr>
             <td
               class="px"
@@ -506,7 +478,7 @@ const ctaBlock =
 
             </td>
           </tr>`
-    : "";
+      : "";
 
   /* ----------------------------- Paragraphes ---------------------------- */
 
@@ -1225,4 +1197,3 @@ const ctaBlock =
 </body>
 </html>`;
 }
-

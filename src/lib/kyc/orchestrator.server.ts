@@ -91,7 +91,10 @@ export async function loadSubject(applicationId: string): Promise<ApplicationSub
     postal_code: str("postal_code"),
     city: str("city"),
     iban: str("iban"),
-    monthly_income: row["monthly_income"] !== null && row["monthly_income"] !== undefined ? Number(row["monthly_income"]) : null,
+    monthly_income:
+      row["monthly_income"] !== null && row["monthly_income"] !== undefined
+        ? Number(row["monthly_income"])
+        : null,
     employment_status: str("employment_status"),
     country: str("country"),
     product_slug: str("product_slug"),
@@ -123,9 +126,18 @@ export async function loadRequiredSteps(subject: ApplicationSubject): Promise<{
   };
   if (res.error) throw new Error(res.error.message);
 
-  const applies = (t: { employment_statuses: string[] | null; countries: string[] | null; product_slugs: string[] | null }) => {
-    const ok = (list: string[] | null, value: string | null) => !list || list.length === 0 || (value !== null && list.includes(value));
-    return ok(t.employment_statuses, subject.employment_status) && ok(t.countries, subject.country) && ok(t.product_slugs, subject.product_slug);
+  const applies = (t: {
+    employment_statuses: string[] | null;
+    countries: string[] | null;
+    product_slugs: string[] | null;
+  }) => {
+    const ok = (list: string[] | null, value: string | null) =>
+      !list || list.length === 0 || (value !== null && list.includes(value));
+    return (
+      ok(t.employment_statuses, subject.employment_status) &&
+      ok(t.countries, subject.country) &&
+      ok(t.product_slugs, subject.product_slug)
+    );
   };
 
   const slugsByStep: Record<string, string[]> = {};
@@ -158,7 +170,13 @@ export async function analyseStoredFile(file: SubmittedFile): Promise<AnalysedFi
   const sha256 = await sha256Hex(bytes);
   const text = sniff.accepted
     ? await extractDocumentText(bytes, sniff.kind, file.ocr_text ?? null)
-    : { text: "", source: "none" as const, server_side: false, engine: null, reasons: ["file_rejected_before_text_extraction"] };
+    : {
+        text: "",
+        source: "none" as const,
+        server_side: false,
+        engine: null,
+        reasons: ["file_rejected_before_text_extraction"],
+      };
 
   return {
     slug: file.document_type_slug,
@@ -177,14 +195,20 @@ export async function analyseStoredFile(file: SubmittedFile): Promise<AnalysedFi
 /* Faits de risque réels                                                  */
 /* --------------------------------------------------------------------- */
 
-async function buildRiskFacts(applicationId: string, hashes: string[], sessionId: string): Promise<RiskFacts> {
+async function buildRiskFacts(
+  applicationId: string,
+  hashes: string[],
+  sessionId: string,
+): Promise<RiskFacts> {
   const client = await db();
   const [known, uploads, liveness] = await Promise.all([
     client
       .from("application_documents")
       .select("sha256, application_id")
       .in("sha256", hashes.length ? hashes : ["-"])
-      .limit(200) as unknown as Promise<{ data: { sha256: string | null; application_id: string }[] | null }>,
+      .limit(200) as unknown as Promise<{
+      data: { sha256: string | null; application_id: string }[] | null;
+    }>,
     client
       .from("application_documents")
       .select("id", { count: "exact", head: true })
@@ -274,7 +298,11 @@ export async function processStep(input: ProcessStepInput): Promise<ProcessStepR
 
   if (input.step === "identity") {
     const screening = await loadScreeningList();
-    const riskFacts = await buildRiskFacts(input.applicationId, analysed.map((a) => a.sha256), session.id);
+    const riskFacts = await buildRiskFacts(
+      input.applicationId,
+      analysed.map((a) => a.sha256),
+      session.id,
+    );
     results = runStep({
       step: "identity",
       files: analysed,
@@ -301,8 +329,15 @@ export async function processStep(input: ProcessStepInput): Promise<ProcessStepR
       });
     }
   } else if (input.step === "liveness") {
-    const frames = (input.livenessFrames ?? []).filter((f) => f.storage_path.startsWith(`${input.applicationId}/`));
-    let sessionRef: { asset_id: string; frames: number; challenges: string[]; recorded_at: string } | null = null;
+    const frames = (input.livenessFrames ?? []).filter((f) =>
+      f.storage_path.startsWith(`${input.applicationId}/`),
+    );
+    let sessionRef: {
+      asset_id: string;
+      frames: number;
+      challenges: string[];
+      recorded_at: string;
+    } | null = null;
     if (frames.length > 0) {
       const assetId = await recordBiometricAsset({
         application_id: input.applicationId,
@@ -357,7 +392,10 @@ export async function processStep(input: ProcessStepInput): Promise<ProcessStepR
   }
 
   // Rattachement aux pièces déjà enregistrées (si le dépôt a déjà été fait).
-  const docIds = await resolveDocumentIds(input.applicationId, analysed.map((a) => a.storage_path));
+  const docIds = await resolveDocumentIds(
+    input.applicationId,
+    analysed.map((a) => a.storage_path),
+  );
   for (const r of results) {
     if (!r.document_id && analysed[0]) r.document_id = docIds[analysed[0].storage_path] ?? null;
   }
@@ -404,10 +442,11 @@ export async function processStep(input: ProcessStepInput): Promise<ProcessStepR
     attempt: recorded.attempt,
     aggregate: recorded.aggregate,
     controls: results.map((r) => ({ control: r.control, status: r.status, executed: r.executed })),
-    next_step: requiredSteps.find((s) => {
-      const st = afterMap[s] ?? "NOT_STARTED";
-      return st === "NOT_STARTED" || st === "FAIL";
-    }) ?? null,
+    next_step:
+      requiredSteps.find((s) => {
+        const st = afterMap[s] ?? "NOT_STARTED";
+        return st === "NOT_STARTED" || st === "FAIL";
+      }) ?? null,
   };
 }
 
@@ -424,7 +463,10 @@ async function findIdPortraitPath(applicationId: string): Promise<string | null>
   return res.data?.storage_path ?? null;
 }
 
-async function resolveDocumentIds(applicationId: string, paths: string[]): Promise<Record<string, string>> {
+async function resolveDocumentIds(
+  applicationId: string,
+  paths: string[],
+): Promise<Record<string, string>> {
   if (paths.length === 0) return {};
   const client = await db();
   const res = (await client
@@ -451,7 +493,10 @@ export interface SessionView {
   aggregate: string;
 }
 
-export async function readSession(applicationId: string, language: string | null): Promise<SessionView> {
+export async function readSession(
+  applicationId: string,
+  language: string | null,
+): Promise<SessionView> {
   const subject = await loadSubject(applicationId);
   const session: SessionRow = await ensureSession(applicationId, language);
   const { steps: requiredSteps } = await loadRequiredSteps(subject);
@@ -475,7 +520,8 @@ export async function readSession(applicationId: string, language: string | null
     language: session.language,
     required_steps: requiredSteps,
     steps,
-    current_step: steps.find((s) => s.status === "NOT_STARTED" || s.status === "FAIL")?.step ?? null,
+    current_step:
+      steps.find((s) => s.status === "NOT_STARTED" || s.status === "FAIL")?.step ?? null,
     controls,
     aggregate: aggregate.state,
   };

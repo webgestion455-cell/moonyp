@@ -19,7 +19,23 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { BRAND_ADDRESS, brandAddressLines, formatBrandAddress } from "../src/lib/brand-address";
 
-const LANGS = ["en", "fr", "de", "es", "it", "nl", "pl", "ro", "hu", "fi", "bg", "el", "hr", "sk", "sl"];
+const LANGS = [
+  "en",
+  "fr",
+  "de",
+  "es",
+  "it",
+  "nl",
+  "pl",
+  "ro",
+  "hu",
+  "fi",
+  "bg",
+  "el",
+  "hr",
+  "sk",
+  "sl",
+];
 const CHECK = process.argv.includes("--check");
 const ROOT = resolve(import.meta.dirname ?? ".", "..");
 
@@ -84,7 +100,10 @@ for (const lang of LANGS) {
     const aml = legal?.["amlKyc"] as Json | undefined;
     for (const section of (aml?.["sections"] as Json[] | undefined) ?? []) {
       if (typeof section["p"] === "string") {
-        section["p"] = (section["p"] as string).replace("OFAC et United Kingdom", "OFAC et Royaume-Uni");
+        section["p"] = (section["p"] as string).replace(
+          "OFAC et United Kingdom",
+          "OFAC et Royaume-Uni",
+        );
       }
     }
   }

@@ -14,7 +14,12 @@ import { useTranslation } from "react-i18next";
 import { FileUp, ScanLine, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DocumentScanner } from "@/components/finance/DocumentScanner";
-import { PAPER_THRESHOLDS, analyseFrame, evidenceFromVerdict, type CaptureEvidence } from "@/lib/kyc/image-analysis";
+import {
+  PAPER_THRESHOLDS,
+  analyseFrame,
+  evidenceFromVerdict,
+  type CaptureEvidence,
+} from "@/lib/kyc/image-analysis";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -142,7 +147,9 @@ export function DocumentSource({ title, hint, accept, maxSizeMb, onCapture, onCa
               <FileUp className="h-5 w-5" aria-hidden />
             </span>
             <span className="text-sm font-semibold">{t("kyc.source.import")}</span>
-            <span className="text-xs leading-relaxed text-muted-foreground">{t("kyc.source.importDesc")}</span>
+            <span className="text-xs leading-relaxed text-muted-foreground">
+              {t("kyc.source.importDesc")}
+            </span>
           </button>
 
           <button
@@ -159,7 +166,9 @@ export function DocumentSource({ title, hint, accept, maxSizeMb, onCapture, onCa
               <ScanLine className="h-5 w-5" aria-hidden />
             </span>
             <span className="text-sm font-semibold">{t("kyc.source.scan")}</span>
-            <span className="text-xs leading-relaxed text-muted-foreground">{t("kyc.source.scanDesc")}</span>
+            <span className="text-xs leading-relaxed text-muted-foreground">
+              {t("kyc.source.scanDesc")}
+            </span>
           </button>
         </div>
 
@@ -172,7 +181,10 @@ export function DocumentSource({ title, hint, accept, maxSizeMb, onCapture, onCa
         />
 
         {error && (
-          <p role="alert" className="rounded-lg bg-destructive/10 px-3 py-2 text-xs text-destructive">
+          <p
+            role="alert"
+            className="rounded-lg bg-destructive/10 px-3 py-2 text-xs text-destructive"
+          >
             {error}
           </p>
         )}
@@ -182,7 +194,13 @@ export function DocumentSource({ title, hint, accept, maxSizeMb, onCapture, onCa
         </p>
 
         {onCancel && (
-          <Button type="button" variant="ghost" size="sm" onClick={onCancel} className="w-full sm:w-auto">
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            onClick={onCancel}
+            className="w-full sm:w-auto"
+          >
             {t("common.cancel")}
           </Button>
         )}

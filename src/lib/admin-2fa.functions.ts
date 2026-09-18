@@ -7,13 +7,10 @@ import { Resend } from "resend";
 // utilisateurs ayant un rôle staff (super_admin | admin | agent).
 
 function getAdminClient() {
-  const supabaseUrl =
-    process.env.SUPABASE_URL ||
-    import.meta.env.VITE_SUPABASE_URL;
+  const supabaseUrl = process.env.SUPABASE_URL || import.meta.env.VITE_SUPABASE_URL;
 
   const serviceRoleKey =
-    process.env.SUPABASE_SERVICE_ROLE_KEY ||
-    import.meta.env.VITE_SUPABASE_SERVICE_ROLE_KEY;
+    process.env.SUPABASE_SERVICE_ROLE_KEY || import.meta.env.VITE_SUPABASE_SERVICE_ROLE_KEY;
 
   if (!supabaseUrl) throw new Error("SUPABASE_URL manquant");
   if (!serviceRoleKey) throw new Error("SUPABASE_SERVICE_ROLE_KEY manquant");
@@ -26,7 +23,9 @@ function getAdminClient() {
 async function hash(code: string, salt: string): Promise<string> {
   const data = new TextEncoder().encode(code + "|" + salt);
   const buf = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
+  return Array.from(new Uint8Array(buf))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
 }
 
 async function assertStaff(supabase: ReturnType<typeof getAdminClient>, accessToken: string) {

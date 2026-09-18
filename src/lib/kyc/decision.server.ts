@@ -161,7 +161,9 @@ export function decideKyc(input: DecisionInput): DecisionResult {
   /* --------------------------- 4. Vivacité -------------------------------- */
   if (selfieDocs.length === 0) reasons.push("no_liveness_session");
   const livenessFailed = selfieDocs.some((d) => d.capture_status === "failed");
-  const livenessDoubt = selfieDocs.some((d) => d.capture_status !== "passed" || d.capture_method !== "liveness");
+  const livenessDoubt = selfieDocs.some(
+    (d) => d.capture_status !== "passed" || d.capture_method !== "liveness",
+  );
   if (livenessFailed) reasons.push("liveness_failed");
   if (livenessDoubt) reasons.push("liveness_doubt");
 
@@ -171,7 +173,12 @@ export function decideKyc(input: DecisionInput): DecisionResult {
   if (!mrz) reasons.push("identity_not_extracted");
   // Ces vérifications ne sont pas implémentées par le moteur local. Les
   // déclarer explicitement dans la piste d'audit, sans fabriquer un score.
-  reasons.push("independent_document_verification_required", "face_match_not_performed", "address_verification_not_performed", "bank_statement_verification_not_performed");
+  reasons.push(
+    "independent_document_verification_required",
+    "face_match_not_performed",
+    "address_verification_not_performed",
+    "bank_statement_verification_not_performed",
+  );
   const unique = [...new Set(reasons)];
   const identityScore = identity?.score ?? 0;
   const qualityFactor =

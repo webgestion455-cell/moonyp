@@ -28,13 +28,19 @@ interface Props {
 
 export function isValidPhone(value: string, country?: string): boolean {
   if (!value) return false;
-  const parsed = parsePhoneNumberFromString(value, (country || undefined) as CountryCode | undefined);
+  const parsed = parsePhoneNumberFromString(
+    value,
+    (country || undefined) as CountryCode | undefined,
+  );
   return Boolean(parsed?.isValid());
 }
 
 /** Normalises any input to E.164 — the only format we persist. */
 export function toE164(value: string, country?: string): string | null {
-  const parsed = parsePhoneNumberFromString(value, (country || undefined) as CountryCode | undefined);
+  const parsed = parsePhoneNumberFromString(
+    value,
+    (country || undefined) as CountryCode | undefined,
+  );
   return parsed?.isValid() ? parsed.number : null;
 }
 
@@ -44,7 +50,16 @@ export function toE164(value: string, country?: string): string | null {
  * libphonenumber. The initial country is inferred from data the applicant has
  * already provided (address country, then nationality) but stays editable.
  */
-export function PhoneField({ id, label, value, country, hints = [], onChange, error, required }: Props) {
+export function PhoneField({
+  id,
+  label,
+  value,
+  country,
+  hints = [],
+  onChange,
+  error,
+  required,
+}: Props) {
   const { t, i18n } = useTranslation();
   const locale = i18n.resolvedLanguage ?? "en";
   const [open, setOpen] = useState(false);
@@ -77,7 +92,11 @@ export function PhoneField({ id, label, value, country, hints = [], onChange, er
   }, []);
 
   useEffect(() => {
-    if (open) { setQuery(""); setHighlight(0); requestAnimationFrame(() => searchRef.current?.focus()); }
+    if (open) {
+      setQuery("");
+      setHighlight(0);
+      requestAnimationFrame(() => searchRef.current?.focus());
+    }
   }, [open]);
 
   const national = useMemo(() => {
@@ -88,7 +107,9 @@ export function PhoneField({ id, label, value, country, hints = [], onChange, er
   }, [value, active.code]);
 
   const [draft, setDraft] = useState(national);
-  useEffect(() => { setDraft(national); }, [national]);
+  useEffect(() => {
+    setDraft(national);
+  }, [national]);
 
   const placeholder = useMemo(() => {
     try {
@@ -121,7 +142,11 @@ export function PhoneField({ id, label, value, country, hints = [], onChange, er
     <div className="space-y-1.5" ref={boxRef}>
       <Label htmlFor={id} className="text-sm">
         {label}
-        {required && <span className="ml-1 text-destructive" aria-hidden>*</span>}
+        {required && (
+          <span className="ml-1 text-destructive" aria-hidden>
+            *
+          </span>
+        )}
       </Label>
 
       <div className="relative">
@@ -146,7 +171,13 @@ export function PhoneField({ id, label, value, country, hints = [], onChange, er
               className="h-4 w-[22px] rounded-[2px] object-cover ring-1 ring-border"
             />
             <span className="tabular-nums text-muted-foreground">{active.dial}</span>
-            <ChevronDown className={cn("h-3.5 w-3.5 text-muted-foreground transition-transform", open && "rotate-180")} aria-hidden />
+            <ChevronDown
+              className={cn(
+                "h-3.5 w-3.5 text-muted-foreground transition-transform",
+                open && "rotate-180",
+              )}
+              aria-hidden
+            />
           </button>
 
           <input
@@ -165,7 +196,11 @@ export function PhoneField({ id, label, value, country, hints = [], onChange, er
             <span className="flex shrink-0 items-center pr-3">
               <span
                 className={cn("h-2 w-2 rounded-full", valid ? "bg-success" : "bg-warning")}
-                aria-label={valid ? t("finance.validation.phoneValid") : t("finance.validation.phoneIncomplete")}
+                aria-label={
+                  valid
+                    ? t("finance.validation.phoneValid")
+                    : t("finance.validation.phoneIncomplete")
+                }
               />
             </span>
           )}
@@ -178,12 +213,22 @@ export function PhoneField({ id, label, value, country, hints = [], onChange, er
               <input
                 ref={searchRef}
                 value={query}
-                onChange={(e) => { setQuery(e.target.value); setHighlight(0); }}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setHighlight(0);
+                }}
                 onKeyDown={(e) => {
-                  if (e.key === "ArrowDown") { e.preventDefault(); setHighlight((h) => Math.min(h + 1, results.length - 1)); }
-                  else if (e.key === "ArrowUp") { e.preventDefault(); setHighlight((h) => Math.max(h - 1, 0)); }
-                  else if (e.key === "Enter") { e.preventDefault(); const c = results[highlight]; if (c) pickCountry(c.code); }
-                  else if (e.key === "Escape") setOpen(false);
+                  if (e.key === "ArrowDown") {
+                    e.preventDefault();
+                    setHighlight((h) => Math.min(h + 1, results.length - 1));
+                  } else if (e.key === "ArrowUp") {
+                    e.preventDefault();
+                    setHighlight((h) => Math.max(h - 1, 0));
+                  } else if (e.key === "Enter") {
+                    e.preventDefault();
+                    const c = results[highlight];
+                    if (c) pickCountry(c.code);
+                  } else if (e.key === "Escape") setOpen(false);
                 }}
                 placeholder={t("finance.fields.searchCountry")}
                 aria-label={t("finance.fields.searchCountry")}
@@ -204,22 +249,39 @@ export function PhoneField({ id, label, value, country, hints = [], onChange, er
                       index === highlight && "bg-muted",
                     )}
                   >
-                    <img src={flagUrl(c.code)} alt="" width={22} height={16} loading="lazy" className="h-4 w-[22px] shrink-0 rounded-[2px] object-cover ring-1 ring-border" />
+                    <img
+                      src={flagUrl(c.code)}
+                      alt=""
+                      width={22}
+                      height={16}
+                      loading="lazy"
+                      className="h-4 w-[22px] shrink-0 rounded-[2px] object-cover ring-1 ring-border"
+                    />
                     <span className="min-w-0 flex-1 truncate">{countryName(c.code, locale)}</span>
-                    <span className="shrink-0 tabular-nums text-xs text-muted-foreground">{c.dial}</span>
-                    {c.code === active.code && <Check className="h-4 w-4 shrink-0 text-primary" aria-hidden />}
+                    <span className="shrink-0 tabular-nums text-xs text-muted-foreground">
+                      {c.dial}
+                    </span>
+                    {c.code === active.code && (
+                      <Check className="h-4 w-4 shrink-0 text-primary" aria-hidden />
+                    )}
                   </button>
                 </li>
               ))}
               {results.length === 0 && (
-                <li className="px-3 py-6 text-center text-sm text-muted-foreground">{t("common.noResults")}</li>
+                <li className="px-3 py-6 text-center text-sm text-muted-foreground">
+                  {t("common.noResults")}
+                </li>
               )}
             </ul>
           </div>
         )}
       </div>
 
-      {error && <p role="alert" className="text-xs font-medium text-destructive">{error}</p>}
+      {error && (
+        <p role="alert" className="text-xs font-medium text-destructive">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

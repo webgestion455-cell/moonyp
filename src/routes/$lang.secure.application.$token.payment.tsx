@@ -88,7 +88,6 @@ function PaymentPage() {
   // Suspendu pendant un paiement en cours ou l'affichage des instructions.
   useAutoRefresh(() => refresh(true), { enabled: !busy && !intent });
 
-
   const due = data?.dues.find((d) => d.purpose === purpose) ?? null;
 
   async function pay() {
@@ -153,7 +152,9 @@ function PaymentPage() {
       </div>
 
       <header>
-        <h1 className="font-serif text-2xl font-semibold tracking-tight">{t("finance.payment.title")}</h1>
+        <h1 className="font-serif text-2xl font-semibold tracking-tight">
+          {t("finance.payment.title")}
+        </h1>
         <p className="mt-1 text-sm text-muted-foreground">
           {t("finance.payment.subtitle")} · <span className="font-mono">{data.reference}</span>
         </p>
@@ -171,10 +172,14 @@ function PaymentPage() {
                 type="button"
                 onClick={() => setPurpose(d.purpose)}
                 className={`rounded-xl border px-4 py-3 text-left text-sm transition ${
-                  purpose === d.purpose ? "border-primary bg-primary/5" : "border-border hover:border-primary/40"
+                  purpose === d.purpose
+                    ? "border-primary bg-primary/5"
+                    : "border-border hover:border-primary/40"
                 }`}
               >
-                <span className="block font-medium">{t(`finance.payment.purpose.${d.purpose}`)}</span>
+                <span className="block font-medium">
+                  {t(`finance.payment.purpose.${d.purpose}`)}
+                </span>
                 <span className="block text-muted-foreground">
                   {formatMoney(d.amount, d.currency, i18next.language)} ·{" "}
                   {t(`finance.payment.feeStatus.${d.status}`, { defaultValue: d.status })}
@@ -199,7 +204,9 @@ function PaymentPage() {
                   type="button"
                   onClick={() => setSelected(m.id)}
                   className={`flex w-full items-center gap-3 rounded-xl border p-4 text-left transition ${
-                    selected === m.id ? "border-primary bg-primary/5" : "border-border hover:border-primary/40"
+                    selected === m.id
+                      ? "border-primary bg-primary/5"
+                      : "border-border hover:border-primary/40"
                   }`}
                 >
                   <MethodBrands kind={m.kind} provider={m.provider} />
@@ -248,7 +255,11 @@ function PaymentPage() {
               <Copy className="mr-1.5 h-3.5 w-3.5" /> {t("finance.payment.copyReference")}
             </Button>
             {intent.method.iban && (
-              <Button variant="outline" size="sm" onClick={() => void copy(intent.method.iban ?? "")}>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => void copy(intent.method.iban ?? "")}
+              >
                 <Copy className="mr-1.5 h-3.5 w-3.5" /> IBAN
               </Button>
             )}
@@ -266,7 +277,9 @@ function PaymentPage() {
             {data.payments.map((p) => (
               <li key={p.id} className="rounded-lg border border-border p-3 text-sm">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="font-medium">{t(`finance.payment.purpose.${p.purpose}`, { defaultValue: p.purpose })}</span>
+                  <span className="font-medium">
+                    {t(`finance.payment.purpose.${p.purpose}`, { defaultValue: p.purpose })}
+                  </span>
                   <span className="font-mono text-xs text-muted-foreground">{p.reference}</span>
                 </div>
                 <p className="text-xs text-muted-foreground">

@@ -29,9 +29,17 @@ export function SiteFooter() {
         {/* Brand */}
         <div className="flex flex-col gap-4 border-b border-border pb-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-3">
-            <img src={moonypLogo} alt="MOONYP" width={40} height={40} className="h-9 w-9 shrink-0 object-contain" />
+            <img
+              src={moonypLogo}
+              alt="MOONYP"
+              width={40}
+              height={40}
+              className="h-9 w-9 shrink-0 object-contain"
+            />
             <div>
-              <p className="font-serif text-lg font-semibold tracking-tight text-foreground">MOONYP</p>
+              <p className="font-serif text-lg font-semibold tracking-tight text-foreground">
+                MOONYP
+              </p>
               <p className="mt-1 max-w-md text-xs leading-relaxed text-muted-foreground sm:text-sm">
                 {t("footer.tagline")}
               </p>
@@ -55,7 +63,11 @@ export function SiteFooter() {
             <ul className="mt-3 space-y-2 text-[12px] text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
               {LEGAL_LINKS.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} params={{ lang }} className="block break-words transition-colors hover:text-accent">
+                  <Link
+                    to={l.to}
+                    params={{ lang }}
+                    className="block break-words transition-colors hover:text-accent"
+                  >
                     {t(l.key)}
                   </Link>
                 </li>
@@ -70,7 +82,11 @@ export function SiteFooter() {
             <ul className="mt-3 space-y-2 text-[12px] text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
               {BANKING_LINKS.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} params={{ lang }} className="block break-words transition-colors hover:text-accent">
+                  <Link
+                    to={l.to}
+                    params={{ lang }}
+                    className="block break-words transition-colors hover:text-accent"
+                  >
                     {t(l.key)}
                   </Link>
                 </li>
@@ -84,18 +100,28 @@ export function SiteFooter() {
             </p>
             <ul className="mt-3 space-y-2 text-[12px] text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
               <li>
-                <Link to="/$lang/contact" params={{ lang }} className="block break-words transition-colors hover:text-accent">
+                <Link
+                  to="/$lang/contact"
+                  params={{ lang }}
+                  className="block break-words transition-colors hover:text-accent"
+                >
                   {t("footer.contactForm")}
                 </Link>
               </li>
               <li>
-                <a href="mailto:support@moonyp.com" className="flex items-start gap-1.5 break-all transition-colors hover:text-accent">
+                <a
+                  href="mailto:support@moonyp.com"
+                  className="flex items-start gap-1.5 break-all transition-colors hover:text-accent"
+                >
                   <Mail className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" aria-hidden />
                   support@moonyp.com
                 </a>
               </li>
               <li>
-                <a href="tel:+393500366867" className="flex items-start gap-1.5 transition-colors hover:text-accent">
+                <a
+                  href="tel:+393500366867"
+                  className="flex items-start gap-1.5 transition-colors hover:text-accent"
+                >
                   <Phone className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" aria-hidden />
                   +39 350 036 6867
                 </a>
@@ -110,7 +136,9 @@ export function SiteFooter() {
 
         <div className="border-t border-border pt-6 text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
           <p>{t("footer.disclaimer")}</p>
-          <p className="mt-3">© {year} MOONYP. {t("footer.rights")}</p>
+          <p className="mt-3">
+            © {year} MOONYP. {t("footer.rights")}
+          </p>
         </div>
       </div>
     </footer>

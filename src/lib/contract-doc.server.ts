@@ -80,7 +80,8 @@ export async function buildContractPdf(
   const issuedAt = input.issuedAt ? new Date(input.issuedAt) : new Date();
   const cur = (input.currency || "EUR").toUpperCase();
   const amount = (value: number) => money(value, cur, lang);
-  const orDash = (value: string | null | undefined) => (value && value.trim() ? value.trim() : t("notSpecified"));
+  const orDash = (value: string | null | undefined) =>
+    value && value.trim() ? value.trim() : t("notSpecified");
   const docRef = documentReference("CTR", input.reference, input.version);
 
   const doc = await BankDocument.create({
@@ -125,7 +126,9 @@ export async function buildContractPdf(
         label: p("borrower"),
         lines: [
           orDash(input.borrower),
-          input.birthDate ? `${p("birthDate")} : ${longDate(input.birthDate, lang)}` : `${p("birthDate")} : ${t("notSpecified")}`,
+          input.birthDate
+            ? `${p("birthDate")} : ${longDate(input.birthDate, lang)}`
+            : `${p("birthDate")} : ${t("notSpecified")}`,
           orDash(input.address),
           `${p("email")} : ${orDash(input.email)}`,
           `${p("phone")} : ${orDash(input.phone)}`,
@@ -137,7 +140,8 @@ export async function buildContractPdf(
   /* -------------------------- Titre I — Parties --------------------------- */
 
   doc.pageBreak();
-  const article = (number: number, title: string) => doc.article(`${label("article")} ${number}`, title);
+  const article = (number: number, title: string) =>
+    doc.article(`${label("article")} ${number}`, title);
   doc.sectionTitle(t("s1"));
   article(1, t("a1t"));
   doc.paragraph(t("a1b"));
@@ -173,7 +177,14 @@ export async function buildContractPdf(
     [t("rowAmount"), amount(input.amount)],
     [t("rowDuration"), input.months > 0 ? `${input.months} ${t("rowMonths")}` : t("notSpecified")],
     [t("rowRate"), input.rate > 0 ? percent(input.rate, lang) : t("notSpecified")],
-    [t("rowApr"), input.apr && input.apr > 0 ? percent(input.apr, lang) : input.rate > 0 ? percent(input.rate, lang) : t("notSpecified")],
+    [
+      t("rowApr"),
+      input.apr && input.apr > 0
+        ? percent(input.apr, lang)
+        : input.rate > 0
+          ? percent(input.rate, lang)
+          : t("notSpecified"),
+    ],
     [t("rowMonthly"), amount(input.monthly)],
   ];
   if (Number(input.insuranceMonthly ?? 0) > 0) {
@@ -253,13 +264,18 @@ export async function buildContractPdf(
       title: t("sigBorrower"),
       name: input.signature?.name || orDash(input.borrower),
       mention: input.signature ? t("sigBorrowerMention") : t("pendingMention"),
-      signedLine: input.signature ? `${t("signedOn")} ${dateTime(input.signature.signedAt, lang)}` : undefined,
+      signedLine: input.signature
+        ? `${t("signedOn")} ${dateTime(input.signature.signedAt, lang)}`
+        : undefined,
     },
   });
 
   if (input.signature) {
     doc.keyValue(t("signedBy"), input.signature.name);
-    doc.keyValue(t("provider"), docEnum(lang, "signatureProvider", input.signature.provider) ?? input.signature.provider);
+    doc.keyValue(
+      t("provider"),
+      docEnum(lang, "signatureProvider", input.signature.provider) ?? input.signature.provider,
+    );
     doc.keyValue(t("signatureRef"), input.signature.reference);
     if (input.signature.ip) doc.keyValue(t("signerIp"), input.signature.ip);
     doc.paragraph(input.signature.qualified ? t("qualifiedNotice") : t("advancedNotice"), {

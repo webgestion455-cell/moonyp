@@ -67,13 +67,21 @@ function AdminVerify() {
   async function handleAdminSignIn(e: React.FormEvent) {
     e.preventDefault();
     const normalizedEmail = email.trim().toLowerCase();
-    if (!normalizedEmail) { toast.error("Email requis"); return; }
-    if (!password) { toast.error("Mot de passe requis"); return; }
+    if (!normalizedEmail) {
+      toast.error("Email requis");
+      return;
+    }
+    if (!password) {
+      toast.error("Mot de passe requis");
+      return;
+    }
     setSigningIn(true);
     const { error } = await signIn(normalizedEmail, password);
     setSigningIn(false);
     if (error) {
-      toast.error(error.message === "Invalid login credentials" ? "Identifiants incorrects" : error.message);
+      toast.error(
+        error.message === "Invalid login credentials" ? "Identifiants incorrects" : error.message,
+      );
       return;
     }
     toast.success("Identité validée · envoyez le code 2FA");
@@ -129,7 +137,8 @@ function AdminVerify() {
       </div>
       <h1 className="mt-4 text-2xl font-bold">Vérification équipe</h1>
       <p className="mt-2 text-center text-sm text-muted-foreground">
-        Pour des raisons de sécurité, un code à usage unique est requis avant l'accès à l'espace équipe.
+        Pour des raisons de sécurité, un code à usage unique est requis avant l'accès à l'espace
+        équipe.
       </p>
 
       <div className="mt-8 w-full rounded-2xl border border-border bg-card p-6 shadow-card">
@@ -167,20 +176,28 @@ function AdminVerify() {
             </Button>
           </form>
         ) : waitingForRole ? (
-          <div className="py-8 text-center text-sm text-muted-foreground">Vérification des droits...</div>
+          <div className="py-8 text-center text-sm text-muted-foreground">
+            Vérification des droits...
+          </div>
         ) : !sent ? (
           <div className="space-y-4 text-center">
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-              <Mail className="h-4 w-4" /> Code sera envoyé à <span className="font-medium text-foreground">{user.email}</span>
+              <Mail className="h-4 w-4" /> Code sera envoyé à{" "}
+              <span className="font-medium text-foreground">{user.email}</span>
             </div>
-            <Button onClick={handleSend} disabled={sending || !canRequestCode} className="w-full shadow-glow">
+            <Button
+              onClick={handleSend}
+              disabled={sending || !canRequestCode}
+              className="w-full shadow-glow"
+            >
               {sending ? "Envoi..." : "Envoyer le code"}
             </Button>
           </div>
         ) : (
           <form onSubmit={handleVerify} className="space-y-4">
             <p className="text-xs text-center text-muted-foreground">
-              Code envoyé à <span className="font-medium text-foreground">{sentTo ?? user.email}</span>
+              Code envoyé à{" "}
+              <span className="font-medium text-foreground">{sentTo ?? user.email}</span>
             </p>
             <div>
               <Label htmlFor="code">Code à 6 chiffres</Label>
@@ -205,7 +222,11 @@ function AdminVerify() {
                 </p>
               </div>
             )}
-            <Button type="submit" disabled={verifying || code.length !== 6} className="w-full shadow-glow">
+            <Button
+              type="submit"
+              disabled={verifying || code.length !== 6}
+              className="w-full shadow-glow"
+            >
               {verifying ? "Vérification..." : "Valider et accéder"}
             </Button>
             <button
@@ -221,7 +242,8 @@ function AdminVerify() {
       </div>
 
       <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-2 text-xs text-muted-foreground">
-        <LockKeyhole className="h-3.5 w-3.5 text-success" /> Session équipe valide 8h après validation
+        <LockKeyhole className="h-3.5 w-3.5 text-success" /> Session équipe valide 8h après
+        validation
       </div>
     </div>
   );

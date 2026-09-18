@@ -16,7 +16,7 @@ async function assertStaff(
   supabase: { rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown }> },
   userId: string,
 ) {
-  const { data } = await supabase.rpc("is_staff", { _user_id: userId, });
+  const { data } = await supabase.rpc("is_staff", { _user_id: userId });
   if (data !== true) throw new Error("forbidden");
 }
 
@@ -73,7 +73,10 @@ export const adminSavePaymentMethod = createServerFn({ method: "POST" })
       min_amount: payload.min_amount ?? null,
     };
     const query = id
-      ? supabaseAdmin.from("payment_methods").update(row as never).eq("id", id)
+      ? supabaseAdmin
+          .from("payment_methods")
+          .update(row as never)
+          .eq("id", id)
       : supabaseAdmin.from("payment_methods").insert(row as never);
     const { error } = await query;
     if (error) throw new Error(error.message);
@@ -200,40 +203,47 @@ export const getPaymentOptions = createServerFn({ method: "POST" })
     const applicationId = await server.resolveToken(data.token);
     if (!applicationId) throw new Error("invalid_token");
 
-    const [{ data: application }, { data: methods }, { data: payments }, { data: guarantee }, { data: insurance }] =
-      await Promise.all([
-        supabaseAdmin
-          .from("loan_applications")
-          .select("id, reference, email, first_name, last_name")
-          .eq("id", applicationId)
-          .maybeSingle(),
-        supabaseAdmin
-          .from("payment_methods")
-          .select(
-            "id, provider, kind, label, holder, iban, bic, bank_name, card_brand, card_last4, address, network, qr_url, instructions, currency, min_amount, max_amount, sort_order",
-          )
-          .eq("active", true)
-          .order("sort_order", { ascending: true }),
-        supabaseAdmin
-          .from("application_payments")
-          .select("id, purpose, amount, currency, reference, status, instructions, provider, created_at, received_at")
-          .eq("application_id", applicationId)
-          .order("created_at", { ascending: false }),
-        supabaseAdmin
-          .from("application_guarantees")
-          .select("id, fee_amount, currency, payment_status, payment_reference")
-          .eq("application_id", applicationId)
-          .order("created_at", { ascending: false })
-          .limit(1)
-          .maybeSingle(),
-        supabaseAdmin
-          .from("application_insurances")
-          .select("id, fee_amount, monthly_premium, currency, payment_status, payment_reference")
-          .eq("application_id", applicationId)
-          .order("created_at", { ascending: false })
-          .limit(1)
-          .maybeSingle(),
-      ]);
+    const [
+      { data: application },
+      { data: methods },
+      { data: payments },
+      { data: guarantee },
+      { data: insurance },
+    ] = await Promise.all([
+      supabaseAdmin
+        .from("loan_applications")
+        .select("id, reference, email, first_name, last_name")
+        .eq("id", applicationId)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("payment_methods")
+        .select(
+          "id, provider, kind, label, holder, iban, bic, bank_name, card_brand, card_last4, address, network, qr_url, instructions, currency, min_amount, max_amount, sort_order",
+        )
+        .eq("active", true)
+        .order("sort_order", { ascending: true }),
+      supabaseAdmin
+        .from("application_payments")
+        .select(
+          "id, purpose, amount, currency, reference, status, instructions, provider, created_at, received_at",
+        )
+        .eq("application_id", applicationId)
+        .order("created_at", { ascending: false }),
+      supabaseAdmin
+        .from("application_guarantees")
+        .select("id, fee_amount, currency, payment_status, payment_reference")
+        .eq("application_id", applicationId)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("application_insurances")
+        .select("id, fee_amount, monthly_premium, currency, payment_status, payment_reference")
+        .eq("application_id", applicationId)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+    ]);
 
     if (!application) throw new Error("invalid_token");
 

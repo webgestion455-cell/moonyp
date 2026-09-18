@@ -283,7 +283,10 @@ async function keywords(range: DateRange): Promise<AdsKeywordRow[]> {
      FROM keyword_view WHERE ${during(range)} ORDER BY metrics.impressions DESC LIMIT 200`,
   );
   return rows.map((r) => {
-    const kw = ((r["adGroupCriterion"] as Record<string, unknown>)?.["keyword"] ?? {}) as Record<string, unknown>;
+    const kw = ((r["adGroupCriterion"] as Record<string, unknown>)?.["keyword"] ?? {}) as Record<
+      string,
+      unknown
+    >;
     return {
       keyword: String(kw["text"] ?? "—"),
       matchType: (kw["matchType"] as string) ?? null,
@@ -307,7 +310,10 @@ async function geography(range: DateRange): Promise<AdsGeoRow[]> {
     const level: AdsGeoRow["level"] = city ? "city" : region ? "region" : "country";
     return {
       criterionId: String(city ?? region ?? country ?? ""),
-      label: String(city ?? region ?? country ?? "—").split("/").pop() ?? "—",
+      label:
+        String(city ?? region ?? country ?? "—")
+          .split("/")
+          .pop() ?? "—",
       level,
       ...metricsOf(r["metrics"] as Record<string, unknown>),
     };
@@ -319,7 +325,10 @@ async function devices(range: DateRange): Promise<AdsDeviceRow[]> {
     `SELECT segments.device, ${METRIC_FIELDS} FROM customer WHERE ${during(range)}`,
   );
   return rows.map((r) => ({
-    device: (String((r["segments"] as Record<string, unknown>)?.["device"] ?? "OTHER") as AdsDeviceRow["device"]) ?? "OTHER",
+    device:
+      (String(
+        (r["segments"] as Record<string, unknown>)?.["device"] ?? "OTHER",
+      ) as AdsDeviceRow["device"]) ?? "OTHER",
     ...metricsOf(r["metrics"] as Record<string, unknown>),
   }));
 }
@@ -360,7 +369,12 @@ function buildAlerts(
       detail: `CTR de ${(totals.ctr * 100).toFixed(2)} % sur la période — revoyez les accroches et les mots-clés.`,
     });
   }
-  if (totals.averageCpc > 0 && previous && previous.averageCpc > 0 && totals.averageCpc > previous.averageCpc * 1.3) {
+  if (
+    totals.averageCpc > 0 &&
+    previous &&
+    previous.averageCpc > 0 &&
+    totals.averageCpc > previous.averageCpc * 1.3
+  ) {
     alerts.push({
       id: "high_cpc",
       level: "warning",

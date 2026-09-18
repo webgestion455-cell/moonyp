@@ -10,8 +10,7 @@ const resend = new Resend(resendApiKey);
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
 Deno.serve(async (req: Request) => {
@@ -67,13 +66,9 @@ Deno.serve(async (req: Request) => {
           throw updateProcessingError;
         }
 
-        const payload =
-          email.payload && typeof email.payload === "object"
-            ? email.payload
-            : {};
+        const payload = email.payload && typeof email.payload === "object" ? email.payload : {};
 
-        const text =
-          typeof payload.text === "string" ? payload.text : undefined;
+        const text = typeof payload.text === "string" ? payload.text : undefined;
 
         const { data, error } = await resend.emails.send({
           from: "Moonyp <no-reply@moonyp.com>",
@@ -104,8 +99,7 @@ Deno.serve(async (req: Request) => {
 
         sent++;
       } catch (error) {
-        const message =
-          error instanceof Error ? error.message : String(error);
+        const message = error instanceof Error ? error.message : String(error);
 
         console.error(`Erreur email ${email.id}:`, message);
 
@@ -154,4 +148,3 @@ Deno.serve(async (req: Request) => {
     );
   }
 });
-

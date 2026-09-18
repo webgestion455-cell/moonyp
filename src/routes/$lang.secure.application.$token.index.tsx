@@ -161,7 +161,13 @@ function SecurePortal() {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
       target.classList.add("ring-2", "ring-primary", "ring-offset-2", "ring-offset-background");
       window.setTimeout(
-        () => target.classList.remove("ring-2", "ring-primary", "ring-offset-2", "ring-offset-background"),
+        () =>
+          target.classList.remove(
+            "ring-2",
+            "ring-primary",
+            "ring-offset-2",
+            "ring-offset-background",
+          ),
         2600,
       );
     }, 180);
@@ -202,7 +208,11 @@ function SecurePortal() {
         },
       });
       if (!res.ok) {
-        toast.error(t((res as { reason: string }).reason, { defaultValue: t("finance.guarantee.error.generic") }));
+        toast.error(
+          t((res as { reason: string }).reason, {
+            defaultValue: t("finance.guarantee.error.generic"),
+          }),
+        );
         return;
       }
       toast.success(t("finance.guarantee.choiceSaved"));
@@ -213,8 +223,6 @@ function SecurePortal() {
       setSending(false);
     }
   }
-
-
 
   /**
    * Choix du client sur les frais d'assurance emprunteur.
@@ -239,7 +247,9 @@ function SecurePortal() {
       });
       if (!res.ok) {
         toast.error(
-          t((res as { reason: string }).reason, { defaultValue: t("finance.insurance.error.generic") }),
+          t((res as { reason: string }).reason, {
+            defaultValue: t("finance.insurance.error.generic"),
+          }),
         );
         return;
       }
@@ -254,7 +264,14 @@ function SecurePortal() {
 
   /** Ouvre une URL signée éphémère (2 min), jamais un chemin de stockage. */
   async function openDocument(
-    kind: "document" | "contract" | "signed_contract" | "guarantee" | "signed_guarantee" | "insurance" | "signed_insurance",
+    kind:
+      | "document"
+      | "contract"
+      | "signed_contract"
+      | "guarantee"
+      | "signed_guarantee"
+      | "insurance"
+      | "signed_insurance",
     documentId?: string,
   ) {
     try {
@@ -292,7 +309,8 @@ function SecurePortal() {
       ? new Date(v).toLocaleDateString(locale, { day: "2-digit", month: "long", year: "numeric" })
       : "—";
 
-  const fullName = [app.first_name, app.last_name].filter(Boolean).join(" ") || String(app.email ?? "");
+  const fullName =
+    [app.first_name, app.last_name].filter(Boolean).join(" ") || String(app.email ?? "");
   const monthly = (num("monthly_payment") ?? 0) + (num("insurance_monthly") ?? 0);
 
   const history = (data.history ?? []) as Array<{
@@ -311,7 +329,8 @@ function SecurePortal() {
     return { ...s, isCurrent, isDone };
   });
   const lastDone = stageState.reduce((acc, s, i) => (s.isDone || s.isCurrent ? i : acc), -1);
-  const progress = isTerminal(status) && !rejected ? 100 : Math.round(((lastDone + 1) / STAGES.length) * 100);
+  const progress =
+    isTerminal(status) && !rejected ? 100 : Math.round(((lastDone + 1) / STAGES.length) * 100);
 
   const infoRequests = (data.infoRequests ?? []) as Array<{
     id: string;
@@ -388,7 +407,10 @@ function SecurePortal() {
           </div>
           <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-muted">
             <div
-              className={cn("h-full rounded-full transition-all duration-700", rejected ? "bg-destructive" : "bg-primary")}
+              className={cn(
+                "h-full rounded-full transition-all duration-700",
+                rejected ? "bg-destructive" : "bg-primary",
+              )}
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -399,7 +421,13 @@ function SecurePortal() {
             <CalendarClock className="h-3.5 w-3.5" aria-hidden />
             {t("finance.portal.submittedOn")} {date(app.submitted_at ?? app.created_at)}
           </span>
-          <Button type="button" variant="ghost" size="sm" className="h-7 gap-1.5 px-2 text-xs" onClick={() => void load()}>
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="h-7 gap-1.5 px-2 text-xs"
+            onClick={() => void load()}
+          >
             <RefreshCw className="h-3.5 w-3.5" aria-hidden />
             {t("common.refresh")}
           </Button>
@@ -430,8 +458,6 @@ function SecurePortal() {
         );
       })()}
 
-
-
       {/* --------------------------- Key figures ------------------------- */}
       <div className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
         <Figure icon={BadgeEuro} label={t("finance.sim.amount")} value={money(num("amount"))} />
@@ -440,7 +466,11 @@ function SecurePortal() {
           label={t("finance.sim.duration")}
           value={`${num("duration_months") ?? "—"} ${t("finance.sim.months")}`}
         />
-        <Figure icon={Landmark} label={t("finance.portal.monthly")} value={money(monthly || null)} />
+        <Figure
+          icon={Landmark}
+          label={t("finance.portal.monthly")}
+          value={money(monthly || null)}
+        />
         <Figure
           icon={Percent}
           label={t("finance.portal.apr")}
@@ -455,7 +485,10 @@ function SecurePortal() {
           {stageState.map((s, index) => (
             <li key={s.key} className="relative flex gap-3">
               {index < stageState.length - 1 && (
-                <span className="absolute left-[11px] top-6 h-[calc(100%-0.5rem)] w-px bg-border" aria-hidden />
+                <span
+                  className="absolute left-[11px] top-6 h-[calc(100%-0.5rem)] w-px bg-border"
+                  aria-hidden
+                />
               )}
               <span
                 className={cn(
@@ -475,7 +508,12 @@ function SecurePortal() {
                   <Circle className="h-3 w-3" aria-hidden />
                 )}
               </span>
-              <p className={cn("pt-0.5 text-sm", s.isDone || s.isCurrent ? "font-medium" : "text-muted-foreground")}>
+              <p
+                className={cn(
+                  "pt-0.5 text-sm",
+                  s.isDone || s.isCurrent ? "font-medium" : "text-muted-foreground",
+                )}
+              >
                 {t(`finance.portal.stages.${s.key}`)}
               </p>
             </li>
@@ -490,10 +528,17 @@ function SecurePortal() {
           <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
             <Row
               label={t("finance.portal.product")}
-              value={data.product?.i18n_key ? t(`${data.product.i18n_key}.name`, { defaultValue: data.product.name }) : (data.product?.name ?? "—")}
+              value={
+                data.product?.i18n_key
+                  ? t(`${data.product.i18n_key}.name`, { defaultValue: data.product.name })
+                  : (data.product?.name ?? "—")
+              }
             />
             <Row label={t("finance.portal.status")} value={statusLabel(status)} />
-            <Row label={t("finance.portal.insurance")} value={app.insurance_opted ? t("common.yes") : t("common.no")} />
+            <Row
+              label={t("finance.portal.insurance")}
+              value={app.insurance_opted ? t("common.yes") : t("common.no")}
+            />
             <Row label={t("finance.portal.totalCost")} value={money(num("total_cost"))} />
             <Row label={t("finance.portal.interest")} value={money(num("total_interest"))} />
             <Row label={t("finance.portal.fees")} value={money(num("fees"))} />
@@ -512,20 +557,35 @@ function SecurePortal() {
                 const last = index === history.length - 1;
                 return (
                   <li key={`${h.created_at}-${index}`} className="relative flex gap-3 pb-1">
-                    {!last && <span className="absolute left-[11px] top-6 h-full w-px bg-border" aria-hidden />}
+                    {!last && (
+                      <span
+                        className="absolute left-[11px] top-6 h-full w-px bg-border"
+                        aria-hidden
+                      />
+                    )}
                     <span
                       className={cn(
                         "relative z-10 mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full",
                         last ? "bg-primary text-primary-foreground" : "bg-success/15 text-success",
                       )}
                     >
-                      {last ? <CircleDashed className="h-3.5 w-3.5" aria-hidden /> : <CheckCircle2 className="h-3.5 w-3.5" aria-hidden />}
+                      {last ? (
+                        <CircleDashed className="h-3.5 w-3.5" aria-hidden />
+                      ) : (
+                        <CheckCircle2 className="h-3.5 w-3.5" aria-hidden />
+                      )}
                     </span>
                     <div className="min-w-0">
-                      <p className="text-sm font-medium">{statusLabel(h.new_status as ApplicationStatus)}</p>
-                      <p className="text-xs text-muted-foreground">{new Date(h.created_at).toLocaleString(locale)}</p>
+                      <p className="text-sm font-medium">
+                        {statusLabel(h.new_status as ApplicationStatus)}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {new Date(h.created_at).toLocaleString(locale)}
+                      </p>
                       {(h.reason || h.note) && (
-                        <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{h.reason || h.note}</p>
+                        <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                          {h.reason || h.note}
+                        </p>
                       )}
                     </div>
                   </li>
@@ -545,8 +605,12 @@ function SecurePortal() {
               <li key={r.id} className="rounded-xl border border-border p-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <p className="text-sm font-medium">
-                    {t(`finance.portal.requests.kind${kindSuffix(r.kind)}`, { defaultValue: r.kind })}
-                    {r.document_type_slug ? ` · ${documentLabel(t as never, r.document_type_slug)}` : ""}
+                    {t(`finance.portal.requests.kind${kindSuffix(r.kind)}`, {
+                      defaultValue: r.kind,
+                    })}
+                    {r.document_type_slug
+                      ? ` · ${documentLabel(t as never, r.document_type_slug)}`
+                      : ""}
                   </p>
                   <span className="rounded-full bg-muted px-2.5 py-1 text-[11px] text-muted-foreground">
                     {t(`finance.portal.requests.${r.status}`, { defaultValue: r.status })}
@@ -580,9 +644,12 @@ function SecurePortal() {
                         onUploaded={async (fileName) => {
                           setReplies((p) => ({
                             ...p,
-                            [r.id]: `${(p[r.id] ?? "").trim()}\n${t("finance.portal.upload.attached", {
-                              name: fileName,
-                            })}`.trim(),
+                            [r.id]: `${(p[r.id] ?? "").trim()}\n${t(
+                              "finance.portal.upload.attached",
+                              {
+                                name: fileName,
+                              },
+                            )}`.trim(),
                           }));
                           await load();
                         }}
@@ -590,7 +657,9 @@ function SecurePortal() {
                     </div>
                   </div>
                 ) : (
-                  r.response_text && <p className="mt-2 rounded-md bg-muted p-3 text-sm">{r.response_text}</p>
+                  r.response_text && (
+                    <p className="mt-2 rounded-md bg-muted p-3 text-sm">{r.response_text}</p>
+                  )
                 )}
               </li>
             ))}
@@ -619,8 +688,12 @@ function SecurePortal() {
                   <span className="block truncate text-sm font-medium">
                     {documentLabel(t as never, d.document_type_slug)}
                   </span>
-                  <span className="block truncate text-xs text-muted-foreground">{d.file_name}</span>
-                  {d.review_note && <span className="block text-xs text-destructive">{d.review_note}</span>}
+                  <span className="block truncate text-xs text-muted-foreground">
+                    {d.file_name}
+                  </span>
+                  {d.review_note && (
+                    <span className="block text-xs text-destructive">{d.review_note}</span>
+                  )}
                 </span>
                 <span
                   className={cn(
@@ -661,7 +734,9 @@ function SecurePortal() {
           />
         </div>
 
-        <p className="mt-3 text-[11px] text-muted-foreground">{t("finance.portal.downloadNotice")}</p>
+        <p className="mt-3 text-[11px] text-muted-foreground">
+          {t("finance.portal.downloadNotice")}
+        </p>
       </Card>
 
       {/* ------------------------------- KYC ----------------------------- */}
@@ -672,7 +747,10 @@ function SecurePortal() {
         ) : (
           <ul className="mt-4 grid gap-2 sm:grid-cols-2">
             {kycChecks.map((c) => (
-              <li key={c.id} className="flex items-center justify-between gap-2 rounded-lg bg-muted/40 px-3 py-2 text-sm">
+              <li
+                key={c.id}
+                className="flex items-center justify-between gap-2 rounded-lg bg-muted/40 px-3 py-2 text-sm"
+              >
                 <span className="min-w-0 truncate">
                   {c.document_type_slug
                     ? documentLabel(t as never, c.document_type_slug)
@@ -688,7 +766,9 @@ function SecurePortal() {
                         : "bg-background text-muted-foreground",
                   )}
                 >
-                  {t(`finance.portal.kyc.${c.status === "passed" ? "passed" : c.status === "failed" ? "failed" : "verifying"}`)}
+                  {t(
+                    `finance.portal.kyc.${c.status === "passed" ? "passed" : c.status === "failed" ? "failed" : "verifying"}`,
+                  )}
                 </span>
               </li>
             ))}
@@ -705,9 +785,18 @@ function SecurePortal() {
           </h2>
           <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
             <Row label={t("finance.sim.amount")} value={money(offer.amount, offer.currency)} />
-            <Row label={t("finance.sim.duration")} value={`${offer.duration_months} ${t("finance.sim.months")}`} />
-            <Row label={t("finance.portal.monthly")} value={money(offer.monthly_payment, offer.currency)} />
-            <Row label={t("finance.portal.totalCost")} value={money(offer.total_cost, offer.currency)} />
+            <Row
+              label={t("finance.sim.duration")}
+              value={`${offer.duration_months} ${t("finance.sim.months")}`}
+            />
+            <Row
+              label={t("finance.portal.monthly")}
+              value={money(offer.monthly_payment, offer.currency)}
+            />
+            <Row
+              label={t("finance.portal.totalCost")}
+              value={money(offer.total_cost, offer.currency)}
+            />
             <Row label={t("finance.portal.validUntil")} value={date(offer.valid_until)} />
             <Row label={t("finance.portal.acceptedOn")} value={date(offer.accepted_at)} />
           </dl>
@@ -733,13 +822,25 @@ function SecurePortal() {
               </Link>
             </Button>
             {contract.has_document && (
-              <Button type="button" variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("contract")}>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="gap-2"
+                onClick={() => void openDocument("contract")}
+              >
                 <Download className="h-4 w-4" aria-hidden />
                 {t("finance.portal.downloadContract")}
               </Button>
             )}
             {contract.has_signed_document && (
-              <Button type="button" variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("signed_contract")}>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="gap-2"
+                onClick={() => void openDocument("signed_contract")}
+              >
                 <Download className="h-4 w-4" aria-hidden />
                 {t("finance.portal.downloadSigned")}
               </Button>
@@ -756,7 +857,10 @@ function SecurePortal() {
             {t("finance.portal.guarantee")}
           </h2>
           <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
-            <Row label={t("finance.guarantee.fee")} value={money(Number(guarantee.fee_amount ?? guarantee.amount), guarantee.currency)} />
+            <Row
+              label={t("finance.guarantee.fee")}
+              value={money(Number(guarantee.fee_amount ?? guarantee.amount), guarantee.currency)}
+            />
             <Row
               label={t("finance.guarantee.paymentStatus")}
               value={t(`finance.guarantee.payment.${guarantee.payment_status ?? "unpaid"}`, {
@@ -765,7 +869,10 @@ function SecurePortal() {
             />
             <Row label={t("finance.portal.sentOn")} value={date(guarantee.sent_at)} />
             {guarantee.scheduled_payment_date && (
-              <Row label={t("finance.guarantee.scheduledDate")} value={date(guarantee.scheduled_payment_date)} />
+              <Row
+                label={t("finance.guarantee.scheduledDate")}
+                value={date(guarantee.scheduled_payment_date)}
+              />
             )}
           </dl>
           {guarantee.fee_description && (
@@ -773,11 +880,23 @@ function SecurePortal() {
           )}
           {guarantee.has_document && (
             <div className="mt-4 flex flex-wrap gap-2">
-              <Button type="button" variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("guarantee")}>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="gap-2"
+                onClick={() => void openDocument("guarantee")}
+              >
                 <Download className="h-4 w-4" aria-hidden /> {t("finance.portal.download")}
               </Button>
               {guarantee.has_signed_document && (
-                <Button type="button" variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("signed_guarantee")}>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  className="gap-2"
+                  onClick={() => void openDocument("signed_guarantee")}
+                >
                   <Download className="h-4 w-4" aria-hidden /> {t("finance.portal.downloadSigned")}
                 </Button>
               )}
@@ -791,15 +910,21 @@ function SecurePortal() {
           ) : guarantee.client_choice ? (
             <div className="mt-4 space-y-3">
               <p className="rounded-lg bg-muted/50 p-3 text-sm">
-                {t(`finance.guarantee.chosen.${guarantee.client_choice}`, { defaultValue: guarantee.client_choice })}
+                {t(`finance.guarantee.chosen.${guarantee.client_choice}`, {
+                  defaultValue: guarantee.client_choice,
+                })}
               </p>
               {guarantee.client_choice !== "decline" && guarantee.payment_instructions && (
                 <div className="rounded-lg border border-border p-3">
                   <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                     {t("finance.guarantee.instructions")}
                   </p>
-                  <p className="mt-1 whitespace-pre-line text-sm">{guarantee.payment_instructions}</p>
-                  <p className="mt-2 text-xs text-muted-foreground">{t("finance.guarantee.validationNotice")}</p>
+                  <p className="mt-1 whitespace-pre-line text-sm">
+                    {guarantee.payment_instructions}
+                  </p>
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    {t("finance.guarantee.validationNotice")}
+                  </p>
                 </div>
               )}
             </div>
@@ -812,7 +937,9 @@ function SecurePortal() {
                     key={option}
                     className={cn(
                       "flex cursor-pointer items-start gap-3 rounded-xl border p-3 text-sm transition-colors",
-                      choice === option ? "border-primary bg-primary/5" : "border-border hover:bg-muted/40",
+                      choice === option
+                        ? "border-primary bg-primary/5"
+                        : "border-border hover:bg-muted/40",
                     )}
                   >
                     <input
@@ -823,7 +950,9 @@ function SecurePortal() {
                       onChange={() => setChoice(option)}
                     />
                     <span>
-                      <span className="block font-medium">{t(`finance.guarantee.options.${option}`)}</span>
+                      <span className="block font-medium">
+                        {t(`finance.guarantee.options.${option}`)}
+                      </span>
                       <span className="block text-xs text-muted-foreground">
                         {t(`finance.guarantee.optionsHint.${option}`)}
                       </span>
@@ -833,7 +962,9 @@ function SecurePortal() {
               </div>
               {choice === "pay_later" && (
                 <label className="block text-sm">
-                  <span className="mb-1.5 block font-medium">{t("finance.guarantee.pickDate")}</span>
+                  <span className="mb-1.5 block font-medium">
+                    {t("finance.guarantee.pickDate")}
+                  </span>
                   <input
                     type="date"
                     className="h-10 rounded-md border border-input bg-background px-3 text-sm"
@@ -843,10 +974,16 @@ function SecurePortal() {
                   />
                 </label>
               )}
-              <Button size="sm" disabled={sending || !choice} onClick={() => void submitGuaranteeChoice(guarantee.id)}>
+              <Button
+                size="sm"
+                disabled={sending || !choice}
+                onClick={() => void submitGuaranteeChoice(guarantee.id)}
+              >
                 {t("finance.guarantee.confirmChoice")}
               </Button>
-              <p className="text-xs text-muted-foreground">{t("finance.guarantee.noPaymentNotice")}</p>
+              <p className="text-xs text-muted-foreground">
+                {t("finance.guarantee.noPaymentNotice")}
+              </p>
             </div>
           )}
         </Card>
@@ -862,8 +999,14 @@ function SecurePortal() {
           <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
             <Row label={t("finance.portal.provider")} value={insurance.provider ?? "—"} />
             <Row label={t("finance.portal.policy")} value={insurance.policy_number ?? "—"} />
-            <Row label={t("finance.portal.premium")} value={money(insurance.monthly_premium, insurance.currency)} />
-            <Row label={t("finance.insurance.fee")} value={money(insurance.fee_amount, insurance.currency)} />
+            <Row
+              label={t("finance.portal.premium")}
+              value={money(insurance.monthly_premium, insurance.currency)}
+            />
+            <Row
+              label={t("finance.insurance.fee")}
+              value={money(insurance.fee_amount, insurance.currency)}
+            />
             <Row
               label={t("finance.insurance.paymentStatus")}
               value={t(`finance.insurance.payment.${insurance.payment_status ?? "unpaid"}`, {
@@ -886,11 +1029,23 @@ function SecurePortal() {
           )}
           {insurance.has_document && (
             <div className="mt-4 flex flex-wrap gap-2">
-              <Button type="button" variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("insurance")}>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="gap-2"
+                onClick={() => void openDocument("insurance")}
+              >
                 <Download className="h-4 w-4" aria-hidden /> {t("finance.portal.download")}
               </Button>
               {insurance.has_signed_document && (
-                <Button type="button" variant="outline" size="sm" className="gap-2" onClick={() => void openDocument("signed_insurance")}>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  className="gap-2"
+                  onClick={() => void openDocument("signed_insurance")}
+                >
                   <Download className="h-4 w-4" aria-hidden /> {t("finance.portal.downloadSigned")}
                 </Button>
               )}
@@ -913,7 +1068,9 @@ function SecurePortal() {
                   <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                     {t("finance.insurance.instructions")}
                   </p>
-                  <p className="mt-1 whitespace-pre-line text-sm">{insurance.payment_instructions}</p>
+                  <p className="mt-1 whitespace-pre-line text-sm">
+                    {insurance.payment_instructions}
+                  </p>
                   <p className="mt-2 text-xs text-muted-foreground">
                     {t("finance.insurance.validationNotice")}
                   </p>
@@ -929,7 +1086,9 @@ function SecurePortal() {
                     key={option}
                     className={cn(
                       "flex cursor-pointer items-start gap-3 rounded-xl border p-3 text-sm transition-colors",
-                      insChoice === option ? "border-primary bg-primary/5" : "border-border hover:bg-muted/40",
+                      insChoice === option
+                        ? "border-primary bg-primary/5"
+                        : "border-border hover:bg-muted/40",
                     )}
                   >
                     <input
@@ -940,7 +1099,9 @@ function SecurePortal() {
                       onChange={() => setInsChoice(option)}
                     />
                     <span>
-                      <span className="block font-medium">{t(`finance.insurance.options.${option}`)}</span>
+                      <span className="block font-medium">
+                        {t(`finance.insurance.options.${option}`)}
+                      </span>
                       <span className="block text-xs text-muted-foreground">
                         {t(`finance.insurance.optionsHint.${option}`)}
                       </span>
@@ -950,7 +1111,9 @@ function SecurePortal() {
               </div>
               {insChoice === "pay_later" && (
                 <label className="block text-sm">
-                  <span className="mb-1.5 block font-medium">{t("finance.insurance.pickDate")}</span>
+                  <span className="mb-1.5 block font-medium">
+                    {t("finance.insurance.pickDate")}
+                  </span>
                   <input
                     type="date"
                     className="h-10 rounded-md border border-input bg-background px-3 text-sm"
@@ -968,7 +1131,9 @@ function SecurePortal() {
               >
                 {t("finance.insurance.confirmChoice")}
               </Button>
-              <p className="text-xs text-muted-foreground">{t("finance.insurance.noPaymentNotice")}</p>
+              <p className="text-xs text-muted-foreground">
+                {t("finance.insurance.noPaymentNotice")}
+              </p>
             </div>
           )}
         </Card>
@@ -982,7 +1147,10 @@ function SecurePortal() {
             {t("finance.portal.disbursement")}
           </h2>
           <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
-            <Row label={t("finance.sim.amount")} value={money(disbursement.amount, disbursement.currency)} />
+            <Row
+              label={t("finance.sim.amount")}
+              value={money(disbursement.amount, disbursement.currency)}
+            />
             <Row label={t("finance.portal.beneficiary")} value={disbursement.beneficiary ?? "—"} />
             <Row label={t("finance.fields.iban")} value={disbursement.iban || "—"} />
             <Row label={t("finance.portal.sentOn")} value={date(disbursement.processed_at)} />
@@ -1001,7 +1169,9 @@ function SecurePortal() {
                   <th className="py-2 pr-3 font-medium">{t("finance.portal.installment")}</th>
                   <th className="py-2 pr-3 font-medium">{t("finance.portal.dueDate")}</th>
                   <th className="py-2 pr-3 text-right font-medium">{t("finance.sim.amount")}</th>
-                  <th className="py-2 pr-3 text-right font-medium">{t("finance.portal.remaining")}</th>
+                  <th className="py-2 pr-3 text-right font-medium">
+                    {t("finance.portal.remaining")}
+                  </th>
                   <th className="py-2 text-right font-medium">{t("finance.portal.status")}</th>
                 </tr>
               </thead>
@@ -1011,7 +1181,9 @@ function SecurePortal() {
                     <td className="py-2 pr-3 tabular-nums">{r.installment_no}</td>
                     <td className="py-2 pr-3">{date(r.due_date)}</td>
                     <td className="py-2 pr-3 text-right tabular-nums">{money(r.amount)}</td>
-                    <td className="py-2 pr-3 text-right tabular-nums">{money(r.remaining_balance)}</td>
+                    <td className="py-2 pr-3 text-right tabular-nums">
+                      {money(r.remaining_balance)}
+                    </td>
                     <td className="py-2 text-right">
                       <span
                         className={cn(

@@ -127,7 +127,8 @@ type FaceApi = typeof import("@vladmandic/face-api");
 /** Build sans bundle : tfjs est fourni par le projet (backend CPU pur JS). */
 const FACE_API_ENTRY = "@vladmandic/face-api/dist/face-api.esm-nobundle.js";
 
-let enginePromise: Promise<{ faceapi: FaceApi; tf: typeof import("@tensorflow/tfjs") }> | null = null;
+let enginePromise: Promise<{ faceapi: FaceApi; tf: typeof import("@tensorflow/tfjs") }> | null =
+  null;
 
 export function modelsDirectory(dir?: string): string {
   return resolve(dir ?? process.env["KYC_FACE_MODELS_DIR"] ?? "models/face-api");
@@ -159,13 +160,22 @@ export async function loadFaceEngine(dir?: string) {
       const faceapi = (await import(/* @vite-ignore */ FACE_API_ENTRY)) as unknown as FaceApi;
       // Chargement depuis le disque local : face-api attend un `fetch`, on
       // fournit directement les buffers de poids.
-      const loadFromDisk = async (manifest: string, weights: string, net: { loadFromWeightMap: (m: unknown) => void }) => {
+      const loadFromDisk = async (
+        manifest: string,
+        weights: string,
+        net: { loadFromWeightMap: (m: unknown) => void },
+      ) => {
         const manifestJson = JSON.parse(readFileSync(resolve(base, manifest), "utf8"));
         const weightData = readFileSync(resolve(base, weights));
-        const weightMap = (tf as unknown as {
-          io: { decodeWeights: (b: ArrayBuffer, specs: unknown[]) => unknown };
-        }).io.decodeWeights(
-          weightData.buffer.slice(weightData.byteOffset, weightData.byteOffset + weightData.byteLength) as ArrayBuffer,
+        const weightMap = (
+          tf as unknown as {
+            io: { decodeWeights: (b: ArrayBuffer, specs: unknown[]) => unknown };
+          }
+        ).io.decodeWeights(
+          weightData.buffer.slice(
+            weightData.byteOffset,
+            weightData.byteOffset + weightData.byteLength,
+          ) as ArrayBuffer,
           manifestJson.flatMap((g: { weights: unknown[] }) => g.weights),
         );
         net.loadFromWeightMap(weightMap);
@@ -192,7 +202,10 @@ export async function loadFaceEngine(dir?: string) {
 }
 
 /** Variance du Laplacien sur une zone (netteté réelle, pas une estimation). */
-function sharpness(img: DecodedImage, box: { x: number; y: number; width: number; height: number }): number {
+function sharpness(
+  img: DecodedImage,
+  box: { x: number; y: number; width: number; height: number },
+): number {
   const x0 = Math.max(1, Math.floor(box.x));
   const y0 = Math.max(1, Math.floor(box.y));
   const x1 = Math.min(img.width - 2, Math.floor(box.x + box.width));
@@ -207,7 +220,8 @@ function sharpness(img: DecodedImage, box: { x: number; y: number; width: number
   let n = 0;
   for (let y = y0; y < y1; y++) {
     for (let x = x0; x < x1; x++) {
-      const lap = 4 * grey(x, y) - grey(x - 1, y) - grey(x + 1, y) - grey(x, y - 1) - grey(x, y + 1);
+      const lap =
+        4 * grey(x, y) - grey(x - 1, y) - grey(x + 1, y) - grey(x, y - 1) - grey(x, y + 1);
       sum += lap;
       sumSq += lap * lap;
       n++;
@@ -218,7 +232,10 @@ function sharpness(img: DecodedImage, box: { x: number; y: number; width: number
   return Math.round((sumSq / n - mean * mean) * 100) / 100;
 }
 
-function brightness(img: DecodedImage, box: { x: number; y: number; width: number; height: number }): number {
+function brightness(
+  img: DecodedImage,
+  box: { x: number; y: number; width: number; height: number },
+): number {
   const x0 = Math.max(0, Math.floor(box.x));
   const y0 = Math.max(0, Math.floor(box.y));
   const x1 = Math.min(img.width, Math.floor(box.x + box.width));
@@ -236,7 +253,8 @@ function brightness(img: DecodedImage, box: { x: number; y: number; width: numbe
 }
 
 function qualityOf(img: DecodedImage, box: DetectedFace["box"], score: number): FaceQuality {
-  const area_ratio = Math.round(((box.width * box.height) / (img.width * img.height)) * 10000) / 10000;
+  const area_ratio =
+    Math.round(((box.width * box.height) / (img.width * img.height)) * 10000) / 10000;
   const sharp = sharpness(img, box);
   const bright = brightness(img, box);
   const reasons: string[] = [];
@@ -266,10 +284,10 @@ export async function analyzeFaces(buffer: Uint8Array, dir?: string): Promise<Fa
   const tensor = tf.tensor3d(img.data, [img.height, img.width, 3], "int32");
   try {
     const detections = await faceapi
-  .detectAllFaces(
-    tensor as unknown as Parameters<typeof faceapi.detectAllFaces>[0],
-    new faceapi.SsdMobilenetv1Options({ minConfidence: 0.3 }),
-  )
+      .detectAllFaces(
+        tensor as unknown as Parameters<typeof faceapi.detectAllFaces>[0],
+        new faceapi.SsdMobilenetv1Options({ minConfidence: 0.3 }),
+      )
       .withFaceLandmarks()
       .withFaceDescriptors();
 
@@ -349,17 +367,34 @@ export function compareFaces(
     evaluated_at: at.toISOString(),
   };
   if (!idPortrait) {
-    return { ...base, status: "INCONCLUSIVE", distance: null, reasons: ["id_portrait_descriptor_missing"] };
+    return {
+      ...base,
+      status: "INCONCLUSIVE",
+      distance: null,
+      reasons: ["id_portrait_descriptor_missing"],
+    };
   }
   if (!liveFace) {
-    return { ...base, status: "INCONCLUSIVE", distance: null, reasons: ["liveness_face_descriptor_missing"] };
+    return {
+      ...base,
+      status: "INCONCLUSIVE",
+      distance: null,
+      reasons: ["liveness_face_descriptor_missing"],
+    };
   }
   const reasons: string[] = [];
-  if (!idPortrait.quality.usable) reasons.push(...idPortrait.quality.reasons.map((r) => `id_portrait:${r}`));
-  if (!liveFace.quality.usable) reasons.push(...liveFace.quality.reasons.map((r) => `liveness_face:${r}`));
+  if (!idPortrait.quality.usable)
+    reasons.push(...idPortrait.quality.reasons.map((r) => `id_portrait:${r}`));
+  if (!liveFace.quality.usable)
+    reasons.push(...liveFace.quality.reasons.map((r) => `liveness_face:${r}`));
   const distance = descriptorDistance(idPortrait.descriptor, liveFace.descriptor);
   if (reasons.length > 0) {
-    return { ...base, status: "INCONCLUSIVE", distance, reasons: [...reasons, "image_quality_insufficient"] };
+    return {
+      ...base,
+      status: "INCONCLUSIVE",
+      distance,
+      reasons: [...reasons, "image_quality_insufficient"],
+    };
   }
   if (distance <= FACE_MATCH_THRESHOLDS.match) {
     return { ...base, status: "PASS", distance, reasons: ["distance_below_match_threshold"] };

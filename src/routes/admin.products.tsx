@@ -106,7 +106,9 @@ function AdminProducts() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">Catalogue de financement</h1>
+        <h1 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">
+          Catalogue de financement
+        </h1>
         <p className="text-sm text-muted-foreground">
           Barèmes, plafonds et frais appliqués au simulateur et au parcours de demande.
         </p>
@@ -143,7 +145,10 @@ function AdminProducts() {
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                   {NUMERIC_FIELDS.map((f) => (
                     <div key={String(f.key)} className="space-y-1">
-                      <Label htmlFor={`${String(f.key)}-${p.id}`} className="text-[11px] text-muted-foreground">
+                      <Label
+                        htmlFor={`${String(f.key)}-${p.id}`}
+                        className="text-[11px] text-muted-foreground"
+                      >
                         {f.label}
                       </Label>
                       <Input

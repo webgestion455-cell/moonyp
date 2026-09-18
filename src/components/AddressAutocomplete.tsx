@@ -23,7 +23,14 @@ interface Props {
  * Utilise Nominatim (OpenStreetMap) — service public gratuit, sans clé API.
  * L'utilisateur peut aussi saisir manuellement s'il ne trouve pas son adresse.
  */
-export function AddressAutocomplete({ name, id, defaultValue = "", required, label, placeholder }: Props) {
+export function AddressAutocomplete({
+  name,
+  id,
+  defaultValue = "",
+  required,
+  label,
+  placeholder,
+}: Props) {
   const { t, i18n } = useTranslation();
   const [value, setValue] = useState(defaultValue);
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
@@ -59,19 +66,26 @@ export function AddressAutocomplete({ name, id, defaultValue = "", required, lab
         const url = `https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=6&lang=${lang}`;
         const res = await fetch(url, { headers: { Accept: "application/json" } });
         if (!res.ok) throw new Error("network");
-        const json = (await res.json()) as { features?: Array<{ properties: Record<string, string>; geometry?: { coordinates: [number, number] } }> };
+        const json = (await res.json()) as {
+          features?: Array<{
+            properties: Record<string, string>;
+            geometry?: { coordinates: [number, number] };
+          }>;
+        };
         const feats = json.features ?? [];
-        const list: Suggestion[] = feats.map((f, i) => {
-          const p = f.properties || {};
-          const parts = [
-            [p.housenumber, p.street].filter(Boolean).join(" "),
-            [p.postcode, p.city || p.town || p.village].filter(Boolean).join(" "),
-            p.state,
-            p.country,
-          ].filter(Boolean);
-          const display = parts.join(", ") || p.name || "";
-          return { display_name: display, place_id: i };
-        }).filter((s) => s.display_name);
+        const list: Suggestion[] = feats
+          .map((f, i) => {
+            const p = f.properties || {};
+            const parts = [
+              [p.housenumber, p.street].filter(Boolean).join(" "),
+              [p.postcode, p.city || p.town || p.village].filter(Boolean).join(" "),
+              p.state,
+              p.country,
+            ].filter(Boolean);
+            const display = parts.join(", ") || p.name || "";
+            return { display_name: display, place_id: i };
+          })
+          .filter((s) => s.display_name);
         setSuggestions(list);
       } catch {
         setSuggestions([]);

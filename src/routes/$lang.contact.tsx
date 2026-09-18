@@ -110,9 +110,17 @@ function ContactPage() {
       </div>
 
       <div className="flex items-start gap-4 mb-8">
-        <img src={moonypLogo} alt="MOONYP" width={56} height={56} className="h-11 w-11 sm:h-14 sm:w-14 rounded-md bg-white p-1 shadow-sm" />
+        <img
+          src={moonypLogo}
+          alt="MOONYP"
+          width={56}
+          height={56}
+          className="h-11 w-11 sm:h-14 sm:w-14 rounded-md bg-white p-1 shadow-sm"
+        />
         <div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif text-primary">{t("contact.title")}</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif text-primary">
+            {t("contact.title")}
+          </h1>
           <p className="text-muted-foreground mt-1">{t("contact.subtitle")}</p>
         </div>
       </div>
@@ -131,7 +139,10 @@ function ContactPage() {
                   href="https://wa.me/393500366867"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary hover:underline transition cursor-pointer">+39 350 036 6867</a>
+                  className="text-muted-foreground hover:text-primary hover:underline transition cursor-pointer"
+                >
+                  +39 350 036 6867
+                </a>
                 <p className="text-xs text-muted-foreground">{t("contact.phoneHours")}</p>
               </div>
             </div>
@@ -140,8 +151,11 @@ function ContactPage() {
               <div>
                 <p className="font-medium">{t("contact.emailLabel")}</p>
                 <a
-                 href="mailto:support@moonyp.com"
-                 className="text-muted-foreground hover:text-primary hover:underline transition break-all cursor-pointer">support@moonyp.com</a>
+                  href="mailto:support@moonyp.com"
+                  className="text-muted-foreground hover:text-primary hover:underline transition break-all cursor-pointer"
+                >
+                  support@moonyp.com
+                </a>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -152,7 +166,12 @@ function ContactPage() {
                   href="https://maps.app.goo.gl/7U5y453Ku2UPFk3d6"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary hover:underline transition cursor-pointer">{t("contact.address")}<br />{t("contact.addressCity")}</a>
+                  className="text-muted-foreground hover:text-primary hover:underline transition cursor-pointer"
+                >
+                  {t("contact.address")}
+                  <br />
+                  {t("contact.addressCity")}
+                </a>
               </div>
             </div>
             <div className="rounded-lg bg-secondary p-3 text-xs text-muted-foreground flex items-start gap-2">
@@ -191,7 +210,10 @@ function ContactPage() {
             </div>
             <div>
               <Label>{t("contact.subject")} *</Label>
-              <Select value={subjectKey} onValueChange={(v) => setSubjectKey(v as typeof subjectKey)}>
+              <Select
+                value={subjectKey}
+                onValueChange={(v) => setSubjectKey(v as typeof subjectKey)}
+              >
                 <SelectTrigger className="mt-1.5">
                   <SelectValue />
                 </SelectTrigger>

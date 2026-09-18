@@ -24,12 +24,18 @@ export function ProductPicker({ products, value, onChange, locale = "fr" }: Prop
   const { t } = useTranslation();
 
   return (
-    <div role="radiogroup" aria-label={t("finance.sim.product")} className="grid gap-3 sm:grid-cols-2">
+    <div
+      role="radiogroup"
+      aria-label={t("finance.sim.product")}
+      className="grid gap-3 sm:grid-cols-2"
+    >
       {products.map((p) => {
         const Icon = ICONS[p.icon ?? ""] ?? Landmark;
         const selected = p.id === value;
         const compact = (n: number) =>
-          new Intl.NumberFormat(locale, { notation: "compact", maximumFractionDigits: 1 }).format(n);
+          new Intl.NumberFormat(locale, { notation: "compact", maximumFractionDigits: 1 }).format(
+            n,
+          );
 
         return (
           <button
@@ -65,10 +71,13 @@ export function ProductPicker({ products, value, onChange, locale = "fr" }: Prop
               </span>
               <span className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-[11px] tabular-nums text-muted-foreground">
                 <span>
-                  {compact(p.min_amount)} – {compact(p.max_amount)} {p.currency === "EUR" ? "€" : p.currency}
+                  {compact(p.min_amount)} – {compact(p.max_amount)}{" "}
+                  {p.currency === "EUR" ? "€" : p.currency}
                 </span>
                 <span aria-hidden>·</span>
-                <span>{p.min_months}–{p.max_months} {t("finance.sim.months")}</span>
+                <span>
+                  {p.min_months}–{p.max_months} {t("finance.sim.months")}
+                </span>
                 <span aria-hidden>·</span>
                 <span className="font-medium text-foreground">
                   {t("finance.sim.rateFrom", { rate: p.annual_rate })}

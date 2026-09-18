@@ -36,8 +36,22 @@ function SimulationPage() {
   const initial = products.find((p) => p.slug === slug) ?? products[0];
   const [value, setValue] = useState(() => ({
     productId: initial?.id ?? "",
-    amount: initial ? clampToStep((initial.min_amount + initial.max_amount) / 4, initial.min_amount, initial.max_amount, initial.amount_step) : 0,
-    months: initial ? clampToStep(Math.round((initial.min_months + initial.max_months) / 3), initial.min_months, initial.max_months, initial.months_step) : 0,
+    amount: initial
+      ? clampToStep(
+          (initial.min_amount + initial.max_amount) / 4,
+          initial.min_amount,
+          initial.max_amount,
+          initial.amount_step,
+        )
+      : 0,
+    months: initial
+      ? clampToStep(
+          Math.round((initial.min_months + initial.max_months) / 3),
+          initial.min_months,
+          initial.max_months,
+          initial.months_step,
+        )
+      : 0,
     insurance: true,
   }));
 
@@ -75,7 +89,11 @@ function SimulationPage() {
           onClick={() =>
             navigate({
               to: "/apply",
-              search: { product: products.find((p) => p.id === value.productId)?.slug, amount: value.amount, months: value.months },
+              search: {
+                product: products.find((p) => p.id === value.productId)?.slug,
+                amount: value.amount,
+                months: value.months,
+              },
             })
           }
         >

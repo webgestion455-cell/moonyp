@@ -23,7 +23,11 @@ export const PasswordInput = forwardRef<HTMLInputElement, Props>(function Passwo
       <button
         type="button"
         tabIndex={-1}
-        aria-label={shown ? showToggleLabel?.hide ?? "Hide password" : showToggleLabel?.show ?? "Show password"}
+        aria-label={
+          shown
+            ? (showToggleLabel?.hide ?? "Hide password")
+            : (showToggleLabel?.show ?? "Show password")
+        }
         onClick={() => setShown((v) => !v)}
         className="absolute inset-y-0 right-0 grid w-10 place-items-center text-muted-foreground hover:text-foreground transition"
       >

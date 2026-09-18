@@ -14,7 +14,10 @@ import { join } from "node:path";
 const LOCALES_DIR = "src/i18n/locales";
 const files = readdirSync(LOCALES_DIR).filter((f) => f.endsWith(".json"));
 const locales = Object.fromEntries(
-  files.map((f) => [f.replace(/\.json$/, ""), JSON.parse(readFileSync(join(LOCALES_DIR, f), "utf8"))]),
+  files.map((f) => [
+    f.replace(/\.json$/, ""),
+    JSON.parse(readFileSync(join(LOCALES_DIR, f), "utf8")),
+  ]),
 );
 
 const flatten = (obj, prefix = "", out = {}) => {
@@ -31,10 +34,12 @@ const reference = Object.keys(flat.en);
 const problems = [];
 
 for (const [lang, entries] of Object.entries(flat)) {
-  for (const key of reference) if (!(key in entries)) problems.push(`[${lang}] clé manquante : ${key}`);
+  for (const key of reference)
+    if (!(key in entries)) problems.push(`[${lang}] clé manquante : ${key}`);
   for (const [key, value] of Object.entries(entries)) {
     if (Array.isArray(value)) continue;
-    if (typeof value !== "string") problems.push(`[${lang}] type invalide (${typeof value}) : ${key}`);
+    if (typeof value !== "string")
+      problems.push(`[${lang}] type invalide (${typeof value}) : ${key}`);
     else if (!value.trim()) problems.push(`[${lang}] valeur vide : ${key}`);
   }
 }
@@ -42,25 +47,68 @@ for (const [lang, entries] of Object.entries(flat)) {
 // Clés dynamiques construites à l'exécution.
 const dynamic = [
   ...[
-    "draft", "received", "verification", "documents_missing", "analysis", "info_requested",
-    "approved", "rejected", "offer_available", "contract_sent", "signature_pending",
-    "contract_signed", "disbursement_preparing", "disbursed", "repaying", "late", "repaid",
-    "cancelled", "unknown",
+    "draft",
+    "received",
+    "verification",
+    "documents_missing",
+    "analysis",
+    "info_requested",
+    "approved",
+    "rejected",
+    "offer_available",
+    "contract_sent",
+    "signature_pending",
+    "contract_signed",
+    "disbursement_preparing",
+    "disbursed",
+    "repaying",
+    "late",
+    "repaid",
+    "cancelled",
+    "unknown",
   ].map((s) => `finance.status.${s}`),
-  ...["employee", "civil_servant", "self_employed", "business_owner", "retired", "student", "unemployed", "other"]
-    .map((s) => `finance.employment.${s}`),
-  ...["personal", "auto", "mortgage", "business"].flatMap((s) => [`products.${s}.name`, `products.${s}.desc`]),
   ...[
-    "nationalId", "passport", "drivingLicence", "residencePermit", "electricity", "water", "telecom",
-    "hosting", "selfie", "bankStatement", "payslip", "taxReturn", "pension", "benefits", "kbis",
+    "employee",
+    "civil_servant",
+    "self_employed",
+    "business_owner",
+    "retired",
+    "student",
+    "unemployed",
+    "other",
+  ].map((s) => `finance.employment.${s}`),
+  ...["personal", "auto", "mortgage", "business"].flatMap((s) => [
+    `products.${s}.name`,
+    `products.${s}.desc`,
+  ]),
+  ...[
+    "nationalId",
+    "passport",
+    "drivingLicence",
+    "residencePermit",
+    "electricity",
+    "water",
+    "telecom",
+    "hosting",
+    "selfie",
+    "bankStatement",
+    "payslip",
+    "taxReturn",
+    "pension",
+    "benefits",
+    "kbis",
   ].map((s) => `kyc.docs.${s}`),
   ...["identity", "address", "selfie", "bank", "income"].flatMap((c) => [
     `kyc.category.${c}.title`,
     `kyc.category.${c}.desc`,
   ]),
   ...["scan", "scan_double", "selfie", "upload"].map((m) => `kyc.hint.${m}`),
-  ...["pending", "approved", "rejected", "replacement_requested"].map((s) => `finance.portal.doc.${s}`),
-  ...["pending", "verifying", "passed", "failed", "manual_review"].map((s) => `finance.portal.kyc.${s}`),
+  ...["pending", "approved", "rejected", "replacement_requested"].map(
+    (s) => `finance.portal.doc.${s}`,
+  ),
+  ...["pending", "verifying", "passed", "failed", "manual_review"].map(
+    (s) => `finance.portal.kyc.${s}`,
+  ),
 ];
 
 for (const [lang, entries] of Object.entries(flat)) {

@@ -100,7 +100,10 @@ serve(async (req) => {
     }
 
     // 5) Notifier tous les admins via notifications (push)
-    const { data: admins } = await supabaseAdmin.from("user_roles").select("user_id").eq("role", "admin");
+    const { data: admins } = await supabaseAdmin
+      .from("user_roles")
+      .select("user_id")
+      .eq("role", "admin");
     if (admins?.length) {
       await supabaseAdmin.from("notifications").insert(
         admins.map((a: { user_id: string }) => ({

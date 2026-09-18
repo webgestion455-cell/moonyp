@@ -60,8 +60,12 @@ function AdminChatLayout() {
     load();
     const chan = supabase
       .channel("admin-chat-folders")
-      .on("postgres_changes", { event: "*", schema: "public", table: "chat_conversations" }, () => load())
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "chat_messages" }, () => load())
+      .on("postgres_changes", { event: "*", schema: "public", table: "chat_conversations" }, () =>
+        load(),
+      )
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "chat_messages" }, () =>
+        load(),
+      )
       .subscribe();
     return () => {
       supabase.removeChannel(chan);
@@ -120,7 +124,6 @@ function AdminChatLayout() {
           )}
         >
           <div className="p-3 border-b border-border space-y-2">
-
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               <Folder className="h-3.5 w-3.5" />
               {t("chat.admin.folders")}
@@ -141,7 +144,9 @@ function AdminChatLayout() {
                   onClick={() => setFilter(k)}
                   className={cn(
                     "text-[11px] px-2 py-1 rounded-full border",
-                    filter === k ? "bg-[#00915A] text-white border-[#00915A]" : "border-border text-muted-foreground hover:bg-muted",
+                    filter === k
+                      ? "bg-[#00915A] text-white border-[#00915A]"
+                      : "border-border text-muted-foreground hover:bg-muted",
                   )}
                 >
                   {t(`chat.admin.filter.${k}`)}
@@ -151,7 +156,9 @@ function AdminChatLayout() {
           </div>
           <div className="flex-1 overflow-y-auto">
             {filteredFolders.length === 0 && (
-              <p className="p-4 text-sm text-muted-foreground">{t("chat.admin.empty") ?? "Aucun dossier"}</p>
+              <p className="p-4 text-sm text-muted-foreground">
+                {t("chat.admin.empty") ?? "Aucun dossier"}
+              </p>
             )}
             {filteredFolders.map((f) => (
               <button
@@ -162,10 +169,12 @@ function AdminChatLayout() {
                   selectedFolder === f.folder_key && "bg-muted",
                 )}
               >
-                <div className={cn(
-                  "h-8 w-8 rounded-full grid place-items-center shrink-0 text-white text-xs font-bold",
-                  f.is_guest ? "bg-amber-500" : "bg-[#00915A]",
-                )}>
+                <div
+                  className={cn(
+                    "h-8 w-8 rounded-full grid place-items-center shrink-0 text-white text-xs font-bold",
+                    f.is_guest ? "bg-amber-500" : "bg-[#00915A]",
+                  )}
+                >
                   {f.folder_name.slice(0, 1).toUpperCase()}
                 </div>
                 <div className="min-w-0 flex-1">
@@ -175,7 +184,9 @@ function AdminChatLayout() {
                       <Badge className="bg-red-500 text-white text-[10px]">{f.unread_total}</Badge>
                     )}
                   </div>
-                  <p className="text-[11px] text-muted-foreground truncate">{f.folder_email ?? (f.is_guest ? "Visiteur" : "—")}</p>
+                  <p className="text-[11px] text-muted-foreground truncate">
+                    {f.folder_email ?? (f.is_guest ? "Visiteur" : "—")}
+                  </p>
                   <div className="flex items-center gap-2 mt-1 text-[10px] text-muted-foreground">
                     <span>{f.open_count} ouv.</span>
                     <span>·</span>
@@ -225,20 +236,29 @@ function AdminChatLayout() {
                 )}
               >
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-[11px] text-primary">#{tk.ticket_number ?? "—"}</span>
-                  <span className={cn(
-                    "text-[10px] px-1.5 py-0.5 rounded-full",
-                    tk.status === "closed" ? "bg-muted text-muted-foreground" :
-                    tk.status === "waiting_agent" ? "bg-amber-500/20 text-amber-700 dark:text-amber-300" :
-                    tk.status === "assigned" ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300" :
-                    "bg-blue-500/20 text-blue-700 dark:text-blue-300"
-                  )}>
+                  <span className="font-mono text-[11px] text-primary">
+                    #{tk.ticket_number ?? "—"}
+                  </span>
+                  <span
+                    className={cn(
+                      "text-[10px] px-1.5 py-0.5 rounded-full",
+                      tk.status === "closed"
+                        ? "bg-muted text-muted-foreground"
+                        : tk.status === "waiting_agent"
+                          ? "bg-amber-500/20 text-amber-700 dark:text-amber-300"
+                          : tk.status === "assigned"
+                            ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300"
+                            : "bg-blue-500/20 text-blue-700 dark:text-blue-300",
+                    )}
+                  >
                     {t(`chat.status.${tk.status}`)}
                   </span>
                 </div>
                 <p className="font-medium truncate mt-0.5">{tk.subject}</p>
                 {tk.unread_agent > 0 && (
-                  <Badge className="bg-red-500 text-white text-[10px] mt-1">{tk.unread_agent}</Badge>
+                  <Badge className="bg-red-500 text-white text-[10px] mt-1">
+                    {tk.unread_agent}
+                  </Badge>
                 )}
                 <p className="text-[11px] text-muted-foreground mt-0.5">
                   {formatDay(tk.last_message_at, t as any, locale)}
@@ -260,7 +280,6 @@ function AdminChatLayout() {
           )}
           <Outlet />
         </section>
-
       </div>
     </div>
   );

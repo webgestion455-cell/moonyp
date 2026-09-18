@@ -18,7 +18,23 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { translateMapAsync } from "./lib/translate.mjs";
 
 const DIR = "src/lib/pdf/i18n";
-const LANGS = ["fr", "en", "de", "es", "it", "nl", "pl", "ro", "sk", "sl", "hr", "hu", "fi", "bg", "el"];
+const LANGS = [
+  "fr",
+  "en",
+  "de",
+  "es",
+  "it",
+  "nl",
+  "pl",
+  "ro",
+  "sk",
+  "sl",
+  "hr",
+  "hu",
+  "fi",
+  "bg",
+  "el",
+];
 const DRY = process.argv.includes("--dry");
 
 /** Libellé « Article » : terme juridique figé, jamais traduit automatiquement. */

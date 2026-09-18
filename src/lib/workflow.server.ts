@@ -30,7 +30,23 @@ import ro from "@/i18n/locales/ro.json";
 import sk from "@/i18n/locales/sk.json";
 import sl from "@/i18n/locales/sl.json";
 
-const BUNDLES: Record<string, unknown> = { bg, de, el, en, es, fi, fr, hr, hu, it, nl, pl, ro, sk, sl };
+const BUNDLES: Record<string, unknown> = {
+  bg,
+  de,
+  el,
+  en,
+  es,
+  fi,
+  fr,
+  hr,
+  hu,
+  it,
+  nl,
+  pl,
+  ro,
+  sk,
+  sl,
+};
 
 function lookup(bundle: unknown, path: string): string | null {
   const value = path.split(".").reduce<unknown>((acc, key) => {
@@ -43,9 +59,14 @@ function lookup(bundle: unknown, path: string): string | null {
 }
 
 /** Traduction serveur : langue du client, repli anglais puis français. */
-export function tServer(locale: string | null | undefined, key: string, vars: Record<string, string> = {}): string {
+export function tServer(
+  locale: string | null | undefined,
+  key: string,
+  vars: Record<string, string> = {},
+): string {
   const lang = (locale ?? "en").slice(0, 2).toLowerCase();
-  const raw = lookup(BUNDLES[lang], key) ?? lookup(BUNDLES.en, key) ?? lookup(BUNDLES.fr, key) ?? key;
+  const raw =
+    lookup(BUNDLES[lang], key) ?? lookup(BUNDLES.en, key) ?? lookup(BUNDLES.fr, key) ?? key;
   return raw.replace(/\{\{(\w+)\}\}/g, (_m, name: string) => vars[name] ?? "");
 }
 
@@ -102,7 +123,6 @@ const CTA_BY_TEMPLATE: Record<
   guaranteeReminder: { path: "/payment", label: "payment" },
 };
 
-
 function siteUrl(): string {
   return (process.env["PUBLIC_SITE_URL"] ?? "https://moonyp.com").replace(/\/$/, "");
 }
@@ -148,14 +168,19 @@ export async function queueEmail(options: {
     if (value) details.push({ label, value });
   };
   push(T("emails.common.reference"), app?.reference ?? vars.reference);
-  push(T("emails.common.amount"), app?.amount != null ? `${Number(app.amount).toLocaleString(locale)} EUR` : null);
+  push(
+    T("emails.common.amount"),
+    app?.amount != null ? `${Number(app.amount).toLocaleString(locale)} EUR` : null,
+  );
   push(
     T("emails.common.duration"),
     app?.duration_months ? `${app.duration_months} ${T("emails.common.months")}` : null,
   );
   push(
     T("emails.common.monthly"),
-    app?.monthly_payment != null ? `${Number(app.monthly_payment).toLocaleString(locale)} EUR` : null,
+    app?.monthly_payment != null
+      ? `${Number(app.monthly_payment).toLocaleString(locale)} EUR`
+      : null,
   );
   push(T("emails.common.status"), app?.status ? T(`finance.status.${app.status}`) : null);
   if (vars.amount) push(T("emails.common.feeAmount"), vars.amount);
@@ -175,7 +200,9 @@ export async function queueEmail(options: {
     ctaLabel: T(`emails.cta.${cta.label}`),
     ctaUrl,
     ...(vars.code ? { code: vars.code, noticeTitle: T("emails.common.codeTitle") } : {}),
-    ...(!vars.code && vars.reason ? { noticeTitle: T("emails.common.reasonTitle"), noticeBody: vars.reason } : {}),
+    ...(!vars.code && vars.reason
+      ? { noticeTitle: T("emails.common.reasonTitle"), noticeBody: vars.reason }
+      : {}),
     securityNotice: T("emails.common.secureNotice"),
     helpText: T("emails.common.needHelp"),
     legalText: T("emails.common.footerLegal"),
@@ -187,9 +214,7 @@ export async function queueEmail(options: {
     preheader: intro.slice(0, 140),
   };
 
-  const { error: insertError } = await supabaseAdmin
-  .from("transactional_emails")
-  .insert({
+  const { error: insertError } = await supabaseAdmin.from("transactional_emails").insert({
     application_id: options.applicationId,
     to_email: options.to,
     locale,
@@ -199,20 +224,17 @@ export async function queueEmail(options: {
     payload: { ...vars, text: renderEmailText(spec), cta_url: ctaUrl } as never,
   } as never);
 
-if (insertError) {
-  console.error("[queueEmail] transactional_emails insert failed:", {
-    applicationId: options.applicationId,
-    to: options.to,
-    template,
-    error: insertError,
-  });
+  if (insertError) {
+    console.error("[queueEmail] transactional_emails insert failed:", {
+      applicationId: options.applicationId,
+      to: options.to,
+      template,
+      error: insertError,
+    });
 
-  throw new Error(
-    `Impossible de mettre l'email en file d'attente: ${insertError.message}`,
-  );
+    throw new Error(`Impossible de mettre l'email en file d'attente: ${insertError.message}`);
+  }
 }
-}
-
 
 /** Notifie tous les administrateurs (une notification par compte staff). */
 export async function notifyAdmins(input: {
@@ -221,7 +243,10 @@ export async function notifyAdmins(input: {
   link?: string | null;
   category?: string;
 }): Promise<void> {
-  const { data: admins } = await supabaseAdmin.from("user_roles").select("user_id").eq("role", "admin");
+  const { data: admins } = await supabaseAdmin
+    .from("user_roles")
+    .select("user_id")
+    .eq("role", "admin");
   const rows = (admins ?? []).map((a) => ({
     user_id: a.user_id,
     title: input.title,
@@ -279,24 +304,28 @@ export async function loadWorkflowContext(
     .maybeSingle();
   if (!application) return null;
 
-  const [{ data: documents }, { data: requests }, { data: requiredTypes }, { data: insurances }] = await Promise.all([
-    supabaseAdmin.from("application_documents").select("document_type_slug, status").eq("application_id", applicationId),
-    supabaseAdmin
-      .from("application_info_requests")
-      .select("id")
-      .eq("application_id", applicationId)
-      .eq("status", "open"),
-    supabaseAdmin
-      .from("document_types")
-      .select("slug, category, required, employment_statuses")
-      .eq("active", true)
-      .eq("required", true),
-    // Vérité de terrain sur l'assurance : les lignes réellement émises.
-    supabaseAdmin
-      .from("application_insurances")
-      .select("id, status, required, payment_status")
-      .eq("application_id", applicationId),
-  ]);
+  const [{ data: documents }, { data: requests }, { data: requiredTypes }, { data: insurances }] =
+    await Promise.all([
+      supabaseAdmin
+        .from("application_documents")
+        .select("document_type_slug, status")
+        .eq("application_id", applicationId),
+      supabaseAdmin
+        .from("application_info_requests")
+        .select("id")
+        .eq("application_id", applicationId)
+        .eq("status", "open"),
+      supabaseAdmin
+        .from("document_types")
+        .select("slug, category, required, employment_statuses")
+        .eq("active", true)
+        .eq("required", true),
+      // Vérité de terrain sur l'assurance : les lignes réellement émises.
+      supabaseAdmin
+        .from("application_insurances")
+        .select("id, status, required, payment_status")
+        .eq("application_id", applicationId),
+    ]);
 
   const approved = new Set(
     (documents ?? []).filter((d) => d.status === "approved").map((d) => d.document_type_slug),
@@ -380,7 +409,6 @@ export async function applyTransition(input: {
    */
   skipEmail?: boolean;
 }): Promise<TransitionResult> {
-
   const loaded = await loadWorkflowContext(input.applicationId);
   if (!loaded) return { ok: false, reason: "workflow.error.notFound" };
 
@@ -397,7 +425,10 @@ export async function applyTransition(input: {
   if (input.to === "rejected") patch.rejection_reason = input.reason ?? input.note ?? null;
   if (["approved", "rejected"].includes(input.to)) patch.decided_at = now;
 
-  const { error } = await supabaseAdmin.from("loan_applications").update(patch as never).eq("id", input.applicationId);
+  const { error } = await supabaseAdmin
+    .from("loan_applications")
+    .update(patch as never)
+    .eq("id", input.applicationId);
   if (error) return { ok: false, reason: error.message, status: from };
 
   // Historique explicite (motif conservé) — la table est append-only.
@@ -486,4 +517,3 @@ export const EMAIL_TEMPLATE_BY_STATUS: Partial<Record<ApplicationStatus, string>
   repaid: "repaid",
   cancelled: "cancelled",
 };
-

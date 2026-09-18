@@ -24,7 +24,13 @@ interface AuthContextValue {
   isSuperAdmin: boolean;
   hasPermission: (key: string) => boolean;
   loading: boolean;
-  signUp: (email: string, password: string, fullName: string, phone: string, lang: string) => Promise<{ error: Error | null }>;
+  signUp: (
+    email: string,
+    password: string,
+    fullName: string,
+    phone: string,
+    lang: string,
+  ) => Promise<{ error: Error | null }>;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
 }
@@ -42,92 +48,88 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  let active = true;
-  const failSafe = window.setTimeout(() => {
-    if (active) setLoading(false);
-  }, 2500);
+    let active = true;
+    const failSafe = window.setTimeout(() => {
+      if (active) setLoading(false);
+    }, 2500);
 
-  // IMPORTANT: CAPTURE SUBSCRIPTION
-  const {
-    data: { subscription },
-  } = supabase.auth.onAuthStateChange((_event: string, newSession: Session | null) => {
-    if (!active) return;
-
-
-    setSession(newSession);
-    setUser(newSession?.user ?? null);
-
-    // NO USER
-    if (!newSession?.user) {
-      setRole(null);
-      setLoading(false);
-      return;
-    }
-
-    // EMAIL NON CONFIRMÉ
-    if (!newSession.user.email_confirmed_at) {
-      setRole(null);
-      setLoading(false);
-      return;
-    }
-
-    setRole(null);
-
-    setTimeout(() => {
-      void fetchRole(newSession.user.id);
-    }, 0);
-
-    setLoading(false);
-  });
-
-  // CHECK SESSION INITIALE
-  supabase.auth
-    .getSession()
-    .then(({ data: { session: existing } }: { data: { session: Session | null } }) => {
+    // IMPORTANT: CAPTURE SUBSCRIPTION
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event: string, newSession: Session | null) => {
       if (!active) return;
 
-      setSession(existing);
-      setUser(existing?.user ?? null);
+      setSession(newSession);
+      setUser(newSession?.user ?? null);
 
-      if (!existing?.user) {
+      // NO USER
+      if (!newSession?.user) {
         setRole(null);
         setLoading(false);
         return;
       }
 
-      if (!existing.user.email_confirmed_at) {
+      // EMAIL NON CONFIRMÉ
+      if (!newSession.user.email_confirmed_at) {
         setRole(null);
         setLoading(false);
         return;
       }
 
       setRole(null);
-      void fetchRole(existing.user.id);
-    })
-    .catch(() => {
-      if (!active) return;
-      setSession(null);
-      setUser(null);
-      setRole(null);
-    })
-    .finally(() => {
-      if (!active) return;
-      window.clearTimeout(failSafe);
+
+      setTimeout(() => {
+        void fetchRole(newSession.user.id);
+      }, 0);
+
       setLoading(false);
     });
 
-  return () => {
-    active = false;
-    window.clearTimeout(failSafe);
-    subscription.unsubscribe();
-  };
-}, []);
+    // CHECK SESSION INITIALE
+    supabase.auth
+      .getSession()
+      .then(({ data: { session: existing } }: { data: { session: Session | null } }) => {
+        if (!active) return;
+
+        setSession(existing);
+        setUser(existing?.user ?? null);
+
+        if (!existing?.user) {
+          setRole(null);
+          setLoading(false);
+          return;
+        }
+
+        if (!existing.user.email_confirmed_at) {
+          setRole(null);
+          setLoading(false);
+          return;
+        }
+
+        setRole(null);
+        void fetchRole(existing.user.id);
+      })
+      .catch(() => {
+        if (!active) return;
+        setSession(null);
+        setUser(null);
+        setRole(null);
+      })
+      .finally(() => {
+        if (!active) return;
+        window.clearTimeout(failSafe);
+        setLoading(false);
+      });
+
+    return () => {
+      active = false;
+      window.clearTimeout(failSafe);
+      subscription.unsubscribe();
+    };
+  }, []);
 
   async function fetchRole(userId: string) {
-    const { data } = await supabase
-      .from("user_roles")
-      .select("role")
-      .eq("user_id", userId);
+    const { data } = await supabase.from("user_roles").select("role").eq("user_id", userId);
     const list: string[] = (data ?? []).map((r: { role: string }) => r.role);
     setRoles(list);
     const staff = list.some((r) => r === "admin" || r === "super_admin" || r === "agent");
@@ -179,19 +181,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, [user?.id]);
 
-  async function signUp(email: string, password: string, fullName: string, phone: string, lang: string) {
+  async function signUp(
+    email: string,
+    password: string,
+    fullName: string,
+    phone: string,
+    lang: string,
+  ) {
     const redirectUrl = `${window.location.origin}/dashboard`;
     const { error, data } = await supabase.auth.signUp({
       email,
       password,
       options: {
         emailRedirectTo: redirectUrl,
-        data: { full_name: fullName, phone, lang: lang.substring(0,2).toLowerCase(), },
+        data: { full_name: fullName, phone, lang: lang.substring(0, 2).toLowerCase() },
       },
     });
     try {
       const { logSecurityEvent, checkAndRegisterDevice } = await import("@/lib/security");
-      await logSecurityEvent("signup", { userId: data?.user?.id ?? null, success: !error, metadata: { email } });
+      await logSecurityEvent("signup", {
+        userId: data?.user?.id ?? null,
+        success: !error,
+        metadata: { email },
+      });
       if (data?.user?.id) await checkAndRegisterDevice(data.user.id);
     } catch {}
     return { error };
@@ -202,20 +214,32 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const sec = await import("@/lib/security");
       if (error) {
-        await sec.logSecurityEvent("login_failure", { userId: null, success: false, metadata: { email, reason: error.message } });
+        await sec.logSecurityEvent("login_failure", {
+          userId: null,
+          success: false,
+          metadata: { email, reason: error.message },
+        });
       } else if (data.user) {
         const dev = await sec.checkAndRegisterDevice(data.user.id);
-        await sec.logSecurityEvent("login_success", { userId: data.user.id, metadata: { newDevice: dev.isNew, newCountry: dev.isNewCountry } });
+        await sec.logSecurityEvent("login_success", {
+          userId: data.user.id,
+          metadata: { newDevice: dev.isNew, newCountry: dev.isNewCountry },
+        });
         if (dev.isNew || dev.isNewCountry) {
           await supabase.from("security_alerts").insert({
             user_id: data.user.id,
             alert_type: dev.isNew ? "new_device_login" : "new_country_login",
             severity: dev.isNew && dev.isNewCountry ? "high" : "medium",
-            description: dev.isNew ? `Login from a new device (${dev.device.browser}/${dev.device.os})` : `Login from a new country (${dev.country})`,
+            description: dev.isNew
+              ? `Login from a new device (${dev.device.browser}/${dev.device.os})`
+              : `Login from a new country (${dev.country})`,
             metadata: { fingerprint: dev.device.fingerprint, country: dev.country } as never,
           });
         }
-        await sec.updateRiskScore(data.user.id, { newDevice: dev.isNew, newCountry: dev.isNewCountry });
+        await sec.updateRiskScore(data.user.id, {
+          newDevice: dev.isNew,
+          newCountry: dev.isNewCountry,
+        });
         sec.startSessionTimer();
       }
     } catch {}
@@ -237,7 +261,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const staffRole = (STAFF_PRIORITY.find((r) => roles.includes(r)) ?? null) as StaffRole | null;
   const isSuperAdmin = roles.includes("super_admin");
   const isStaff = staffRole !== null;
-  const hasPermission = (key: string) => isSuperAdmin || permissions.includes("*") || permissions.includes(key);
+  const hasPermission = (key: string) =>
+    isSuperAdmin || permissions.includes("*") || permissions.includes(key);
 
   return (
     <AuthContext.Provider

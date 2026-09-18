@@ -26,11 +26,7 @@ import { Button } from "@/components/ui/button";
 import { DocumentScanner, type ScanShape } from "@/components/finance/DocumentScanner";
 import { DocumentSource } from "@/components/finance/DocumentSource";
 import { LivenessCheck } from "@/components/finance/LivenessCheck";
-import {
-  KycArtApproved,
-  KycArtRejected,
-  KycArtReview,
-} from "@/components/finance/KycDecisionArt";
+import { KycArtApproved, KycArtRejected, KycArtReview } from "@/components/finance/KycDecisionArt";
 import type { CaptureEvidence } from "@/lib/kyc/image-analysis";
 import type { LivenessSessionEvidence } from "@/lib/kyc/liveness-engine";
 import { useImmersiveMode } from "@/lib/kyc/immersive";
@@ -61,7 +57,14 @@ export interface KycDocumentType {
 }
 
 export type KycStatus =
-  | "todo" | "in_progress" | "capturing" | "verifying" | "passed" | "failed" | "retry" | "manual_review";
+  | "todo"
+  | "in_progress"
+  | "capturing"
+  | "verifying"
+  | "passed"
+  | "failed"
+  | "retry"
+  | "manual_review";
 
 /** Preuve de capture réelle attachée à chaque pièce (revalidée côté serveur). */
 export type KycEvidence = CaptureEvidence | LivenessSessionEvidence;
@@ -123,7 +126,12 @@ export function docLabel(d: KycDocumentType, t: (k: string) => string): string {
  */
 export function resolveKycPlan(
   documentTypes: KycDocumentType[],
-  options: { employmentStatus: string; productSlug: string; allowedIdDocuments: string[]; countryCode: string },
+  options: {
+    employmentStatus: string;
+    productSlug: string;
+    allowedIdDocuments: string[];
+    countryCode: string;
+  },
 ): Record<KycCategory, KycDocumentType[]> {
   const plan = {} as Record<KycCategory, KycDocumentType[]>;
   for (const category of CATEGORY_ORDER) {
@@ -131,7 +139,11 @@ export function resolveKycPlan(
       .filter((d) => d.category === category)
       .filter((d) => d.product_slugs.length === 0 || d.product_slugs.includes(options.productSlug))
       .filter((d) => d.countries.length === 0 || d.countries.includes(options.countryCode))
-      .filter((d) => d.employment_statuses.length === 0 || d.employment_statuses.includes(options.employmentStatus))
+      .filter(
+        (d) =>
+          d.employment_statuses.length === 0 ||
+          d.employment_statuses.includes(options.employmentStatus),
+      )
       .filter((d) => {
         if (category !== "identity") return true;
         const key = d.slug.replace(/^id_/, "");
@@ -142,7 +154,10 @@ export function resolveKycPlan(
   return plan;
 }
 
-export function isKycComplete(plan: Record<KycCategory, KycDocumentType[]>, state: KycState): boolean {
+export function isKycComplete(
+  plan: Record<KycCategory, KycDocumentType[]>,
+  state: KycState,
+): boolean {
   return CATEGORY_ORDER.every((category) => {
     const docs = plan[category];
     if (docs.length === 0) return true;
@@ -171,8 +186,15 @@ interface Props {
 }
 
 export function KycFlow({
-  documentTypes, employmentStatus, productSlug, allowedIdDocuments, countryCode, state, onChange,
-  identity, onComplete,
+  documentTypes,
+  employmentStatus,
+  productSlug,
+  allowedIdDocuments,
+  countryCode,
+  state,
+  onChange,
+  identity,
+  onComplete,
 }: Props) {
   const { t } = useTranslation();
   const [started, setStarted] = useState(false);
@@ -234,7 +256,13 @@ export function KycFlow({
   }, [started]);
 
   const plan = useMemo(
-    () => resolveKycPlan(documentTypes, { employmentStatus, productSlug, allowedIdDocuments, countryCode }),
+    () =>
+      resolveKycPlan(documentTypes, {
+        employmentStatus,
+        productSlug,
+        allowedIdDocuments,
+        countryCode,
+      }),
     [documentTypes, employmentStatus, productSlug, allowedIdDocuments, countryCode],
   );
   const categories = CATEGORY_ORDER.filter((c) => plan[c].length > 0);
@@ -276,7 +304,13 @@ export function KycFlow({
    * l'enchaînement : l'image ne quitte pas le téléphone pour être lue.
    */
   const addCapture = useCallback(
-    async (category: KycCategory, doc: KycDocumentType, side: number, file: File, evidence?: KycEvidence) => {
+    async (
+      category: KycCategory,
+      doc: KycDocumentType,
+      side: number,
+      file: File,
+      evidence?: KycEvidence,
+    ) => {
       const preview = URL.createObjectURL(file);
       const current = stateRef.current.files[doc.slug] ?? [];
       current.filter((f) => f.side === side).forEach((f) => URL.revokeObjectURL(f.preview));
@@ -312,7 +346,9 @@ export function KycFlow({
             ...stateRef.current,
             files: {
               ...stateRef.current.files,
-              [doc.slug]: shots.map((f) => (f.side === side && f.file === file ? { ...f, ocr } : f)),
+              [doc.slug]: shots.map((f) =>
+                f.side === side && f.file === file ? { ...f, ocr } : f,
+              ),
             },
           });
         })
@@ -334,7 +370,8 @@ export function KycFlow({
     patch({ files: { ...state.files, [slug]: current.filter((f) => f.side !== side) } });
   };
 
-  const complete = (c: KycCategory) => ["passed", "verifying", "manual_review"].includes(categoryStatus(c));
+  const complete = (c: KycCategory) =>
+    ["passed", "verifying", "manual_review"].includes(categoryStatus(c));
   const index = active ? categories.indexOf(active) : categories.length;
   const goNext = () => setActive(categories[index + 1] ?? null);
   const goPrev = () => setActive(index > 0 ? categories[index - 1]! : null);
@@ -361,7 +398,11 @@ export function KycFlow({
           document_type_slug: doc.slug,
           category: doc.category,
           capture_method:
-            doc.capture_mode === "selfie" ? "liveness" : doc.capture_mode === "upload" ? "upload" : "scan",
+            doc.capture_mode === "selfie"
+              ? "liveness"
+              : doc.capture_mode === "upload"
+                ? "upload"
+                : "scan",
           capture_evidence: shot.evidence,
           ocr: shot.ocr
             ? {
@@ -430,7 +471,6 @@ export function KycFlow({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onRecap, assessSignature, reading]);
 
-
   /**
    * Écran plein du parcours. Le contenu occupe l'affichage entier, le chrome
    * du site est masqué, et chaque changement d'étape glisse latéralement : le
@@ -486,7 +526,10 @@ export function KycFlow({
       )}
       <button
         type="button"
-        onClick={() => { setCapturing(null); setStarted(false); }}
+        onClick={() => {
+          setCapturing(null);
+          setStarted(false);
+        }}
         aria-label={t("common.close")}
         className="-mr-2 rounded-md p-1.5 text-muted-foreground transition-colors hover:text-foreground"
       >
@@ -505,7 +548,9 @@ export function KycFlow({
           </span>
           <div className="min-w-0">
             <h2 className="text-base font-semibold">{t("kyc.intro.title")}</h2>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t("kyc.intro.why")}</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+              {t("kyc.intro.why")}
+            </p>
           </div>
         </div>
 
@@ -513,13 +558,20 @@ export function KycFlow({
           {categories.map((category, i) => {
             const Icon = CATEGORY_ICON[category];
             return (
-              <li key={category} className="flex items-center gap-3 rounded-lg border border-border px-3.5 py-3">
+              <li
+                key={category}
+                className="flex items-center gap-3 rounded-lg border border-border px-3.5 py-3"
+              >
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
                   <Icon className="h-4 w-4" aria-hidden />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block text-sm font-medium">{t(`kyc.category.${category}.title`)}</span>
-                  <span className="block text-xs text-muted-foreground">{t(`kyc.category.${category}.desc`)}</span>
+                  <span className="block text-sm font-medium">
+                    {t(`kyc.category.${category}.title`)}
+                  </span>
+                  <span className="block text-xs text-muted-foreground">
+                    {t(`kyc.category.${category}.desc`)}
+                  </span>
                 </span>
                 <span className="shrink-0 text-xs tabular-nums text-muted-foreground">{i + 1}</span>
               </li>
@@ -538,7 +590,15 @@ export function KycFlow({
           </p>
         </div>
 
-        <Button type="button" size="lg" className="w-full" onClick={() => { setStarted(true); setActive(categories[0] ?? null); }}>
+        <Button
+          type="button"
+          size="lg"
+          className="w-full"
+          onClick={() => {
+            setStarted(true);
+            setActive(categories[0] ?? null);
+          }}
+        >
           {t("kyc.intro.start")}
           <ChevronRight className="h-4 w-4" aria-hidden />
         </Button>
@@ -559,43 +619,57 @@ export function KycFlow({
     if (doc) {
       const twoSided = doc.capture_mode === "scan_double" && doc.sides > 1;
       const sideKey = twoSided ? (capturing.side === 1 ? "front" : "back") : "single";
-      const label = twoSided ? `${docLabel(doc, t)} — ${t(`kyc.side.${sideKey}`)}` : docLabel(doc, t);
+      const label = twoSided
+        ? `${docLabel(doc, t)} — ${t(`kyc.side.${sideKey}`)}`
+        : docLabel(doc, t);
       const close = () => setCapturing(null);
 
       if (doc.capture_mode === "selfie") {
-        return screen(`${doc.slug}-liveness`, (
+        return screen(
+          `${doc.slug}-liveness`,
           <LivenessCheck
             title={label}
             hint={t("kyc.hint.selfie")}
-            onCapture={(file, evidence) => void addCapture(active, doc, capturing.side, file, evidence)}
+            onCapture={(file, evidence) =>
+              void addCapture(active, doc, capturing.side, file, evidence)
+            }
             onCancel={close}
-          />
-        ), true);
+          />,
+          true,
+        );
       }
 
       if (doc.capture_mode === "upload") {
-        return screen(`${doc.slug}-upload-${capturing.side}`, (
+        return screen(
+          `${doc.slug}-upload-${capturing.side}`,
           <DocumentSource
             title={label}
             hint={t("kyc.hint.upload")}
             accept={doc.allowed_mime}
             maxSizeMb={doc.max_size_mb}
-            onCapture={(file, evidence) => void addCapture(active, doc, capturing.side, file, evidence)}
+            onCapture={(file, evidence) =>
+              void addCapture(active, doc, capturing.side, file, evidence)
+            }
             onCancel={close}
-          />
-        ), true);
+          />,
+          true,
+        );
       }
 
-      return screen(`${doc.slug}-scan-${capturing.side}`, (
+      return screen(
+        `${doc.slug}-scan-${capturing.side}`,
         <DocumentScanner
           shape={scanShape(doc)}
           profile="identity"
           title={label}
           hint={t(`kyc.hint.${doc.capture_mode}`)}
-          onCapture={(file, evidence) => void addCapture(active, doc, capturing.side, file, evidence)}
+          onCapture={(file, evidence) =>
+            void addCapture(active, doc, capturing.side, file, evidence)
+          }
           onCancel={close}
-        />
-      ), true);
+        />,
+        true,
+      );
     }
   }
 
@@ -604,11 +678,22 @@ export function KycFlow({
     <div className="space-y-2">
       <div className="flex items-center justify-between text-xs text-muted-foreground">
         <span className="font-medium tabular-nums">
-          {t("kyc.stepOf", { current: Math.min(index + 1, categories.length), total: categories.length })}
+          {t("kyc.stepOf", {
+            current: Math.min(index + 1, categories.length),
+            total: categories.length,
+          })}
         </span>
-        <span className="tabular-nums">{categories.filter(complete).length}/{categories.length}</span>
+        <span className="tabular-nums">
+          {categories.filter(complete).length}/{categories.length}
+        </span>
       </div>
-      <div className="flex gap-1.5" role="progressbar" aria-valuemin={0} aria-valuemax={categories.length} aria-valuenow={index}>
+      <div
+        className="flex gap-1.5"
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={categories.length}
+        aria-valuenow={index}
+      >
         {categories.map((c, i) => (
           <span
             key={c}
@@ -624,7 +709,8 @@ export function KycFlow({
 
   /* --------------------------- Final recap step ------------------------- */
   if (!active) {
-    return screen("recap", (
+    return screen(
+      "recap",
       <>
         {topBar()}
         {rail}
@@ -634,17 +720,14 @@ export function KycFlow({
           </span>
           <div className="min-w-0">
             <h2 className="text-base font-semibold">{t("kyc.done.title")}</h2>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t("kyc.done.desc")}</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+              {t("kyc.done.desc")}
+            </p>
           </div>
         </div>
 
         {/* Verdict d'identité — rendu par le serveur, jamais par l'écran. */}
-        <DecisionCard
-          assessment={assessment}
-          loading={assessing || reading}
-          failed={assessError}
-        />
-
+        <DecisionCard assessment={assessment} loading={assessing || reading} failed={assessError} />
 
         <ul className="space-y-2">
           {categories.map((category) => {
@@ -653,12 +736,17 @@ export function KycFlow({
             const chosen = state.choices[category] ?? (docs.length === 1 ? docs[0]!.slug : "");
             const doc = docs.find((d) => d.slug === chosen);
             return (
-              <li key={category} className="flex items-center gap-3 rounded-lg border border-border px-3.5 py-3">
+              <li
+                key={category}
+                className="flex items-center gap-3 rounded-lg border border-border px-3.5 py-3"
+              >
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
                   <Icon className="h-4 w-4" aria-hidden />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate text-sm font-medium">{t(`kyc.category.${category}.title`)}</span>
+                  <span className="block truncate text-sm font-medium">
+                    {t(`kyc.category.${category}.title`)}
+                  </span>
                   <span className="block truncate text-xs text-muted-foreground">
                     {doc ? docLabel(doc, t) : t(`kyc.category.${category}.desc`)}
                   </span>
@@ -720,10 +808,9 @@ export function KycFlow({
             </Button>
           )}
         </div>
-      </>
-    ));
+      </>,
+    );
   }
-
 
   /* ------------------------- One category at a time --------------------- */
   const docs = plan[active];
@@ -734,7 +821,8 @@ export function KycFlow({
   const ActiveIcon = CATEGORY_ICON[active];
   const canContinue = complete(active) || !docs.some((d) => d.required);
 
-  return screen(active, (
+  return screen(
+    active,
     <>
       {topBar(index > 0 ? goPrev : undefined)}
       {rail}
@@ -745,7 +833,9 @@ export function KycFlow({
         </span>
         <div className="min-w-0 flex-1">
           <h2 className="text-base font-semibold">{t(`kyc.category.${active}.title`)}</h2>
-          <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{t(`kyc.category.${active}.desc`)}</p>
+          <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">
+            {t(`kyc.category.${active}.desc`)}
+          </p>
         </div>
         <StatusPill status={categoryStatus(active)} />
       </header>
@@ -764,10 +854,18 @@ export function KycFlow({
                 aria-pressed={d.slug === chosen}
                 className={cn(
                   "flex items-center gap-2.5 rounded-lg border px-3 py-2.5 text-left text-sm transition-all",
-                  d.slug === chosen ? "border-primary bg-primary/5 ring-1 ring-primary" : "border-border hover:border-ring/50",
+                  d.slug === chosen
+                    ? "border-primary bg-primary/5 ring-1 ring-primary"
+                    : "border-border hover:border-ring/50",
                 )}
               >
-                <BadgeCheck className={cn("h-4 w-4 shrink-0", d.slug === chosen ? "text-primary" : "text-muted-foreground")} aria-hidden />
+                <BadgeCheck
+                  className={cn(
+                    "h-4 w-4 shrink-0",
+                    d.slug === chosen ? "text-primary" : "text-muted-foreground",
+                  )}
+                  aria-hidden
+                />
                 <span className="min-w-0 flex-1 truncate">{docLabel(d, t)}</span>
               </button>
             ))}
@@ -785,11 +883,17 @@ export function KycFlow({
                 <div key={side} className="overflow-hidden rounded-lg border border-border">
                   <div className="relative aspect-[1.586/1] bg-muted/60">
                     {shot && shot.file.type.startsWith("image/") ? (
-                      <img src={shot.preview} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                      <img
+                        src={shot.preview}
+                        alt=""
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
                     ) : shot ? (
                       <div className="absolute inset-0 grid place-items-center gap-1 text-muted-foreground">
                         <FileText className="h-6 w-6" aria-hidden />
-                        <span className="max-w-[85%] truncate px-2 text-[11px]">{shot.file.name}</span>
+                        <span className="max-w-[85%] truncate px-2 text-[11px]">
+                          {shot.file.name}
+                        </span>
                       </div>
                     ) : (
                       <div className="absolute inset-0 grid place-items-center text-muted-foreground">
@@ -837,11 +941,15 @@ export function KycFlow({
               );
             })}
           </div>
-          <p className="text-xs leading-relaxed text-muted-foreground">{t(`kyc.hint.${doc.capture_mode}`)}</p>
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            {t(`kyc.hint.${doc.capture_mode}`)}
+          </p>
         </div>
       )}
 
-      {docs.length === 0 && <p className="text-sm text-muted-foreground">{t("kyc.nothingRequired")}</p>}
+      {docs.length === 0 && (
+        <p className="text-sm text-muted-foreground">{t("kyc.nothingRequired")}</p>
+      )}
 
       <div className="flex items-center gap-3 border-t border-border pt-4">
         <Button type="button" variant="ghost" onClick={goPrev} disabled={index === 0}>
@@ -857,14 +965,16 @@ export function KycFlow({
         <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
         {t("kyc.storageNotice")}
       </p>
-    </>
-  ));
+    </>,
+  );
 }
-
 
 function StatusPill({ status }: { status: KycStatus }) {
   const { t } = useTranslation();
-  const map: Record<KycStatus, { className: string; Icon: React.ComponentType<{ className?: string }> }> = {
+  const map: Record<
+    KycStatus,
+    { className: string; Icon: React.ComponentType<{ className?: string }> }
+  > = {
     todo: { className: "bg-muted text-muted-foreground", Icon: CircleDashed },
     in_progress: { className: "bg-info/15 text-info", Icon: CircleDashed },
     capturing: { className: "bg-warning/15 text-warning", Icon: Loader2 },
@@ -876,7 +986,12 @@ function StatusPill({ status }: { status: KycStatus }) {
   };
   const { className, Icon } = map[status];
   return (
-    <span className={cn("flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium", className)}>
+    <span
+      className={cn(
+        "flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium",
+        className,
+      )}
+    >
       <Icon className="h-3 w-3" aria-hidden />
       <span className="hidden sm:inline">{t(`kyc.status.${status}`)}</span>
     </span>
@@ -929,10 +1044,22 @@ function DecisionCard({
 
   const view =
     decision === "passed"
-      ? { box: "border-success/40 bg-success/5", Art: KycArtApproved, notice: "kyc.decision.passedNotice" }
+      ? {
+          box: "border-success/40 bg-success/5",
+          Art: KycArtApproved,
+          notice: "kyc.decision.passedNotice",
+        }
       : decision === "failed"
-        ? { box: "border-destructive/40 bg-destructive/5", Art: KycArtRejected, notice: "kyc.decision.failedNotice" }
-        : { box: "border-warning/40 bg-warning/5", Art: KycArtReview, notice: "kyc.decision.reviewNotice" };
+        ? {
+            box: "border-destructive/40 bg-destructive/5",
+            Art: KycArtRejected,
+            notice: "kyc.decision.failedNotice",
+          }
+        : {
+            box: "border-warning/40 bg-warning/5",
+            Art: KycArtReview,
+            notice: "kyc.decision.reviewNotice",
+          };
 
   return (
     <div

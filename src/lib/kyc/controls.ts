@@ -38,7 +38,10 @@ export type StepKey = "identity" | "address" | "liveness" | "iban" | "income";
 export const STEP_ORDER: readonly StepKey[] = ["identity", "address", "liveness", "iban", "income"];
 
 /** Catégorie du catalogue `document_types` alimentant chaque étape. */
-export const STEP_DOCUMENT_CATEGORY: Record<StepKey, "identity" | "address" | "selfie" | "bank" | "income"> = {
+export const STEP_DOCUMENT_CATEGORY: Record<
+  StepKey,
+  "identity" | "address" | "selfie" | "bank" | "income"
+> = {
   identity: "identity",
   address: "address",
   liveness: "selfie",
@@ -141,9 +144,9 @@ export function controlsForStep(step: StepKey): ControlDefinition[] {
   return CONTROL_DEFINITIONS.filter((c) => c.step === step);
 }
 
-export const REQUIRED_CONTROLS: readonly ControlKey[] = CONTROL_DEFINITIONS.filter((c) => c.required).map(
-  (c) => c.key,
-);
+export const REQUIRED_CONTROLS: readonly ControlKey[] = CONTROL_DEFINITIONS.filter(
+  (c) => c.required,
+).map((c) => c.key);
 
 /** Résultat d'un contrôle tel qu'il est persisté (une ligne par contrôle). */
 export interface ControlResult {
@@ -212,7 +215,10 @@ export function sanitizeResult(result: ControlResult): ControlResult {
  * INCONCLUSIVE (la preuve manque). Un contrôle facultatif NOT_VERIFIED
  * (ex. authenticité) ne bloque pas l'étape mais reste visible tel quel.
  */
-export function stepStatus(step: StepKey, results: readonly ControlResult[]): { status: StepStatus; reasons: string[] } {
+export function stepStatus(
+  step: StepKey,
+  results: readonly ControlResult[],
+): { status: StepStatus; reasons: string[] } {
   const defs = controlsForStep(step);
   const byKey = new Map(results.map((r) => [r.control, sanitizeResult(r)]));
   const reasons: string[] = [];
@@ -281,12 +287,19 @@ export interface AggregateInput {
   requiredSteps: readonly StepKey[];
 }
 
-export function aggregateKyc(input: AggregateInput): { state: KycAggregateState; reasons: string[] } {
+export function aggregateKyc(input: AggregateInput): {
+  state: KycAggregateState;
+  reasons: string[];
+} {
   const reasons: string[] = [];
-  const statuses = input.requiredSteps.map((s) => ({ step: s, status: input.steps[s] ?? "NOT_STARTED" }));
+  const statuses = input.requiredSteps.map((s) => ({
+    step: s,
+    status: input.steps[s] ?? "NOT_STARTED",
+  }));
 
   if (statuses.length === 0) return { state: "kyc_not_started", reasons: ["no_step_required"] };
-  if (statuses.every((s) => s.status === "NOT_STARTED")) return { state: "kyc_not_started", reasons: [] };
+  if (statuses.every((s) => s.status === "NOT_STARTED"))
+    return { state: "kyc_not_started", reasons: [] };
 
   const missing = statuses.filter((s) => s.status === "NOT_STARTED");
   if (missing.length > 0) {
@@ -299,11 +312,13 @@ export function aggregateKyc(input: AggregateInput): { state: KycAggregateState;
     return { state: "kyc_rejected_evidence", reasons };
   }
   if (statuses.some((s) => s.status === "REVIEW_REQUIRED")) {
-    for (const s of statuses.filter((x) => x.status === "REVIEW_REQUIRED")) reasons.push(`${s.step}:review_required`);
+    for (const s of statuses.filter((x) => x.status === "REVIEW_REQUIRED"))
+      reasons.push(`${s.step}:review_required`);
     return { state: "kyc_review_required", reasons };
   }
   if (statuses.some((s) => s.status === "INCONCLUSIVE")) {
-    for (const s of statuses.filter((x) => x.status === "INCONCLUSIVE")) reasons.push(`${s.step}:inconclusive`);
+    for (const s of statuses.filter((x) => x.status === "INCONCLUSIVE"))
+      reasons.push(`${s.step}:inconclusive`);
     return { state: "kyc_insufficient_evidence", reasons };
   }
   return { state: "kyc_ready_for_review", reasons };
@@ -335,13 +350,16 @@ export function canSubmitStep(
     if (key === step) return { allowed: true };
     if (!requiredSteps.includes(key)) continue;
     const s = steps[key] ?? "NOT_STARTED";
-    if (s === "NOT_STARTED" || s === "FAIL") return { allowed: false, reason: `previous_step_incomplete:${key}` };
+    if (s === "NOT_STARTED" || s === "FAIL")
+      return { allowed: false, reason: `previous_step_incomplete:${key}` };
   }
   return { allowed: true };
 }
 
 /** Statuts machine ↔ colonne historique application_kyc_checks.status. */
-export function legacyCheckStatus(status: StepStatus | ControlStatus): "verifying" | "passed" | "failed" | "manual_review" {
+export function legacyCheckStatus(
+  status: StepStatus | ControlStatus,
+): "verifying" | "passed" | "failed" | "manual_review" {
   switch (status) {
     case "PASS":
       return "passed";

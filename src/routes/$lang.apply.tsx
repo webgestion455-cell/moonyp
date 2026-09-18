@@ -90,13 +90,33 @@ export const Route = createFileRoute("/$lang/apply")({
 type FormState = Record<string, unknown>;
 
 const EMPTY: FormState = {
-  first_name: "", last_name: "", birth_date: "", nationality: "", address: "", postal_code: "",
-  city: "", country: "", phone: "", phone_country: "", email: "",
-  employment_status: "", profession: "", employer: "", seniority_months: "", monthly_income: "",
-  monthly_charges: "", other_income: "0", household_size: "1",
+  first_name: "",
+  last_name: "",
+  birth_date: "",
+  nationality: "",
+  address: "",
+  postal_code: "",
+  city: "",
+  country: "",
+  phone: "",
+  phone_country: "",
+  email: "",
+  employment_status: "",
+  profession: "",
+  employer: "",
+  seniority_months: "",
+  monthly_income: "",
+  monthly_charges: "",
+  other_income: "0",
+  household_size: "1",
   purpose: "",
-  bank_holder: "", bank_name: "", bank_iban: "", bank_bic: "",
-  consent_terms: false, consent_privacy: false, consent_marketing: false,
+  bank_holder: "",
+  bank_name: "",
+  bank_iban: "",
+  bank_bic: "",
+  consent_terms: false,
+  consent_privacy: false,
+  consent_marketing: false,
 };
 
 function ApplyPage() {
@@ -125,12 +145,20 @@ function ApplyPage() {
   const [loan, setLoan] = useState(() => ({
     productId: initialProduct?.id ?? "",
     amount: initialProduct
-      ? clampToStep(search.amount ?? (initialProduct.min_amount + initialProduct.max_amount) / 4,
-          initialProduct.min_amount, initialProduct.max_amount, initialProduct.amount_step)
+      ? clampToStep(
+          search.amount ?? (initialProduct.min_amount + initialProduct.max_amount) / 4,
+          initialProduct.min_amount,
+          initialProduct.max_amount,
+          initialProduct.amount_step,
+        )
       : 0,
     months: initialProduct
-      ? clampToStep(search.months ?? Math.round((initialProduct.min_months + initialProduct.max_months) / 3),
-          initialProduct.min_months, initialProduct.max_months, initialProduct.months_step)
+      ? clampToStep(
+          search.months ?? Math.round((initialProduct.min_months + initialProduct.max_months) / 3),
+          initialProduct.min_months,
+          initialProduct.max_months,
+          initialProduct.months_step,
+        )
       : 0,
     insurance: true,
   }));
@@ -195,7 +223,14 @@ function ApplyPage() {
         last_name: String(form.last_name ?? ""),
         residence_country: String(form.country ?? ""),
       }),
-    [form.bank_holder, form.bank_iban, form.bank_bic, form.first_name, form.last_name, form.country],
+    [
+      form.bank_holder,
+      form.bank_iban,
+      form.bank_bic,
+      form.first_name,
+      form.last_name,
+      form.country,
+    ],
   );
 
   const kycPlan = useMemo(
@@ -254,7 +289,15 @@ function ApplyPage() {
       return true;
     }
 
-    const schemas: Record<number, { safeParse: (v: unknown) => { success: boolean; error?: { issues: { path: (string | number)[]; message: string }[] } } }> = {
+    const schemas: Record<
+      number,
+      {
+        safeParse: (v: unknown) => {
+          success: boolean;
+          error?: { issues: { path: (string | number)[]; message: string }[] };
+        };
+      }
+    > = {
       1: identitySchema,
       2: employmentSchema,
       3: requestSchema,
@@ -266,13 +309,20 @@ function ApplyPage() {
 
     const payload =
       current === 3
-        ? { product_id: loan.productId, amount: loan.amount, duration_months: loan.months, purpose: form.purpose, insurance_opted: loan.insurance }
+        ? {
+            product_id: loan.productId,
+            amount: loan.amount,
+            duration_months: loan.months,
+            purpose: form.purpose,
+            insurance_opted: loan.insurance,
+          }
         : form;
     const parsed = schema.safeParse(payload);
 
     const next: Record<string, string> = {};
     for (const issue of parsed.error?.issues ?? []) {
-      next[String(issue.path[0])] = t(issue.message) === issue.message ? t("finance.validation.required") : t(issue.message);
+      next[String(issue.path[0])] =
+        t(issue.message) === issue.message ? t("finance.validation.required") : t(issue.message);
     }
 
     // Domain rules the generic schema cannot express.
@@ -284,7 +334,9 @@ function ApplyPage() {
     }
     if (current === 4) {
       for (const issue of payoutAudit.issues.filter((i) => i.severity === "error")) {
-        next[issue.field] = t(`finance.validation.${issue.code}`, { defaultValue: t("finance.validation.required") });
+        next[issue.field] = t(`finance.validation.${issue.code}`, {
+          defaultValue: t("finance.validation.required"),
+        });
       }
     }
 
@@ -314,12 +366,21 @@ function ApplyPage() {
       const created = await submitFn({ data: payload as never });
 
       const captures = Object.entries(kyc.files).flatMap(([slug, list]) =>
-        list.map((capture) => ({ slug, file: capture.file, evidence: capture.evidence, ocr: capture.ocr })),
+        list.map((capture) => ({
+          slug,
+          file: capture.file,
+          evidence: capture.evidence,
+          ocr: capture.ocr,
+        })),
       );
       setProgress({ done: 0, total: captures.length });
 
       const registered: Array<{
-        document_type_slug: string; storage_path: string; file_name: string; mime_type: string; file_size: number;
+        document_type_slug: string;
+        storage_path: string;
+        file_name: string;
+        mime_type: string;
+        file_size: number;
         capture_evidence?: unknown;
         ocr?: unknown;
       }> = [];
@@ -327,15 +388,24 @@ function ApplyPage() {
       for (const [index, capture] of captures.entries()) {
         const { file, slug, evidence, ocr } = capture;
         const signed = await uploadUrlFn({
-          data: { token: created.token, document_type_slug: slug, file_name: file.name, mime_type: file.type, file_size: file.size },
+          data: {
+            token: created.token,
+            document_type_slug: slug,
+            file_name: file.name,
+            mime_type: file.type,
+            file_size: file.size,
+          },
         });
         const { error } = await supabase.storage
           .from("kyc-documents")
           .uploadToSignedUrl(signed.path, signed.token, file, { contentType: file.type });
         if (error) throw new Error(error.message);
         registered.push({
-          document_type_slug: slug, storage_path: signed.path, file_name: file.name,
-          mime_type: file.type, file_size: file.size,
+          document_type_slug: slug,
+          storage_path: signed.path,
+          file_name: file.name,
+          mime_type: file.type,
+          file_size: file.size,
           // Preuve mesurée à la capture : revalidée côté serveur, jamais crue sur parole.
           ...(evidence ? { capture_evidence: evidence } : {}),
           // Lecture OCR : seul le texte brut est transmis. Le serveur re-décode
@@ -395,10 +465,18 @@ function ApplyPage() {
   const field = (
     name: string,
     labelKey: string,
-    extra?: { type?: string; placeholder?: string; inputMode?: "text" | "numeric" | "tel" | "email" | "decimal"; suffix?: string; hint?: string },
+    extra?: {
+      type?: string;
+      placeholder?: string;
+      inputMode?: "text" | "numeric" | "tel" | "email" | "decimal";
+      suffix?: string;
+      hint?: string;
+    },
   ) => (
     <div className="space-y-1.5">
-      <Label htmlFor={name} className="text-sm">{t(labelKey)}</Label>
+      <Label htmlFor={name} className="text-sm">
+        {t(labelKey)}
+      </Label>
       <div className="relative">
         <Input
           id={name}
@@ -418,9 +496,13 @@ function ApplyPage() {
           </span>
         )}
       </div>
-      {extra?.hint && !errors[name] && <p className="text-xs text-muted-foreground">{extra.hint}</p>}
+      {extra?.hint && !errors[name] && (
+        <p className="text-xs text-muted-foreground">{extra.hint}</p>
+      )}
       {errors[name] && (
-        <p id={`${name}-error`} role="alert" className="text-xs font-medium text-destructive">{errors[name]}</p>
+        <p id={`${name}-error`} role="alert" className="text-xs font-medium text-destructive">
+          {errors[name]}
+        </p>
       )}
     </div>
   );
@@ -430,7 +512,9 @@ function ApplyPage() {
   return (
     <div ref={topRef} className="mx-auto w-full max-w-4xl px-4 pb-32 pt-8 sm:px-6 sm:pt-12 lg:px-8">
       <header>
-        <h1 className="font-serif text-2xl font-medium tracking-tight sm:text-3xl">{t("finance.apply.title")}</h1>
+        <h1 className="font-serif text-2xl font-medium tracking-tight sm:text-3xl">
+          {t("finance.apply.title")}
+        </h1>
         <p className="mt-2 text-sm text-muted-foreground">{t("finance.apply.subtitle")}</p>
       </header>
 
@@ -495,7 +579,9 @@ function ApplyPage() {
               value={String(form.phone ?? "")}
               country={String(form.phone_country ?? "")}
               hints={[String(form.country ?? ""), String(form.nationality ?? "")]}
-              onChange={({ value, country }) => setForm((f) => ({ ...f, phone: value, phone_country: country }))}
+              onChange={({ value, country }) =>
+                setForm((f) => ({ ...f, phone: value, phone_country: country }))
+              }
               error={errors.phone}
               required
             />
@@ -507,7 +593,9 @@ function ApplyPage() {
         {step === 2 && (
           <section className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-1.5 sm:col-span-2">
-              <Label htmlFor="employment_status" className="text-sm">{t("finance.fields.employmentStatus")}</Label>
+              <Label htmlFor="employment_status" className="text-sm">
+                {t("finance.fields.employmentStatus")}
+              </Label>
               <select
                 id="employment_status"
                 value={String(form.employment_status ?? "")}
@@ -517,18 +605,37 @@ function ApplyPage() {
               >
                 <option value="">{t("finance.fields.choose")}</option>
                 {EMPLOYMENT_STATUSES.map((s) => (
-                  <option key={s} value={s}>{t(`finance.employment.${s}`)}</option>
+                  <option key={s} value={s}>
+                    {t(`finance.employment.${s}`)}
+                  </option>
                 ))}
               </select>
-              {errors.employment_status && <p role="alert" className="text-xs font-medium text-destructive">{errors.employment_status}</p>}
+              {errors.employment_status && (
+                <p role="alert" className="text-xs font-medium text-destructive">
+                  {errors.employment_status}
+                </p>
+              )}
             </div>
             {employmentFields.profession && field("profession", "finance.fields.profession")}
             {employmentFields.employer && field("employer", "finance.fields.employer")}
-            {employmentFields.seniority && field("seniority_months", "finance.fields.seniority", { inputMode: "numeric", suffix: t("finance.sim.monthsShort") })}
+            {employmentFields.seniority &&
+              field("seniority_months", "finance.fields.seniority", {
+                inputMode: "numeric",
+                suffix: t("finance.sim.monthsShort"),
+              })}
             {field("household_size", "finance.fields.household", { inputMode: "numeric" })}
-            {field("monthly_income", "finance.fields.income", { inputMode: "decimal", suffix: currency })}
-            {field("monthly_charges", "finance.fields.charges", { inputMode: "decimal", suffix: currency })}
-            {field("other_income", "finance.fields.otherIncome", { inputMode: "decimal", suffix: currency })}
+            {field("monthly_income", "finance.fields.income", {
+              inputMode: "decimal",
+              suffix: currency,
+            })}
+            {field("monthly_charges", "finance.fields.charges", {
+              inputMode: "decimal",
+              suffix: currency,
+            })}
+            {field("other_income", "finance.fields.otherIncome", {
+              inputMode: "decimal",
+              suffix: currency,
+            })}
           </section>
         )}
 
@@ -582,17 +689,23 @@ function ApplyPage() {
             <label className="flex items-start gap-3 rounded-xl border border-border p-4 text-sm">
               <Checkbox
                 checked={loan.insurance}
-                onCheckedChange={(checked) => setLoan((l) => ({ ...l, insurance: checked === true }))}
+                onCheckedChange={(checked) =>
+                  setLoan((l) => ({ ...l, insurance: checked === true }))
+                }
                 className="mt-0.5"
               />
               <span>
                 <span className="block font-medium">{t("finance.sim.insurance")}</span>
-                <span className="block text-xs text-muted-foreground">{t("finance.sim.insuranceHint")}</span>
+                <span className="block text-xs text-muted-foreground">
+                  {t("finance.sim.insuranceHint")}
+                </span>
               </span>
             </label>
 
             <div className="space-y-1.5">
-              <Label htmlFor="purpose" className="text-sm">{t("finance.fields.purpose")}</Label>
+              <Label htmlFor="purpose" className="text-sm">
+                {t("finance.fields.purpose")}
+              </Label>
               <Textarea
                 id="purpose"
                 value={String(form.purpose ?? "")}
@@ -629,10 +742,14 @@ function ApplyPage() {
               {t("finance.apply.bankNotice")}
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
-              {field("bank_holder", "finance.fields.bankHolder", { hint: t("finance.apply.holderHint") })}
+              {field("bank_holder", "finance.fields.bankHolder", {
+                hint: t("finance.apply.holderHint"),
+              })}
               {field("bank_name", "finance.fields.bankName")}
               <div className="space-y-1.5 sm:col-span-2">
-                <Label htmlFor="bank_iban" className="text-sm">{t("finance.fields.iban")}</Label>
+                <Label htmlFor="bank_iban" className="text-sm">
+                  {t("finance.fields.iban")}
+                </Label>
                 <Input
                   id="bank_iban"
                   value={formatIban(String(form.bank_iban ?? ""))}
@@ -644,26 +761,48 @@ function ApplyPage() {
                   spellCheck={false}
                 />
                 {String(form.bank_iban ?? "") !== "" && (
-                  <p className={cn("flex items-center gap-1.5 text-xs font-medium", ibanCheck.valid ? "text-success" : "text-destructive")}>
-                    {ibanCheck.valid ? <CheckCircle2 className="h-3.5 w-3.5" aria-hidden /> : <AlertTriangle className="h-3.5 w-3.5" aria-hidden />}
+                  <p
+                    className={cn(
+                      "flex items-center gap-1.5 text-xs font-medium",
+                      ibanCheck.valid ? "text-success" : "text-destructive",
+                    )}
+                  >
+                    {ibanCheck.valid ? (
+                      <CheckCircle2 className="h-3.5 w-3.5" aria-hidden />
+                    ) : (
+                      <AlertTriangle className="h-3.5 w-3.5" aria-hidden />
+                    )}
                     {ibanCheck.valid
-                      ? t("finance.validation.iban.valid", { country: countryName(ibanCheck.country, locale) })
+                      ? t("finance.validation.iban.valid", {
+                          country: countryName(ibanCheck.country, locale),
+                        })
                       : t(`finance.validation.iban.${ibanCheck.reason}`)}
                   </p>
                 )}
-                {errors.bank_iban && <p role="alert" className="text-xs font-medium text-destructive">{errors.bank_iban}</p>}
+                {errors.bank_iban && (
+                  <p role="alert" className="text-xs font-medium text-destructive">
+                    {errors.bank_iban}
+                  </p>
+                )}
               </div>
               {field("bank_bic", "finance.fields.bic", { placeholder: "BNPAFRPPXXX" })}
             </div>
 
             {payoutAudit.issues.filter((i) => i.severity === "warning").length > 0 && (
               <div className="space-y-1.5 rounded-lg border border-warning/40 bg-warning/10 p-3">
-                {payoutAudit.issues.filter((i) => i.severity === "warning").map((issue) => (
-                  <p key={issue.code} className="flex items-start gap-2 text-xs leading-relaxed text-warning">
-                    <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
-                    {t(`finance.validation.${issue.code}`, { defaultValue: t("finance.apply.reviewFlag") })}
-                  </p>
-                ))}
+                {payoutAudit.issues
+                  .filter((i) => i.severity === "warning")
+                  .map((issue) => (
+                    <p
+                      key={issue.code}
+                      className="flex items-start gap-2 text-xs leading-relaxed text-warning"
+                    >
+                      <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
+                      {t(`finance.validation.${issue.code}`, {
+                        defaultValue: t("finance.apply.reviewFlag"),
+                      })}
+                    </p>
+                  ))}
               </div>
             )}
           </section>
@@ -693,51 +832,94 @@ function ApplyPage() {
         {step === 6 && product && quotation && (
           <section className="space-y-5">
             <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">{t("finance.apply.reviewTitle")}</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                {t("finance.apply.reviewTitle")}
+              </p>
               <p className="mt-1 text-2xl font-semibold tabular-nums">
                 {formatMoney(quotation.totalMonthly, currency, locale)}
-                <span className="ml-1 text-sm font-normal text-muted-foreground">{t("finance.sim.perMonth")}</span>
+                <span className="ml-1 text-sm font-normal text-muted-foreground">
+                  {t("finance.sim.perMonth")}
+                </span>
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
-                {t("finance.sim.aprLabel")} {quotation.apr.toFixed(2)}% · {loan.months} {t("finance.sim.months")}
+                {t("finance.sim.aprLabel")} {quotation.apr.toFixed(2)}% · {loan.months}{" "}
+                {t("finance.sim.months")}
               </p>
             </div>
 
-            <ReviewBlock title={t("apply.steps.identity")} onEdit={() => goTo(1)} rows={[
-              [t("finance.fields.firstName"), String(form.first_name ?? "")],
-              [t("finance.fields.lastName"), String(form.last_name ?? "")],
-              [t("finance.fields.birthDate"), String(form.birth_date ?? "")],
-              [t("finance.fields.nationality"), countryName(String(form.nationality ?? ""), locale)],
-              [t("finance.fields.address"), `${form.address ?? ""}, ${form.postal_code ?? ""} ${form.city ?? ""}, ${countryName(String(form.country ?? ""), locale)}`],
-              [t("finance.fields.phone"), String(form.phone ?? "")],
-              [t("finance.fields.email"), String(form.email ?? "")],
-            ]} />
-            <ReviewBlock title={t("apply.steps.employment")} onEdit={() => goTo(2)} rows={[
-              [t("finance.fields.employmentStatus"), form.employment_status ? t(`finance.employment.${form.employment_status}`) : ""],
-              ...(employmentFields.profession ? [[t("finance.fields.profession"), String(form.profession ?? "")]] : []),
-              ...(employmentFields.employer ? [[t("finance.fields.employer"), String(form.employer ?? "")]] : []),
-              [t("finance.fields.income"), formatMoney(Number(form.monthly_income ?? 0), currency, locale)],
-              [t("finance.fields.charges"), formatMoney(Number(form.monthly_charges ?? 0), currency, locale)],
-              [t("finance.apply.dti"), dti === null ? "—" : `${dti}%`],
-            ]} />
-            <ReviewBlock title={t("apply.steps.request")} onEdit={() => goTo(3)} rows={[
-              [t("finance.sim.product"), productLabel(product, t)],
-              [t("finance.sim.amount"), formatMoney(loan.amount, currency, locale)],
-              [t("finance.sim.duration"), `${loan.months} ${t("finance.sim.months")}`],
-              [t("finance.sim.insurance"), loan.insurance ? t("common.yes") : t("common.no")],
-              [t("finance.sim.totalCost"), formatMoney(quotation.totalCost, currency, locale)],
-            ]} />
-            <ReviewBlock title={t("apply.steps.payout")} onEdit={() => goTo(4)} rows={[
-              [t("finance.fields.bankHolder"), String(form.bank_holder ?? "")],
-              [t("finance.fields.iban"), formatIban(String(form.bank_iban ?? ""))],
-              [t("finance.fields.bic"), String(form.bank_bic ?? "") || "—"],
-            ]} />
+            <ReviewBlock
+              title={t("apply.steps.identity")}
+              onEdit={() => goTo(1)}
+              rows={[
+                [t("finance.fields.firstName"), String(form.first_name ?? "")],
+                [t("finance.fields.lastName"), String(form.last_name ?? "")],
+                [t("finance.fields.birthDate"), String(form.birth_date ?? "")],
+                [
+                  t("finance.fields.nationality"),
+                  countryName(String(form.nationality ?? ""), locale),
+                ],
+                [
+                  t("finance.fields.address"),
+                  `${form.address ?? ""}, ${form.postal_code ?? ""} ${form.city ?? ""}, ${countryName(String(form.country ?? ""), locale)}`,
+                ],
+                [t("finance.fields.phone"), String(form.phone ?? "")],
+                [t("finance.fields.email"), String(form.email ?? "")],
+              ]}
+            />
+            <ReviewBlock
+              title={t("apply.steps.employment")}
+              onEdit={() => goTo(2)}
+              rows={[
+                [
+                  t("finance.fields.employmentStatus"),
+                  form.employment_status ? t(`finance.employment.${form.employment_status}`) : "",
+                ],
+                ...(employmentFields.profession
+                  ? [[t("finance.fields.profession"), String(form.profession ?? "")]]
+                  : []),
+                ...(employmentFields.employer
+                  ? [[t("finance.fields.employer"), String(form.employer ?? "")]]
+                  : []),
+                [
+                  t("finance.fields.income"),
+                  formatMoney(Number(form.monthly_income ?? 0), currency, locale),
+                ],
+                [
+                  t("finance.fields.charges"),
+                  formatMoney(Number(form.monthly_charges ?? 0), currency, locale),
+                ],
+                [t("finance.apply.dti"), dti === null ? "—" : `${dti}%`],
+              ]}
+            />
+            <ReviewBlock
+              title={t("apply.steps.request")}
+              onEdit={() => goTo(3)}
+              rows={[
+                [t("finance.sim.product"), productLabel(product, t)],
+                [t("finance.sim.amount"), formatMoney(loan.amount, currency, locale)],
+                [t("finance.sim.duration"), `${loan.months} ${t("finance.sim.months")}`],
+                [t("finance.sim.insurance"), loan.insurance ? t("common.yes") : t("common.no")],
+                [t("finance.sim.totalCost"), formatMoney(quotation.totalCost, currency, locale)],
+              ]}
+            />
+            <ReviewBlock
+              title={t("apply.steps.payout")}
+              onEdit={() => goTo(4)}
+              rows={[
+                [t("finance.fields.bankHolder"), String(form.bank_holder ?? "")],
+                [t("finance.fields.iban"), formatIban(String(form.bank_iban ?? ""))],
+                [t("finance.fields.bic"), String(form.bank_bic ?? "") || "—"],
+              ]}
+            />
             <ReviewBlock
               title={t("apply.steps.documents")}
               onEdit={() => goTo(5)}
               rows={Object.entries(kyc.files).map(([slug, list]) => {
                 const doc = documentTypes.find((d) => d.slug === slug);
-                return [doc ? docLabel(doc, t) : slug, `${list.length} ${t("finance.apply.fileCount")}`];
+                return [
+                  doc ? docLabel(doc, t) : slug,
+                  `${list.length} ${t("finance.apply.fileCount")}`,
+                ];
               })}
             />
 
@@ -754,7 +936,9 @@ function ApplyPage() {
                     aria-invalid={Boolean(errors[key!])}
                     className="mt-0.5"
                   />
-                  <span className={errors[key!] ? "text-destructive" : "text-muted-foreground"}>{t(labelKey!)}</span>
+                  <span className={errors[key!] ? "text-destructive" : "text-muted-foreground"}>
+                    {t(labelKey!)}
+                  </span>
                 </label>
               ))}
             </div>
@@ -772,14 +956,26 @@ function ApplyPage() {
           variant="outline"
           size="lg"
           className="w-full sm:w-auto"
-          onClick={() => (step === 1 ? navigate({ to: "/$lang/simulation" as const, params: { lang }, search: { product: undefined } }) : goTo(step - 1))}
+          onClick={() =>
+            step === 1
+              ? navigate({
+                  to: "/$lang/simulation" as const,
+                  params: { lang },
+                  search: { product: undefined },
+                })
+              : goTo(step - 1)
+          }
           disabled={busy}
         >
           <ArrowLeft className="h-4 w-4" aria-hidden />
           {step === 1 ? t("common.back") : t("finance.apply.previous")}
         </Button>
         {step < 6 ? (
-          <Button size="lg" className="w-full sm:w-auto" onClick={() => validateStep(step) && goTo(step + 1)}>
+          <Button
+            size="lg"
+            className="w-full sm:w-auto"
+            onClick={() => validateStep(step) && goTo(step + 1)}
+          >
             {t("finance.apply.next")}
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Button>
@@ -799,29 +995,55 @@ function ApplyPage() {
 /* -------------------------------------------------------------------------- */
 
 function AmountField({
-  id, label, value, min, max, step, suffix, onChange, integer, locale, currency,
+  id,
+  label,
+  value,
+  min,
+  max,
+  step,
+  suffix,
+  onChange,
+  integer,
+  locale,
+  currency,
 }: {
-  id: string; label: string; value: number; min: number; max: number; step: number;
-  suffix: string; onChange: (v: number) => void; integer?: boolean; locale: string; currency: string;
+  id: string;
+  label: string;
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  suffix: string;
+  onChange: (v: number) => void;
+  integer?: boolean;
+  locale: string;
+  currency: string;
 }) {
   const { t } = useTranslation();
   const [draft, setDraft] = useState(String(value));
   useEffect(() => setDraft(String(value)), [value]);
 
   const presets = useMemo(() => {
-    const raw = [0.1, 0.25, 0.5, 0.75].map((r) => clampToStep(min + (max - min) * r, min, max, step));
+    const raw = [0.1, 0.25, 0.5, 0.75].map((r) =>
+      clampToStep(min + (max - min) * r, min, max, step),
+    );
     return Array.from(new Set(raw));
   }, [min, max, step]);
 
   const commit = (raw: string) => {
     const parsed = Number(raw.replace(/[^\d.]/g, ""));
-    if (!Number.isFinite(parsed)) { setDraft(String(value)); return; }
+    if (!Number.isFinite(parsed)) {
+      setDraft(String(value));
+      return;
+    }
     onChange(clampToStep(parsed, min, max, step));
   };
 
   return (
     <div className="space-y-1.5">
-      <Label htmlFor={id} className="text-sm">{label}</Label>
+      <Label htmlFor={id} className="text-sm">
+        {label}
+      </Label>
       <div className="relative">
         <Input
           id={id}
@@ -829,7 +1051,9 @@ function AmountField({
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           onBlur={(e) => commit(e.target.value)}
-          onKeyDown={(e) => { if (e.key === "Enter") commit((e.target as HTMLInputElement).value); }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") commit((e.target as HTMLInputElement).value);
+          }}
           className="h-12 pr-16 text-lg font-semibold tabular-nums"
         />
         <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-xs font-medium text-muted-foreground">
@@ -844,7 +1068,9 @@ function AmountField({
             onClick={() => onChange(p)}
             className={cn(
               "rounded-full border px-2.5 py-1 text-xs tabular-nums transition-colors",
-              p === value ? "border-primary bg-primary/10 font-medium text-primary" : "border-border text-muted-foreground hover:border-ring/50",
+              p === value
+                ? "border-primary bg-primary/10 font-medium text-primary"
+                : "border-border text-muted-foreground hover:border-ring/50",
             )}
           >
             {integer ? p : formatMoney(p, currency, locale)}
@@ -862,10 +1088,25 @@ function AmountField({
 }
 
 function OfferSummary({
-  monthly, apr, rate, totalCost, totalRepaid, fees, currency, locale, dti,
+  monthly,
+  apr,
+  rate,
+  totalCost,
+  totalRepaid,
+  fees,
+  currency,
+  locale,
+  dti,
 }: {
-  monthly: number; apr: number; rate: number; totalCost: number; totalRepaid: number;
-  fees: number; currency: string; locale: string; dti: number | null;
+  monthly: number;
+  apr: number;
+  rate: number;
+  totalCost: number;
+  totalRepaid: number;
+  fees: number;
+  currency: string;
+  locale: string;
+  dti: number | null;
 }) {
   const { t } = useTranslation();
   const rows: Array<[string, string]> = [
@@ -879,17 +1120,27 @@ function OfferSummary({
     <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs uppercase tracking-wider text-muted-foreground">{t("finance.sim.instalment")}</p>
+          <p className="text-xs uppercase tracking-wider text-muted-foreground">
+            {t("finance.sim.instalment")}
+          </p>
           <p className="mt-1 text-3xl font-semibold tabular-nums">
             {formatMoney(monthly, currency, locale)}
-            <span className="ml-1 text-sm font-normal text-muted-foreground">{t("finance.sim.perMonth")}</span>
+            <span className="ml-1 text-sm font-normal text-muted-foreground">
+              {t("finance.sim.perMonth")}
+            </span>
           </p>
         </div>
         {dti !== null && (
-          <span className={cn(
-            "rounded-full px-3 py-1 text-xs font-medium",
-            dti > 40 ? "bg-destructive/10 text-destructive" : dti > 33 ? "bg-warning/15 text-warning" : "bg-success/15 text-success",
-          )}>
+          <span
+            className={cn(
+              "rounded-full px-3 py-1 text-xs font-medium",
+              dti > 40
+                ? "bg-destructive/10 text-destructive"
+                : dti > 33
+                  ? "bg-warning/15 text-warning"
+                  : "bg-success/15 text-success",
+            )}
+          >
             {t("finance.apply.dti")} {dti}%
           </span>
         )}
@@ -910,13 +1161,25 @@ function OfferSummary({
   );
 }
 
-function ReviewBlock({ title, rows, onEdit }: { title: string; rows: string[][]; onEdit: () => void }) {
+function ReviewBlock({
+  title,
+  rows,
+  onEdit,
+}: {
+  title: string;
+  rows: string[][];
+  onEdit: () => void;
+}) {
   const { t } = useTranslation();
   return (
     <div className="rounded-xl border border-border p-4">
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-sm font-semibold">{title}</h2>
-        <button type="button" onClick={onEdit} className="text-xs font-medium text-primary underline-offset-4 hover:underline">
+        <button
+          type="button"
+          onClick={onEdit}
+          className="text-xs font-medium text-primary underline-offset-4 hover:underline"
+        >
           {t("common.edit")}
         </button>
       </div>
@@ -941,22 +1204,39 @@ function SubmittedScreen({ reference, token }: { reference: string; token: strin
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-success/15">
           <CheckCircle2 className="h-8 w-8 text-success" aria-hidden />
         </div>
-        <h1 className="mt-6 font-serif text-2xl font-medium sm:text-3xl">{t("finance.success.title")}</h1>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t("finance.success.subtitle")}</p>
+        <h1 className="mt-6 font-serif text-2xl font-medium sm:text-3xl">
+          {t("finance.success.title")}
+        </h1>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          {t("finance.success.subtitle")}
+        </p>
 
         <div className="mt-6 rounded-xl border border-border bg-muted/40 p-4">
-          <p className="text-xs uppercase tracking-wider text-muted-foreground">{t("finance.success.reference")}</p>
+          <p className="text-xs uppercase tracking-wider text-muted-foreground">
+            {t("finance.success.reference")}
+          </p>
           <p className="mt-1 font-mono text-xl font-bold tracking-wider">{reference}</p>
         </div>
 
         <ul className="mt-6 space-y-2 text-left text-sm text-muted-foreground">
-          <li className="flex gap-2"><span aria-hidden>•</span>{t("finance.success.step1")}</li>
-          <li className="flex gap-2"><span aria-hidden>•</span>{t("finance.success.step2")}</li>
-          <li className="flex gap-2"><span aria-hidden>•</span>{t("finance.success.step3")}</li>
+          <li className="flex gap-2">
+            <span aria-hidden>•</span>
+            {t("finance.success.step1")}
+          </li>
+          <li className="flex gap-2">
+            <span aria-hidden>•</span>
+            {t("finance.success.step2")}
+          </li>
+          <li className="flex gap-2">
+            <span aria-hidden>•</span>
+            {t("finance.success.step3")}
+          </li>
         </ul>
 
         <Button asChild size="lg" className="mt-8 w-full">
-          <Link to="/secure/application/$token" params={{ token }}>{t("finance.success.openFile")}</Link>
+          <Link to="/secure/application/$token" params={{ token }}>
+            {t("finance.success.openFile")}
+          </Link>
         </Button>
         <p className="mt-3 text-xs text-muted-foreground">{t("finance.success.linkNotice")}</p>
       </Card>

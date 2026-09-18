@@ -1,5 +1,12 @@
 import { useEffect } from "react";
-import { Outlet, Link, createRootRoute, HeadContent, Scripts, useLocation } from "@tanstack/react-router";
+import {
+  Outlet,
+  Link,
+  createRootRoute,
+  HeadContent,
+  Scripts,
+  useLocation,
+} from "@tanstack/react-router";
 import { Capacitor } from "@capacitor/core";
 import { StatusBar, Style } from "@capacitor/status-bar";
 import { SplashScreen } from "@capacitor/splash-screen";
@@ -15,7 +22,6 @@ import { useImmersive } from "@/lib/kyc/immersive";
 import "@/i18n";
 import i18n, { applyDetectedLanguage, LANG_STORAGE_KEY } from "@/i18n";
 import { applyLang, isSupportedLang, normalizeLang } from "@/lib/lang-url";
-
 
 import appCss from "../styles.css?url";
 
@@ -71,7 +77,10 @@ export const Route = createRootRoute({
       { rel: "apple-touch-icon", href: "/icon-512.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600;700;800&display=swap",
+      },
     ],
     scripts: [{ children: themeInitScript }],
   }),
@@ -93,7 +102,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
-
 
 function RootComponent() {
   const location = useLocation();
@@ -119,7 +127,6 @@ function RootComponent() {
     basePath === "/reset-password";
 
   const hideLayout = immersive || chromelessRoute;
-
 
   // Détection de langue appliquée après hydratation (SSR déterministe en "en").
   useEffect(() => {
@@ -151,7 +158,6 @@ function RootComponent() {
   }, [routeLang, pathname]);
 
   useEffect(() => {
-
     if (!Capacitor.isNativePlatform()) return;
     void StatusBar.setOverlaysWebView({ overlay: false });
     void StatusBar.setStyle({ style: Style.Dark });

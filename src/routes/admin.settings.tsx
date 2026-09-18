@@ -3,7 +3,17 @@ import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { useAdminT } from "@/hooks/use-admin-t";
 import { toast } from "sonner";
-import { Bitcoin, CreditCard, Landmark, Loader2, Pencil, Plus, QrCode, Trash2, Wallet } from "lucide-react";
+import {
+  Bitcoin,
+  CreditCard,
+  Landmark,
+  Loader2,
+  Pencil,
+  Plus,
+  QrCode,
+  Trash2,
+  Wallet,
+} from "lucide-react";
 import { ListSkeleton } from "@/components/ui/loader";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
@@ -13,9 +23,21 @@ import { Textarea } from "@/components/ui/textarea";
 import { PageHeader } from "@/components/admin/AdminUI";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { MethodBrands } from "@/components/payments/PaymentBrands";
 import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 import {
@@ -30,7 +52,10 @@ export const Route = createFileRoute("/admin/settings")({
   head: () => ({
     meta: [
       { title: "Moyens de paiement — Administration MOONYP" },
-      { name: "description", content: "Configuration des moyens de paiement et des prestataires d'encaissement Moonyp." },
+      {
+        name: "description",
+        content: "Configuration des moyens de paiement et des prestataires d'encaissement Moonyp.",
+      },
       { property: "og:title", content: "Moyens de paiement — Administration MOONYP" },
       { property: "og:description", content: "Configuration des moyens de paiement Moonyp." },
       { property: "og:type", content: "website" },
@@ -83,7 +108,10 @@ const EMPTY: FormState = {
   sort_order: 0,
 };
 
-const KIND_META: Record<Kind, { label: string; icon: React.ComponentType<{ className?: string }> }> = {
+const KIND_META: Record<
+  Kind,
+  { label: string; icon: React.ComponentType<{ className?: string }> }
+> = {
   bank_transfer: { label: "Virement bancaire", icon: Landmark },
   card: { label: "Carte bancaire", icon: CreditCard },
   qr: { label: "QR code", icon: QrCode },
@@ -205,13 +233,15 @@ function AdminSettings() {
       <PageHeader
         title="Moyens de paiement"
         subtitle="Configurez les moyens de règlement visibles côté client. Les clés API restent côté serveur."
-        actions={<>
-        {canManage && (
-          <Button onClick={openNew}>
-            <Plus className="mr-2 h-4 w-4" /> Nouveau moyen
-          </Button>
-        )}
-        </>}
+        actions={
+          <>
+            {canManage && (
+              <Button onClick={openNew}>
+                <Plus className="mr-2 h-4 w-4" /> Nouveau moyen
+              </Button>
+            )}
+          </>
+        }
       />
 
       <Card>
@@ -229,8 +259,8 @@ function AdminSettings() {
               </div>
               {!p.configured && (
                 <p className="mt-2 text-xs text-muted-foreground">
-                  Secrets manquants : {p.missingEnv.join(", ") || "—"}. Tant qu'ils ne sont pas renseignés, ce
-                  prestataire n'est pas proposé aux clients.
+                  Secrets manquants : {p.missingEnv.join(", ") || "—"}. Tant qu'ils ne sont pas
+                  renseignés, ce prestataire n'est pas proposé aux clients.
                 </p>
               )}
             </div>
@@ -246,7 +276,9 @@ function AdminSettings() {
           {loading ? (
             <ListSkeleton rows={3} />
           ) : rows.length === 0 ? (
-            <p className="py-8 text-center text-sm text-muted-foreground">Aucun moyen de paiement configuré.</p>
+            <p className="py-8 text-center text-sm text-muted-foreground">
+              Aucun moyen de paiement configuré.
+            </p>
           ) : (
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {rows.map((r) => {
@@ -266,7 +298,9 @@ function AdminSettings() {
                           </p>
                         </div>
                       </div>
-                      <Badge variant={r.active ? "default" : "secondary"}>{r.active ? "Actif" : "Inactif"}</Badge>
+                      <Badge variant={r.active ? "default" : "secondary"}>
+                        {r.active ? "Actif" : "Inactif"}
+                      </Badge>
                     </div>
 
                     <MethodBrands kind={r.kind} provider={r.provider} />
@@ -274,7 +308,9 @@ function AdminSettings() {
                     <div className="space-y-0.5 text-xs text-muted-foreground">
                       <p>Prestataire : {PROVIDER_LABEL[r.provider as Provider] ?? r.provider}</p>
                       {providerStatus && !providerStatus.configured && (
-                        <p className="text-amber-600">Prestataire non configuré — invisible côté client.</p>
+                        <p className="text-amber-600">
+                          Prestataire non configuré — invisible côté client.
+                        </p>
                       )}
                       {r.iban && (
                         <p>
@@ -291,7 +327,11 @@ function AdminSettings() {
                           {r.card_brand.toUpperCase()} •••• {r.card_last4}
                         </p>
                       )}
-                      {r.address && <p className="truncate">Adresse : <span className="font-mono">{r.address}</span></p>}
+                      {r.address && (
+                        <p className="truncate">
+                          Adresse : <span className="font-mono">{r.address}</span>
+                        </p>
+                      )}
                       {r.network && <p>Réseau : {r.network}</p>}
                     </div>
 
@@ -350,7 +390,10 @@ function AdminSettings() {
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <Label>Prestataire</Label>
-                <Select value={form.provider} onValueChange={(v) => setForm({ ...form, provider: v as Provider })}>
+                <Select
+                  value={form.provider}
+                  onValueChange={(v) => setForm({ ...form, provider: v as Provider })}
+                >
                   <SelectTrigger className="mt-1.5">
                     <SelectValue />
                   </SelectTrigger>
@@ -365,7 +408,10 @@ function AdminSettings() {
               </div>
               <div>
                 <Label>Type</Label>
-                <Select value={form.kind} onValueChange={(v) => setForm({ ...form, kind: v as Kind })}>
+                <Select
+                  value={form.kind}
+                  onValueChange={(v) => setForm({ ...form, kind: v as Kind })}
+                >
                   <SelectTrigger className="mt-1.5">
                     <SelectValue />
                   </SelectTrigger>
@@ -394,7 +440,9 @@ function AdminSettings() {
                 <Input
                   className="mt-1.5"
                   value={form.currency}
-                  onChange={(e) => setForm({ ...form, currency: e.target.value.toUpperCase().slice(0, 3) })}
+                  onChange={(e) =>
+                    setForm({ ...form, currency: e.target.value.toUpperCase().slice(0, 3) })
+                  }
                 />
               </div>
             </div>
@@ -403,7 +451,11 @@ function AdminSettings() {
               <>
                 <div>
                   <Label>Titulaire</Label>
-                  <Input className="mt-1.5" value={form.holder} onChange={(e) => setForm({ ...form, holder: e.target.value })} />
+                  <Input
+                    className="mt-1.5"
+                    value={form.holder}
+                    onChange={(e) => setForm({ ...form, holder: e.target.value })}
+                  />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
@@ -438,7 +490,10 @@ function AdminSettings() {
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <Label>Réseau</Label>
-                  <Select value={form.card_brand || "visa"} onValueChange={(v) => setForm({ ...form, card_brand: v })}>
+                  <Select
+                    value={form.card_brand || "visa"}
+                    onValueChange={(v) => setForm({ ...form, card_brand: v })}
+                  >
                     <SelectTrigger className="mt-1.5">
                       <SelectValue />
                     </SelectTrigger>
@@ -456,7 +511,9 @@ function AdminSettings() {
                     className="mt-1.5 font-mono"
                     maxLength={4}
                     value={form.card_last4}
-                    onChange={(e) => setForm({ ...form, card_last4: e.target.value.replace(/\D/g, "") })}
+                    onChange={(e) =>
+                      setForm({ ...form, card_last4: e.target.value.replace(/\D/g, "") })
+                    }
                   />
                 </div>
               </div>
@@ -474,7 +531,11 @@ function AdminSettings() {
                 </div>
                 <div>
                   <Label>Réseau (BTC, ETH, USDT-TRC20…)</Label>
-                  <Input className="mt-1.5" value={form.network} onChange={(e) => setForm({ ...form, network: e.target.value })} />
+                  <Input
+                    className="mt-1.5"
+                    value={form.network}
+                    onChange={(e) => setForm({ ...form, network: e.target.value })}
+                  />
                 </div>
               </>
             )}
@@ -503,7 +564,10 @@ function AdminSettings() {
             </div>
 
             <div className="flex items-center gap-3">
-              <Switch checked={form.active} onCheckedChange={(v) => setForm({ ...form, active: v })} />
+              <Switch
+                checked={form.active}
+                onCheckedChange={(v) => setForm({ ...form, active: v })}
+              />
               <span className="text-sm">Visible côté client</span>
               <div className="ml-auto flex items-center gap-2">
                 <Label className="text-xs">Ordre</Label>

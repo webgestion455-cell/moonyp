@@ -66,7 +66,9 @@ const sortDeep = (value) => {
 };
 
 const translations = {};
-for (const file of readdirSync(DATA_DIR).filter((f) => f.startsWith("kyc-i18n.") && f.endsWith(".json"))) {
+for (const file of readdirSync(DATA_DIR).filter(
+  (f) => f.startsWith("kyc-i18n.") && f.endsWith(".json"),
+)) {
   const part = JSON.parse(readFileSync(join(DATA_DIR, file), "utf8"));
   for (const [lang, entries] of Object.entries(part)) {
     translations[lang] = { ...(translations[lang] ?? {}), ...entries };

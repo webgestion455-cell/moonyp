@@ -21,7 +21,8 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   const { location } = useRouterState();
   const navigate = useNavigate();
 
-  const current = SUPPORTED_LANGUAGES.find((l) => l.code === i18n.resolvedLanguage) ?? SUPPORTED_LANGUAGES[0];
+  const current =
+    SUPPORTED_LANGUAGES.find((l) => l.code === i18n.resolvedLanguage) ?? SUPPORTED_LANGUAGES[0];
 
   const switchLanguage = (code: string) => {
     const segments = location.pathname.split("/").filter(Boolean);
@@ -48,7 +49,11 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="max-h-80 w-56 overflow-y-auto">
         {SUPPORTED_LANGUAGES.map((l) => (
-          <DropdownMenuItem key={l.code} onClick={() => switchLanguage(l.code)} className="gap-2 text-sm">
+          <DropdownMenuItem
+            key={l.code}
+            onClick={() => switchLanguage(l.code)}
+            className="gap-2 text-sm"
+          >
             <span aria-hidden>{l.flag}</span>
             <span className="flex-1">{l.label}</span>
             {l.code === current?.code && <Check className="h-4 w-4 text-primary" aria-hidden />}

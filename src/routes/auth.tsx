@@ -64,24 +64,36 @@ function StaffSignIn() {
   return (
     <div className="flex min-h-screen flex-col bg-muted/20 px-4 py-10">
       <div className="mx-auto w-full max-w-md">
-        <Link to="/" className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+        <Link
+          to="/"
+          className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+        >
           <ArrowLeft className="h-4 w-4" /> {t("common.backHome")}
         </Link>
 
         <div className="rounded-2xl border border-border bg-card p-6 shadow-card sm:p-8">
           <div className="flex items-center gap-3">
-            <img src={moonypLogo} alt="MOONYP" width={40} height={40} className="h-10 w-10 object-contain" />
+            <img
+              src={moonypLogo}
+              alt="MOONYP"
+              width={40}
+              height={40}
+              className="h-10 w-10 object-contain"
+            />
             <div>
               <p className="font-serif text-lg font-semibold">MOONYP</p>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Espace équipe</p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                Espace équipe
+              </p>
             </div>
           </div>
 
           <div className="mt-6 flex items-start gap-2 rounded-lg border border-border bg-muted/40 p-3 text-xs text-muted-foreground">
             <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             <p>
-              Accès réservé aux collaborateurs autorisés. Une vérification à deux facteurs est exigée après la
-              connexion. Les clients suivent leur dossier via le lien sécurisé reçu par email.
+              Accès réservé aux collaborateurs autorisés. Une vérification à deux facteurs est
+              exigée après la connexion. Les clients suivent leur dossier via le lien sécurisé reçu
+              par email.
             </p>
           </div>
 
@@ -115,7 +127,10 @@ function StaffSignIn() {
           </form>
 
           <div className="mt-4 text-center text-sm">
-            <Link to="/reset-password" className="text-muted-foreground underline-offset-4 hover:underline">
+            <Link
+              to="/reset-password"
+              className="text-muted-foreground underline-offset-4 hover:underline"
+            >
               {t("auth.forgotPassword")}
             </Link>
           </div>

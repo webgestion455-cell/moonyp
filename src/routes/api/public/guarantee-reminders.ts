@@ -23,7 +23,9 @@ export const Route = createFileRoute("/api/public/guarantee-reminders")({
 
         const { data: rows } = await supabaseAdmin
           .from("application_guarantees")
-          .select("id, application_id, fee_amount, currency, scheduled_payment_date, reminder_count, reminder_last_sent_at")
+          .select(
+            "id, application_id, fee_amount, currency, scheduled_payment_date, reminder_count, reminder_last_sent_at",
+          )
           .eq("client_choice", "pay_later")
           .eq("payment_status", "awaiting_payment")
           .not("scheduled_payment_date", "is", null)
@@ -32,7 +34,9 @@ export const Route = createFileRoute("/api/public/guarantee-reminders")({
 
         let sent = 0;
         for (const row of rows ?? []) {
-          const last = row.reminder_last_sent_at ? new Date(row.reminder_last_sent_at).getTime() : 0;
+          const last = row.reminder_last_sent_at
+            ? new Date(row.reminder_last_sent_at).getTime()
+            : 0;
           if (Date.now() - last < 24 * 3600 * 1000) continue;
 
           const { data: app } = await supabaseAdmin
@@ -91,7 +95,9 @@ export const Route = createFileRoute("/api/public/guarantee-reminders")({
 
         let insuranceSent = 0;
         for (const row of insuranceRows ?? []) {
-          const last = row.reminder_last_sent_at ? new Date(row.reminder_last_sent_at).getTime() : 0;
+          const last = row.reminder_last_sent_at
+            ? new Date(row.reminder_last_sent_at).getTime()
+            : 0;
           if (Date.now() - last < 24 * 3600 * 1000) continue;
 
           const { data: app } = await supabaseAdmin

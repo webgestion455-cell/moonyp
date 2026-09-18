@@ -60,7 +60,10 @@ function pick(bundle: Bundle, path: string): string | undefined {
  * demandée ni en anglais. Utilisé par `docEnum()` pour distinguer une valeur
  * traduisible d'une valeur libre.
  */
-export function docTextOrNull(language: string | null | undefined, path: string): string | undefined {
+export function docTextOrNull(
+  language: string | null | undefined,
+  path: string,
+): string | undefined {
   const lang = docLocale(language);
   return pick(BUNDLES[lang]!, path) ?? pick(BUNDLES["en"]!, path);
 }

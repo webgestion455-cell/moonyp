@@ -140,7 +140,7 @@ export function screenCandidate(
 
       // Une date de naissance connue et différente écarte la correspondance :
       // c'est le seul cas où un homonyme peut être levé automatiquement.
-      if (birth_date_match === "mismatch" && best < 0.97) continue;
+      if (birth_date_match === "mismatch") continue;
 
       hits.push({
         entry_id: entry.id,

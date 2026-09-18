@@ -35,49 +35,55 @@ export const adminGetDisbursement = createServerFn({ method: "POST" })
     await assertStaff(context.supabase as never, context.userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    const [{ data: application }, { data: disbursement }, { data: contract }, { data: guarantee }, { data: insurance }, { data: schedule }] =
-      await Promise.all([
-        supabaseAdmin
-          .from("loan_applications")
-          .select(
-            "id, reference, status, amount, duration_months, monthly_payment, insurance_monthly, first_instalment_on, bank_holder, bank_iban, bank_bic, bank_name",
-          )
-          .eq("id", data.application_id)
-          .maybeSingle(),
-        supabaseAdmin
-          .from("disbursements")
-          .select("*")
-          .eq("application_id", data.application_id)
-          .order("created_at", { ascending: false })
-          .limit(1)
-          .maybeSingle(),
-        supabaseAdmin
-          .from("application_contracts")
-          .select("id, status, signed_at")
-          .eq("application_id", data.application_id)
-          .order("created_at", { ascending: false })
-          .limit(1)
-          .maybeSingle(),
-        supabaseAdmin
-          .from("application_guarantees")
-          .select("id, payment_status, client_choice, fee_amount")
-          .eq("application_id", data.application_id)
-          .order("created_at", { ascending: false })
-          .limit(1)
-          .maybeSingle(),
-        supabaseAdmin
-          .from("application_insurances")
-          .select("id, status, required, payment_status, fee_amount")
-          .eq("application_id", data.application_id)
-          .order("created_at", { ascending: false })
-          .limit(1)
-          .maybeSingle(),
-        supabaseAdmin
-          .from("repayment_schedule")
-          .select("*")
-          .eq("application_id", data.application_id)
-          .order("installment_no", { ascending: true }),
-      ]);
+    const [
+      { data: application },
+      { data: disbursement },
+      { data: contract },
+      { data: guarantee },
+      { data: insurance },
+      { data: schedule },
+    ] = await Promise.all([
+      supabaseAdmin
+        .from("loan_applications")
+        .select(
+          "id, reference, status, amount, duration_months, monthly_payment, insurance_monthly, first_instalment_on, bank_holder, bank_iban, bank_bic, bank_name",
+        )
+        .eq("id", data.application_id)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("disbursements")
+        .select("*")
+        .eq("application_id", data.application_id)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("application_contracts")
+        .select("id, status, signed_at")
+        .eq("application_id", data.application_id)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("application_guarantees")
+        .select("id, payment_status, client_choice, fee_amount")
+        .eq("application_id", data.application_id)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("application_insurances")
+        .select("id, status, required, payment_status, fee_amount")
+        .eq("application_id", data.application_id)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+      supabaseAdmin
+        .from("repayment_schedule")
+        .select("*")
+        .eq("application_id", data.application_id)
+        .order("installment_no", { ascending: true }),
+    ]);
 
     if (!application) throw new Error("application_not_found");
 
@@ -89,7 +95,8 @@ export const adminGetDisbursement = createServerFn({ method: "POST" })
     if (insurance?.required && insurance.status !== "validated") {
       blockers.push("workflow.guard.insuranceNotValidated");
     }
-    if (!application.bank_iban || !application.bank_holder) blockers.push("workflow.guard.missingPayoutDetails");
+    if (!application.bank_iban || !application.bank_holder)
+      blockers.push("workflow.guard.missingPayoutDetails");
 
     return { application, disbursement, schedule: schedule ?? [], blockers };
   });
@@ -119,7 +126,8 @@ export const adminPrepareDisbursement = createServerFn({ method: "POST" })
       .select("bank_holder, bank_iban, bank_bic, bank_name")
       .eq("id", data.application_id)
       .maybeSingle();
-    if (!application?.bank_iban || !application.bank_holder) throw new Error("missing_payout_details");
+    if (!application?.bank_iban || !application.bank_holder)
+      throw new Error("missing_payout_details");
 
     const reference = buildPaymentReference("DEC");
     const { data: row, error } = await supabaseAdmin
@@ -250,7 +258,9 @@ export const adminGenerateSchedule = createServerFn({ method: "POST" })
       const interest = Math.round(balance * monthlyRate * 100) / 100;
       const principal = Math.round((payment - interest) * 100) / 100;
       balance = Math.max(0, Math.round((balance - principal) * 100) / 100);
-      const due = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth() + index, start.getUTCDate()));
+      const due = new Date(
+        Date.UTC(start.getUTCFullYear(), start.getUTCMonth() + index, start.getUTCDate()),
+      );
       return {
         application_id: data.application_id,
         installment_no: index + 1,
@@ -266,7 +276,10 @@ export const adminGenerateSchedule = createServerFn({ method: "POST" })
       };
     });
 
-    await supabaseAdmin.from("repayment_schedule").delete().eq("application_id", data.application_id);
+    await supabaseAdmin
+      .from("repayment_schedule")
+      .delete()
+      .eq("application_id", data.application_id);
     const { error } = await supabaseAdmin.from("repayment_schedule").insert(rows as never);
     if (error) throw new Error(error.message);
 
@@ -393,7 +406,6 @@ export const adminRecordRepayment = createServerFn({ method: "POST" })
 
     return { ok: true as const, complete };
   });
-
 
 /** Force le statut d'une échéance (retard, annulation…). */
 export const adminSetInstallmentStatus = createServerFn({ method: "POST" })

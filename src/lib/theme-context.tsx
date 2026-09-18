@@ -14,18 +14,18 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("light");
 
   useEffect(() => {
-  const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
 
-  const applyTheme = () => {
-    setThemeState(media.matches ? "dark" : "light");
-  };
+    const applyTheme = () => {
+      setThemeState(media.matches ? "dark" : "light");
+    };
 
-  applyTheme();
+    applyTheme();
 
-  media.addEventListener("change", applyTheme);
+    media.addEventListener("change", applyTheme);
 
-  return () => media.removeEventListener("change", applyTheme);
-}, []);
+    return () => media.removeEventListener("change", applyTheme);
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;

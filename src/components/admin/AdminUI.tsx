@@ -23,7 +23,9 @@ export function PageHeader({
   className?: string;
 }) {
   return (
-    <header className={cn("flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between", className)}>
+    <header
+      className={cn("flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between", className)}
+    >
       <div className="min-w-0">
         <h1 className="font-serif text-xl font-semibold tracking-tight sm:text-2xl">{title}</h1>
         {subtitle && <p className="mt-0.5 text-sm text-muted-foreground">{subtitle}</p>}
@@ -37,7 +39,9 @@ export function PageHeader({
 export function SectionTitle({ children, aside }: { children: ReactNode; aside?: ReactNode }) {
   return (
     <div className="flex items-center justify-between gap-3">
-      <h2 className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{children}</h2>
+      <h2 className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+        {children}
+      </h2>
       {aside}
     </div>
   );

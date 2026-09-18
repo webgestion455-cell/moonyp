@@ -10,7 +10,12 @@ import type { LoanProduct, Quotation } from "@/lib/loan-math";
 interface SimulatorProps {
   products: LoanProduct[];
   value: { productId: string; amount: number; months: number; insurance: boolean };
-  onChange: (next: { productId: string; amount: number; months: number; insurance: boolean }) => void;
+  onChange: (next: {
+    productId: string;
+    amount: number;
+    months: number;
+    insurance: boolean;
+  }) => void;
   onQuote?: (q: Quotation) => void;
   compact?: boolean;
 }
@@ -20,7 +25,10 @@ interface SimulatorProps {
  * traduit JAMAIS cette clé directement (elle pointe sur un objet), mais ses
  * feuilles `.name` / `.desc`.
  */
-export function productLabel(p: LoanProduct, t: (k: string, o?: Record<string, unknown>) => unknown): string {
+export function productLabel(
+  p: LoanProduct,
+  t: (k: string, o?: Record<string, unknown>) => unknown,
+): string {
   return translateOrNull(t, p.i18n_key ? `${p.i18n_key}.name` : null) ?? p.name;
 }
 
@@ -28,7 +36,7 @@ export function productDescription(
   p: LoanProduct,
   t: (k: string, o?: Record<string, unknown>) => unknown,
 ): string {
-  return translateOrNull(t, p.i18n_key ? `${p.i18n_key}.desc` : null) ?? (p.description ?? "");
+  return translateOrNull(t, p.i18n_key ? `${p.i18n_key}.desc` : null) ?? p.description ?? "";
 }
 
 function monthPresets(p: LoanProduct): number[] {
@@ -51,7 +59,17 @@ interface NumberFieldProps {
   onCommit: (v: number) => void;
 }
 
-function NumberField({ id, label, hint, suffix, value, min, max, step, onCommit }: NumberFieldProps) {
+function NumberField({
+  id,
+  label,
+  hint,
+  suffix,
+  value,
+  min,
+  max,
+  step,
+  onCommit,
+}: NumberFieldProps) {
   const [draft, setDraft] = useState<string>(String(value));
 
   useEffect(() => {
@@ -73,7 +91,9 @@ function NumberField({ id, label, hint, suffix, value, min, max, step, onCommit 
   return (
     <div className="space-y-1.5">
       <div className="flex items-baseline justify-between gap-3">
-        <Label htmlFor={id} className="text-sm font-medium">{label}</Label>
+        <Label htmlFor={id} className="text-sm font-medium">
+          {label}
+        </Label>
         <span className="text-xs text-muted-foreground tabular-nums">{hint}</span>
       </div>
       <div className="flex items-stretch gap-2">
@@ -176,7 +196,9 @@ export function Simulator({ products, value, onChange, onQuote, compact = false 
                   }`}
                 >
                   <span className="block font-semibold text-foreground">{productLabel(p, t)}</span>
-                  <span className="block text-xs">{p.annual_rate.toFixed(2)}% · {p.currency}</span>
+                  <span className="block text-xs">
+                    {p.annual_rate.toFixed(2)}% · {p.currency}
+                  </span>
                 </button>
               ))}
             </div>
@@ -247,9 +269,12 @@ export function Simulator({ products, value, onChange, onQuote, compact = false 
         <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           {t("finance.sim.monthly")}
         </p>
-        <p className="mt-1 text-3xl font-bold tabular-nums sm:text-4xl">{money(result.totalMonthly)}</p>
+        <p className="mt-1 text-3xl font-bold tabular-nums sm:text-4xl">
+          {money(result.totalMonthly)}
+        </p>
         <p className="mt-1 text-xs text-muted-foreground">
-          {t("finance.sim.rate")} {result.annualRate.toFixed(2)}% · {t("finance.sim.apr")} {result.apr.toFixed(2)}%
+          {t("finance.sim.rate")} {result.annualRate.toFixed(2)}% · {t("finance.sim.apr")}{" "}
+          {result.apr.toFixed(2)}%
         </p>
 
         <dl className="mt-5 space-y-2 text-sm">
@@ -257,10 +282,15 @@ export function Simulator({ products, value, onChange, onQuote, compact = false 
             [t("finance.sim.borrowed"), money(result.amount)],
             [t("finance.sim.interest"), money(result.totalInterest)],
             [t("finance.sim.fees"), money(result.fees)],
-            ...(result.totalInsurance > 0 ? [[t("finance.sim.insuranceCost"), money(result.totalInsurance)]] : []),
+            ...(result.totalInsurance > 0
+              ? [[t("finance.sim.insuranceCost"), money(result.totalInsurance)]]
+              : []),
             [t("finance.sim.totalCost"), money(result.totalCost)],
           ].map(([label, val]) => (
-            <div key={label} className="flex items-center justify-between gap-3 border-b border-border/60 pb-2">
+            <div
+              key={label}
+              className="flex items-center justify-between gap-3 border-b border-border/60 pb-2"
+            >
               <dt className="text-muted-foreground">{label}</dt>
               <dd className="font-medium tabular-nums">{val}</dd>
             </div>

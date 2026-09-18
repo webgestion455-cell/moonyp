@@ -32,13 +32,28 @@ serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: CORS });
   try {
     const body = await req.json();
-    const name = String(body?.name ?? "").trim().slice(0, 120);
-    const email = String(body?.email ?? "").trim().toLowerCase().slice(0, 180);
-    const phone = String(body?.phone ?? "").trim().slice(0, 40);
-    const whatsapp = String(body?.whatsapp ?? "").trim().slice(0, 40);
-    const country = String(body?.country ?? "").trim().slice(0, 60);
-    const subject = String(body?.subject ?? "Assistance").trim().slice(0, 160);
-    const message = String(body?.message ?? "").trim().slice(0, 2000);
+    const name = String(body?.name ?? "")
+      .trim()
+      .slice(0, 120);
+    const email = String(body?.email ?? "")
+      .trim()
+      .toLowerCase()
+      .slice(0, 180);
+    const phone = String(body?.phone ?? "")
+      .trim()
+      .slice(0, 40);
+    const whatsapp = String(body?.whatsapp ?? "")
+      .trim()
+      .slice(0, 40);
+    const country = String(body?.country ?? "")
+      .trim()
+      .slice(0, 60);
+    const subject = String(body?.subject ?? "Assistance")
+      .trim()
+      .slice(0, 160);
+    const message = String(body?.message ?? "")
+      .trim()
+      .slice(0, 2000);
 
     if (!name || !email || !message) return bad("name, email, message required");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return bad("invalid email");

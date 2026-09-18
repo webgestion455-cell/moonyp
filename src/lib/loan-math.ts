@@ -170,9 +170,22 @@ export function debtRatio(totalMonthly: number, income: number, charges: number)
  * bon symbole partout ailleurs.
  */
 const MONEY_LOCALES: Record<string, string> = {
-  fr: "fr-FR", en: "en-GB", de: "de-DE", es: "es-ES", it: "it-IT", nl: "nl-NL",
-  pl: "pl-PL", ro: "ro-RO", sk: "sk-SK", sl: "sl-SI", hr: "hr-HR", hu: "hu-HU",
-  fi: "fi-FI", bg: "bg-BG", el: "el-GR", pt: "pt-PT",
+  fr: "fr-FR",
+  en: "en-GB",
+  de: "de-DE",
+  es: "es-ES",
+  it: "it-IT",
+  nl: "nl-NL",
+  pl: "pl-PL",
+  ro: "ro-RO",
+  sk: "sk-SK",
+  sl: "sl-SI",
+  hr: "hr-HR",
+  hu: "hu-HU",
+  fi: "fi-FI",
+  bg: "bg-BG",
+  el: "el-GR",
+  pt: "pt-PT",
 };
 
 export function moneyLocale(locale: string | null | undefined): string {
@@ -190,15 +203,17 @@ export function formatMoney(value: number, currency = "EUR", locale = "fr"): str
   const amount = Number.isFinite(value) ? value : 0;
   const code = (currency || "EUR").toUpperCase();
   try {
-    return new Intl.NumberFormat(moneyLocale(locale), {
-      style: "currency",
-      currency: code,
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    })
-      .format(amount)
-      // Normalise les espaces (fines, étroites) en espace insécable unique.
-      .replace(/[\u202F\u2009\u00A0\u0020]+/g, "\u00A0");
+    return (
+      new Intl.NumberFormat(moneyLocale(locale), {
+        style: "currency",
+        currency: code,
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })
+        .format(amount)
+        // Normalise les espaces (fines, étroites) en espace insécable unique.
+        .replace(/[\u202F\u2009\u00A0\u0020]+/g, "\u00A0")
+    );
   } catch {
     return `${amount.toFixed(2)}\u00A0${code}`;
   }
@@ -233,15 +248,19 @@ export function datedSchedule(
 ): DatedScheduleRow[] {
   return schedule.map((row) => ({
     ...row,
-    dueDate: addMonths(startDate, row.index * monthsPerPeriod).toISOString().slice(0, 10),
+    dueDate: addMonths(startDate, row.index * monthsPerPeriod)
+      .toISOString()
+      .slice(0, 10),
   }));
 }
 
 export function formatDate(iso: string, locale = "fr"): string {
   try {
-    return new Intl.DateTimeFormat(locale, { day: "2-digit", month: "short", year: "numeric" }).format(
-      new Date(`${iso}T00:00:00Z`),
-    );
+    return new Intl.DateTimeFormat(locale, {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    }).format(new Date(`${iso}T00:00:00Z`));
   } catch {
     return iso;
   }
@@ -267,7 +286,15 @@ export function groupScheduleByYear(rows: DatedScheduleRow[]): ScheduleYear[] {
     const year = Number(row.dueDate.slice(0, 4));
     let bucket = out.find((b) => b.year === year);
     if (!bucket) {
-      bucket = { year, payment: 0, principal: 0, interest: 0, insurance: 0, balance: row.balance, rows: [] };
+      bucket = {
+        year,
+        payment: 0,
+        principal: 0,
+        interest: 0,
+        insurance: 0,
+        balance: row.balance,
+        rows: [],
+      };
       out.push(bucket);
     }
     bucket.payment += row.payment;

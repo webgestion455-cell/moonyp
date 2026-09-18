@@ -25,7 +25,12 @@ export const Route = createFileRoute("/solutions")({
   errorComponent: () => <SolutionsError />,
 });
 
-const ICONS: Record<string, typeof Wallet> = { wallet: Wallet, car: Car, home: Home, briefcase: Briefcase };
+const ICONS: Record<string, typeof Wallet> = {
+  wallet: Wallet,
+  car: Car,
+  home: Home,
+  briefcase: Briefcase,
+};
 
 function SolutionsError() {
   const { t } = useTranslation();

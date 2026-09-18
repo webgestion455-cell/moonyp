@@ -1,6 +1,6 @@
 # Global Credit Hub
 
-Bonjour j'espère que tu vas bien. Je t'ai joint mon projet actuel en zip et je veux ton aide pour faire tout ce que je vais écrire suivant et fais-moi tout ça bien professionnel. Voici : 
+Bonjour j'espère que tu vas bien. Je t'ai joint mon projet actuel en zip et je veux ton aide pour faire tout ce que je vais écrire suivant et fais-moi tout ça bien professionnel. Voici :
 
 Continue immédiatement et termine 100% du refactor sans interruption.
 
@@ -24,30 +24,29 @@ Tu dois TERMINER TOUS les points restants sans exception :
 
 - Couvrir 100% des fichiers :
 
-dashboard.tsx  
+dashboard.tsx
 
-auth.tsx  
+auth.tsx
 
-loans.new.tsx  
+loans.new.tsx
 
-loans.$loanId.tsx  
+loans.$loanId.tsx
 
-index.tsx  
+index.tsx
 
-settings.tsx  
+settings.tsx
 
-contact.tsx  
+contact.tsx
 
-TransferDialog.tsx  
+TransferDialog.tsx
 
-MobileBottomNav.tsx  
+MobileBottomNav.tsx
 
-admin.index.tsx  
+admin.index.tsx
 
-contrat PDF  
+contrat PDF
 
 - Traduire :
-
   - placeholders
 
   - labels
@@ -76,13 +75,13 @@ Implémenter complètement :
 
 - Envoyer notification automatique :
 
-✔ nouvelle demande → admin  
+✔ nouvelle demande → admin
 
-✔ validation/rejet → client  
+✔ validation/rejet → client
 
-✔ virement → admin + client  
+✔ virement → admin + client
 
-✔ contrat envoyé → client  
+✔ contrat envoyé → client
 
 - Fonction doit marcher même si utilisateur hors ligne
 
@@ -98,15 +97,15 @@ Implémenter complètement :
 
 - Chaque changement de statut doit être loggé :
 
-user_id  
+user_id
 
-loan_id  
+loan_id
 
-old_status  
+old_status
 
-new_status  
+new_status
 
-timestamp  
+timestamp
 
 - Afficher timeline réelle en temps réel 100% dans loans.$loanId.tsx
 
@@ -119,17 +118,14 @@ timestamp
 - Format selon langue (i18n)
 
 - Admin :
-
   - voir tous les virements
 
   - voir détails avant validation/rejet
 
 - Client :
-
   - montant total financé = seulement prêts acceptés
 
 - Ajouter boutons actions admin :
-
   - accepter
 
   - refuser

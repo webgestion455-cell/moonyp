@@ -27,13 +27,17 @@ import {
 
 /* Le schéma généré ne contient pas encore ces tables : on s'appuie sur un
  * accès non typé volontairement localisé dans ce module, jamais ailleurs. */
-type AnyBuilder = Record<string, (...args: unknown[]) => AnyBuilder> & PromiseLike<{ data: unknown; error: { message: string } | null }>;
+type AnyBuilder = Record<string, (...args: unknown[]) => AnyBuilder> &
+  PromiseLike<{ data: unknown; error: { message: string } | null }>;
 interface UntypedClient {
   from(table: string): AnyBuilder;
   storage: {
     from(bucket: string): {
       download(path: string): Promise<{ data: Blob | null; error: { message: string } | null }>;
-      createSignedUrl(path: string, expiresIn: number): Promise<{ data: { signedUrl: string } | null; error: unknown }>;
+      createSignedUrl(
+        path: string,
+        expiresIn: number,
+      ): Promise<{ data: { signedUrl: string } | null; error: unknown }>;
       remove(paths: string[]): Promise<{ error: unknown }>;
     };
   };
@@ -54,7 +58,10 @@ export interface SessionRow {
 }
 
 /** Session ouverte du dossier, créée si nécessaire. */
-export async function ensureSession(applicationId: string, language: string | null): Promise<SessionRow> {
+export async function ensureSession(
+  applicationId: string,
+  language: string | null,
+): Promise<SessionRow> {
   const client = await db();
   const existing = (await client
     .from("application_kyc_sessions")
@@ -78,7 +85,8 @@ export async function ensureSession(applicationId: string, language: string | nu
     })
     .select("id, application_id, status, language, current_step, engine_version")
     .single()) as { data: SessionRow | null; error: { message: string } | null };
-  if (created.error || !created.data) throw new Error(created.error?.message ?? "session_not_created");
+  if (created.error || !created.data)
+    throw new Error(created.error?.message ?? "session_not_created");
 
   await audit({
     application_id: applicationId,
@@ -90,7 +98,9 @@ export async function ensureSession(applicationId: string, language: string | nu
 }
 
 /** Statut courant de chaque étape (dernière tentative enregistrée). */
-export async function loadStepStatuses(sessionId: string): Promise<Record<string, { status: StepStatus; attempt: number; updated_at: string }>> {
+export async function loadStepStatuses(
+  sessionId: string,
+): Promise<Record<string, { status: StepStatus; attempt: number; updated_at: string }>> {
   const client = await db();
   const res = (await client
     .from("application_kyc_steps")
@@ -102,7 +112,8 @@ export async function loadStepStatuses(sessionId: string): Promise<Record<string
   };
   if (res.error) throw new Error(res.error.message);
   const out: Record<string, { status: StepStatus; attempt: number; updated_at: string }> = {};
-  for (const row of res.data ?? []) out[row.step_key] = { status: row.status, attempt: row.attempt, updated_at: row.updated_at };
+  for (const row of res.data ?? [])
+    out[row.step_key] = { status: row.status, attempt: row.attempt, updated_at: row.updated_at };
   return out;
 }
 
@@ -130,7 +141,10 @@ export async function loadControls(sessionId: string): Promise<
       "control_key, step_key, status, executed, attempt, method, library, library_version, score, threshold, reasons, details, created_at",
     )
     .eq("session_id", sessionId)
-    .order("created_at", { ascending: true })) as { data: never[] | null; error: { message: string } | null };
+    .order("created_at", { ascending: true })) as {
+    data: never[] | null;
+    error: { message: string } | null;
+  };
   if (res.error) throw new Error(res.error.message);
   return (res.data ?? []) as never;
 }
@@ -185,7 +199,8 @@ export async function recordStep(input: RecordStepInput): Promise<RecordStepOutp
     })
     .select("id")
     .single()) as { data: { id: string } | null; error: { message: string } | null };
-  if (stepInsert.error || !stepInsert.data) throw new Error(stepInsert.error?.message ?? "step_not_recorded");
+  if (stepInsert.error || !stepInsert.data)
+    throw new Error(stepInsert.error?.message ?? "step_not_recorded");
 
   const rows = results.map((r) => ({
     session_id: input.session.id,
@@ -220,7 +235,12 @@ export async function recordStep(input: RecordStepInput): Promise<RecordStepOutp
     status,
     payload: {
       attempt,
-      controls: results.map((r) => ({ control: r.control, status: r.status, executed: r.executed, reasons: r.reasons })),
+      controls: results.map((r) => ({
+        control: r.control,
+        status: r.status,
+        executed: r.executed,
+        reasons: r.reasons,
+      })),
       document_ids: input.documentIds,
       duration_ms: Math.round(input.durationMs),
     },
@@ -238,7 +258,10 @@ export async function recordStep(input: RecordStepInput): Promise<RecordStepOutp
 
   await client
     .from("application_kyc_sessions")
-    .update({ current_step: nextIncomplete(steps, input.requiredSteps), updated_at: new Date().toISOString() })
+    .update({
+      current_step: nextIncomplete(steps, input.requiredSteps),
+      updated_at: new Date().toISOString(),
+    })
     .eq("id", input.session.id);
 
   await audit({
@@ -252,7 +275,10 @@ export async function recordStep(input: RecordStepInput): Promise<RecordStepOutp
   return { step_status: status, attempt, aggregate: aggregate.state };
 }
 
-function nextIncomplete(steps: Partial<Record<StepKey, StepStatus>>, required: readonly StepKey[]): StepKey | null {
+function nextIncomplete(
+  steps: Partial<Record<StepKey, StepStatus>>,
+  required: readonly StepKey[],
+): StepKey | null {
   for (const key of required) {
     const s = steps[key] ?? "NOT_STARTED";
     if (s === "NOT_STARTED" || s === "FAIL") return key;
@@ -314,7 +340,12 @@ export async function recordBiometricAsset(input: {
 
 /** Liste de screening active la plus récente, avec ses entrées. */
 export async function loadScreeningList(): Promise<{
-  list: { version: string | null; source: string | null; imported_at: string | null; entry_count: number } | null;
+  list: {
+    version: string | null;
+    source: string | null;
+    imported_at: string | null;
+    entry_count: number;
+  } | null;
   entries: {
     id: string;
     full_name: string;
@@ -332,7 +363,16 @@ export async function loadScreeningList(): Promise<{
     .eq("active", true)
     .order("imported_at", { ascending: false })
     .limit(4)) as {
-    data: { id: string; source: string; list_kind: "sanctions" | "pep"; version: string; imported_at: string; entry_count: number }[] | null;
+    data:
+      | {
+          id: string;
+          source: string;
+          list_kind: "sanctions" | "pep";
+          version: string;
+          imported_at: string;
+          entry_count: number;
+        }[]
+      | null;
     error: { message: string } | null;
   };
   if (lists.error) throw new Error(lists.error.message);
@@ -344,12 +384,24 @@ export async function loadScreeningList(): Promise<{
     .select("id, list_id, primary_name, names, birth_dates, nationalities, programs")
     .in("list_id", ids)
     .limit(50_000)) as {
-    data: { id: string; list_id: string; primary_name: string; names: string[]; birth_dates: string[]; nationalities: string[]; programs: string[] }[] | null;
+    data:
+      | {
+          id: string;
+          list_id: string;
+          primary_name: string;
+          names: string[];
+          birth_dates: string[];
+          nationalities: string[];
+          programs: string[];
+        }[]
+      | null;
     error: { message: string } | null;
   };
   if (entries.error) throw new Error(entries.error.message);
 
-  const kindByList = new Map(lists.data.map((l) => [l.id, l.list_kind === "pep" ? ("pep" as const) : ("sanction" as const)]));
+  const kindByList = new Map(
+    lists.data.map((l) => [l.id, l.list_kind === "pep" ? ("pep" as const) : ("sanction" as const)]),
+  );
   const head = lists.data[0]!;
   return {
     list: {
@@ -415,5 +467,9 @@ export async function loadFaceResults(applicationId: string): Promise<{
   };
   if (res.error) return { idPortrait: null, livePortrait: null, match: null };
   const pick = (kind: string) => res.data?.find((r) => r.kind === kind)?.result ?? null;
-  return { idPortrait: pick("id_portrait"), livePortrait: pick("live_portrait"), match: pick("face_match") };
+  return {
+    idPortrait: pick("id_portrait"),
+    livePortrait: pick("live_portrait"),
+    match: pick("face_match"),
+  };
 }

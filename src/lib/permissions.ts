@@ -3,9 +3,21 @@
 export type StaffRole = "super_admin" | "admin" | "agent";
 
 export const STAFF_ROLES: { value: StaffRole; label: string; description: string }[] = [
-  { value: "super_admin", label: "Super administrateur", description: "Accès total, gestion de l'équipe et des permissions" },
-  { value: "admin", label: "Administrateur", description: "Gestion opérationnelle complète (dossiers, contrats, paiements)" },
-  { value: "agent", label: "Agent / Conseiller", description: "Instruction des dossiers et relation client" },
+  {
+    value: "super_admin",
+    label: "Super administrateur",
+    description: "Accès total, gestion de l'équipe et des permissions",
+  },
+  {
+    value: "admin",
+    label: "Administrateur",
+    description: "Gestion opérationnelle complète (dossiers, contrats, paiements)",
+  },
+  {
+    value: "agent",
+    label: "Agent / Conseiller",
+    description: "Instruction des dossiers et relation client",
+  },
 ];
 
 export const PERMISSION_MODULES = [
@@ -52,7 +64,11 @@ export const PERMISSIONS: { key: string; module: string; label: string }[] = [
   { key: "staff.manage", module: "Équipe", label: "Inviter / révoquer un membre" },
   { key: "roles.manage", module: "Équipe", label: "Modifier la matrice des permissions" },
 
-  { key: "settings.manage", module: "Paramètres", label: "Configurer les paramètres et moyens de paiement" },
+  {
+    key: "settings.manage",
+    module: "Paramètres",
+    label: "Configurer les paramètres et moyens de paiement",
+  },
 ];
 
 export function roleLabel(role: string | null | undefined) {

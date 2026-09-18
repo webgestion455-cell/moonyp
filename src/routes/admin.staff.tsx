@@ -7,13 +7,49 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { PageHeader } from "@/components/admin/AdminUI";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { STAFF_ROLES, roleLabel, type StaffRole } from "@/lib/permissions";
-import { listStaff, inviteStaff, updateStaffRole, setStaffActive, revokeInvitation } from "@/lib/staff.functions";
+import {
+  listStaff,
+  inviteStaff,
+  updateStaffRole,
+  setStaffActive,
+  revokeInvitation,
+} from "@/lib/staff.functions";
 import { toast } from "sonner";
-import { Loader2, UserPlus, ShieldCheck, Copy, Ban, RotateCcw, MailCheck, Users } from "lucide-react";
+import {
+  Loader2,
+  UserPlus,
+  ShieldCheck,
+  Copy,
+  Ban,
+  RotateCcw,
+  MailCheck,
+  Users,
+} from "lucide-react";
 import { useAutoRefresh } from "@/hooks/use-auto-refresh";
 
 export const Route = createFileRoute("/admin/staff")({
@@ -58,7 +94,12 @@ function AdminStaff() {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [form, setForm] = useState({ email: "", fullName: "", jobTitle: "", role: "agent" as StaffRole });
+  const [form, setForm] = useState({
+    email: "",
+    fullName: "",
+    jobTitle: "",
+    role: "agent" as StaffRole,
+  });
   const [fallbackLink, setFallbackLink] = useState<string | null>(null);
 
   useEffect(() => {
@@ -157,7 +198,9 @@ function AdminStaff() {
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return members;
-    return members.filter((m) => `${m.email} ${m.display_name ?? ""} ${m.job_title ?? ""}`.toLowerCase().includes(q));
+    return members.filter((m) =>
+      `${m.email} ${m.display_name ?? ""} ${m.job_title ?? ""}`.toLowerCase().includes(q),
+    );
   }, [members, query]);
 
   const pendingInvites = invitations.filter((i) => !i.accepted_at && !i.revoked_at);
@@ -167,74 +210,118 @@ function AdminStaff() {
       <PageHeader
         title="Équipe & rôles"
         subtitle="Administrateurs, agents et invitations en attente."
-        actions={<>
-        {canManage && (
-          <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger asChild>
-              <Button className="shrink-0">
-                <UserPlus className="mr-2 h-4 w-4" /> Inviter un membre
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-lg">
-              <DialogHeader>
-                <DialogTitle>Inviter un membre de l'équipe</DialogTitle>
-                <DialogDescription>Un e-mail sécurisé lui permettra de définir son mot de passe.</DialogDescription>
-              </DialogHeader>
-              <form onSubmit={handleInvite} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="inv-email">Adresse e-mail professionnelle</Label>
-                  <Input id="inv-email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="prenom.nom@bnpparibas.com" />
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <Label htmlFor="inv-name">Nom complet</Label>
-                    <Input id="inv-name" value={form.fullName} onChange={(e) => setForm({ ...form, fullName: e.target.value })} />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="inv-title">Fonction</Label>
-                    <Input id="inv-title" value={form.jobTitle} onChange={(e) => setForm({ ...form, jobTitle: e.target.value })} placeholder="Conseiller crédit" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label>Rôle</Label>
-                  <Select value={form.role} onValueChange={(v) => setForm({ ...form, role: v as StaffRole })}>
-                    <SelectTrigger><SelectValue /></SelectTrigger>
-                    <SelectContent>
-                      {STAFF_ROLES.map((r) => (
-                        <SelectItem key={r.value} value={r.value}>
-                          <span className="font-medium">{r.label}</span>
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <p className="text-xs text-muted-foreground">{STAFF_ROLES.find((r) => r.value === form.role)?.description}</p>
-                </div>
-                {fallbackLink && (
-                  <div className="rounded-lg border border-border bg-muted/40 p-3 text-xs break-all">
-                    <p className="mb-2 font-medium">Lien d'activation :</p>
-                    {fallbackLink}
-                    <Button type="button" size="sm" variant="outline" className="mt-2" onClick={() => { void navigator.clipboard.writeText(fallbackLink); toast.success("Lien copié"); }}>
-                      <Copy className="mr-2 h-3.5 w-3.5" /> Copier
-                    </Button>
-                  </div>
-                )}
-                <DialogFooter>
-                  <Button type="submit" disabled={saving}>
-                    {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <MailCheck className="mr-2 h-4 w-4" />}
-                    Envoyer l'invitation
+        actions={
+          <>
+            {canManage && (
+              <Dialog open={open} onOpenChange={setOpen}>
+                <DialogTrigger asChild>
+                  <Button className="shrink-0">
+                    <UserPlus className="mr-2 h-4 w-4" /> Inviter un membre
                   </Button>
-                </DialogFooter>
-              </form>
-            </DialogContent>
-          </Dialog>
-        )}
-        </>}
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-lg">
+                  <DialogHeader>
+                    <DialogTitle>Inviter un membre de l'équipe</DialogTitle>
+                    <DialogDescription>
+                      Un e-mail sécurisé lui permettra de définir son mot de passe.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <form onSubmit={handleInvite} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="inv-email">Adresse e-mail professionnelle</Label>
+                      <Input
+                        id="inv-email"
+                        type="email"
+                        required
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        placeholder="prenom.nom@bnpparibas.com"
+                      />
+                    </div>
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="inv-name">Nom complet</Label>
+                        <Input
+                          id="inv-name"
+                          value={form.fullName}
+                          onChange={(e) => setForm({ ...form, fullName: e.target.value })}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="inv-title">Fonction</Label>
+                        <Input
+                          id="inv-title"
+                          value={form.jobTitle}
+                          onChange={(e) => setForm({ ...form, jobTitle: e.target.value })}
+                          placeholder="Conseiller crédit"
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Rôle</Label>
+                      <Select
+                        value={form.role}
+                        onValueChange={(v) => setForm({ ...form, role: v as StaffRole })}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {STAFF_ROLES.map((r) => (
+                            <SelectItem key={r.value} value={r.value}>
+                              <span className="font-medium">{r.label}</span>
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <p className="text-xs text-muted-foreground">
+                        {STAFF_ROLES.find((r) => r.value === form.role)?.description}
+                      </p>
+                    </div>
+                    {fallbackLink && (
+                      <div className="rounded-lg border border-border bg-muted/40 p-3 text-xs break-all">
+                        <p className="mb-2 font-medium">Lien d'activation :</p>
+                        {fallbackLink}
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="outline"
+                          className="mt-2"
+                          onClick={() => {
+                            void navigator.clipboard.writeText(fallbackLink);
+                            toast.success("Lien copié");
+                          }}
+                        >
+                          <Copy className="mr-2 h-3.5 w-3.5" /> Copier
+                        </Button>
+                      </div>
+                    )}
+                    <DialogFooter>
+                      <Button type="submit" disabled={saving}>
+                        {saving ? (
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        ) : (
+                          <MailCheck className="mr-2 h-4 w-4" />
+                        )}
+                        Envoyer l'invitation
+                      </Button>
+                    </DialogFooter>
+                  </form>
+                </DialogContent>
+              </Dialog>
+            )}
+          </>
+        }
       />
 
       <div className="grid gap-4 sm:grid-cols-3">
         {[
           { label: "Membres actifs", value: members.filter((m) => m.active).length, icon: Users },
-          { label: "Administrateurs", value: members.filter((m) => m.role !== "agent").length, icon: ShieldCheck },
+          {
+            label: "Administrateurs",
+            value: members.filter((m) => m.role !== "agent").length,
+            icon: ShieldCheck,
+          },
           { label: "Invitations en attente", value: pendingInvites.length, icon: MailCheck },
         ].map((kpi) => (
           <Card key={kpi.label} className="border-t-4 border-t-[#00915A]">
@@ -252,7 +339,12 @@ function AdminStaff() {
       <Card>
         <CardHeader className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:flex sm:justify-between">
           <CardTitle className="text-base">Membres de l'équipe</CardTitle>
-          <Input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Rechercher…" className="w-full sm:w-64" />
+          <Input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Rechercher…"
+            className="w-full sm:w-64"
+          />
         </CardHeader>
         <CardContent className="p-0">
           {loading ? (
@@ -280,19 +372,30 @@ function AdminStaff() {
                             {initials(m.display_name, m.email)}
                           </div>
                           <div className="min-w-0">
-                            <p className="truncate text-sm font-medium">{m.display_name ?? m.email.split("@")[0]}</p>
+                            <p className="truncate text-sm font-medium">
+                              {m.display_name ?? m.email.split("@")[0]}
+                            </p>
                             <p className="truncate text-xs text-muted-foreground">{m.email}</p>
                           </div>
                         </div>
                       </TableCell>
-                      <TableCell className="hidden md:table-cell text-sm text-muted-foreground">{m.job_title ?? "—"}</TableCell>
+                      <TableCell className="hidden md:table-cell text-sm text-muted-foreground">
+                        {m.job_title ?? "—"}
+                      </TableCell>
                       <TableCell>
                         {canManage && m.user_id !== user?.id ? (
-                          <Select value={m.role} onValueChange={(v) => changeRole(m.user_id, v as StaffRole)}>
-                            <SelectTrigger className="h-8 w-[190px] text-xs"><SelectValue /></SelectTrigger>
+                          <Select
+                            value={m.role}
+                            onValueChange={(v) => changeRole(m.user_id, v as StaffRole)}
+                          >
+                            <SelectTrigger className="h-8 w-[190px] text-xs">
+                              <SelectValue />
+                            </SelectTrigger>
                             <SelectContent>
                               {STAFF_ROLES.map((r) => (
-                                <SelectItem key={r.value} value={r.value}>{r.label}</SelectItem>
+                                <SelectItem key={r.value} value={r.value}>
+                                  {r.label}
+                                </SelectItem>
                               ))}
                             </SelectContent>
                           </Select>
@@ -301,12 +404,26 @@ function AdminStaff() {
                         )}
                       </TableCell>
                       <TableCell className="hidden lg:table-cell text-xs text-muted-foreground">
-                        {m.last_sign_in_at ? new Date(m.last_sign_in_at).toLocaleString() : "Jamais"}
+                        {m.last_sign_in_at
+                          ? new Date(m.last_sign_in_at).toLocaleString()
+                          : "Jamais"}
                       </TableCell>
                       <TableCell className="text-right">
                         {canManage && m.user_id !== user?.id ? (
-                          <Button size="sm" variant={m.active ? "ghost" : "outline"} onClick={() => toggleActive(m.user_id, !m.active)}>
-                            {m.active ? <><Ban className="mr-1.5 h-3.5 w-3.5" /> Suspendre</> : <><RotateCcw className="mr-1.5 h-3.5 w-3.5" /> Réactiver</>}
+                          <Button
+                            size="sm"
+                            variant={m.active ? "ghost" : "outline"}
+                            onClick={() => toggleActive(m.user_id, !m.active)}
+                          >
+                            {m.active ? (
+                              <>
+                                <Ban className="mr-1.5 h-3.5 w-3.5" /> Suspendre
+                              </>
+                            ) : (
+                              <>
+                                <RotateCcw className="mr-1.5 h-3.5 w-3.5" /> Réactiver
+                              </>
+                            )}
                           </Button>
                         ) : (
                           <span className="text-xs text-muted-foreground">Vous</span>
@@ -315,7 +432,14 @@ function AdminStaff() {
                     </TableRow>
                   ))}
                   {filtered.length === 0 && (
-                    <TableRow><TableCell colSpan={5} className="py-10 text-center text-sm text-muted-foreground">Aucun membre</TableCell></TableRow>
+                    <TableRow>
+                      <TableCell
+                        colSpan={5}
+                        className="py-10 text-center text-sm text-muted-foreground"
+                      >
+                        Aucun membre
+                      </TableCell>
+                    </TableRow>
                   )}
                 </TableBody>
               </Table>
@@ -326,10 +450,15 @@ function AdminStaff() {
 
       {pendingInvites.length > 0 && (
         <Card>
-          <CardHeader><CardTitle className="text-base">Invitations en attente</CardTitle></CardHeader>
+          <CardHeader>
+            <CardTitle className="text-base">Invitations en attente</CardTitle>
+          </CardHeader>
           <CardContent className="space-y-2">
             {pendingInvites.map((i) => (
-              <div key={i.id} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-lg border border-border p-3">
+              <div
+                key={i.id}
+                className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-lg border border-border p-3"
+              >
                 <div className="min-w-0">
                   <p className="truncate text-sm font-medium">{i.email}</p>
                   <p className="text-xs text-muted-foreground">
@@ -337,13 +466,20 @@ function AdminStaff() {
                   </p>
                 </div>
                 {canManage && (
-                  <Button size="sm" variant="ghost" className="text-destructive" onClick={async () => {
-                    const token = session?.access_token;
-                    if (!token) return;
-                    await revokeInvitation({ data: { accessToken: token, invitationId: i.id } });
-                    toast.success("Invitation révoquée");
-                    void load();
-                  }}>Révoquer</Button>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    className="text-destructive"
+                    onClick={async () => {
+                      const token = session?.access_token;
+                      if (!token) return;
+                      await revokeInvitation({ data: { accessToken: token, invitationId: i.id } });
+                      toast.success("Invitation révoquée");
+                      void load();
+                    }}
+                  >
+                    Révoquer
+                  </Button>
                 )}
               </div>
             ))}

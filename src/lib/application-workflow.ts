@@ -118,14 +118,22 @@ export function nextStatuses(
   from: ApplicationStatus,
   ctx: WorkflowContext = {},
 ): Array<{ status: ApplicationStatus; check: TransitionCheck }> {
-  return (TRANSITIONS[from] ?? []).map((status) => ({ status, check: canTransition(from, status, ctx) }));
+  return (TRANSITIONS[from] ?? []).map((status) => ({
+    status,
+    check: canTransition(from, status, ctx),
+  }));
 }
 
 /** Statuts qui déclenchent une décision formelle (confirmation obligatoire). */
 export const DECISION_STATUSES: ApplicationStatus[] = ["approved", "rejected", "cancelled"];
 
 /** Statuts pour lesquels un motif est obligatoire. */
-export const REASON_REQUIRED: ApplicationStatus[] = ["rejected", "cancelled", "info_requested", "documents_missing"];
+export const REASON_REQUIRED: ApplicationStatus[] = [
+  "rejected",
+  "cancelled",
+  "info_requested",
+  "documents_missing",
+];
 
 export const INFO_REQUEST_KINDS = [
   "missing_document",

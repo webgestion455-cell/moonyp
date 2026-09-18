@@ -72,7 +72,6 @@ export function statusLabel(status: ApplicationStatus | null | undefined): strin
   return i18n.t(`finance.status.${status}`, { defaultValue: status.replace(/_/g, " ") });
 }
 
-
 export function isTerminal(status: ApplicationStatus): boolean {
   return status === "rejected" || status === "cancelled" || status === "repaid";
 }

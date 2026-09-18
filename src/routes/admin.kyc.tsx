@@ -10,17 +10,26 @@ import { CenterLoader } from "@/components/ui/loader";
 import { adminKycCounters, adminKycQueue } from "@/lib/admin-catalog.functions";
 import { adminReviewKycCheck } from "@/lib/admin-applications.functions";
 import { useAutoRefresh } from "@/hooks/use-auto-refresh";
+import { KycControlDisclosure } from "@/components/admin/KycControlPanel";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/admin/kyc")({
-  head: () => ({ meta: [
-    { title: "Conformité KYC — MOONYP" },
-    { name: "description", content: "Suivi interne des contrôles documentaires et décisions de conformité MOONYP." },
-    { property: "og:title", content: "Conformité KYC — MOONYP" },
-    { property: "og:description", content: "Suivi interne des contrôles documentaires et décisions de conformité MOONYP." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary" },
-  ] }),
+  head: () => ({
+    meta: [
+      { title: "Conformité KYC — MOONYP" },
+      {
+        name: "description",
+        content: "Suivi interne des contrôles documentaires et décisions de conformité MOONYP.",
+      },
+      { property: "og:title", content: "Conformité KYC — MOONYP" },
+      {
+        property: "og:description",
+        content: "Suivi interne des contrôles documentaires et décisions de conformité MOONYP.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
   component: AdminKycQueue,
 });
 
@@ -106,7 +115,11 @@ function AdminKycQueue() {
     try {
       await review({ data: { id, status } });
       toast.success(
-        status === "passed" ? "Contrôle validé" : status === "failed" ? "Contrôle rejeté" : "Contrôle remis à vérifier",
+        status === "passed"
+          ? "Contrôle validé"
+          : status === "failed"
+            ? "Contrôle rejeté"
+            : "Contrôle remis à vérifier",
       );
       await load(true);
     } catch {
@@ -120,9 +133,12 @@ function AdminKycQueue() {
     <div className="space-y-6">
       <header className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">Conformité — KYC</h1>
+          <h1 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">
+            Conformité — KYC
+          </h1>
           <p className="text-sm text-muted-foreground">
-            Précontrôles documentaires — les mesures de capture et la lecture automatique ne certifient pas l’identité.
+            Précontrôles documentaires — les mesures de capture et la lecture automatique ne
+            certifient pas l’identité.
           </p>
         </div>
         <div className="flex flex-wrap gap-1.5">
@@ -133,7 +149,9 @@ function AdminKycQueue() {
               onClick={() => setFilter(f)}
               className={cn(
                 "rounded-full border px-3 py-1.5 text-xs font-medium transition-colors",
-                filter === f ? "border-primary bg-primary text-primary-foreground" : "border-border hover:bg-muted",
+                filter === f
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border hover:bg-muted",
               )}
             >
               {FILTER_LABELS[f]}
@@ -143,9 +161,20 @@ function AdminKycQueue() {
         </div>
       </header>
 
-      <div role="note" className="border-l-4 border-warning bg-warning/10 p-4 text-sm text-foreground">
-        <p className="font-semibold">Vérifications indépendantes non raccordées</p>
-        <p className="mt-1">Authenticité des pièces, correspondance visage–portrait, justificatif de domicile et relevé bancaire : non vérifiés automatiquement. Aucun résultat de capture ne doit être interprété comme une validation bancaire.</p>
+      <div
+        role="note"
+        className="border-l-4 border-warning bg-warning/10 p-4 text-sm text-foreground"
+      >
+        <p className="font-semibold">Ce que cette file ne prouve pas</p>
+        <p className="mt-1">
+          Les statuts ci-dessous portent sur les pièces déposées. L'authenticité physique d'une
+          pièce (hologrammes, encres, puce) n'est pas vérifiable par nos moyens internes et reste «
+          non vérifiée ». La correspondance visage–portrait n'est « vérifiée » que lorsque le moteur
+          facial interne l'a réellement calculée, et la titularité d'un compte n'est jamais déduite
+          d'un IBAN valide. Dépliez « État réel des 26 contrôles » sur un dossier pour voir,
+          contrôle par contrôle, ce qui a été exécuté. Aucun de ces résultats ne vaut décision de
+          crédit.
+        </p>
       </div>
 
       {/* Compteurs réels : la section reste informative même sans file active. */}
@@ -160,7 +189,9 @@ function AdminKycQueue() {
               filter === f ? "border-primary bg-primary/5" : "border-border hover:bg-muted/60",
             )}
           >
-            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">{FILTER_LABELS[f]}</p>
+            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+              {FILTER_LABELS[f]}
+            </p>
             <p className="mt-0.5 text-xl font-semibold tabular-nums">{counts[f] ?? 0}</p>
           </button>
         ))}
@@ -178,7 +209,12 @@ function AdminKycQueue() {
                 : "Aucun contrôle d'identité enregistré pour l'instant."}
             </p>
             {counts.all > 0 && filter !== "all" && (
-              <Button variant="outline" size="sm" className="rounded-full" onClick={() => setFilter("all")}>
+              <Button
+                variant="outline"
+                size="sm"
+                className="rounded-full"
+                onClick={() => setFilter("all")}
+              >
                 Voir tous les contrôles
               </Button>
             )}
@@ -196,27 +232,49 @@ function AdminKycQueue() {
                   <div className="min-w-0">
                     <p className="flex flex-wrap items-center gap-2 truncate text-sm font-semibold">
                       {r.application?.reference ?? "—"} ·{" "}
-                      {[r.application?.first_name, r.application?.last_name].filter(Boolean).join(" ") ||
-                        r.application?.email}
+                      {[r.application?.first_name, r.application?.last_name]
+                        .filter(Boolean)
+                        .join(" ") || r.application?.email}
                       <Badge
                         variant="outline"
-                        className={cn("shrink-0 text-[10px]", STATUS_STYLES[String(r.status)] ?? STATUS_STYLES.todo)}
+                        className={cn(
+                          "shrink-0 text-[10px]",
+                          STATUS_STYLES[String(r.status)] ?? STATUS_STYLES.todo,
+                        )}
                       >
-                         {STATUS_LABELS[String(r.status)] ?? "État à examiner"}
+                        {STATUS_LABELS[String(r.status)] ?? "État à examiner"}
                       </Badge>
                     </p>
                     <p className="truncate text-xs text-muted-foreground">
-                      {({ identity: "Identité", address: "Domicile", bank: "Banque", income: "Revenus", selfie: "Visage", other: "Autre" } as Record<string, string>)[r.category] ?? "Document"} · {r.document_type_slug ?? r.step_key} ·{" "}
+                      {(
+                        {
+                          identity: "Identité",
+                          address: "Domicile",
+                          bank: "Banque",
+                          income: "Revenus",
+                          selfie: "Visage",
+                          other: "Autre",
+                        } as Record<string, string>
+                      )[r.category] ?? "Document"}{" "}
+                      · {r.document_type_slug ?? r.step_key} ·{" "}
                       {new Date(r.created_at).toLocaleString("fr-FR")}
                     </p>
                     {r.review_note && (
-                      <p className="mt-1 truncate text-xs text-muted-foreground">Note : {r.review_note}</p>
+                      <p className="mt-1 truncate text-xs text-muted-foreground">
+                        Note : {r.review_note}
+                      </p>
                     )}
+                    {/* État réel de chaque contrôle, lu dans application_kyc_controls. */}
+                    <KycControlDisclosure applicationId={r.application_id} />
                   </div>
+
                   <div className="flex shrink-0 flex-wrap items-center gap-2">
                     {r.application && (
                       <Button asChild variant="outline" size="sm" className="rounded-full">
-                        <Link to="/admin/applications/$applicationId" params={{ applicationId: r.application_id }}>
+                        <Link
+                          to="/admin/applications/$applicationId"
+                          params={{ applicationId: r.application_id }}
+                        >
                           Dossier
                         </Link>
                       </Button>
@@ -229,8 +287,7 @@ function AdminKycQueue() {
                         disabled={busy === r.id}
                         onClick={() => void decide(r.id, "verifying")}
                       >
-                        <RotateCcw className="h-3.5 w-3.5" aria-hidden />
-                        À revoir
+                        <RotateCcw className="h-3.5 w-3.5" aria-hidden />À revoir
                       </Button>
                     )}
                     {r.status !== "failed" && (
