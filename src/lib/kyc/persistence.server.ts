@@ -57,6 +57,25 @@ export interface SessionRow {
   engine_version: string;
 }
 
+/**
+ * Session ouverte du dossier, sans création. Utilisée par les lectures
+ * (panneau admin, scripts) : lire un dossier ne doit jamais créer une session
+ * vide qui masquerait l'absence réelle de parcours KYC.
+ */
+export async function findOpenSession(applicationId: string): Promise<SessionRow | null> {
+  const client = await db();
+  const existing = (await client
+    .from("application_kyc_sessions")
+    .select("id, application_id, status, language, current_step, engine_version")
+    .eq("application_id", applicationId)
+    .eq("status", "in_progress")
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .maybeSingle()) as { data: SessionRow | null; error: { message: string } | null };
+  if (existing.error) throw new Error(existing.error.message);
+  return existing.data;
+}
+
 /** Session ouverte du dossier, créée si nécessaire. */
 export async function ensureSession(
   applicationId: string,

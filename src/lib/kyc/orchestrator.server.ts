@@ -34,6 +34,7 @@ import {
   db,
   enqueueFaceJob,
   ensureSession,
+  findOpenSession,
   loadControls,
   loadFaceResults,
   loadScreeningList,
@@ -502,7 +503,8 @@ async function resolveDocumentIds(
 /* --------------------------------------------------------------------- */
 
 export interface SessionView {
-  session_id: string;
+  /** `null` uniquement en lecture seule quand aucune session n'existe. */
+  session_id: string | null;
   language: string | null;
   required_steps: StepKey[];
   steps: { step: StepKey; status: StepStatus; attempt: number; updated_at: string | null }[];
@@ -511,15 +513,27 @@ export interface SessionView {
   aggregate: string;
 }
 
+/**
+ * État du parcours.
+ *
+ * `createIfMissing` (défaut `true`) : le parcours candidat ouvre une session
+ * s'il n'en existe pas. Les lectures administratives passent `false` : une
+ * consultation ne crée jamais de session vide — l'absence de session est
+ * alors rapportée telle quelle (`session_id: null`, `kyc_not_started`).
+ */
 export async function readSession(
   applicationId: string,
   language: string | null,
+  options: { createIfMissing?: boolean } = {},
 ): Promise<SessionView> {
   const subject = await loadSubject(applicationId);
-  const session: SessionRow = await ensureSession(applicationId, language);
+  const session: SessionRow | null =
+    options.createIfMissing === false
+      ? await findOpenSession(applicationId)
+      : await ensureSession(applicationId, language);
   const { steps: requiredSteps } = await loadRequiredSteps(subject);
-  const statuses = await loadStepStatuses(session.id);
-  const controls = await loadControls(session.id);
+  const statuses = session ? await loadStepStatuses(session.id) : {};
+  const controls = session ? await loadControls(session.id) : [];
 
   const steps = requiredSteps.map((s) => ({
     step: s,
@@ -534,8 +548,8 @@ export async function readSession(
   const aggregate = aggregateKyc({ steps: map, requiredSteps });
 
   return {
-    session_id: session.id,
-    language: session.language,
+    session_id: session?.id ?? null,
+    language: session?.language ?? language,
     required_steps: requiredSteps,
     steps,
     current_step:

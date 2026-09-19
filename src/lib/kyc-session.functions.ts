@@ -67,6 +67,7 @@ export const getKycSession = createServerFn({ method: "POST" })
     const server = await import("@/lib/applications.server");
     const applicationId = await server.resolveToken(data.token);
     if (!applicationId) throw new Error("invalid_token");
+
     const { readSession } = await import("@/lib/kyc/orchestrator.server");
     return publicView(await readSession(applicationId, data.language ?? null));
   });
@@ -107,7 +108,9 @@ export const submitKycStep = createServerFn({ method: "POST" })
     if (!server.rateLimit(`kyc-step:${applicationId}`, 40, 10 * 60 * 1000))
       throw new Error("rate_limited");
 
-    const { processStep, readSession } = await import("@/lib/kyc/orchestrator.server");
+    const { processStep, readSession } =
+      await import("@/lib/kyc/orchestrator.server");
+
     const outcome = await processStep({
       applicationId,
       step: data.step,
@@ -118,6 +121,7 @@ export const submitKycStep = createServerFn({ method: "POST" })
     });
 
     const view = await readSession(applicationId, data.language ?? null);
+
     return {
       ...publicView(view),
       submitted_step: outcome.step,
@@ -132,7 +136,7 @@ export const submitKycStep = createServerFn({ method: "POST" })
  * explicitement signalé comme tel — jamais présenté comme « vérifié ».
  */
 function publicView(view: {
-  session_id: string;
+  session_id: string | null;
   required_steps: readonly string[];
   steps: { step: string; status: string; attempt: number }[];
   current_step: string | null;
@@ -149,8 +153,10 @@ function publicView(view: {
     string,
     { status: string; executed: boolean; attempt: number; step: string }
   >();
+
   for (const c of view.controls) {
     const known = latest.get(c.control_key);
+
     if (!known || c.attempt >= known.attempt) {
       latest.set(c.control_key, {
         status: c.status,
@@ -160,10 +166,15 @@ function publicView(view: {
       });
     }
   }
+
   return {
     session_id: view.session_id,
     required_steps: STEP_ORDER.filter((s) => view.required_steps.includes(s)),
-    steps: view.steps.map((s) => ({ step: s.step, status: s.status, attempt: s.attempt })),
+    steps: view.steps.map((s) => ({
+      step: s.step,
+      status: s.status,
+      attempt: s.attempt,
+    })),
     current_step: view.current_step,
     controls: [...latest.entries()].map(([control, v]) => ({
       control,
@@ -176,3 +187,4 @@ function publicView(view: {
 }
 
 export type KycSessionView = Awaited<ReturnType<typeof getKycSession>>;
+

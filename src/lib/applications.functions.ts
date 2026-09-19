@@ -515,6 +515,51 @@ export const registerDocuments = createServerFn({ method: "POST" })
         })),
       },
     });
+
+    /* ------------------------------------------------------------------
+     * MOTEUR KYC PAR ÉTAPES (sessions / étapes / contrôles / moteur facial).
+     *
+     * Raccordement : le parcours candidat dépose toutes ses pièces ici, en
+     * une fois. Le moteur réel (`processStep`) est donc exécuté ici sur les
+     * fichiers réellement présents dans le bucket, dans l'ordre imposé
+     * (identité → domicile → vivacité → IBAN → revenus). C'est cette
+     * exécution qui alimente les 26 contrôles du panneau admin.
+     *
+     * Une erreur du moteur n'invente aucun statut : elle est auditée et le
+     * dépôt du dossier n'est pas annulé pour autant.
+     * ---------------------------------------------------------------- */
+    try {
+      const { runEngineForSubmission } = await import("@/lib/kyc/submission-bridge.server");
+      const { data: applicationLanguage } = await supabaseAdmin
+        .from("loan_applications")
+        .select("language")
+        .eq("id", applicationId)
+        .maybeSingle();
+      const engine = await runEngineForSubmission({
+        applicationId,
+        language: (applicationLanguage as { language?: string | null } | null)?.language ?? null,
+        documents: data.documents
+          .filter((d) => d.storage_path.startsWith(`${applicationId}/`))
+          .map((d) => ({
+            document_type_slug: d.document_type_slug,
+            category: categoryOf.get(d.document_type_slug) ?? "other",
+            storage_path: d.storage_path,
+            file_name: d.file_name,
+            mime_type: d.mime_type,
+            file_size: d.file_size,
+            capture_evidence: d.capture_evidence,
+            ocr: d.ocr,
+          })),
+      });
+      await server.logEvent(applicationId, "kyc_engine_run", {
+        description: `Moteur KYC exécuté : ${engine.outcomes
+          .map((o) => `${o.step}=${o.outcome === "recorded" ? o.status : o.outcome}`)
+          .join(", ")}`,
+        metadata: { session_id: engine.session_id, outcomes: engine.outcomes },
+      });
+    } catch (engineError) {
+      console.error("[registerDocuments] kyc engine failed", engineError);
+    }
     /* ------------------------------------------------------------------
      * DÉCISION KYC FINALE — OCR/MRZ, croisement, arbitrage.
      *
