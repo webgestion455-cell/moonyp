@@ -304,6 +304,16 @@ export const registerDocuments = createServerFn({ method: "POST" })
               capture_evidence: z.unknown().optional(),
               /** Lecture OCR/MRZ produite par le navigateur (texte brut). */
               ocr: z.unknown().optional(),
+              /** Imagette du visage (pièce ou vivacité) : pixels uniquement,
+               *  jamais un verdict. La comparaison est faite ici. */
+              face: z
+                .object({
+                  image_base64: z.string().max(700_000).optional(),
+                  faces_detected: z.number().int().min(0).max(50).optional(),
+                  face_size_px: z.number().min(0).max(10_000).optional(),
+                  source: z.enum(["document", "live"]).optional(),
+                })
+                .optional(),
             }),
           )
           .min(1)
@@ -333,11 +343,15 @@ export const registerDocuments = createServerFn({ method: "POST" })
      * mêmes seuils qu'à l'écran. Le verdict pilote le statut du contrôle KYC. */
     const verdicts = new Map<string, ReturnType<typeof verifyCaptureEvidence>>();
     const ocrByPath = new Map<string, unknown>();
+    // Les imagettes de visage servent uniquement à la comparaison faite plus
+    // bas : elles ne sont ni écrites en base ni conservées après la décision.
+    const faceByPath = new Map<string, NonNullable<(typeof data.documents)[number]["face"]>>();
     const rows = data.documents
       .filter((d) => d.storage_path.startsWith(`${applicationId}/`))
       .map((d) => {
-        const { capture_evidence, ocr, ...doc } = d;
+        const { capture_evidence, ocr, face, ...doc } = d;
         if (ocr) ocrByPath.set(d.storage_path, ocr);
+        if (face?.image_base64) faceByPath.set(d.storage_path, face);
         const verdict = verifyCaptureEvidence(capture_evidence);
         verdicts.set(d.storage_path, verdict);
         return {
@@ -541,7 +555,54 @@ export const registerDocuments = createServerFn({ method: "POST" })
       if (identityError || !application) throw new Error("kyc_identity_unavailable");
       const declared = application;
 
-      const result = decideKyc({ declared, documents: docsForDecision });
+      /* CORRESPONDANCE FACIALE — pièce d'identité ↔ contrôle de vivacité.
+       * Le moteur biométrique interne (worker, descripteurs 128D) prime dès
+       * qu'il a réellement comparé ce dossier ; à défaut, la comparaison est
+       * calculée ici sur les imagettes déposées. Le seuil est serveur : le
+       * navigateur n'a transmis que des pixels. */
+      const { compareFaces, faceMatchFromWorkerResult, resolveFaceMatch } =
+        await import("@/lib/kyc/face-compare.server");
+
+      let documentFace: ReturnType<typeof faceByPath.get>;
+      let liveFace: ReturnType<typeof faceByPath.get>;
+      for (const doc of insertedDocs ?? []) {
+        const path = (doc as { storage_path?: string }).storage_path ?? "";
+        const face = faceByPath.get(path);
+        if (!face) continue;
+        const category = categoryOf.get(doc.document_type_slug) ?? "other";
+        if (!documentFace && category === "identity") documentFace = face;
+        if (!liveFace && (category === "selfie" || verdicts.get(path)?.method === "liveness"))
+          liveFace = face;
+      }
+
+      const { data: faceJob } = await (
+        supabaseAdmin.from as unknown as (t: string) => {
+          select: (c: string) => {
+            eq: (
+              c: string,
+              v: string,
+            ) => {
+              eq: (
+                c: string,
+                v: string,
+              ) => {
+                maybeSingle: () => Promise<{ data: { result?: unknown } | null }>;
+              };
+            };
+          };
+        }
+      )("application_kyc_face_jobs")
+        .select("result")
+        .eq("application_id", applicationId)
+        .eq("kind", "face_match")
+        .maybeSingle();
+
+      const faceMatch = resolveFaceMatch(
+        faceMatchFromWorkerResult(faceJob?.result),
+        documentFace || liveFace ? await compareFaces(documentFace, liveFace) : null,
+      );
+
+      const result = decideKyc({ declared, documents: docsForDecision, faceMatch });
 
       // Lecture MRZ conservée avec la pièce qui l'a portée.
       for (const doc of insertedDocs ?? []) {
@@ -589,6 +650,16 @@ export const registerDocuments = createServerFn({ method: "POST" })
         source_document: result.source_document,
         ocr_confidence: result.ocr.confidence,
         engine: result.ocr.engine,
+        // Piste d'audit de la comparaison faciale : résultat, seuil appliqué,
+        // moteur et version. Aucun descripteur biométrique n'est conservé.
+        face_match: (result.face_match ?? null) as never,
+        face_match_status: result.face_match?.band ?? "not_compared",
+        face_similarity: result.face_match?.similarity ?? null,
+        face_threshold: result.face_match?.threshold ?? null,
+        face_engine: result.face_match?.engine ?? null,
+        face_engine_version: result.face_match?.engine_version ?? null,
+        thresholds: result.thresholds as never,
+        decided_by: "server",
       } as never);
 
       if (decisionWriteError) throw new Error("kyc_audit_write_failed");
@@ -615,6 +686,13 @@ export const registerDocuments = createServerFn({ method: "POST" })
           source_document: result.source_document,
           mrz_found: result.ocr.mrz_found,
           ocr_confidence: result.ocr.confidence,
+          face_match_status: result.face_match?.band ?? "not_compared",
+          face_similarity: result.face_match?.similarity ?? null,
+          face_threshold: result.face_match?.threshold ?? null,
+          face_engine: result.face_match
+            ? `${result.face_match.engine}@${result.face_match.engine_version}`
+            : null,
+          thresholds_version: result.thresholds.version,
         },
       });
 

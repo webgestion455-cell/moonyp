@@ -30,6 +30,7 @@ import { KycArtApproved, KycArtRejected, KycArtReview } from "@/components/finan
 import type { CaptureEvidence } from "@/lib/kyc/image-analysis";
 import type { LivenessSessionEvidence } from "@/lib/kyc/liveness-engine";
 import { useImmersiveMode } from "@/lib/kyc/immersive";
+import { extractFaceEvidence, type FaceEvidencePayload } from "@/lib/kyc/face-capture";
 import {
   readIdentityDocument,
   releaseOcrEngine,
@@ -81,6 +82,12 @@ export interface KycCaptureFile {
    * la lecture du navigateur n'est jamais une décision, seulement une source.
    */
   ocr?: OcrResult;
+  /**
+   * Imagette du visage extraite sur l'appareil (portrait de la pièce, ou
+   * image du contrôle de vivacité). Elle ne porte aucun verdict : le serveur
+   * compare lui-même la pièce et le visage vivant, avec ses propres seuils.
+   */
+  face?: FaceEvidencePayload;
 }
 
 export type KycFiles = Record<string, KycCaptureFile[]>;
@@ -330,6 +337,34 @@ export function KycFlow({
       );
       setCapturing(missing ? { slug: doc.slug, side: missing } : null);
 
+      /* Visage : sur la pièce d'identité et sur le contrôle de vivacité, une
+       * imagette du visage est extraite ici, sur l'appareil, puis jointe à la
+       * capture. Elle sert uniquement de matière à la comparaison serveur —
+       * aucun score, aucun verdict n'est calculé dans le navigateur. Un échec
+       * d'extraction n'interrompt jamais le parcours. */
+      if ((category === "identity" || category === "selfie") && file.type.startsWith("image/")) {
+        const faceSource = category === "selfie" ? "live" : "document";
+        void extractFaceEvidence(file, faceSource)
+          .then((face) => {
+            if (!face) return;
+            const shots = stateRef.current.files[doc.slug] ?? [];
+            if (!shots.some((f) => f.side === side && f.file === file)) return;
+            onChangeRef.current({
+              ...stateRef.current,
+              files: {
+                ...stateRef.current.files,
+                [doc.slug]: shots.map((f) =>
+                  f.side === side && f.file === file ? { ...f, face } : f,
+                ),
+              },
+            });
+          })
+          .catch(() => {
+            // Absence de preuve faciale : la décision serveur en tiendra
+            // compte (revue manuelle), elle n'est jamais contournée.
+          });
+      }
+
       // Lecture de la pièce : en arrière-plan, jamais devant le client. Elle se
       // fait sur l'appareil pendant que la personne continue son parcours, et
       // vient compléter la capture déjà enregistrée dès qu'elle aboutit.
@@ -387,6 +422,12 @@ export function KycFlow({
       capture_method: "scan" | "upload" | "liveness";
       capture_evidence?: unknown;
       ocr?: unknown;
+      face?: {
+        image_base64: string;
+        faces_detected: number;
+        face_size_px: number;
+        source: "document" | "live";
+      };
     }[] = [];
     for (const category of categories) {
       const docs = plan[category];
@@ -410,6 +451,16 @@ export function KycFlow({
                 viz_text: shot.ocr.viz_text,
                 confidence: shot.ocr.confidence,
                 engine: shot.ocr.engine,
+              }
+            : undefined,
+          // Visage transmis en pixels : la comparaison pièce ↔ visage vivant
+          // et son seuil restent entièrement côté serveur.
+          face: shot.face
+            ? {
+                image_base64: shot.face.image_base64,
+                faces_detected: shot.face.faces_detected,
+                face_size_px: shot.face.face_size_px,
+                source: shot.face.source,
               }
             : undefined,
         });
@@ -1061,20 +1112,52 @@ function DecisionCard({
             notice: "kyc.decision.reviewNotice",
           };
 
+  /* Récapitulatif : chaque ligne porte le statut réellement rendu par le
+   * serveur pour ce contrôle. La coche verte n'apparaît que sur un contrôle
+   * effectivement validé — jamais sur un dossier en examen ou refusé. */
+  const items = assessment.checklist ?? [];
+  const mark: Record<(typeof items)[number]["status"], { icon: string; tone: string }> = {
+    passed: { icon: "✓", tone: "text-success" },
+    review: { icon: "•", tone: "text-warning" },
+    failed: { icon: "×", tone: "text-destructive" },
+    missing: { icon: "–", tone: "text-muted-foreground" },
+  };
+
   return (
-    <div
-      role="status"
-      aria-live="polite"
-      className={cn(
-        "flex flex-col items-center gap-4 rounded-xl border p-6 text-center sm:flex-row sm:items-center sm:gap-5 sm:text-left",
-        view.box,
-      )}
-    >
-      <view.Art />
-      <div className="min-w-0">
-        <p className="text-base font-semibold">{t(`kyc.decision.${decision}`)}</p>
-        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t(view.notice)}</p>
+    <div role="status" aria-live="polite" className={cn("rounded-xl border p-6", view.box)}>
+      <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:gap-5 sm:text-left">
+        <view.Art />
+        <div className="min-w-0">
+          <p className="text-base font-semibold">{t(`kyc.decision.${decision}`)}</p>
+          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t(view.notice)}</p>
+        </div>
       </div>
+
+      {items.length > 0 && (
+        <div className="mt-5 border-t border-border/60 pt-4">
+          <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            {t("kyc.decision.summary")}
+          </p>
+          <ul className="mt-3 space-y-2">
+            {items.map((item) => (
+              <li key={item.key} className="flex items-center justify-between gap-3 text-sm">
+                <span className="flex min-w-0 items-center gap-2">
+                  <span
+                    aria-hidden
+                    className={cn("w-3 shrink-0 text-center font-semibold", mark[item.status].tone)}
+                  >
+                    {mark[item.status].icon}
+                  </span>
+                  <span className="truncate">{t(`kyc.decision.item.${item.key}`)}</span>
+                </span>
+                <span className={cn("shrink-0 text-xs", mark[item.status].tone)}>
+                  {t(`kyc.decision.state.${item.status}`)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

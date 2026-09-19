@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Identiteit geverifieerd",
-      "manual_review": "Aanvullende verificatie nodig",
+      "manual_review": "Verificatie in controle",
       "failed": "Identiteit niet geverifieerd",
-      "reviewNotice": "Aanvullende controles door de complianceafdeling zijn nodig.",
+      "reviewNotice": "Uw dossier is volledig en vereist een extra controle door onze compliance-afdeling. U wordt geïnformeerd zodra deze is afgerond.",
       "checking": "Uw document wordt onderzocht",
       "checkingDesc": "Het document wordt gelezen en de beschikbare identiteitsgegevens worden vergeleken.",
       "passedNotice": "Uw identiteitsverificatie is voltooid.",
-      "failedNotice": "Leg een geldig, leesbaar identiteitsdocument opnieuw vast en voltooi de live gezichtscontrole.",
+      "failedNotice": "Uw identiteit kon niet worden bevestigd op basis van de aangeleverde elementen. U kunt de verificatie opnieuw doen met een geldig, goed verlicht identiteitsbewijs en een live gezichtscontrole.",
       "retry": "Verificatie opnieuw starten",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Verificatie niet beschikbaar",
-      "unavailableNotice": "Er is geen beslissing genomen. Probeer het opnieuw."
+      "unavailableNotice": "Er is geen beslissing genomen. Probeer het opnieuw.",
+      "summary": "Overzicht van de controles",
+      "item": {
+        "identity_document": "Identiteitsbewijs",
+        "document_analysis": "Document geanalyseerd",
+        "liveness": "Live gezichtscontrole",
+        "face_match": "Gezichtsvergelijking",
+        "bank": "Bankgegevens",
+        "income": "Inkomensbewijs"
+      },
+      "state": {
+        "passed": "Geverifieerd",
+        "review": "In controle",
+        "failed": "Niet gevalideerd",
+        "missing": "Niet aangeleverd"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

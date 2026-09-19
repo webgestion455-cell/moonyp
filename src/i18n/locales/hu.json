@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Személyazonosság igazolva",
-      "manual_review": "További ellenőrzés szükséges",
+      "manual_review": "Ellenőrzés folyamatban",
       "failed": "A személyazonosság nem igazolt",
-      "reviewNotice": "A megfelelőségi osztály további ellenőrzései szükségesek.",
+      "reviewNotice": "Az anyaga hiánytalan, és megfelelőségi csapatunk további ellenőrzését igényli. Amint elkészül, értesítjük.",
       "checking": "Az okmány ellenőrzése",
       "checkingDesc": "Az okmány beolvasása és a rendelkezésre álló személyazonosító adatok összehasonlítása.",
       "passedNotice": "A személyazonosság ellenőrzése befejeződött.",
-      "failedNotice": "Készítsen új felvételt egy érvényes, olvasható személyazonosító okmányról, és végezze el az élő arcellenőrzést.",
+      "failedNotice": "A megadott elemek alapján a személyazonossága nem volt igazolható. Az ellenőrzést megismételheti érvényes, jól megvilágított okmánnyal és élő arcellenőrzéssel.",
       "retry": "Ellenőrzés újraindítása",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Az ellenőrzés nem érhető el",
-      "unavailableNotice": "Nem született döntés. Próbálja újra."
+      "unavailableNotice": "Nem született döntés. Próbálja újra.",
+      "summary": "Ellenőrzések összefoglalója",
+      "item": {
+        "identity_document": "Személyazonosító okmány",
+        "document_analysis": "Dokumentum elemezve",
+        "liveness": "Élő arcellenőrzés",
+        "face_match": "Arcegyezés",
+        "bank": "Bankszámlaadatok",
+        "income": "Jövedelemigazolás"
+      },
+      "state": {
+        "passed": "Ellenőrizve",
+        "review": "Ellenőrzés alatt",
+        "failed": "Nem érvényesítve",
+        "missing": "Nincs megadva"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

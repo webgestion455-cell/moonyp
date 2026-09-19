@@ -368,6 +368,7 @@ function ApplyPage() {
           file: capture.file,
           evidence: capture.evidence,
           ocr: capture.ocr,
+          face: capture.face,
         })),
       );
       setProgress({ done: 0, total: captures.length });
@@ -380,10 +381,16 @@ function ApplyPage() {
         file_size: number;
         capture_evidence?: unknown;
         ocr?: unknown;
+        face?: {
+          image_base64: string;
+          faces_detected: number;
+          face_size_px: number;
+          source: "document" | "live";
+        };
       }> = [];
 
       for (const [index, capture] of captures.entries()) {
-        const { file, slug, evidence, ocr } = capture;
+        const { file, slug, evidence, ocr, face } = capture;
         const signed = await uploadUrlFn({
           data: {
             token: created.token,
@@ -414,6 +421,18 @@ function ApplyPage() {
                   viz_text: ocr.viz_text,
                   confidence: ocr.confidence,
                   engine: ocr.engine,
+                },
+              }
+            : {}),
+          // Imagette du visage : pixels uniquement. La comparaison pièce ↔
+          // visage vivant, son seuil et son verdict sont calculés au serveur.
+          ...(face
+            ? {
+                face: {
+                  image_base64: face.image_base64,
+                  faces_detected: face.faces_detected,
+                  face_size_px: face.face_size_px,
+                  source: face.source,
                 },
               }
             : {}),

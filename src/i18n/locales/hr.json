@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Identitet potvrđen",
-      "manual_review": "Potrebna je dodatna provjera",
+      "manual_review": "Provjera u tijeku",
       "failed": "Identitet nije potvrđen",
-      "reviewNotice": "Potrebne su dodatne provjere odjela za usklađenost.",
+      "reviewNotice": "Vaš je predmet potpun i zahtijeva dodatnu provjeru naše službe za usklađenost. Obavijestit ćemo vas čim bude dovršena.",
       "checking": "Provjera vašeg dokumenta",
       "checkingDesc": "Čitanje dokumenta i usporedba dostupnih podataka o identitetu.",
       "passedNotice": "Provjera vašeg identiteta je završena.",
-      "failedNotice": "Ponovno snimite valjan i čitljiv identifikacijski dokument te dovršite provjeru lica uživo.",
+      "failedNotice": "Vaš identitet nije bilo moguće potvrditi na temelju dostavljenih elemenata. Provjeru možete ponoviti s valjanom, dobro osvijetljenom osobnom ispravom i provjerom lica uživo.",
       "retry": "Ponovno pokreni provjeru",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Provjera nije dostupna",
-      "unavailableNotice": "Odluka nije donesena. Pokušajte ponovno."
+      "unavailableNotice": "Odluka nije donesena. Pokušajte ponovno.",
+      "summary": "Sažetak provjera",
+      "item": {
+        "identity_document": "Osobna isprava",
+        "document_analysis": "Dokument analiziran",
+        "liveness": "Provjera lica uživo",
+        "face_match": "Podudaranje lica",
+        "bank": "Bankovni podaci",
+        "income": "Dokaz o prihodima"
+      },
+      "state": {
+        "passed": "Potvrđeno",
+        "review": "U provjeri",
+        "failed": "Nije potvrđeno",
+        "missing": "Nije dostavljeno"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."
@@ -1953,7 +1968,11 @@
         },
         {
           "h": "Kašnjenje",
-          "list": ["Dan 1–7: podsjetnik.", "Dan 8–30: naknade + kamata.", "Od 31. dana: opomena."]
+          "list": [
+            "Dan 1–7: podsjetnik.",
+            "Dan 8–30: naknade + kamata.",
+            "Od 31. dana: opomena."
+          ]
         },
         {
           "h": "Naplata",

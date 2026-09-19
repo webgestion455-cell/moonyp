@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Henkilöllisyys vahvistettu",
-      "manual_review": "Lisätarkistus tarvitaan",
+      "manual_review": "Tarkistus käynnissä",
       "failed": "Henkilöllisyyttä ei vahvistettu",
-      "reviewNotice": "Vaatimustenmukaisuudesta vastaavan osaston lisätarkistuksia tarvitaan.",
+      "reviewNotice": "Hakemuksesi on täydellinen ja vaatii lisätarkistuksen vaatimustenmukaisuustiimiltämme. Ilmoitamme heti, kun se on valmis.",
       "checking": "Asiakirjaasi tarkistetaan",
       "checkingDesc": "Asiakirjaa luetaan ja saatavilla olevia henkilötietoja verrataan.",
       "passedNotice": "Henkilöllisyytesi tarkistus on valmis.",
-      "failedNotice": "Kuvaa voimassa oleva, luettava henkilöllisyystodistus uudelleen ja suorita kasvojen reaaliaikainen tarkistus.",
+      "failedNotice": "Henkilöllisyyttäsi ei voitu vahvistaa toimitetuista aineistoista. Voit aloittaa tarkistuksen uudelleen voimassa olevalla, hyvin valaistulla henkilöllisyystodistuksella ja live-kasvotarkistuksella.",
       "retry": "Aloita tarkistus uudelleen",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Tarkistus ei ole käytettävissä",
-      "unavailableNotice": "Päätöstä ei ole tehty. Yritä uudelleen."
+      "unavailableNotice": "Päätöstä ei ole tehty. Yritä uudelleen.",
+      "summary": "Tarkistusten yhteenveto",
+      "item": {
+        "identity_document": "Henkilöllisyystodistus",
+        "document_analysis": "Asiakirja analysoitu",
+        "liveness": "Live-kasvotarkistus",
+        "face_match": "Kasvojen vastaavuus",
+        "bank": "Pankkitiedot",
+        "income": "Tulotodistus"
+      },
+      "state": {
+        "passed": "Vahvistettu",
+        "review": "Tarkistuksessa",
+        "failed": "Ei hyväksytty",
+        "missing": "Ei toimitettu"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

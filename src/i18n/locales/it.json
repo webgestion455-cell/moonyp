@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Identità verificata",
-      "manual_review": "Sono necessarie ulteriori verifiche",
+      "manual_review": "Verifica in corso di controllo",
       "failed": "Identità non verificata",
-      "reviewNotice": "Sono necessari ulteriori controlli da parte del servizio di conformità.",
+      "reviewNotice": "La sua pratica è completa e richiede una verifica aggiuntiva da parte del nostro servizio conformità. La informeremo non appena sarà conclusa.",
       "checking": "Analisi del documento",
       "checkingDesc": "Lettura del documento e confronto dei dati di identità disponibili.",
       "passedNotice": "La verifica della sua identità è completata.",
-      "failedNotice": "Acquisisca nuovamente un documento valido e leggibile e completi il controllo del volto in tempo reale.",
+      "failedNotice": "Non è stato possibile confermare la sua identità con gli elementi forniti. Può ripetere la verifica con un documento valido, ben illuminato, e un controllo del volto dal vivo.",
       "retry": "Ricominciare la verifica",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Verifica non disponibile",
-      "unavailableNotice": "Non è stata presa alcuna decisione. Riprovi."
+      "unavailableNotice": "Non è stata presa alcuna decisione. Riprovi.",
+      "summary": "Riepilogo dei controlli",
+      "item": {
+        "identity_document": "Documento d'identità",
+        "document_analysis": "Documento analizzato",
+        "liveness": "Controllo del volto dal vivo",
+        "face_match": "Corrispondenza facciale",
+        "bank": "Coordinate bancarie",
+        "income": "Giustificativo di reddito"
+      },
+      "state": {
+        "passed": "Verificato",
+        "review": "In controllo",
+        "failed": "Non convalidato",
+        "missing": "Non fornito"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

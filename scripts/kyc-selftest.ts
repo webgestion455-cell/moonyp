@@ -137,8 +137,10 @@ const noLiveness = decideKyc({
   ],
 });
 check(
-  "sans vivacité → vérification non aboutie",
-  noLiveness.decision === "failed",
+  // Une vivacité absente est une preuve manquante, pas une fraude démontrée :
+  // elle bloque la validation automatique sans prononcer de refus.
+  "sans vivacité → jamais vérifiée, examen manuel",
+  noLiveness.decision === "manual_review",
   noLiveness.reasons,
 );
 
@@ -216,8 +218,10 @@ const unreadable = decideKyc({
   ],
 });
 check(
-  "objet sans MRZ → vérification non aboutie",
-  unreadable.decision === "failed",
+  // MRZ illisible : la machine ne peut pas conclure seule, elle passe la main
+  // à la conformité. Elle ne prononce pas un refus sur une lecture ratée.
+  "objet sans MRZ → jamais vérifié, examen manuel",
+  unreadable.decision === "manual_review",
   unreadable.reasons,
 );
 check("aucune ligne MRZ en clair conservée", unreadable.mrz === null);
@@ -232,18 +236,132 @@ check(
 for (let attempt = 0; attempt < 3; attempt += 1) {
   const result = decideKyc({ declared, at, documents: [] });
   check(
-    `tentative ${attempt + 1} sans pièce → toujours non vérifiée`,
-    result.decision === "failed",
+    `tentative ${attempt + 1} sans pièce → jamais vérifiée`,
+    result.decision !== "passed" && result.reasons.includes("no_identity_document"),
   );
 }
-check("comparaison faciale non inventée", nominal.reasons.includes("face_match_not_performed"));
 check(
-  "contrôle adresse non inventé",
-  nominal.reasons.includes("address_verification_not_performed"),
+  "comparaison faciale non inventée",
+  nominal.reasons.includes("identity_face_match_not_performed"),
+);
+
+/* ---------------------------------------------------------------------------
+ * Correspondance faciale — le cœur de la décision d'identité.
+ * ------------------------------------------------------------------------ */
+
+const fullDocuments = [
+  {
+    document_type_slug: "id_passport",
+    category: "identity",
+    capture_status: "passed" as const,
+    capture_reasons: [] as string[],
+    capture_score: 82,
+    capture_method: "scan" as const,
+    ocr: goodOcr,
+  },
+  {
+    document_type_slug: "selfie_liveness",
+    category: "selfie",
+    capture_status: "passed" as const,
+    capture_reasons: [] as string[],
+    capture_score: 90,
+    capture_method: "liveness" as const,
+  },
+];
+
+function faceOutcome(
+  similarity: number,
+  band: "match" | "borderline" | "mismatch",
+  reasons: string[],
+) {
+  return {
+    compared: true,
+    similarity,
+    threshold: 0.6,
+    passed: band === "match",
+    reasons,
+    band,
+    engine: "moonyp-face-classic",
+    engine_version: "1.0.0",
+    method: "hog+lbp+ncc",
+    document_faces: 1,
+    live_faces: 1,
+    quality: null,
+    compared_at: at.toISOString(),
+  };
+}
+
+const matched = decideKyc({
+  declared,
+  at,
+  documents: fullDocuments,
+  faceMatch: faceOutcome(0.72, "match", ["identity_face_match_passed"]),
+});
+check(
+  "visage correspondant + contrôles obligatoires → identité vérifiée",
+  matched.decision === "passed" && matched.reasons.includes("identity_face_match_passed"),
+  matched.reasons,
 );
 check(
-  "contrôle bancaire non inventé",
-  nominal.reasons.includes("bank_statement_verification_not_performed"),
+  "récapitulatif client cohérent avec la décision",
+  matched.checklist.find((i) => i.key === "face_match")?.status === "passed" &&
+    matched.checklist.find((i) => i.key === "liveness")?.status === "passed",
+  matched.checklist,
+);
+
+const borderline = decideKyc({
+  declared,
+  at,
+  documents: fullDocuments,
+  faceMatch: faceOutcome(0.5, "borderline", ["identity_face_match_borderline"]),
+});
+check(
+  "similarité intermédiaire → examen manuel, jamais validation",
+  borderline.decision === "manual_review",
+  borderline.reasons,
+);
+
+const mismatched = decideKyc({
+  declared,
+  at,
+  documents: fullDocuments,
+  faceMatch: faceOutcome(0.21, "mismatch", ["identity_face_match_failed"]),
+});
+check(
+  "visages clairement différents → refus",
+  mismatched.decision === "failed" && mismatched.reasons.includes("identity_face_match_failed"),
+  mismatched.reasons,
+);
+
+const twoFaces = decideKyc({
+  declared,
+  at,
+  documents: fullDocuments,
+  faceMatch: {
+    ...faceOutcome(0, "not_compared" as never, ["multiple_faces_on_live_capture"]),
+    compared: false,
+    passed: false,
+    live_faces: 2,
+    similarity: null,
+  },
+});
+check(
+  "plusieurs visages sur la vivacité → refus",
+  twoFaces.decision === "failed",
+  twoFaces.reasons,
+);
+
+check(
+  "vivacité réussie seule ne vaut jamais identité vérifiée",
+  nominal.decision !== "passed" && nominal.reasons.includes("liveness_passed"),
+  nominal.reasons,
+);
+check(
+  "seuils serveur joints à la décision",
+  typeof matched.thresholds.version === "string" &&
+    matched.thresholds.face_match > 0 &&
+    matched.thresholds.liveness > 0,
+  matched.thresholds,
 );
 console.log(`\n${passed} test(s) réussi(s), ${failed} échec(s).`);
 process.exit(failed === 0 ? 0 : 1);

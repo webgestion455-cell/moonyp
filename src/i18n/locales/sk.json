@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Totožnosť overená",
-      "manual_review": "Vyžaduje sa dodatočné overenie",
+      "manual_review": "Overenie prebieha",
       "failed": "Totožnosť nebola overená",
-      "reviewNotice": "Sú potrebné ďalšie kontroly oddelenia súladu.",
+      "reviewNotice": "Vaša žiadosť je kompletná a vyžaduje dodatočnú kontrolu naším oddelením compliance. Hneď po jej dokončení vás budeme informovať.",
       "checking": "Kontrola vášho dokladu",
       "checkingDesc": "Čítanie dokladu a porovnávanie dostupných údajov o totožnosti.",
       "passedNotice": "Overenie vašej totožnosti je dokončené.",
-      "failedNotice": "Znova nasnímajte platný a čitateľný doklad totožnosti a dokončite živú kontrolu tváre.",
+      "failedNotice": "Vašu totožnosť sa nepodarilo potvrdiť na základe poskytnutých podkladov. Overenie môžete zopakovať s platným, dobre osvetleným dokladom a živou kontrolou tváre.",
       "retry": "Spustiť overenie znova",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Overenie nie je dostupné",
-      "unavailableNotice": "Nebolo prijaté žiadne rozhodnutie. Skúste to znova."
+      "unavailableNotice": "Nebolo prijaté žiadne rozhodnutie. Skúste to znova.",
+      "summary": "Prehľad kontrol",
+      "item": {
+        "identity_document": "Doklad totožnosti",
+        "document_analysis": "Dokument analyzovaný",
+        "liveness": "Živá kontrola tváre",
+        "face_match": "Zhoda tváre",
+        "bank": "Bankové údaje",
+        "income": "Doklad o príjme"
+      },
+      "state": {
+        "passed": "Overené",
+        "review": "V kontrole",
+        "failed": "Nepotvrdené",
+        "missing": "Nedodané"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

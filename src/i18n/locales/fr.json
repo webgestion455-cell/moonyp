@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Identité vérifiée",
-      "manual_review": "Vérifications complémentaires nécessaires",
+      "manual_review": "Vérification en cours de contrôle",
       "failed": "Identité non vérifiée",
-      "reviewNotice": "Des contrôles complémentaires par le service conformité sont nécessaires.",
+      "reviewNotice": "Votre dossier est complet et nécessite une vérification supplémentaire par notre service conformité. Vous serez informé dès qu'elle sera terminée.",
       "checking": "Analyse de votre document",
       "checkingDesc": "Lecture du document et comparaison des informations d’identité disponibles.",
       "passedNotice": "La vérification de votre identité est terminée.",
-      "failedNotice": "Veuillez reprendre une pièce d’identité valide et lisible et effectuer le contrôle du visage en direct.",
+      "failedNotice": "Votre identité n'a pas pu être confirmée à partir des éléments fournis. Vous pouvez recommencer la vérification avec une pièce d'identité valide, bien éclairée, et un contrôle du visage en direct.",
       "retry": "Recommencer la vérification",
       "field": {
         "surname": "Nom",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "Un examen de conformité est nécessaire."
       },
       "unavailable": "Vérification indisponible",
-      "unavailableNotice": "Aucune décision n’a été rendue. Veuillez réessayer."
+      "unavailableNotice": "Aucune décision n’a été rendue. Veuillez réessayer.",
+      "summary": "Récapitulatif des contrôles",
+      "item": {
+        "identity_document": "Pièce d'identité",
+        "document_analysis": "Document analysé",
+        "liveness": "Contrôle du visage en direct",
+        "face_match": "Correspondance faciale",
+        "bank": "Coordonnées bancaires",
+        "income": "Justificatif de revenus"
+      },
+      "state": {
+        "passed": "Vérifié",
+        "review": "En cours de contrôle",
+        "failed": "Non validé",
+        "missing": "Non fourni"
+      }
     },
     "guard": {
       "fullscreen": "Restez sur cet écran jusqu'à la fin de l'étape."

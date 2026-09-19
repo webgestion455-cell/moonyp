@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Identität bestätigt",
-      "manual_review": "Weitere Prüfung erforderlich",
+      "manual_review": "Prüfung läuft",
       "failed": "Identität nicht bestätigt",
-      "reviewNotice": "Weitere Prüfungen durch die Compliance-Abteilung sind erforderlich.",
+      "reviewNotice": "Ihre Unterlagen sind vollständig und erfordern eine zusätzliche Prüfung durch unsere Compliance-Abteilung. Wir informieren Sie, sobald sie abgeschlossen ist.",
       "checking": "Ihr Dokument wird geprüft",
       "checkingDesc": "Das Dokument wird gelesen und verfügbare Identitätsangaben werden verglichen.",
       "passedNotice": "Ihre Identitätsprüfung ist abgeschlossen.",
-      "failedNotice": "Bitte erfassen Sie ein gültiges, lesbares Ausweisdokument und führen Sie die Live-Gesichtsprüfung durch.",
+      "failedNotice": "Ihre Identität konnte anhand der eingereichten Elemente nicht bestätigt werden. Sie können die Prüfung mit einem gültigen, gut ausgeleuchteten Ausweis und einer Live-Gesichtsprüfung wiederholen.",
       "retry": "Prüfung neu starten",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Prüfung nicht verfügbar",
-      "unavailableNotice": "Es wurde keine Entscheidung getroffen. Bitte versuchen Sie es erneut."
+      "unavailableNotice": "Es wurde keine Entscheidung getroffen. Bitte versuchen Sie es erneut.",
+      "summary": "Übersicht der Prüfungen",
+      "item": {
+        "identity_document": "Ausweisdokument",
+        "document_analysis": "Dokument geprüft",
+        "liveness": "Live-Gesichtsprüfung",
+        "face_match": "Gesichtsabgleich",
+        "bank": "Bankverbindung",
+        "income": "Einkommensnachweis"
+      },
+      "state": {
+        "passed": "Geprüft",
+        "review": "In Prüfung",
+        "failed": "Nicht bestätigt",
+        "missing": "Nicht übermittelt"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Identitate verificată",
-      "manual_review": "Este necesară o verificare suplimentară",
+      "manual_review": "Verificare în curs de control",
       "failed": "Identitatea nu a fost verificată",
-      "reviewNotice": "Sunt necesare verificări suplimentare din partea departamentului de conformitate.",
+      "reviewNotice": "Dosarul dumneavoastră este complet și necesită o verificare suplimentară din partea serviciului nostru de conformitate. Veți fi informat imediat ce se finalizează.",
       "checking": "Se verifică documentul",
       "checkingDesc": "Se citește documentul și se compară datele de identitate disponibile.",
       "passedNotice": "Verificarea identității a fost finalizată.",
-      "failedNotice": "Fotografiați din nou un act de identitate valabil și lizibil și efectuați verificarea facială în direct.",
+      "failedNotice": "Identitatea dumneavoastră nu a putut fi confirmată pe baza elementelor furnizate. Puteți relua verificarea cu un act de identitate valabil, bine iluminat, și un control facial în direct.",
       "retry": "Reîncepeți verificarea",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Verificare indisponibilă",
-      "unavailableNotice": "Nu a fost luată nicio decizie. Încercați din nou."
+      "unavailableNotice": "Nu a fost luată nicio decizie. Încercați din nou.",
+      "summary": "Recapitularea controalelor",
+      "item": {
+        "identity_document": "Act de identitate",
+        "document_analysis": "Document analizat",
+        "liveness": "Control facial în direct",
+        "face_match": "Corespondență facială",
+        "bank": "Coordonate bancare",
+        "income": "Dovada veniturilor"
+      },
+      "state": {
+        "passed": "Verificat",
+        "review": "În control",
+        "failed": "Nevalidat",
+        "missing": "Nefurnizat"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

@@ -3,11 +3,13 @@
  * la soumission du dossier.
  *
  * Point capital : AUCUNE décision n'est prise par le navigateur. Le client
- * n'envoie que des mesures brutes (preuves de capture, texte OCR/MRZ) et
- * l'identité déclarée ; le serveur revalide chaque preuve
- * (`evidence.server.ts`), re-décode la MRZ, croise les données et rend la
- * décision (`decision.server.ts`). Le résultat affiché à l'écran est donc
- * exactement celui du back-end, sans recalcul ni stockage local.
+ * n'envoie que des mesures brutes (preuves de capture, texte OCR/MRZ,
+ * imagettes de visage) et l'identité déclarée ; le serveur revalide chaque
+ * preuve (`evidence.server.ts`), re-décode la MRZ, compare réellement le
+ * visage de la pièce au visage capté en vivacité (`face-compare.server.ts`),
+ * croise les données et rend la décision (`decision.server.ts`). Le résultat
+ * affiché à l'écran est donc exactement celui du back-end, sans recalcul ni
+ * stockage local.
  *
  * Cette évaluation est une pré-décision d'affichage : la décision opposable
  * est celle écrite en base au moment du dépôt (`registerDocuments`), avec le
@@ -17,6 +19,15 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
+/** Imagette de visage transmise par le parcours, comparée côté serveur. */
+const faceSchema = z.object({
+  /** JPEG/PNG base64 du visage recadré (aucun descripteur, aucun verdict). */
+  image_base64: z.string().max(700_000).optional(),
+  faces_detected: z.number().int().min(0).max(50).optional(),
+  face_size_px: z.number().min(0).max(10_000).optional(),
+  source: z.enum(["document", "live"]).optional(),
+});
+
 const documentSchema = z.object({
   document_type_slug: z.string().min(1).max(60),
   category: z.string().min(1).max(30),
@@ -25,6 +36,8 @@ const documentSchema = z.object({
   capture_evidence: z.unknown().optional(),
   /** Lecture OCR/MRZ produite par le navigateur (texte brut uniquement). */
   ocr: z.unknown().optional(),
+  /** Preuve faciale : pixels uniquement, jamais une conclusion. */
+  face: faceSchema.optional(),
 });
 
 export const assessKyc = createServerFn({ method: "POST" })
@@ -44,6 +57,7 @@ export const assessKyc = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const { verifyCaptureEvidence } = await import("@/lib/kyc/evidence.server");
     const { decideKyc } = await import("@/lib/kyc/decision.server");
+    const { compareFaces } = await import("@/lib/kyc/face-compare.server");
 
     const documents = data.documents.map((doc) => {
       const verdict = verifyCaptureEvidence(doc.capture_evidence);
@@ -58,6 +72,18 @@ export const assessKyc = createServerFn({ method: "POST" })
       };
     });
 
+    /* Correspondance faciale : le visage de la pièce d'identité est comparé au
+     * visage capté pendant le contrôle de vivacité. La comparaison, le seuil
+     * et le verdict sont serveur ; le navigateur n'a fourni que des pixels. */
+    const documentFace = data.documents.find(
+      (d) => d.category === "identity" && d.face?.image_base64,
+    )?.face;
+    const liveFace = data.documents.find(
+      (d) => (d.category === "selfie" || d.capture_method === "liveness") && d.face?.image_base64,
+    )?.face;
+
+    const faceMatch = documentFace || liveFace ? await compareFaces(documentFace, liveFace) : null;
+
     const result = decideKyc({
       declared: {
         first_name: data.identity.first_name ?? "",
@@ -66,14 +92,16 @@ export const assessKyc = createServerFn({ method: "POST" })
         nationality: data.identity.nationality ?? "",
       },
       documents,
+      faceMatch,
     });
 
-    // Le navigateur ne reçoit QUE la décision. Ni score, ni motifs machine, ni
-    // contrôles champ par champ, ni MRZ, ni identité lue sur la pièce : ces
-    // éléments sont des données de conformité, réservées au dossier interne et
-    // à la piste d'audit. Le client voit une décision, rien d'autre.
+    // Le navigateur reçoit la décision et le récapitulatif d'étapes qui lui est
+    // destiné. Le score, les motifs machine, la MRZ, l'identité lue et les
+    // métriques biométriques restent des données de conformité : elles ne
+    // sortent pas du dossier interne et de la piste d'audit.
     return {
       decision: result.decision,
+      checklist: result.checklist,
       evaluated_at: result.evaluated_at,
     };
   });

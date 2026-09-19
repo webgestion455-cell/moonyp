@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Tożsamość potwierdzona",
-      "manual_review": "Wymagana dodatkowa weryfikacja",
+      "manual_review": "Weryfikacja w trakcie kontroli",
       "failed": "Tożsamość niepotwierdzona",
-      "reviewNotice": "Wymagane są dodatkowe kontrole działu zgodności.",
+      "reviewNotice": "Pani/Pana dokumentacja jest kompletna i wymaga dodatkowej kontroli przez nasz dział zgodności. Poinformujemy o jej zakończeniu.",
       "checking": "Sprawdzanie dokumentu",
       "checkingDesc": "Odczyt dokumentu i porównanie dostępnych danych tożsamości.",
       "passedNotice": "Weryfikacja tożsamości została zakończona.",
-      "failedNotice": "Ponownie sfotografuj ważny i czytelny dokument tożsamości oraz wykonaj kontrolę twarzy na żywo.",
+      "failedNotice": "Nie udało się potwierdzić tożsamości na podstawie przekazanych elementów. Weryfikację można powtórzyć z ważnym, dobrze oświetlonym dokumentem i kontrolą twarzy na żywo.",
       "retry": "Rozpocznij weryfikację ponownie",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Weryfikacja niedostępna",
-      "unavailableNotice": "Nie podjęto decyzji. Spróbuj ponownie."
+      "unavailableNotice": "Nie podjęto decyzji. Spróbuj ponownie.",
+      "summary": "Podsumowanie kontroli",
+      "item": {
+        "identity_document": "Dokument tożsamości",
+        "document_analysis": "Dokument przeanalizowany",
+        "liveness": "Kontrola twarzy na żywo",
+        "face_match": "Zgodność twarzy",
+        "bank": "Dane bankowe",
+        "income": "Potwierdzenie dochodów"
+      },
+      "state": {
+        "passed": "Zweryfikowano",
+        "review": "W kontroli",
+        "failed": "Niezatwierdzone",
+        "missing": "Nie dostarczono"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

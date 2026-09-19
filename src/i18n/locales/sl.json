@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Identiteta potrjena",
-      "manual_review": "Potrebno je dodatno preverjanje",
+      "manual_review": "Preverjanje v postopku",
       "failed": "Identiteta ni potrjena",
-      "reviewNotice": "Potrebna so dodatna preverjanja oddelka za skladnost.",
+      "reviewNotice": "Vaša vloga je popolna in zahteva dodatno preverjanje naše službe za skladnost. Obvestili vas bomo takoj, ko bo končano.",
       "checking": "Preverjanje vašega dokumenta",
       "checkingDesc": "Branje dokumenta in primerjava razpoložljivih podatkov o identiteti.",
       "passedNotice": "Preverjanje vaše identitete je zaključeno.",
-      "failedNotice": "Ponovno zajemite veljaven in čitljiv osebni dokument ter opravite preverjanje obraza v živo.",
+      "failedNotice": "Vaše istovetnosti ni bilo mogoče potrditi na podlagi predloženih elementov. Preverjanje lahko ponovite z veljavnim, dobro osvetljenim dokumentom in preverjanjem obraza v živo.",
       "retry": "Znova začni preverjanje",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Preverjanje ni na voljo",
-      "unavailableNotice": "Odločitev ni bila sprejeta. Poskusite znova."
+      "unavailableNotice": "Odločitev ni bila sprejeta. Poskusite znova.",
+      "summary": "Povzetek preverjanj",
+      "item": {
+        "identity_document": "Osebni dokument",
+        "document_analysis": "Dokument analiziran",
+        "liveness": "Preverjanje obraza v živo",
+        "face_match": "Ujemanje obraza",
+        "bank": "Bančni podatki",
+        "income": "Dokazilo o dohodkih"
+      },
+      "state": {
+        "passed": "Preverjeno",
+        "review": "V preverjanju",
+        "failed": "Ni potrjeno",
+        "missing": "Ni predloženo"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

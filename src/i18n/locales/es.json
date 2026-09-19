@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Identidad verificada",
-      "manual_review": "Se requiere una verificación adicional",
+      "manual_review": "Verificación en curso de control",
       "failed": "Identidad no verificada",
-      "reviewNotice": "Se requieren comprobaciones adicionales del departamento de cumplimiento.",
+      "reviewNotice": "Su expediente está completo y requiere una comprobación adicional de nuestro servicio de cumplimiento. Le informaremos en cuanto finalice.",
       "checking": "Analizando su documento",
       "checkingDesc": "Lectura del documento y comparación de los datos de identidad disponibles.",
       "passedNotice": "La verificación de su identidad ha finalizado.",
-      "failedNotice": "Vuelva a capturar un documento de identidad válido y legible y complete la comprobación facial en directo.",
+      "failedNotice": "No ha sido posible confirmar su identidad con los elementos aportados. Puede repetir la verificación con un documento válido, bien iluminado, y un control facial en directo.",
       "retry": "Reiniciar la verificación",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Verificación no disponible",
-      "unavailableNotice": "No se ha tomado ninguna decisión. Inténtelo de nuevo."
+      "unavailableNotice": "No se ha tomado ninguna decisión. Inténtelo de nuevo.",
+      "summary": "Resumen de los controles",
+      "item": {
+        "identity_document": "Documento de identidad",
+        "document_analysis": "Documento analizado",
+        "liveness": "Control facial en directo",
+        "face_match": "Coincidencia facial",
+        "bank": "Datos bancarios",
+        "income": "Justificante de ingresos"
+      },
+      "state": {
+        "passed": "Verificado",
+        "review": "En control",
+        "failed": "No validado",
+        "missing": "No aportado"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

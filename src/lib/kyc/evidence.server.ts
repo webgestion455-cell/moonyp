@@ -12,6 +12,8 @@
  * dans le bundle client.
  */
 
+import { DOCUMENT_QUALITY_THRESHOLD, LIVENESS_THRESHOLD } from "./thresholds.server";
+
 export type EvidenceMethod = "scan" | "upload" | "liveness";
 
 export type EvidenceVerdict = {
@@ -163,7 +165,17 @@ function verdictForDocument(
 
   const blocking = reasons.includes("screen_presentation_suspected");
   return {
-    status: blocking ? "manual_review" : reasons.length > 0 ? "manual_review" : "verifying",
+    // Une capture mesurée, nette, sans motif et au-dessus du seuil de qualité
+    // documentaire est réellement conforme : elle vaut `passed`. Le statut
+    // `verifying` était un cul-de-sac — aucune capture, même parfaite, ne
+    // pouvait alimenter une décision positive.
+    status: blocking
+      ? "manual_review"
+      : reasons.length > 0
+        ? "manual_review"
+        : score !== null && score >= DOCUMENT_QUALITY_THRESHOLD
+          ? "passed"
+          : "manual_review",
     score,
     method,
     provider: "device_scan",
@@ -307,7 +319,16 @@ function verdictForLiveness(raw: Record<string, unknown>): EvidenceVerdict {
   );
 
   return {
-    status: blocking ? "failed" : reasons.length > 0 ? "manual_review" : "verifying",
+    // Une session de vivacité complète, sans anomalie et au-dessus du seuil
+    // serveur vaut `passed`. Elle ne vaut jamais, à elle seule, une identité
+    // vérifiée : la correspondance faciale reste exigée par la décision.
+    status: blocking
+      ? "failed"
+      : reasons.length > 0
+        ? "manual_review"
+        : score >= LIVENESS_THRESHOLD
+          ? "passed"
+          : "manual_review",
     score,
     method: "liveness",
     provider: "mediapipe_face_landmarker",

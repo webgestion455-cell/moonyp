@@ -1600,13 +1600,13 @@
     },
     "decision": {
       "passed": "Identity verified",
-      "manual_review": "Additional verification required",
+      "manual_review": "Verification under review",
       "failed": "Identity could not be verified",
-      "reviewNotice": "Additional checks by the compliance team are required.",
+      "reviewNotice": "Your file is complete and needs an additional check by our compliance team. You will be notified as soon as it is done.",
       "checking": "Checking your document",
       "checkingDesc": "Reading the document and comparing the available identity details.",
       "passedNotice": "Your identity verification is complete.",
-      "failedNotice": "Please capture a valid, legible identity document and complete the live face check.",
+      "failedNotice": "Your identity could not be confirmed from the items provided. You can start again with a valid, well-lit ID document and a live face check.",
       "retry": "Restart verification",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1653,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Verification unavailable",
-      "unavailableNotice": "No decision was made. Please try again."
+      "unavailableNotice": "No decision was made. Please try again.",
+      "summary": "Checks summary",
+      "item": {
+        "identity_document": "ID document",
+        "document_analysis": "Document analysed",
+        "liveness": "Live face check",
+        "face_match": "Face match",
+        "bank": "Bank details",
+        "income": "Proof of income"
+      },
+      "state": {
+        "passed": "Verified",
+        "review": "Under review",
+        "failed": "Not validated",
+        "missing": "Not provided"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."
