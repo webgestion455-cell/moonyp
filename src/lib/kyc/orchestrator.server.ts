@@ -68,12 +68,20 @@ export interface ApplicationSubject extends SubjectData {
   product_slug: string | null;
 }
 
+/**
+ * Colonnes réellement présentes dans `public.loan_applications` :
+ * les coordonnées bancaires du dossier sont stockées dans `bank_iban`
+ * (et non `iban`, qui n'existe pas), et le produit est référencé par
+ * `product_id` -> `loan_products.slug` (il n'y a pas de colonne
+ * `product_slug` sur le dossier). La jointure PostgREST est explicite pour
+ * éviter toute ambiguïté de relation.
+ */
 export async function loadSubject(applicationId: string): Promise<ApplicationSubject> {
   const client = await db();
   const res = (await client
     .from("loan_applications")
     .select(
-      "id, first_name, last_name, birth_date, nationality, address, postal_code, city, iban, monthly_income, employment_status, country, product_slug",
+      "id, first_name, last_name, birth_date, nationality, address, postal_code, city, bank_iban, monthly_income, employment_status, country, product_id, loan_products:product_id(slug)",
     )
     .eq("id", applicationId)
     .maybeSingle()) as { data: Record<string, unknown> | null; error: { message: string } | null };
@@ -81,6 +89,15 @@ export async function loadSubject(applicationId: string): Promise<ApplicationSub
   if (!res.data) throw new Error("application_not_found");
   const row = res.data;
   const str = (k: string) => (typeof row[k] === "string" ? (row[k] as string) : null);
+
+  // PostgREST renvoie l'objet lié (ou un tableau selon la cardinalité déduite).
+  const productRel = row["loan_products"];
+  const productRow = Array.isArray(productRel)
+    ? ((productRel[0] ?? null) as Record<string, unknown> | null)
+    : ((productRel ?? null) as Record<string, unknown> | null);
+  const productSlug =
+    productRow && typeof productRow["slug"] === "string" ? (productRow["slug"] as string) : null;
+
   return {
     id: applicationId,
     first_name: str("first_name"),
@@ -90,14 +107,15 @@ export async function loadSubject(applicationId: string): Promise<ApplicationSub
     address: str("address"),
     postal_code: str("postal_code"),
     city: str("city"),
-    iban: str("iban"),
+    // Source réelle : loan_applications.bank_iban (étape « coordonnées de versement »).
+    iban: str("bank_iban"),
     monthly_income:
       row["monthly_income"] !== null && row["monthly_income"] !== undefined
         ? Number(row["monthly_income"])
         : null,
     employment_status: str("employment_status"),
     country: str("country"),
-    product_slug: str("product_slug"),
+    product_slug: productSlug,
   };
 }
 

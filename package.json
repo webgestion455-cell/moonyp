@@ -9,7 +9,9 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "verify:schema": "tsx scripts/verify-schema-columns.ts",
+    "kyc:inspect": "tsx scripts/kyc-inspect-application.ts"
   },
   "dependencies": {
     "@capacitor/android": "^8.4.1",
