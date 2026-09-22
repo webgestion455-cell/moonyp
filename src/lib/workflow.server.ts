@@ -84,7 +84,7 @@ const CTA_BY_TEMPLATE: Record<
 > = {
   applicationReceived: { path: "", label: "portal" },
   applicationVerification: { path: "", label: "portal", hash: "documents" },
-  documentsMissing: { path: "", label: "documents", hash: "documents" },
+  documentsMissing: { path: "", label: "documents", hash: "info-requests" },
   applicationAnalysis: { path: "", label: "portal" },
   infoRequested: { path: "", label: "documents", hash: "info-requests" },
   approved: { path: "", label: "portal", hash: "offer" },

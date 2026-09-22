@@ -18,32 +18,44 @@ export function MobileBottomNav() {
 
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-2 pb-[max(env(safe-area-inset-bottom),0.5rem)] pt-2 backdrop-blur-xl md:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-1 pb-[max(env(safe-area-inset-bottom),0.5rem)] pt-1.5 backdrop-blur-xl md:hidden"
       aria-label={t("nav.primary")}
     >
-      <div className="mx-auto grid max-w-md grid-cols-5 gap-1">
+      <div className="mx-auto grid w-full max-w-md grid-cols-5 gap-0.5">
         {ITEMS.map((item) => {
           const Icon = item.icon;
           const path = item.to.replace("/$lang", `/${lang}`);
-          const active = location.pathname === path || location.pathname.startsWith(`${path}/`);
+          const active =
+            location.pathname === path ||
+            location.pathname.startsWith(`${path}/`);
+
           return (
             <Link
               key={item.to}
               to={item.to}
               params={{ lang }}
-              search={{ product: undefined, amount: undefined, months: undefined } as never}
+              search={{
+                product: undefined,
+                amount: undefined,
+                months: undefined,
+              } as never}
               aria-current={active ? "page" : undefined}
-              className={`flex min-h-[48px] flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1.5 text-[10.5px] font-medium transition-colors ${
+              className={`flex min-w-0 min-h-[52px] flex-col items-center justify-center rounded-lg px-0.5 py-1 text-center text-[10px] font-medium leading-tight transition-colors ${
                 active
                   ? "bg-secondary text-foreground"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
               <Icon
-                className={`h-5 w-5 transition-transform ${active ? "scale-110" : ""}`}
+                className={`mb-0.5 h-5 w-5 shrink-0 transition-transform ${
+                  active ? "scale-110" : ""
+                }`}
                 aria-hidden
               />
-              <span className="truncate">{t(item.key)}</span>
+
+              <span className="line-clamp-2 w-full break-words">
+                {t(item.key)}
+              </span>
             </Link>
           );
         })}
@@ -51,3 +63,4 @@ export function MobileBottomNav() {
     </nav>
   );
 }
+
