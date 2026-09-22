@@ -100,7 +100,7 @@ function ContactPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-6 sm:py-10 max-w-5xl pb-28 lg:pb-10">
+    <div className="container mx-auto w-full max-w-5xl px-3 py-6 pb-28 sm:px-4 sm:py-10 lg:pb-10">
       <div className="mb-4 hidden sm:block">
         <Button asChild variant="ghost" size="sm">
           <Link to="/$lang" params={{ lang }}>
@@ -109,7 +109,7 @@ function ContactPage() {
         </Button>
       </div>
 
-      <div className="flex items-start gap-4 mb-8">
+      <div className="mb-8 flex items-start gap-3 sm:gap-4">
         <img
           src={moonypLogo}
           alt="MOONYP"
@@ -117,8 +117,8 @@ function ContactPage() {
           height={56}
           className="h-11 w-11 sm:h-14 sm:w-14 rounded-md bg-white p-1 shadow-sm"
         />
-        <div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif text-primary">
+        <div className="min-w-0 flex-1">
+          <h1 className="mt-1 max-w-2xl break-words leading-relaxed text-muted-foreground">
             {t("contact.title")}
           </h1>
           <p className="text-muted-foreground mt-1">{t("contact.subtitle")}</p>
@@ -131,7 +131,7 @@ function ContactPage() {
             <CardTitle className="text-base">{t("contact.infoTitle")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-sm">
-            <div className="flex items-start gap-3">
+            <div className="flex min-w-0 items-start gap-3">
               <Phone className="h-4 w-4 mt-0.5 text-primary shrink-0" />
               <div>
                 <p className="font-medium">{t("contact.phoneTitle")}</p>
@@ -139,16 +139,16 @@ function ContactPage() {
                   href="https://wa.me/393500366867"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary hover:underline transition cursor-pointer"
+                  className="break-all text-muted-foreground hover:text-primary hover:underline transition cursor-pointer"
                 >
                   +39 350 036 6867
                 </a>
                 <p className="text-xs text-muted-foreground">{t("contact.phoneHours")}</p>
               </div>
             </div>
-            <div className="flex items-start gap-3">
+            <div className="flex min-w-0 items-start gap-3">
               <Mail className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-              <div>
+              <div className="min-w-0 flex-1">
                 <p className="font-medium">{t("contact.emailLabel")}</p>
                 <a
                   href="mailto:support@moonyp.com"
@@ -158,9 +158,9 @@ function ContactPage() {
                 </a>
               </div>
             </div>
-            <div className="flex items-start gap-3">
+            <div className="flex min-w-0 items-start gap-3">
               <MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-              <div>
+              <div className="min-w-0 flex-1">
                 <p className="font-medium">{t("contact.addressLabel")}</p>
                 <a
                   href="https://maps.app.goo.gl/7U5y453Ku2UPFk3d6"
@@ -174,9 +174,9 @@ function ContactPage() {
                 </a>
               </div>
             </div>
-            <div className="rounded-lg bg-secondary p-3 text-xs text-muted-foreground flex items-start gap-2">
+            <div className="flex items-start gap-2 rounded-lg bg-secondary p-3 text-xs text-muted-foreground">
               <ShieldCheck className="h-4 w-4 text-success shrink-0 mt-0.5" />
-              <p>{t("contact.secureNote")}</p>
+              <p className="min-w-0 break-words leading-relaxed">{t("contact.secureNote")}</p>
             </div>
           </CardContent>
         </Card>
@@ -187,7 +187,7 @@ function ContactPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <Honeypot ref={honeypotRef} />
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <Label>{t("contact.fullName")} *</Label>
                 <Input
@@ -236,7 +236,7 @@ function ContactPage() {
                 className="mt-1.5"
                 placeholder={t("contact.messagePlaceholder")}
               />
-              <p className="mt-1 text-xs text-muted-foreground text-right">
+              <p className="mt-1 text-right text-xs text-muted-foreground">
                 {message.length} / 4000
               </p>
             </div>
