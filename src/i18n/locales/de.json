@@ -814,7 +814,15 @@
       "subtitle": "Sechs Schritte, wenige Minuten. Ihr Fortschritt wird auf diesem Gerät gespeichert.",
       "takePhoto": "Foto aufnehmen",
       "title": "Ihr Kreditantrag",
-      "uploading": "Dokumente werden übermittelt ({{done}}/{{total}})"
+      "uploading": "Dokumente werden übermittelt ({{done}}/{{total}})",
+      "kycTitle": "Identitätsprüfung",
+      "kycSubtitle": "Einige Angaben und Ihre Dokumente. Ihr Fortschritt wird oben angezeigt.",
+      "kycSubmit": "Prüfung abschließen",
+      "kycLinkTitle": "Dieser Prüflink ist nicht verfügbar",
+      "kycLinkInvalid": "Dieser Link ist ungültig. Bitte fordern Sie einen neuen an.",
+      "kycLinkExpired": "Dieser Link ist abgelaufen. Bitte fordern Sie einen neuen an.",
+      "kycLinkRevoked": "Dieser Link wurde storniert. Bitte fordern Sie einen neuen an.",
+      "kycLinkUsed": "Diese Prüfung wurde bereits abgeschlossen."
     },
     "contract": {
       "alreadySigned": "Dieser Vertrag ist bereits unterzeichnet.",
@@ -1250,7 +1258,10 @@
       "step2": "Prüfung und Entscheidung, meist innerhalb von 48 Werkstunden",
       "step3": "Angebot, Vertrag und Auszahlung nach Zusage",
       "subtitle": "Unser Team prüft Ihren Vorgang. Sie werden bei jedem Schritt per E-Mail informiert.",
-      "title": "Ihr Antrag ist eingegangen"
+      "title": "Ihr Antrag ist eingegangen",
+      "kycTitle": "Prüfung abgeschlossen",
+      "kycSubtitle": "Vielen Dank. Ihre Angaben und Dokumente sind eingegangen.",
+      "kycLinkNotice": "Dieser Link ist nun geschlossen und kann nicht erneut verwendet werden."
     },
     "validation": {
       "bank": {

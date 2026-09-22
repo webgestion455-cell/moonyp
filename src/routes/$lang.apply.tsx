@@ -51,6 +51,11 @@ import {
   submitApplication,
 } from "@/lib/applications.functions";
 import {
+  createKycRequestUploadUrl,
+  resolveKycRequest,
+  submitKycRequest,
+} from "@/lib/kyc-requests.functions";
+import {
   APPLY_DRAFT_KEY,
   APPLY_STEPS,
   EMPLOYMENT_STATUSES,
@@ -77,13 +82,26 @@ import { countryName } from "@/lib/countries";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/$lang/apply")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (
+    search: Record<string, unknown>,
+  ): {
+    product?: string | undefined;
+    amount?: number | undefined;
+    months?: number | undefined;
+    mode?: "kyc" | undefined;
+    token?: string | undefined;
+  } => ({
     product:
       typeof search.product === "string"
         ? search.product.slice(0, 40)
         : undefined,
     amount: typeof search.amount === "number" ? search.amount : undefined,
     months: typeof search.months === "number" ? search.months : undefined,
+    // Vérification d'identité externe : mode spécial ouvert par un lien signé.
+    // Ces paramètres ne donnent aucun droit par eux-mêmes, le serveur revalide.
+    mode: search.mode === "kyc" ? ("kyc" as const) : undefined,
+    token:
+      typeof search.token === "string" ? search.token.slice(0, 200) : undefined,
   }),
   loader: async () => ({
     products: await listProducts(),
@@ -113,6 +131,12 @@ export const Route = createFileRoute("/$lang/apply")({
 });
 
 type FormState = Record<string, unknown>;
+
+/** Parcours complet : les six étapes historiques, inchangées. */
+const ALL_STEPS = APPLY_STEPS.map((_, index) => index + 1);
+
+/** Vérification d'identité externe : produit et revue de prêt exclus. */
+const KYC_SEQUENCE = [1, 2, 4, 5];
 
 const EMPTY: FormState = {
   first_name: "",
@@ -157,6 +181,24 @@ function ApplyPage() {
   const submitFn = useServerFn(submitApplication);
   const uploadUrlFn = useServerFn(createUploadUrl);
   const registerFn = useServerFn(registerDocuments);
+  const resolveKycFn = useServerFn(resolveKycRequest);
+  const kycUploadUrlFn = useServerFn(createKycRequestUploadUrl);
+  const kycSubmitFn = useServerFn(submitKycRequest);
+
+  /* ------------------ Vérification d'identité externe ------------------- */
+  // Étapes réellement parcourues : identité, situation professionnelle,
+  // coordonnées de versement, pièces. Le produit (3) et la revue de la demande
+  // de prêt (6) n'existent pas dans ce mode.
+  const kycMode = search.mode === "kyc";
+  const kycToken = kycMode ? (search.token ?? "") : "";
+  const sequence = kycMode ? KYC_SEQUENCE : ALL_STEPS;
+  const lastStep = sequence[sequence.length - 1]!;
+
+  const [gate, setGate] = useState<
+    | { state: "loading" }
+    | { state: "ok"; reference: string }
+    | { state: "denied"; reason: string }
+  >(kycMode ? { state: "loading" } : { state: "ok", reference: "" });
 
   const initialProduct =
     products.find((p) => p.slug === search.product) ?? products[0];
@@ -205,8 +247,52 @@ function ApplyPage() {
   const product =
     products.find((p) => p.id === loan.productId) ?? initialProduct;
 
+  /* ----------------- Contrôle serveur du lien externe ------------------ */
+  useEffect(() => {
+    if (!kycMode) return;
+
+    let cancelled = false;
+
+    void (async () => {
+      try {
+        const info = await resolveKycFn({ data: { token: kycToken } });
+
+        if (cancelled) return;
+
+        if (!info.ok) {
+          setGate({ state: "denied", reason: info.reason });
+          return;
+        }
+
+        setGate({ state: "ok", reference: info.reference });
+
+        // Pré-remplissage des seules coordonnées déjà connues.
+        setForm((f) => ({
+          ...f,
+          email: f.email || info.email,
+          phone: f.phone || (info.phone ?? ""),
+        }));
+
+        if (info.language && info.language !== i18next.resolvedLanguage) {
+          void i18next.changeLanguage(info.language);
+        }
+      } catch {
+        if (!cancelled) setGate({ state: "denied", reason: "invalid" });
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [kycMode, kycToken]);
+
   /* --------------------------- Local draft ---------------------------- */
   useEffect(() => {
+    // Aucun brouillon local en vérification externe : les informations
+    // saisies pour un tiers ne doivent pas rester sur l'appareil.
+    if (kycMode) return;
+
     try {
       const raw = localStorage.getItem(APPLY_DRAFT_KEY);
 
@@ -236,7 +322,7 @@ function ApplyPage() {
   }, []);
 
   useEffect(() => {
-    if (result) return;
+    if (result || kycMode) return;
 
     try {
       localStorage.setItem(
@@ -246,7 +332,7 @@ function ApplyPage() {
     } catch {
       /* quota exceeded — progress simply is not persisted */
     }
-  }, [form, loan, step, result]);
+  }, [form, loan, step, result, kycMode]);
 
   const set = useCallback((key: string, value: unknown) => {
     setForm((f) => ({ ...f, [key]: value }));
@@ -307,7 +393,8 @@ function ApplyPage() {
     () =>
       resolveKycPlan(documentTypes, {
         employmentStatus: String(form.employment_status ?? ""),
-        productSlug: product?.slug ?? "",
+        // Hors demande de prêt, aucune pièce propre à un produit n'est exigée.
+        productSlug: kycMode ? "" : (product?.slug ?? ""),
         allowedIdDocuments: [],
         countryCode: String(form.country ?? ""),
       }),
@@ -316,6 +403,7 @@ function ApplyPage() {
       form.employment_status,
       product?.slug,
       form.country,
+      kycMode,
     ],
   );
 
@@ -380,6 +468,11 @@ function ApplyPage() {
       employment_status: "",
     }));
   };
+
+  /** Étape suivante/précédente dans l'ordre réellement affiché. */
+  const stepIndex = Math.max(0, sequence.indexOf(step));
+  const nextStep = sequence[stepIndex + 1] ?? lastStep;
+  const previousStep = sequence[stepIndex - 1] ?? sequence[0]!;
 
   const goTo = (next: number) => {
     setStep(next);
@@ -481,6 +574,109 @@ function ApplyPage() {
     setErrors(next);
     toast.error(t("finance.apply.fixErrors"));
     return false;
+  }
+
+  /* ------- Envoi d'une vérification externe (aucune demande de prêt) ----- */
+  async function handleKycSubmit() {
+    for (const current of KYC_SEQUENCE) {
+      if (!validateStep(current)) {
+        goTo(current);
+        return;
+      }
+    }
+
+    setBusy(true);
+
+    try {
+      const captures = Object.entries(kyc.files).flatMap(([slug, list]) =>
+        list.map((capture) => ({
+          slug,
+          file: capture.file,
+          evidence: capture.evidence,
+          ocr: capture.ocr,
+        })),
+      );
+
+      setProgress({ done: 0, total: captures.length });
+
+      const registered: Array<{
+        document_type_slug: string;
+        storage_path: string;
+        file_name: string;
+        mime_type: string;
+        file_size: number;
+        capture_evidence?: unknown;
+        ocr?: unknown;
+      }> = [];
+
+      for (const [index, capture] of captures.entries()) {
+        const { file, slug, evidence, ocr } = capture;
+
+        const signed = await kycUploadUrlFn({
+          data: {
+            token: kycToken,
+            document_type_slug: slug,
+            file_name: file.name,
+            mime_type: file.type,
+            file_size: file.size,
+          },
+        });
+
+        const { error } = await supabase.storage
+          .from("kyc-documents")
+          .uploadToSignedUrl(signed.path, signed.token, file, {
+            contentType: file.type,
+          });
+
+        if (error) throw new Error(error.message);
+
+        registered.push({
+          document_type_slug: slug,
+          storage_path: signed.path,
+          file_name: file.name,
+          mime_type: file.type,
+          file_size: file.size,
+          ...(evidence ? { capture_evidence: evidence } : {}),
+          ...(ocr
+            ? {
+                ocr: {
+                  mrz_text: ocr.mrz_text,
+                  viz_text: ocr.viz_text,
+                  confidence: ocr.confidence,
+                  engine: ocr.engine,
+                },
+              }
+            : {}),
+        });
+
+        setProgress({ done: index + 1, total: captures.length });
+      }
+
+      const done = await kycSubmitFn({
+        data: {
+          token: kycToken,
+          profile: {
+            ...form,
+            bank_iban: normaliseIban(String(form.bank_iban ?? "")),
+          } as never,
+          documents: registered as never,
+        },
+      });
+
+      setResult({ reference: done.reference, token: "" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "";
+
+      toast.error(
+        message === "rate_limited"
+          ? t("finance.apply.rateLimited")
+          : t("finance.apply.submitError"),
+      );
+    } finally {
+      setBusy(false);
+      setProgress(null);
+    }
   }
 
   /* ------------------------------- Submit ------------------------------ */
@@ -631,10 +827,23 @@ function ApplyPage() {
   }
 
   if (result) {
-    return (
+    return kycMode ? (
+      <KycSubmittedScreen reference={result.reference} />
+    ) : (
       <SubmittedScreen
         reference={result.reference}
         token={result.token}
+      />
+    );
+  }
+
+  // Lien externe : tant que le serveur n'a pas validé le jeton, rien ne
+  // s'affiche — et un lien clos ne laisse jamais apparaître le formulaire.
+  if (kycMode && gate.state !== "ok") {
+    return (
+      <KycGateScreen
+        loading={gate.state === "loading"}
+        reason={gate.state === "denied" ? gate.reason : ""}
       />
     );
   }
@@ -713,11 +922,13 @@ function ApplyPage() {
     >
       <header className="min-w-0">
         <h1 className="break-words font-serif text-2xl font-medium leading-tight tracking-tight sm:text-3xl">
-          {t("finance.apply.title")}
+          {kycMode ? t("finance.apply.kycTitle") : t("finance.apply.title")}
         </h1>
 
         <p className="mt-2 break-words text-sm leading-relaxed text-muted-foreground">
-          {t("finance.apply.subtitle")}
+          {kycMode
+            ? t("finance.apply.kycSubtitle")
+            : t("finance.apply.subtitle")}
         </p>
       </header>
 
@@ -730,14 +941,14 @@ function ApplyPage() {
 
           <p className="shrink-0 text-xs tabular-nums text-muted-foreground">
             {t("finance.apply.stepOf", {
-              current: step,
-              total: APPLY_STEPS.length,
+              current: stepIndex + 1,
+              total: sequence.length,
             })}
           </p>
         </div>
 
         <Progress
-          value={(step / APPLY_STEPS.length) * 100}
+          value={((stepIndex + 1) / sequence.length) * 100}
           className="mt-2 h-1"
         />
       </div>
@@ -1252,14 +1463,14 @@ function ApplyPage() {
         )}
 
         {/* 5 — KYC */}
-        {step === 5 && product && (
+        {step === 5 && (kycMode || product) && (
           <div className="min-w-0">
             <KycFlow
               documentTypes={documentTypes}
               employmentStatus={String(
                 form.employment_status ?? "",
               )}
-              productSlug={product.slug}
+              productSlug={kycMode ? "" : (product?.slug ?? "")}
               allowedIdDocuments={[]}
               countryCode={String(
                 form.country ?? "",
@@ -1280,10 +1491,12 @@ function ApplyPage() {
                   form.nationality ?? "",
                 ),
               }}
-              onComplete={() =>
-                validateStep(5) &&
-                goTo(6)
-              }
+              onComplete={() => {
+                if (!validateStep(5)) return;
+                // En vérification externe, les pièces closent le parcours.
+                if (kycMode) void handleKycSubmit();
+                else goTo(6);
+              }}
             />
           </div>
         )}
@@ -1574,7 +1787,7 @@ function ApplyPage() {
           size="lg"
           className="w-full sm:w-auto"
           onClick={() =>
-            step === 1
+            step === sequence[0]
               ? navigate({
                   to: "/$lang/simulation" as const,
                   params: { lang },
@@ -1582,9 +1795,10 @@ function ApplyPage() {
                     product: undefined,
                   },
                 })
-              : goTo(step - 1)
+              : goTo(previousStep)
           }
-          disabled={busy}
+          // Le porteur d'un lien externe n'a nulle part où revenir.
+          disabled={busy || (kycMode && step === sequence[0])}
         >
           <ArrowLeft
             className="h-4 w-4 shrink-0"
@@ -1596,13 +1810,13 @@ function ApplyPage() {
             : t("finance.apply.previous")}
         </Button>
 
-        {step < 6 ? (
+        {step !== lastStep ? (
           <Button
             size="lg"
             className="w-full sm:w-auto"
             onClick={() =>
               validateStep(step) &&
-              goTo(step + 1)
+              goTo(nextStep)
             }
           >
             {t("finance.apply.next")}
@@ -1616,7 +1830,7 @@ function ApplyPage() {
           <Button
             size="lg"
             className="w-full sm:w-auto"
-            onClick={handleSubmit}
+            onClick={kycMode ? handleKycSubmit : handleSubmit}
             disabled={busy}
           >
             {busy && (
@@ -1632,7 +1846,9 @@ function ApplyPage() {
                     done: progress.done,
                     total: progress.total,
                   })
-                : t("finance.apply.submit")}
+                : kycMode
+                  ? t("finance.apply.kycSubmit")
+                  : t("finance.apply.submit")}
             </span>
           </Button>
         )}
@@ -2049,6 +2265,83 @@ function SubmittedScreen({
 
         <p className="mt-3 break-words text-xs leading-relaxed text-muted-foreground">
           {t("finance.success.linkNotice")}
+        </p>
+      </Card>
+    </div>
+  );
+}
+/* -------------------------------------------------------------------------- */
+/* Vérification d'identité externe : écrans dédiés, sans référence à un prêt.  */
+
+function KycGateScreen({ loading, reason }: { loading: boolean; reason: string }) {
+  const { t } = useTranslation();
+
+  if (loading) {
+    return (
+      <div className="mx-auto flex w-full max-w-2xl items-center justify-center px-3 py-24">
+        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" aria-hidden />
+      </div>
+    );
+  }
+
+  const messageKey =
+    reason === "expired"
+      ? "finance.apply.kycLinkExpired"
+      : reason === "revoked"
+        ? "finance.apply.kycLinkRevoked"
+        : reason === "completed"
+          ? "finance.apply.kycLinkUsed"
+          : "finance.apply.kycLinkInvalid";
+
+  return (
+    <div className="mx-auto w-full max-w-2xl px-3 py-10 sm:px-6 sm:py-24">
+      <Card className="p-5 text-center sm:p-10">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-muted">
+          <AlertTriangle className="h-8 w-8 text-muted-foreground" aria-hidden />
+        </div>
+
+        <h1 className="mt-6 break-words font-serif text-2xl font-medium leading-tight sm:text-3xl">
+          {t("finance.apply.kycLinkTitle")}
+        </h1>
+
+        <p className="mt-2 break-words text-sm leading-relaxed text-muted-foreground">
+          {t(messageKey)}
+        </p>
+      </Card>
+    </div>
+  );
+}
+
+function KycSubmittedScreen({ reference }: { reference: string }) {
+  const { t } = useTranslation();
+
+  return (
+    <div className="mx-auto w-full max-w-2xl px-3 py-10 sm:px-6 sm:py-24">
+      <Card className="p-5 text-center sm:p-10">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-success/15">
+          <CheckCircle2 className="h-8 w-8 text-success" aria-hidden />
+        </div>
+
+        <h1 className="mt-6 break-words font-serif text-2xl font-medium leading-tight sm:text-3xl">
+          {t("finance.success.kycTitle")}
+        </h1>
+
+        <p className="mt-2 break-words text-sm leading-relaxed text-muted-foreground">
+          {t("finance.success.kycSubtitle")}
+        </p>
+
+        <div className="mt-6 rounded-xl border border-border bg-muted/40 p-4">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground">
+            {t("finance.success.reference")}
+          </p>
+
+          <p className="mt-1 break-all font-mono text-lg font-bold tracking-wider sm:text-xl">
+            {reference}
+          </p>
+        </div>
+
+        <p className="mt-6 break-words text-xs leading-relaxed text-muted-foreground">
+          {t("finance.success.kycLinkNotice")}
         </p>
       </Card>
     </div>

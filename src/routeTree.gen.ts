@@ -39,6 +39,7 @@ import { Route as AdminRolesRouteImport } from './routes/admin.roles'
 import { Route as AdminProductsRouteImport } from './routes/admin.products'
 import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
 import { Route as AdminLogsRouteImport } from './routes/admin.logs'
+import { Route as AdminKycRequestsRouteImport } from './routes/admin.kyc-requests'
 import { Route as AdminKycRouteImport } from './routes/admin.kyc'
 import { Route as LangSolutionsRouteImport } from './routes/$lang.solutions'
 import { Route as LangSimulationRouteImport } from './routes/$lang.simulation'
@@ -214,6 +215,11 @@ const AdminLogsRoute = AdminLogsRouteImport.update({
   path: '/logs',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminKycRequestsRoute = AdminKycRequestsRouteImport.update({
+  id: '/kyc-requests',
+  path: '/kyc-requests',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminKycRoute = AdminKycRouteImport.update({
   id: '/kyc',
   path: '/kyc',
@@ -362,6 +368,7 @@ export interface FileRoutesByFullPath {
   '/$lang/simulation': typeof LangSimulationRoute
   '/$lang/solutions': typeof LangSolutionsRoute
   '/admin/kyc': typeof AdminKycRoute
+  '/admin/kyc-requests': typeof AdminKycRequestsRoute
   '/admin/logs': typeof AdminLogsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/products': typeof AdminProductsRoute
@@ -416,6 +423,7 @@ export interface FileRoutesByTo {
   '/$lang/simulation': typeof LangSimulationRoute
   '/$lang/solutions': typeof LangSolutionsRoute
   '/admin/kyc': typeof AdminKycRoute
+  '/admin/kyc-requests': typeof AdminKycRequestsRoute
   '/admin/logs': typeof AdminLogsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/products': typeof AdminProductsRoute
@@ -473,6 +481,7 @@ export interface FileRoutesById {
   '/$lang/simulation': typeof LangSimulationRoute
   '/$lang/solutions': typeof LangSolutionsRoute
   '/admin/kyc': typeof AdminKycRoute
+  '/admin/kyc-requests': typeof AdminKycRequestsRoute
   '/admin/logs': typeof AdminLogsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/products': typeof AdminProductsRoute
@@ -531,6 +540,7 @@ export interface FileRouteTypes {
     | '/$lang/simulation'
     | '/$lang/solutions'
     | '/admin/kyc'
+    | '/admin/kyc-requests'
     | '/admin/logs'
     | '/admin/notifications'
     | '/admin/products'
@@ -585,6 +595,7 @@ export interface FileRouteTypes {
     | '/$lang/simulation'
     | '/$lang/solutions'
     | '/admin/kyc'
+    | '/admin/kyc-requests'
     | '/admin/logs'
     | '/admin/notifications'
     | '/admin/products'
@@ -641,6 +652,7 @@ export interface FileRouteTypes {
     | '/$lang/simulation'
     | '/$lang/solutions'
     | '/admin/kyc'
+    | '/admin/kyc-requests'
     | '/admin/logs'
     | '/admin/notifications'
     | '/admin/products'
@@ -915,6 +927,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLogsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/kyc-requests': {
+      id: '/admin/kyc-requests'
+      path: '/kyc-requests'
+      fullPath: '/admin/kyc-requests'
+      preLoaderRoute: typeof AdminKycRequestsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/kyc': {
       id: '/admin/kyc'
       path: '/kyc'
@@ -1136,6 +1155,7 @@ const LangRouteWithChildren = LangRoute._addFileChildren(LangRouteChildren)
 
 interface AdminRouteChildren {
   AdminKycRoute: typeof AdminKycRoute
+  AdminKycRequestsRoute: typeof AdminKycRequestsRoute
   AdminLogsRoute: typeof AdminLogsRoute
   AdminNotificationsRoute: typeof AdminNotificationsRoute
   AdminProductsRoute: typeof AdminProductsRoute
@@ -1151,6 +1171,7 @@ interface AdminRouteChildren {
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminKycRoute: AdminKycRoute,
+  AdminKycRequestsRoute: AdminKycRequestsRoute,
   AdminLogsRoute: AdminLogsRoute,
   AdminNotificationsRoute: AdminNotificationsRoute,
   AdminProductsRoute: AdminProductsRoute,

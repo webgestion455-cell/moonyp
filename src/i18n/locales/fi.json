@@ -814,7 +814,15 @@
       "subtitle": "Kuusi vaihetta, muutama minuutti. Edistyminen tallennetaan tälle laitteelle.",
       "takePhoto": "Ota kuva",
       "title": "Lainahakemuksesi",
-      "uploading": "Asiakirjoja lähetetään ({{done}}/{{total}})"
+      "uploading": "Asiakirjoja lähetetään ({{done}}/{{total}})",
+      "kycTitle": "Henkilöllisyyden vahvistus",
+      "kycSubtitle": "Muutama tieto ja asiakirjasi. Eteneminen näkyy sivun ylälaidassa.",
+      "kycSubmit": "Viimeistele vahvistus",
+      "kycLinkTitle": "Tämä vahvistuslinkki ei ole käytettävissä",
+      "kycLinkInvalid": "Linkki ei kelpaa. Pyydä uusi linkki.",
+      "kycLinkExpired": "Linkki on vanhentunut. Pyydä uusi linkki.",
+      "kycLinkRevoked": "Linkki on peruutettu. Pyydä uusi linkki.",
+      "kycLinkUsed": "Tämä vahvistus on jo tehty."
     },
     "contract": {
       "alreadySigned": "Tämä sopimus on jo allekirjoitettu.",
@@ -1250,7 +1258,10 @@
       "step2": "Käsittely ja päätös, yleensä 48 työtunnin sisällä",
       "step3": "Tarjous, sopimus ja maksu hyväksynnän jälkeen",
       "subtitle": "Tiimimme käsittelee hakemustasi. Saat sähköpostin jokaisesta vaiheesta.",
-      "title": "Hakemuksesi on vastaanotettu"
+      "title": "Hakemuksesi on vastaanotettu",
+      "kycTitle": "Vahvistus valmis",
+      "kycSubtitle": "Kiitos. Tietosi ja asiakirjasi on vastaanotettu.",
+      "kycLinkNotice": "Linkki on nyt suljettu eikä sitä voi käyttää uudelleen."
     },
     "validation": {
       "bank": {

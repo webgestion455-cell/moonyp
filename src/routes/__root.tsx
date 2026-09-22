@@ -118,12 +118,19 @@ function RootComponent() {
   // Important : cet indicateur ne dépend QUE de l'URL. Le mode immersif ne doit
   // jamais entrer dans la clé de <main> — sinon activer l'immersif change la
   // clé, React démonte tout le sous-arbre et le parcours KYC repart à zéro.
+  // Vérification d'identité externe (/xx/apply?mode=kyc) : le porteur du lien
+  // n'est pas un visiteur du site, il ne voit donc ni en-tête, ni navigation.
+  const externalKyc =
+    basePath.startsWith("/apply") &&
+    (location.search as { mode?: string } | undefined)?.mode === "kyc";
+
   const chromelessRoute =
     basePath.startsWith("/admin") ||
     basePath.startsWith("/auth") ||
     basePath.startsWith("/secure") ||
     basePath === "/staff-invite" ||
-    basePath === "/reset-password";
+    basePath === "/reset-password" ||
+    externalKyc;
 
   const hideLayout = immersive || chromelessRoute;
 

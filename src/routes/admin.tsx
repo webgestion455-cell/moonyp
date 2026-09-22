@@ -19,6 +19,7 @@ import {
   KeyRound,
   ScrollText,
   Settings,
+  Link2,
   ScanFace,
   Package,
 } from "lucide-react";
@@ -69,7 +70,14 @@ function AdminLayout() {
         to: "/admin/kyc",
         label: "Conformité KYC",
         icon: ScanFace,
-        match: (p) => p.startsWith("/admin/kyc"),
+        match: (p) => p === "/admin/kyc" || p.startsWith("/admin/kyc/"),
+        permission: "kyc.review",
+      },
+      {
+        to: "/admin/kyc-requests",
+        label: "Vérifications externes",
+        icon: Link2,
+        match: (p) => p.startsWith("/admin/kyc-requests"),
         permission: "kyc.review",
       },
       {

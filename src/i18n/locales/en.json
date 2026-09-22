@@ -814,7 +814,15 @@
       "subtitle": "Six steps, a few minutes. Your progress is saved on this device.",
       "takePhoto": "Take a photo",
       "title": "Your loan application",
-      "uploading": "Sending documents ({{done}}/{{total}})"
+      "uploading": "Sending documents ({{done}}/{{total}})",
+      "kycTitle": "Identity verification",
+      "kycSubtitle": "A few details and your documents. Your progress is shown at the top of the page.",
+      "kycSubmit": "Finish verification",
+      "kycLinkTitle": "This verification link is not available",
+      "kycLinkInvalid": "This link is not valid. Please ask for a new one.",
+      "kycLinkExpired": "This link has expired. Please ask for a new one.",
+      "kycLinkRevoked": "This link has been cancelled. Please ask for a new one.",
+      "kycLinkUsed": "This verification has already been completed."
     },
     "contract": {
       "alreadySigned": "This contract is already signed.",
@@ -1250,7 +1258,10 @@
       "step2": "Review and decision, usually within 48 business hours",
       "step3": "Offer, contract and payout once approved",
       "subtitle": "Our team is reviewing your file. You will be notified by email at each step.",
-      "title": "Your application has been received"
+      "title": "Your application has been received",
+      "kycTitle": "Verification completed",
+      "kycSubtitle": "Thank you. Your identity details and documents have been received.",
+      "kycLinkNotice": "This link is now closed and cannot be used again."
     },
     "validation": {
       "bank": {

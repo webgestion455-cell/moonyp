@@ -814,7 +814,15 @@
       "subtitle": "Hat lépés, néhány perc. A haladás ezen az eszközön mentődik.",
       "takePhoto": "Fénykép készítése",
       "title": "Az Ön hiteligénylése",
-      "uploading": "Dokumentumok küldése ({{done}}/{{total}})"
+      "uploading": "Dokumentumok küldése ({{done}}/{{total}})",
+      "kycTitle": "Személyazonosság ellenőrzése",
+      "kycSubtitle": "Néhány adat és a dokumentumai. A haladás az oldal tetején látható.",
+      "kycSubmit": "Ellenőrzés befejezése",
+      "kycLinkTitle": "Ez az ellenőrző hivatkozás nem érhető el",
+      "kycLinkInvalid": "A hivatkozás érvénytelen. Kérjen újat.",
+      "kycLinkExpired": "A hivatkozás lejárt. Kérjen újat.",
+      "kycLinkRevoked": "A hivatkozást visszavonták. Kérjen újat.",
+      "kycLinkUsed": "Ez az ellenőrzés már megtörtént."
     },
     "contract": {
       "alreadySigned": "Ez a szerződés már alá van írva.",
@@ -1250,7 +1258,10 @@
       "step2": "Elbírálás és döntés, általában 48 munkaórán belül",
       "step3": "Ajánlat, szerződés és folyósítás jóváhagyás után",
       "subtitle": "Csapatunk vizsgálja az ügyét. Minden lépésről e-mailben értesítjük.",
-      "title": "Igénylését megkaptuk"
+      "title": "Igénylését megkaptuk",
+      "kycTitle": "Az ellenőrzés befejeződött",
+      "kycSubtitle": "Köszönjük. Adatait és dokumentumait megkaptuk.",
+      "kycLinkNotice": "A hivatkozás lezárult, és nem használható újra."
     },
     "validation": {
       "bank": {

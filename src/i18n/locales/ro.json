@@ -814,7 +814,15 @@
       "subtitle": "Șase pași, câteva minute. Progresul este salvat pe acest dispozitiv.",
       "takePhoto": "Fă o fotografie",
       "title": "Cererea dvs. de credit",
-      "uploading": "Se transmit documentele ({{done}}/{{total}})"
+      "uploading": "Se transmit documentele ({{done}}/{{total}})",
+      "kycTitle": "Verificarea identității",
+      "kycSubtitle": "Câteva informații și documentele dvs. Progresul apare sus.",
+      "kycSubmit": "Finalizați verificarea",
+      "kycLinkTitle": "Acest link de verificare nu este disponibil",
+      "kycLinkInvalid": "Linkul nu este valid. Solicitați unul nou.",
+      "kycLinkExpired": "Linkul a expirat. Solicitați unul nou.",
+      "kycLinkRevoked": "Linkul a fost anulat. Solicitați unul nou.",
+      "kycLinkUsed": "Această verificare a fost deja finalizată."
     },
     "contract": {
       "alreadySigned": "Acest contract este deja semnat.",
@@ -1250,7 +1258,10 @@
       "step2": "Analiză și decizie, de obicei în 48 de ore lucrătoare",
       "step3": "Ofertă, contract și plată după aprobare",
       "subtitle": "Echipa noastră analizează dosarul. Veți fi informat prin e-mail la fiecare etapă.",
-      "title": "Cererea dvs. a fost primită"
+      "title": "Cererea dvs. a fost primită",
+      "kycTitle": "Verificare finalizată",
+      "kycSubtitle": "Vă mulțumim. Datele și documentele dvs. au fost primite.",
+      "kycLinkNotice": "Linkul este închis și nu mai poate fi folosit."
     },
     "validation": {
       "bank": {

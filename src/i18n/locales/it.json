@@ -814,7 +814,15 @@
       "subtitle": "Sei passaggi, pochi minuti. I progressi sono salvati su questo dispositivo.",
       "takePhoto": "Scatta una foto",
       "title": "La tua domanda di prestito",
-      "uploading": "Invio documenti in corso ({{done}}/{{total}})"
+      "uploading": "Invio documenti in corso ({{done}}/{{total}})",
+      "kycTitle": "Verifica dell'identità",
+      "kycSubtitle": "Alcune informazioni e i suoi documenti. L'avanzamento è indicato in alto.",
+      "kycSubmit": "Completa la verifica",
+      "kycLinkTitle": "Questo link di verifica non è disponibile",
+      "kycLinkInvalid": "Il link non è valido. Ne richieda uno nuovo.",
+      "kycLinkExpired": "Il link è scaduto. Ne richieda uno nuovo.",
+      "kycLinkRevoked": "Il link è stato annullato. Ne richieda uno nuovo.",
+      "kycLinkUsed": "Questa verifica è già stata completata."
     },
     "contract": {
       "alreadySigned": "Questo contratto è già firmato.",
@@ -1250,7 +1258,10 @@
       "step2": "Istruttoria e decisione, di norma entro 48 ore lavorative",
       "step3": "Offerta, contratto ed erogazione dopo l'approvazione",
       "subtitle": "Il nostro team sta esaminando la pratica. Riceverai un'e-mail a ogni passaggio.",
-      "title": "La tua domanda è stata ricevuta"
+      "title": "La tua domanda è stata ricevuta",
+      "kycTitle": "Verifica completata",
+      "kycSubtitle": "Grazie. I suoi dati e i suoi documenti sono stati ricevuti.",
+      "kycLinkNotice": "Questo link è ora chiuso e non può essere riutilizzato."
     },
     "validation": {
       "bank": {

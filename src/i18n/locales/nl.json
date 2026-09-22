@@ -814,7 +814,15 @@
       "subtitle": "Zes stappen, enkele minuten. Uw voortgang wordt op dit toestel bewaard.",
       "takePhoto": "Foto maken",
       "title": "Uw leningaanvraag",
-      "uploading": "Documenten verzenden ({{done}}/{{total}})"
+      "uploading": "Documenten verzenden ({{done}}/{{total}})",
+      "kycTitle": "Identiteitsverificatie",
+      "kycSubtitle": "Enkele gegevens en uw documenten. Uw voortgang staat bovenaan de pagina.",
+      "kycSubmit": "Verificatie afronden",
+      "kycLinkTitle": "Deze verificatielink is niet beschikbaar",
+      "kycLinkInvalid": "Deze link is niet geldig. Vraag een nieuwe aan.",
+      "kycLinkExpired": "Deze link is verlopen. Vraag een nieuwe aan.",
+      "kycLinkRevoked": "Deze link is ingetrokken. Vraag een nieuwe aan.",
+      "kycLinkUsed": "Deze verificatie is al afgerond."
     },
     "contract": {
       "alreadySigned": "Dit contract is al ondertekend.",
@@ -1250,7 +1258,10 @@
       "step2": "Analyse en beslissing, meestal binnen 48 werkuren",
       "step3": "Aanbod, contract en uitbetaling na goedkeuring",
       "subtitle": "Ons team bekijkt uw dossier. U wordt bij elke stap per e-mail geïnformeerd.",
-      "title": "Uw aanvraag is ontvangen"
+      "title": "Uw aanvraag is ontvangen",
+      "kycTitle": "Verificatie afgerond",
+      "kycSubtitle": "Bedankt. Uw gegevens en documenten zijn ontvangen.",
+      "kycLinkNotice": "Deze link is nu gesloten en kan niet opnieuw worden gebruikt."
     },
     "validation": {
       "bank": {

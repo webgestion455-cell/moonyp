@@ -814,7 +814,15 @@
       "subtitle": "Šest koraka, nekoliko minuta. Napredak se sprema na ovaj uređaj.",
       "takePhoto": "Snimi fotografiju",
       "title": "Vaš zahtjev za kredit",
-      "uploading": "Slanje dokumentacije ({{done}}/{{total}})"
+      "uploading": "Slanje dokumentacije ({{done}}/{{total}})",
+      "kycTitle": "Provjera identiteta",
+      "kycSubtitle": "Nekoliko podataka i vaši dokumenti. Napredak je prikazan na vrhu.",
+      "kycSubmit": "Dovrši provjeru",
+      "kycLinkTitle": "Ova poveznica za provjeru nije dostupna",
+      "kycLinkInvalid": "Poveznica nije valjana. Zatražite novu.",
+      "kycLinkExpired": "Poveznica je istekla. Zatražite novu.",
+      "kycLinkRevoked": "Poveznica je poništena. Zatražite novu.",
+      "kycLinkUsed": "Ova je provjera već dovršena."
     },
     "contract": {
       "alreadySigned": "Ovaj ugovor je već potpisan.",
@@ -1250,7 +1258,10 @@
       "step2": "Obrada i odluka, obično u roku od 48 radnih sati",
       "step3": "Ponuda, ugovor i isplata nakon odobrenja",
       "subtitle": "Naš tim obrađuje vaš predmet. O svakom koraku obavijestit ćemo vas e-poštom.",
-      "title": "Vaš zahtjev je zaprimljen"
+      "title": "Vaš zahtjev je zaprimljen",
+      "kycTitle": "Provjera je dovršena",
+      "kycSubtitle": "Hvala. Vaši podaci i dokumenti su zaprimljeni.",
+      "kycLinkNotice": "Poveznica je zatvorena i više se ne može upotrijebiti."
     },
     "validation": {
       "bank": {

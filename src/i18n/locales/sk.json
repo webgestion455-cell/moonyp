@@ -814,7 +814,15 @@
       "subtitle": "Šesť krokov, pár minút. Postup sa ukladá v tomto zariadení.",
       "takePhoto": "Odfotiť",
       "title": "Vaša žiadosť o úver",
-      "uploading": "Odosielanie dokumentov ({{done}}/{{total}})"
+      "uploading": "Odosielanie dokumentov ({{done}}/{{total}})",
+      "kycTitle": "Overenie totožnosti",
+      "kycSubtitle": "Niekoľko údajov a vaše dokumenty. Priebeh sa zobrazuje hore.",
+      "kycSubmit": "Dokončiť overenie",
+      "kycLinkTitle": "Tento overovací odkaz nie je dostupný",
+      "kycLinkInvalid": "Odkaz nie je platný. Požiadajte o nový.",
+      "kycLinkExpired": "Platnosť odkazu vypršala. Požiadajte o nový.",
+      "kycLinkRevoked": "Odkaz bol zrušený. Požiadajte o nový.",
+      "kycLinkUsed": "Toto overenie už bolo dokončené."
     },
     "contract": {
       "alreadySigned": "Táto zmluva je už podpísaná.",
@@ -1250,7 +1258,10 @@
       "step2": "Posúdenie a rozhodnutie, zvyčajne do 48 pracovných hodín",
       "step3": "Ponuka, zmluva a výplata po schválení",
       "subtitle": "Náš tím posudzuje váš spis. O každom kroku vás budeme informovať e-mailom.",
-      "title": "Vaša žiadosť bola prijatá"
+      "title": "Vaša žiadosť bola prijatá",
+      "kycTitle": "Overenie dokončené",
+      "kycSubtitle": "Ďakujeme. Vaše údaje a dokumenty sme prijali.",
+      "kycLinkNotice": "Odkaz je uzavretý a nedá sa znova použiť."
     },
     "validation": {
       "bank": {

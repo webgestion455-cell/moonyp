@@ -814,7 +814,15 @@
       "subtitle": "Sześć kroków, kilka minut. Postęp zapisuje się na tym urządzeniu.",
       "takePhoto": "Zrób zdjęcie",
       "title": "Twój wniosek kredytowy",
-      "uploading": "Przesyłanie dokumentów ({{done}}/{{total}})"
+      "uploading": "Przesyłanie dokumentów ({{done}}/{{total}})",
+      "kycTitle": "Weryfikacja tożsamości",
+      "kycSubtitle": "Kilka informacji i dokumenty. Postęp widoczny jest u góry strony.",
+      "kycSubmit": "Zakończ weryfikację",
+      "kycLinkTitle": "Ten link weryfikacyjny jest niedostępny",
+      "kycLinkInvalid": "Link jest nieprawidłowy. Poproś o nowy.",
+      "kycLinkExpired": "Link wygasł. Poproś o nowy.",
+      "kycLinkRevoked": "Link został anulowany. Poproś o nowy.",
+      "kycLinkUsed": "Ta weryfikacja została już zakończona."
     },
     "contract": {
       "alreadySigned": "Ta umowa została już podpisana.",
@@ -1250,7 +1258,10 @@
       "step2": "Analiza i decyzja, zwykle w ciągu 48 godzin roboczych",
       "step3": "Oferta, umowa i wypłata po akceptacji",
       "subtitle": "Nasz zespół analizuje sprawę. Na każdym etapie otrzymasz e-mail.",
-      "title": "Twój wniosek został przyjęty"
+      "title": "Twój wniosek został przyjęty",
+      "kycTitle": "Weryfikacja zakończona",
+      "kycSubtitle": "Dziękujemy. Twoje dane i dokumenty zostały odebrane.",
+      "kycLinkNotice": "Link jest już zamknięty i nie można go użyć ponownie."
     },
     "validation": {
       "bank": {
