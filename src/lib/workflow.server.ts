@@ -211,6 +211,8 @@ export async function queueEmail(options: {
     // Logo de marque : URL ABSOLUE obligatoire (les clients de messagerie ne
     // résolvent aucun chemin relatif). Le fichier est servi statiquement.
     logoUrl: `${siteUrl()}/email/moonyp-mark.png`,
+    // Coche bleue de marque affichée à droite du logo dans le header.
+    verifiedBadgeUrl: `${siteUrl()}/email/moonyp-verified.png`,
     preheader: intro.slice(0, 140),
   };
 

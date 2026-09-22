@@ -213,7 +213,6 @@
     "updated": "Codice aggiornato"
   },
   "adminDash": {
-    "chat": "Chatta dal vivo",
     "clients": "Clienti",
     "kpis": {
       "clients": "Clienti attivi",
@@ -369,124 +368,6 @@
     "reasonLabel": "Motivo",
     "signOut": "Disconnetti",
     "title": "Account sospeso"
-  },
-  "chat": {
-    "admin": {
-      "close": "Chiudi il ticket",
-      "empty": "Nessuna conversazione.",
-      "filter": {
-        "all": "Tutto",
-        "closed": "Chiuso",
-        "guests": "Visitatori",
-        "mine": "Assegnato a me",
-        "waiting": "In attesa"
-      },
-      "folders": "File dei clienti",
-      "info": {
-        "none": "Nessuna informazione",
-        "title": "Informazioni sul ticket"
-      },
-      "reopen": "Riapri il ticket",
-      "searchPlaceholder": "Cerca un cliente, un ticket, un'e-mail...",
-      "selectHint": "Seleziona una conversazione a sinistra.",
-      "tickets": "Biglietti",
-      "updated": "Ticket aggiornato"
-    },
-    "agent": {
-      "brandName": "Consulente MOONYP",
-      "defaultName": "Consulente",
-      "join": "Unisciti",
-      "joined": "si è unito alla conversazione",
-      "joinedYou": "Ti sei unito alla conversazione",
-      "notAssigned": "Nessun agente assegnato"
-    },
-    "agentTitle": "Specialista servizio clienti",
-    "archived": "Archivi",
-    "assistant": "assistente",
-    "backHome": "Torna alla home",
-    "banner": {
-      "bottom": "© 2000-{{year}} MOONYP LTD · 1 Centenary Square, Birmingham, B1 2DR",
-      "top": "MOONYP — Servizio clienti sicuro"
-    },
-    "close": "Chiudi",
-    "closed": "Conversazione chiusa",
-    "closedNotice": "Conversazione chiusa.",
-    "closeTicket": "Chiudi conversazione",
-    "compose": {
-      "placeholder": "Scrivi il tuo messaggio…"
-    },
-    "genericError": "Si è verificato un errore",
-    "guest": {
-      "country": "Paese di residenza",
-      "created": "Biglietto n. {{ticket}} creato!",
-      "email": "E-mail *",
-      "errors": {
-        "fail": "Invio non riuscito, riprova.",
-        "required": "Nome, email e messaggio obbligatori."
-      },
-      "intro": "Compila questo modulo, un consulente MOONYP ti risponderà rapidamente. Riceverai un numero di biglietto.",
-      "message": "Il tuo messaggio *",
-      "name": "Nome e cognome *",
-      "phone": "Telefono",
-      "privacy": "I tuoi dati sono trattati in modo confidenziale (GDPR).",
-      "subject": "Soggetto",
-      "submit": "Apri il mio ticket",
-      "subtitle": "Assistenza ai visitatori",
-      "whatsapp": "Whatsapp"
-    },
-    "handoff": {
-      "no": "No, grazie",
-      "pending": "La tua richiesta è in elaborazione, un consulente ti raggiungerà in 1-2 minuti…",
-      "question": "Vuoi parlare con un consulente?",
-      "yes": "Sì, parlare con un consulente"
-    },
-    "joinedNotice": "{{name}} è entrato nella conversazione.",
-    "loading": "Caricamento",
-    "loginRequired": {
-      "cta": "Accedi",
-      "desc": "Devi accedere per usare il supporto.",
-      "title": "Accedi per chattare"
-    },
-    "nav": "Supporto",
-    "notFound": "Pagina non trovata",
-    "notFoundDesc": "Questa pagina non esiste.",
-    "open": "Aprire",
-    "pageDesc": "Chatta con il nostro team o con Anna, la nostra assistente virtuale.",
-    "pageTitle": "Supporto in tempo reale",
-    "rt": {
-      "bold": "Grassetto",
-      "italic": "Corsivo",
-      "link": "Collegamento",
-      "linkPrompt": "Inserisci URL (https://...)"
-    },
-    "sendError": "Invio non riuscito",
-    "status": {
-      "agent": "Consulente online",
-      "assigned": "In corso",
-      "closed": "Chiuso",
-      "online": "Online",
-      "open": "Aperto",
-      "waiting_agent": "In attesa di agente"
-    },
-    "system": "Sistema",
-    "ticket": "Biglietto",
-    "tickets": {
-      "back": "Indietro",
-      "closed": "Chiusi",
-      "empty": "Nessuna conversazione al momento.",
-      "new": "Nuova conversazione",
-      "one": "Conversazione",
-      "open": "Aperti",
-      "title": "Le mie conversazioni"
-    },
-    "today": "Oggi",
-    "typing": "sta scrivendo",
-    "welcome": {
-      "greeting": "Salve 👋 Sono Anna, la sua assistente MOONYP.",
-      "help": "Come posso aiutarla oggi?"
-    },
-    "yesterday": "Ieri",
-    "you": "Tu"
   },
   "client": {
     "stages": {
@@ -929,6 +810,7 @@
       },
       "submit": "Invia la domanda",
       "submitError": "Impossibile inviare la domanda. Riprova.",
+      "documentsPartial": "La domanda è stata registrata, ma alcuni documenti non sono stati caricati. Completa il caricamento dalla tua area sicura.",
       "subtitle": "Sei passaggi, pochi minuti. I progressi sono salvati su questo dispositivo.",
       "takePhoto": "Scatta una foto",
       "title": "La tua domanda di prestito",
@@ -1600,13 +1482,13 @@
     },
     "decision": {
       "passed": "Identità verificata",
-      "manual_review": "Sono necessarie ulteriori verifiche",
+      "manual_review": "Verifica in corso di controllo",
       "failed": "Identità non verificata",
-      "reviewNotice": "Sono necessari ulteriori controlli da parte del servizio di conformità.",
+      "reviewNotice": "La sua pratica è completa e richiede una verifica aggiuntiva da parte del nostro servizio conformità. La informeremo non appena sarà conclusa.",
       "checking": "Analisi del documento",
       "checkingDesc": "Lettura del documento e confronto dei dati di identità disponibili.",
       "passedNotice": "La verifica della sua identità è completata.",
-      "failedNotice": "Acquisisca nuovamente un documento valido e leggibile e completi il controllo del volto in tempo reale.",
+      "failedNotice": "Non è stato possibile confermare la sua identità con gli elementi forniti. Può ripetere la verifica con un documento valido, ben illuminato, e un controllo del volto dal vivo.",
       "retry": "Ricominciare la verifica",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1535,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Verifica non disponibile",
-      "unavailableNotice": "Non è stata presa alcuna decisione. Riprovi."
+      "unavailableNotice": "Non è stata presa alcuna decisione. Riprovi.",
+      "summary": "Riepilogo dei controlli",
+      "item": {
+        "identity_document": "Documento d'identità",
+        "document_analysis": "Documento analizzato",
+        "liveness": "Controllo del volto dal vivo",
+        "face_match": "Corrispondenza facciale",
+        "bank": "Coordinate bancarie",
+        "income": "Giustificativo di reddito"
+      },
+      "state": {
+        "passed": "Verificato",
+        "review": "In controllo",
+        "failed": "Non convalidato",
+        "missing": "Non fornito"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

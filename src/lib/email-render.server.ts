@@ -65,6 +65,12 @@ export interface EmailTemplateInput {
 
   /** URL absolue du logo. */
   logoUrl?: string;
+
+  /**
+   * URL absolue de la coche bleue de marque affichée à côté du logo dans
+   * le header. Optionnelle : sans valeur, le header reste inchangé.
+   */
+  verifiedBadgeUrl?: string;
 }
 
 /* --------------------------------------------------------------------------
@@ -535,6 +541,53 @@ export function renderEmailHtml(input: EmailTemplateInput): string {
     `
     : "";
 
+  /* ------------------- Coche bleue de marque (header) -------------------- */
+
+  /*
+   * Rendu en image PNG hébergée : les clients mail (Outlook inclus) ne
+   * savent pas afficher un SVG inline ni un border-radius fiable. Le badge
+   * est aligné optiquement sur la base du logo, à sa droite.
+   */
+  const verifiedBadge = input.verifiedBadgeUrl
+    ? `
+      <img
+        src="${esc(input.verifiedBadgeUrl)}"
+        width="18"
+        height="18"
+        alt="Compte de marque vérifié"
+        class="brand-badge"
+        style="
+          display:block;
+          width:18px;
+          height:18px;
+          border:0;
+          outline:none;
+          text-decoration:none;
+          -ms-interpolation-mode:bicubic;
+        "
+      />
+    `
+    : "";
+
+  /*
+   * Header : logo centré, coche accolée. La table interne garde
+   * l'alignement dans tous les clients mail, sans flexbox.
+   */
+  const headerBrand = input.logoUrl
+    ? `
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;">
+        <tr>
+          <td valign="middle" style="padding:0;">${logo}</td>
+          ${
+            verifiedBadge
+              ? `<td valign="middle" style="padding:0 0 0 8px;">${verifiedBadge}</td>`
+              : ""
+          }
+        </tr>
+      </table>
+    `
+    : "";
+
   /* ---------------------------- Footer logo ----------------------------- */
 
   const footerLogo = input.logoUrl
@@ -923,7 +976,7 @@ export function renderEmailHtml(input: EmailTemplateInput): string {
             "
           >
 
-            ${logo}
+            ${headerBrand}
 
           </td>
 

@@ -40,7 +40,6 @@ import { Route as AdminProductsRouteImport } from './routes/admin.products'
 import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
 import { Route as AdminLogsRouteImport } from './routes/admin.logs'
 import { Route as AdminKycRouteImport } from './routes/admin.kyc'
-import { Route as AdminChatRouteImport } from './routes/admin.chat'
 import { Route as LangSolutionsRouteImport } from './routes/$lang.solutions'
 import { Route as LangSimulationRouteImport } from './routes/$lang.simulation'
 import { Route as LangHomeRouteImport } from './routes/$lang.home'
@@ -48,12 +47,10 @@ import { Route as LangContactRouteImport } from './routes/$lang.contact'
 import { Route as LangApplyRouteImport } from './routes/$lang.apply'
 import { Route as LangAboutRouteImport } from './routes/$lang.about'
 import { Route as LangSplatRouteImport } from './routes/$lang.$'
-import { Route as AdminChatIndexRouteImport } from './routes/admin.chat.index'
 import { Route as AdminApplicationsIndexRouteImport } from './routes/admin.applications.index'
 import { Route as SecureApplicationTokenRouteImport } from './routes/secure.application.$token'
 import { Route as ApiPublicRepaymentRemindersRouteImport } from './routes/api/public/repayment-reminders'
 import { Route as ApiPublicGuaranteeRemindersRouteImport } from './routes/api/public/guarantee-reminders'
-import { Route as AdminChatConversationIdRouteImport } from './routes/admin.chat.$conversationId'
 import { Route as AdminApplicationsApplicationIdRouteImport } from './routes/admin.applications.$applicationId'
 import { Route as LangLegalTermsRouteImport } from './routes/$lang.legal.terms'
 import { Route as LangLegalRepaymentRouteImport } from './routes/$lang.legal.repayment'
@@ -222,11 +219,6 @@ const AdminKycRoute = AdminKycRouteImport.update({
   path: '/kyc',
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminChatRoute = AdminChatRouteImport.update({
-  id: '/chat',
-  path: '/chat',
-  getParentRoute: () => AdminRoute,
-} as any)
 const LangSolutionsRoute = LangSolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
@@ -262,11 +254,6 @@ const LangSplatRoute = LangSplatRouteImport.update({
   path: '/$',
   getParentRoute: () => LangRoute,
 } as any)
-const AdminChatIndexRoute = AdminChatIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AdminChatRoute,
-} as any)
 const AdminApplicationsIndexRoute = AdminApplicationsIndexRouteImport.update({
   id: '/applications/',
   path: '/applications/',
@@ -289,11 +276,6 @@ const ApiPublicGuaranteeRemindersRoute =
     path: '/api/public/guarantee-reminders',
     getParentRoute: () => rootRouteImport,
   } as any)
-const AdminChatConversationIdRoute = AdminChatConversationIdRouteImport.update({
-  id: '/$conversationId',
-  path: '/$conversationId',
-  getParentRoute: () => AdminChatRoute,
-} as any)
 const AdminApplicationsApplicationIdRoute =
   AdminApplicationsApplicationIdRouteImport.update({
     id: '/applications/$applicationId',
@@ -379,7 +361,6 @@ export interface FileRoutesByFullPath {
   '/$lang/home': typeof LangHomeRoute
   '/$lang/simulation': typeof LangSimulationRoute
   '/$lang/solutions': typeof LangSolutionsRoute
-  '/admin/chat': typeof AdminChatRouteWithChildren
   '/admin/kyc': typeof AdminKycRoute
   '/admin/logs': typeof AdminLogsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
@@ -409,12 +390,10 @@ export interface FileRoutesByFullPath {
   '/$lang/legal/repayment': typeof LangLegalRepaymentRoute
   '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
-  '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
   '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
   '/api/public/repayment-reminders': typeof ApiPublicRepaymentRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications/': typeof AdminApplicationsIndexRoute
-  '/admin/chat/': typeof AdminChatIndexRoute
   '/$lang/secure/application/$token/contract': typeof LangSecureApplicationTokenContractRoute
   '/$lang/secure/application/$token/payment': typeof LangSecureApplicationTokenPaymentRoute
   '/$lang/secure/application/$token/': typeof LangSecureApplicationTokenIndexRoute
@@ -465,12 +444,10 @@ export interface FileRoutesByTo {
   '/$lang/legal/repayment': typeof LangLegalRepaymentRoute
   '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
-  '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
   '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
   '/api/public/repayment-reminders': typeof ApiPublicRepaymentRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications': typeof AdminApplicationsIndexRoute
-  '/admin/chat': typeof AdminChatIndexRoute
   '/$lang/secure/application/$token/contract': typeof LangSecureApplicationTokenContractRoute
   '/$lang/secure/application/$token/payment': typeof LangSecureApplicationTokenPaymentRoute
   '/$lang/secure/application/$token': typeof LangSecureApplicationTokenIndexRoute
@@ -495,7 +472,6 @@ export interface FileRoutesById {
   '/$lang/home': typeof LangHomeRoute
   '/$lang/simulation': typeof LangSimulationRoute
   '/$lang/solutions': typeof LangSolutionsRoute
-  '/admin/chat': typeof AdminChatRouteWithChildren
   '/admin/kyc': typeof AdminKycRoute
   '/admin/logs': typeof AdminLogsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
@@ -525,12 +501,10 @@ export interface FileRoutesById {
   '/$lang/legal/repayment': typeof LangLegalRepaymentRoute
   '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
-  '/admin/chat/$conversationId': typeof AdminChatConversationIdRoute
   '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
   '/api/public/repayment-reminders': typeof ApiPublicRepaymentRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications/': typeof AdminApplicationsIndexRoute
-  '/admin/chat/': typeof AdminChatIndexRoute
   '/$lang/secure/application/$token/contract': typeof LangSecureApplicationTokenContractRoute
   '/$lang/secure/application/$token/payment': typeof LangSecureApplicationTokenPaymentRoute
   '/$lang/secure/application/$token/': typeof LangSecureApplicationTokenIndexRoute
@@ -556,7 +530,6 @@ export interface FileRouteTypes {
     | '/$lang/home'
     | '/$lang/simulation'
     | '/$lang/solutions'
-    | '/admin/chat'
     | '/admin/kyc'
     | '/admin/logs'
     | '/admin/notifications'
@@ -586,12 +559,10 @@ export interface FileRouteTypes {
     | '/$lang/legal/repayment'
     | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
-    | '/admin/chat/$conversationId'
     | '/api/public/guarantee-reminders'
     | '/api/public/repayment-reminders'
     | '/secure/application/$token'
     | '/admin/applications/'
-    | '/admin/chat/'
     | '/$lang/secure/application/$token/contract'
     | '/$lang/secure/application/$token/payment'
     | '/$lang/secure/application/$token/'
@@ -642,12 +613,10 @@ export interface FileRouteTypes {
     | '/$lang/legal/repayment'
     | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
-    | '/admin/chat/$conversationId'
     | '/api/public/guarantee-reminders'
     | '/api/public/repayment-reminders'
     | '/secure/application/$token'
     | '/admin/applications'
-    | '/admin/chat'
     | '/$lang/secure/application/$token/contract'
     | '/$lang/secure/application/$token/payment'
     | '/$lang/secure/application/$token'
@@ -671,7 +640,6 @@ export interface FileRouteTypes {
     | '/$lang/home'
     | '/$lang/simulation'
     | '/$lang/solutions'
-    | '/admin/chat'
     | '/admin/kyc'
     | '/admin/logs'
     | '/admin/notifications'
@@ -701,12 +669,10 @@ export interface FileRouteTypes {
     | '/$lang/legal/repayment'
     | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
-    | '/admin/chat/$conversationId'
     | '/api/public/guarantee-reminders'
     | '/api/public/repayment-reminders'
     | '/secure/application/$token'
     | '/admin/applications/'
-    | '/admin/chat/'
     | '/$lang/secure/application/$token/contract'
     | '/$lang/secure/application/$token/payment'
     | '/$lang/secure/application/$token/'
@@ -956,13 +922,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminKycRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/chat': {
-      id: '/admin/chat'
-      path: '/chat'
-      fullPath: '/admin/chat'
-      preLoaderRoute: typeof AdminChatRouteImport
-      parentRoute: typeof AdminRoute
-    }
     '/$lang/solutions': {
       id: '/$lang/solutions'
       path: '/solutions'
@@ -1012,13 +971,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangSplatRouteImport
       parentRoute: typeof LangRoute
     }
-    '/admin/chat/': {
-      id: '/admin/chat/'
-      path: '/'
-      fullPath: '/admin/chat/'
-      preLoaderRoute: typeof AdminChatIndexRouteImport
-      parentRoute: typeof AdminChatRoute
-    }
     '/admin/applications/': {
       id: '/admin/applications/'
       path: '/applications'
@@ -1046,13 +998,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/api/public/guarantee-reminders'
       preLoaderRoute: typeof ApiPublicGuaranteeRemindersRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/admin/chat/$conversationId': {
-      id: '/admin/chat/$conversationId'
-      path: '/$conversationId'
-      fullPath: '/admin/chat/$conversationId'
-      preLoaderRoute: typeof AdminChatConversationIdRouteImport
-      parentRoute: typeof AdminChatRoute
     }
     '/admin/applications/$applicationId': {
       id: '/admin/applications/$applicationId'
@@ -1189,22 +1134,7 @@ const LangRouteChildren: LangRouteChildren = {
 
 const LangRouteWithChildren = LangRoute._addFileChildren(LangRouteChildren)
 
-interface AdminChatRouteChildren {
-  AdminChatConversationIdRoute: typeof AdminChatConversationIdRoute
-  AdminChatIndexRoute: typeof AdminChatIndexRoute
-}
-
-const AdminChatRouteChildren: AdminChatRouteChildren = {
-  AdminChatConversationIdRoute: AdminChatConversationIdRoute,
-  AdminChatIndexRoute: AdminChatIndexRoute,
-}
-
-const AdminChatRouteWithChildren = AdminChatRoute._addFileChildren(
-  AdminChatRouteChildren,
-)
-
 interface AdminRouteChildren {
-  AdminChatRoute: typeof AdminChatRouteWithChildren
   AdminKycRoute: typeof AdminKycRoute
   AdminLogsRoute: typeof AdminLogsRoute
   AdminNotificationsRoute: typeof AdminNotificationsRoute
@@ -1220,7 +1150,6 @@ interface AdminRouteChildren {
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
-  AdminChatRoute: AdminChatRouteWithChildren,
   AdminKycRoute: AdminKycRoute,
   AdminLogsRoute: AdminLogsRoute,
   AdminNotificationsRoute: AdminNotificationsRoute,

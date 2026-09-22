@@ -213,7 +213,6 @@
     "updated": "Kód aktualizovaný"
   },
   "adminDash": {
-    "chat": "Živý rozhovor",
     "clients": "zákazníkov",
     "kpis": {
       "clients": "Aktívni zákazníci",
@@ -369,124 +368,6 @@
     "reasonLabel": "Dôvod",
     "signOut": "Odhlásiť sa",
     "title": "Účet pozastavený"
-  },
-  "chat": {
-    "admin": {
-      "close": "Zavrieť tiket",
-      "empty": "Žiadne konverzácie.",
-      "filter": {
-        "all": "Všetky",
-        "closed": "ZATVORENÉ",
-        "guests": "Návštevníci",
-        "mine": "Pridelené mne",
-        "waiting": "Podržané"
-      },
-      "folders": "Súbory zákazníkov",
-      "info": {
-        "none": "Žiadne informácie",
-        "title": "Informácie o tikete"
-      },
-      "reopen": "Znovu otvoriť tiket",
-      "searchPlaceholder": "Vyhľadajte zákazníka, lístok, e-mail…",
-      "selectHint": "Vyberte konverzáciu vľavo.",
-      "tickets": "Vstupenky",
-      "updated": "Tiket aktualizovaný"
-    },
-    "agent": {
-      "brandName": "Poradca MOONYP",
-      "defaultName": "Poradca",
-      "join": "Pripojiť sa",
-      "joined": "sa pripojil ku konverzácii",
-      "joinedYou": "Pripojili ste sa ku konverzácii",
-      "notAssigned": "Žiadny priradený agent"
-    },
-    "agentTitle": "Špecialista zákazníckeho servisu",
-    "archived": "Archívy",
-    "assistant": "asistentka",
-    "backHome": "Späť domov",
-    "banner": {
-      "bottom": "© 2000-{{year}} MOONYP LTD · 1 Centenary Square, Birmingham, B1 2DR",
-      "top": "MOONYP — Bezpečný zákaznícky servis"
-    },
-    "close": "Zatvoriť",
-    "closed": "Konverzácia zatvorená",
-    "closedNotice": "Konverzácia je uzavretá.",
-    "closeTicket": "Zatvoriť konverzáciu",
-    "compose": {
-      "placeholder": "Napíšte správu…"
-    },
-    "genericError": "Vyskytla sa chyba",
-    "guest": {
-      "country": "Krajina pobytu",
-      "created": "Vstupenka #{{ticket}} vytvorená!",
-      "email": "E-mail *",
-      "errors": {
-        "fail": "Odosielanie zlyhalo, skúste to znova.",
-        "required": "Vyžaduje sa meno, e-mail a správa."
-      },
-      "intro": "Vyplňte tento formulár a poradca MOONYP rýchlo odpovie. Dostanete číslo lístka.",
-      "message": "Vaša správa *",
-      "name": "Celé meno *",
-      "phone": "Telefón",
-      "privacy": "S vašimi údajmi sa zaobchádza dôverne (GDPR).",
-      "subject": "Predmet",
-      "submit": "Otvor môj lístok",
-      "subtitle": "Pomoc návštevníkom",
-      "whatsapp": "WhatsApp"
-    },
-    "handoff": {
-      "no": "Nie, ďakujem",
-      "pending": "Vaša požiadavka sa spracúva, poradca sa pripojí za 1-2 minúty…",
-      "question": "Chcete hovoriť s poradcom?",
-      "yes": "Áno, hovoriť s poradcom"
-    },
-    "joinedNotice": "{{name}} sa pripojil ku konverzácii.",
-    "loading": "Načítava",
-    "loginRequired": {
-      "cta": "Prihlásiť sa",
-      "desc": "Na použitie podpory musíte byť prihlásený.",
-      "title": "Prihláste sa na chat"
-    },
-    "nav": "Podpora",
-    "notFound": "Stránka nenájdená",
-    "notFoundDesc": "Táto stránka neexistuje.",
-    "open": "OTVORENÉ",
-    "pageDesc": "Chatujte s naším tímom alebo s Annou, našou virtuálnou asistentkou.",
-    "pageTitle": "Živá podpora",
-    "rt": {
-      "bold": "Tučné",
-      "italic": "Kurzíva",
-      "link": "Odkaz",
-      "linkPrompt": "Zadajte URL (https://...)"
-    },
-    "sendError": "Odoslanie zlyhalo",
-    "status": {
-      "agent": "Poradca online",
-      "assigned": "Prebieha",
-      "closed": "Zatvorené",
-      "online": "Online",
-      "open": "Otvorené",
-      "waiting_agent": "Čaká na agenta"
-    },
-    "system": "Systém",
-    "ticket": "Lístok",
-    "tickets": {
-      "back": "Späť",
-      "closed": "Zatvorené",
-      "empty": "Zatiaľ žiadne konverzácie.",
-      "new": "Nová konverzácia",
-      "one": "Konverzácia",
-      "open": "Otvorené",
-      "title": "Moje konverzácie"
-    },
-    "today": "Dnes",
-    "typing": "píše",
-    "welcome": {
-      "greeting": "Dobrý deň 👋 Som Anna, vaša asistentka MOONYP.",
-      "help": "Ako vám dnes môžem pomôcť?"
-    },
-    "yesterday": "Včera",
-    "you": "Vy"
   },
   "client": {
     "stages": {
@@ -929,6 +810,7 @@
       },
       "submit": "Odoslať žiadosť",
       "submitError": "Žiadosť sa nepodarilo odoslať. Skúste to znova.",
+      "documentsPartial": "Žiadosť bola zaznamenaná, ale niektoré dokumenty sa nepodarilo odoslať. Dokončite odoslanie vo svojej zabezpečenej zóne.",
       "subtitle": "Šesť krokov, pár minút. Postup sa ukladá v tomto zariadení.",
       "takePhoto": "Odfotiť",
       "title": "Vaša žiadosť o úver",
@@ -1600,13 +1482,13 @@
     },
     "decision": {
       "passed": "Totožnosť overená",
-      "manual_review": "Vyžaduje sa dodatočné overenie",
+      "manual_review": "Overenie prebieha",
       "failed": "Totožnosť nebola overená",
-      "reviewNotice": "Sú potrebné ďalšie kontroly oddelenia súladu.",
+      "reviewNotice": "Vaša žiadosť je kompletná a vyžaduje dodatočnú kontrolu naším oddelením compliance. Hneď po jej dokončení vás budeme informovať.",
       "checking": "Kontrola vášho dokladu",
       "checkingDesc": "Čítanie dokladu a porovnávanie dostupných údajov o totožnosti.",
       "passedNotice": "Overenie vašej totožnosti je dokončené.",
-      "failedNotice": "Znova nasnímajte platný a čitateľný doklad totožnosti a dokončite živú kontrolu tváre.",
+      "failedNotice": "Vašu totožnosť sa nepodarilo potvrdiť na základe poskytnutých podkladov. Overenie môžete zopakovať s platným, dobre osvetleným dokladom a živou kontrolou tváre.",
       "retry": "Spustiť overenie znova",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1535,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Overenie nie je dostupné",
-      "unavailableNotice": "Nebolo prijaté žiadne rozhodnutie. Skúste to znova."
+      "unavailableNotice": "Nebolo prijaté žiadne rozhodnutie. Skúste to znova.",
+      "summary": "Prehľad kontrol",
+      "item": {
+        "identity_document": "Doklad totožnosti",
+        "document_analysis": "Dokument analyzovaný",
+        "liveness": "Živá kontrola tváre",
+        "face_match": "Zhoda tváre",
+        "bank": "Bankové údaje",
+        "income": "Doklad o príjme"
+      },
+      "state": {
+        "passed": "Overené",
+        "review": "V kontrole",
+        "failed": "Nepotvrdené",
+        "missing": "Nedodané"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

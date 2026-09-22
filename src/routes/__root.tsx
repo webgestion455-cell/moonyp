@@ -17,7 +17,6 @@ import { Toaster } from "@/components/ui/sonner";
 import { AppHeader } from "@/components/AppHeader";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { LiveChat } from "@/components/LiveChat";
 import { useImmersive } from "@/lib/kyc/immersive";
 import "@/i18n";
 import i18n, { applyDetectedLanguage, LANG_STORAGE_KEY } from "@/i18n";
@@ -188,7 +187,6 @@ function RootComponent() {
           {!hideLayout && <div className="h-16 md:hidden" aria-hidden />}
           {!hideLayout && <MobileBottomNav />}
         </div>
-        {!hideLayout && <LiveChat />}
         <Toaster richColors closeButton />
       </AuthProvider>
     </ThemeProvider>

@@ -213,7 +213,6 @@
     "updated": "Code updated"
   },
   "adminDash": {
-    "chat": "Live Chat",
     "clients": "Clients",
     "kpis": {
       "clients": "Active clients",
@@ -369,124 +368,6 @@
     "reasonLabel": "Reason",
     "signOut": "Sign out",
     "title": "Account suspended"
-  },
-  "chat": {
-    "admin": {
-      "close": "Close ticket",
-      "empty": "No conversations.",
-      "filter": {
-        "all": "All",
-        "closed": "Closed",
-        "guests": "Visitors",
-        "mine": "Assigned to me",
-        "waiting": "Waiting"
-      },
-      "folders": "Client folders",
-      "info": {
-        "none": "No information provided",
-        "title": "Ticket information"
-      },
-      "reopen": "Reopen ticket",
-      "searchPlaceholder": "Search client, ticket, email…",
-      "selectHint": "Select a conversation on the left.",
-      "tickets": "Tickets",
-      "updated": "Ticket updated"
-    },
-    "agent": {
-      "brandName": "MOONYP advisor",
-      "defaultName": "Advisor",
-      "join": "Join",
-      "joined": "joined the conversation",
-      "joinedYou": "You joined the conversation",
-      "notAssigned": "No agent assigned"
-    },
-    "agentTitle": "Customer service specialist",
-    "archived": "Archived",
-    "assistant": "assistant",
-    "backHome": "Back to home",
-    "banner": {
-      "bottom": "© 2000-{{year}} MOONYP LTD · 1 Centenary Square, Birmingham, B1 2DR",
-      "top": "MOONYP — Secure customer service"
-    },
-    "close": "Close",
-    "closed": "Conversation closed",
-    "closedNotice": "Conversation closed.",
-    "closeTicket": "Close conversation",
-    "compose": {
-      "placeholder": "Type your message…"
-    },
-    "genericError": "An error occurred",
-    "guest": {
-      "country": "Country",
-      "created": "Ticket #{{ticket}} created!",
-      "email": "Email *",
-      "errors": {
-        "fail": "Send failed, retry.",
-        "required": "Name, email and message are required."
-      },
-      "intro": "Fill in this form and a MOONYP advisor will reply shortly. You will get a ticket number.",
-      "message": "Your message *",
-      "name": "Full name *",
-      "phone": "Phone",
-      "privacy": "Your data is processed confidentially (GDPR).",
-      "subject": "Subject",
-      "submit": "Open my ticket",
-      "subtitle": "Visitor support",
-      "whatsapp": "WhatsApp"
-    },
-    "handoff": {
-      "no": "No, thanks",
-      "pending": "Your request is being processed, an advisor will join you in 1-2 minutes…",
-      "question": "Would you like to speak with an advisor?",
-      "yes": "Yes, speak to an advisor"
-    },
-    "joinedNotice": "{{name}} joined the conversation.",
-    "loading": "Loading",
-    "loginRequired": {
-      "cta": "Log in",
-      "desc": "You must be logged in to access support.",
-      "title": "Log in to chat"
-    },
-    "nav": "Support",
-    "notFound": "Page not found",
-    "notFoundDesc": "This page does not exist.",
-    "open": "Open",
-    "pageDesc": "Chat with our team or with Anna, our virtual assistant.",
-    "pageTitle": "Live support",
-    "rt": {
-      "bold": "Bold",
-      "italic": "Italic",
-      "link": "Link",
-      "linkPrompt": "Enter URL (https://...)"
-    },
-    "sendError": "Sending failed",
-    "status": {
-      "agent": "Advisor online",
-      "assigned": "In progress",
-      "closed": "Closed",
-      "online": "Online",
-      "open": "Open",
-      "waiting_agent": "Waiting for agent"
-    },
-    "system": "System",
-    "ticket": "Ticket",
-    "tickets": {
-      "back": "Back",
-      "closed": "Closed",
-      "empty": "No conversation yet.",
-      "new": "New conversation",
-      "one": "Conversation",
-      "open": "Open",
-      "title": "My conversations"
-    },
-    "today": "Today",
-    "typing": "is typing",
-    "welcome": {
-      "greeting": "Hello 👋 I'm Anna, your MOONYP assistant.",
-      "help": "How can I help you today?"
-    },
-    "yesterday": "Yesterday",
-    "you": "You"
   },
   "client": {
     "stages": {
@@ -929,6 +810,7 @@
       },
       "submit": "Submit my application",
       "submitError": "Your application could not be submitted. Please try again.",
+      "documentsPartial": "Your application has been recorded, but some documents failed to upload. Please finish uploading them from your secure area.",
       "subtitle": "Six steps, a few minutes. Your progress is saved on this device.",
       "takePhoto": "Take a photo",
       "title": "Your loan application",
@@ -1600,13 +1482,13 @@
     },
     "decision": {
       "passed": "Identity verified",
-      "manual_review": "Additional verification required",
+      "manual_review": "Verification under review",
       "failed": "Identity could not be verified",
-      "reviewNotice": "Additional checks by the compliance team are required.",
+      "reviewNotice": "Your file is complete and needs an additional check by our compliance team. You will be notified as soon as it is done.",
       "checking": "Checking your document",
       "checkingDesc": "Reading the document and comparing the available identity details.",
       "passedNotice": "Your identity verification is complete.",
-      "failedNotice": "Please capture a valid, legible identity document and complete the live face check.",
+      "failedNotice": "Your identity could not be confirmed from the items provided. You can start again with a valid, well-lit ID document and a live face check.",
       "retry": "Restart verification",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1535,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Verification unavailable",
-      "unavailableNotice": "No decision was made. Please try again."
+      "unavailableNotice": "No decision was made. Please try again.",
+      "summary": "Checks summary",
+      "item": {
+        "identity_document": "ID document",
+        "document_analysis": "Document analysed",
+        "liveness": "Live face check",
+        "face_match": "Face match",
+        "bank": "Bank details",
+        "income": "Proof of income"
+      },
+      "state": {
+        "passed": "Verified",
+        "review": "Under review",
+        "failed": "Not validated",
+        "missing": "Not provided"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

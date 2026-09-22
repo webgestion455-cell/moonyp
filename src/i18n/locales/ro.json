@@ -213,7 +213,6 @@
     "updated": "Cod actualizat"
   },
   "adminDash": {
-    "chat": "Chat live",
     "clients": "Clienții",
     "kpis": {
       "clients": "Clienți activi",
@@ -369,124 +368,6 @@
     "reasonLabel": "Motiv",
     "signOut": "Deconectare",
     "title": "Cont suspendat"
-  },
-  "chat": {
-    "admin": {
-      "close": "Închide tichetul",
-      "empty": "Nicio conversație.",
-      "filter": {
-        "all": "Toate",
-        "closed": "Închis",
-        "guests": "Vizitatori",
-        "mine": "Mi-a fost atribuit",
-        "waiting": "În așteptare"
-      },
-      "folders": "Fișierele clienților",
-      "info": {
-        "none": "Nicio informație",
-        "title": "Informații despre tichet"
-      },
-      "reopen": "Redeschide tichetul",
-      "searchPlaceholder": "Căutați un client, bilet, e-mail...",
-      "selectHint": "Selectați o conversație în stânga.",
-      "tickets": "bilete",
-      "updated": "Tichet actualizat"
-    },
-    "agent": {
-      "brandName": "Consilier MOONYP",
-      "defaultName": "Consilier",
-      "join": "Alăturați-vă",
-      "joined": "s-a alăturat conversației",
-      "joinedYou": "V-ați alăturat conversației",
-      "notAssigned": "Niciun agent atribuit"
-    },
-    "agentTitle": "Specialist relații clienți",
-    "archived": "Arhive",
-    "assistant": "asistentă",
-    "backHome": "Înapoi la început",
-    "banner": {
-      "bottom": "© 2000-{{year}} MOONYP LTD · 1 Centenary Square, Birmingham, B1 2DR",
-      "top": "MOONYP — Serviciu clienți securizat"
-    },
-    "close": "Închide",
-    "closed": "Conversație închisă",
-    "closedNotice": "Conversație închisă.",
-    "closeTicket": "Închide conversația",
-    "compose": {
-      "placeholder": "Scrieți mesajul…"
-    },
-    "genericError": "A apărut o eroare",
-    "guest": {
-      "country": "Țara de reședință",
-      "created": "Biletul #{{ticket}} creat!",
-      "email": "Email *",
-      "errors": {
-        "fail": "Trimiterea a eșuat, încercați din nou.",
-        "required": "Sunt necesare nume, e-mail și mesaj."
-      },
-      "intro": "Completați acest formular, un consilier MOONYP vă va răspunde rapid. Veți primi un număr de bilet.",
-      "message": "Mesajul dvs *",
-      "name": "Numele complet *",
-      "phone": "Telefon",
-      "privacy": "Datele dumneavoastră sunt tratate confidențial (GDPR).",
-      "subject": "Subiect",
-      "submit": "Deschide-mi biletul",
-      "subtitle": "Asistență pentru vizitatori",
-      "whatsapp": "WhatsApp"
-    },
-    "handoff": {
-      "no": "Nu, mulțumesc",
-      "pending": "Cererea dvs. este în procesare, un consilier vi se alătură în 1-2 minute…",
-      "question": "Doriți să vorbiți cu un consilier?",
-      "yes": "Da, vorbește cu un consilier"
-    },
-    "joinedNotice": "{{name}} s-a alăturat conversației.",
-    "loading": "Se încarcă",
-    "loginRequired": {
-      "cta": "Autentificare",
-      "desc": "Trebuie să fiți autentificat pentru suport.",
-      "title": "Autentificați-vă pentru chat"
-    },
-    "nav": "Suport",
-    "notFound": "Pagină negăsită",
-    "notFoundDesc": "Această pagină nu există.",
-    "open": "Deschide",
-    "pageDesc": "Discutați cu echipa noastră sau cu Anna, asistenta virtuală.",
-    "pageTitle": "Suport live",
-    "rt": {
-      "bold": "Aldin",
-      "italic": "Cursiv",
-      "link": "Link",
-      "linkPrompt": "Introduceți URL (https://...)"
-    },
-    "sendError": "Trimiterea a eșuat",
-    "status": {
-      "agent": "Consilier online",
-      "assigned": "În curs",
-      "closed": "Închis",
-      "online": "Online",
-      "open": "Deschis",
-      "waiting_agent": "Așteaptă agent"
-    },
-    "system": "Sistem",
-    "ticket": "Bilet",
-    "tickets": {
-      "back": "Înapoi",
-      "closed": "Închise",
-      "empty": "Nicio conversație deocamdată.",
-      "new": "Conversație nouă",
-      "one": "Conversație",
-      "open": "Deschise",
-      "title": "Conversațiile mele"
-    },
-    "today": "Astăzi",
-    "typing": "scrie",
-    "welcome": {
-      "greeting": "Bună ziua 👋 Sunt Anna, asistenta dumneavoastră MOONYP.",
-      "help": "Cu ce vă pot ajuta astăzi?"
-    },
-    "yesterday": "Ieri",
-    "you": "Tu"
   },
   "client": {
     "stages": {
@@ -929,6 +810,7 @@
       },
       "submit": "Trimite cererea",
       "submitError": "Cererea nu a putut fi trimisă. Încercați din nou.",
+      "documentsPartial": "Cererea a fost înregistrată, dar unele documente nu au putut fi încărcate. Finalizați încărcarea din zona dvs. securizată.",
       "subtitle": "Șase pași, câteva minute. Progresul este salvat pe acest dispozitiv.",
       "takePhoto": "Fă o fotografie",
       "title": "Cererea dvs. de credit",
@@ -1600,13 +1482,13 @@
     },
     "decision": {
       "passed": "Identitate verificată",
-      "manual_review": "Este necesară o verificare suplimentară",
+      "manual_review": "Verificare în curs de control",
       "failed": "Identitatea nu a fost verificată",
-      "reviewNotice": "Sunt necesare verificări suplimentare din partea departamentului de conformitate.",
+      "reviewNotice": "Dosarul dumneavoastră este complet și necesită o verificare suplimentară din partea serviciului nostru de conformitate. Veți fi informat imediat ce se finalizează.",
       "checking": "Se verifică documentul",
       "checkingDesc": "Se citește documentul și se compară datele de identitate disponibile.",
       "passedNotice": "Verificarea identității a fost finalizată.",
-      "failedNotice": "Fotografiați din nou un act de identitate valabil și lizibil și efectuați verificarea facială în direct.",
+      "failedNotice": "Identitatea dumneavoastră nu a putut fi confirmată pe baza elementelor furnizate. Puteți relua verificarea cu un act de identitate valabil, bine iluminat, și un control facial în direct.",
       "retry": "Reîncepeți verificarea",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1535,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Verificare indisponibilă",
-      "unavailableNotice": "Nu a fost luată nicio decizie. Încercați din nou."
+      "unavailableNotice": "Nu a fost luată nicio decizie. Încercați din nou.",
+      "summary": "Recapitularea controalelor",
+      "item": {
+        "identity_document": "Act de identitate",
+        "document_analysis": "Document analizat",
+        "liveness": "Control facial în direct",
+        "face_match": "Corespondență facială",
+        "bank": "Coordonate bancare",
+        "income": "Dovada veniturilor"
+      },
+      "state": {
+        "passed": "Verificat",
+        "review": "În control",
+        "failed": "Nevalidat",
+        "missing": "Nefurnizat"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

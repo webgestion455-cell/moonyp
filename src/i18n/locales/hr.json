@@ -213,7 +213,6 @@
     "updated": "Kod ažuriran"
   },
   "adminDash": {
-    "chat": "Razgovor uživo",
     "clients": "Kupci",
     "kpis": {
       "clients": "Aktivni kupci",
@@ -369,124 +368,6 @@
     "reasonLabel": "Razlog",
     "signOut": "Odjava",
     "title": "Račun suspendiran"
-  },
-  "chat": {
-    "admin": {
-      "close": "Zatvori tiket",
-      "empty": "Nema razgovora.",
-      "filter": {
-        "all": "Sve",
-        "closed": "Zatvoreno",
-        "guests": "Posjetitelji",
-        "mine": "Dodijeljen meni",
-        "waiting": "Na čekanju"
-      },
-      "folders": "Datoteke kupaca",
-      "info": {
-        "none": "Nema podataka",
-        "title": "Podaci o tiketu"
-      },
-      "reopen": "Ponovno otvori tiket",
-      "searchPlaceholder": "Potražite kupca, kartu, e-mail…",
-      "selectHint": "Odaberite razgovor s lijeve strane.",
-      "tickets": "Ulaznice",
-      "updated": "Tiket ažuriran"
-    },
-    "agent": {
-      "brandName": "Savjetnik MOONYP",
-      "defaultName": "Savjetnik",
-      "join": "Pridruži se",
-      "joined": "pridružio se razgovoru",
-      "joinedYou": "Pridružili ste se razgovoru",
-      "notAssigned": "Nema dodijeljenog agenta"
-    },
-    "agentTitle": "Stručnjak za korisničku podršku",
-    "archived": "Arhiva",
-    "assistant": "asistentica",
-    "backHome": "Natrag na početnu",
-    "banner": {
-      "bottom": "© 2000-{{year}} MOONYP LTD · 1 Centenary Square, Birmingham, B1 2DR",
-      "top": "MOONYP — Sigurna korisnička služba"
-    },
-    "close": "Zatvori",
-    "closed": "Razgovor zatvoren",
-    "closedNotice": "Razgovor je zatvoren.",
-    "closeTicket": "Zatvori razgovor",
-    "compose": {
-      "placeholder": "Upišite poruku…"
-    },
-    "genericError": "Došlo je do pogreške",
-    "guest": {
-      "country": "Država prebivališta",
-      "created": "Ulaznica #{{ticket}} stvorena!",
-      "email": "E-mail *",
-      "errors": {
-        "fail": "Slanje nije uspjelo, pokušajte ponovno.",
-        "required": "Obavezno ime, email i poruka."
-      },
-      "intro": "Ispunite ovaj obrazac, savjetnik MOONYP će brzo odgovoriti. Dobit ćete broj karte.",
-      "message": "Vaša poruka *",
-      "name": "Puno ime *",
-      "phone": "Telefon",
-      "privacy": "Vaši se podaci tretiraju povjerljivo (GDPR).",
-      "subject": "Predmet",
-      "submit": "Otvori mi kartu",
-      "subtitle": "Pomoć posjetiteljima",
-      "whatsapp": "WhatsApp"
-    },
-    "handoff": {
-      "no": "Ne, hvala",
-      "pending": "Vaš zahtjev se obrađuje, savjetnik će vam se pridružiti za 1-2 minute…",
-      "question": "Želite li razgovarati sa savjetnikom?",
-      "yes": "Da, razgovaraj sa savjetnikom"
-    },
-    "joinedNotice": "{{name}} se pridružio razgovoru.",
-    "loading": "Učitavanje",
-    "loginRequired": {
-      "cta": "Prijava",
-      "desc": "Morate biti prijavljeni za podršku.",
-      "title": "Prijavite se za chat"
-    },
-    "nav": "Podrška",
-    "notFound": "Stranica nije pronađena",
-    "notFoundDesc": "Ova stranica ne postoji.",
-    "open": "Otvoriti",
-    "pageDesc": "Razgovarajte s našim timom ili Annom, našom virtualnom asistenticom.",
-    "pageTitle": "Podrška uživo",
-    "rt": {
-      "bold": "Podebljano",
-      "italic": "Kurziv",
-      "link": "Poveznica",
-      "linkPrompt": "Unesite URL (https://...)"
-    },
-    "sendError": "Slanje nije uspjelo",
-    "status": {
-      "agent": "Savjetnik online",
-      "assigned": "U tijeku",
-      "closed": "Zatvoreno",
-      "online": "Online",
-      "open": "Otvoreno",
-      "waiting_agent": "Čeka agenta"
-    },
-    "system": "Sustav",
-    "ticket": "Ulaznica",
-    "tickets": {
-      "back": "Natrag",
-      "closed": "Zatvoreni",
-      "empty": "Još nema razgovora.",
-      "new": "Novi razgovor",
-      "one": "Razgovor",
-      "open": "Otvoreni",
-      "title": "Moji razgovori"
-    },
-    "today": "Danas",
-    "typing": "piše",
-    "welcome": {
-      "greeting": "Dobar dan 👋 Ja sam Anna, vaša MOONYP asistentica.",
-      "help": "Kako vam danas mogu pomoći?"
-    },
-    "yesterday": "Jučer",
-    "you": "Vi"
   },
   "client": {
     "stages": {
@@ -929,6 +810,7 @@
       },
       "submit": "Pošalji zahtjev",
       "submitError": "Zahtjev nije poslan. Pokušajte ponovno.",
+      "documentsPartial": "Zahtjev je zabilježen, ali neki dokumenti nisu poslani. Dovršite prijenos u svojoj sigurnoj zoni.",
       "subtitle": "Šest koraka, nekoliko minuta. Napredak se sprema na ovaj uređaj.",
       "takePhoto": "Snimi fotografiju",
       "title": "Vaš zahtjev za kredit",
@@ -1600,13 +1482,13 @@
     },
     "decision": {
       "passed": "Identitet potvrđen",
-      "manual_review": "Potrebna je dodatna provjera",
+      "manual_review": "Provjera u tijeku",
       "failed": "Identitet nije potvrđen",
-      "reviewNotice": "Potrebne su dodatne provjere odjela za usklađenost.",
+      "reviewNotice": "Vaš je predmet potpun i zahtijeva dodatnu provjeru naše službe za usklađenost. Obavijestit ćemo vas čim bude dovršena.",
       "checking": "Provjera vašeg dokumenta",
       "checkingDesc": "Čitanje dokumenta i usporedba dostupnih podataka o identitetu.",
       "passedNotice": "Provjera vašeg identiteta je završena.",
-      "failedNotice": "Ponovno snimite valjan i čitljiv identifikacijski dokument te dovršite provjeru lica uživo.",
+      "failedNotice": "Vaš identitet nije bilo moguće potvrditi na temelju dostavljenih elemenata. Provjeru možete ponoviti s valjanom, dobro osvijetljenom osobnom ispravom i provjerom lica uživo.",
       "retry": "Ponovno pokreni provjeru",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1535,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Provjera nije dostupna",
-      "unavailableNotice": "Odluka nije donesena. Pokušajte ponovno."
+      "unavailableNotice": "Odluka nije donesena. Pokušajte ponovno.",
+      "summary": "Sažetak provjera",
+      "item": {
+        "identity_document": "Osobna isprava",
+        "document_analysis": "Dokument analiziran",
+        "liveness": "Provjera lica uživo",
+        "face_match": "Podudaranje lica",
+        "bank": "Bankovni podaci",
+        "income": "Dokaz o prihodima"
+      },
+      "state": {
+        "passed": "Potvrđeno",
+        "review": "U provjeri",
+        "failed": "Nije potvrđeno",
+        "missing": "Nije dostavljeno"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."
@@ -1953,7 +1850,11 @@
         },
         {
           "h": "Kašnjenje",
-          "list": ["Dan 1–7: podsjetnik.", "Dan 8–30: naknade + kamata.", "Od 31. dana: opomena."]
+          "list": [
+            "Dan 1–7: podsjetnik.",
+            "Dan 8–30: naknade + kamata.",
+            "Od 31. dana: opomena."
+          ]
         },
         {
           "h": "Naplata",

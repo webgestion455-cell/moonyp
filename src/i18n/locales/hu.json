@@ -213,7 +213,6 @@
     "updated": "Kód frissítve"
   },
   "adminDash": {
-    "chat": "Élő csevegés",
     "clients": "Ügyfelek",
     "kpis": {
       "clients": "Aktív ügyfelek",
@@ -369,124 +368,6 @@
     "reasonLabel": "Ok",
     "signOut": "Kijelentkezés",
     "title": "Felfüggesztett fiók"
-  },
-  "chat": {
-    "admin": {
-      "close": "Jegy lezárása",
-      "empty": "Nincs beszélgetés.",
-      "filter": {
-        "all": "Minden",
-        "closed": "Zárt",
-        "guests": "Látogatók",
-        "mine": "Hozzám rendelve",
-        "waiting": "Várakozás"
-      },
-      "folders": "Ügyfélfájlok",
-      "info": {
-        "none": "Nincs adat",
-        "title": "Jegy adatai"
-      },
-      "reopen": "Jegy újranyitása",
-      "searchPlaceholder": "Ügyfél keresése, jegy, e-mail…",
-      "selectHint": "Válasszon beszélgetést a bal oldalon.",
-      "tickets": "Jegyek",
-      "updated": "A jegy frissítve"
-    },
-    "agent": {
-      "brandName": "MOONYP tanácsadó",
-      "defaultName": "Tanácsadó",
-      "join": "Csatlakozás",
-      "joined": "csatlakozott a beszélgetéshez",
-      "joinedYou": "Csatlakozott a beszélgetéshez",
-      "notAssigned": "Nincs kijelölt ügynök"
-    },
-    "agentTitle": "Ügyfélszolgálati szakértő",
-    "archived": "Levéltár",
-    "assistant": "asszisztens",
-    "backHome": "Vissza a főoldalra",
-    "banner": {
-      "bottom": "© 2000-{{year}} MOONYP LTD · 1 Centenary Square, Birmingham, B1 2DR",
-      "top": "MOONYP — Biztonságos ügyfélszolgálat"
-    },
-    "close": "Bezár",
-    "closed": "Beszélgetés lezárva",
-    "closedNotice": "A beszélgetés lezárva.",
-    "closeTicket": "Beszélgetés bezárása",
-    "compose": {
-      "placeholder": "Írjon üzenetet…"
-    },
-    "genericError": "Hiba történt",
-    "guest": {
-      "country": "Lakóhely országa",
-      "created": "A #{{ticket}} jegy elkészült!",
-      "email": "E-mail*",
-      "errors": {
-        "fail": "A küldés nem sikerült, próbálja újra.",
-        "required": "Név, email és üzenet szükséges."
-      },
-      "intro": "Töltse ki ezt az űrlapot, és a MOONYP tanácsadója gyorsan válaszol. Kapsz egy jegyszámot.",
-      "message": "Az üzeneted *",
-      "name": "Teljes név *",
-      "phone": "Telefon",
-      "privacy": "Adatait bizalmasan kezeljük (GDPR).",
-      "subject": "Téma",
-      "submit": "Nyissa ki a jegyemet",
-      "subtitle": "Látogatói segítség",
-      "whatsapp": "WhatsApp"
-    },
-    "handoff": {
-      "no": "Nem, köszönöm",
-      "pending": "Kérését feldolgozzuk, tanácsadó 1-2 percen belül csatlakozik…",
-      "question": "Szeretne tanácsadóval beszélni?",
-      "yes": "Igen, beszélek tanácsadóval"
-    },
-    "joinedNotice": "{{name}} csatlakozott a beszélgetéshez.",
-    "loading": "Betöltés",
-    "loginRequired": {
-      "cta": "Bejelentkezés",
-      "desc": "Be kell jelentkeznie a támogatás használatához.",
-      "title": "Jelentkezzen be a csevegéshez"
-    },
-    "nav": "Támogatás",
-    "notFound": "Oldal nem található",
-    "notFoundDesc": "Ez az oldal nem létezik.",
-    "open": "Nyitott",
-    "pageDesc": "Csevegjen csapatunkkal vagy Annával, virtuális asszisztensünkkel.",
-    "pageTitle": "Élő támogatás",
-    "rt": {
-      "bold": "Félkövér",
-      "italic": "Dőlt",
-      "link": "Hivatkozás",
-      "linkPrompt": "Adja meg az URL-t (https://...)"
-    },
-    "sendError": "A küldés sikertelen",
-    "status": {
-      "agent": "Tanácsadó online",
-      "assigned": "Folyamatban",
-      "closed": "Lezárva",
-      "online": "Online",
-      "open": "Nyitva",
-      "waiting_agent": "Ügynökre vár"
-    },
-    "system": "Rendszer",
-    "ticket": "Jegy",
-    "tickets": {
-      "back": "Vissza",
-      "closed": "Lezárt",
-      "empty": "Még nincs beszélgetés.",
-      "new": "Új beszélgetés",
-      "one": "Beszélgetés",
-      "open": "Nyitott",
-      "title": "Beszélgetéseim"
-    },
-    "today": "Ma",
-    "typing": "gépel",
-    "welcome": {
-      "greeting": "Jó napot 👋 Anna vagyok, az Ön MOONYP asszisztense.",
-      "help": "Miben segíthetek ma?"
-    },
-    "yesterday": "Tegnap",
-    "you": "Ön"
   },
   "client": {
     "stages": {
@@ -929,6 +810,7 @@
       },
       "submit": "Igénylés beküldése",
       "submitError": "Az igénylést nem sikerült elküldeni. Próbálja újra.",
+      "documentsPartial": "Az igénylést rögzítettük, de néhány dokumentum feltöltése nem sikerült. Fejezze be a feltöltést a biztonságos felületen.",
       "subtitle": "Hat lépés, néhány perc. A haladás ezen az eszközön mentődik.",
       "takePhoto": "Fénykép készítése",
       "title": "Az Ön hiteligénylése",
@@ -1600,13 +1482,13 @@
     },
     "decision": {
       "passed": "Személyazonosság igazolva",
-      "manual_review": "További ellenőrzés szükséges",
+      "manual_review": "Ellenőrzés folyamatban",
       "failed": "A személyazonosság nem igazolt",
-      "reviewNotice": "A megfelelőségi osztály további ellenőrzései szükségesek.",
+      "reviewNotice": "Az anyaga hiánytalan, és megfelelőségi csapatunk további ellenőrzését igényli. Amint elkészül, értesítjük.",
       "checking": "Az okmány ellenőrzése",
       "checkingDesc": "Az okmány beolvasása és a rendelkezésre álló személyazonosító adatok összehasonlítása.",
       "passedNotice": "A személyazonosság ellenőrzése befejeződött.",
-      "failedNotice": "Készítsen új felvételt egy érvényes, olvasható személyazonosító okmányról, és végezze el az élő arcellenőrzést.",
+      "failedNotice": "A megadott elemek alapján a személyazonossága nem volt igazolható. Az ellenőrzést megismételheti érvényes, jól megvilágított okmánnyal és élő arcellenőrzéssel.",
       "retry": "Ellenőrzés újraindítása",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1535,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Az ellenőrzés nem érhető el",
-      "unavailableNotice": "Nem született döntés. Próbálja újra."
+      "unavailableNotice": "Nem született döntés. Próbálja újra.",
+      "summary": "Ellenőrzések összefoglalója",
+      "item": {
+        "identity_document": "Személyazonosító okmány",
+        "document_analysis": "Dokumentum elemezve",
+        "liveness": "Élő arcellenőrzés",
+        "face_match": "Arcegyezés",
+        "bank": "Bankszámlaadatok",
+        "income": "Jövedelemigazolás"
+      },
+      "state": {
+        "passed": "Ellenőrizve",
+        "review": "Ellenőrzés alatt",
+        "failed": "Nem érvényesítve",
+        "missing": "Nincs megadva"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

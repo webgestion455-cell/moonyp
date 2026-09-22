@@ -9,7 +9,6 @@ import { roleLabel } from "@/lib/permissions";
 import {
   LayoutDashboard,
   Wallet,
-  MessageCircle,
   Bell,
   ShieldCheck,
   Menu,
@@ -79,13 +78,6 @@ function AdminLayout() {
         icon: Package,
         match: (p) => p.startsWith("/admin/products"),
         permission: "products.manage",
-      },
-      {
-        to: "/admin/chat",
-        label: t("adminDash.chat"),
-        icon: MessageCircle,
-        match: (p) => p.startsWith("/admin/chat"),
-        permission: "chat.view",
       },
       {
         to: "/admin/notifications",
@@ -273,7 +265,7 @@ function AdminLayout() {
               <Search className="h-4 w-4 text-muted-foreground" />
               <input
                 type="text"
-                placeholder={t("chat.admin.searchPlaceholder")}
+                placeholder={t("adminDash.searchPlaceholder", { defaultValue: "Rechercher" })}
                 className="bg-transparent text-sm outline-none flex-1"
               />
             </div>

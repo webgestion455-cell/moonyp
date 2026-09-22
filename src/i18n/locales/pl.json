@@ -213,7 +213,6 @@
     "updated": "Kod zaktualizowany"
   },
   "adminDash": {
-    "chat": "Czat na żywo",
     "clients": "Klienci",
     "kpis": {
       "clients": "Aktywni klienci",
@@ -369,124 +368,6 @@
     "reasonLabel": "Powód",
     "signOut": "Wyloguj się",
     "title": "Konto zawieszone"
-  },
-  "chat": {
-    "admin": {
-      "close": "Zamknij zgłoszenie",
-      "empty": "Brak rozmów.",
-      "filter": {
-        "all": "Wszystko",
-        "closed": "Zamknięte",
-        "guests": "Goście",
-        "mine": "Przypisane mi",
-        "waiting": "Wstrzymane"
-      },
-      "folders": "Pliki klientów",
-      "info": {
-        "none": "Brak informacji",
-        "title": "Informacje o zgłoszeniu"
-      },
-      "reopen": "Otwórz ponownie",
-      "searchPlaceholder": "Wyszukaj klienta, zgłoszenie, e-mail…",
-      "selectHint": "Wybierz rozmowę po lewej.",
-      "tickets": "Bilety",
-      "updated": "Zgłoszenie zaktualizowane"
-    },
-    "agent": {
-      "brandName": "Doradca MOONYP",
-      "defaultName": "Doradca",
-      "join": "Dołącz",
-      "joined": "dołączył do rozmowy",
-      "joinedYou": "Dołączyłeś do rozmowy",
-      "notAssigned": "Brak przypisanego agenta"
-    },
-    "agentTitle": "Specjalista obsługi klienta",
-    "archived": "Archiwa",
-    "assistant": "asystentka",
-    "backHome": "Powrót do strony głównej",
-    "banner": {
-      "bottom": "© 2000-{{year}} MOONYP LTD · 1 Centenary Square, Birmingham, B1 2DR",
-      "top": "MOONYP — Bezpieczna obsługa klienta"
-    },
-    "close": "Zamknij",
-    "closed": "Rozmowa zamknięta",
-    "closedNotice": "Rozmowa zamknięta.",
-    "closeTicket": "Zamknij rozmowę",
-    "compose": {
-      "placeholder": "Wpisz wiadomość…"
-    },
-    "genericError": "Wystąpił błąd",
-    "guest": {
-      "country": "Kraj zamieszkania",
-      "created": "Bilet #{{ticket}} został utworzony!",
-      "email": "E-mail *",
-      "errors": {
-        "fail": "Wysyłanie nie powiodło się, spróbuj ponownie.",
-        "required": "Wymagane imię i nazwisko, adres e-mail i wiadomość."
-      },
-      "intro": "Wypełnij ten formularz, doradca MOONYP szybko odpowie. Otrzymasz numer biletu.",
-      "message": "Twoja wiadomość *",
-      "name": "Imię i nazwisko *",
-      "phone": "Telefon",
-      "privacy": "Twoje dane są traktowane poufnie (RODO).",
-      "subject": "Temat",
-      "submit": "Otwórz mój bilet",
-      "subtitle": "Pomoc dla gości",
-      "whatsapp": "WhatsApp"
-    },
-    "handoff": {
-      "no": "Nie, dziękuję",
-      "pending": "Twoje zgłoszenie jest przetwarzane, doradca dołączy za 1-2 minuty…",
-      "question": "Czy chcesz porozmawiać z doradcą?",
-      "yes": "Tak, rozmawiaj z doradcą"
-    },
-    "joinedNotice": "{{name}} dołączył do rozmowy.",
-    "loading": "Ładowanie",
-    "loginRequired": {
-      "cta": "Zaloguj się",
-      "desc": "Musisz być zalogowany, aby uzyskać wsparcie.",
-      "title": "Zaloguj się, aby rozmawiać"
-    },
-    "nav": "Wsparcie",
-    "notFound": "Nie znaleziono strony",
-    "notFoundDesc": "Ta strona nie istnieje.",
-    "open": "Otwarte",
-    "pageDesc": "Rozmawiaj z naszym zespołem lub Anną, naszą wirtualną asystentką.",
-    "pageTitle": "Wsparcie na żywo",
-    "rt": {
-      "bold": "Pogrubienie",
-      "italic": "Kursywa",
-      "link": "Link",
-      "linkPrompt": "Wprowadź URL (https://...)"
-    },
-    "sendError": "Wysyłanie nie powiodło się",
-    "status": {
-      "agent": "Doradca online",
-      "assigned": "W toku",
-      "closed": "Zamknięte",
-      "online": "Online",
-      "open": "Otwarte",
-      "waiting_agent": "Oczekuje na agenta"
-    },
-    "system": "System",
-    "ticket": "Bilet",
-    "tickets": {
-      "back": "Wstecz",
-      "closed": "Zamknięte",
-      "empty": "Brak rozmów.",
-      "new": "Nowa rozmowa",
-      "one": "Rozmowa",
-      "open": "Otwarte",
-      "title": "Moje rozmowy"
-    },
-    "today": "Dzisiaj",
-    "typing": "pisze",
-    "welcome": {
-      "greeting": "Dzień dobry 👋 Jestem Anna, Państwa asystentka MOONYP.",
-      "help": "W czym mogę dziś pomóc?"
-    },
-    "yesterday": "Wczoraj",
-    "you": "Ty"
   },
   "client": {
     "stages": {
@@ -929,6 +810,7 @@
       },
       "submit": "Wyślij wniosek",
       "submitError": "Nie udało się wysłać wniosku. Spróbuj ponownie.",
+      "documentsPartial": "Wniosek został zapisany, ale niektórych dokumentów nie udało się przesłać. Dokończ przesyłanie w bezpiecznej strefie.",
       "subtitle": "Sześć kroków, kilka minut. Postęp zapisuje się na tym urządzeniu.",
       "takePhoto": "Zrób zdjęcie",
       "title": "Twój wniosek kredytowy",
@@ -1600,13 +1482,13 @@
     },
     "decision": {
       "passed": "Tożsamość potwierdzona",
-      "manual_review": "Wymagana dodatkowa weryfikacja",
+      "manual_review": "Weryfikacja w trakcie kontroli",
       "failed": "Tożsamość niepotwierdzona",
-      "reviewNotice": "Wymagane są dodatkowe kontrole działu zgodności.",
+      "reviewNotice": "Pani/Pana dokumentacja jest kompletna i wymaga dodatkowej kontroli przez nasz dział zgodności. Poinformujemy o jej zakończeniu.",
       "checking": "Sprawdzanie dokumentu",
       "checkingDesc": "Odczyt dokumentu i porównanie dostępnych danych tożsamości.",
       "passedNotice": "Weryfikacja tożsamości została zakończona.",
-      "failedNotice": "Ponownie sfotografuj ważny i czytelny dokument tożsamości oraz wykonaj kontrolę twarzy na żywo.",
+      "failedNotice": "Nie udało się potwierdzić tożsamości na podstawie przekazanych elementów. Weryfikację można powtórzyć z ważnym, dobrze oświetlonym dokumentem i kontrolą twarzy na żywo.",
       "retry": "Rozpocznij weryfikację ponownie",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1535,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Weryfikacja niedostępna",
-      "unavailableNotice": "Nie podjęto decyzji. Spróbuj ponownie."
+      "unavailableNotice": "Nie podjęto decyzji. Spróbuj ponownie.",
+      "summary": "Podsumowanie kontroli",
+      "item": {
+        "identity_document": "Dokument tożsamości",
+        "document_analysis": "Dokument przeanalizowany",
+        "liveness": "Kontrola twarzy na żywo",
+        "face_match": "Zgodność twarzy",
+        "bank": "Dane bankowe",
+        "income": "Potwierdzenie dochodów"
+      },
+      "state": {
+        "passed": "Zweryfikowano",
+        "review": "W kontroli",
+        "failed": "Niezatwierdzone",
+        "missing": "Nie dostarczono"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

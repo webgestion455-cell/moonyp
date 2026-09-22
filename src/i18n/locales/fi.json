@@ -213,7 +213,6 @@
     "updated": "Koodi päivitetty"
   },
   "adminDash": {
-    "chat": "Live-chat",
     "clients": "Asiakkaat",
     "kpis": {
       "clients": "Aktiivisia asiakkaita",
@@ -369,124 +368,6 @@
     "reasonLabel": "Syy",
     "signOut": "Kirjaudu ulos",
     "title": "Tili jäädytetty"
-  },
-  "chat": {
-    "admin": {
-      "close": "Sulje tiketti",
-      "empty": "Ei keskusteluja.",
-      "filter": {
-        "all": "Kaikki",
-        "closed": "Suljettu",
-        "guests": "Vierailijat",
-        "mine": "Minulle määrätty",
-        "waiting": "Odotustilassa"
-      },
-      "folders": "Asiakastiedostot",
-      "info": {
-        "none": "Ei tietoja",
-        "title": "Tiketin tiedot"
-      },
-      "reopen": "Avaa tiketti uudelleen",
-      "searchPlaceholder": "Hae asiakas, lippu, sähköposti…",
-      "selectHint": "Valitse keskustelu vasemmalta.",
-      "tickets": "Liput",
-      "updated": "Tiketti päivitetty"
-    },
-    "agent": {
-      "brandName": "MOONYP-neuvoja",
-      "defaultName": "Neuvoja",
-      "join": "Liity",
-      "joined": "liittyi keskusteluun",
-      "joinedYou": "Liityit keskusteluun",
-      "notAssigned": "Ei nimettyä agenttia"
-    },
-    "agentTitle": "Asiakaspalvelun asiantuntija",
-    "archived": "Arkistot",
-    "assistant": "avustaja",
-    "backHome": "Takaisin etusivulle",
-    "banner": {
-      "bottom": "© 2000-{{year}} MOONYP LTD · 1 Centenary Square, Birmingham, B1 2DR",
-      "top": "MOONYP — Turvallinen asiakaspalvelu"
-    },
-    "close": "Sulje",
-    "closed": "Keskustelu suljettu",
-    "closedNotice": "Keskustelu suljettu.",
-    "closeTicket": "Sulje keskustelu",
-    "compose": {
-      "placeholder": "Kirjoita viesti…"
-    },
-    "genericError": "Tapahtui virhe",
-    "guest": {
-      "country": "Asuinmaa",
-      "created": "Lippu #{{ticket}} luotu!",
-      "email": "Sähköposti*",
-      "errors": {
-        "fail": "Lähetys epäonnistui, yritä uudelleen.",
-        "required": "Nimi, sähköposti ja viesti vaaditaan."
-      },
-      "intro": "Täytä tämä lomake, niin MOONYPin neuvonantaja vastaa nopeasti. Saat lipun numeron.",
-      "message": "Viestisi *",
-      "name": "koko nimi*",
-      "phone": "Puhelin",
-      "privacy": "Tietojasi käsitellään luottamuksellisesti (GDPR).",
-      "subject": "Aihe",
-      "submit": "Avaa lippuni",
-      "subtitle": "Vierailijaapu",
-      "whatsapp": "WhatsApp"
-    },
-    "handoff": {
-      "no": "Ei kiitos",
-      "pending": "Pyyntöäsi käsitellään, neuvoja liittyy 1-2 minuutissa…",
-      "question": "Haluatko puhua neuvojan kanssa?",
-      "yes": "Kyllä, puhu neuvojalle"
-    },
-    "joinedNotice": "{{name}} liittyi keskusteluun.",
-    "loading": "Ladataan",
-    "loginRequired": {
-      "cta": "Kirjaudu",
-      "desc": "Sinun on kirjauduttava tukea varten.",
-      "title": "Kirjaudu keskustellaksesi"
-    },
-    "nav": "Tuki",
-    "notFound": "Sivua ei löydy",
-    "notFoundDesc": "Tätä sivua ei ole.",
-    "open": "Avata",
-    "pageDesc": "Keskustele tiimimme tai virtuaaliavustajamme Annan kanssa.",
-    "pageTitle": "Live-tuki",
-    "rt": {
-      "bold": "Lihavoitu",
-      "italic": "Kursivoitu",
-      "link": "Linkki",
-      "linkPrompt": "Anna URL (https://...)"
-    },
-    "sendError": "Lähetys epäonnistui",
-    "status": {
-      "agent": "Neuvoja verkossa",
-      "assigned": "Käynnissä",
-      "closed": "Suljettu",
-      "online": "Verkossa",
-      "open": "Avoin",
-      "waiting_agent": "Odottaa agenttia"
-    },
-    "system": "Järjestelmä",
-    "ticket": "Lippu",
-    "tickets": {
-      "back": "Takaisin",
-      "closed": "Suljetut",
-      "empty": "Ei vielä keskusteluja.",
-      "new": "Uusi keskustelu",
-      "one": "Keskustelu",
-      "open": "Avoimet",
-      "title": "Keskusteluni"
-    },
-    "today": "Tänään",
-    "typing": "kirjoittaa",
-    "welcome": {
-      "greeting": "Hei 👋 Olen Anna, MOONYP -avustajanne.",
-      "help": "Miten voin auttaa teitä tänään?"
-    },
-    "yesterday": "Eilen",
-    "you": "Sinä"
   },
   "client": {
     "stages": {
@@ -929,6 +810,7 @@
       },
       "submit": "Lähetä hakemus",
       "submitError": "Hakemusta ei voitu lähettää. Yritä uudelleen.",
+      "documentsPartial": "Hakemuksesi on kirjattu, mutta joidenkin asiakirjojen lähetys epäonnistui. Viimeistele lähetys turvallisella alueellasi.",
       "subtitle": "Kuusi vaihetta, muutama minuutti. Edistyminen tallennetaan tälle laitteelle.",
       "takePhoto": "Ota kuva",
       "title": "Lainahakemuksesi",
@@ -1600,13 +1482,13 @@
     },
     "decision": {
       "passed": "Henkilöllisyys vahvistettu",
-      "manual_review": "Lisätarkistus tarvitaan",
+      "manual_review": "Tarkistus käynnissä",
       "failed": "Henkilöllisyyttä ei vahvistettu",
-      "reviewNotice": "Vaatimustenmukaisuudesta vastaavan osaston lisätarkistuksia tarvitaan.",
+      "reviewNotice": "Hakemuksesi on täydellinen ja vaatii lisätarkistuksen vaatimustenmukaisuustiimiltämme. Ilmoitamme heti, kun se on valmis.",
       "checking": "Asiakirjaasi tarkistetaan",
       "checkingDesc": "Asiakirjaa luetaan ja saatavilla olevia henkilötietoja verrataan.",
       "passedNotice": "Henkilöllisyytesi tarkistus on valmis.",
-      "failedNotice": "Kuvaa voimassa oleva, luettava henkilöllisyystodistus uudelleen ja suorita kasvojen reaaliaikainen tarkistus.",
+      "failedNotice": "Henkilöllisyyttäsi ei voitu vahvistaa toimitetuista aineistoista. Voit aloittaa tarkistuksen uudelleen voimassa olevalla, hyvin valaistulla henkilöllisyystodistuksella ja live-kasvotarkistuksella.",
       "retry": "Aloita tarkistus uudelleen",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1535,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Tarkistus ei ole käytettävissä",
-      "unavailableNotice": "Päätöstä ei ole tehty. Yritä uudelleen."
+      "unavailableNotice": "Päätöstä ei ole tehty. Yritä uudelleen.",
+      "summary": "Tarkistusten yhteenveto",
+      "item": {
+        "identity_document": "Henkilöllisyystodistus",
+        "document_analysis": "Asiakirja analysoitu",
+        "liveness": "Live-kasvotarkistus",
+        "face_match": "Kasvojen vastaavuus",
+        "bank": "Pankkitiedot",
+        "income": "Tulotodistus"
+      },
+      "state": {
+        "passed": "Vahvistettu",
+        "review": "Tarkistuksessa",
+        "failed": "Ei hyväksytty",
+        "missing": "Ei toimitettu"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

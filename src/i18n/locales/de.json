@@ -213,7 +213,6 @@
     "updated": "Code aktualisiert"
   },
   "adminDash": {
-    "chat": "Live-Chat",
     "clients": "Kunden",
     "kpis": {
       "clients": "Aktive Kunden",
@@ -369,124 +368,6 @@
     "reasonLabel": "Grund",
     "signOut": "Abmelden",
     "title": "Konto gesperrt"
-  },
-  "chat": {
-    "admin": {
-      "close": "Ticket schließen",
-      "empty": "Keine Gespräche.",
-      "filter": {
-        "all": "Alle",
-        "closed": "Geschlossen",
-        "guests": "Besucher",
-        "mine": "Mir zugewiesen",
-        "waiting": "In der Warteschleife"
-      },
-      "folders": "Kundendateien",
-      "info": {
-        "none": "Keine Angaben",
-        "title": "Ticket-Informationen"
-      },
-      "reopen": "Ticket wieder öffnen",
-      "searchPlaceholder": "Nach einem Kunden, Ticket, E-Mail suchen …",
-      "selectHint": "Wählen Sie links ein Gespräch aus.",
-      "tickets": "Tickets",
-      "updated": "Ticket aktualisiert"
-    },
-    "agent": {
-      "brandName": "MOONYP-Berater",
-      "defaultName": "Berater",
-      "join": "Beitreten",
-      "joined": "ist dem Gespräch beigetreten",
-      "joinedYou": "Sie sind dem Gespräch beigetreten",
-      "notAssigned": "Kein Agent zugewiesen"
-    },
-    "agentTitle": "Kundenservice-Spezialistin",
-    "archived": "Archiv",
-    "assistant": "Assistentin",
-    "backHome": "Zurück zur Startseite",
-    "banner": {
-      "bottom": "© 2000-{{year}} MOONYP LTD · 1 Centenary Square, Birmingham, B1 2DR",
-      "top": "MOONYP — Sicherer Kundenservice"
-    },
-    "close": "Schließen",
-    "closed": "Gespräch geschlossen",
-    "closedNotice": "Unterhaltung geschlossen.",
-    "closeTicket": "Gespräch schließen",
-    "compose": {
-      "placeholder": "Nachricht schreiben…"
-    },
-    "genericError": "Ein Fehler ist aufgetreten",
-    "guest": {
-      "country": "Aufenthaltsland",
-      "created": "Ticket #{{ticket}} erstellt!",
-      "email": "E-Mail *",
-      "errors": {
-        "fail": "Das Senden ist fehlgeschlagen. Versuchen Sie es erneut.",
-        "required": "Name, E-Mail und Nachricht erforderlich."
-      },
-      "intro": "Füllen Sie dieses Formular aus. Ein MOONYP-Berater wird Ihnen schnell antworten. Sie erhalten eine Ticketnummer.",
-      "message": "Ihre Nachricht *",
-      "name": "Vollständiger Name *",
-      "phone": "Telefon",
-      "privacy": "Ihre Daten werden vertraulich behandelt (DSGVO).",
-      "subject": "Thema",
-      "submit": "Öffne mein Ticket",
-      "subtitle": "Besucherunterstützung",
-      "whatsapp": "WhatsApp"
-    },
-    "handoff": {
-      "no": "Nein, danke",
-      "pending": "Ihre Anfrage wird bearbeitet, ein Berater wird in 1-2 Minuten zu Ihnen kommen…",
-      "question": "Möchten Sie mit einem Berater sprechen?",
-      "yes": "Ja, mit einem Berater sprechen"
-    },
-    "joinedNotice": "{{name}} ist der Unterhaltung beigetreten.",
-    "loading": "Lädt",
-    "loginRequired": {
-      "cta": "Anmelden",
-      "desc": "Sie müssen angemeldet sein, um den Support zu nutzen.",
-      "title": "Anmelden zum Chatten"
-    },
-    "nav": "Unterstützen",
-    "notFound": "Seite nicht gefunden",
-    "notFoundDesc": "Diese Seite existiert nicht.",
-    "open": "Offen",
-    "pageDesc": "Chatten Sie mit unserem Team oder unserer virtuellen Assistentin Anna.",
-    "pageTitle": "Live-Support",
-    "rt": {
-      "bold": "Fett",
-      "italic": "Kursiv",
-      "link": "Link",
-      "linkPrompt": "URL eingeben (https://...)"
-    },
-    "sendError": "Senden fehlgeschlagen",
-    "status": {
-      "agent": "Berater online",
-      "assigned": "In Bearbeitung",
-      "closed": "Geschlossen",
-      "online": "Online",
-      "open": "Offen",
-      "waiting_agent": "Wartet auf Agent"
-    },
-    "system": "System",
-    "ticket": "Ticket",
-    "tickets": {
-      "back": "Zurück",
-      "closed": "Geschlossen",
-      "empty": "Noch keine Unterhaltung.",
-      "new": "Neue Unterhaltung",
-      "one": "Unterhaltung",
-      "open": "Offen",
-      "title": "Meine Unterhaltungen"
-    },
-    "today": "Heute",
-    "typing": "schreibt",
-    "welcome": {
-      "greeting": "Hallo 👋 Ich bin Anna, Ihre MOONYP Assistentin.",
-      "help": "Wie kann ich Ihnen heute helfen?"
-    },
-    "yesterday": "Gestern",
-    "you": "Sie"
   },
   "client": {
     "stages": {
@@ -929,6 +810,7 @@
       },
       "submit": "Antrag absenden",
       "submitError": "Ihr Antrag konnte nicht gesendet werden. Bitte erneut versuchen.",
+      "documentsPartial": "Ihr Antrag wurde erfasst, einige Dokumente konnten jedoch nicht hochgeladen werden. Bitte laden Sie sie in Ihrem sicheren Bereich erneut hoch.",
       "subtitle": "Sechs Schritte, wenige Minuten. Ihr Fortschritt wird auf diesem Gerät gespeichert.",
       "takePhoto": "Foto aufnehmen",
       "title": "Ihr Kreditantrag",
@@ -1600,13 +1482,13 @@
     },
     "decision": {
       "passed": "Identität bestätigt",
-      "manual_review": "Weitere Prüfung erforderlich",
+      "manual_review": "Prüfung läuft",
       "failed": "Identität nicht bestätigt",
-      "reviewNotice": "Weitere Prüfungen durch die Compliance-Abteilung sind erforderlich.",
+      "reviewNotice": "Ihre Unterlagen sind vollständig und erfordern eine zusätzliche Prüfung durch unsere Compliance-Abteilung. Wir informieren Sie, sobald sie abgeschlossen ist.",
       "checking": "Ihr Dokument wird geprüft",
       "checkingDesc": "Das Dokument wird gelesen und verfügbare Identitätsangaben werden verglichen.",
       "passedNotice": "Ihre Identitätsprüfung ist abgeschlossen.",
-      "failedNotice": "Bitte erfassen Sie ein gültiges, lesbares Ausweisdokument und führen Sie die Live-Gesichtsprüfung durch.",
+      "failedNotice": "Ihre Identität konnte anhand der eingereichten Elemente nicht bestätigt werden. Sie können die Prüfung mit einem gültigen, gut ausgeleuchteten Ausweis und einer Live-Gesichtsprüfung wiederholen.",
       "retry": "Prüfung neu starten",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1535,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Prüfung nicht verfügbar",
-      "unavailableNotice": "Es wurde keine Entscheidung getroffen. Bitte versuchen Sie es erneut."
+      "unavailableNotice": "Es wurde keine Entscheidung getroffen. Bitte versuchen Sie es erneut.",
+      "summary": "Übersicht der Prüfungen",
+      "item": {
+        "identity_document": "Ausweisdokument",
+        "document_analysis": "Dokument geprüft",
+        "liveness": "Live-Gesichtsprüfung",
+        "face_match": "Gesichtsabgleich",
+        "bank": "Bankverbindung",
+        "income": "Einkommensnachweis"
+      },
+      "state": {
+        "passed": "Geprüft",
+        "review": "In Prüfung",
+        "failed": "Nicht bestätigt",
+        "missing": "Nicht übermittelt"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."

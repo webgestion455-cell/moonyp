@@ -213,7 +213,6 @@
     "updated": "Code bijgewerkt"
   },
   "adminDash": {
-    "chat": "Livechat",
     "clients": "Klanten",
     "kpis": {
       "clients": "Actieve klanten",
@@ -369,124 +368,6 @@
     "reasonLabel": "Reden",
     "signOut": "Uitloggen",
     "title": "Account opgeschort"
-  },
-  "chat": {
-    "admin": {
-      "close": "Ticket sluiten",
-      "empty": "Geen gesprekken.",
-      "filter": {
-        "all": "Alle",
-        "closed": "Gesloten",
-        "guests": "Bezoekers",
-        "mine": "Aan mij toegewezen",
-        "waiting": "In de wacht"
-      },
-      "folders": "Klantenbestanden",
-      "info": {
-        "none": "Geen informatie",
-        "title": "Ticketinformatie"
-      },
-      "reopen": "Ticket heropenen",
-      "searchPlaceholder": "Zoek een klant, ticket, e-mail…",
-      "selectHint": "Selecteer een gesprek links.",
-      "tickets": "Kaartjes",
-      "updated": "Ticket bijgewerkt"
-    },
-    "agent": {
-      "brandName": "MOONYP-adviseur",
-      "defaultName": "Adviseur",
-      "join": "Deelnemen",
-      "joined": "heeft zich bij het gesprek gevoegd",
-      "joinedYou": "Je bent bij het gesprek gekomen",
-      "notAssigned": "Geen agent toegewezen"
-    },
-    "agentTitle": "Klantenservicespecialist",
-    "archived": "Archief",
-    "assistant": "assistent",
-    "backHome": "Terug naar home",
-    "banner": {
-      "bottom": "© 2000-{{year}} MOONYP LTD · 1 Centenary Square, Birmingham, B1 2DR",
-      "top": "MOONYP — Veilige klantenservice"
-    },
-    "close": "Sluiten",
-    "closed": "Gesprek gesloten",
-    "closedNotice": "Gesprek gesloten.",
-    "closeTicket": "Gesprek sluiten",
-    "compose": {
-      "placeholder": "Typ je bericht…"
-    },
-    "genericError": "Er is een fout opgetreden",
-    "guest": {
-      "country": "Land van verblijf",
-      "created": "Ticket #{{ticket}} aangemaakt!",
-      "email": "E-mail *",
-      "errors": {
-        "fail": "Verzenden mislukt. Probeer het opnieuw.",
-        "required": "Naam, e-mailadres en bericht vereist."
-      },
-      "intro": "Vul dit formulier in, een adviseur van MOONYP zal snel reageren. U krijgt een ticketnummer.",
-      "message": "Jouw bericht *",
-      "name": "Volledige naam *",
-      "phone": "Telefoon",
-      "privacy": "Uw gegevens worden vertrouwelijk behandeld (AVG).",
-      "subject": "Onderwerp",
-      "submit": "Open mijn kaartje",
-      "subtitle": "Hulp van bezoekers",
-      "whatsapp": "WhatsAppen"
-    },
-    "handoff": {
-      "no": "Nee, bedankt",
-      "pending": "Uw verzoek wordt verwerkt, een adviseur komt binnen 1-2 minuten…",
-      "question": "Wilt u met een adviseur spreken?",
-      "yes": "Ja, met adviseur spreken"
-    },
-    "joinedNotice": "{{name}} neemt deel aan het gesprek.",
-    "loading": "Laden",
-    "loginRequired": {
-      "cta": "Inloggen",
-      "desc": "Je moet ingelogd zijn om support te gebruiken.",
-      "title": "Log in om te chatten"
-    },
-    "nav": "Ondersteunen",
-    "notFound": "Pagina niet gevonden",
-    "notFoundDesc": "Deze pagina bestaat niet.",
-    "open": "Open",
-    "pageDesc": "Chat met ons team of met Anna, onze virtuele assistent.",
-    "pageTitle": "Live ondersteuning",
-    "rt": {
-      "bold": "Vet",
-      "italic": "Cursief",
-      "link": "Koppeling",
-      "linkPrompt": "Voer URL in (https://...)"
-    },
-    "sendError": "Verzenden mislukt",
-    "status": {
-      "agent": "Adviseur online",
-      "assigned": "Bezig",
-      "closed": "Gesloten",
-      "online": "Online",
-      "open": "Open",
-      "waiting_agent": "Wachten op agent"
-    },
-    "system": "Systeem",
-    "ticket": "Ticket",
-    "tickets": {
-      "back": "Terug",
-      "closed": "Gesloten",
-      "empty": "Nog geen gesprekken.",
-      "new": "Nieuw gesprek",
-      "one": "Gesprek",
-      "open": "Open",
-      "title": "Mijn gesprekken"
-    },
-    "today": "Vandaag",
-    "typing": "typt",
-    "welcome": {
-      "greeting": "Hallo 👋 Ik ben Anna, uw MOONYP-assistente.",
-      "help": "Hoe kan ik u vandaag helpen?"
-    },
-    "yesterday": "Gisteren",
-    "you": "Jij"
   },
   "client": {
     "stages": {
@@ -929,6 +810,7 @@
       },
       "submit": "Mijn aanvraag versturen",
       "submitError": "Uw aanvraag kon niet worden verzonden. Probeer opnieuw.",
+      "documentsPartial": "Uw aanvraag is vastgelegd, maar enkele documenten zijn niet verzonden. Rond het uploaden af in uw beveiligde omgeving.",
       "subtitle": "Zes stappen, enkele minuten. Uw voortgang wordt op dit toestel bewaard.",
       "takePhoto": "Foto maken",
       "title": "Uw leningaanvraag",
@@ -1600,13 +1482,13 @@
     },
     "decision": {
       "passed": "Identiteit geverifieerd",
-      "manual_review": "Aanvullende verificatie nodig",
+      "manual_review": "Verificatie in controle",
       "failed": "Identiteit niet geverifieerd",
-      "reviewNotice": "Aanvullende controles door de complianceafdeling zijn nodig.",
+      "reviewNotice": "Uw dossier is volledig en vereist een extra controle door onze compliance-afdeling. U wordt geïnformeerd zodra deze is afgerond.",
       "checking": "Uw document wordt onderzocht",
       "checkingDesc": "Het document wordt gelezen en de beschikbare identiteitsgegevens worden vergeleken.",
       "passedNotice": "Uw identiteitsverificatie is voltooid.",
-      "failedNotice": "Leg een geldig, leesbaar identiteitsdocument opnieuw vast en voltooi de live gezichtscontrole.",
+      "failedNotice": "Uw identiteit kon niet worden bevestigd op basis van de aangeleverde elementen. U kunt de verificatie opnieuw doen met een geldig, goed verlicht identiteitsbewijs en een live gezichtscontrole.",
       "retry": "Verificatie opnieuw starten",
       "field": {
         "surname": "Surname",
@@ -1653,7 +1535,22 @@
         "manual_review_required": "A compliance review is required."
       },
       "unavailable": "Verificatie niet beschikbaar",
-      "unavailableNotice": "Er is geen beslissing genomen. Probeer het opnieuw."
+      "unavailableNotice": "Er is geen beslissing genomen. Probeer het opnieuw.",
+      "summary": "Overzicht van de controles",
+      "item": {
+        "identity_document": "Identiteitsbewijs",
+        "document_analysis": "Document geanalyseerd",
+        "liveness": "Live gezichtscontrole",
+        "face_match": "Gezichtsvergelijking",
+        "bank": "Bankgegevens",
+        "income": "Inkomensbewijs"
+      },
+      "state": {
+        "passed": "Geverifieerd",
+        "review": "In controle",
+        "failed": "Niet gevalideerd",
+        "missing": "Niet aangeleverd"
+      }
     },
     "guard": {
       "fullscreen": "Stay on this screen until the step is complete."
