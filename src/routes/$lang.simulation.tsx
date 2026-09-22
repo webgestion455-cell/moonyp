@@ -59,32 +59,36 @@ function SimulationPage() {
 
   if (!initial) {
     return (
-      <div className="mx-auto max-w-2xl px-4 py-24 text-center">
-        <p className="text-sm text-muted-foreground">{t("finance.simPage.noProducts")}</p>
+      <div className="mx-auto w-full max-w-2xl px-3 py-20 text-center sm:px-4 sm:py-24">
+        <p className="break-words text-sm leading-relaxed text-muted-foreground">
+          {t("finance.simPage.noProducts")}
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 pb-28 pt-10 sm:px-6 sm:pt-14 lg:px-8">
+    <div className="mx-auto w-full max-w-6xl min-w-0 px-3 pb-28 pt-8 sm:px-6 sm:pt-12 lg:px-8 lg:pt-14">
       <header className="max-w-2xl">
-        <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-1 text-xs font-medium text-muted-foreground">
-          <Calculator className="h-3.5 w-3.5" aria-hidden />
-          {t("finance.simPage.badge")}
+        <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-1 text-xs font-medium text-muted-foreground">
+          <Calculator className="h-3.5 w-3.5 shrink-0" aria-hidden />
+          <span className="min-w-0 break-words">{t("finance.simPage.badge")}</span>
         </span>
-        <h1 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
+
+        <h1 className="mt-4 break-words font-serif text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
           {t("finance.simPage.title")}
         </h1>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+
+        <p className="mt-3 max-w-2xl break-words text-sm leading-relaxed text-muted-foreground sm:text-base">
           {t("finance.simPage.subtitle")}
         </p>
       </header>
 
-      <div className="mt-8">
+      <div className="mt-6 min-w-0 sm:mt-8">
         <Simulator products={products} value={value} onChange={setValue} />
       </div>
 
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+      <div className="mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
         <Button
           size="lg"
           className="w-full sm:w-auto"
@@ -100,15 +104,17 @@ function SimulationPage() {
             })
           }
         >
-          {t("finance.simPage.cta")}
-          <ArrowRight className="h-4 w-4" aria-hidden />
+          <span className="min-w-0 break-words">{t("finance.simPage.cta")}</span>
+          <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
         </Button>
+
         <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
           <Link to="/$lang/solutions" params={{ lang }}>
-            {t("finance.simPage.seeProducts")}
+            <span className="min-w-0 break-words">{t("finance.simPage.seeProducts")}</span>
           </Link>
         </Button>
       </div>
     </div>
   );
 }
+

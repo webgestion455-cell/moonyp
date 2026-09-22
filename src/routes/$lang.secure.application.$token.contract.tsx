@@ -2,7 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useServerFn } from "@tanstack/react-start";
-import { AlertCircle, ArrowLeft, Download, FileSignature, Info, ShieldCheck } from "lucide-react";
+import {
+  AlertCircle,
+  ArrowLeft,
+  Download,
+  FileSignature,
+  Info,
+  ShieldCheck,
+} from "lucide-react";
 import i18n from "@/i18n";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -94,12 +101,16 @@ function ContractPage() {
     if (busy || fullName.trim().length < 3) return;
     setBusy(true);
     try {
-      const res = await startSignature({ data: { token, full_name: fullName.trim() } });
+      const res = await startSignature({
+        data: { token, full_name: fullName.trim() },
+      });
+
       if ("alreadySigned" in res && res.alreadySigned) {
         toast.info(t("finance.contract.alreadySigned"));
         await refresh();
         return;
       }
+
       setRequestId((res as { request_id: string }).request_id);
       toast.success(t("finance.contract.codeSent"));
     } catch {
@@ -112,6 +123,7 @@ function ContractPage() {
   async function onSign() {
     if (busy || !requestId || code.trim().length < 4 || !consent) return;
     setBusy(true);
+
     try {
       const res = await finalize({
         data: {
@@ -122,12 +134,16 @@ function ContractPage() {
           consent: true,
         },
       });
+
       if (!res.ok) {
         toast.error(
-          t((res as { reason: string }).reason, { defaultValue: t("finance.contract.signError") }),
+          t((res as { reason: string }).reason, {
+            defaultValue: t("finance.contract.signError"),
+          }),
         );
         return;
       }
+
       toast.success(t("finance.contract.signed"));
       setCode("");
       setRequestId(null);
@@ -143,10 +159,19 @@ function ContractPage() {
 
   if (!data) {
     return (
-      <div className="mx-auto max-w-lg px-4 py-16 text-center">
-        <AlertCircle className="mx-auto h-10 w-10 text-destructive" aria-hidden />
-        <h1 className="mt-4 font-serif text-2xl font-medium">{t("finance.portal.invalidTitle")}</h1>
-        <p className="mt-2 text-sm text-muted-foreground">{t("finance.portal.invalidDesc")}</p>
+      <div className="mx-auto w-full max-w-lg px-3 py-16 text-center sm:px-4">
+        <AlertCircle
+          className="mx-auto h-10 w-10 shrink-0 text-destructive"
+          aria-hidden
+        />
+
+        <h1 className="mt-4 break-words font-serif text-2xl font-medium">
+          {t("finance.portal.invalidTitle")}
+        </h1>
+
+        <p className="mt-2 break-words text-sm leading-relaxed text-muted-foreground">
+          {t("finance.portal.invalidDesc")}
+        </p>
       </div>
     );
   }
@@ -156,50 +181,76 @@ function ContractPage() {
   const offer = data.offer;
   const contract = data.contract;
   const currency = (offer?.currency as string | undefined) ?? "EUR";
+
   const money = (v: number | null | undefined) =>
     v == null ? "—" : formatMoney(Number(v), currency, locale);
+
   const date = (v: string | null | undefined) =>
     v
-      ? new Date(v).toLocaleString(locale, { day: "2-digit", month: "long", year: "numeric" })
+      ? new Date(v).toLocaleString(locale, {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        })
       : "—";
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-4 pb-24 pt-8 sm:px-6">
-      <div className="mb-4 flex items-center justify-between gap-3">
+    <div className="mx-auto w-full max-w-3xl min-w-0 px-3 pb-28 pt-6 sm:px-6 sm:pb-24 sm:pt-8">
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <Link
           to="/$lang/secure/application/$token"
           params={{ lang, token }}
-          className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground"
+          className="inline-flex min-w-0 items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground"
         >
-          <ArrowLeft className="h-3.5 w-3.5" aria-hidden /> {t("finance.contract.backToFile")}
+          <ArrowLeft className="h-3.5 w-3.5 shrink-0" aria-hidden />
+          <span className="min-w-0 break-words">
+            {t("finance.contract.backToFile")}
+          </span>
         </Link>
-        <LanguageSwitcher />
+
+        <div className="shrink-0 self-end sm:self-auto">
+          <LanguageSwitcher />
+        </div>
       </div>
 
-      <header className="rounded-2xl border border-border bg-gradient-to-br from-primary/10 via-card to-card p-6">
+      <header className="min-w-0 rounded-2xl border border-border bg-gradient-to-br from-primary/10 via-card to-card p-4 sm:p-6">
         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
           {t("finance.portal.reference")}
         </p>
-        <h1 className="mt-1 font-mono text-2xl font-bold">{app.reference}</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+
+        <h1 className="mt-1 break-all font-mono text-xl font-bold sm:text-2xl">
+          {app.reference}
+        </h1>
+
+        <p className="mt-2 break-words text-sm leading-relaxed text-muted-foreground">
           {statusLabel(app.status as ApplicationStatus)}
         </p>
       </header>
 
       {!contract ? (
-        <Card className="mt-5 p-6 text-sm text-muted-foreground">
+        <Card className="mt-5 p-4 text-sm leading-relaxed text-muted-foreground sm:p-6">
           {t("finance.contract.notAvailable")}
         </Card>
       ) : (
         <>
-          <Card className="mt-5 p-5">
-            <h2 className="text-sm font-semibold">{t("finance.contract.offerSummary")}</h2>
-            <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
-              <Row label={t("finance.sim.amount")} value={money(offer?.amount ?? app.amount)} />
+          <Card className="mt-5 min-w-0 p-4 sm:p-5">
+            <h2 className="break-words text-sm font-semibold">
+              {t("finance.contract.offerSummary")}
+            </h2>
+
+            <dl className="mt-4 grid min-w-0 gap-2 text-sm sm:grid-cols-2">
+              <Row
+                label={t("finance.sim.amount")}
+                value={money(offer?.amount ?? app.amount)}
+              />
+
               <Row
                 label={t("finance.sim.duration")}
-                value={`${offer?.duration_months ?? app.duration_months ?? "—"} ${t("finance.sim.months")}`}
+                value={`${offer?.duration_months ?? app.duration_months ?? "—"} ${t(
+                  "finance.sim.months",
+                )}`}
               />
+
               <Row
                 label={t("finance.contract.rate")}
                 value={
@@ -210,90 +261,146 @@ function ContractPage() {
                       : "—"
                 }
               />
+
               <Row
                 label={t("finance.portal.monthly")}
                 value={money(offer?.monthly_payment ?? app.monthly_payment)}
               />
+
               <Row
                 label={t("finance.portal.totalCost")}
                 value={money(offer?.total_cost ?? app.total_cost)}
               />
-              <Row label={t("finance.portal.fees")} value={money(offer?.fees_total ?? app.fees)} />
+
+              <Row
+                label={t("finance.portal.fees")}
+                value={money(offer?.fees_total ?? app.fees)}
+              />
             </dl>
           </Card>
 
-          <Card className="mt-5 p-5">
-            <h2 className="flex items-center gap-2 text-sm font-semibold">
-              <FileSignature className="h-4 w-4 text-primary" aria-hidden />
-              {t("finance.contract.document")}
+          <Card className="mt-5 min-w-0 p-4 sm:p-5">
+            <h2 className="flex min-w-0 items-start gap-2 text-sm font-semibold">
+              <FileSignature
+                className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                aria-hidden
+              />
+
+              <span className="min-w-0 break-words">
+                {t("finance.contract.document")}
+              </span>
             </h2>
-            <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
-              <Row label={t("finance.contract.version")} value={`v${contract.version}`} />
+
+            <dl className="mt-4 grid min-w-0 gap-2 text-sm sm:grid-cols-2">
+              <Row
+                label={t("finance.contract.version")}
+                value={`v${contract.version}`}
+              />
+
               <Row
                 label={t("finance.contract.state")}
                 value={t(`finance.contract.states.${contract.status}`, {
                   defaultValue: contract.status,
                 })}
               />
-              <Row label={t("finance.portal.sentOn")} value={date(contract.sent_at)} />
-              <Row label={t("finance.portal.signedOn")} value={date(contract.signed_at)} />
+
+              <Row
+                label={t("finance.portal.sentOn")}
+                value={date(contract.sent_at)}
+              />
+
+              <Row
+                label={t("finance.portal.signedOn")}
+                value={date(contract.signed_at)}
+              />
+
               <Row
                 label={t("finance.contract.hash")}
-                value={(contract.signed_document_hash ?? contract.document_hash ?? "—").slice(
-                  0,
-                  24,
-                )}
+                value={(
+                  contract.signed_document_hash ??
+                  contract.document_hash ??
+                  "—"
+                ).slice(0, 24)}
               />
-              <Row label={t("finance.contract.providerLabel")} value={contract.provider} />
+
+              <Row
+                label={t("finance.contract.providerLabel")}
+                value={contract.provider}
+              />
             </dl>
-            <div className="mt-4 flex flex-wrap gap-2">
+
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
               {contract.has_document && (
                 <Button
                   variant="outline"
                   size="sm"
-                  className="gap-2"
+                  className="w-full gap-2 sm:w-auto"
                   onClick={() => void openDocument("contract")}
                 >
-                  <Download className="h-4 w-4" aria-hidden />{" "}
-                  {t("finance.portal.downloadContract")}
+                  <Download className="h-4 w-4 shrink-0" aria-hidden />
+                  <span className="min-w-0 break-words">
+                    {t("finance.portal.downloadContract")}
+                  </span>
                 </Button>
               )}
+
               {contract.has_signed_document && (
                 <Button
                   variant="outline"
                   size="sm"
-                  className="gap-2"
+                  className="w-full gap-2 sm:w-auto"
                   onClick={() => void openDocument("signed_contract")}
                 >
-                  <Download className="h-4 w-4" aria-hidden /> {t("finance.portal.downloadSigned")}
+                  <Download className="h-4 w-4 shrink-0" aria-hidden />
+                  <span className="min-w-0 break-words">
+                    {t("finance.portal.downloadSigned")}
+                  </span>
                 </Button>
               )}
             </div>
           </Card>
 
           {!contract.signed_at && (
-            <Card className="mt-5 p-5">
-              <h2 className="flex items-center gap-2 text-sm font-semibold">
-                <ShieldCheck className="h-4 w-4 text-primary" aria-hidden />
-                {t("finance.contract.signTitle")}
+            <Card className="mt-5 min-w-0 p-4 sm:p-5">
+              <h2 className="flex min-w-0 items-start gap-2 text-sm font-semibold">
+                <ShieldCheck
+                  className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                  aria-hidden
+                />
+
+                <span className="min-w-0 break-words">
+                  {t("finance.contract.signTitle")}
+                </span>
               </h2>
-              <p className="mt-2 flex gap-2 rounded-lg bg-muted/50 p-3 text-xs leading-relaxed text-muted-foreground">
-                <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
-                {t("finance.contract.legalNotice")}
+
+              <p className="mt-2 flex min-w-0 items-start gap-2 rounded-lg bg-muted/50 p-3 text-xs leading-relaxed text-muted-foreground">
+                <Info
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0"
+                  aria-hidden
+                />
+
+                <span className="min-w-0 break-words">
+                  {t("finance.contract.legalNotice")}
+                </span>
               </p>
 
               <div className="mt-4 space-y-3">
-                <label className="block text-sm">
-                  <span className="mb-1.5 block font-medium">{t("finance.contract.fullName")}</span>
+                <label className="block min-w-0 text-sm">
+                  <span className="mb-1.5 block break-words font-medium">
+                    {t("finance.contract.fullName")}
+                  </span>
+
                   <Input
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     maxLength={120}
+                    className="w-full"
                   />
                 </label>
 
                 {!requestId ? (
                   <Button
+                    className="w-full sm:w-auto"
                     disabled={busy || fullName.trim().length < 3}
                     onClick={() => void onStart()}
                   >
@@ -301,36 +408,52 @@ function ContractPage() {
                   </Button>
                 ) : (
                   <div className="space-y-3">
-                    <label className="block text-sm">
-                      <span className="mb-1.5 block font-medium">{t("finance.contract.code")}</span>
+                    <label className="block min-w-0 text-sm">
+                      <span className="mb-1.5 block break-words font-medium">
+                        {t("finance.contract.code")}
+                      </span>
+
                       <Input
                         value={code}
                         onChange={(e) => setCode(e.target.value)}
                         inputMode="numeric"
                         maxLength={8}
-                        className="max-w-[180px] font-mono tracking-widest"
+                        className="w-full max-w-[180px] font-mono tracking-widest"
                       />
-                      <span className="mt-1 block text-xs text-muted-foreground">
+
+                      <span className="mt-1 block break-words text-xs text-muted-foreground">
                         {t("finance.contract.codeHint")}
                       </span>
                     </label>
-                    <label className="flex items-start gap-2 text-xs leading-relaxed">
+
+                    <label className="flex min-w-0 items-start gap-2 text-xs leading-relaxed">
                       <input
                         type="checkbox"
-                        className="mt-0.5"
+                        className="mt-0.5 shrink-0"
                         checked={consent}
                         onChange={(e) => setConsent(e.target.checked)}
                       />
-                      <span>{t("finance.contract.consent")}</span>
+
+                      <span className="min-w-0 break-words">
+                        {t("finance.contract.consent")}
+                      </span>
                     </label>
-                    <div className="flex flex-wrap gap-2">
+
+                    <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
                       <Button
+                        className="w-full sm:w-auto"
                         disabled={busy || code.trim().length < 4 || !consent}
                         onClick={() => void onSign()}
                       >
                         {t("finance.contract.confirmSignature")}
                       </Button>
-                      <Button variant="ghost" disabled={busy} onClick={() => void onStart()}>
+
+                      <Button
+                        variant="ghost"
+                        className="w-full sm:w-auto"
+                        disabled={busy}
+                        onClick={() => void onStart()}
+                      >
                         {t("finance.contract.resendCode")}
                       </Button>
                     </div>
@@ -341,18 +464,24 @@ function ContractPage() {
           )}
 
           {data.events.length > 0 && (
-            <Card className="mt-5 p-5">
-              <h2 className="text-sm font-semibold">{t("finance.contract.history")}</h2>
+            <Card className="mt-5 min-w-0 p-4 sm:p-5">
+              <h2 className="break-words text-sm font-semibold">
+                {t("finance.contract.history")}
+              </h2>
+
               <ul className="mt-4 space-y-2 text-sm">
                 {data.events.map((e, i) => (
                   <li
                     key={`${e.created_at}-${i}`}
-                    className="flex flex-wrap justify-between gap-2 rounded-lg bg-muted/40 px-3 py-2"
+                    className="flex min-w-0 flex-col gap-1 rounded-lg bg-muted/40 px-3 py-2 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-2"
                   >
-                    <span>
-                      {t(`finance.contract.events.${e.event_type}`, { defaultValue: e.event_type })}
+                    <span className="min-w-0 break-words">
+                      {t(`finance.contract.events.${e.event_type}`, {
+                        defaultValue: e.event_type,
+                      })}
                     </span>
-                    <span className="text-xs text-muted-foreground">
+
+                    <span className="shrink-0 break-words text-xs text-muted-foreground sm:text-right">
                       {new Date(e.created_at).toLocaleString(locale)}
                     </span>
                   </li>
@@ -361,7 +490,7 @@ function ContractPage() {
             </Card>
           )}
 
-          <p className="mt-6 rounded-xl bg-muted/50 p-4 text-xs leading-relaxed text-muted-foreground">
+          <p className="mt-6 break-words rounded-xl bg-muted/50 p-4 text-xs leading-relaxed text-muted-foreground">
             {t("finance.contract.important")}
           </p>
         </>
@@ -372,9 +501,15 @@ function ContractPage() {
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex flex-wrap justify-between gap-2 rounded-lg bg-muted/40 px-3 py-2">
-      <dt className="text-muted-foreground">{label}</dt>
-      <dd className="break-words text-right font-medium">{value}</dd>
+    <div className="flex min-w-0 flex-col gap-1 rounded-lg bg-muted/40 px-3 py-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
+      <dt className="min-w-0 break-words text-muted-foreground">
+        {label}
+      </dt>
+
+      <dd className="min-w-0 break-words font-medium sm:text-right">
+        {value}
+      </dd>
     </div>
   );
 }
+

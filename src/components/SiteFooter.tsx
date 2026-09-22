@@ -24,11 +24,11 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-card">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <footer className="min-w-0 border-t border-border bg-card">
+      <div className="mx-auto w-full max-w-7xl min-w-0 px-3 py-10 sm:px-6 lg:px-8 lg:py-14">
         {/* Brand */}
-        <div className="flex flex-col gap-4 border-b border-border pb-8 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-start gap-3">
+        <div className="flex min-w-0 flex-col gap-4 border-b border-border pb-8 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex min-w-0 items-start gap-3">
             <img
               src={moonypLogo}
               alt="MOONYP"
@@ -36,33 +36,43 @@ export function SiteFooter() {
               height={40}
               className="h-9 w-9 shrink-0 object-contain"
             />
-            <div>
+
+            <div className="min-w-0">
               <p className="font-serif text-lg font-semibold tracking-tight text-foreground">
                 MOONYP
               </p>
-              <p className="mt-1 max-w-md text-xs leading-relaxed text-muted-foreground sm:text-sm">
+
+              <p className="mt-1 max-w-md break-words text-xs leading-relaxed text-muted-foreground sm:text-sm">
                 {t("footer.tagline")}
               </p>
             </div>
           </div>
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-background px-3 py-1.5 text-[11px] font-medium text-muted-foreground">
-            <ShieldCheck className="h-3.5 w-3.5 text-success" aria-hidden />
-            {t("footer.regulated")}
+
+          <span className="inline-flex w-fit max-w-full items-center gap-2 rounded-full border border-border bg-background px-3 py-1.5 text-[11px] font-medium text-muted-foreground">
+            <ShieldCheck
+              className="h-3.5 w-3.5 shrink-0 text-success"
+              aria-hidden
+            />
+
+            <span className="min-w-0 break-words">
+              {t("footer.regulated")}
+            </span>
           </span>
         </div>
 
         {/* Three columns — side by side on every device */}
         <nav
           aria-label={t("footer.legal")}
-          className="grid grid-cols-3 gap-x-3 gap-y-6 py-8 sm:gap-x-8 lg:gap-x-12"
+          className="grid min-w-0 grid-cols-3 gap-x-2 gap-y-6 py-8 sm:gap-x-8 lg:gap-x-12"
         >
           <div className="min-w-0">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground sm:text-xs">
+            <p className="break-words text-[10px] font-semibold uppercase leading-tight tracking-[0.12em] text-foreground sm:text-xs">
               {t("footer.legal")}
             </p>
-            <ul className="mt-3 space-y-2 text-[12px] text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
+
+            <ul className="mt-3 space-y-2 text-[11px] leading-relaxed text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
               {LEGAL_LINKS.map((l) => (
-                <li key={l.to}>
+                <li key={l.to} className="min-w-0">
                   <Link
                     to={l.to}
                     params={{ lang }}
@@ -76,12 +86,13 @@ export function SiteFooter() {
           </div>
 
           <div className="min-w-0">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground sm:text-xs">
+            <p className="break-words text-[10px] font-semibold uppercase leading-tight tracking-[0.12em] text-foreground sm:text-xs">
               {t("footer.banking")}
             </p>
-            <ul className="mt-3 space-y-2 text-[12px] text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
+
+            <ul className="mt-3 space-y-2 text-[11px] leading-relaxed text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
               {BANKING_LINKS.map((l) => (
-                <li key={l.to}>
+                <li key={l.to} className="min-w-0">
                   <Link
                     to={l.to}
                     params={{ lang }}
@@ -95,11 +106,12 @@ export function SiteFooter() {
           </div>
 
           <div className="min-w-0">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground sm:text-xs">
+            <p className="break-words text-[10px] font-semibold uppercase leading-tight tracking-[0.12em] text-foreground sm:text-xs">
               {t("footer.contact")}
             </p>
-            <ul className="mt-3 space-y-2 text-[12px] text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
-              <li>
+
+            <ul className="mt-3 space-y-2 text-[11px] leading-relaxed text-muted-foreground sm:mt-4 sm:space-y-2.5 sm:text-sm">
+              <li className="min-w-0">
                 <Link
                   to="/$lang/contact"
                   params={{ lang }}
@@ -108,35 +120,55 @@ export function SiteFooter() {
                   {t("footer.contactForm")}
                 </Link>
               </li>
-              <li>
+
+              <li className="min-w-0">
                 <a
                   href="mailto:support@moonyp.com"
-                  className="flex items-start gap-1.5 break-all transition-colors hover:text-accent"
+                  className="flex min-w-0 items-start gap-1.5 break-all transition-colors hover:text-accent"
                 >
-                  <Mail className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" aria-hidden />
-                  support@moonyp.com
+                  <Mail
+                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent"
+                    aria-hidden
+                  />
+
+                  <span className="min-w-0">support@moonyp.com</span>
                 </a>
               </li>
-              <li>
+
+              <li className="min-w-0">
                 <a
                   href="tel:+393500366867"
-                  className="flex items-start gap-1.5 transition-colors hover:text-accent"
+                  className="flex min-w-0 items-start gap-1.5 break-words transition-colors hover:text-accent"
                 >
-                  <Phone className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" aria-hidden />
-                  +39 350 036 6867
+                  <Phone
+                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent"
+                    aria-hidden
+                  />
+
+                  <span className="min-w-0 break-words">
+                    +39 350 036 6867
+                  </span>
                 </a>
               </li>
-              <li className="flex items-start gap-1.5">
-                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" aria-hidden />
-                <span>1 Centenary Square, Birmingham, B1 2DR</span>
+
+              <li className="flex min-w-0 items-start gap-1.5">
+                <MapPin
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent"
+                  aria-hidden
+                />
+
+                <span className="min-w-0 break-words">
+                  1 Centenary Square, Birmingham, B1 2DR
+                </span>
               </li>
             </ul>
           </div>
         </nav>
 
-        <div className="border-t border-border pt-6 text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
-          <p>{t("footer.disclaimer")}</p>
-          <p className="mt-3">
+        <div className="min-w-0 border-t border-border pt-6 text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
+          <p className="break-words">{t("footer.disclaimer")}</p>
+
+          <p className="mt-3 break-words">
             © {year} MOONYP. {t("footer.rights")}
           </p>
         </div>
@@ -144,3 +176,4 @@ export function SiteFooter() {
     </footer>
   );
 }
+

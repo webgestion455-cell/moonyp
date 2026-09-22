@@ -28,11 +28,11 @@ export function AppHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 min-w-0 max-w-7xl items-center justify-between gap-2 px-3 sm:gap-3 sm:px-6 lg:px-8">
         <Link
           to="/$lang"
           params={{ lang }}
-          className="flex min-w-0 items-center gap-2"
+          className="flex min-w-0 shrink items-center gap-2"
           aria-label="MOONYP"
         >
           <img
@@ -42,49 +42,57 @@ export function AppHeader() {
             height={36}
             className="h-8 w-8 shrink-0 object-contain sm:h-9 sm:w-9"
           />
-          <span className="font-serif text-base font-semibold tracking-tight sm:text-lg">
+
+          <span className="min-w-0 truncate font-serif text-base font-semibold tracking-tight sm:text-lg">
             MOONYP
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label={t("nav.primary")}>
+        <nav
+          className="hidden min-w-0 items-center gap-1 md:flex"
+          aria-label={t("nav.primary")}
+        >
           {NAV.map((item) => {
             const href = item.to.replace("/$lang", `/${lang}`);
             const active =
-              href === `/${lang}` ? location.pathname === href : location.pathname.startsWith(href);
+              href === `/${lang}`
+                ? location.pathname === href
+                : location.pathname.startsWith(href);
+
             return (
               <Link
                 key={item.to}
                 to={item.to}
                 params={{ lang }}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                className={`min-w-0 rounded-full px-3 py-2 text-sm font-medium transition-colors duration-200 lg:px-4 ${
                   active
                     ? "bg-secondary text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {t(item.key)}
+                <span className="break-words">{t(item.key)}</span>
               </Link>
             );
           })}
         </nav>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
           <LanguageSwitcher />
 
           <button
             type="button"
-            className="flex h-12 w-12 flex-col items-center justify-center gap-0.5 rounded-xl text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
+            className="flex h-12 w-12 shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
             aria-label={t("nav.menu")}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? (
-              <X className="h-5 w-5" aria-hidden />
+              <X className="h-5 w-5 shrink-0" aria-hidden />
             ) : (
-              <Menu className="h-5 w-5" aria-hidden />
+              <Menu className="h-5 w-5 shrink-0" aria-hidden />
             )}
-            <span className="text-[9px] font-semibold uppercase tracking-[0.12em]">
+
+            <span className="max-w-full truncate text-[9px] font-semibold uppercase tracking-[0.12em]">
               {t("nav.menu")}
             </span>
           </button>
@@ -94,27 +102,44 @@ export function AppHeader() {
       {open && (
         <div className="animate-in fade-in slide-in-from-top-2 border-t border-border bg-background duration-200 md:hidden">
           <nav
-            className="mx-auto flex max-w-7xl flex-col gap-2 px-3 py-4"
+            className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-3 py-4 sm:px-6"
             aria-label={t("nav.primary")}
           >
             <Link
               to="/$lang/about"
               params={{ lang }}
               onClick={() => setOpen(false)}
-              className="flex items-center gap-3 rounded-xl border border-border px-4 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+              className="flex min-w-0 items-center gap-3 rounded-xl border border-border px-4 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
             >
-              <Info className="h-4 w-4 text-accent" aria-hidden />
-              {t("nav.about")}
+              <Info className="h-4 w-4 shrink-0 text-accent" aria-hidden />
+
+              <span className="min-w-0 break-words">
+                {t("nav.about")}
+              </span>
             </Link>
-            <Button asChild className="h-12 rounded-xl text-sm font-semibold">
+
+            <Button
+              asChild
+              className="h-12 w-full rounded-xl text-sm font-semibold"
+            >
               <Link
                 to="/$lang/apply"
                 params={{ lang }}
-                search={{ product: undefined, amount: undefined, months: undefined }}
+                search={{
+                  product: undefined,
+                  amount: undefined,
+                  months: undefined,
+                }}
                 onClick={() => setOpen(false)}
               >
-                {t("nav.apply")}
-                <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden />
+                <span className="min-w-0 break-words">
+                  {t("nav.apply")}
+                </span>
+
+                <ArrowRight
+                  className="ml-1.5 h-4 w-4 shrink-0"
+                  aria-hidden
+                />
               </Link>
             </Button>
           </nav>
@@ -123,3 +148,4 @@ export function AppHeader() {
     </header>
   );
 }
+
