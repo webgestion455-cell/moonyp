@@ -13,9 +13,9 @@
  * `failed` — accompagnée d'un score, des motifs machine et de la piste
  * d'audit complète (comparaison champ par champ).
  *
- * Les mesures et l'OCR reçus du navigateur ne prouvent ni l'authenticité de
- * la pièce ni l'identité biométrique. Ce moteur de précontrôle ne peut donc
- * jamais rendre une validation KYC automatique.
+ * `passed` n'est rendu que si toutes les preuves extraites et recoupées côté
+ * serveur concordent ; tout doute donne `manual_review`, toute contradiction
+ * forte (identité, expiration, vivacité, lecture impossible) donne `failed`.
  */
 
 import { parseMrz, type MrzData } from "./mrz";
@@ -195,9 +195,36 @@ export function decideKyc(input: DecisionInput): DecisionResult {
     unique.includes("liveness_failed") ||
     (identity !== null && identityScore < DECISION_LIMITS.hardFailScore);
 
-  // Aucun nombre de tentatives, checksum ou score client ne constitue une
-  // preuve indépendante. Même une MRZ parfaite peut être recopiée/fabriquée.
-  const decision: KycDecision = hardFail ? "failed" : "manual_review";
+  // Validation automatique uniquement si TOUTES les preuves réellement
+  // extraites et recoupées côté serveur sont concordantes : MRZ re-parsée avec
+  // clés de contrôle valides, identité concordante au-dessus du seuil, pièce
+  // non expirée, captures et vivacité validées par evidence.server.ts, OCR
+  // suffisamment fiable. Le moindre doute bascule en revue manuelle.
+  const DOUBT = [
+    "mrz_checksum_failed",
+    "given_names_mismatch",
+    "birth_date_not_readable",
+    "nationality_differs",
+    "document_number_not_readable",
+    "expiry_not_readable",
+    "low_ocr_confidence",
+    "low_capture_quality",
+    "screen_presentation_suspected",
+    "identity_document_uploaded",
+    "liveness_doubt",
+  ];
+  const clean =
+    mrz !== null &&
+    mrz.checksums_valid &&
+    identity !== null &&
+    identityScore >= DECISION_LIMITS.autoPassScore &&
+    score >= DECISION_LIMITS.autoPassScore - 10 &&
+    (confidence === null || confidence >= DECISION_LIMITS.minOcrConfidence) &&
+    identityDocs.some((d) => d.capture_status === "passed") &&
+    input.documents.every((d) => d.capture_status === "passed") &&
+    !unique.some((r) => DOUBT.includes(r) || r.startsWith("capture_failed:"));
+
+  const decision: KycDecision = hardFail ? "failed" : clean ? "passed" : "manual_review";
 
   return {
     decision,

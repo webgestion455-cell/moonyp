@@ -1,27 +1,18 @@
 /**
- * Auto-test du contrôle du visage : validation des gestes, retour au repos,
- * et consignes affichées pendant les défis de rotation.
+ * Auto-test du moteur KYC : lecture MRZ, croisement d'identité, décision.
  *
  * Exécution locale depuis le terminal du projet :
  *
- *   bun run scripts/liveness-selftest.ts
+ *   bun run scripts/kyc-selftest.ts
  *
- * Aucune caméra, aucun réseau, aucune base : le script rejoue des mesures
- * représentatives d'un vrai visage et vérifie que la règle de décision réagit
- * comme attendu. Il doit rester vert avant toute mise en ligne touchant au
- * contrôle du visage.
+ * Aucune base de données, aucun réseau, aucune caméra : ce script vérifie la
+ * logique de décision pure. Il doit rester vert avant toute mise en ligne
+ * touchant au parcours d'identité.
  */
 
-import {
-  LIVENESS_THRESHOLDS as TH,
-  challengeAtRest,
-  challengeSatisfied,
-  challengeValue,
-  drawChallenges,
-  issueMutedDuring,
-  type FaceMetrics,
-  type LivenessChallenge,
-} from "../src/lib/kyc/liveness-engine";
+import { parseMrz, mrzCheckDigit } from "../src/lib/kyc/mrz";
+import { crossCheckIdentity } from "../src/lib/kyc/identity-match";
+import { decideKyc } from "../src/lib/kyc/decision.server";
 
 let passed = 0;
 let failed = 0;
@@ -36,129 +27,223 @@ function check(name: string, condition: boolean, detail?: unknown) {
   }
 }
 
-/** Visage de face, immobile, bien éclairé : l'état de repos de référence. */
-function neutral(): FaceMetrics {
-  return {
-    faces: 1,
-    faceFill: 0.5,
-    offCenter: 0.04,
-    yaw: 0,
-    yawRatio: 0,
-    pitch: 2,
-    roll: 0,
-    blinkLeft: 0.05,
-    blinkRight: 0.05,
-    smile: 0.05,
-    jawOpen: 0.03,
-    depthVariance: 0.03,
-    brightness: 140,
-    sharpness: 90,
-    screenLikelihood: 0.2,
-  };
-}
+/* --------------------------- 1. Clés de contrôle ------------------------- */
+console.log("\nClés de contrôle OACI 9303");
+check("séquence numérique", mrzCheckDigit("123456789") === 7);
+check("chevrons ignorés comme zéro", mrzCheckDigit("<<<") === 0);
 
-function face(patch: Partial<FaceMetrics>): FaceMetrics {
-  return { ...neutral(), ...patch };
-}
+/* ------------------------------- 2. MRZ TD3 ------------------------------ */
+// Passeport spécimen utilisé par la documentation OACI.
+const TD3 = [
+  "P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<",
+  "L898902C36UTO7408122F1204159ZE184226B<<<<<10",
+];
 
-/* ----------------------- 1. Tour de tête naturel ------------------------ */
-console.log("\nTour de tête");
+console.log("\nLecture MRZ (passeport TD3)");
+const mrz = parseMrz(TD3.join("\n"));
+check("MRZ reconnue", mrz !== null);
+check("format TD3", mrz?.format === "TD3", mrz?.format);
+check("nom lu", mrz?.surname === "ERIKSSON", mrz?.surname);
+check("prénoms lus", mrz?.given_names === "ANNA MARIA", mrz?.given_names);
+check("date de naissance 1974-08-12", mrz?.birth_date === "1974-08-12", mrz?.birth_date);
+check("expiration 2012-04-15", mrz?.expiry_date === "2012-04-15", mrz?.expiry_date);
+check("nationalité UTO", mrz?.nationality === "UTO", mrz?.nationality);
 
-// Une personne qui tourne franchement la tête vers sa gauche : la pose et la
-// géométrie concordent, le défi doit passer sans discussion.
-check(
-  "tour à gauche franc validé",
-  challengeSatisfied("turn_left", face({ yaw: 26, yawRatio: 0.24 })),
-);
-check(
-  "tour à droite franc validé",
-  challengeSatisfied("turn_right", face({ yaw: -26, yawRatio: -0.24 })),
-);
-
-// Appareil qui sous-estime l'angle : la seconde mesure, purement géométrique,
-// doit suffire à valider le geste. C'est le cas qui bloquait les utilisateurs.
-check(
-  "géométrie seule suffit quand la pose sous-estime l'angle",
-  challengeSatisfied("turn_left", face({ yaw: 9, yawRatio: 0.2 })),
-);
-
-// Sens inverse : tourner à droite ne valide jamais un défi « à gauche ».
-check(
-  "sens respecté (droite ne valide pas gauche)",
-  !challengeSatisfied("turn_left", face({ yaw: -30, yawRatio: -0.3 })),
-);
-
-// Pencher la tête vers l'épaule n'est PAS un tour de tête : c'était l'ancien
-// comportement à bannir.
-check(
-  "inclinaison vers l'épaule ne vaut pas un tour de tête",
-  !challengeSatisfied("turn_left", face({ roll: 35 })),
-);
-
-// Immobile : rien ne doit passer.
-check("visage immobile ne valide rien", !challengeSatisfied("turn_left", neutral()));
-
-check("seuil de tour de tête resté accessible", TH.turnYaw <= 20, TH.turnYaw);
-
-/* --------------------------- 2. Autres gestes --------------------------- */
-console.log("\nClignement, sourire, bouche");
-check(
-  "clignement validé",
-  challengeSatisfied("blink", face({ blinkLeft: 0.62, blinkRight: 0.58 })),
-);
-check("sourire validé", challengeSatisfied("smile", face({ smile: 0.55 })));
-check("bouche ouverte validée", challengeSatisfied("open_mouth", face({ jawOpen: 0.45 })));
-check(
-  "bouche à peine entrouverte refusée",
-  !challengeSatisfied("open_mouth", face({ jawOpen: 0.1 })),
-);
-
-/* ------------------------------ 3. Repos -------------------------------- */
-console.log("\nRetour au repos");
-check("visage de face reconnu au repos", challengeAtRest("turn_left", neutral()));
-check(
-  "tête encore tournée n'est pas au repos",
-  !challengeAtRest("turn_left", face({ yaw: 20, yawRatio: 0.18 })),
-);
-check("bouche fermée reconnue au repos", challengeAtRest("open_mouth", neutral()));
-
-/* --------------------------- 4. Consignes ------------------------------- */
-console.log("\nConsignes affichées");
-check(
-  "« regardez droit » tu pendant un tour à gauche",
-  issueMutedDuring("turn_left", "not_frontal"),
-);
-check(
-  "« recentrez-vous » tu pendant un tour à droite",
-  issueMutedDuring("turn_right", "off_center"),
-);
-check(
-  "visage absent toujours signalé, même en plein défi",
-  !issueMutedDuring("turn_left", "no_face"),
-);
-check("hors défi, rien n'est tu", !issueMutedDuring(null, "not_frontal"));
-
-/* --------------------------- 5. Tirage des défis ------------------------ */
-console.log("\nTirage des défis");
-const drawn = drawChallenges(4);
-check("quatre défis tirés", drawn.length === 4, drawn);
-check("aucun doublon", new Set(drawn).size === drawn.length, drawn);
-
-// Chaque défi tiré doit avoir une mesure exploitable quand il est exécuté.
-const perfect: Record<LivenessChallenge, FaceMetrics> = {
-  blink: face({ blinkLeft: 0.7, blinkRight: 0.7 }),
-  turn_left: face({ yaw: 28, yawRatio: 0.26 }),
-  turn_right: face({ yaw: -28, yawRatio: -0.26 }),
-  smile: face({ smile: 0.6 }),
-  open_mouth: face({ jawOpen: 0.5 }),
+/* -------------------------- 3. Croisement identité ----------------------- */
+console.log("\nCroisement des données déclarées");
+const declared = {
+  first_name: "Anna",
+  last_name: "Eriksson",
+  birth_date: "1974-08-12",
+  nationality: "UT",
 };
-for (const c of drawn) {
+const at = new Date("2010-01-01T00:00:00Z");
+const match = mrz ? crossCheckIdentity(declared, mrz, { at }) : null;
+check("identité concordante", (match?.score ?? 0) >= 90, match?.score);
+check(
+  "aucun écart bloquant",
+  !(match?.reasons ?? []).includes("birth_date_mismatch"),
+  match?.reasons,
+);
+
+const wrongBirth = mrz
+  ? crossCheckIdentity({ ...declared, birth_date: "1980-01-01" }, mrz, { at })
+  : null;
+check(
+  "date de naissance divergente détectée",
+  (wrongBirth?.reasons ?? []).includes("birth_date_mismatch"),
+);
+
+const wrongName = mrz
+  ? crossCheckIdentity({ ...declared, last_name: "Dupont" }, mrz, { at })
+  : null;
+check("nom divergent détecté", (wrongName?.reasons ?? []).includes("surname_mismatch"));
+
+const expired = mrz ? crossCheckIdentity(declared, mrz, { at: new Date("2024-01-01") }) : null;
+check("document expiré détecté", expired?.document_expired === true);
+
+/* ----------------------------- 4. Décisions ------------------------------ */
+console.log("\nDécision finale");
+
+const goodOcr = {
+  mrz_text: TD3.join("\n"),
+  viz_text: "",
+  confidence: 88,
+  engine: { name: "tesseract", version: "5" },
+};
+
+const nominal = decideKyc({
+  declared,
+  at,
+  documents: [
+    {
+      document_type_slug: "id_passport",
+      category: "identity",
+      capture_status: "passed",
+      capture_reasons: [],
+      capture_score: 82,
+      capture_method: "scan",
+      ocr: goodOcr,
+    },
+    {
+      document_type_slug: "selfie_liveness",
+      category: "selfie",
+      capture_status: "passed",
+      capture_reasons: [],
+      capture_score: 90,
+      capture_method: "liveness",
+    },
+  ],
+});
+check(
+  "preuves concordantes → validation automatique",
+  nominal.decision === "passed",
+  nominal,
+);
+
+const noLiveness = decideKyc({
+  declared,
+  at,
+  documents: [
+    {
+      document_type_slug: "id_passport",
+      category: "identity",
+      capture_status: "passed",
+      capture_reasons: [],
+      capture_score: 82,
+      capture_method: "scan",
+      ocr: goodOcr,
+    },
+  ],
+});
+check(
+  "sans vivacité → vérification non aboutie",
+  noLiveness.decision === "failed",
+  noLiveness.reasons,
+);
+
+const mismatch = decideKyc({
+  declared: { ...declared, birth_date: "1980-01-01" },
+  at,
+  documents: [
+    {
+      document_type_slug: "id_passport",
+      category: "identity",
+      capture_status: "passed",
+      capture_reasons: [],
+      capture_score: 82,
+      capture_method: "scan",
+      ocr: goodOcr,
+    },
+    {
+      document_type_slug: "selfie_liveness",
+      category: "selfie",
+      capture_status: "passed",
+      capture_reasons: [],
+      capture_score: 90,
+      capture_method: "liveness",
+    },
+  ],
+});
+check("date de naissance divergente → échec", mismatch.decision === "failed", mismatch.reasons);
+
+const screen = decideKyc({
+  declared,
+  at,
+  documents: [
+    {
+      document_type_slug: "id_passport",
+      category: "identity",
+      capture_status: "manual_review",
+      capture_reasons: ["screen_presentation_suspected"],
+      capture_score: 70,
+      capture_method: "scan",
+      ocr: goodOcr,
+    },
+    {
+      document_type_slug: "selfie_liveness",
+      category: "selfie",
+      capture_status: "passed",
+      capture_reasons: [],
+      capture_score: 90,
+      capture_method: "liveness",
+    },
+  ],
+});
+check("photo d'écran → jamais validée", screen.decision !== "passed", screen.reasons);
+
+const unreadable = decideKyc({
+  declared,
+  at,
+  documents: [
+    {
+      document_type_slug: "id_card",
+      category: "identity",
+      capture_status: "passed",
+      capture_reasons: [],
+      capture_score: 80,
+      capture_method: "scan",
+      ocr: { mrz_text: "illisible", viz_text: "", confidence: 20 },
+    },
+    {
+      document_type_slug: "selfie_liveness",
+      category: "selfie",
+      capture_status: "passed",
+      capture_reasons: [],
+      capture_score: 90,
+      capture_method: "liveness",
+    },
+  ],
+});
+check(
+  "objet sans MRZ → vérification non aboutie",
+  unreadable.decision === "failed",
+  unreadable.reasons,
+);
+check("aucune ligne MRZ en clair conservée", unreadable.mrz === null);
+
+const masked = nominal.mrz?.lines_masked ?? [];
+check(
+  "lignes MRZ masquées en base",
+  masked.every((l) => l.includes("•")),
+  masked,
+);
+
+for (let attempt = 0; attempt < 3; attempt += 1) {
+  const result = decideKyc({ declared, at, documents: [] });
   check(
-    `défi « ${c} » réalisable`,
-    challengeValue(c, perfect[c]) > 0 && challengeSatisfied(c, perfect[c]),
+    `tentative ${attempt + 1} sans pièce → toujours non vérifiée`,
+    result.decision === "failed",
   );
 }
-
-/* -------------------------------- Bilan --------------------------------- */
-console.log(`\n${passed} vérifications passées, ${failed} en échec.\n`);
-if (failed > 0) process.exit(1);
+check("comparaison faciale non inventée", nominal.reasons.includes("face_match_not_performed"));
+check(
+  "contrôle adresse non inventé",
+  nominal.reasons.includes("address_verification_not_performed"),
+);
+check(
+  "contrôle bancaire non inventé",
+  nominal.reasons.includes("bank_statement_verification_not_performed"),
+);
+console.log(`\n${passed} test(s) réussi(s), ${failed} échec(s).`);
+process.exit(failed === 0 ? 0 : 1);

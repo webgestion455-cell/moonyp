@@ -601,7 +601,7 @@ export const registerDocuments = createServerFn({ method: "POST" })
           // Le statut global ne passe jamais à "passed" sur la seule machine :
           // une décision positive reste "verifying" tant que la conformité n'a
           // pas confirmé, une décision négative est immédiatement visible.
-          kyc_status: result.decision === "failed" ? "failed" : "verifying",
+          kyc_status: result.decision === "failed" ? "failed" : result.decision === "passed" ? "passed" : "verifying",
         } as never)
         .eq("id", applicationId);
 
