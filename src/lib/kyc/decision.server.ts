@@ -9,13 +9,14 @@
  *     `evidence.server.ts` ;
  *   - le verdict de la session de vivacité.
  *
- * Sortie : une décision bancaire explicite — `passed`, `manual_review` ou
- * `failed` — accompagnée d'un score, des motifs machine et de la piste
- * d'audit complète (comparaison champ par champ).
+ * Sortie publique temporaire : `manual_review` pour chaque dossier, afin que
+ * la conformité rende seule la décision finale. Le verdict technique
+ * (`passed`, `manual_review` ou `failed`) reste calculé et conservé dans
+ * `machine_decision` pour l'audit et sa réactivation future.
  *
- * `passed` n'est rendu que si toutes les preuves extraites et recoupées côté
- * serveur concordent ; tout doute donne `manual_review`, toute contradiction
- * forte (identité, expiration, vivacité, lecture impossible) donne `failed`.
+ * Le verdict technique `passed` n'est calculé que si toutes les preuves
+ * extraites et recoupées côté serveur concordent ; tout doute produit
+ * `manual_review`, toute contradiction forte produit `failed`.
  */
 
 import { parseMrz, type MrzData } from "./mrz";
@@ -24,6 +25,7 @@ import {
   type DeclaredIdentity,
   type IdentityCrossCheck,
 } from "./identity-match";
+import { controlsForStep, type ControlKey, type ControlStatus } from "./controls";
 
 export type KycDecision = "passed" | "manual_review" | "failed";
 
@@ -39,14 +41,62 @@ export interface DecisionDocumentInput {
   ocr?: unknown;
 }
 
+/**
+ * Résultat persisté d'un contrôle du moteur existant (`application_kyc_controls`,
+ * produit par engine.server.ts / face-worker.server.ts). Aucun autre format.
+ */
+export interface DecisionControlInput {
+  control: ControlKey | string;
+  status: ControlStatus | string;
+  executed: boolean;
+  created_at?: string;
+}
+
 export interface DecisionInput {
   declared: DeclaredIdentity;
   documents: DecisionDocumentInput[];
+  /** Contrôles réels déjà exécutés. Absents → contrôles non vérifiés. */
+  controls?: DecisionControlInput[];
   at?: Date;
 }
 
+/**
+ * Contrôles obligatoires (CONTROL_DEFINITIONS) dont dépend la validation
+ * automatique, en plus de l'identité/MRZ/vivacité évaluées ici.
+ */
+const GATED_CONTROLS: { reason: string; failReason: string; keys: string[] }[] = [
+  { reason: "face_match_not_performed", failReason: "face_match_failed", keys: ["face_match"] },
+  {
+    reason: "address_verification_not_performed",
+    failReason: "address_verification_failed",
+    keys: controlsForStep("address").filter((c) => c.required).map((c) => c.key),
+  },
+  {
+    reason: "bank_statement_verification_not_performed",
+    failReason: "bank_verification_failed",
+    keys: controlsForStep("iban").filter((c) => c.required).map((c) => c.key),
+  },
+];
+
+/** Dernier résultat par contrôle ; PASS non exécuté dégradé via sanitizeResult. */
+function latestControls(controls: DecisionControlInput[]): Map<string, { status: string }> {
+  const sorted = [...controls].sort((a, b) =>
+    (a.created_at ?? "").localeCompare(b.created_at ?? ""),
+  );
+  const out = new Map<string, { status: string }>();
+  for (const c of sorted) {
+    const safe =
+      c.status === "PASS" && !c.executed ? "INCONCLUSIVE" : String(c.status);
+    out.set(String(c.control), { status: safe });
+  }
+  return out;
+}
+
 export interface DecisionResult {
+  /** Décision opposable appliquée actuellement à tous les parcours. */
   decision: KycDecision;
+  /** Verdict du moteur existant, informatif tant que la revue humaine est imposée. */
+  machine_decision: KycDecision;
   /** Score global 0..100 (croisement d'identité pondéré par la qualité). */
   score: number;
   reasons: string[];
@@ -171,14 +221,26 @@ export function decideKyc(input: DecisionInput): DecisionResult {
   // Absence de lecture exploitable : vérification non aboutie, pas une
   // reconnaissance positive du type de document ou un refus de crédit.
   if (!mrz) reasons.push("identity_not_extracted");
-  // Ces vérifications ne sont pas implémentées par le moteur local. Les
-  // déclarer explicitement dans la piste d'audit, sans fabriquer un score.
-  reasons.push(
-    "independent_document_verification_required",
-    "face_match_not_performed",
-    "address_verification_not_performed",
-    "bank_statement_verification_not_performed",
-  );
+  // Authenticité physique (hologrammes, NFC) : contrôle facultatif et
+  // non vérifiable par construction (controls.ts) — motif d'audit informatif.
+  reasons.push("independent_document_verification_required");
+
+  // Contrôles obligatoires du moteur existant : seul un PASS réellement
+  // exécuté lève le motif. FAIL → échec ; absent/NOT_VERIFIED/INCONCLUSIVE/
+  // NOT_STARTED/REVIEW_REQUIRED → le motif « non vérifié » bloque `passed`.
+  const latest = latestControls(input.controls ?? []);
+  const blocking: string[] = [];
+  let controlFailed = false;
+  for (const gate of GATED_CONTROLS) {
+    const statuses = gate.keys.map((k) => latest.get(k)?.status ?? "NOT_STARTED");
+    if (statuses.some((s) => s === "FAIL")) {
+      reasons.push(gate.failReason);
+      controlFailed = true;
+    } else if (!statuses.every((s) => s === "PASS")) {
+      reasons.push(gate.reason);
+      blocking.push(gate.reason);
+    }
+  }
   const unique = [...new Set(reasons)];
   const identityScore = identity?.score ?? 0;
   const qualityFactor =
@@ -193,6 +255,7 @@ export function decideKyc(input: DecisionInput): DecisionResult {
     unique.includes("surname_mismatch") ||
     unique.includes("document_expired") ||
     unique.includes("liveness_failed") ||
+    controlFailed ||
     (identity !== null && identityScore < DECISION_LIMITS.hardFailScore);
 
   // Validation automatique uniquement si TOUTES les preuves réellement
@@ -224,10 +287,16 @@ export function decideKyc(input: DecisionInput): DecisionResult {
     input.documents.every((d) => d.capture_status === "passed") &&
     !unique.some((r) => DOUBT.includes(r) || r.startsWith("capture_failed:"));
 
-  const decision: KycDecision = hardFail ? "failed" : clean ? "passed" : "manual_review";
+  const machineDecision: KycDecision = hardFail ? "failed" : clean ? "passed" : "manual_review";
+
+  // Politique temporaire commune aux demandes de prêt et aux liens KYC
+  // externes : aucune décision machine n'est opposable sans revue humaine.
+  // Le moteur, ses contrôles et ses trois verdicts restent intacts ci-dessus.
+  const decision: KycDecision = "manual_review";
 
   return {
     decision,
+    machine_decision: machineDecision,
     score,
     reasons: unique,
     identity,

@@ -200,25 +200,54 @@ export function KycFlow({
   const [started, setStarted] = useState(false);
   const [active, setActive] = useState<KycCategory | null>(null);
   const [capturing, setCapturing] = useState<{ slug: string; side: number } | null>(null);
+  /** Lecture OCR en cours : la pièce vient d'être prise, on lit la MRZ. */
   const [reading, setReading] = useState(false);
+  /**
+   * Le parcours plein écran est monté dans `document.body` (portail). C'est
+   * indispensable : la zone principale du site porte une animation de page
+   * avec `transform`, et un ancêtre transformé devient le référentiel de tout
+   * enfant `position: fixed` — l'écran de vérification se retrouvait alors
+   * enfermé dans la hauteur de l'étape, apparemment vide. Le portail n'est
+   * disponible qu'après hydratation, d'où ce drapeau.
+   */
   const [mounted, setMounted] = useState(false);
-
   useEffect(() => setMounted(true), []);
 
+  /**
+   * Références toujours à jour sur l'état et sur le rappel de changement.
+   * Elles sont indispensables depuis la lecture de pièce, qui se termine en
+   * arrière-plan : sans elles, la lecture écraserait un état déjà périmé.
+   */
   const stateRef = useRef(state);
   stateRef.current = state;
   const onChangeRef = useRef(onChange);
   onChangeRef.current = onChange;
+  /** Nombre de lectures de pièce encore en cours. */
   const readingCount = useRef(0);
 
+  /**
+   * Décision d'identité rendue par le serveur. Le navigateur ne calcule rien :
+   * il envoie les mesures et le texte lu, et affiche la réponse du back-end.
+   * La politique actuelle du serveur place chaque résultat en revue manuelle ;
+   * les branches passed/failed restent disponibles pour une évolution future.
+   */
   const assessFn = useServerFn(assessKyc);
   const [assessment, setAssessment] = useState<KycAssessment | null>(null);
   const [assessing, setAssessing] = useState(false);
   const [assessError, setAssessError] = useState(false);
   const assessedSignature = useRef<string>("");
 
+  // Dès le lancement, le parcours occupe l'écran entier : le chrome du site
+  // s'efface et la page ne défile plus. Une étape = un écran = un geste.
   useImmersiveMode(started);
 
+  /**
+   * Préchargement. Dès que le parcours s'ouvre, le moteur de lecture de pièce
+   * et le moteur de repères faciaux sont téléchargés en tâche de fond, pendant
+   * que la personne lit les consignes. Quand elle scanne sa pièce ou lance le
+   * contrôle du visage, tout est déjà prêt : plus d'attente au moment du geste.
+   * Les moteurs sont relâchés à la sortie du parcours.
+   */
   useEffect(() => {
     if (!started) return;
     void warmOcrEngine();
@@ -238,7 +267,6 @@ export function KycFlow({
       }),
     [documentTypes, employmentStatus, productSlug, allowedIdDocuments, countryCode],
   );
-
   const categories = CATEGORY_ORDER.filter((c) => plan[c].length > 0);
 
   const categoryStatus = (category: KycCategory): KycStatus => {
@@ -250,7 +278,9 @@ export function KycFlow({
     const got = (state.files[chosen] ?? []).length;
     if (got === 0) return "in_progress";
     if (got < needed) return "capturing";
-    return state.statuses[category] ?? "passed";
+    // Une capture complète n'est pas une validation KYC : elle reste en
+    // vérification jusqu'à la revue de conformité.
+    return state.statuses[category] ?? "verifying";
   };
 
   const patch = (next: Partial<KycState>) => onChange({ ...state, ...next });
@@ -258,18 +288,25 @@ export function KycFlow({
   const choose = (category: KycCategory, slug: string) => {
     const previous = state.choices[category];
     const files = { ...state.files };
-
     if (previous && previous !== slug) {
       (files[previous] ?? []).forEach((f) => URL.revokeObjectURL(f.preview));
       delete files[previous];
     }
-
     patch({ choices: { ...state.choices, [category]: slug }, files });
-
+    // Le choix du type de pièce ouvre directement l'écran de capture, en plein
+    // écran : plus de cadre qui apparaît en bas de page, plus de défilement.
     const doc = plan[category].find((d) => d.slug === slug);
     if (doc) setCapturing({ slug, side: 1 });
   };
 
+  /**
+   * Enregistre une capture puis enchaîne de lui-même : verso après recto, puis
+   * retour à l'écran de l'étape. Le client ne revient jamais chercher un
+   * bouton — l'écran suivant vient à lui.
+   *
+   * Pour une pièce d'identité, la bande MRZ est lue ici, sur l'appareil, avant
+   * l'enchaînement : l'image ne quitte pas le téléphone pour être lue.
+   */
   const addCapture = useCallback(
     async (
       category: KycCategory,
@@ -282,12 +319,10 @@ export function KycFlow({
       const current = stateRef.current.files[doc.slug] ?? [];
       current.filter((f) => f.side === side).forEach((f) => URL.revokeObjectURL(f.preview));
 
-      const next = current
-        .filter((f) => f.side !== side)
-        .concat({ file, preview, side, evidence });
-
+      // L'enchaînement est immédiat : la capture est retenue tout de suite et
+      // l'écran suivant s'affiche sans attendre quoi que ce soit.
+      const next = current.filter((f) => f.side !== side).concat({ file, preview, side, evidence });
       next.sort((a, b) => a.side - b.side);
-
       onChangeRef.current({
         ...stateRef.current,
         files: { ...stateRef.current.files, [doc.slug]: next },
@@ -297,20 +332,20 @@ export function KycFlow({
       const missing = Array.from({ length: needed }, (_, i) => i + 1).find(
         (s) => !next.some((f) => f.side === s),
       );
-
       setCapturing(missing ? { slug: doc.slug, side: missing } : null);
 
+      // Lecture de la pièce : en arrière-plan, jamais devant le client. Elle se
+      // fait sur l'appareil pendant que la personne continue son parcours, et
+      // vient compléter la capture déjà enregistrée dès qu'elle aboutit.
       if (category !== "identity" || !file.type.startsWith("image/")) return;
-
       readingCount.current += 1;
       setReading(true);
-
       void readIdentityDocument(file)
         .then((ocr) => {
           const shots = stateRef.current.files[doc.slug] ?? [];
-
+          // La capture a pu être reprise ou supprimée entre-temps : dans ce
+          // cas la lecture est simplement abandonnée.
           if (!shots.some((f) => f.side === side && f.file === file)) return;
-
           onChangeRef.current({
             ...stateRef.current,
             files: {
@@ -322,7 +357,8 @@ export function KycFlow({
           });
         })
         .catch(() => {
-          // Une lecture impossible n'arrête jamais le client.
+          // Une lecture impossible n'arrête jamais le client : la pièce part
+          // telle quelle et la conformité tranchera.
         })
         .finally(() => {
           readingCount.current = Math.max(0, readingCount.current - 1);
@@ -335,22 +371,19 @@ export function KycFlow({
   const removeCapture = (slug: string, side: number) => {
     const current = state.files[slug] ?? [];
     current.filter((f) => f.side === side).forEach((f) => URL.revokeObjectURL(f.preview));
-
-    patch({
-      files: {
-        ...state.files,
-        [slug]: current.filter((f) => f.side !== side),
-      },
-    });
+    patch({ files: { ...state.files, [slug]: current.filter((f) => f.side !== side) } });
   };
 
   const complete = (c: KycCategory) =>
     ["passed", "verifying", "manual_review"].includes(categoryStatus(c));
-
   const index = active ? categories.indexOf(active) : categories.length;
   const goNext = () => setActive(categories[index + 1] ?? null);
   const goPrev = () => setActive(index > 0 ? categories[index - 1]! : null);
 
+  /* --------------------- Décision d'identité (serveur) -------------------
+   * Le récapitulatif n'affiche jamais un verdict fabriqué à l'écran : les
+   * mesures de capture et le texte OCR/MRZ partent au serveur, qui revalide
+   * tout et renvoie la décision. Rien n'est conservé côté navigateur. */
   const assessPayload = useMemo(() => {
     const documents: {
       document_type_slug: string;
@@ -359,14 +392,11 @@ export function KycFlow({
       capture_evidence?: unknown;
       ocr?: unknown;
     }[] = [];
-
     for (const category of categories) {
       const docs = plan[category];
       const chosen = state.choices[category] ?? (docs.length === 1 ? docs[0]!.slug : "");
       const doc = docs.find((d) => d.slug === chosen);
-
       if (!doc) continue;
-
       for (const shot of state.files[doc.slug] ?? []) {
         documents.push({
           document_type_slug: doc.slug,
@@ -389,7 +419,6 @@ export function KycFlow({
         });
       }
     }
-
     return documents;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state, categories.join("|")]);
@@ -411,14 +440,11 @@ export function KycFlow({
   useEffect(() => {
     if (!onRecap || reading || assessPayload.length === 0) return;
     if (assessedSignature.current === assessSignature) return;
-
     assessedSignature.current = assessSignature;
     let cancelled = false;
-
     setAssessing(true);
     setAssessment(null);
     setAssessError(false);
-
     void assessFn({
       data: {
         identity: {
@@ -435,13 +461,13 @@ export function KycFlow({
       })
       .catch(() => {
         if (cancelled) return;
+        // Une erreur technique n'est jamais une décision de conformité.
         assessedSignature.current = "";
         setAssessError(true);
       })
       .finally(() => {
         if (!cancelled) setAssessing(false);
       });
-
     return () => {
       cancelled = true;
       assessedSignature.current = "";
@@ -449,54 +475,59 @@ export function KycFlow({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onRecap, assessSignature, reading]);
 
+  /**
+   * Écran plein du parcours. Le contenu occupe l'affichage entier, le chrome
+   * du site est masqué, et chaque changement d'étape glisse latéralement : le
+   * client perçoit une page qui succède à une page, pas un bloc qui s'ouvre.
+   */
   const screen = (key: string, content: ReactNode, bare = false) => {
     const overlay = (
-      <div className="fixed inset-0 z-[70] flex min-h-0 min-w-0 flex-col overflow-hidden bg-background">
+      <div className="fixed inset-0 z-[70] flex min-h-0 flex-col overflow-hidden bg-background">
         {bare ? (
-          <div
-            key={key}
-            className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden duration-300 animate-in fade-in"
-          >
+          <div key={key} className="flex min-h-0 flex-1 flex-col duration-300 animate-in fade-in">
             {content}
           </div>
         ) : (
           <div
             key={key}
-            className="mx-auto flex w-full max-w-lg min-h-0 min-w-0 flex-1 flex-col gap-4 overflow-y-auto overflow-x-hidden px-3 pb-[max(env(safe-area-inset-bottom),1rem)] pt-[max(env(safe-area-inset-top),1rem)] sm:gap-5 sm:px-4 sm:pb-[max(env(safe-area-inset-bottom),1.5rem)] sm:pt-[max(env(safe-area-inset-top),1.5rem)] duration-300 animate-in fade-in slide-in-from-right-6"
+            className="mx-auto flex w-full max-w-lg min-h-0 flex-1 flex-col gap-5 overflow-y-auto px-4 pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-[max(env(safe-area-inset-top),1.5rem)] duration-300 animate-in fade-in slide-in-from-right-6"
           >
             {content}
           </div>
         )}
-
+        {/* La lecture de la pièce se fait en arrière-plan : elle ne barre plus
+            l'écran ni n'interrompt le parcours. Un simple bandeau discret
+            indique qu'elle est en cours, et la personne continue. */}
         {reading && (
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center px-3 pb-[max(env(safe-area-inset-bottom),1rem)]">
-            <div className="flex min-w-0 max-w-[calc(100vw-1.5rem)] items-center gap-2 rounded-full border border-border bg-background/95 px-3.5 py-2 shadow-lg backdrop-blur-sm">
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center p-4">
+            <div className="flex items-center gap-2 rounded-full border border-border bg-background/95 px-3.5 py-2 shadow-lg backdrop-blur-sm">
               <Loader2 className="h-4 w-4 shrink-0 animate-spin text-primary" aria-hidden />
-              <p className="min-w-0 break-words text-xs font-medium">{t("kyc.reading.title")}</p>
+              <p className="text-xs font-medium">{t("kyc.reading.title")}</p>
             </div>
           </div>
         )}
       </div>
     );
-
+    // Hors du flux de la page : sinon l'animation de page (`transform`) de la
+    // zone principale confine ce `fixed` et l'écran paraît vide.
     return mounted ? createPortal(overlay, document.body) : overlay;
   };
 
+  /** Barre supérieure commune : sortie du parcours et retour d'étape. */
   const topBar = (onBack?: () => void) => (
-    <div className="flex min-w-0 items-center justify-between gap-3">
+    <div className="flex items-center justify-between">
       {onBack ? (
         <button
           type="button"
           onClick={onBack}
-          className="-ml-2 flex min-w-0 items-center gap-1 rounded-md px-2 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          className="-ml-2 flex items-center gap-1 rounded-md px-2 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
-          <ChevronRight className="h-4 w-4 shrink-0 rotate-180" aria-hidden />
-          <span className="break-words">{t("common.back")}</span>
+          <ChevronRight className="h-4 w-4 rotate-180" aria-hidden />
+          {t("common.back")}
         </button>
       ) : (
         <span />
       )}
-
       <button
         type="button"
         onClick={() => {
@@ -504,7 +535,7 @@ export function KycFlow({
           setStarted(false);
         }}
         aria-label={t("common.close")}
-        className="-mr-2 shrink-0 rounded-md p-1.5 text-muted-foreground transition-colors hover:text-foreground"
+        className="-mr-2 rounded-md p-1.5 text-muted-foreground transition-colors hover:text-foreground"
       >
         <X className="h-4 w-4" aria-hidden />
       </button>
@@ -514,63 +545,52 @@ export function KycFlow({
   /* ------------------------------- Intro ------------------------------- */
   if (!started) {
     return (
-      <div className="min-w-0 space-y-6">
-        <div className="flex min-w-0 items-start gap-3 rounded-xl border border-border bg-gradient-to-br from-primary/5 to-transparent p-4 sm:gap-4 sm:p-5">
+      <div className="space-y-6">
+        <div className="flex items-start gap-4 rounded-xl border border-border bg-gradient-to-br from-primary/5 to-transparent p-5">
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
             <ShieldCheck className="h-5 w-5" aria-hidden />
           </span>
-
-          <div className="min-w-0 flex-1">
-            <h2 className="break-words text-base font-semibold">
-              {t("kyc.intro.title")}
-            </h2>
-
-            <p className="mt-1 break-words text-sm leading-relaxed text-muted-foreground">
+          <div className="min-w-0">
+            <h2 className="text-base font-semibold">{t("kyc.intro.title")}</h2>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
               {t("kyc.intro.why")}
             </p>
           </div>
         </div>
 
-        <ol className="min-w-0 space-y-2.5">
+        <ol className="space-y-2.5">
           {categories.map((category, i) => {
             const Icon = CATEGORY_ICON[category];
-
             return (
               <li
                 key={category}
-                className="flex min-w-0 items-start gap-3 rounded-lg border border-border px-3.5 py-3"
+                className="flex items-center gap-3 rounded-lg border border-border px-3.5 py-3"
               >
-                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
                   <Icon className="h-4 w-4" aria-hidden />
                 </span>
-
                 <span className="min-w-0 flex-1">
-                  <span className="block break-words text-sm font-medium">
+                  <span className="block text-sm font-medium">
                     {t(`kyc.category.${category}.title`)}
                   </span>
-
-                  <span className="mt-0.5 block break-words text-xs leading-relaxed text-muted-foreground">
+                  <span className="block text-xs text-muted-foreground">
                     {t(`kyc.category.${category}.desc`)}
                   </span>
                 </span>
-
-                <span className="shrink-0 pt-1 text-xs tabular-nums text-muted-foreground">
-                  {i + 1}
-                </span>
+                <span className="shrink-0 text-xs tabular-nums text-muted-foreground">{i + 1}</span>
               </li>
             );
           })}
         </ol>
 
-        <div className="grid min-w-0 gap-3 sm:grid-cols-2">
-          <p className="flex min-w-0 items-start gap-2 rounded-lg bg-muted/50 p-3 text-xs leading-relaxed text-muted-foreground">
+        <div className="grid gap-3 sm:grid-cols-2">
+          <p className="flex items-start gap-2 rounded-lg bg-muted/50 p-3 text-xs leading-relaxed text-muted-foreground">
             <ScanFace className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
-            <span className="min-w-0 break-words">{t("kyc.intro.camera")}</span>
+            {t("kyc.intro.camera")}
           </p>
-
-          <p className="flex min-w-0 items-start gap-2 rounded-lg bg-muted/50 p-3 text-xs leading-relaxed text-muted-foreground">
+          <p className="flex items-start gap-2 rounded-lg bg-muted/50 p-3 text-xs leading-relaxed text-muted-foreground">
             <Lock className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
-            <span className="min-w-0 break-words">{t("kyc.intro.privacy")}</span>
+            {t("kyc.intro.privacy")}
           </p>
         </div>
 
@@ -583,24 +603,29 @@ export function KycFlow({
             setActive(categories[0] ?? null);
           }}
         >
-          <span className="min-w-0 break-words">{t("kyc.intro.start")}</span>
-          <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
+          {t("kyc.intro.start")}
+          <ChevronRight className="h-4 w-4" aria-hidden />
         </Button>
       </div>
     );
   }
 
-  /* ------------------------- Active capture screen ---------------------- */
+  /* ------------------------- Active capture screen ----------------------
+   *
+   * Trois chemins distincts, jamais interchangeables :
+   *   - pièce d'identité  : scanner caméra arrière, déclenchement automatique,
+   *                         recto/verso uniquement si la pièce l'exige ;
+   *   - vivacité          : caméra frontale imposée, aucun import possible ;
+   *   - justificatifs     : import depuis les fichiers OU scan caméra.
+   * -------------------------------------------------------------------- */
   if (active && capturing) {
     const doc = plan[active].find((d) => d.slug === capturing.slug);
-
     if (doc) {
       const twoSided = doc.capture_mode === "scan_double" && doc.sides > 1;
       const sideKey = twoSided ? (capturing.side === 1 ? "front" : "back") : "single";
       const label = twoSided
         ? `${docLabel(doc, t)} — ${t(`kyc.side.${sideKey}`)}`
         : docLabel(doc, t);
-
       const close = () => setCapturing(null);
 
       if (doc.capture_mode === "selfie") {
@@ -654,22 +679,20 @@ export function KycFlow({
 
   /* ---------------------------- Progress rail --------------------------- */
   const rail = (
-    <div className="min-w-0 space-y-2">
-      <div className="flex min-w-0 items-center justify-between gap-3 text-xs text-muted-foreground">
-        <span className="min-w-0 break-words font-medium tabular-nums">
+    <div className="space-y-2">
+      <div className="flex items-center justify-between text-xs text-muted-foreground">
+        <span className="font-medium tabular-nums">
           {t("kyc.stepOf", {
             current: Math.min(index + 1, categories.length),
             total: categories.length,
           })}
         </span>
-
-        <span className="shrink-0 tabular-nums">
+        <span className="tabular-nums">
           {categories.filter(complete).length}/{categories.length}
         </span>
       </div>
-
       <div
-        className="flex min-w-0 gap-1.5"
+        className="flex gap-1.5"
         role="progressbar"
         aria-valuemin={0}
         aria-valuemax={categories.length}
@@ -679,7 +702,7 @@ export function KycFlow({
           <span
             key={c}
             className={cn(
-              "h-1.5 min-w-0 flex-1 rounded-full transition-colors",
+              "h-1.5 flex-1 rounded-full transition-colors",
               complete(c) ? "bg-success" : i === index ? "bg-primary" : "bg-muted",
             )}
           />
@@ -695,60 +718,44 @@ export function KycFlow({
       <>
         {topBar()}
         {rail}
-
-        <div className="flex min-w-0 items-start gap-3 rounded-xl border border-success/30 bg-success/5 p-4 sm:gap-4 sm:p-5">
+        <div className="flex items-start gap-4 rounded-xl border border-success/30 bg-success/5 p-5">
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-success text-white">
             <CheckCircle2 className="h-5 w-5" aria-hidden />
           </span>
-
-          <div className="min-w-0 flex-1">
-            <h2 className="break-words text-base font-semibold">
-              {t("kyc.done.title")}
-            </h2>
-
-            <p className="mt-1 break-words text-sm leading-relaxed text-muted-foreground">
+          <div className="min-w-0">
+            <h2 className="text-base font-semibold">{t("kyc.done.title")}</h2>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
               {t("kyc.done.desc")}
             </p>
           </div>
         </div>
 
-        <DecisionCard
-          assessment={assessment}
-          loading={assessing || reading}
-          failed={assessError}
-        />
+        {/* Verdict d'identité — rendu par le serveur, jamais par l'écran. */}
+        <DecisionCard assessment={assessment} loading={assessing || reading} failed={assessError} />
 
-        <ul className="min-w-0 space-y-2">
+        <ul className="space-y-2">
           {categories.map((category) => {
             const Icon = CATEGORY_ICON[category];
             const docs = plan[category];
-            const chosen =
-              state.choices[category] ?? (docs.length === 1 ? docs[0]!.slug : "");
+            const chosen = state.choices[category] ?? (docs.length === 1 ? docs[0]!.slug : "");
             const doc = docs.find((d) => d.slug === chosen);
-
             return (
               <li
                 key={category}
-                className="flex min-w-0 flex-wrap items-center gap-2.5 rounded-lg border border-border px-3.5 py-3 sm:flex-nowrap sm:gap-3"
+                className="flex items-center gap-3 rounded-lg border border-border px-3.5 py-3"
               >
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
                   <Icon className="h-4 w-4" aria-hidden />
                 </span>
-
-                <span className="min-w-0 flex-[1_1_150px]">
-                  <span className="block break-words text-sm font-medium">
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-sm font-medium">
                     {t(`kyc.category.${category}.title`)}
                   </span>
-
-                  <span className="block break-words text-xs leading-relaxed text-muted-foreground">
-                    {doc
-                      ? docLabel(doc, t)
-                      : t(`kyc.category.${category}.desc`)}
+                  <span className="block truncate text-xs text-muted-foreground">
+                    {doc ? docLabel(doc, t) : t(`kyc.category.${category}.desc`)}
                   </span>
                 </span>
-
                 <StatusPill status={categoryStatus(category)} />
-
                 <button
                   type="button"
                   onClick={() => setActive(category)}
@@ -761,40 +768,37 @@ export function KycFlow({
           })}
         </ul>
 
-        <p className="flex min-w-0 items-start gap-2 rounded-lg bg-muted/50 p-3 text-xs leading-relaxed text-muted-foreground">
+        <p className="flex items-start gap-2 rounded-lg bg-muted/50 p-3 text-xs leading-relaxed text-muted-foreground">
           <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
-          <span className="min-w-0 break-words">{t("kyc.storageNotice")}</span>
+          {t("kyc.storageNotice")}
         </p>
 
-        <div className="flex flex-col-reverse gap-3 border-t border-border pt-4 sm:flex-row sm:items-center">
+        {/* Sortie du parcours : retour à la dernière étape, ou passage au
+         * récapitulatif de la demande. Une identité refusée ne peut pas
+         * continuer : la pièce doit être reprise. */}
+        <div className="flex items-center gap-3 border-t border-border pt-4">
           <Button
             type="button"
             variant="ghost"
-            className="w-full sm:w-auto"
-            onClick={() =>
-              setActive(categories[categories.length - 1] ?? null)
-            }
+            onClick={() => setActive(categories[categories.length - 1] ?? null)}
             disabled={categories.length === 0}
           >
             {t("common.back")}
           </Button>
-
           {assessment?.decision === "failed" ? (
             <Button
               type="button"
               variant="destructive"
-              className="w-full flex-1 sm:w-auto"
+              className="flex-1"
               onClick={() => setActive(categories[0] ?? null)}
             >
-              <RefreshCw className="h-4 w-4 shrink-0" aria-hidden />
-              <span className="min-w-0 break-words">
-                {t("kyc.decision.retry")}
-              </span>
+              <RefreshCw className="h-4 w-4" aria-hidden />
+              {t("kyc.decision.retry")}
             </Button>
           ) : (
             <Button
               type="button"
-              className="w-full flex-1 sm:w-auto"
+              className="flex-1"
               disabled={assessing}
               onClick={() => {
                 setCapturing(null);
@@ -802,13 +806,9 @@ export function KycFlow({
                 onComplete?.();
               }}
             >
-              {assessing && (
-                <Loader2 className="h-4 w-4 shrink-0 animate-spin" aria-hidden />
-              )}
-              <span className="min-w-0 break-words">
-                {t("common.continue")}
-              </span>
-              <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
+              {assessing && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
+              {t("common.continue")}
+              <ChevronRight className="h-4 w-4" aria-hidden />
             </Button>
           )}
         </div>
@@ -831,31 +831,25 @@ export function KycFlow({
       {topBar(index > 0 ? goPrev : undefined)}
       {rail}
 
-      <header className="flex min-w-0 items-start gap-3">
+      <header className="flex items-start gap-3.5">
         <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
           <ActiveIcon className="h-5 w-5" aria-hidden />
         </span>
-
         <div className="min-w-0 flex-1">
-          <h2 className="break-words text-base font-semibold">
-            {t(`kyc.category.${active}.title`)}
-          </h2>
-
-          <p className="mt-0.5 break-words text-sm leading-relaxed text-muted-foreground">
+          <h2 className="text-base font-semibold">{t(`kyc.category.${active}.title`)}</h2>
+          <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">
             {t(`kyc.category.${active}.desc`)}
           </p>
         </div>
-
         <StatusPill status={categoryStatus(active)} />
       </header>
 
       {docs.length > 1 && (
-        <div className="min-w-0">
-          <p className="mb-2 break-words text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        <div>
+          <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
             {t("kyc.chooseDocument")}
           </p>
-
-          <div className="grid min-w-0 gap-2 sm:grid-cols-2">
+          <div className="grid gap-2 sm:grid-cols-2">
             {docs.map((d) => (
               <button
                 key={d.slug}
@@ -863,7 +857,7 @@ export function KycFlow({
                 onClick={() => choose(active, d.slug)}
                 aria-pressed={d.slug === chosen}
                 className={cn(
-                  "flex min-w-0 items-start gap-2.5 rounded-lg border px-3 py-2.5 text-left text-sm transition-all",
+                  "flex items-center gap-2.5 rounded-lg border px-3 py-2.5 text-left text-sm transition-all",
                   d.slug === chosen
                     ? "border-primary bg-primary/5 ring-1 ring-primary"
                     : "border-border hover:border-ring/50",
@@ -871,15 +865,12 @@ export function KycFlow({
               >
                 <BadgeCheck
                   className={cn(
-                    "mt-0.5 h-4 w-4 shrink-0",
+                    "h-4 w-4 shrink-0",
                     d.slug === chosen ? "text-primary" : "text-muted-foreground",
                   )}
                   aria-hidden
                 />
-
-                <span className="min-w-0 flex-1 break-words">
-                  {docLabel(d, t)}
-                </span>
+                <span className="min-w-0 flex-1 truncate">{docLabel(d, t)}</span>
               </button>
             ))}
           </div>
@@ -887,23 +878,13 @@ export function KycFlow({
       )}
 
       {doc && (
-        <div className="min-w-0 space-y-3">
-          <div
-            className={cn(
-              "grid min-w-0 gap-3",
-              needed > 1 ? "sm:grid-cols-2" : "",
-            )}
-          >
+        <div className="space-y-3">
+          <div className={cn("grid gap-3", needed > 1 ? "sm:grid-cols-2" : "")}>
             {Array.from({ length: needed }, (_, i) => i + 1).map((side) => {
               const shot = captured.find((f) => f.side === side);
-              const sideKey =
-                needed > 1 ? (side === 1 ? "front" : "back") : "single";
-
+              const sideKey = needed > 1 ? (side === 1 ? "front" : "back") : "single";
               return (
-                <div
-                  key={side}
-                  className="min-w-0 overflow-hidden rounded-lg border border-border"
-                >
+                <div key={side} className="overflow-hidden rounded-lg border border-border">
                   <div className="relative aspect-[1.586/1] bg-muted/60">
                     {shot && shot.file.type.startsWith("image/") ? (
                       <img
@@ -913,9 +894,8 @@ export function KycFlow({
                       />
                     ) : shot ? (
                       <div className="absolute inset-0 grid place-items-center gap-1 text-muted-foreground">
-                        <FileText className="h-6 w-6 shrink-0" aria-hidden />
-
-                        <span className="max-w-[85%] break-words px-2 text-center text-[11px]">
+                        <FileText className="h-6 w-6" aria-hidden />
+                        <span className="max-w-[85%] truncate px-2 text-[11px]">
                           {shot.file.name}
                         </span>
                       </div>
@@ -925,47 +905,36 @@ export function KycFlow({
                       </div>
                     )}
                   </div>
-
-                  <div className="flex min-w-0 flex-col gap-2 px-3 py-2 sm:flex-row sm:items-center sm:justify-between">
-                    <span className="min-w-0 break-words text-xs font-medium">
-                      {t(`kyc.side.${sideKey}`)}
-                    </span>
-
-                    <span className="flex shrink-0 items-center gap-1 self-end sm:self-auto">
+                  <div className="flex items-center justify-between gap-2 px-3 py-2">
+                    <span className="truncate text-xs font-medium">{t(`kyc.side.${sideKey}`)}</span>
+                    <span className="flex shrink-0 items-center gap-1">
                       <Button
                         type="button"
                         size="sm"
                         variant={shot ? "outline" : "default"}
-                        className="max-w-full"
-                        onClick={() =>
-                          setCapturing({ slug: doc.slug, side })
-                        }
+                        onClick={() => setCapturing({ slug: doc.slug, side })}
                       >
                         {shot ? (
-                          <RefreshCw className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                          <RefreshCw className="h-3.5 w-3.5" aria-hidden />
                         ) : doc.capture_mode === "selfie" ? (
-                          <ScanFace className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                          <ScanFace className="h-3.5 w-3.5" aria-hidden />
                         ) : (
-                          <ScanLine className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                          <ScanLine className="h-3.5 w-3.5" aria-hidden />
                         )}
-
-                        <span className="min-w-0 break-words">
-                          {shot
-                            ? t("kyc.retake")
-                            : doc.capture_mode === "selfie"
-                              ? t("kyc.startLiveness")
-                              : doc.capture_mode === "upload"
-                                ? t("kyc.addDocument")
-                                : t("kyc.scan")}
-                        </span>
+                        {shot
+                          ? t("kyc.retake")
+                          : doc.capture_mode === "selfie"
+                            ? t("kyc.startLiveness")
+                            : doc.capture_mode === "upload"
+                              ? t("kyc.addDocument")
+                              : t("kyc.scan")}
                       </Button>
-
                       {shot && (
                         <button
                           type="button"
                           onClick={() => removeCapture(doc.slug, side)}
                           aria-label={t("common.delete")}
-                          className="shrink-0 rounded p-1.5 text-muted-foreground hover:text-destructive"
+                          className="rounded p-1.5 text-muted-foreground hover:text-destructive"
                         >
                           <Trash2 className="h-3.5 w-3.5" aria-hidden />
                         </button>
@@ -976,49 +945,29 @@ export function KycFlow({
               );
             })}
           </div>
-
-          <p className="break-words text-xs leading-relaxed text-muted-foreground">
+          <p className="text-xs leading-relaxed text-muted-foreground">
             {t(`kyc.hint.${doc.capture_mode}`)}
           </p>
         </div>
       )}
 
       {docs.length === 0 && (
-        <p className="break-words text-sm text-muted-foreground">
-          {t("kyc.nothingRequired")}
-        </p>
+        <p className="text-sm text-muted-foreground">{t("kyc.nothingRequired")}</p>
       )}
 
-      <div className="flex flex-col-reverse gap-3 border-t border-border pt-4 sm:flex-row sm:items-center">
-        <Button
-          type="button"
-          variant="ghost"
-          className="w-full sm:w-auto"
-          onClick={goPrev}
-          disabled={index === 0}
-        >
+      <div className="flex items-center gap-3 border-t border-border pt-4">
+        <Button type="button" variant="ghost" onClick={goPrev} disabled={index === 0}>
           {t("common.back")}
         </Button>
-
-        <Button
-          type="button"
-          className="w-full flex-1 sm:w-auto"
-          onClick={goNext}
-          disabled={!canContinue}
-        >
-          <span className="min-w-0 break-words">
-            {index === categories.length - 1
-              ? t("kyc.finish")
-              : t("common.continue")}
-          </span>
-
-          <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
+        <Button type="button" className="flex-1" onClick={goNext} disabled={!canContinue}>
+          {index === categories.length - 1 ? t("kyc.finish") : t("common.continue")}
+          <ChevronRight className="h-4 w-4" aria-hidden />
         </Button>
       </div>
 
-      <p className="flex min-w-0 items-start gap-2 rounded-lg bg-muted/50 p-3 text-xs leading-relaxed text-muted-foreground">
+      <p className="flex items-start gap-2 rounded-lg bg-muted/50 p-3 text-xs leading-relaxed text-muted-foreground">
         <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
-        <span className="min-w-0 break-words">{t("kyc.storageNotice")}</span>
+        {t("kyc.storageNotice")}
       </p>
     </>,
   );
@@ -1026,7 +975,6 @@ export function KycFlow({
 
 function StatusPill({ status }: { status: KycStatus }) {
   const { t } = useTranslation();
-
   const map: Record<
     KycStatus,
     { className: string; Icon: React.ComponentType<{ className?: string }> }
@@ -1040,9 +988,7 @@ function StatusPill({ status }: { status: KycStatus }) {
     retry: { className: "bg-warning/15 text-warning", Icon: RefreshCw },
     manual_review: { className: "bg-warning/15 text-warning", Icon: ShieldCheck },
   };
-
   const { className, Icon } = map[status];
-
   return (
     <span
       className={cn(
@@ -1050,10 +996,8 @@ function StatusPill({ status }: { status: KycStatus }) {
         className,
       )}
     >
-      <Icon className="h-3 w-3 shrink-0" aria-hidden />
-      <span className="hidden break-words sm:inline">
-        {t(`kyc.status.${status}`)}
-      </span>
+      <Icon className="h-3 w-3" aria-hidden />
+      <span className="hidden sm:inline">{t(`kyc.status.${status}`)}</span>
     </span>
   );
 }
@@ -1062,9 +1006,10 @@ function StatusPill({ status }: { status: KycStatus }) {
  * Verdict d'identité affiché au client.
  *
  * Le composant ne juge rien et ne montre rien d'interne : il rend la seule
- * décision renvoyée par le serveur — vérifiée, en examen par le service
- * conformité, ou non vérifiée — avec son illustration dédiée et une phrase
- * claire. Le score, les motifs machine et les contrôles champ par champ
+ * décision renvoyée par le serveur. La politique actuelle impose l'examen par
+ * le service conformité pour tous les dossiers ; les rendus passed/failed
+ * restent présents sans pouvoir être choisis par le navigateur. Le score, les
+ * motifs machine et les contrôles champ par champ
  * restent dans le dossier de conformité ; ils ne sont jamais présentés au
  * client. En l'absence de réponse du serveur, le dossier est simplement
  * annoncé en examen.
@@ -1082,17 +1027,11 @@ function DecisionCard({
 
   if (loading) {
     return (
-      <div className="flex min-w-0 items-start gap-3 rounded-xl border border-border bg-muted/40 p-4">
-        <Loader2 className="mt-0.5 h-5 w-5 shrink-0 animate-spin text-primary" aria-hidden />
-
-        <div className="min-w-0 flex-1">
-          <p className="break-words text-sm font-medium">
-            {t("kyc.decision.checking")}
-          </p>
-
-          <p className="mt-0.5 break-words text-xs leading-relaxed text-muted-foreground">
-            {t("kyc.decision.checkingDesc")}
-          </p>
+      <div className="flex items-center gap-3 rounded-xl border border-border bg-muted/40 p-4">
+        <Loader2 className="h-5 w-5 shrink-0 animate-spin text-primary" aria-hidden />
+        <div className="min-w-0">
+          <p className="text-sm font-medium">{t("kyc.decision.checking")}</p>
+          <p className="mt-0.5 text-xs text-muted-foreground">{t("kyc.decision.checkingDesc")}</p>
         </div>
       </div>
     );
@@ -1100,21 +1039,12 @@ function DecisionCard({
 
   if (failed || !assessment) {
     return (
-      <div
-        role="alert"
-        className="min-w-0 rounded-xl border border-border bg-muted/40 p-4"
-      >
-        <p className="break-words text-sm font-medium">
-          {t("kyc.decision.unavailable")}
-        </p>
-
-        <p className="mt-1 break-words text-xs leading-relaxed text-muted-foreground">
-          {t("kyc.decision.unavailableNotice")}
-        </p>
+      <div role="alert" className="border border-border bg-muted/40 p-4">
+        <p className="text-sm font-medium">{t("kyc.decision.unavailable")}</p>
+        <p className="mt-1 text-xs text-muted-foreground">{t("kyc.decision.unavailableNotice")}</p>
       </div>
     );
   }
-
   const decision = assessment.decision;
 
   const view =
@@ -1141,25 +1071,15 @@ function DecisionCard({
       role="status"
       aria-live="polite"
       className={cn(
-        "flex min-w-0 flex-col items-center gap-4 rounded-xl border p-4 text-center sm:flex-row sm:items-center sm:gap-5 sm:p-6 sm:text-left",
+        "flex flex-col items-center gap-4 rounded-xl border p-6 text-center sm:flex-row sm:items-center sm:gap-5 sm:text-left",
         view.box,
       )}
     >
-      <div className="shrink-0">
-        <view.Art />
-      </div>
-
-      <div className="min-w-0 flex-1">
-        <p className="break-words text-base font-semibold">
-          {t(`kyc.decision.${decision}`)}
-        </p>
-
-        <p className="mt-1 break-words text-sm leading-relaxed text-muted-foreground">
-          {t(view.notice)}
-        </p>
+      <view.Art />
+      <div className="min-w-0">
+        <p className="text-base font-semibold">{t(`kyc.decision.${decision}`)}</p>
+        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t(view.notice)}</p>
       </div>
     </div>
   );
 }
-
-
