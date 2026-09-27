@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "Všetky požadované dokumenty boli nasnímané. Pred odoslaním žiadosti si ich môžete skontrolovať alebo nahradiť.",
-      "title": "Overenie dokončené"
+      "title": "Overenie dokončené",
+      "continueApplication": "Pokračovať v žiadosti",
+      "nextStep": "Ďalší krok",
+      "openingReview": "Otvára sa súhrn…",
+      "progressLabel": "Priebeh žiadosti",
+      "reviewPrompt": "Pred odoslaním skontrolujte súhrn svojej žiadosti."
     },
     "finish": "Dokončiť",
     "hint": {

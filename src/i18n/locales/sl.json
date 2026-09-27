@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "Vsi zahtevani dokumenti so zajeti. Pred oddajo vloge jih lahko pregledate ali zamenjate.",
-      "title": "Identifikacija zaključena"
+      "title": "Identifikacija zaključena",
+      "continueApplication": "Nadaljuj mojo vlogo",
+      "nextStep": "Naslednji korak",
+      "openingReview": "Odpiranje povzetka…",
+      "progressLabel": "Napredek vloge",
+      "reviewPrompt": "Pred oddajo preverite povzetek svoje vloge."
     },
     "finish": "Dokončaj",
     "hint": {

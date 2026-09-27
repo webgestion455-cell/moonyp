@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "Kaikki vaaditut asiakirjat on kuvattu. Voitte vielä tarkistaa tai vaihtaa asiakirjoja ennen hakemuksen lopullista lähettämistä.",
-      "title": "Tunnistautuminen valmis"
+      "title": "Tunnistautuminen valmis",
+      "continueApplication": "Jatka hakemustani",
+      "nextStep": "Seuraava vaihe",
+      "openingReview": "Avataan yhteenvetoa…",
+      "progressLabel": "Hakemuksen eteneminen",
+      "reviewPrompt": "Tarkista hakemuksesi yhteenveto ennen lähettämistä."
     },
     "finish": "Valmis",
     "hint": {

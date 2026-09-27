@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "All required documents have been captured. You can review or replace any of them before submitting your application.",
-      "title": "Verification complete"
+      "title": "Verification complete",
+      "continueApplication": "Continue my application",
+      "nextStep": "Next step",
+      "openingReview": "Opening your application review…",
+      "progressLabel": "Application progress",
+      "reviewPrompt": "Review your application summary before submitting it."
     },
     "finish": "Finish",
     "hint": {

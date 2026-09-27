@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "L'acquisizione di tutti i documenti richiesti è terminata. È possibile esaminare o sostituire i file prima di trasmettere la richiesta.",
-      "title": "Verifica completata"
+      "title": "Verifica completata",
+      "continueApplication": "Continua la mia richiesta",
+      "nextStep": "Passaggio successivo",
+      "openingReview": "Apertura del riepilogo…",
+      "progressLabel": "Avanzamento della richiesta",
+      "reviewPrompt": "Controlli il riepilogo della sua richiesta prima di inviarla."
     },
     "finish": "Concludi",
     "hint": {

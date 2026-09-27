@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "Se han capturado todos los documentos requeridos. Puede revisar o sustituir cualquiera de ellos antes de enviar su solicitud.",
-      "title": "Verificación completada"
+      "title": "Verificación completada",
+      "continueApplication": "Continuar mi solicitud",
+      "nextStep": "Siguiente paso",
+      "openingReview": "Abriendo el resumen…",
+      "progressLabel": "Progreso de la solicitud",
+      "reviewPrompt": "Revise el resumen de su solicitud antes de enviarla."
     },
     "finish": "Finalizar",
     "hint": {

@@ -235,7 +235,16 @@ export function KycFlow({
   const [assessment, setAssessment] = useState<KycAssessment | null>(null);
   const [assessing, setAssessing] = useState(false);
   const [assessError, setAssessError] = useState(false);
+  const [continuing, setContinuing] = useState(false);
   const assessedSignature = useRef<string>("");
+  const continueResetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(
+    () => () => {
+      if (continueResetTimer.current) clearTimeout(continueResetTimer.current);
+    },
+    [],
+  );
 
   // Dès le lancement, le parcours occupe l'écran entier : le chrome du site
   // s'efface et la page ne défile plus. Une étape = un écran = un geste.
@@ -436,6 +445,28 @@ export function KycFlow({
   );
 
   const onRecap = started && !active;
+  const continuesToApplicationReview = productSlug.length > 0;
+
+  /**
+   * Conserve la sortie existante vers le récapitulatif. Le double
+   * requestAnimationFrame laisse simplement le navigateur peindre l'état de
+   * chargement avant le changement d'étape. Si le parent ne change pas
+   * d'écran, le bouton redevient disponible rapidement.
+   */
+  const continueToNextStep = () => {
+    if (continuing || assessing) return;
+    setContinuing(true);
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        try {
+          onComplete?.();
+          continueResetTimer.current = setTimeout(() => setContinuing(false), 1200);
+        } catch {
+          setContinuing(false);
+        }
+      });
+    });
+  };
 
   useEffect(() => {
     if (!onRecap || reading || assessPayload.length === 0) return;
@@ -490,7 +521,12 @@ export function KycFlow({
         ) : (
           <div
             key={key}
-            className="mx-auto flex w-full max-w-lg min-h-0 flex-1 flex-col gap-5 overflow-y-auto px-4 pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-[max(env(safe-area-inset-top),1.5rem)] duration-300 animate-in fade-in slide-in-from-right-6"
+            className={cn(
+              "mx-auto flex w-full max-w-lg min-h-0 flex-1 flex-col gap-5 overflow-y-auto px-4 pt-[max(env(safe-area-inset-top),1.5rem)] duration-300 animate-in fade-in slide-in-from-right-6",
+              onRecap && continuesToApplicationReview
+                ? "pb-[calc(max(env(safe-area-inset-bottom),1rem)+5.5rem)] sm:pb-[max(env(safe-area-inset-bottom),1.5rem)]"
+                : "pb-[max(env(safe-area-inset-bottom),1.5rem)]",
+            )}
           >
             {content}
           </div>
@@ -713,13 +749,68 @@ export function KycFlow({
 
   /* --------------------------- Final recap step ------------------------- */
   if (!active) {
+    const canContinue = assessment?.decision !== "failed";
+    const continuationButton = (placement: "primary" | "footer" | "sticky") => (
+      <Button
+        type="button"
+        size="lg"
+        className={cn(
+          "min-h-12 w-full text-sm shadow-sm",
+          placement === "footer" && "sm:flex-1",
+        )}
+        disabled={assessing || continuing}
+        aria-busy={continuing}
+        onClick={continueToNextStep}
+      >
+        {continuing ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+            {t("kyc.done.openingReview")}
+          </>
+        ) : (
+          <>
+            {t("kyc.done.continueApplication")}
+            <ChevronRight className="h-4 w-4" aria-hidden />
+          </>
+        )}
+      </Button>
+    );
+
     return screen(
       "recap",
       <>
         {topBar()}
         {rail}
+
+        {continuesToApplicationReview && (
+          <div aria-label={t("kyc.done.progressLabel")} className="grid grid-cols-3 items-start gap-1">
+            <div className="flex min-w-0 flex-col items-center gap-2 text-center text-success">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-success/15">
+                <CheckCircle2 className="h-4 w-4" aria-hidden />
+              </span>
+              <span className="text-xs font-medium leading-tight">{t("kyc.done.title")}</span>
+            </div>
+            <div className="relative flex min-w-0 flex-col items-center gap-2 text-center text-primary">
+              <span className="absolute right-1/2 top-3.5 h-px w-full bg-success/40" aria-hidden />
+              <span className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-primary bg-background text-xs font-semibold">
+                2
+              </span>
+              <span className="text-xs font-semibold leading-tight">
+                {t("finance.apply.steps.review")}
+              </span>
+            </div>
+            <div className="relative flex min-w-0 flex-col items-center gap-2 text-center text-muted-foreground">
+              <span className="absolute right-1/2 top-3.5 h-px w-full bg-border" aria-hidden />
+              <span className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border bg-background text-xs font-medium">
+                3
+              </span>
+              <span className="text-xs font-medium leading-tight">{t("finance.apply.submit")}</span>
+            </div>
+          </div>
+        )}
+
         <div className="flex items-start gap-4 rounded-xl border border-success/30 bg-success/5 p-5">
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-success text-white">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-success text-success-foreground">
             <CheckCircle2 className="h-5 w-5" aria-hidden />
           </span>
           <div className="min-w-0">
@@ -729,6 +820,23 @@ export function KycFlow({
             </p>
           </div>
         </div>
+
+        {continuesToApplicationReview && canContinue && (
+          <section className="space-y-3" aria-labelledby="kyc-next-step-title">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+                {t("kyc.done.nextStep")}
+              </p>
+              <h2 id="kyc-next-step-title" className="mt-1 text-lg font-semibold">
+                {t("finance.apply.steps.review")}
+              </h2>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                {t("kyc.done.reviewPrompt")}
+              </p>
+            </div>
+            {continuationButton("primary")}
+          </section>
+        )}
 
         {/* Verdict d'identité — rendu par le serveur, jamais par l'écran. */}
         <DecisionCard assessment={assessment} loading={assessing || reading} failed={assessError} />
@@ -795,23 +903,22 @@ export function KycFlow({
               <RefreshCw className="h-4 w-4" aria-hidden />
               {t("kyc.decision.retry")}
             </Button>
+          ) : continuesToApplicationReview ? (
+            continuationButton("footer")
           ) : (
-            <Button
-              type="button"
-              className="flex-1"
-              disabled={assessing}
-              onClick={() => {
-                setCapturing(null);
-                setStarted(false);
-                onComplete?.();
-              }}
-            >
+            <Button type="button" className="flex-1" disabled={assessing} onClick={continueToNextStep}>
               {assessing && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
               {t("common.continue")}
               <ChevronRight className="h-4 w-4" aria-hidden />
             </Button>
           )}
         </div>
+
+        {continuesToApplicationReview && canContinue && (
+          <div className="fixed inset-x-0 bottom-0 z-20 border-t border-border bg-background/95 p-3 pb-[max(env(safe-area-inset-bottom),0.75rem)] backdrop-blur-sm sm:hidden">
+            <div className="mx-auto w-full max-w-lg">{continuationButton("sticky")}</div>
+          </div>
+        )}
       </>,
     );
   }

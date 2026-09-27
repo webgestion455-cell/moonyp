@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "Toate documentele necesare au fost capturate. Puteți revizui sau înlocui oricare dintre acestea înainte de a transmite solicitarea dumneavoastră.",
-      "title": "Verificare finalizată"
+      "title": "Verificare finalizată",
+      "continueApplication": "Continuă cererea mea",
+      "nextStep": "Pasul următor",
+      "openingReview": "Se deschide recapitularea…",
+      "progressLabel": "Progresul cererii",
+      "reviewPrompt": "Verificați recapitularea cererii înainte de a o trimite."
     },
     "finish": "Finalizare",
     "hint": {

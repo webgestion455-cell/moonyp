@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "Tous les justificatifs requis ont été capturés. Vous pouvez les vérifier ou les remplacer avant d'envoyer votre demande.",
-      "title": "Vérification terminée"
+      "title": "Vérification terminée",
+      "continueApplication": "Continuer ma demande",
+      "nextStep": "Prochaine étape",
+      "openingReview": "Ouverture du récapitulatif…",
+      "progressLabel": "Progression de la demande",
+      "reviewPrompt": "Vérifiez le récapitulatif de votre demande avant de la soumettre."
     },
     "finish": "Terminer",
     "hint": {

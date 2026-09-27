@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "Wszystkie wymagane dokumenty zostały zarejestrowane. Mogą Państwo przejrzeć lub wymienić dowolny z nich przed ostatecznym przesłaniem wniosku.",
-      "title": "Weryfikacja zakończona"
+      "title": "Weryfikacja zakończona",
+      "continueApplication": "Kontynuuj mój wniosek",
+      "nextStep": "Następny krok",
+      "openingReview": "Otwieranie podsumowania…",
+      "progressLabel": "Postęp wniosku",
+      "reviewPrompt": "Przed wysłaniem sprawdź podsumowanie swojego wniosku."
     },
     "finish": "Zakończ",
     "hint": {

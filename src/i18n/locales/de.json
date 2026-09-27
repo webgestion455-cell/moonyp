@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "Alle erforderlichen Dokumente wurden erfasst. Sie können diese vor dem Einreichen Ihres Antrags nochmals prüfen oder ersetzen.",
-      "title": "Identitätsprüfung abgeschlossen"
+      "title": "Identitätsprüfung abgeschlossen",
+      "continueApplication": "Antrag fortsetzen",
+      "nextStep": "Nächster Schritt",
+      "openingReview": "Übersicht wird geöffnet…",
+      "progressLabel": "Fortschritt des Antrags",
+      "reviewPrompt": "Prüfen Sie die Übersicht Ihres Antrags, bevor Sie ihn absenden."
     },
     "finish": "Abschließen",
     "hint": {

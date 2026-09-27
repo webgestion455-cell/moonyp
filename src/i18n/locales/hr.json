@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "Svi potrebni dokumenti su uspješno prikupljeni. Možete ih pregledati ili zamijeniti prije podnošenja zahtjeva.",
-      "title": "Verifikacija završena"
+      "title": "Verifikacija završena",
+      "continueApplication": "Nastavi moju prijavu",
+      "nextStep": "Sljedeći korak",
+      "openingReview": "Otvaranje sažetka…",
+      "progressLabel": "Napredak prijave",
+      "reviewPrompt": "Provjerite sažetak svoje prijave prije slanja."
     },
     "finish": "Završi",
     "hint": {

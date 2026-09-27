@@ -1371,7 +1371,12 @@
     },
     "done": {
       "desc": "Alle vereiste documenten zijn vastgelegd. U kunt deze controleren of vervangen voordat u uw aanvraag definitief indient.",
-      "title": "Verificatie voltooid"
+      "title": "Verificatie voltooid",
+      "continueApplication": "Mijn aanvraag voortzetten",
+      "nextStep": "Volgende stap",
+      "openingReview": "Overzicht openen…",
+      "progressLabel": "Voortgang van de aanvraag",
+      "reviewPrompt": "Controleer het overzicht van uw aanvraag voordat u deze indient."
     },
     "finish": "Voltooien",
     "hint": {
