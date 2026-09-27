@@ -913,12 +913,6 @@ export function KycFlow({
             </Button>
           )}
         </div>
-
-        {continuesToApplicationReview && canContinue && (
-          <div className="fixed inset-x-0 bottom-0 z-20 border-t border-border bg-background/95 p-3 pb-[max(env(safe-area-inset-bottom),0.75rem)] backdrop-blur-sm sm:hidden">
-            <div className="mx-auto w-full max-w-lg">{continuationButton("sticky")}</div>
-          </div>
-        )}
       </>,
     );
   }
