@@ -3,6 +3,7 @@ import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { INFO_REQUEST_KINDS, REASON_REQUIRED } from "@/lib/application-workflow";
 import { APPLICATION_STATUS_ORDER } from "@/lib/application-status";
+import { ensureApplicationKycChecks } from "@/lib/applications.functions";
 
 const STATUSES = APPLICATION_STATUS_ORDER as unknown as [
   (typeof APPLICATION_STATUS_ORDER)[number],
@@ -251,10 +252,14 @@ export const adminGetApplication = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((input) => z.object({ id: z.string().uuid() }).parse(input))
   .handler(async ({ data, context }) => {
-    await assertStaff(context.supabase as never, context.userId);
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+  await assertStaff(context.supabase as never, context.userId);
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    const [
+  // Répare les anciens dossiers dont les documents existent déjà
+  // mais dont les contrôles KYC logiques n'ont jamais été créés.
+  await ensureApplicationKycChecks(data.id);
+
+  const [
       { data: application },
       { data: history },
       { data: documents },
@@ -461,6 +466,7 @@ export const adminReviewDocument = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     await assertStaff(context.supabase as never, context.userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
     const { error } = await supabaseAdmin
       .from("application_documents")
       .update({
@@ -470,27 +476,118 @@ export const adminReviewDocument = createServerFn({ method: "POST" })
         reviewed_at: new Date().toISOString(),
       })
       .eq("id", data.id);
+
     if (error) throw new Error(error.message);
 
-    // Keep the KYC checklist aligned with the document decision.
-    const kycStatus =
-      data.status === "approved" ? "passed" : data.status === "pending" ? "verifying" : "failed";
-    await supabaseAdmin
-      .from("application_kyc_checks")
-      .update({
-        status: kycStatus,
-        review_note: data.review_note ?? null,
-        reviewed_by: context.userId,
-        reviewed_at: new Date().toISOString(),
-      })
-      .eq("document_id", data.id);
-
-    const { data: doc } = await supabaseAdmin
+    // Récupère le document pour identifier le contrôle KYC logique.
+    const { data: document, error: documentError } = await supabaseAdmin
       .from("application_documents")
-      .select("application_id")
+      .select("application_id, document_type_slug")
       .eq("id", data.id)
       .maybeSingle();
-    if (doc?.application_id) await refreshKycStatus(doc.application_id);
+
+    if (documentError) throw new Error(documentError.message);
+    if (!document?.application_id) throw new Error("application_not_found");
+
+    const applicationId = document.application_id;
+    const documentTypeSlug = document.document_type_slug;
+
+    // Une étape KYC logique peut représenter plusieurs documents physiques.
+    // Exemple : id_national_id = recto + verso = 1 seul contrôle.
+    const [{ data: documentType, error: typeError }, { data: documents, error: documentsError }] =
+      await Promise.all([
+        supabaseAdmin
+          .from("document_types")
+          .select("category, sides, accepts_multiple")
+          .eq("slug", documentTypeSlug)
+          .maybeSingle(),
+
+        supabaseAdmin
+          .from("application_documents")
+          .select("id, status")
+          .eq("application_id", applicationId)
+          .eq("document_type_slug", documentTypeSlug),
+      ]);
+
+    if (typeError) throw new Error(typeError.message);
+    if (documentsError) throw new Error(documentsError.message);
+
+    const category = documentType?.category ?? "other";
+    const stepKey = `${category}:${documentTypeSlug}`;
+    const physicalDocuments = documents ?? [];
+
+    const hasRejectedDocument = physicalDocuments.some(
+      (doc) => doc.status === "rejected" || doc.status === "replacement_requested",
+    );
+
+    const requiredSides = Math.max(Number(documentType?.sides ?? 1), 1);
+
+    // Pour un document double face (ex. CNI), les deux côtés doivent être
+    // approuvés avant que le contrôle logique soit "passed".
+    //
+    // Pour une pièce simple ou acceptant plusieurs fichiers (ex. relevés),
+    // un document approuvé suffit pour valider cette étape.
+    const approvedCount = physicalDocuments.filter((doc) => doc.status === "approved").length;
+
+    const logicalStatus =
+      hasRejectedDocument
+        ? "failed"
+        : requiredSides > 1
+          ? physicalDocuments.length >= requiredSides && approvedCount >= requiredSides
+            ? "passed"
+            : "verifying"
+          : approvedCount > 0
+            ? "passed"
+            : "verifying";
+
+    const { data: existingCheck, error: checkLookupError } = await supabaseAdmin
+      .from("application_kyc_checks")
+      .select("id")
+      .eq("application_id", applicationId)
+      .eq("step_key", stepKey)
+      .maybeSingle();
+
+    if (checkLookupError) throw new Error(checkLookupError.message);
+
+    if (existingCheck) {
+      const { error: checkUpdateError } = await supabaseAdmin
+        .from("application_kyc_checks")
+        .update({
+          status: logicalStatus,
+          document_id: data.id,
+          review_note: data.review_note ?? null,
+          reviewed_by: context.userId,
+          reviewed_at: new Date().toISOString(),
+        } as never)
+        .eq("id", existingCheck.id);
+
+      if (checkUpdateError) throw new Error(checkUpdateError.message);
+    } else {
+      // Répare automatiquement un ancien dossier où le check n'avait pas été
+      // créé correctement.
+      const { error: checkInsertError } = await supabaseAdmin
+        .from("application_kyc_checks")
+        .insert({
+          application_id: applicationId,
+          step_key: stepKey,
+          category,
+          document_type_slug: documentTypeSlug,
+          document_id: data.id,
+          status: logicalStatus,
+          provider: "manual",
+          method: null,
+          evidence: null,
+          reasons: [],
+          score: null,
+          review_note: data.review_note ?? null,
+          reviewed_by: context.userId,
+          reviewed_at: new Date().toISOString(),
+        } as never);
+
+      if (checkInsertError) throw new Error(checkInsertError.message);
+    }
+
+    await refreshKycStatus(applicationId);
 
     return { ok: true };
   });
@@ -552,32 +649,54 @@ export const adminReviewKycCheck = createServerFn({ method: "POST" })
     await assertStaff(context.supabase as never, context.userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    const { data: row, error } = await supabaseAdmin
+    // Récupère le contrôle logique afin d'identifier le dossier et le type
+    // de document qu'il représente.
+    const { data: check, error: checkError } = await supabaseAdmin
       .from("application_kyc_checks")
-      .update({
-        status: data.status,
-        review_note: data.review_note ?? null,
-        reviewed_by: context.userId,
-        reviewed_at: new Date().toISOString(),
-      })
+      .select("id, application_id, document_type_slug")
       .eq("id", data.id)
-      .select("application_id")
       .maybeSingle();
-    if (error) throw new Error(error.message);
 
-    // Synchronisation inverse : une décision prise depuis la file KYC doit
-    // aussi se refléter sur la pièce justificative correspondante, afin que la
-    // section Documents et la section KYC affichent toujours le même verdict.
-    const { data: check } = await supabaseAdmin
-      .from("application_kyc_checks")
-      .select("document_id")
-      .eq("id", data.id)
-      .maybeSingle();
-    const linkedDocument = (check as { document_id?: string | null } | null)?.document_id ?? null;
-    if (linkedDocument) {
-      const documentStatus =
-        data.status === "passed" ? "approved" : data.status === "failed" ? "rejected" : "pending";
-      await supabaseAdmin
+    if (checkError) throw new Error(checkError.message);
+    if (!check?.application_id) throw new Error("application_not_found");
+
+    const applicationId = check.application_id;
+    const documentTypeSlug = check.document_type_slug;
+
+      if (!documentTypeSlug) {
+         throw new Error("document_type_not_found");
+      }
+
+    // Le verdict manuel porte sur le contrôle LOGIQUE.
+    // Il doit donc être répercuté sur toutes les pièces physiques
+    // appartenant à ce même type de document.
+    //
+    // Exemple :
+    //   id_national_id / recto
+    //   id_national_id / verso
+    //       -> un seul KYC check logique
+    //       -> les deux documents sont synchronisés.
+    const { data: documents, error: documentsError } = await supabaseAdmin
+      .from("application_documents")
+      .select("id")
+      .eq("application_id", applicationId)
+      .eq("document_type_slug", documentTypeSlug);
+
+    if (documentsError) throw new Error(documentsError.message);
+
+    const documentStatus =
+      data.status === "passed"
+        ? "approved"
+        : data.status === "failed"
+          ? "rejected"
+          : "pending";
+
+    // Synchronise toutes les pièces physiques du contrôle logique,
+    // et pas uniquement celle stockée dans application_kyc_checks.document_id.
+    if ((documents ?? []).length > 0) {
+      const documentIds = documents.map((document) => document.id);
+
+      const { error: documentsUpdateError } = await supabaseAdmin
         .from("application_documents")
         .update({
           status: documentStatus,
@@ -585,10 +704,26 @@ export const adminReviewKycCheck = createServerFn({ method: "POST" })
           reviewed_by: context.userId,
           reviewed_at: new Date().toISOString(),
         } as never)
-        .eq("id", linkedDocument);
+        .in("id", documentIds);
+
+      if (documentsUpdateError) throw new Error(documentsUpdateError.message);
     }
 
-    if (row?.application_id) await refreshKycStatus(row.application_id);
+    // Le contrôle logique reste la source du verdict KYC.
+    const { error: checkUpdateError } = await supabaseAdmin
+      .from("application_kyc_checks")
+      .update({
+        status: data.status,
+        review_note: data.review_note ?? null,
+        reviewed_by: context.userId,
+        reviewed_at: new Date().toISOString(),
+      } as never)
+      .eq("id", data.id);
+
+    if (checkUpdateError) throw new Error(checkUpdateError.message);
+
+    await refreshKycStatus(applicationId);
+
     return { ok: true };
   });
 

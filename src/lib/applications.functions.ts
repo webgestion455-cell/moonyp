@@ -282,6 +282,121 @@ export const submitApplication = createServerFn({ method: "POST" })
     };
   });
 
+  /**
+ * Reconstruit les contrôles KYC logiques manquants à partir
+ * des documents déjà présents dans le dossier.
+ *
+ * Important :
+ * - ne supprime aucun document ;
+ * - ne crée qu'un contrôle par type de document ;
+ * - recto + verso d'un même document => un seul contrôle logique ;
+ * - ne modifie jamais un contrôle déjà existant.
+ */
+export async function ensureApplicationKycChecks(applicationId: string) {
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+  const [{ data: documents, error: documentsError }, { data: existingChecks, error: checksError }] =
+    await Promise.all([
+      supabaseAdmin
+        .from("application_documents")
+        .select("id, document_type_slug, status, capture_method, capture_evidence")
+        .eq("application_id", applicationId)
+        .order("created_at", { ascending: true }),
+
+      supabaseAdmin
+        .from("application_kyc_checks")
+        .select("id, document_type_slug")
+        .eq("application_id", applicationId),
+    ]);
+
+  if (documentsError) throw new Error(documentsError.message);
+  if (checksError) throw new Error(checksError.message);
+
+  if (!documents || documents.length === 0) {
+    return { created: 0 };
+  }
+
+  const existingSlugs = new Set(
+    (existingChecks ?? [])
+      .map((check) => check.document_type_slug)
+      .filter((slug): slug is string => Boolean(slug)),
+  );
+
+  const missingSlugs = [
+    ...new Set(
+      documents
+        .map((document) => document.document_type_slug)
+        .filter((slug) => !existingSlugs.has(slug)),
+    ),
+  ];
+
+  if (missingSlugs.length === 0) {
+    return { created: 0 };
+  }
+
+  const { data: types, error: typesError } = await supabaseAdmin
+    .from("document_types")
+    .select("slug, category")
+    .in("slug", missingSlugs);
+
+  if (typesError) throw new Error(typesError.message);
+
+  const categoryOf = new Map(
+    (types ?? []).map((type) => [
+      type.slug,
+      (type as { category?: string }).category ?? "other",
+    ]),
+  );
+
+  const checks = missingSlugs.map((slug) => {
+    const physicalDocuments = documents.filter(
+      (document) => document.document_type_slug === slug,
+    );
+
+    const firstDocument = physicalDocuments[0];
+
+    const hasRejected = physicalDocuments.some(
+      (document) =>
+        document.status === "rejected" ||
+        document.status === "replacement_requested",
+    );
+
+    const allApproved =
+      physicalDocuments.length > 0 &&
+      physicalDocuments.every((document) => document.status === "approved");
+
+    const category = categoryOf.get(slug) ?? "other";
+
+    return {
+      application_id: applicationId,
+      step_key: `${category}:${slug}`,
+      category,
+      document_type_slug: slug,
+      document_id: firstDocument.id,
+      status: hasRejected
+        ? "failed"
+        : allApproved
+          ? "passed"
+          : "verifying",
+      provider: "manual",
+      method: firstDocument.capture_method ?? null,
+      evidence: firstDocument.capture_evidence ?? null,
+      reasons: [],
+      score: null,
+    };
+  });
+
+  const { error: insertError } = await supabaseAdmin
+    .from("application_kyc_checks")
+    .insert(checks as never);
+
+  if (insertError) {
+    throw new Error(`kyc_checks_rebuild_failed:${insertError.message}`);
+  }
+
+  return { created: checks.length };
+}
+
 /** Attaches documents that were uploaded through a signed URL. */
 export const registerDocuments = createServerFn({ method: "POST" })
   .inputValidator((input) =>
@@ -462,31 +577,80 @@ export const registerDocuments = createServerFn({ method: "POST" })
       (types ?? []).map((t) => [t.slug, (t as { category?: string }).category ?? "other"]),
     );
 
-    const checks = (insertedDocs ?? []).map((doc) => {
-      const verdict = verdicts.get((doc as { storage_path?: string }).storage_path ?? "");
-      return {
-        application_id: applicationId,
-        step_key: `${categoryOf.get(doc.document_type_slug) ?? "other"}:${doc.document_type_slug}`,
-        category: categoryOf.get(doc.document_type_slug) ?? "other",
-        document_type_slug: doc.document_type_slug,
-        document_id: doc.id,
-        // Une preuve jugée irrecevable côté serveur échoue immédiatement ;
-        // tout le reste reste en vérification pour la revue de conformité.
-        status: verdict?.status === "failed" ? "failed" : "verifying",
-        provider: verdict?.provider ?? "manual",
-        method: verdict?.evidence ? verdict.method : null,
-        evidence: (verdict?.evidence ?? null) as never,
-        reasons: verdict?.reasons ?? [],
-        score: verdict?.score ?? null,
-      };
+    // Un contrôle KYC est logique par type de document.
+// Exemple : id_national_id = 1 contrôle, même si le document possède
+// deux lignes physiques (recto + verso).
+const checksByStep = new Map<
+  string,
+  {
+    application_id: string;
+    step_key: string;
+    category: string;
+    document_type_slug: string;
+    document_id: string;
+    status: "failed" | "verifying";
+    provider: string;
+    method: string | null;
+    evidence: unknown;
+    reasons: string[];
+    score: number | null;
+  }
+>();
+
+for (const doc of insertedDocs ?? []) {
+  const category = categoryOf.get(doc.document_type_slug) ?? "other";
+  const stepKey = `${category}:${doc.document_type_slug}`;
+  const verdict = verdicts.get((doc as { storage_path?: string }).storage_path ?? "");
+
+  // Si plusieurs fichiers représentent le même contrôle logique
+  // (ex. recto + verso de id_national_id), on ne crée qu'une seule ligne.
+  if (!checksByStep.has(stepKey)) {
+    checksByStep.set(stepKey, {
+      application_id: applicationId,
+      step_key: stepKey,
+      category,
+      document_type_slug: doc.document_type_slug,
+      document_id: doc.id,
+      status: verdict?.status === "failed" ? "failed" : "verifying",
+      provider: verdict?.provider ?? "manual",
+      method: verdict?.evidence ? verdict.method : null,
+      evidence: (verdict?.evidence ?? null) as never,
+      reasons: verdict?.reasons ?? [],
+      score: verdict?.score ?? null,
     });
-    if (checks.length > 0) {
-      await supabaseAdmin.from("application_kyc_checks").insert(checks as never);
-      await supabaseAdmin
-        .from("loan_applications")
-        .update({ kyc_status: "verifying", kyc_completed_at: new Date().toISOString() } as never)
-        .eq("id", applicationId);
-    }
+  } else if (verdict?.status === "failed") {
+    // Si l'un des côtés échoue, le contrôle logique échoue.
+    const existing = checksByStep.get(stepKey)!;
+    existing.status = "failed";
+    existing.reasons = [...new Set([...existing.reasons, ...(verdict.reasons ?? [])])];
+  }
+}
+
+const checks = [...checksByStep.values()];
+
+if (checks.length > 0) {
+  const { error: checksError } = await supabaseAdmin
+    .from("application_kyc_checks")
+    .insert(checks as never);
+
+  if (checksError) {
+    console.error("[registerDocuments] KYC checks insert failed", checksError);
+    throw new Error(`kyc_checks_write_failed:${checksError.message}`);
+  }
+
+  const { error: statusError } = await supabaseAdmin
+    .from("loan_applications")
+    .update({
+      kyc_status: "verifying",
+      kyc_completed_at: new Date().toISOString(),
+    } as never)
+    .eq("id", applicationId);
+
+  if (statusError) {
+    console.error("[registerDocuments] KYC status update failed", statusError);
+    throw new Error(`kyc_status_write_failed:${statusError.message}`);
+  }
+}
 
     await server.logEvent(applicationId, "documents_uploaded", {
       description: `${rows.length} document(s) déposé(s)`,
