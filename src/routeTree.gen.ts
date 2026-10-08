@@ -39,6 +39,7 @@ import { Route as AdminRolesRouteImport } from './routes/admin.roles'
 import { Route as AdminProductsRouteImport } from './routes/admin.products'
 import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
 import { Route as AdminLogsRouteImport } from './routes/admin.logs'
+import { Route as AdminKycResultsRouteImport } from './routes/admin.kyc-results'
 import { Route as AdminKycRequestsRouteImport } from './routes/admin.kyc-requests'
 import { Route as AdminKycRouteImport } from './routes/admin.kyc'
 import { Route as LangSolutionsRouteImport } from './routes/$lang.solutions'
@@ -215,6 +216,11 @@ const AdminLogsRoute = AdminLogsRouteImport.update({
   path: '/logs',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminKycResultsRoute = AdminKycResultsRouteImport.update({
+  id: '/kyc-results',
+  path: '/kyc-results',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminKycRequestsRoute = AdminKycRequestsRouteImport.update({
   id: '/kyc-requests',
   path: '/kyc-requests',
@@ -369,6 +375,7 @@ export interface FileRoutesByFullPath {
   '/$lang/solutions': typeof LangSolutionsRoute
   '/admin/kyc': typeof AdminKycRoute
   '/admin/kyc-requests': typeof AdminKycRequestsRoute
+  '/admin/kyc-results': typeof AdminKycResultsRoute
   '/admin/logs': typeof AdminLogsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/products': typeof AdminProductsRoute
@@ -424,6 +431,7 @@ export interface FileRoutesByTo {
   '/$lang/solutions': typeof LangSolutionsRoute
   '/admin/kyc': typeof AdminKycRoute
   '/admin/kyc-requests': typeof AdminKycRequestsRoute
+  '/admin/kyc-results': typeof AdminKycResultsRoute
   '/admin/logs': typeof AdminLogsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/products': typeof AdminProductsRoute
@@ -482,6 +490,7 @@ export interface FileRoutesById {
   '/$lang/solutions': typeof LangSolutionsRoute
   '/admin/kyc': typeof AdminKycRoute
   '/admin/kyc-requests': typeof AdminKycRequestsRoute
+  '/admin/kyc-results': typeof AdminKycResultsRoute
   '/admin/logs': typeof AdminLogsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/products': typeof AdminProductsRoute
@@ -541,6 +550,7 @@ export interface FileRouteTypes {
     | '/$lang/solutions'
     | '/admin/kyc'
     | '/admin/kyc-requests'
+    | '/admin/kyc-results'
     | '/admin/logs'
     | '/admin/notifications'
     | '/admin/products'
@@ -596,6 +606,7 @@ export interface FileRouteTypes {
     | '/$lang/solutions'
     | '/admin/kyc'
     | '/admin/kyc-requests'
+    | '/admin/kyc-results'
     | '/admin/logs'
     | '/admin/notifications'
     | '/admin/products'
@@ -653,6 +664,7 @@ export interface FileRouteTypes {
     | '/$lang/solutions'
     | '/admin/kyc'
     | '/admin/kyc-requests'
+    | '/admin/kyc-results'
     | '/admin/logs'
     | '/admin/notifications'
     | '/admin/products'
@@ -927,6 +939,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLogsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/kyc-results': {
+      id: '/admin/kyc-results'
+      path: '/kyc-results'
+      fullPath: '/admin/kyc-results'
+      preLoaderRoute: typeof AdminKycResultsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/kyc-requests': {
       id: '/admin/kyc-requests'
       path: '/kyc-requests'
@@ -1156,6 +1175,7 @@ const LangRouteWithChildren = LangRoute._addFileChildren(LangRouteChildren)
 interface AdminRouteChildren {
   AdminKycRoute: typeof AdminKycRoute
   AdminKycRequestsRoute: typeof AdminKycRequestsRoute
+  AdminKycResultsRoute: typeof AdminKycResultsRoute
   AdminLogsRoute: typeof AdminLogsRoute
   AdminNotificationsRoute: typeof AdminNotificationsRoute
   AdminProductsRoute: typeof AdminProductsRoute
@@ -1172,6 +1192,7 @@ interface AdminRouteChildren {
 const AdminRouteChildren: AdminRouteChildren = {
   AdminKycRoute: AdminKycRoute,
   AdminKycRequestsRoute: AdminKycRequestsRoute,
+  AdminKycResultsRoute: AdminKycResultsRoute,
   AdminLogsRoute: AdminLogsRoute,
   AdminNotificationsRoute: AdminNotificationsRoute,
   AdminProductsRoute: AdminProductsRoute,
