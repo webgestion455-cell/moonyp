@@ -2,7 +2,7 @@
  * Demandes de vérification d'identité externes — fonctions serveur.
  *
  * Côté administration : création, consultation et révocation, protégées par
- * le RBAC existant (permission « kyc.review »).
+ * le RBAC existant (réservées au super administrateur : is_super_admin).
  * Côté client externe : résolution du lien, dépôt des pièces et
  * enregistrement final. Le navigateur n'écrit jamais de statut : le serveur
  * revalide le jeton à chaque opération et rend seul la décision.
@@ -40,10 +40,7 @@ async function assertKycStaff(
   supabase: { rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown }> },
   userId: string,
 ) {
-  const { data } = await supabase.rpc("has_permission", {
-    _user_id: userId,
-    _permission: "kyc.review",
-  });
+  const { data } = await supabase.rpc("is_super_admin", { _user_id: userId });
   if (data !== true) throw new Error("forbidden");
 }
 
@@ -122,6 +119,50 @@ export const adminCreateKycRequest = createServerFn({ method: "POST" })
 
     // Le jeton en clair n'est renvoyé qu'ici, une seule fois.
     return { ...inserted, token };
+  });
+
+export const adminGetKycRequestDetail = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input) => z.object({ id: z.string().uuid() }).parse(input))
+  .handler(async ({ data, context }) => {
+    await assertKycStaff(context.supabase as never, context.userId);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { effectiveStatus } = await import("@/lib/kyc-requests.server");
+
+    const { data: row, error } = await supabaseAdmin
+      .from("kyc_verification_requests")
+      .select(
+        "id, reference, full_name, email, phone, language, status, expires_at, created_at, completed_at, revoked_at, last_accessed_at, partner_note, collected, kyc_decision, kyc_score, kyc_reasons, kyc_decided_at",
+      )
+      .eq("id", data.id)
+      .maybeSingle();
+    if (error) throw new Error(error.message);
+    if (!row) throw new Error("not_found");
+
+    const { data: docs } = await supabaseAdmin
+      .from("kyc_verification_documents")
+      .select("id, document_type_slug, storage_path, file_name, mime_type, file_size, category, capture_method, status, score, reasons, created_at")
+      .eq("request_id", data.id)
+      .order("created_at", { ascending: true });
+
+    const documents = await Promise.all(
+      (docs ?? []).map(async (d: { storage_path: string } & Record<string, unknown>) => {
+        const { data: signed } = await supabaseAdmin.storage
+          .from("kyc-documents")
+          .createSignedUrl(d.storage_path, 600);
+        return { ...d, url: signed?.signedUrl ?? null };
+      }),
+    );
+
+    await supabaseAdmin.from("activity_logs").insert({
+      actor_id: context.userId,
+      action: "kyc_request_viewed",
+      entity: "kyc_verification_requests",
+      entity_id: data.id,
+      metadata: { reference: (row as { reference: string }).reference } as never,
+    } as never);
+
+    return { ...row, effective_status: effectiveStatus(row as never), documents };
   });
 
 export const adminRevokeKycRequest = createServerFn({ method: "POST" })

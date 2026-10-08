@@ -16,6 +16,7 @@ import {
   adminRevokeKycRequest,
 } from "@/lib/kyc-requests.functions";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/admin/kyc-requests")({
   head: () => ({
@@ -70,6 +71,23 @@ function kycLink(language: string, token: string) {
 }
 
 function AdminKycRequests() {
+  const { isSuperAdmin, loading } = useAuth();
+  if (loading) return <CenterLoader />;
+  if (!isSuperAdmin) return <SuperAdminOnly />;
+  return <AdminKycRequestsInner />;
+}
+
+export function SuperAdminOnly() {
+  return (
+    <Card>
+      <CardContent className="p-8 text-center text-sm text-muted-foreground">
+        Accès réservé au super administrateur.
+      </CardContent>
+    </Card>
+  );
+}
+
+function AdminKycRequestsInner() {
   const list = useServerFn(adminListKycRequests);
   const create = useServerFn(adminCreateKycRequest);
   const revoke = useServerFn(adminRevokeKycRequest);

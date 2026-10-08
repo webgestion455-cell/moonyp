@@ -22,6 +22,7 @@ import {
   Link2,
   ScanFace,
   Package,
+  FolderSearch,
 } from "lucide-react";
 import { NotificationBell } from "@/components/NotificationBell";
 
@@ -35,13 +36,15 @@ interface NavItem {
   icon: React.ComponentType<{ className?: string }>;
   match: (p: string) => boolean;
   permission?: string;
+  superAdminOnly?: boolean;
 }
 
 function AdminLayout() {
   const { t } = useAdminT();
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { user, isStaff, staffRole, hasPermission, loading, profile, signOut } = useAuth() as any;
+  const { user, isStaff, isSuperAdmin, staffRole, hasPermission, loading, profile, signOut } =
+    useAuth() as any;
   const [openMobile, setOpenMobile] = useState(false);
 
   const isVerify = pathname === "/admin/verify" || pathname === "/admin/verify/";
@@ -78,7 +81,14 @@ function AdminLayout() {
         label: "Vérifications externes",
         icon: Link2,
         match: (p) => p.startsWith("/admin/kyc-requests"),
-        permission: "kyc.review",
+        superAdminOnly: true,
+      },
+      {
+        to: "/admin/kyc-results",
+        label: "Dossiers externes",
+        icon: FolderSearch,
+        match: (p) => p.startsWith("/admin/kyc-results"),
+        superAdminOnly: true,
       },
       {
         to: "/admin/products",
@@ -130,8 +140,10 @@ function AdminLayout() {
         permission: "settings.manage",
       },
     ];
-    return all.filter((n) => !n.permission || hasPermission(n.permission));
-  }, [t, hasPermission]);
+    return all.filter((n) =>
+      n.superAdminOnly ? isSuperAdmin === true : !n.permission || hasPermission(n.permission),
+    );
+  }, [t, hasPermission, isSuperAdmin]);
 
   useEffect(() => {
     if (loading) return;
