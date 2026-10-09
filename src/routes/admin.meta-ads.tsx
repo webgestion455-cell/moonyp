@@ -236,7 +236,7 @@ function MetaAdsPage() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">Toutes les campagnes</SelectItem>
-                {report.campaigns.map((c) => (
+                {report.campaigns.map((c: { id: string; name: string | null }) => (
                   <SelectItem key={c.id} value={c.id}>
                     {c.name || c.id}
                   </SelectItem>
