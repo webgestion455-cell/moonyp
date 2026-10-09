@@ -1,5 +1,4 @@
 // Catalogue de permissions — miroir client de public.permissions
-// (voir supabase/sql/09_storage_and_seed.sql : les clés doivent rester identiques).
 export type StaffRole = "super_admin" | "admin" | "agent";
 
 export const STAFF_ROLES: { value: StaffRole; label: string; description: string }[] = [
@@ -24,6 +23,7 @@ export const PERMISSION_MODULES = [
   "Pilotage",
   "Dossiers",
   "Conformité",
+  "Marketing",
   "Contrats",
   "Financement",
   "Catalogue",
@@ -42,6 +42,8 @@ export const PERMISSIONS: { key: string; module: string; label: string }[] = [
 
   { key: "documents.review", module: "Conformité", label: "Valider les pièces justificatives" },
   { key: "kyc.review", module: "Conformité", label: "Valider les contrôles KYC" },
+
+  { key: "marketing.view", module: "Marketing", label: "Consulter le reporting Meta Ads" },
 
   { key: "contracts.manage", module: "Contrats", label: "Gérer les contrats et signatures" },
   { key: "guarantees.manage", module: "Contrats", label: "Gérer les garanties" },

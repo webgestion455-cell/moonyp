@@ -38,6 +38,7 @@ import { Route as AdminSecurityRouteImport } from './routes/admin.security'
 import { Route as AdminRolesRouteImport } from './routes/admin.roles'
 import { Route as AdminProductsRouteImport } from './routes/admin.products'
 import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
+import { Route as AdminMetaAdsRouteImport } from './routes/admin.meta-ads'
 import { Route as AdminLogsRouteImport } from './routes/admin.logs'
 import { Route as AdminKycResultsRouteImport } from './routes/admin.kyc-results'
 import { Route as AdminKycRequestsRouteImport } from './routes/admin.kyc-requests'
@@ -52,6 +53,7 @@ import { Route as LangSplatRouteImport } from './routes/$lang.$'
 import { Route as AdminApplicationsIndexRouteImport } from './routes/admin.applications.index'
 import { Route as SecureApplicationTokenRouteImport } from './routes/secure.application.$token'
 import { Route as ApiPublicRepaymentRemindersRouteImport } from './routes/api/public/repayment-reminders'
+import { Route as ApiPublicMetaAdsSyncRouteImport } from './routes/api/public/meta-ads-sync'
 import { Route as ApiPublicGuaranteeRemindersRouteImport } from './routes/api/public/guarantee-reminders'
 import { Route as AdminApplicationsApplicationIdRouteImport } from './routes/admin.applications.$applicationId'
 import { Route as LangLegalTermsRouteImport } from './routes/$lang.legal.terms'
@@ -211,6 +213,11 @@ const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
   path: '/notifications',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminMetaAdsRoute = AdminMetaAdsRouteImport.update({
+  id: '/meta-ads',
+  path: '/meta-ads',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminLogsRoute = AdminLogsRouteImport.update({
   id: '/logs',
   path: '/logs',
@@ -282,6 +289,11 @@ const ApiPublicRepaymentRemindersRoute =
     path: '/api/public/repayment-reminders',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicMetaAdsSyncRoute = ApiPublicMetaAdsSyncRouteImport.update({
+  id: '/api/public/meta-ads-sync',
+  path: '/api/public/meta-ads-sync',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicGuaranteeRemindersRoute =
   ApiPublicGuaranteeRemindersRouteImport.update({
     id: '/api/public/guarantee-reminders',
@@ -377,6 +389,7 @@ export interface FileRoutesByFullPath {
   '/admin/kyc-requests': typeof AdminKycRequestsRoute
   '/admin/kyc-results': typeof AdminKycResultsRoute
   '/admin/logs': typeof AdminLogsRoute
+  '/admin/meta-ads': typeof AdminMetaAdsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/products': typeof AdminProductsRoute
   '/admin/roles': typeof AdminRolesRoute
@@ -405,6 +418,7 @@ export interface FileRoutesByFullPath {
   '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
+  '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
   '/api/public/repayment-reminders': typeof ApiPublicRepaymentRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications/': typeof AdminApplicationsIndexRoute
@@ -433,6 +447,7 @@ export interface FileRoutesByTo {
   '/admin/kyc-requests': typeof AdminKycRequestsRoute
   '/admin/kyc-results': typeof AdminKycResultsRoute
   '/admin/logs': typeof AdminLogsRoute
+  '/admin/meta-ads': typeof AdminMetaAdsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/products': typeof AdminProductsRoute
   '/admin/roles': typeof AdminRolesRoute
@@ -461,6 +476,7 @@ export interface FileRoutesByTo {
   '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
+  '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
   '/api/public/repayment-reminders': typeof ApiPublicRepaymentRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications': typeof AdminApplicationsIndexRoute
@@ -492,6 +508,7 @@ export interface FileRoutesById {
   '/admin/kyc-requests': typeof AdminKycRequestsRoute
   '/admin/kyc-results': typeof AdminKycResultsRoute
   '/admin/logs': typeof AdminLogsRoute
+  '/admin/meta-ads': typeof AdminMetaAdsRoute
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/products': typeof AdminProductsRoute
   '/admin/roles': typeof AdminRolesRoute
@@ -520,6 +537,7 @@ export interface FileRoutesById {
   '/$lang/legal/terms': typeof LangLegalTermsRoute
   '/admin/applications/$applicationId': typeof AdminApplicationsApplicationIdRoute
   '/api/public/guarantee-reminders': typeof ApiPublicGuaranteeRemindersRoute
+  '/api/public/meta-ads-sync': typeof ApiPublicMetaAdsSyncRoute
   '/api/public/repayment-reminders': typeof ApiPublicRepaymentRemindersRoute
   '/secure/application/$token': typeof SecureApplicationTokenRoute
   '/admin/applications/': typeof AdminApplicationsIndexRoute
@@ -552,6 +570,7 @@ export interface FileRouteTypes {
     | '/admin/kyc-requests'
     | '/admin/kyc-results'
     | '/admin/logs'
+    | '/admin/meta-ads'
     | '/admin/notifications'
     | '/admin/products'
     | '/admin/roles'
@@ -580,6 +599,7 @@ export interface FileRouteTypes {
     | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
     | '/api/public/guarantee-reminders'
+    | '/api/public/meta-ads-sync'
     | '/api/public/repayment-reminders'
     | '/secure/application/$token'
     | '/admin/applications/'
@@ -608,6 +628,7 @@ export interface FileRouteTypes {
     | '/admin/kyc-requests'
     | '/admin/kyc-results'
     | '/admin/logs'
+    | '/admin/meta-ads'
     | '/admin/notifications'
     | '/admin/products'
     | '/admin/roles'
@@ -636,6 +657,7 @@ export interface FileRouteTypes {
     | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
     | '/api/public/guarantee-reminders'
+    | '/api/public/meta-ads-sync'
     | '/api/public/repayment-reminders'
     | '/secure/application/$token'
     | '/admin/applications'
@@ -666,6 +688,7 @@ export interface FileRouteTypes {
     | '/admin/kyc-requests'
     | '/admin/kyc-results'
     | '/admin/logs'
+    | '/admin/meta-ads'
     | '/admin/notifications'
     | '/admin/products'
     | '/admin/roles'
@@ -694,6 +717,7 @@ export interface FileRouteTypes {
     | '/$lang/legal/terms'
     | '/admin/applications/$applicationId'
     | '/api/public/guarantee-reminders'
+    | '/api/public/meta-ads-sync'
     | '/api/public/repayment-reminders'
     | '/secure/application/$token'
     | '/admin/applications/'
@@ -723,6 +747,7 @@ export interface RootRouteChildren {
   LegalRepaymentRoute: typeof LegalRepaymentRoute
   LegalTermsRoute: typeof LegalTermsRoute
   ApiPublicGuaranteeRemindersRoute: typeof ApiPublicGuaranteeRemindersRoute
+  ApiPublicMetaAdsSyncRoute: typeof ApiPublicMetaAdsSyncRoute
   ApiPublicRepaymentRemindersRoute: typeof ApiPublicRepaymentRemindersRoute
   SecureApplicationTokenRoute: typeof SecureApplicationTokenRoute
 }
@@ -932,6 +957,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminNotificationsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/meta-ads': {
+      id: '/admin/meta-ads'
+      path: '/meta-ads'
+      fullPath: '/admin/meta-ads'
+      preLoaderRoute: typeof AdminMetaAdsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/logs': {
       id: '/admin/logs'
       path: '/logs'
@@ -1028,6 +1060,13 @@ declare module '@tanstack/react-router' {
       path: '/api/public/repayment-reminders'
       fullPath: '/api/public/repayment-reminders'
       preLoaderRoute: typeof ApiPublicRepaymentRemindersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/meta-ads-sync': {
+      id: '/api/public/meta-ads-sync'
+      path: '/api/public/meta-ads-sync'
+      fullPath: '/api/public/meta-ads-sync'
+      preLoaderRoute: typeof ApiPublicMetaAdsSyncRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/guarantee-reminders': {
@@ -1177,6 +1216,7 @@ interface AdminRouteChildren {
   AdminKycRequestsRoute: typeof AdminKycRequestsRoute
   AdminKycResultsRoute: typeof AdminKycResultsRoute
   AdminLogsRoute: typeof AdminLogsRoute
+  AdminMetaAdsRoute: typeof AdminMetaAdsRoute
   AdminNotificationsRoute: typeof AdminNotificationsRoute
   AdminProductsRoute: typeof AdminProductsRoute
   AdminRolesRoute: typeof AdminRolesRoute
@@ -1194,6 +1234,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminKycRequestsRoute: AdminKycRequestsRoute,
   AdminKycResultsRoute: AdminKycResultsRoute,
   AdminLogsRoute: AdminLogsRoute,
+  AdminMetaAdsRoute: AdminMetaAdsRoute,
   AdminNotificationsRoute: AdminNotificationsRoute,
   AdminProductsRoute: AdminProductsRoute,
   AdminRolesRoute: AdminRolesRoute,
@@ -1239,6 +1280,7 @@ const rootRouteChildren: RootRouteChildren = {
   LegalRepaymentRoute: LegalRepaymentRoute,
   LegalTermsRoute: LegalTermsRoute,
   ApiPublicGuaranteeRemindersRoute: ApiPublicGuaranteeRemindersRoute,
+  ApiPublicMetaAdsSyncRoute: ApiPublicMetaAdsSyncRoute,
   ApiPublicRepaymentRemindersRoute: ApiPublicRepaymentRemindersRoute,
   SecureApplicationTokenRoute: SecureApplicationTokenRoute,
 }

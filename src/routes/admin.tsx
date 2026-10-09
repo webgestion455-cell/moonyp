@@ -23,6 +23,7 @@ import {
   ScanFace,
   Package,
   FolderSearch,
+  Megaphone,
 } from "lucide-react";
 import { NotificationBell } from "@/components/NotificationBell";
 
@@ -91,6 +92,13 @@ function AdminLayout() {
         superAdminOnly: true,
       },
       {
+        to: "/admin/meta-ads",
+        label: "Meta Ads",
+        icon: Megaphone,
+        match: (p) => p.startsWith("/admin/meta-ads"),
+        permission: "marketing.view",
+      },
+    {
         to: "/admin/products",
         label: "Catalogue",
         icon: Package,
