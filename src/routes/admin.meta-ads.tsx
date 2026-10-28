@@ -27,7 +27,6 @@ import {
 } from "@/components/ui/table";
 import {
   AlertCircle,
-  CheckCircle2,
   Eye,
   Target,
   Clock,
