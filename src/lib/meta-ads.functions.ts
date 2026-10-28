@@ -107,10 +107,9 @@ export const getMetaAdsReport = createServerFn({ method: "POST" })
     const m = await import("@/lib/meta-ads.server");
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const db = supabaseAdmin as any;
-    const { show_spend } = await m.getMetaSettings();
     const clean = (x: ReturnType<typeof m.aggregate>) => {
       const { _actions, ...rest } = x;
-      return { metrics: m.stripSpend(rest, show_spend), actions: _actions as Record<string, number> };
+      return { metrics: m.stripSpend(rest, false), actions: _actions as Record<string, number> };
     };
 
     const scope = (q: any) => {
@@ -157,8 +156,8 @@ export const getMetaAdsReport = createServerFn({ method: "POST" })
       byDate.set(r.date, [...(byDate.get(r.date) ?? []), r.metrics]);
     }
     const series = [...byDate.entries()].map(([date, rows]) => {
-      const a = m.stripSpend(m.aggregate(rows), show_spend);
-      return { date, impressions: a.impressions, clicks: a.clicks, inline_link_clicks: a.inline_link_clicks, conversions: a.conversions, spend: a.spend };
+      const a = m.stripSpend(m.aggregate(rows), false);
+      return { date, impressions: a.impressions, clicks: a.clicks, inline_link_clicks: a.inline_link_clicks, conversions: a.conversions };
     });
 
     if (data.preset === "custom") {
@@ -192,7 +191,6 @@ export const getMetaAdsReport = createServerFn({ method: "POST" })
       .map((o: any) => ({ id: o.id, name: o.name, account_id: o.account_id }));
 
     return {
-      show_spend,
       range,
       summary,
       series,

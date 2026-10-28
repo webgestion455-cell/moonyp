@@ -1,17 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import {
   getMetaAdsStatus,
   getMetaAdsReport,
   syncMetaAdsNow,
-  updateMetaAdsSettings,
 } from "@/lib/meta-ads.functions";
 import { useAuth } from "@/lib/auth-context";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Select,
@@ -30,17 +27,13 @@ import {
 } from "@/components/ui/table";
 import {
   AlertCircle,
-  CheckCircle2,
-  Clock,
   Eye,
-  EyeOff,
+  Target,
+  Clock,
   Layers,
   Megaphone,
   MousePointerClick,
-  Percent,
   RefreshCw,
-  ShieldAlert,
-  Sparkles,
 } from "lucide-react";
 import {
   ResponsiveContainer,
@@ -64,18 +57,12 @@ function fmt(n: number | null | undefined, unit = "") {
   return `${new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 2 }).format(n)}${unit}`;
 }
 
-function fmtMoney(n: number | null | undefined, currency = "EUR") {
-  if (n === null || n === undefined) return "—";
-  return new Intl.NumberFormat("fr-FR", { style: "currency", currency }).format(n);
-}
-
 function MetaAdsPage() {
   const { isSuperAdmin } = useAuth() as any;
   const [status, setStatus] = useState<Awaited<ReturnType<typeof getMetaAdsStatus>> | null>(null);
   const [report, setReport] = useState<Awaited<ReturnType<typeof getMetaAdsReport>> | null>(null);
   const [loading, setLoading] = useState(true);
   const [syncing, setSyncing] = useState(false);
-  const [isPending, startTransition] = useTransition();
 
   const [preset, setPreset] = useState<Preset>("last_7d");
   const [selectedAccountId, setSelectedAccountId] = useState<string>("all");
@@ -125,24 +112,11 @@ function MetaAdsPage() {
     }
   };
 
-  const handleToggleSpend = async (show: boolean) => {
-    startTransition(async () => {
-      try {
-        await updateMetaAdsSettings({ data: { show_spend: show } });
-        toast.success(show ? "Affichage des dépenses activé" : "Dépenses masquées");
-        await loadData();
-      } catch (e: any) {
-        toast.error("Impossible de modifier les paramètres");
-      }
-    });
-  };
-
   const isConfigured = status?.configured;
-  const missingSecrets = status?.missing_secrets ?? [];
   const summary = report?.summary?.metrics;
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-5 p-3 pb-8 sm:space-y-6 sm:p-6">
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
@@ -151,7 +125,7 @@ function MetaAdsPage() {
             <h1 className="text-2xl font-bold tracking-tight">Meta Ads — Reporting</h1>
           </div>
           <p className="text-sm text-muted-foreground mt-1">
-            Statistiques officielles Facebook & Instagram synchronisées en lecture seule.
+            Analyse des performances de vos campagnes Facebook et Instagram.
           </p>
         </div>
 
@@ -184,8 +158,7 @@ function MetaAdsPage() {
               <CardTitle className="text-base font-medium">Configuration Meta requise</CardTitle>
             </div>
             <CardDescription className="text-xs">
-              Les variables suivantes doivent être renseignées dans les paramètres de votre projet pour activer l'API Meta :{" "}
-              <strong>{missingSecrets.join(", ")}</strong>.
+              Les statistiques seront disponibles dès que la connexion au compte publicitaire sera activée.
             </CardDescription>
           </CardHeader>
         </Card>
@@ -246,73 +219,27 @@ function MetaAdsPage() {
           </div>
         )}
 
-        {isSuperAdmin && (
-          <div className="ml-auto flex items-center gap-2 pl-4 border-l">
-            {report?.show_spend ? (
-              <Eye className="h-4 w-4 text-primary" />
-            ) : (
-              <EyeOff className="h-4 w-4 text-muted-foreground" />
-            )}
-            <Label htmlFor="spend-toggle" className="text-xs cursor-pointer">
-              Afficher dépenses
-            </Label>
-            <Switch
-              id="spend-toggle"
-              checked={report?.show_spend ?? false}
-              onCheckedChange={handleToggleSpend}
-              disabled={isPending}
-            />
-          </div>
-        )}
       </div>
 
-      {/* Cartes KPI */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription className="text-xs flex items-center gap-1.5">
-              <Layers className="h-3.5 w-3.5 text-muted-foreground" /> Impressions
-            </CardDescription>
-            <CardTitle className="text-2xl font-bold">{fmt(summary?.impressions)}</CardTitle>
-          </CardHeader>
-        </Card>
-
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription className="text-xs flex items-center gap-1.5">
-              <MousePointerClick className="h-3.5 w-3.5 text-muted-foreground" /> Clics sur lien
-            </CardDescription>
-            <CardTitle className="text-2xl font-bold">
-              {fmt(summary?.inline_link_clicks ?? summary?.clicks)}
-            </CardTitle>
-          </CardHeader>
-        </Card>
-
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription className="text-xs flex items-center gap-1.5">
-              <Percent className="h-3.5 w-3.5 text-muted-foreground" /> Taux de clic (CTR)
-            </CardDescription>
-            <CardTitle className="text-2xl font-bold">{fmt(summary?.ctr, "%")}</CardTitle>
-          </CardHeader>
-        </Card>
-
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription className="text-xs flex items-center gap-1.5">
-              {report?.show_spend ? (
-                <>Dépenses totales</>
-              ) : (
-                <><Sparkles className="h-3.5 w-3.5 text-muted-foreground" /> Conversions</>
-              )}
-            </CardDescription>
-            <CardTitle className="text-2xl font-bold">
-              {report?.show_spend
-                ? fmtMoney(summary?.spend)
-                : fmt(summary?.conversions)}
-            </CardTitle>
-          </CardHeader>
-        </Card>
+      {/* Indicateurs clés */}
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        {[
+          { label: "Impressions", value: summary?.impressions, icon: Layers, note: "Affichages des publicités" },
+          { label: "Clics", value: summary?.inline_link_clicks ?? summary?.clicks, icon: MousePointerClick, note: "Clics enregistrés" },
+          { label: "Couverture", value: summary?.reach, icon: Eye, note: "Personnes touchées sur la période" },
+          { label: "Résultats", value: summary?.conversions ?? summary?.actions_total, icon: Target, note: "Résultats attribués par Meta" },
+        ].map(({ label, value, icon: Icon, note }) => (
+          <Card key={label} className="min-w-0 overflow-hidden border-border/70 shadow-sm">
+            <CardContent className="flex items-start justify-between gap-3 p-4 sm:p-5">
+              <div className="min-w-0">
+                <CardDescription className="text-xs">{label}</CardDescription>
+                <CardTitle className="mt-2 break-words text-2xl font-semibold tracking-tight">{loading ? "—" : fmt(value)}</CardTitle>
+                <p className="mt-1 text-xs text-muted-foreground">{note}</p>
+              </div>
+              <div className="shrink-0 rounded-xl bg-emerald-500/10 p-2.5 text-emerald-700"><Icon className="h-5 w-5" /></div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
 
       {/* Graphique de tendance */}
@@ -387,13 +314,13 @@ function MetaAdsPage() {
                   <TableHead className="text-right">Impressions</TableHead>
                   <TableHead className="text-right">Clics</TableHead>
                   <TableHead className="text-right">CTR</TableHead>
-                  {report?.show_spend && <TableHead className="text-right">Dépenses</TableHead>}
+
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {report?.levels.campaign.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={7} className="text-center py-6 text-muted-foreground text-sm">
+                    <TableCell colSpan={6} className="text-center py-6 text-muted-foreground text-sm">
                       Aucune campagne synchronisée pour cette période.
                     </TableCell>
                   </TableRow>
@@ -410,10 +337,7 @@ function MetaAdsPage() {
                       <TableCell className="text-right">{fmt(row.metrics.impressions)}</TableCell>
                       <TableCell className="text-right">{fmt(row.metrics.clicks)}</TableCell>
                       <TableCell className="text-right">{fmt(row.metrics.ctr, "%")}</TableCell>
-                      {report?.show_spend && (
-                        <TableCell className="text-right font-medium">{fmtMoney(row.metrics.spend)}</TableCell>
-                      )}
-                    </TableRow>
+</TableRow>
                   ))
                 )}
               </TableBody>
@@ -432,13 +356,13 @@ function MetaAdsPage() {
                   <TableHead className="text-right">Impressions</TableHead>
                   <TableHead className="text-right">Clics</TableHead>
                   <TableHead className="text-right">CTR</TableHead>
-                  {report?.show_spend && <TableHead className="text-right">Dépenses</TableHead>}
+
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {report?.levels.adset.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={6} className="text-center py-6 text-muted-foreground text-sm">
+                    <TableCell colSpan={5} className="text-center py-6 text-muted-foreground text-sm">
                       Aucun ensemble de publicités trouvé.
                     </TableCell>
                   </TableRow>
@@ -454,10 +378,7 @@ function MetaAdsPage() {
                       <TableCell className="text-right">{fmt(row.metrics.impressions)}</TableCell>
                       <TableCell className="text-right">{fmt(row.metrics.clicks)}</TableCell>
                       <TableCell className="text-right">{fmt(row.metrics.ctr, "%")}</TableCell>
-                      {report?.show_spend && (
-                        <TableCell className="text-right font-medium">{fmtMoney(row.metrics.spend)}</TableCell>
-                      )}
-                    </TableRow>
+</TableRow>
                   ))
                 )}
               </TableBody>
@@ -476,13 +397,13 @@ function MetaAdsPage() {
                   <TableHead className="text-right">Impressions</TableHead>
                   <TableHead className="text-right">Clics</TableHead>
                   <TableHead className="text-right">CTR</TableHead>
-                  {report?.show_spend && <TableHead className="text-right">Dépenses</TableHead>}
+
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {report?.levels.ad.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={6} className="text-center py-6 text-muted-foreground text-sm">
+                    <TableCell colSpan={5} className="text-center py-6 text-muted-foreground text-sm">
                       Aucune publicité trouvée.
                     </TableCell>
                   </TableRow>
@@ -498,10 +419,7 @@ function MetaAdsPage() {
                       <TableCell className="text-right">{fmt(row.metrics.impressions)}</TableCell>
                       <TableCell className="text-right">{fmt(row.metrics.clicks)}</TableCell>
                       <TableCell className="text-right">{fmt(row.metrics.ctr, "%")}</TableCell>
-                      {report?.show_spend && (
-                        <TableCell className="text-right font-medium">{fmtMoney(row.metrics.spend)}</TableCell>
-                      )}
-                    </TableRow>
+</TableRow>
                   ))
                 )}
               </TableBody>

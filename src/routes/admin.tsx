@@ -149,7 +149,7 @@ function AdminLayout() {
       },
     ];
     return all.filter((n) =>
-      n.superAdminOnly ? isSuperAdmin === true : !n.permission || hasPermission(n.permission),
+      n.superAdminOnly ? isSuperAdmin === true : n.to === "/admin/meta-ads" && isSuperAdmin === true || !n.permission || hasPermission(n.permission),
     );
   }, [t, hasPermission, isSuperAdmin]);
 
