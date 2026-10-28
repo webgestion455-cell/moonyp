@@ -114,11 +114,10 @@ function MetaAdsPage() {
   };
 
   const isConfigured = status?.configured;
-  const missingSecrets = status?.missing_secrets ?? [];
   const summary = report?.summary?.metrics;
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-5 p-3 pb-8 sm:space-y-6 sm:p-6">
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
