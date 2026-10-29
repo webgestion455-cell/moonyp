@@ -51,14 +51,14 @@ function SupportInbox() {
   const editor = useRef<HTMLDivElement>(null);
   const [formatting, setFormatting] = useState({ bold: false, italic: false, underline: false });
   const transcript = useRef<HTMLDivElement>(null);
-  const stickToBottom = useRef(true);
+  const stickToBottom = useRef(true);\n  const shouldAutoScroll = useRef(true);
   const loadList = useCallback(async () => {
     try { const data = await support("list", { status: filter }); setItems(data.conversations ?? []); setError(""); }
     catch (e) { setError(e instanceof Error ? e.message : "Impossible de charger les conversations."); }
   }, [filter]);
   const loadMessages = useCallback(async () => {
     if (!selected) return;
-    try { const data = await support("messages", { conversationId: selected.id }); setMessages(data.messages ?? []); }
+    try { const data = await support("messages", { conversationId: selected.id }); const incoming: ChatMessage[] = data.messages ?? []; const current = transcript.current; const nearBottom = !current || current.scrollHeight - current.scrollTop - current.clientHeight < 100; const changed = incoming.length !== messages.length || incoming.some((m, i) => m.id !== messages[i]?.id || m.content !== messages[i]?.content); if (changed) { shouldAutoScroll.current = nearBottom; setMessages(incoming); } }
     catch (e) { setError(e instanceof Error ? e.message : "Impossible de charger les messages."); }
   }, [selected?.id]);
   useEffect(() => { void loadList(); const id = window.setInterval(() => void loadList(), 5000); return () => window.clearInterval(id); }, [loadList]);
