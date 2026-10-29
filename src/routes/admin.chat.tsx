@@ -75,6 +75,20 @@ function SupportInbox() {
   useEffect(() => { void loadList(); const id = window.setInterval(() => void loadList(), 5000); return () => window.clearInterval(id); }, [loadList]);
   useEffect(() => { void loadMessages(); const id = window.setInterval(() => void loadMessages(), 3000); return () => window.clearInterval(id); }, [loadMessages]);
   useEffect(() => {
+    // Realtime updates refresh the inbox immediately; polling remains as a resilient fallback.
+    const channel = supabase.channel("moonyp-support-inbox-live")
+      .on("postgres_changes", { event: "*", schema: "public", table: "chat_messages" }, () => {
+        void loadList();
+        void loadMessages();
+      })
+      .on("postgres_changes", { event: "*", schema: "public", table: "chat_conversations" }, () => {
+        void loadList();
+        void loadMessages();
+      })
+      .subscribe();
+    return () => { void supabase.removeChannel(channel); };
+  }, [loadList, loadMessages]);
+  useEffect(() => {
     stickToBottom.current = true;
     shouldAutoScroll.current = true;
     requestAnimationFrame(() => { if (transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight; });
