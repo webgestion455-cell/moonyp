@@ -433,6 +433,8 @@ function AdminStaff() {
                           : "Jamais"}
                       </TableCell>
                       <TableCell className="text-right">
+                        <div className="flex flex-wrap justify-end gap-1">
+                        {canManage && <Button size="sm" variant="outline" onClick={() => { setProfileEditing(m); setProfileDraft({ display_name: m.display_name || "", job_title: m.job_title || "", avatar_url: m.avatar_url || "" }); }}><Pencil className="mr-1.5 h-3.5 w-3.5"/>Profil</Button>}
                         {canManage && m.user_id !== user?.id ? (
                           <Button
                             size="sm"
@@ -452,6 +454,7 @@ function AdminStaff() {
                         ) : (
                           <span className="text-xs text-muted-foreground">Vous</span>
                         )}
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
