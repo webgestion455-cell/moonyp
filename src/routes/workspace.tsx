@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 
 export const Route = createFileRoute("/workspace")({ component: WorkspacePage });
 
@@ -109,7 +108,7 @@ function WorkspacePage() {
                 <div className="space-y-2"><Label>Langue par défaut</Label><select className="h-10 w-full rounded-md border bg-background px-3 text-sm" value={current.default_locale} onChange={e => setCurrent({...current,default_locale:e.target.value})}>{LOCALES.map(l => <option key={l} value={l}>{LOCALE_NAMES[l]}</option>)}</select></div>
                 <div className="space-y-2"><Label>Chat public</Label><select className="h-10 w-full rounded-md border bg-background px-3 text-sm" value={String(current.public_chat_enabled)} onChange={e => setCurrent({...current,public_chat_enabled:e.target.value==="true"})}><option value="true">Activé</option><option value="false">Désactivé</option></select></div>
               </div>
-              <div className="space-y-2"><Label>Langues disponibles (15)</Label><div className="grid grid-cols-2 gap-2 sm:grid-cols-3">{LOCALES.map(l => <label key={l} className="flex items-center gap-2 rounded-md border p-2 text-sm"><input type="checkbox" checked={current.enabled_locales.includes(l)} onChange={e => setCurrent({...current,enabled_locales:e.target.checked ? [...current.enabled_locales,l] : current.enabled_locales.filter(x=>x!==l]})} />{LOCALE_NAMES[l]}</label>)}</div></div>
+              <div className="space-y-2"><Label>Langues disponibles (15)</Label><div className="grid grid-cols-2 gap-2 sm:grid-cols-3">{LOCALES.map(l => <label key={l} className="flex items-center gap-2 rounded-md border p-2 text-sm"><input type="checkbox" checked={current.enabled_locales.includes(l)} onChange={e => setCurrent({...current,enabled_locales:e.target.checked ? [...current.enabled_locales,l] : current.enabled_locales.filter(x=>x!==l)})} />{LOCALE_NAMES[l]}</label>)}</div></div>
               <Button onClick={saveBrand} disabled={saving}><Save className="mr-2 h-4 w-4" /> Enregistrer les modifications</Button>
             </CardContent>
           </Card>
