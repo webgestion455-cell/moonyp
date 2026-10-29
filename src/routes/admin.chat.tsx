@@ -50,7 +50,8 @@ function SupportInbox() {
   const [error, setError] = useState("");
   const editor = useRef<HTMLDivElement>(null);
   const [formatting, setFormatting] = useState({ bold: false, italic: false, underline: false });
-  const transcript = useRef<HTMLDivElement>(null);\n  const stickToBottom = useRef(true);
+  const transcript = useRef<HTMLDivElement>(null);
+  const stickToBottom = useRef(true);
   const loadList = useCallback(async () => {
     try { const data = await support("list", { status: filter }); setItems(data.conversations ?? []); setError(""); }
     catch (e) { setError(e instanceof Error ? e.message : "Impossible de charger les conversations."); }
@@ -62,7 +63,8 @@ function SupportInbox() {
   }, [selected?.id]);
   useEffect(() => { void loadList(); const id = window.setInterval(() => void loadList(), 5000); return () => window.clearInterval(id); }, [loadList]);
   useEffect(() => { void loadMessages(); const id = window.setInterval(() => void loadMessages(), 3000); return () => window.clearInterval(id); }, [loadMessages]);
-  useEffect(() => { stickToBottom.current = true; if (transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight; }, [selected?.id]);\n  useEffect(() => { if (transcript.current && stickToBottom.current) transcript.current.scrollTop = transcript.current.scrollHeight; }, [messages]);
+  useEffect(() => { stickToBottom.current = true; if (transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight; }, [selected?.id]);
+  useEffect(() => { if (transcript.current && stickToBottom.current) transcript.current.scrollTop = transcript.current.scrollHeight; }, [messages]);
   function toggleFormat(command: "bold" | "italic" | "underline" | "createLink") {
     const el = editor.current; if (!el) return;
     el.focus();
