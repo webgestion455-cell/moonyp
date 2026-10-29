@@ -24,6 +24,7 @@ import {
   Package,
   FolderSearch,
   Megaphone,
+  MessageCircle,
 } from "lucide-react";
 import { NotificationBell } from "@/components/NotificationBell";
 
@@ -104,6 +105,13 @@ function AdminLayout() {
         icon: Package,
         match: (p) => p.startsWith("/admin/products"),
         permission: "products.manage",
+      },
+      {
+        to: "/admin/chat",
+        label: "Support clients",
+        icon: MessageCircle,
+        match: (p) => p.startsWith("/admin/chat"),
+        permission: "chat.view",
       },
       {
         to: "/admin/notifications",
