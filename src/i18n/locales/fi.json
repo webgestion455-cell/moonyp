@@ -2492,6 +2492,8 @@
     "allowPush": "Salli ilmoitukset selaimen asetuksissa.",
     "empty": "Pyyntösi on avattu. Kirjoita tähän, niin tiimimme vastaa.",
     "you": "Sinä",
-    "team": "Tuki"
+    "team": "Tuki",
+    "close": "Sulje chat",
+    "contact": "Ota yhteyttä tukeen"
   }
 }
