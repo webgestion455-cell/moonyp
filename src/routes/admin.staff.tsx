@@ -53,6 +53,7 @@ import {
   Pencil,
 } from "lucide-react";
 import { useAutoRefresh } from "@/hooks/use-auto-refresh";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admin/staff")({
   component: AdminStaff,
@@ -65,6 +66,7 @@ interface Member {
   email: string;
   display_name: string | null;
   job_title: string | null;
+  avatar_url?: string | null;
   active: boolean;
   last_sign_in_at: string | null;
 }
@@ -106,6 +108,7 @@ function AdminStaff() {
   const [profileEditing, setProfileEditing] = useState<Member | null>(null);
   const [profileDraft, setProfileDraft] = useState({ display_name: "", job_title: "", avatar_url: "" });
   const [profileSaving, setProfileSaving] = useState(false);
+  const [avatarUploading, setAvatarUploading] = useState(false);
 
   useEffect(() => {
     if (!hasPermission("staff.view")) {
@@ -173,6 +176,32 @@ function AdminStaff() {
       toast.error(err instanceof Error ? err.message : "Invitation impossible");
     } finally {
       setSaving(false);
+    }
+  }
+
+  async function uploadProfilePhoto(file?: File) {
+    if (!file || !profileEditing) return;
+    if (!["image/jpeg", "image/png", "image/webp", "image/avif"].includes(file.type)) {
+      toast.error("Choisissez une image JPG, PNG, WebP ou AVIF.");
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error("La photo ne doit pas dépasser 5 Mo.");
+      return;
+    }
+    setAvatarUploading(true);
+    try {
+      const extension = file.type === "image/jpeg" ? "jpg" : file.type.split("/")[1];
+      const path = `${profileEditing.user_id}/${crypto.randomUUID()}.${extension}`;
+      const { error } = await supabase.storage.from("support-avatars").upload(path, file, { upsert: true, contentType: file.type });
+      if (error) throw error;
+      const { data } = supabase.storage.from("support-avatars").getPublicUrl(path);
+      setProfileDraft(v => ({ ...v, avatar_url: data.publicUrl }));
+      toast.success("Photo téléversée. Enregistrez le profil pour confirmer.");
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Téléversement de la photo impossible.");
+    } finally {
+      setAvatarUploading(false);
     }
   }
 
@@ -483,10 +512,10 @@ function AdminStaff() {
         <DialogContent className="sm:max-w-lg">
           <DialogHeader><DialogTitle>Profil du membre</DialogTitle><DialogDescription>Ces informations sont affichées dans les conversations du support. Sans photo, le logo MOONYP est utilisé par défaut.</DialogDescription></DialogHeader>
           {profileEditing && <div className="space-y-4 py-2">
-            <div className="flex items-center gap-3"><img src={profileDraft.avatar_url || "/icon-192.png"} alt="Aperçu du profil" className="h-14 w-14 rounded-lg border object-cover"/><div className="min-w-0"><p className="font-medium">{profileEditing.email}</p><p className="text-xs text-muted-foreground">Photo HTTPS facultative</p></div></div>
+            <div className="flex items-center gap-3"><img src={profileDraft.avatar_url || "/icon-192.png"} alt="Aperçu du profil" className="h-14 w-14 rounded-lg border object-cover"/><div className="min-w-0 flex-1"><p className="font-medium">{profileEditing.email}</p><p className="text-xs text-muted-foreground">Photo de profil · 5 Mo maximum</p><label className="mt-2 inline-flex cursor-pointer items-center rounded-lg border px-3 py-2 text-sm font-medium hover:bg-muted"><input type="file" accept="image/jpeg,image/png,image/webp,image/avif" className="sr-only" disabled={avatarUploading} onChange={e=>{void uploadProfilePhoto(e.currentTarget.files?.[0]);e.currentTarget.value="";}}/>{avatarUploading?"Téléversement…":"Choisir une photo sur l’appareil"}</label></div></div>
             <div className="space-y-1"><Label htmlFor="profile-name">Nom affiché</Label><Input id="profile-name" value={profileDraft.display_name} onChange={e=>setProfileDraft(v=>({...v,display_name:e.target.value}))} placeholder="Anna"/></div>
             <div className="space-y-1"><Label htmlFor="profile-job">Fonction / rôle affiché</Label><Input id="profile-job" value={profileDraft.job_title} onChange={e=>setProfileDraft(v=>({...v,job_title:e.target.value}))} placeholder="Spécialiste du service client"/></div>
-            <div className="space-y-1"><Label htmlFor="profile-avatar">URL de la photo (HTTPS)</Label><Input id="profile-avatar" value={profileDraft.avatar_url} onChange={e=>setProfileDraft(v=>({...v,avatar_url:e.target.value}))} placeholder="https://…"/><p className="text-xs text-muted-foreground">Laissez vide pour utiliser le logo MOONYP.</p></div>
+            <p className="text-xs text-muted-foreground">Sans photo personnelle, le logo MOONYP est utilisé pour l’agent. Les clients affichent une icône de profil neutre.</p>
           </div>}
           <DialogFooter><Button variant="outline" onClick={()=>setProfileEditing(null)}>Annuler</Button><Button onClick={()=>void saveProfile()} disabled={profileSaving}>{profileSaving?"Enregistrement…":"Enregistrer le profil"}</Button></DialogFooter>
         </DialogContent>
