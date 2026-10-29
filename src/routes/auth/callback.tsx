@@ -45,7 +45,7 @@ function Callback() {
           if (active) navigate({ to: "/workspace" });
           return;
         }
-        if (active) navigate({ to: requestedNext });
+        if (active) navigate({ to: requestedNext as any });
       } catch (e) {
         if (active) setMessage(e instanceof Error ? e.message : "La vérification a échoué. Réessayez de vous connecter.");
       }
