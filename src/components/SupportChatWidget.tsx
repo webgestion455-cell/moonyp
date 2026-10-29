@@ -61,7 +61,6 @@ export function SupportChatWidget() {
   const [conversationClosed, setConversationClosed] = useState(false);
   const [pushBusy, setPushBusy] = useState(false);
   const [busy, setBusy] = useState(false);
-  const bottom = useRef<HTMLDivElement>(null);
   const transcript = useRef<HTMLDivElement>(null);
   const stickToBottom = useRef(true);\n  const shouldAutoScroll = useRef(true);
   const ready = Boolean(conversationId && guestToken);
@@ -87,8 +86,15 @@ export function SupportChatWidget() {
     catch (err) { setError(err instanceof Error ? err.message : "Chargement des messages impossible."); }
   }
   useEffect(() => { if (!open || !ready) return; void load(); const timer = window.setInterval(() => void load(), 3000); return () => window.clearInterval(timer); }, [open, ready, conversationId, guestToken]);
-  useEffect(() => { if (open) { stickToBottom.current = true; requestAnimationFrame(() => bottom.current?.scrollIntoView({ behavior: "auto" })); } }, [open, conversationId]);
-  useEffect(() => { if (stickToBottom.current) bottom.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
+  useEffect(() => {
+    if (!open) return;
+    stickToBottom.current = true;
+    requestAnimationFrame(() => { if (transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight; });
+  }, [open, conversationId]);
+  useEffect(() => {
+    if (!stickToBottom.current) return;
+    requestAnimationFrame(() => { if (transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight; });
+  }, [messages]);
   async function enablePush() {
     if (!ready || pushBusy || !("Notification" in window) || !("serviceWorker" in navigator)) {
       setError("Les notifications ne sont pas disponibles sur ce navigateur.");
@@ -137,9 +143,8 @@ export function SupportChatWidget() {
           {!messages.length && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">Votre demande a été ouverte. Écrivez votre message : notre équipe vous répondra ici.</p>}
           {messages.map(m => <article key={m.id} className="flex gap-3 border-b border-dotted pb-5 last:border-0">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md border bg-muted">{m.sender==="agent" ? <img src={m.sender_avatar_url || "/icon-192.png"} alt="" className="h-full w-full object-cover" /> : <UserRound className="h-5 w-5 text-muted-foreground" />}</div>
-            <div className="min-w-0 flex-1"><p className="text-sm font-semibold">{m.sender==="agent" ? `${(m.sender_name||"Assistance").trim().split(/\s+/)[0]} (MOONYP)` : ((m.sender_name||name||"Vous").trim().split(/\s+/)[0])}</p><p className="mt-1 text-xs text-muted-foreground">{stamp(m.created_at)}</p><div className="mt-3 whitespace-pre-wrap break-words text-sm leading-6 [&_a]:text-primary [&_a]:underline [&_strong]:font-bold [&_em]:italic [&_u]:underline" dangerouslySetInnerHTML={{ __html: safeMessageHtml(m.content) }} />{m.sender==="agent" && m.signature && <div className="mt-5 space-y-4 text-sm leading-6">{m.signature.replace(/\\n/g, "\n").split(/\n+/).filter(Boolean).map((line,index)=><p key={`${m.id}-signature-${index}`} className={index===1?"font-medium":index===2?"font-semibold":""}>{line}</p>)}</div>}</div>
+            <div className="min-w-0 flex-1"><p className="text-sm font-semibold">{m.sender==="agent" ? `${(m.sender_name||"Assistance").trim().split(/\s+/)[0]} (MOONYP)` : ((m.sender_name||name||"Vous").trim().split(/\s+/)[0])}</p><p className="mt-1 text-xs text-muted-foreground">{stamp(m.created_at)}</p><div className="mt-3 whitespace-pre-wrap break-words text-sm leading-6 [&_a]:text-primary [&_a]:underline [&_strong]:font-bold [&_em]:italic [&_u]:underline" dangerouslySetInnerHTML={{ __html: safeMessageHtml(m.content) }} />{m.sender==="agent" && m.signature && <div className="mt-6 space-y-5 text-sm leading-6">{m.signature.replace(/\\n/g, "\n").split(/\n+/).filter(Boolean).map((line,index)=><p key={`${m.id}-signature-${index}`} className={index===1?"font-medium":index===2?"font-bold tracking-wide":""}>{line}</p>)}</div>}</div>
           </article>)}
-          <div ref={bottom}/>
         </div>
         {conversationClosed && <div className="sticky bottom-0 z-10 shrink-0 border-t bg-background p-3 shadow-[0_-8px_24px_rgba(0,0,0,0.06)] sm:px-5"><div className="rounded-xl border border-amber-500/30 p-3"><p className="font-semibold">Cette conversation est clôturée.</p><p className="mt-1 text-sm text-muted-foreground">Pour obtenir une nouvelle assistance, démarrez une nouvelle conversation.</p><button type="button" onClick={()=>{localStorage.removeItem(CONV_KEY);localStorage.removeItem(TOKEN_KEY);setConversationId("");setGuestToken("");setMessages([]);setDraft("");setConversationClosed(false);setPushEnabled(false);setError("");}} className="mt-3 w-full rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white">Nouvelle conversation</button></div></div>}
         {error && <p role="alert" className="px-4 text-xs text-destructive">{error}</p>}
