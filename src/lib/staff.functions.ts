@@ -41,6 +41,7 @@ export const listStaff = createServerFn({ method: "POST" })
             display_name?: string;
             job_title?: string;
             phone?: string;
+            avatar_url?: string | null;
             active?: boolean;
             created_at?: string;
           }
@@ -59,6 +60,7 @@ export const listStaff = createServerFn({ method: "POST" })
         display_name: prof?.display_name ?? null,
         job_title: prof?.job_title ?? null,
         phone: prof?.phone ?? null,
+        avatar_url: prof?.avatar_url ?? null,
         active: prof?.active ?? true,
         created_at: prof?.created_at ?? null,
       };
