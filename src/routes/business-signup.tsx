@@ -33,6 +33,10 @@ function BusinessSignupPage() {
       });
       if (signUpError) throw signUpError;
       if (data.session) {
+        const base = company.trim().normalize("NFKD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 44) || "entreprise";
+        const slug = `${base}-${crypto.randomUUID().replace(/-/g, "").slice(0, 6)}`;
+        const { error: orgError } = await supabase.rpc("create_support_organization", { p_name: company.trim(), p_slug: slug, p_default_locale: "fr" });
+        if (orgError) throw orgError;
         navigate({ to: "/workspace" });
       } else {
         setNotice("Votre compte a été créé. Vérifiez votre boîte e-mail et confirmez votre adresse avant de vous connecter. Après confirmation, connectez-vous puis ouvrez votre espace entreprise.");
