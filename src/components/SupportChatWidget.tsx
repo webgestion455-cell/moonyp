@@ -141,6 +141,7 @@ export function SupportChatWidget() {
           </article>)}
           <div ref={bottom}/>
         </div>
+        {conversationClosed && <div className="shrink-0 border-t bg-amber-500/5 p-3 sm:px-5"><div className="rounded-xl border border-amber-500/30 p-3"><p className="font-semibold">Cette conversation est clôturée.</p><p className="mt-1 text-sm text-muted-foreground">Pour obtenir une nouvelle assistance, démarrez une nouvelle conversation.</p><button type="button" onClick={()=>{localStorage.removeItem(CONV_KEY);localStorage.removeItem(TOKEN_KEY);setConversationId("");setGuestToken("");setMessages([]);setDraft("");setConversationClosed(false);setPushEnabled(false);setError("");}} className="mt-3 w-full rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white">Nouvelle conversation</button></div></div>}
         {error && <p role="alert" className="px-4 text-xs text-destructive">{error}</p>}
         {!conversationClosed && <form onSubmit={send} className="flex shrink-0 items-end gap-2 border-t p-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] sm:pb-3"><textarea value={draft} onChange={e=>setDraft(e.target.value)} maxLength={4000} rows={2} className="max-h-28 min-h-11 flex-1 resize-y rounded-xl border bg-background px-3 py-2 text-sm" placeholder="Écrivez votre message…" aria-label="Votre message"/><button disabled={busy||!draft.trim()} aria-label="Envoyer le message" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-black text-white disabled:opacity-50"><Send className="h-4 w-4"/></button></form>}
       </>}
