@@ -2492,6 +2492,8 @@
     "allowPush": "Dopustite obavijesti u postavkama preglednika.",
     "empty": "Vaš je zahtjev otvoren. Pišite ovdje i naš će vam tim odgovoriti.",
     "you": "Vi",
-    "team": "Podrška"
+    "team": "Podrška",
+    "close": "Zatvori razgovor",
+    "contact": "Kontaktirajte podršku"
   }
 }
