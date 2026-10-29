@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle, X, Send, LoaderCircle, Headphones } from "lucide-react";
+import { MessageCircle, X, Send, LoaderCircle, Headphones, BellRing } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 type Msg = { id: string; sender: string; sender_name: string | null; content: string; sender_avatar_url?: string | null; signature?: string | null; created_at: string };
 const TOKEN_KEY = "moonyp.support.guest";
 const CONV_KEY = "moonyp.support.conversation";
+const VAPID_PUBLIC_KEY = import.meta.env.VITE_VAPID_PUBLIC_KEY as string | undefined;
+function vapidBytes(value: string) { const pad = "=".repeat((4 - value.length % 4) % 4); const raw = atob((value + pad).replace(/-/g, "+").replace(/_/g, "/")); return Uint8Array.from(raw, ch => ch.charCodeAt(0)); }
 async function callSupport(action: string, payload: Record<string, unknown> = {}) {
   const { data, error } = await supabase.functions.invoke("moonyp-support", {
     body: { action, ...payload },
@@ -29,6 +31,8 @@ export function SupportChatWidget() {
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<Msg[]>([]);
   const [error, setError] = useState("");
+  const [pushEnabled, setPushEnabled] = useState(false);
+  const [pushBusy, setPushBusy] = useState(false);
   const [busy, setBusy] = useState(false);
   const bottom = useRef<HTMLDivElement>(null);
   const ready = Boolean(conversationId && guestToken);
@@ -49,6 +53,23 @@ export function SupportChatWidget() {
   }
   useEffect(() => { if (!open || !ready) return; void load(); const timer = window.setInterval(() => void load(), 3000); return () => window.clearInterval(timer); }, [open, ready, conversationId, guestToken]);
   useEffect(() => { bottom.current?.scrollIntoView({ behavior: "smooth" }); }, [messages, open]);
+  async function enablePush() {
+    if (!ready || pushBusy || !VAPID_PUBLIC_KEY || !("Notification" in window) || !("serviceWorker" in navigator)) {
+      setError("Les notifications ne sont pas disponibles sur ce navigateur.");
+      return;
+    }
+    setPushBusy(true); setError("");
+    try {
+      const permission = Notification.permission === "granted" ? "granted" : await Notification.requestPermission();
+      if (permission !== "granted") throw new Error("Autorisez les notifications dans les réglages de votre navigateur.");
+      const registration = await navigator.serviceWorker.register("/sw.js");
+      let subscription = await registration.pushManager.getSubscription();
+      if (!subscription) subscription = await registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: vapidBytes(VAPID_PUBLIC_KEY) });
+      await callSupport("subscribe_guest", { conversationId, guestToken, subscription: subscription.toJSON() });
+      setPushEnabled(true);
+    } catch (err) { setError(err instanceof Error ? err.message : "Activation des notifications impossible."); }
+    finally { setPushBusy(false); }
+  }
   async function send(e: React.FormEvent) {
     e.preventDefault(); if (!draft.trim() || busy || !ready) return;
     setBusy(true); setError("");
@@ -72,7 +93,7 @@ export function SupportChatWidget() {
         {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
         <button disabled={starting} className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 font-medium text-primary-foreground disabled:opacity-60">{starting&&<LoaderCircle className="h-4 w-4 animate-spin"/>}Démarrer la conversation</button>
       </form> : <>
-        <div className="flex-1 space-y-4 overflow-y-auto p-4">
+        <div className="flex-1 space-y-4 overflow-y-auto p-4">\n          {!pushEnabled && <button onClick={() => void enablePush()} disabled={pushBusy} className="flex w-full items-center justify-center gap-2 rounded-xl border border-primary/25 bg-primary/5 px-3 py-2 text-xs font-medium text-primary disabled:opacity-60"><BellRing className="h-4 w-4"/>{pushBusy ? "Activation…" : "Activer les notifications de réponse"}</button>}
           {!messages.length && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">Votre demande a été ouverte. Écrivez votre message : notre équipe vous répondra ici.</p>}
           {messages.map(m => <div key={m.id} className={m.sender==="guest"||m.sender==="customer" ? "flex justify-end" : "flex justify-start"}>
             <div className={`max-w-[88%] rounded-2xl p-3 ${m.sender==="guest"||m.sender==="customer" ? "bg-primary text-primary-foreground" : "bg-muted"}`}>
