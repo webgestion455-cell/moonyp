@@ -48,7 +48,8 @@ function SupportInbox() {
   const [filter, setFilter] = useState("open");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const editor = useRef<HTMLDivElement>(null);\n  const [formatting, setFormatting] = useState({ bold: false, italic: false, underline: false });
+  const editor = useRef<HTMLDivElement>(null);
+  const [formatting, setFormatting] = useState({ bold: false, italic: false, underline: false });
   const transcript = useRef<HTMLDivElement>(null);
   const loadList = useCallback(async () => {
     try { const data = await support("list", { status: filter }); setItems(data.conversations ?? []); setError(""); }
