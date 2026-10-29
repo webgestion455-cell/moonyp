@@ -25,6 +25,7 @@ async function callSupport(action: string, payload: Record<string, unknown> = {}
 }
 function safeMessageHtml(value: string) {
   value = value.replace(/&amp;nbsp;|&nbsp;|&#160;|&#xA0;/gi, " ");
+  value = value.replace(/&amp;nbsp;|&nbsp;|&#160;|&#xA0;/gi, " ");
   const escape = (s: string) => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
   if (!/<(strong|b|em|i|u|a|br|p|div|ul|ol|li|img)\b/i.test(value)) {
     return escape(value).replace(/(https?:\/\/[^\s<]+|www\.[^\s<]+)/g, (url) => {
@@ -36,6 +37,12 @@ function safeMessageHtml(value: string) {
     .replace(/\s+on[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi,"")
     .replace(/javascript\s*:/gi,"")
     .replace(/<(?!\/?(?:strong|b|em|i|u|a|br|p|div|ul|ol|li|img)\b)[^>]*>/gi,"")
+    .replace(/<img\b([^>]*)>/gi, (_m, attrs) => {
+      const match = attrs.match(/src\s*=\s*(["'])(.*?)\1/i);
+      const base = (import.meta.env.VITE_SUPABASE_URL || "").replace(/\/$/, "") + "/storage/v1/object/public/support-attachments/";
+      if (!match || !match[2].startsWith(base)) return "";
+      return '<img src="' + escape(match[2]) + '" alt="Image jointe" loading="lazy" class="my-2 block h-auto max-h-80 max-w-full rounded-xl border object-contain" />';
+    })
     .replace(/<(a)\b([^>]*)>/gi, (_m, tag, attrs) => {
       const match = attrs.match(/href\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/i);
       if (!match) return "<a>";
