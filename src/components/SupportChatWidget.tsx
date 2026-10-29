@@ -95,7 +95,8 @@ export function SupportChatWidget() {
         {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
         <button disabled={starting} className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 font-medium text-primary-foreground disabled:opacity-60">{starting&&<LoaderCircle className="h-4 w-4 animate-spin"/>}Démarrer la conversation</button>
       </form> : <>
-        <div className="flex-1 space-y-4 overflow-y-auto p-4 sm:p-5">\n          {!pushEnabled && <button onClick={() => void enablePush()} disabled={pushBusy} className="flex w-full items-center justify-center gap-2 rounded-xl border border-primary/25 bg-primary/5 px-3 py-2 text-xs font-medium text-primary disabled:opacity-60"><BellRing className="h-4 w-4"/>{pushBusy ? "Activation…" : "Activer les notifications de réponse"}</button>}
+        <div className="flex-1 space-y-4 overflow-y-auto p-4 sm:p-5">
+          {!pushEnabled && <button onClick={() => void enablePush()} disabled={pushBusy} className="flex w-full items-center justify-center gap-2 rounded-xl border border-primary/25 bg-primary/5 px-3 py-2 text-xs font-medium text-primary disabled:opacity-60"><BellRing className="h-4 w-4"/>{pushBusy ? "Activation…" : "Activer les notifications de réponse"}</button>}
           {!messages.length && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">Votre demande a été ouverte. Écrivez votre message : notre équipe vous répondra ici.</p>}
           {messages.map(m => <div key={m.id} className={m.sender==="guest"||m.sender==="customer" ? "flex justify-end" : "flex justify-start"}>
             <div className={`max-w-[88%] rounded-2xl p-3 ${m.sender==="guest"||m.sender==="customer" ? "bg-primary text-primary-foreground" : "bg-muted"}`}>
