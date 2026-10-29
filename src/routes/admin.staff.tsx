@@ -50,7 +50,7 @@ import {
   MailCheck,
   Users,
 } from "lucide-react";
-import { useAutoRefresh } from "@/hooks/use-auto-refresh";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";\nimport { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admin/staff")({
   component: AdminStaff,
@@ -100,7 +100,7 @@ function AdminStaff() {
     jobTitle: "",
     role: "agent" as StaffRole,
   });
-  const [fallbackLink, setFallbackLink] = useState<string | null>(null);
+  const [fallbackLink, setFallbackLink] = useState<string | null>(null);\n  const [profileEditing, setProfileEditing] = useState<Member | null>(null);\n  const [profileDraft, setProfileDraft] = useState({ display_name: "", job_title: "", avatar_url: "" });\n  const [profileSaving, setProfileSaving] = useState(false);
 
   useEffect(() => {
     if (!hasPermission("staff.view")) {
@@ -169,6 +169,30 @@ function AdminStaff() {
     } finally {
       setSaving(false);
     }
+  }
+
+  async function saveProfile() {
+    if (!profileEditing || !canManage) return;
+    if (profileDraft.avatar_url && !/^https:\/\//i.test(profileDraft.avatar_url)) {
+      toast.error("L’URL de la photo doit commencer par https://");
+      return;
+    }
+    setProfileSaving(true);
+    try {
+      const { error } = await supabase.from("staff_profiles").upsert({
+        user_id: profileEditing.user_id,
+        display_name: profileDraft.display_name.trim() || null,
+        job_title: profileDraft.job_title.trim() || null,
+        avatar_url: profileDraft.avatar_url.trim() || null,
+        updated_at: new Date().toISOString(),
+      }, { onConflict: "user_id" });
+      if (error) throw error;
+      toast.success("Profil du membre mis à jour");
+      setProfileEditing(null);
+      void load();
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Impossible d’enregistrer ce profil. Vérifiez les permissions.");
+    } finally { setProfileSaving(false); }
   }
 
   async function changeRole(userId: string, role: StaffRole) {
@@ -447,6 +471,19 @@ function AdminStaff() {
           )}
         </CardContent>
       </Card>
+
+      <Dialog open={Boolean(profileEditing)} onOpenChange={(v) => { if (!v) setProfileEditing(null); }}>
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader><DialogTitle>Profil du membre</DialogTitle><DialogDescription>Ces informations sont affichées dans les conversations du support. Sans photo, le logo MOONYP est utilisé par défaut.</DialogDescription></DialogHeader>
+          {profileEditing && <div className="space-y-4 py-2">
+            <div className="flex items-center gap-3"><img src={profileDraft.avatar_url || "/icon-192.png"} alt="Aperçu du profil" className="h-14 w-14 rounded-lg border object-cover"/><div className="min-w-0"><p className="font-medium">{profileEditing.email}</p><p className="text-xs text-muted-foreground">Photo HTTPS facultative</p></div></div>
+            <div className="space-y-1"><Label htmlFor="profile-name">Nom affiché</Label><Input id="profile-name" value={profileDraft.display_name} onChange={e=>setProfileDraft(v=>({...v,display_name:e.target.value}))} placeholder="Anna"/></div>
+            <div className="space-y-1"><Label htmlFor="profile-job">Fonction / rôle affiché</Label><Input id="profile-job" value={profileDraft.job_title} onChange={e=>setProfileDraft(v=>({...v,job_title:e.target.value}))} placeholder="Spécialiste du service client"/></div>
+            <div className="space-y-1"><Label htmlFor="profile-avatar">URL de la photo (HTTPS)</Label><Input id="profile-avatar" value={profileDraft.avatar_url} onChange={e=>setProfileDraft(v=>({...v,avatar_url:e.target.value}))} placeholder="https://…"/><p className="text-xs text-muted-foreground">Laissez vide pour utiliser le logo MOONYP.</p></div>
+          </div>}
+          <DialogFooter><Button variant="outline" onClick={()=>setProfileEditing(null)}>Annuler</Button><Button onClick={()=>void saveProfile()} disabled={profileSaving}>{profileSaving?"Enregistrement…":"Enregistrer le profil"}</Button></DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {pendingInvites.length > 0 && (
         <Card>
