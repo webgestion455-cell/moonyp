@@ -13,7 +13,7 @@ create table if not exists public.organizations (
   accent_color text not null default '#0f172a' check (accent_color ~ '^#[0-9A-Fa-f]{6}$'),
   welcome_message jsonb not null default '{}'::jsonb,
   default_locale text not null default 'en',
-  enabled_locales text[] not null default array['en','fr','de','es','it','pt','nl','pl','ru','ar','zh','ja','ko','tr','sw']::text[],
+  enabled_locales text[] not null default array['fr','en','de','es','it','nl','sl','bg','sk','el','fi','ro','pl','hr','hu']::text[],
   support_email text,
   public_chat_enabled boolean not null default true,
   status text not null default 'active' check (status in ('active','suspended','pending')),
