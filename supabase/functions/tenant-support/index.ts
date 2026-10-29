@@ -37,7 +37,8 @@ async function loadConversation(id: string) {
 }
 async function authorizeConversation(conv: any, user: any, guestToken: string) {
   if (!conv?.organization_id) return false;
-  if (user) return Boolean(await membership(user.id, conv.organization_id, ["owner","admin","supervisor","agent","viewer"]) && (!conv.user_id || conv.user_id === user.id || await membership(user.id, conv.organization_id, ["owner","admin","supervisor","agent","viewer"])));
+  if (user && conv.user_id === user.id) return true;
+  if (user) return Boolean(await membership(user.id, conv.organization_id, ["owner","admin","supervisor","agent","viewer"]));
   if (!guestToken || !conv.guest_token) return false;
   return await sha256(guestToken) === conv.guest_token;
 }
