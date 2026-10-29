@@ -94,10 +94,10 @@ export function SupportChatWidget() {
   }
   return <div className={open ? "fixed inset-0 z-[100] h-[100dvh] w-screen bg-background sm:inset-auto sm:bottom-6 sm:right-6 sm:h-auto sm:w-auto sm:bg-transparent" : "fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-[80] sm:bottom-6 sm:right-6"}>
     {open && <section aria-label="Assistance MOONYP" className="flex h-[100dvh] w-full flex-col overflow-hidden bg-background shadow-2xl sm:mb-3 sm:h-[min(720px,82vh)] sm:w-[min(440px,calc(100vw-3rem))] sm:rounded-2xl sm:border">
-      <header className="flex shrink-0 items-center gap-3 bg-primary px-4 pb-4 pt-[calc(1rem+env(safe-area-inset-top))] text-primary-foreground sm:pt-4">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15"><Headphones className="h-5 w-5"/></span>
+      <header className="flex shrink-0 items-center gap-3 bg-black px-4 pb-4 pt-[calc(1rem+env(safe-area-inset-top))] text-white sm:pt-4">
+        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10"><Headphones className="h-5 w-5"/></span>
         <span className="min-w-0 flex-1"><strong className="block text-sm">Assistance MOONYP</strong><span className="text-xs opacity-80">Nous sommes là pour vous aider</span></span>
-        <button aria-label="Fermer le chat" onClick={() => setOpen(false)} className="rounded-lg p-2 hover:bg-white/10"><X className="h-5 w-5"/></button>
+        <button aria-label="Fermer le chat" onClick={() => setOpen(false)} className="rounded-lg p-2 hover:bg-white/15"><X className="h-5 w-5"/></button>
       </header>
       {!ready ? <form onSubmit={start} className="flex-1 space-y-4 overflow-y-auto p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
         <div><h2 className="text-lg font-semibold">Comment pouvons-nous vous aider ?</h2><p className="mt-1 text-sm text-muted-foreground">Laissez-nous vos coordonnées pour ouvrir une conversation avec notre équipe.</p></div>
@@ -106,10 +106,10 @@ export function SupportChatWidget() {
         <label className="block text-sm">Sujet (facultatif)<input maxLength={160} value={subject} onChange={e=>setSubject(e.target.value)} className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5" placeholder="Objet de votre demande"/></label>
         <label className="block text-sm">Votre message *<textarea required maxLength={4000} rows={3} value={initialMessage} onChange={e=>setInitialMessage(e.target.value)} className="mt-1 w-full resize-y rounded-lg border bg-background px-3 py-2.5" placeholder="Décrivez votre demande…"/></label>
         {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
-        <button disabled={starting} className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 font-medium text-primary-foreground disabled:opacity-60">{starting&&<LoaderCircle className="h-4 w-4 animate-spin"/>}Démarrer la conversation</button>
+        <button disabled={starting} className="flex w-full items-center justify-center gap-2 rounded-lg bg-black px-4 py-3 font-medium text-white disabled:opacity-60">{starting&&<LoaderCircle className="h-4 w-4 animate-spin"/>}Démarrer la conversation</button>
       </form> : <>
         <div className="flex-1 space-y-4 overflow-y-auto p-4 sm:p-5">
-          {!pushEnabled && <button onClick={() => void enablePush()} disabled={pushBusy} className="flex w-full items-center justify-center gap-2 rounded-xl border border-primary/25 bg-primary/5 px-3 py-2 text-xs font-medium text-primary disabled:opacity-60"><BellRing className="h-4 w-4"/>{pushBusy ? "Activation…" : "Activer les notifications de réponse"}</button>}
+          {!pushEnabled && <button onClick={() => void enablePush()} disabled={pushBusy} className="flex w-full items-center justify-center gap-2 rounded-xl border border-black/20 bg-black px-3 py-2 text-xs font-medium text-white disabled:opacity-60"><BellRing className="h-4 w-4"/>{pushBusy ? "Activation…" : "Activer les notifications de réponse"}</button>}
           {!messages.length && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">Votre demande a été ouverte. Écrivez votre message : notre équipe vous répondra ici.</p>}
           {messages.map(m => <div key={m.id} className={m.sender==="guest"||m.sender==="customer" ? "flex justify-end" : "flex justify-start"}>
             <div className={`max-w-[88%] rounded-2xl p-3 ${m.sender==="guest"||m.sender==="customer" ? "bg-primary text-primary-foreground" : "bg-muted"}`}>
@@ -121,7 +121,7 @@ export function SupportChatWidget() {
           <div ref={bottom}/>
         </div>
         {error && <p role="alert" className="px-4 text-xs text-destructive">{error}</p>}
-        <form onSubmit={send} className="flex shrink-0 items-end gap-2 border-t p-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] sm:pb-3"><textarea value={draft} onChange={e=>setDraft(e.target.value)} maxLength={4000} rows={2} className="max-h-28 min-h-11 flex-1 resize-y rounded-xl border bg-background px-3 py-2 text-sm" placeholder="Écrivez votre message…" aria-label="Votre message"/><button disabled={busy||!draft.trim()} aria-label="Envoyer le message" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-50"><Send className="h-4 w-4"/></button></form>
+        <form onSubmit={send} className="flex shrink-0 items-end gap-2 border-t p-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] sm:pb-3"><textarea value={draft} onChange={e=>setDraft(e.target.value)} maxLength={4000} rows={2} className="max-h-28 min-h-11 flex-1 resize-y rounded-xl border bg-background px-3 py-2 text-sm" placeholder="Écrivez votre message…" aria-label="Votre message"/><button disabled={busy||!draft.trim()} aria-label="Envoyer le message" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-black text-white disabled:opacity-50"><Send className="h-4 w-4"/></button></form>
       </>}
     </section>}
     {!open && <button onClick={()=>setOpen(true)} aria-label="Contacter l’assistance" className="ml-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-xl transition hover:scale-105"><MessageCircle className="h-6 w-6"/></button>}
