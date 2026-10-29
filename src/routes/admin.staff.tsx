@@ -49,8 +49,10 @@ import {
   RotateCcw,
   MailCheck,
   Users,
+  Pencil,
 } from "lucide-react";
-import { useAutoRefresh } from "@/hooks/use-auto-refresh";\nimport { supabase } from "@/integrations/supabase/client";
+import { useAutoRefresh } from "@/hooks/use-auto-refresh";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admin/staff")({
   component: AdminStaff,
