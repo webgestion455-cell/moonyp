@@ -25,6 +25,7 @@ export function SupportChatWidget() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
+  const [initialMessage, setInitialMessage] = useState("");
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<Msg[]>([]);
   const [error, setError] = useState("");
@@ -32,11 +33,11 @@ export function SupportChatWidget() {
   const bottom = useRef<HTMLDivElement>(null);
   const ready = Boolean(conversationId && guestToken);
   async function start(e: React.FormEvent) {
-    e.preventDefault(); if (!name.trim() || starting) return;
+    e.preventDefault(); if (!name.trim() || !initialMessage.trim() || starting) return;
     setStarting(true); setError("");
     try {
-      const data = await callSupport("start", { guestName: name.trim(), guestEmail: email.trim(), subject: subject.trim(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, locale: navigator.language });
-      setConversationId(data.conversation.id); setGuestToken(data.guestToken);
+      const data = await callSupport("start", { name: name.trim(), email: email.trim(), message: initialMessage.trim(), subject: subject.trim(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, locale: navigator.language });
+      setConversationId(data.conversation.id); setGuestToken(data.guestToken); setInitialMessage("");
       localStorage.setItem(CONV_KEY, data.conversation.id); localStorage.setItem(TOKEN_KEY, data.guestToken);
     } catch (err) { setError(err instanceof Error ? err.message : "Impossible d’ouvrir la conversation."); }
     finally { setStarting(false); }
@@ -67,6 +68,7 @@ export function SupportChatWidget() {
         <label className="block text-sm">Votre nom *<input required maxLength={100} value={name} onChange={e=>setName(e.target.value)} className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5" placeholder="Nom complet"/></label>
         <label className="block text-sm">E-mail (facultatif)<input type="email" maxLength={254} value={email} onChange={e=>setEmail(e.target.value)} className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5" placeholder="vous@exemple.com"/></label>
         <label className="block text-sm">Sujet (facultatif)<input maxLength={160} value={subject} onChange={e=>setSubject(e.target.value)} className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5" placeholder="Objet de votre demande"/></label>
+        <label className="block text-sm">Votre message *<textarea required maxLength={4000} rows={3} value={initialMessage} onChange={e=>setInitialMessage(e.target.value)} className="mt-1 w-full resize-y rounded-lg border bg-background px-3 py-2.5" placeholder="Décrivez votre demande…"/></label>
         {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
         <button disabled={starting} className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 font-medium text-primary-foreground disabled:opacity-60">{starting&&<LoaderCircle className="h-4 w-4 animate-spin"/>}Démarrer la conversation</button>
       </form> : <>
