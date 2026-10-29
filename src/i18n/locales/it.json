@@ -2492,6 +2492,8 @@
     "allowPush": "Consenti le notifiche nelle impostazioni del browser.",
     "empty": "La tua richiesta è aperta. Scrivi qui e il nostro team ti risponderà.",
     "you": "Tu",
-    "team": "Supporto"
+    "team": "Supporto",
+    "close": "Chiudi chat",
+    "contact": "Contatta l’assistenza"
   }
 }
