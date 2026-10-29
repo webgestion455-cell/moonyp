@@ -38,6 +38,7 @@ import {
   updateStaffRole,
   setStaffActive,
   revokeInvitation,
+  updateStaffProfile,
 } from "@/lib/staff.functions";
 import { toast } from "sonner";
 import {
@@ -52,7 +53,6 @@ import {
   Pencil,
 } from "lucide-react";
 import { useAutoRefresh } from "@/hooks/use-auto-refresh";
-import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admin/staff")({
   component: AdminStaff,
