@@ -2492,6 +2492,8 @@
     "allowPush": "Povoľte upozornenia v nastaveniach prehliadača.",
     "empty": "Vaša požiadavka je otvorená. Napíšte sem a náš tím vám odpovie.",
     "you": "Vy",
-    "team": "Podpora"
+    "team": "Podpora",
+    "close": "Zavrieť chat",
+    "contact": "Kontaktovať podporu"
   }
 }
