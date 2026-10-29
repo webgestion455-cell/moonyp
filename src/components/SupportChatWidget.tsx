@@ -37,7 +37,7 @@ export function SupportChatWidget() {
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<Msg[]>([]);
   const [error, setError] = useState("");
-  const [pushEnabled, setPushEnabled] = useState(false);
+  const [pushEnabled, setPushEnabled] = useState(false);\n  const [conversationClosed, setConversationClosed] = useState(false);
   const [pushBusy, setPushBusy] = useState(false);
   const [busy, setBusy] = useState(false);
   const bottom = useRef<HTMLDivElement>(null);
@@ -60,7 +60,7 @@ export function SupportChatWidget() {
   }
   async function load() {
     if (!ready) return;
-    try { const data = await callSupport("messages", { conversationId, guestToken, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone }); setMessages(data.messages ?? []); setError(""); }
+    try { const data = await callSupport("messages", { conversationId, guestToken, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone }); setMessages(data.messages ?? []); setConversationClosed(data.conversation?.status === "closed"); setError(""); }
     catch (err) { setError(err instanceof Error ? err.message : "Chargement des messages impossible."); }
   }
   useEffect(() => { if (!open || !ready) return; void load(); const timer = window.setInterval(() => void load(), 3000); return () => window.clearInterval(timer); }, [open, ready, conversationId, guestToken]);
@@ -109,11 +109,11 @@ export function SupportChatWidget() {
         <button disabled={starting} className="flex w-full items-center justify-center gap-2 rounded-lg bg-black px-4 py-3 font-medium text-white disabled:opacity-60">{starting&&<LoaderCircle className="h-4 w-4 animate-spin"/>}Démarrer la conversation</button>
       </form> : <>
         <div className="flex-1 space-y-4 overflow-y-auto p-4 sm:p-5">
-          {!pushEnabled && <button onClick={() => void enablePush()} disabled={pushBusy} className="flex w-full items-center justify-center gap-2 rounded-xl border border-black/20 bg-black px-3 py-2 text-xs font-medium text-white disabled:opacity-60"><BellRing className="h-4 w-4"/>{pushBusy ? "Activation…" : "Activer les notifications de réponse"}</button>}
-          {!messages.length && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">Votre demande a été ouverte. Écrivez votre message : notre équipe vous répondra ici.</p>}
+          {!conversationClosed && !pushEnabled && <button onClick={() => void enablePush()} disabled={pushBusy} className="flex w-full items-center justify-center gap-2 rounded-xl border border-black/20 bg-black px-3 py-2 text-xs font-medium text-white disabled:opacity-60"><BellRing className="h-4 w-4"/>{pushBusy ? "Activation…" : "Activer les notifications de réponse"}</button>}
+          {!messages.length && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">Votre demande a été ouverte. Écrivez votre message : notre équipe vous répondra ici.</p>}{conversationClosed && <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4"><p className="font-semibold">Cette conversation est clôturée.</p><p className="mt-1 text-sm text-muted-foreground">Pour obtenir une nouvelle assistance, démarrez une nouvelle conversation.</p><button type="button" onClick={()=>{localStorage.removeItem(CONV_KEY);localStorage.removeItem(TOKEN_KEY);setConversationId("");setGuestToken("");setMessages([]);setDraft("");setConversationClosed(false);setPushEnabled(false);setError("");}} className="mt-3 rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white">Nouvelle conversation</button></div>}
           {messages.map(m => <article key={m.id} className="flex gap-3 border-b border-dotted pb-5 last:border-0">
-            <div className="h-10 w-10 shrink-0 overflow-hidden rounded-md border bg-muted">{m.sender_avatar_url ? <img src={m.sender_avatar_url} alt="" className="h-full w-full object-cover" /> : <div className="flex h-full items-center justify-center text-sm font-semibold text-muted-foreground">{(m.sender_name||name||"M").slice(0,1).toUpperCase()}</div>}</div>
-            <div className="min-w-0 flex-1"><p className="text-sm font-semibold">{m.sender==="agent" ? `${m.sender_name||"Assistance"} (MOONYP)` : (m.sender_name||name||"Vous")}</p><p className="mt-1 text-xs text-muted-foreground">{stamp(m.created_at)}</p><p className="mt-3 whitespace-pre-wrap break-words text-sm leading-6">{m.content}</p>{m.sender==="agent" && m.signature && <div className="mt-4 space-y-0.5 text-sm leading-6">{m.signature.split(" | ").map((line,index)=><p key={`${m.id}-signature-${index}`} className={index===1?"font-medium":index===2?"font-semibold":""}>{line}</p>)}</div>}</div>
+            <div className="h-10 w-10 shrink-0 overflow-hidden rounded-md border bg-muted"><img src={m.sender_avatar_url || "/icon-192.png"} alt="" className="h-full w-full object-cover" /></div>
+            <div className="min-w-0 flex-1"><p className="text-sm font-semibold">{m.sender==="agent" ? `${(m.sender_name||"Assistance").trim().split(/\\s+/)[0]} (MOONYP)` : ((m.sender_name||name||"Vous").trim().split(/\\s+/)[0])}</p><p className="mt-1 text-xs text-muted-foreground">{stamp(m.created_at)}</p><p className="mt-3 whitespace-pre-wrap break-words text-sm leading-6">{m.content}</p>{m.sender==="agent" && m.signature && <div className="mt-4 space-y-0.5 text-sm leading-6">{m.signature.split(/\\n/).map((line,index)=><p key={`${m.id}-signature-${index}`} className={index===1?"font-medium":index===2?"font-semibold":""}>{line}</p>)}</div>}</div>
           </article>)}
           <div ref={bottom}/>
         </div>
@@ -121,6 +121,6 @@ export function SupportChatWidget() {
         <form onSubmit={send} className="flex shrink-0 items-end gap-2 border-t p-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] sm:pb-3"><textarea value={draft} onChange={e=>setDraft(e.target.value)} maxLength={4000} rows={2} className="max-h-28 min-h-11 flex-1 resize-y rounded-xl border bg-background px-3 py-2 text-sm" placeholder="Écrivez votre message…" aria-label="Votre message"/><button disabled={busy||!draft.trim()} aria-label="Envoyer le message" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-black text-white disabled:opacity-50"><Send className="h-4 w-4"/></button></form>
       </>}
     </section>}
-    {!open && <button onClick={()=>setOpen(true)} aria-label="Contacter l’assistance" className="ml-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-xl transition hover:scale-105"><MessageCircle className="h-6 w-6"/></button>}
+    {!open && <button onClick={()=>setOpen(true)} aria-label="Contacter l’assistance" className="ml-auto flex h-14 w-14 items-center justify-center rounded-full bg-black text-white shadow-xl transition hover:scale-105"><MessageCircle className="h-6 w-6"/></button>}
   </div>;
 }
