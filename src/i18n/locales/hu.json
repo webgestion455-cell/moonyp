@@ -2492,6 +2492,8 @@
     "allowPush": "Engedélyezze az értesítéseket a böngésző beállításaiban.",
     "empty": "A kérése megnyílt. Írjon ide, csapatunk válaszolni fog.",
     "you": "Ön",
-    "team": "Ügyfélszolgálat"
+    "team": "Ügyfélszolgálat",
+    "close": "Csevegés bezárása",
+    "contact": "Kapcsolatfelvétel az ügyfélszolgálattal"
   }
 }
