@@ -9,19 +9,20 @@ export const Route = createFileRoute("/admin/chat")({ component: SupportInbox })
 type Conversation = { id: string; guest_name: string | null; guest_email: string | null; subject: string | null; ticket_number: string | null; status: string; agent_name: string | null; unread_for_admin: number; last_message_at: string };
 type ChatMessage = { id: string; sender: string; sender_name: string | null; content: string; sender_avatar_url: string | null; signature: string | null; created_at: string };
 function localDate(value: string) { return new Intl.DateTimeFormat(undefined, { month: "short", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", timeZoneName: "short" }).format(new Date(value)); }
-function shortName(value?: string | null) { const clean = (value || "Client").trim(); return clean.split(/\\s+/)[0] || "Client"; }
+function shortName(value?: string | null) { return (value || "Client").trim().split(" ")[0] || "Client"; }
 function MessageText({ value }: { value: string }) {
-  const tokens = value.split(/(https?:\\/\\/[^\\s<]+|www\\.[^\\s<]+|\\*\\*[^*]+\\*\\*|(?<!\\*)\\*[^*\\n]+\\*(?!\\*))/g);
-  return <span className="whitespace-pre-wrap break-words">{tokens.map((token, i) => {
-    if (/^(https?:\\/\\/|www\\.)/.test(token)) {
-      const href = token.startsWith("www.") ? "https://" + token : token;
-      const trailing = href.match(/[.,!?;:)]+$/)?.[0] || "";
-      const cleanHref = trailing ? href.slice(0, -trailing.length) : href;
-      return <span key={i}><a href={cleanHref} target="_blank" rel="noopener noreferrer" className="break-all text-primary underline underline-offset-2">{cleanHref.replace(/^https?:\\/\\//, "")}</a>{trailing}</span>;
+  const parts = value.split(" ");
+  return <span className="whitespace-pre-wrap break-words">{parts.map((part, i) => {
+    const isUrl = part.startsWith("https://") || part.startsWith("http://") || part.startsWith("www.");
+    if (isUrl) {
+      const ending = part.endsWith(".") || part.endsWith(",") || part.endsWith("!") ? part.slice(-1) : "";
+      const raw = ending ? part.slice(0, -1) : part;
+      const href = raw.startsWith("www.") ? "https://" + raw : raw;
+      return <span key={i}><a href={href} target="_blank" rel="noopener noreferrer" className="break-all text-primary underline">{raw}</a>{ending} </span>;
     }
-    if (token.startsWith("**") && token.endsWith("**")) return <strong key={i}>{token.slice(2,-2)}</strong>;
-    if (token.startsWith("*") && token.endsWith("*")) return <em key={i}>{token.slice(1,-1)}</em>;
-    return <span key={i}>{token}</span>;
+    if (part.startsWith("**") && part.endsWith("**") && part.length > 4) return <strong key={i}>{part.slice(2,-2)} </strong>;
+    if (part.startsWith("*") && part.endsWith("*") && part.length > 2) return <em key={i}>{part.slice(1,-1)} </em>;
+    return <span key={i}>{part} </span>;
   })}</span>;
 }
 async function support(action: string, extra: Record<string, unknown> = {}) {
