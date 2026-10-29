@@ -65,7 +65,7 @@ export function SupportChatWidget() {
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<Msg[]>([]);
   const messagesRef = useRef<Msg[]>([]);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [error, setError] = useState("");
   const [imageBusy, setImageBusy] = useState(false);
   const [pendingImage, setPendingImage] = useState<File | null>(null);
@@ -88,7 +88,7 @@ export function SupportChatWidget() {
     e.preventDefault(); if (!name.trim() || !initialMessage.trim() || starting) return;
     setStarting(true); setError("");
     try {
-      const data = await callSupport("start", { name: name.trim(), email: email.trim(), message: initialMessage.trim(), subject: subject.trim(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, locale: navigator.language });
+      const data = await callSupport("start", { name: name.trim(), email: email.trim(), message: initialMessage.trim(), subject: subject.trim(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, locale: i18n.resolvedLanguage || i18n.language || navigator.language });
       setConversationId(data.conversation.id); setGuestToken(data.guestToken); setInitialMessage("");
       localStorage.setItem(CONV_KEY, data.conversation.id); localStorage.setItem(TOKEN_KEY, data.guestToken);
     } catch (err) { setError(err instanceof Error ? err.message : t("supportChat.openError")); }
