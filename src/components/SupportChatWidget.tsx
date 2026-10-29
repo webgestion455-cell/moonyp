@@ -162,7 +162,7 @@ export function SupportChatWidget() {
         const escape = (s: string) => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
         content = (content ? "<p>" + escape(content).replace(/\n/g,"<br>") + "</p>" : "") + '<p><img src="' + imageUrl + '" alt="' + t("supportChat.image") + '" /></p>';
       }
-      await callSupport("send", { conversationId, guestToken, message: content, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone });
+      await callSupport("send", { conversationId, guestToken, message: content, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, locale: i18n.resolvedLanguage || i18n.language || navigator.language });
       setDraft(""); removePendingImage(); await load();
     } catch (err) { setError(err instanceof Error ? err.message : t("supportChat.sendError")); }
     finally { setBusy(false); setImageBusy(false); }
