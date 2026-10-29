@@ -94,8 +94,8 @@ export function SupportChatWidget() {
     requestAnimationFrame(() => { if (transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight; });
   }, [open, conversationId]);
   useEffect(() => {
-    if (!stickToBottom.current) return;
-    requestAnimationFrame(() => { if (transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight; });
+    if (!shouldAutoScroll.current) return;
+    requestAnimationFrame(() => { if (transcript.current && shouldAutoScroll.current) transcript.current.scrollTop = transcript.current.scrollHeight; });
   }, [messages]);
   async function enablePush() {
     if (!ready || pushBusy || !("Notification" in window) || !("serviceWorker" in navigator)) {
@@ -140,7 +140,7 @@ export function SupportChatWidget() {
         {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
         <button disabled={starting} className="flex w-full items-center justify-center gap-2 rounded-lg bg-black px-4 py-3 font-medium text-white disabled:opacity-60">{starting&&<LoaderCircle className="h-4 w-4 animate-spin"/>}Démarrer la conversation</button>
       </form> : <>
-        <div ref={transcript} onScroll={e => { const el=e.currentTarget; stickToBottom.current = el.scrollHeight - el.scrollTop - el.clientHeight < 100; }} className="flex-1 space-y-4 overflow-y-auto overscroll-contain p-4 sm:p-5">
+        <div ref={transcript} onScroll={e => { const el=e.currentTarget; const nearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 100; stickToBottom.current = nearBottom; shouldAutoScroll.current = nearBottom; }} className="flex-1 space-y-4 overflow-y-auto overscroll-contain p-4 sm:p-5">
           {!conversationClosed && !pushEnabled && <button onClick={() => void enablePush()} disabled={pushBusy} className="flex w-full items-center justify-center gap-2 rounded-xl border border-black/20 bg-black px-3 py-2 text-xs font-medium text-white disabled:opacity-60"><BellRing className="h-4 w-4"/>{pushBusy ? "Activation…" : "Activer les notifications de réponse"}</button>}
           {!messages.length && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">Votre demande a été ouverte. Écrivez votre message : notre équipe vous répondra ici.</p>}
           {messages.map(m => <article key={m.id} className="flex gap-3 border-b border-dotted pb-5 last:border-0">
