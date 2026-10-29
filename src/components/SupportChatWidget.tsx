@@ -24,21 +24,21 @@ async function callSupport(action: string, payload: Record<string, unknown> = {}
 }
 function safeMessageHtml(value: string) {
   const escape = (s: string) => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-  if (!/<(strong|b|em|i|u|a|br|p|div|ul|ol|li)\\b/i.test(value)) {
-    return escape(value).replace(/(https?:\\/\\/[^\\s<]+|www\\.[^\\s<]+)/g, (url) => {
+  if (!/<(strong|b|em|i|u|a|br|p|div|ul|ol|li)\b/i.test(value)) {
+    return escape(value).replace(/(https?:\/\/[^\s<]+|www\.[^\s<]+)/g, (url) => {
       const href = url.startsWith("www.") ? "https://" + url : url;
       return '<a href="' + href.replace(/"/g,"%22") + '" target="_blank" rel="noopener noreferrer">' + url + '</a>';
-    }).replace(/\\n/g,"<br>");
+    }).replace(/\n/g,"<br>");
   }
-  return value.replace(/<\\/?(script|style|iframe|object|svg)[^>]*>/gi,"")
-    .replace(/\\s+on[a-z]+\\s*=\\s*("[^"]*"|'[^']*'|[^\\s>]+)/gi,"")
-    .replace(/javascript\\s*:/gi,"")
-    .replace(/<(?!\\/?(?:strong|b|em|i|u|a|br|p|div|ul|ol|li)\\b)[^>]*>/gi,"")
-    .replace(/<(a)\\b([^>]*)>/gi, (_m, _tag, attrs) => {
-      const match = attrs.match(/href\\s*=\\s*("[^"]*"|'[^']*'|[^\\s>]+)/i);
+  return value.replace(/<\/?(script|style|iframe|object|svg)[^>]*>/gi,"")
+    .replace(/\s+on[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi,"")
+    .replace(/javascript\s*:/gi,"")
+    .replace(/<(?!\/?(?:strong|b|em|i|u|a|br|p|div|ul|ol|li)\b)[^>]*>/gi,"")
+    .replace(/<(a)\b([^>]*)>/gi, (_m, tag, attrs) => {
+      const match = attrs.match(/href\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/i);
       if (!match) return "<a>";
       const href = match[1].replace(/^["']|["']$/g,"");
-      if (!/^https?:\\/\\//i.test(href)) return "<a>";
+      if (!/^https?:\/\//i.test(href)) return "<a>";
       return '<a href="' + escape(href) + '" target="_blank" rel="noopener noreferrer">';
     });
 }
