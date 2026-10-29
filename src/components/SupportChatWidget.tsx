@@ -41,7 +41,8 @@ export function SupportChatWidget() {
   const [conversationClosed, setConversationClosed] = useState(false);
   const [pushBusy, setPushBusy] = useState(false);
   const [busy, setBusy] = useState(false);
-  const bottom = useRef<HTMLDivElement>(null);\n  const transcript = useRef<HTMLDivElement>(null);\n  const stickToBottom = useRef(true);
+  const bottom = useRef<HTMLDivElement>(null);
+  const transcript = useRef<HTMLDivElement>(null);\n  const stickToBottom = useRef(true);
   const ready = Boolean(conversationId && guestToken);
   useEffect(() => {
     if (!open) return;
@@ -65,7 +66,8 @@ export function SupportChatWidget() {
     catch (err) { setError(err instanceof Error ? err.message : "Chargement des messages impossible."); }
   }
   useEffect(() => { if (!open || !ready) return; void load(); const timer = window.setInterval(() => void load(), 3000); return () => window.clearInterval(timer); }, [open, ready, conversationId, guestToken]);
-  useEffect(() => { if (open) { stickToBottom.current = true; requestAnimationFrame(() => bottom.current?.scrollIntoView({ behavior: "auto" })); } }, [open, conversationId]);\n  useEffect(() => { if (stickToBottom.current) bottom.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
+  useEffect(() => { if (open) { stickToBottom.current = true; requestAnimationFrame(() => bottom.current?.scrollIntoView({ behavior: "auto" })); } }, [open, conversationId]);
+  useEffect(() => { if (stickToBottom.current) bottom.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
   async function enablePush() {
     if (!ready || pushBusy || !("Notification" in window) || !("serviceWorker" in navigator)) {
       setError("Les notifications ne sont pas disponibles sur ce navigateur.");
