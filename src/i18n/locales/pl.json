@@ -2492,6 +2492,8 @@
     "allowPush": "Zezwól na powiadomienia w ustawieniach przeglądarki.",
     "empty": "Zgłoszenie zostało otwarte. Napisz tutaj, a nasz zespół odpowie.",
     "you": "Ty",
-    "team": "Pomoc"
+    "team": "Pomoc",
+    "close": "Zamknij czat",
+    "contact": "Skontaktuj się z pomocą"
   }
 }
