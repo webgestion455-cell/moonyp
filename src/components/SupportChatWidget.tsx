@@ -89,13 +89,13 @@ export function SupportChatWidget() {
       const data = await callSupport("start", { name: name.trim(), email: email.trim(), message: initialMessage.trim(), subject: subject.trim(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, locale: navigator.language });
       setConversationId(data.conversation.id); setGuestToken(data.guestToken); setInitialMessage("");
       localStorage.setItem(CONV_KEY, data.conversation.id); localStorage.setItem(TOKEN_KEY, data.guestToken);
-    } catch (err) { setError(err instanceof Error ? err.message : "Impossible d’ouvrir la conversation."); }
+    } catch (err) { setError(err instanceof Error ? err.message : t("supportChat.openError")); }
     finally { setStarting(false); }
   }
   async function load() {
     if (!ready) return;
     try { const data = await callSupport("messages", { conversationId, guestToken, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone }); const incoming: Msg[] = data.messages ?? []; const current = transcript.current; const nearBottom = !current || current.scrollHeight - current.scrollTop - current.clientHeight < 100; const changed = incoming.length !== messagesRef.current.length || incoming.some((m, i) => m.id !== messagesRef.current[i]?.id || m.content !== messagesRef.current[i]?.content); if (changed) { shouldAutoScroll.current = nearBottom; messagesRef.current = incoming; setMessages(incoming); } setConversationClosed(data.conversation?.status === "closed"); setError(""); }
-    catch (err) { setError(err instanceof Error ? err.message : "Chargement des messages impossible."); }
+    catch (err) { setError(err instanceof Error ? err.message : t("supportChat.loadError")); }
   }
   useEffect(() => { if (!open || !ready) return; void load(); const timer = window.setInterval(() => void load(), 3000); return () => window.clearInterval(timer); }, [open, ready, conversationId, guestToken]);
   useEffect(() => {
@@ -125,7 +125,7 @@ export function SupportChatWidget() {
       if (!subscription) subscription = await registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: vapidBytes(vapidPublicKey) });
       await callSupport("subscribe_guest", { conversationId, guestToken, subscription: subscription.toJSON() });
       setPushEnabled(true);
-    } catch (err) { setError(err instanceof Error ? err.message : "Activation des notifications impossible."); }
+    } catch (err) { setError(err instanceof Error ? err.message : t("supportChat.sendError")); }
     finally { setPushBusy(false); }
   }
   async function send(e: React.FormEvent) {
