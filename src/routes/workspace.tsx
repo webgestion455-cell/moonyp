@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Building2, Copy, ExternalLink, LoaderCircle, Palette, Save, ShieldCheck } from "lucide-react";
+import { Building2, Copy, ExternalLink, Inbox, LoaderCircle, Palette, Save, ShieldCheck } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -76,7 +76,7 @@ function WorkspacePage() {
     <div className="mx-auto max-w-6xl space-y-6">
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div><p className="text-sm font-medium text-primary">Espace entreprise</p><h1 className="text-3xl font-bold tracking-tight">Votre support client</h1><p className="mt-1 text-muted-foreground">Personnalisez votre marque et préparez votre lien de chat public.</p></div>
-        <div className="flex items-center gap-2 rounded-full border bg-background px-3 py-2 text-xs text-muted-foreground"><ShieldCheck className="h-4 w-4 text-emerald-600" /> Espaces isolés par entreprise</div>
+        <div className="flex flex-wrap items-center gap-2"><Button variant="outline" onClick={() => window.location.href="/workspace/inbox"}><Inbox className="mr-2 h-4 w-4" /> Boîte de réception</Button><div className="flex items-center gap-2 rounded-full border bg-background px-3 py-2 text-xs text-muted-foreground"><ShieldCheck className="h-4 w-4 text-emerald-600" /> Espaces isolés par entreprise</div></div>
       </header>
 
       {error && <div role="alert" className="rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">{error}</div>}
