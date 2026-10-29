@@ -137,7 +137,7 @@ Deno.serve(async (req) => {
       }
       const { data, error } = await db.from("chat_messages").select("id,conversation_id,sender,sender_name,content,content_type,metadata,created_at,signature,sender_avatar_url").eq("conversation_id", conv.id).order("created_at", { ascending: true }).limit(300);
       if (error) return json({ error: "messages_load_failed" }, 500);
-      await db.from("chat_conversations").update(user ? { unread_for_admin: 0 } : { unread_for_user: 0 }).eq("id", conv.id).eq("organization_id", conv.organization_id);
+      await db.from("chat_conversations").update(user && conv.user_id !== user.id ? { unread_for_admin: 0 } : { unread_for_user: 0 }).eq("id", conv.id).eq("organization_id", conv.organization_id);
       return json({ conversation: { id: conv.id, status: conv.status, ticket_number: conv.ticket_number, subject: conv.subject }, messages: data ?? [] });
     }
 
@@ -147,12 +147,15 @@ Deno.serve(async (req) => {
       if (!message) return json({ error: "message_required" }, 400);
       let sender = "guest";
       let senderName = clean(conv.guest_name || "Client", 100);
-      if (user) {
+      const isCustomer = Boolean(user && conv.user_id === user.id);
+      if (user && !isCustomer) {
         const member = await membership(user.id, conv.organization_id, ["owner","admin","supervisor","agent"]);
         if (!member) return json({ error: "reply_forbidden" }, 403);
         sender = "agent";
         const { data: profile } = await db.from("staff_profiles").select("display_name,job_title,avatar_url").eq("user_id", user.id).maybeSingle();
         senderName = clean(profile?.display_name || user.user_metadata?.full_name || user.email?.split("@")[0] || "Support", 100);
+      } else if (isCustomer) {
+        sender = "customer";
       }
       const { data: msg, error } = await db.from("chat_messages").insert({
         conversation_id: conv.id, sender, sender_name: senderName, content: message, content_type: "text",
@@ -160,7 +163,7 @@ Deno.serve(async (req) => {
       }).select("id,conversation_id,sender,sender_name,content,content_type,metadata,created_at").single();
       if (error || !msg) return json({ error: "message_send_failed" }, 500);
       const updates: Record<string, unknown> = { last_message_at: new Date().toISOString(), updated_at: new Date().toISOString() };
-      if (user) {
+      if (user && conv.user_id !== user.id) {
         updates.unread_for_user = (conv.unread_for_user || 0) + 1;
         if (!conv.agent_id) { updates.agent_id = user.id; updates.agent_name = senderName; }
       } else updates.unread_for_admin = (conv.unread_for_admin || 0) + 1;
