@@ -2492,6 +2492,8 @@
     "allowPush": "Sta meldingen toe in je browserinstellingen.",
     "empty": "Je aanvraag is geopend. Stuur hier een bericht; ons team reageert hier.",
     "you": "Jij",
-    "team": "Support"
+    "team": "Support",
+    "close": "Chat sluiten",
+    "contact": "Contact opnemen met support"
   }
 }
