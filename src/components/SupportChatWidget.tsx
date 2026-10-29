@@ -111,13 +111,10 @@ export function SupportChatWidget() {
         <div className="flex-1 space-y-4 overflow-y-auto p-4 sm:p-5">
           {!pushEnabled && <button onClick={() => void enablePush()} disabled={pushBusy} className="flex w-full items-center justify-center gap-2 rounded-xl border border-black/20 bg-black px-3 py-2 text-xs font-medium text-white disabled:opacity-60"><BellRing className="h-4 w-4"/>{pushBusy ? "Activation…" : "Activer les notifications de réponse"}</button>}
           {!messages.length && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">Votre demande a été ouverte. Écrivez votre message : notre équipe vous répondra ici.</p>}
-          {messages.map(m => <div key={m.id} className={m.sender==="guest"||m.sender==="customer" ? "flex justify-end" : "flex justify-start"}>
-            <div className={`max-w-[88%] rounded-2xl p-3 ${m.sender==="guest"||m.sender==="customer" ? "bg-primary text-primary-foreground" : "bg-muted"}`}>
-              <div className="mb-2 flex items-center gap-2"><div className="h-8 w-8 shrink-0 overflow-hidden rounded-md bg-background/20">{m.sender_avatar_url ? <img src={m.sender_avatar_url} alt="" className="h-full w-full object-cover" /> : <div className="flex h-full items-center justify-center text-xs font-semibold">{(m.sender_name||name||"M").slice(0,1).toUpperCase()}</div>}</div><div className="min-w-0"><strong className="block text-xs leading-4">{m.sender==="agent" ? `${m.sender_name||"Assistance"} (MOONYP)` : (m.sender_name||name||"Vous")}</strong><span className="block text-[10px] leading-4 opacity-70">{stamp(m.created_at)}</span></div></div>
-              <p className="whitespace-pre-wrap break-words text-sm">{m.content}</p>
-              {m.signature && <p className="mt-3 whitespace-pre-line border-t border-current/15 pt-2 text-xs opacity-80">{m.signature.replace(" | ", "\n")}</p>}
-            </div>
-          </div>)}
+          {messages.map(m => <article key={m.id} className="flex gap-3 border-b border-dotted pb-5 last:border-0">
+            <div className="h-10 w-10 shrink-0 overflow-hidden rounded-md border bg-muted">{m.sender_avatar_url ? <img src={m.sender_avatar_url} alt="" className="h-full w-full object-cover" /> : <div className="flex h-full items-center justify-center text-sm font-semibold text-muted-foreground">{(m.sender_name||name||"M").slice(0,1).toUpperCase()}</div>}</div>
+            <div className="min-w-0 flex-1"><p className="text-sm font-semibold">{m.sender==="agent" ? `${m.sender_name||"Assistance"} (MOONYP)` : (m.sender_name||name||"Vous")}</p><p className="mt-1 text-xs text-muted-foreground">{stamp(m.created_at)}</p><p className="mt-3 whitespace-pre-wrap break-words text-sm leading-6">{m.content}</p>{m.sender==="agent" && m.signature && <div className="mt-4 space-y-0.5 text-sm leading-6">{m.signature.split(" | ").map((line,index)=><p key={`${m.id}-signature-${index}`} className={index===0?"font-semibold":""}>{line}</p>)}</div>}</div>
+          </article>)}
           <div ref={bottom}/>
         </div>
         {error && <p role="alert" className="px-4 text-xs text-destructive">{error}</p>}
