@@ -102,7 +102,10 @@ function AdminStaff() {
     jobTitle: "",
     role: "agent" as StaffRole,
   });
-  const [fallbackLink, setFallbackLink] = useState<string | null>(null);\n  const [profileEditing, setProfileEditing] = useState<Member | null>(null);\n  const [profileDraft, setProfileDraft] = useState({ display_name: "", job_title: "", avatar_url: "" });\n  const [profileSaving, setProfileSaving] = useState(false);
+  const [fallbackLink, setFallbackLink] = useState<string | null>(null);
+  const [profileEditing, setProfileEditing] = useState<Member | null>(null);
+  const [profileDraft, setProfileDraft] = useState({ display_name: "", job_title: "", avatar_url: "" });
+  const [profileSaving, setProfileSaving] = useState(false);
 
   useEffect(() => {
     if (!hasPermission("staff.view")) {
