@@ -2492,6 +2492,8 @@
     "allowPush": "Allow notifications in your browser settings.",
     "empty": "Your request is open. Send a message and our team will reply here.",
     "you": "You",
-    "team": "Support"
+    "team": "Support",
+    "close": "Close chat",
+    "contact": "Contact support"
   }
 }
