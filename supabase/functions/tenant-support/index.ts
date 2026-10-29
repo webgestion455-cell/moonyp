@@ -14,7 +14,7 @@ const corsHeaders = {
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: corsHeaders });
 const clean = (value: unknown, max = 4000) => String(value ?? "").replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "").trim().slice(0, max);
 const sha256 = async (value: string) => Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value)))).map(v => v.toString(16).padStart(2, "0")).join("");
-const LOCALES = new Set(["en","fr","de","es","it","pt","nl","pl","ru","ar","zh","ja","ko","tr","sw"]);
+const LOCALES = new Set(["fr","en","de","es","it","nl","sl","bg","sk","el","fi","ro","pl","hr","hu"]);
 
 async function getUser(req: Request) {
   const token = req.headers.get("Authorization")?.replace(/^Bearer\s+/i, "");
