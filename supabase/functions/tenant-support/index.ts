@@ -47,7 +47,7 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders });
   if (req.method !== "POST") return json({ error: "method_not_allowed" }, 405);
   const origin = req.headers.get("Origin");
-  if (origin && !allowedOrigins.has(origin) && !origin.endsWith(".moonyp.com")) return json({ error: "origin_not_allowed" }, 403);
+  if (origin && !allowedOrigins.has(origin) && !origin.endsWith(".moonyp.com") && !origin.endsWith(".workers.dev") && !origin.endsWith(".pages.dev")) return json({ error: "origin_not_allowed" }, 403);
   try {
     const body = await req.json();
     const action = clean(body.action, 40);
