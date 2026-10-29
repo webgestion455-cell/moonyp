@@ -24,7 +24,7 @@ export const listStaff = createServerFn({ method: "POST" })
 
     const { data: profiles } = await supabase
       .from("staff_profiles")
-      .select("user_id, display_name, job_title, phone, active, created_at")
+      .select("user_id, display_name, job_title, phone, avatar_url, active, created_at")
       .in("user_id", ids);
 
     const { data: authList } = await supabase.auth.admin.listUsers({ page: 1, perPage: 200 });
@@ -137,6 +137,23 @@ export const revokeInvitation = createServerFn({ method: "POST" })
       "staff_invitation",
       data.invitationId,
     );
+    return { ok: true };
+  });
+
+
+export const updateStaffProfile = createServerFn({ method: "POST" })
+  .inputValidator((d: { accessToken: string; userId: string; displayName: string; jobTitle: string; avatarUrl: string }) => d)
+  .handler(async ({ data }) => {
+    const { supabase, user } = await requireStaff(data.accessToken, "staff.manage");
+    if (data.avatarUrl && !/^https:\/\//i.test(data.avatarUrl)) throw new Error("L’URL de la photo doit commencer par https://");
+    const { error } = await supabase.from("staff_profiles").update({
+      display_name: data.displayName.trim() || null,
+      job_title: data.jobTitle.trim() || null,
+      avatar_url: data.avatarUrl.trim() || null,
+      updated_at: new Date().toISOString(),
+    }).eq("user_id", data.userId);
+    if (error) throw new Error(error.message);
+    await logActivity(supabase, user, "staff.profile_updated", "user", data.userId);
     return { ok: true };
   });
 
