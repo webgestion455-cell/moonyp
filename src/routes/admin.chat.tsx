@@ -54,7 +54,6 @@ function SupportInbox() {
   const transcript = useRef<HTMLDivElement>(null);
   const stickToBottom = useRef(true);
   const shouldAutoScroll = useRef(true);
-  const shouldAutoScroll = useRef(true);
   const loadList = useCallback(async () => {
     try { const data = await support("list", { status: filter }); setItems(data.conversations ?? []); setError(""); }
     catch (e) { setError(e instanceof Error ? e.message : "Impossible de charger les conversations."); }
