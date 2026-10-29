@@ -60,6 +60,24 @@ export const Route = createFileRoute("/admin/staff")({
   head: () => ({ meta: [{ title: "Équipe & rôles — Administration MOONYP" }] }),
 });
 
+const SUPPORT_DEPARTMENTS = [
+  { value: "customer_support", label: "Spécialiste du service client" },
+  { value: "senior_customer_support", label: "Spécialiste senior du service client" },
+  { value: "customer_support_supervisor", label: "Superviseur du service client" },
+  { value: "support_manager", label: "Responsable du service client" },
+  { value: "relationship_manager", label: "Gestionnaire de clientèle" },
+  { value: "account_services", label: "Spécialiste des comptes" },
+  { value: "payments_specialist", label: "Spécialiste des paiements" },
+  { value: "kyc_aml_specialist", label: "Spécialiste KYC / Lutte anti-blanchiment" },
+  { value: "fraud_risk_analyst", label: "Analyste fraude et risques" },
+  { value: "compliance_officer", label: "Responsable conformité" },
+  { value: "complaints_specialist", label: "Spécialiste des réclamations" },
+  { value: "technical_support", label: "Spécialiste du support technique" },
+  { value: "security_specialist", label: "Spécialiste sécurité" },
+  { value: "operations_specialist", label: "Spécialiste des opérations" },
+  { value: "team_lead", label: "Chef d’équipe support" },
+] as const;
+
 interface Member {
   user_id: string;
   role: string;
@@ -519,7 +537,7 @@ function AdminStaff() {
           {profileEditing && <div className="space-y-4 py-2">
             <div className="flex items-center gap-3"><img src={profileDraft.avatar_url || "/icon-192.png"} alt="Aperçu du profil" className="h-14 w-14 rounded-lg border object-cover"/><div className="min-w-0 flex-1"><p className="font-medium">{profileEditing.email}</p><p className="text-xs text-muted-foreground">Photo de profil · 5 Mo maximum</p><label className="mt-2 inline-flex cursor-pointer items-center rounded-lg border px-3 py-2 text-sm font-medium hover:bg-muted"><input type="file" accept="image/jpeg,image/png,image/webp,image/avif" className="sr-only" disabled={avatarUploading} onChange={e=>{void uploadProfilePhoto(e.currentTarget.files?.[0]);e.currentTarget.value="";}}/>{avatarUploading?"Téléversement…":"Choisir une photo sur l’appareil"}</label></div></div>
             <div className="space-y-1"><Label htmlFor="profile-name">Nom affiché</Label><Input id="profile-name" value={profileDraft.display_name} onChange={e=>setProfileDraft(v=>({...v,display_name:e.target.value}))} placeholder="Anna"/></div>
-            <div className="space-y-1"><Label htmlFor="profile-job">Fonction / rôle affiché</Label><Input id="profile-job" value={profileDraft.job_title} onChange={e=>setProfileDraft(v=>({...v,job_title:e.target.value}))} placeholder="Spécialiste du service client"/></div>
+            <div className="space-y-1"><Label>Département / fonction dans la signature</Label><Select value={profileDraft.job_title || "customer_support"} onValueChange={value=>setProfileDraft(v=>({...v,job_title:value}))}><SelectTrigger><SelectValue placeholder="Choisir un département"/></SelectTrigger><SelectContent>{profileDraft.job_title && !SUPPORT_DEPARTMENTS.some(item=>item.value===profileDraft.job_title) && <SelectItem value={profileDraft.job_title}>{profileDraft.job_title} (fonction personnalisée existante)</SelectItem>}{SUPPORT_DEPARTMENTS.map(item=><SelectItem key={item.value} value={item.value}>{item.label}</SelectItem>)}</SelectContent></Select><p className="text-xs text-muted-foreground">La fonction sera automatiquement traduite dans la langue du client dans la signature du support.</p></div>
             <p className="text-xs text-muted-foreground">Sans photo personnelle, le logo MOONYP est utilisé pour l’agent. Les clients affichent une icône de profil neutre.</p>
           </div>}
           <DialogFooter><Button variant="outline" onClick={()=>setProfileEditing(null)}>Annuler</Button><Button onClick={()=>void saveProfile()} disabled={profileSaving}>{profileSaving?"Enregistrement…":"Enregistrer le profil"}</Button></DialogFooter>
