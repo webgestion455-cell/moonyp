@@ -42,7 +42,9 @@ create index if not exists idx_chat_conversations_org_status
 alter table public.organizations enable row level security;
 alter table public.organization_members enable row level security;
 
-grant select, insert, update on public.organizations to authenticated;
+grant select on public.organizations to authenticated;
+revoke insert, update on public.organizations from authenticated;
+grant update (name, logo_url, brand_color, accent_color, welcome_message, default_locale, enabled_locales, support_email, public_chat_enabled) on public.organizations to authenticated;
 grant select on public.organization_members to authenticated;
 grant all on public.organizations, public.organization_members to service_role;
 
