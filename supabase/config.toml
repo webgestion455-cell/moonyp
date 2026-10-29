@@ -47,3 +47,7 @@ enabled = true
 verify_jwt = false
 import_map = "./functions/process-transactional-emails/deno.json"
 entrypoint = "./functions/process-transactional-emails/index.ts"
+[functions.tenant-support]
+enabled = true
+verify_jwt = false
+entrypoint = "./functions/tenant-support/index.ts"
