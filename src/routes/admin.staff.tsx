@@ -88,7 +88,7 @@ function initials(name: string | null, email: string) {
 }
 
 function AdminStaff() {
-  const { session, hasPermission, user } = useAuth();
+  const { session, hasPermission, user, loading: authLoading, role: authRole } = useAuth();
   const navigate = useNavigate();
   const canManage = hasPermission("staff.manage");
 
@@ -110,12 +110,17 @@ function AdminStaff() {
   const [profileSaving, setProfileSaving] = useState(false);
   const [avatarUploading, setAvatarUploading] = useState(false);
 
+  const canViewStaff = hasPermission("staff.view");
   useEffect(() => {
-    if (!hasPermission("staff.view")) {
+    // Ne pas rediriger pendant que le rôle est encore récupéré depuis Supabase.
+    // hasPermission est recréée à chaque rendu : on dépend du booléen stable,
+    // pas de la fonction, afin d'éviter les toasts et redirections en boucle.
+    if (authLoading || (user && authRole === null)) return;
+    if (!canViewStaff) {
       toast.error("Permission insuffisante");
       navigate({ to: "/admin", replace: true });
     }
-  }, [hasPermission, navigate]);
+  }, [authLoading, authRole, user?.id, canViewStaff, navigate]);
 
   /**
    * `silent` : rechargement de fond (cadence 5 s). Ni état de chargement, ni
