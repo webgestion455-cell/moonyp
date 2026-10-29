@@ -77,13 +77,13 @@ function PublicTenantChat() {
   },[slug,key]);
 
   const loadMessages=useCallback(async()=>{
-    if(!conversation||!guestToken)return;
+    if(!conversation||(!guestToken&&!signedIn))return;
     try {
       const res=await call("messages",{conversationId:conversation.id,guestToken});
       setMessages(res.messages||[]);
       if(res.conversation)setConversation(prev=>prev?{...prev,...res.conversation}:res.conversation);
     } catch {}
-  },[conversation?.id,guestToken,call]);
+  },[conversation?.id,guestToken,signedIn,call]);
   useEffect(()=>{if(!conversation)return;void loadMessages();const id=window.setInterval(()=>void loadMessages(),4000);return()=>window.clearInterval(id)},[loadMessages,conversation?.id]);
 
   async function start(e:React.FormEvent){
@@ -147,7 +147,7 @@ function PublicTenantChat() {
         {conversation&&!showHistory&&<div className="space-y-4">
           <div className="flex items-start gap-3"><Button variant="ghost" size="icon" onClick={()=>{setConversation(null);setMessages([]);setGuestToken("");localStorage.removeItem(key)}} aria-label={t.new}><ArrowLeft className="h-4 w-4"/></Button><div className="min-w-0 flex-1"><h2 className="font-semibold">{conversation.subject||t.title}</h2><p className="text-xs text-muted-foreground">{t.ticket}: {conversation.ticket_number}</p></div><span className="rounded-full bg-slate-100 px-2 py-1 text-xs">{conversation.status==="closed"?t.closed:t.open}</span></div>
           <div className="max-h-[52vh] min-h-56 space-y-3 overflow-y-auto rounded-xl bg-slate-50 p-3 sm:p-4">{messages.length===0&&<p className="p-6 text-center text-sm text-muted-foreground">{t.empty}</p>}{messages.map(m=><div key={m.id} className={`max-w-[90%] rounded-xl border p-3 ${["guest","customer","user"].includes(m.sender)?"ml-auto border-transparent text-white":"bg-white"}`} style={["guest","customer","user"].includes(m.sender)?{background:accent}:undefined}><p className="mb-1 text-xs opacity-75">{m.sender_name||org.name} · {new Date(m.created_at).toLocaleString()}</p><p className="whitespace-pre-wrap break-words text-sm">{m.content}</p>{m.signature&&<p className="mt-2 whitespace-pre-wrap text-xs opacity-80">{m.signature}</p>}</div>)}</div>
-          {conversation.status!=="closed"&&guestToken&&<form onSubmit={send} className="flex items-end gap-2"><Textarea value={draft} onChange={e=>setDraft(e.target.value)} placeholder={t.message} maxLength={4000} rows={2} required/><Button type="submit" disabled={busy||!draft.trim()} style={{background:accent}} className="text-white"><Send className="h-4 w-4"/></Button></form>}
+          {conversation.status!=="closed"&&(guestToken||signedIn)&&<form onSubmit={send} className="flex items-end gap-2"><Textarea value={draft} onChange={e=>setDraft(e.target.value)} placeholder={t.message} maxLength={4000} rows={2} required/><Button type="submit" disabled={busy||!draft.trim()} style={{background:accent}} className="text-white"><Send className="h-4 w-4"/></Button></form>}
           {conversation.status==="closed"&&<div className="rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800"><CheckCircle2 className="mr-2 inline h-4 w-4"/>{t.closed}</div>}
           {signedIn&&<Button variant="outline" className="w-full" onClick={loadHistory}>{t.history}</Button>}
         </div>}
