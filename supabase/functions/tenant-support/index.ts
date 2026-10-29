@@ -110,6 +110,19 @@ Deno.serve(async (req) => {
       return json({ conversations: data ?? [] });
     }
 
+    if (action === "history") {
+      if (!user) return json({ error: "authentication_required" }, 401);
+      if (!slug) return json({ error: "slug_required" }, 400);
+      const org = await getOrganization(slug);
+      if (!org || org.status !== "active") return json({ error: "organization_not_available" }, 404);
+      const { data, error } = await db.from("chat_conversations")
+        .select("id,subject,ticket_number,status,locale,last_message_at,created_at,resolved_at")
+        .eq("organization_id", org.id).eq("user_id", user.id)
+        .order("last_message_at", { ascending: false }).limit(100);
+      if (error) return json({ error: "history_load_failed" }, 500);
+      return json({ conversations: data ?? [] });
+    }
+
     const conversationId = clean(body.conversationId, 80);
     if (!conversationId) return json({ error: "conversation_id_required" }, 400);
     const conv = await loadConversation(conversationId);
