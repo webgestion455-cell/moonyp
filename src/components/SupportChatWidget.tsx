@@ -68,6 +68,8 @@ export function SupportChatWidget() {
   const { t } = useTranslation();
   const [error, setError] = useState("");
   const [imageBusy, setImageBusy] = useState(false);
+  const [pendingImage, setPendingImage] = useState<File | null>(null);
+  const [pendingImagePreview, setPendingImagePreview] = useState("");
   const [pushEnabled, setPushEnabled] = useState(false);
   const [conversationClosed, setConversationClosed] = useState(false);
   const [pushBusy, setPushBusy] = useState(false);
@@ -128,26 +130,42 @@ export function SupportChatWidget() {
     } catch (err) { setError(err instanceof Error ? err.message : t("supportChat.sendError")); }
     finally { setPushBusy(false); }
   }
-  async function send(e: React.FormEvent) {
-    e.preventDefault(); if (!draft.trim() || busy || !ready) return;
-    setBusy(true); setError("");
-    try { await callSupport("send", { conversationId, guestToken, message: draft.trim(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone }); setDraft(""); await load(); }
-    catch (err) { setError(err instanceof Error ? err.message : t("supportChat.sendError")); }
-    finally { setBusy(false); }
+  function chooseImage(file?: File) {
+    if (!file) return;
+    if (!["image/jpeg","image/png","image/webp"].includes(file.type) || file.size > 5 * 1024 * 1024) {
+      setError(t("supportChat.imageLimit")); return;
+    }
+    setError("");
+    setPendingImage(file);
+    setPendingImagePreview(URL.createObjectURL(file));
   }
-  async function sendImage(file?: File) {
-    if (!file || !ready || imageBusy) return;
-    if (!["image/jpeg","image/png","image/webp"].includes(file.type) || file.size > 5 * 1024 * 1024) { setError(t("supportChat.imageLimit")); return; }
-    setImageBusy(true); setError("");
+  function removePendingImage() {
+    if (pendingImagePreview) URL.revokeObjectURL(pendingImagePreview);
+    setPendingImage(null);
+    setPendingImagePreview("");
+  }
+  useEffect(() => () => { if (pendingImagePreview) URL.revokeObjectURL(pendingImagePreview); }, [pendingImagePreview]);
+  async function uploadPendingImage(file: File) {
+    const signed = await callSupport("attachment_upload_url", { conversationId, guestToken, fileName: file.name, contentType: file.type });
+    const { error: uploadError } = await supabase.storage.from("support-attachments").uploadToSignedUrl(signed.path, signed.token, file, { contentType: file.type, upsert: false });
+    if (uploadError) throw uploadError;
+    return supabase.storage.from("support-attachments").getPublicUrl(signed.path).data.publicUrl as string;
+  }
+  async function send(e: React.FormEvent) {
+    e.preventDefault(); if ((!draft.trim() && !pendingImage) || busy || !ready) return;
+    setBusy(true); setError("");
     try {
-      const signed = await callSupport("attachment_upload_url", { conversationId, guestToken, fileName: file.name, contentType: file.type });
-      const { error: uploadError } = await supabase.storage.from("support-attachments").uploadToSignedUrl(signed.path, signed.token, file, { contentType: file.type, upsert: false });
-      if (uploadError) throw uploadError;
-      const { data } = supabase.storage.from("support-attachments").getPublicUrl(signed.path);
-      await callSupport("send", { conversationId, guestToken, message: '<p><img src="' + data.publicUrl + '" alt="Image jointe" /></p>', timezone: Intl.DateTimeFormat().resolvedOptions().timeZone });
-      await load();
+      let content = draft.trim() ? draft.trim() : "";
+      if (pendingImage) {
+        setImageBusy(true);
+        const imageUrl = await uploadPendingImage(pendingImage);
+        const escape = (s: string) => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+        content = (content ? "<p>" + escape(content).replace(/\n/g,"<br>") + "</p>" : "") + '<p><img src="' + imageUrl + '" alt="' + t("supportChat.image") + '" /></p>';
+      }
+      await callSupport("send", { conversationId, guestToken, message: content, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone });
+      setDraft(""); removePendingImage(); await load();
     } catch (err) { setError(err instanceof Error ? err.message : t("supportChat.sendError")); }
-    finally { setImageBusy(false); }
+    finally { setBusy(false); setImageBusy(false); }
   }
   return <div className={open ? "fixed inset-0 z-[100] h-[100dvh] w-screen bg-background sm:inset-auto sm:bottom-6 sm:right-6 sm:h-auto sm:w-auto sm:bg-transparent" : "fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-[80] sm:bottom-6 sm:right-6"}>
     {open && <section aria-label={t("supportChat.title")} className="flex h-[100dvh] w-full flex-col overflow-hidden bg-background shadow-2xl sm:mb-3 sm:h-[min(720px,82vh)] sm:w-[min(440px,calc(100vw-3rem))] sm:rounded-2xl sm:border">
@@ -175,7 +193,7 @@ export function SupportChatWidget() {
         </div>
         {conversationClosed && <div className="sticky bottom-0 z-10 shrink-0 border-t bg-background p-3 shadow-[0_-8px_24px_rgba(0,0,0,0.06)] sm:px-5"><div className="rounded-xl border border-amber-500/30 p-3"><p className="font-semibold">{t("supportChat.closed")}</p><p className="mt-1 text-sm text-muted-foreground">{t("supportChat.closedHelp")}</p><button type="button" onClick={()=>{localStorage.removeItem(CONV_KEY);localStorage.removeItem(TOKEN_KEY);setConversationId("");setGuestToken("");setMessages([]);messagesRef.current=[];setDraft("");setConversationClosed(false);setPushEnabled(false);setError("");}} className="mt-3 w-full rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white">{t("supportChat.newConversation")}</button></div></div>}
         {error && <p role="alert" className="px-4 text-xs text-destructive">{error}</p>}
-        {!conversationClosed && <form onSubmit={send} className="flex shrink-0 flex-wrap items-end gap-2 border-t p-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] sm:flex-nowrap sm:pb-3"><label className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-xl border bg-background" aria-label={t("supportChat.attachImage")}><input type="file" accept="image/jpeg,image/png,image/webp" className="sr-only" disabled={imageBusy||busy} onChange={e=>{void sendImage(e.currentTarget.files?.[0]);e.currentTarget.value="";}}/><Paperclip className="h-4 w-4"/><span className="sr-only">{t("supportChat.attachImage")}</span></label><textarea value={draft} onChange={e=>setDraft(e.target.value)} maxLength={4000} rows={2} className="max-h-28 min-h-11 flex-1 resize-y rounded-xl border bg-background px-3 py-2 text-sm" placeholder={t("supportChat.write")} aria-label="Votre message"/><button disabled={busy||!draft.trim()} aria-label={t("supportChat.send")} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-black text-white disabled:opacity-50"><Send className="h-4 w-4"/></button></form>}
+        {!conversationClosed && <form onSubmit={send} className="flex shrink-0 flex-wrap items-end gap-2 border-t p-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] sm:flex-nowrap sm:pb-3"><label className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-xl border bg-background" aria-label={t("supportChat.attachImage")}><input type="file" accept="image/jpeg,image/png,image/webp" className="sr-only" disabled={imageBusy||busy} onChange={e=>{chooseImage(e.currentTarget.files?.[0]);e.currentTarget.value="";}}/><Paperclip className="h-4 w-4"/><span className="sr-only">{t("supportChat.attachImage")}</span></label>{pendingImagePreview && <div className="mb-2 flex w-full items-center gap-3 rounded-xl border bg-muted/30 p-2"><img src={pendingImagePreview} alt={t("supportChat.image")} className="h-14 w-14 rounded-lg object-cover"/><span className="min-w-0 flex-1 truncate text-xs">{pendingImage?.name}</span><button type="button" onClick={removePendingImage} className="rounded-lg px-2 py-1 text-sm hover:bg-muted">{t("supportChat.removeImage")}</button></div>}<textarea value={draft} onChange={e=>setDraft(e.target.value)} maxLength={4000} rows={2} className="max-h-28 min-h-11 flex-1 resize-y rounded-xl border bg-background px-3 py-2 text-sm" placeholder={t("supportChat.write")} aria-label="Votre message"/><button disabled={busy||(!draft.trim()&&!pendingImage)} aria-label={t("supportChat.send")} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-black text-white disabled:opacity-50"><Send className="h-4 w-4"/></button></form>}
       </>}
     </section>}
     {!open && <button onClick={()=>setOpen(true)} aria-label={t("supportChat.contact")} className="ml-auto flex h-14 w-14 items-center justify-center rounded-full bg-black text-white shadow-xl transition hover:scale-105"><MessageCircle className="h-6 w-6"/></button>}
