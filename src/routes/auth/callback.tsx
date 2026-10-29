@@ -6,8 +6,9 @@ import { LoaderCircle } from "lucide-react";
 export const Route = createFileRoute("/auth/callback")({ component: Callback });
 
 function safeNext(value: string | null) {
-  if (!value || !value.startsWith("/") || value.startsWith("//") || value.startsWith("/\\\\")) return "/admin";
-  return value;
+  // Only allow known internal destinations; never trust arbitrary redirect URLs.
+  if (value === "/workspace" || value === "/admin") return value;
+  return "/admin";
 }
 
 function Callback() {
