@@ -91,6 +91,7 @@ export function SupportChatWidget() {
   useEffect(() => {
     if (!open) return;
     stickToBottom.current = true;
+    shouldAutoScroll.current = true;
     requestAnimationFrame(() => { if (transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight; });
   }, [open, conversationId]);
   useEffect(() => {
