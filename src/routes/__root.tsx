@@ -194,7 +194,7 @@ function RootComponent() {
           {!hideLayout && <SiteFooter />}
           {!hideLayout && <div className="h-16 md:hidden" aria-hidden />}
           {!hideLayout && <MobileBottomNav />}
-          {!hideLayout && <SupportChatWidget />
+          {!hideLayout && <SupportChatWidget />}
         </div>
         <Toaster richColors closeButton />
       </AuthProvider>
