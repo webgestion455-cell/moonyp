@@ -11,7 +11,14 @@ async function callSupport(action: string, payload: Record<string, unknown> = {}
     body: { action, ...payload },
     headers: {},
   });
-  if (error) throw error;
+  if (error) {
+    let message = error.message || "La requête d’assistance a échoué.";
+    const context = (error as unknown as { context?: { json?: () => Promise<{ error?: string }> } }).context;
+    if (context?.json) {
+      try { const body = await context.json(); if (body?.error) message = body.error; } catch { /* network or non-JSON response */ }
+    }
+    throw new Error(message);
+  }
   if (data?.error) throw new Error(data.error);
   return data;
 }
@@ -35,6 +42,12 @@ export function SupportChatWidget() {
   const [busy, setBusy] = useState(false);
   const bottom = useRef<HTMLDivElement>(null);
   const ready = Boolean(conversationId && guestToken);
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = previous; };
+  }, [open]);
   async function start(e: React.FormEvent) {
     e.preventDefault(); if (!name.trim() || !initialMessage.trim() || starting) return;
     setStarting(true); setError("");
