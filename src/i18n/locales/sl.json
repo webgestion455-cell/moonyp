@@ -2492,6 +2492,8 @@
     "allowPush": "Dovolite obvestila v nastavitvah brskalnika.",
     "empty": "Vaša zahteva je odprta. Pišite tukaj in naša ekipa vam bo odgovorila.",
     "you": "Vi",
-    "team": "Podpora"
+    "team": "Podpora",
+    "close": "Zapri klepet",
+    "contact": "Obrni se na podporo"
   }
 }
