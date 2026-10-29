@@ -62,7 +62,8 @@ export function SupportChatWidget() {
   const [pushBusy, setPushBusy] = useState(false);
   const [busy, setBusy] = useState(false);
   const transcript = useRef<HTMLDivElement>(null);
-  const stickToBottom = useRef(true);\n  const shouldAutoScroll = useRef(true);
+  const stickToBottom = useRef(true);
+  const shouldAutoScroll = useRef(true);
   const ready = Boolean(conversationId && guestToken);
   useEffect(() => {
     if (!open) return;
