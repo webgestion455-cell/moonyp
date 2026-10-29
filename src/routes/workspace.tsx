@@ -14,8 +14,8 @@ type Organization = {
   brand_color: string; accent_color: string; support_email: string | null;
   default_locale: string; enabled_locales: string[]; public_chat_enabled: boolean; status: string;
 };
-const LOCALES = ["en","fr","de","es","it","pt","nl","pl","ru","ar","zh","ja","ko","tr","sw"];
-const LOCALE_NAMES: Record<string,string> = {en:"English",fr:"Français",de:"Deutsch",es:"Español",it:"Italiano",pt:"Português",nl:"Nederlands",pl:"Polski",ru:"Русский",ar:"العربية",zh:"中文",ja:"日本語",ko:"한국어",tr:"Türkçe",sw:"Kiswahili"};
+const LOCALES = ["fr","en","de","es","it","nl","sl","bg","sk","el","fi","ro","pl","hr","hu"];
+const LOCALE_NAMES: Record<string,string> = {en:"English",fr:"Français",de:"Deutsch",es:"Español",it:"Italiano",nl:"Nederlands",sl:"Slovenščina",bg:"Български",sk:"Slovenčina",el:"Ελληνικά",fi:"Suomi",ro:"Română",pl:"Polski",hr:"Hrvatski",hu:"Magyar"};
 
 function WorkspacePage() {
   const [userId, setUserId] = useState("");
