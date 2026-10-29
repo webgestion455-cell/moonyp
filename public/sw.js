@@ -19,7 +19,7 @@ self.addEventListener("push", (event) => {
     body: data.body || data.message || "",
     icon: "/icon-512.png",
     badge: "/icon-512.png",
-    tag: data.tag || data.title || "bnp paribas",
+    tag: data.tag || data.title || "MOONYP-support",
     data: { url: data.link || data.url || "/" },
   };
   event.waitUntil(self.registration.showNotification(title, options));

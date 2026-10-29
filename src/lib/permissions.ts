@@ -55,6 +55,8 @@ export const PERMISSIONS: { key: string; module: string; label: string }[] = [
 
   { key: "products.manage", module: "Catalogue", label: "Gérer les produits et documents" },
 
+  { key: "chat.view", module: "Assistance", label: "Consulter les conversations du support" },
+  { key: "chat.reply", module: "Assistance", label: "Répondre aux clients et gérer les conversations" },
   { key: "notifications.send", module: "Assistance", label: "Envoyer des notifications" },
 
   { key: "security.view", module: "Sécurité", label: "Consulter les alertes de sécurité" },
