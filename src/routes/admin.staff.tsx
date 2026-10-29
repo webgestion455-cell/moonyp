@@ -184,14 +184,15 @@ function AdminStaff() {
     }
     setProfileSaving(true);
     try {
-      const { error } = await supabase.from("staff_profiles").update({
-        user_id: profileEditing.user_id,
-        display_name: profileDraft.display_name.trim() || null,
-        job_title: profileDraft.job_title.trim() || null,
-        avatar_url: profileDraft.avatar_url.trim() || null,
-        updated_at: new Date().toISOString(),
-      }).eq("user_id", profileEditing.user_id);
-      if (error) throw error;
+      const token = session?.access_token;
+      if (!token) throw new Error("Session expirée. Reconnectez-vous.");
+      await updateStaffProfile({ data: {
+        accessToken: token,
+        userId: profileEditing.user_id,
+        displayName: profileDraft.display_name,
+        jobTitle: profileDraft.job_title,
+        avatarUrl: profileDraft.avatar_url,
+      } });
       toast.success("Profil du membre mis à jour");
       setProfileEditing(null);
       void load();
