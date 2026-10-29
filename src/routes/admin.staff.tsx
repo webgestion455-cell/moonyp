@@ -184,13 +184,13 @@ function AdminStaff() {
     }
     setProfileSaving(true);
     try {
-      const { error } = await supabase.from("staff_profiles").upsert({
+      const { error } = await supabase.from("staff_profiles").update({
         user_id: profileEditing.user_id,
         display_name: profileDraft.display_name.trim() || null,
         job_title: profileDraft.job_title.trim() || null,
         avatar_url: profileDraft.avatar_url.trim() || null,
         updated_at: new Date().toISOString(),
-      }, { onConflict: "user_id" });
+      }).eq("user_id", profileEditing.user_id);
       if (error) throw error;
       toast.success("Profil du membre mis à jour");
       setProfileEditing(null);
