@@ -397,9 +397,7 @@ function AdminStaff() {
                     <TableRow key={m.user_id}>
                       <TableCell>
                         <div className="flex min-w-0 items-center gap-3">
-                          <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#00915A] text-xs font-semibold text-white">
-                            {initials(m.display_name, m.email)}
-                          </div>
+                          <div className="h-9 w-9 shrink-0 overflow-hidden rounded-lg border bg-muted"><img src={m.avatar_url || "/icon-192.png"} alt="" className="h-full w-full object-cover" /></div>
                           <div className="min-w-0">
                             <p className="truncate text-sm font-medium">
                               {m.display_name ?? m.email.split("@")[0]}
