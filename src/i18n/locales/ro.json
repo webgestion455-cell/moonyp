@@ -2492,6 +2492,8 @@
     "allowPush": "Permiteți notificările în setările browserului.",
     "empty": "Solicitarea a fost deschisă. Scrieți aici, iar echipa noastră vă va răspunde.",
     "you": "Dvs.",
-    "team": "Asistență"
+    "team": "Asistență",
+    "close": "Închide conversația",
+    "contact": "Contactați asistența"
   }
 }
