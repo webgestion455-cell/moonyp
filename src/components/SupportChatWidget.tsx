@@ -22,6 +22,26 @@ async function callSupport(action: string, payload: Record<string, unknown> = {}
   if (data?.error) throw new Error(data.error);
   return data;
 }
+function safeMessageHtml(value: string) {
+  const escape = (s: string) => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  if (!/<(strong|b|em|i|u|a|br|p|div|ul|ol|li)\\b/i.test(value)) {
+    return escape(value).replace(/(https?:\\/\\/[^\\s<]+|www\\.[^\\s<]+)/g, (url) => {
+      const href = url.startsWith("www.") ? "https://" + url : url;
+      return '<a href="' + href.replace(/"/g,"%22") + '" target="_blank" rel="noopener noreferrer">' + url + '</a>';
+    }).replace(/\\n/g,"<br>");
+  }
+  return value.replace(/<\\/?(script|style|iframe|object|svg)[^>]*>/gi,"")
+    .replace(/\\s+on[a-z]+\\s*=\\s*("[^"]*"|'[^']*'|[^\\s>]+)/gi,"")
+    .replace(/javascript\\s*:/gi,"")
+    .replace(/<(?!\\/?(?:strong|b|em|i|u|a|br|p|div|ul|ol|li)\\b)[^>]*>/gi,"")
+    .replace(/<(a)\\b([^>]*)>/gi, (_m, _tag, attrs) => {
+      const match = attrs.match(/href\\s*=\\s*("[^"]*"|'[^']*'|[^\\s>]+)/i);
+      if (!match) return "<a>";
+      const href = match[1].replace(/^["']|["']$/g,"");
+      if (!/^https?:\\/\\//i.test(href)) return "<a>";
+      return '<a href="' + escape(href) + '" target="_blank" rel="noopener noreferrer">';
+    });
+}
 function stamp(value: string) {
   return new Intl.DateTimeFormat(undefined, { month: "short", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", timeZoneName: "short" }).format(new Date(value));
 }
@@ -117,7 +137,7 @@ export function SupportChatWidget() {
           {!messages.length && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">Votre demande a été ouverte. Écrivez votre message : notre équipe vous répondra ici.</p>}{conversationClosed && }
           {messages.map(m => <article key={m.id} className="flex gap-3 border-b border-dotted pb-5 last:border-0">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md border bg-muted">{m.sender==="agent" ? <img src={m.sender_avatar_url || "/icon-192.png"} alt="" className="h-full w-full object-cover" /> : <UserRound className="h-5 w-5 text-muted-foreground" />}</div>
-            <div className="min-w-0 flex-1"><p className="text-sm font-semibold">{m.sender==="agent" ? `${(m.sender_name||"Assistance").trim().split(/\s+/)[0]} (MOONYP)` : ((m.sender_name||name||"Vous").trim().split(/\s+/)[0])}</p><p className="mt-1 text-xs text-muted-foreground">{stamp(m.created_at)}</p><p className="mt-3 whitespace-pre-wrap break-words text-sm leading-6">{m.content}</p>{m.sender==="agent" && m.signature && <div className="mt-5 space-y-4 text-sm leading-6">{m.signature.replace(/\\n/g, "\n").split(/\n+/).filter(Boolean).map((line,index)=><p key={`${m.id}-signature-${index}`} className={index===1?"font-medium":index===2?"font-semibold":""}>{line}</p>)}</div>}</div>
+            <div className="min-w-0 flex-1"><p className="text-sm font-semibold">{m.sender==="agent" ? `${(m.sender_name||"Assistance").trim().split(/\s+/)[0]} (MOONYP)` : ((m.sender_name||name||"Vous").trim().split(/\s+/)[0])}</p><p className="mt-1 text-xs text-muted-foreground">{stamp(m.created_at)}</p><div className="mt-3 whitespace-pre-wrap break-words text-sm leading-6 [&_a]:text-primary [&_a]:underline [&_strong]:font-bold [&_em]:italic [&_u]:underline" dangerouslySetInnerHTML={{ __html: safeMessageHtml(m.content) }} />{m.sender==="agent" && m.signature && <div className="mt-5 space-y-4 text-sm leading-6">{m.signature.replace(/\\n/g, "\n").split(/\n+/).filter(Boolean).map((line,index)=><p key={`${m.id}-signature-${index}`} className={index===1?"font-medium":index===2?"font-semibold":""}>{line}</p>)}</div>}</div>
           </article>)}
           {conversationClosed && <div className="mt-3 rounded-xl border border-amber-500/30 bg-amber-500/5 p-4"><p className="font-semibold">Cette conversation est clôturée.</p><p className="mt-1 text-sm text-muted-foreground">Pour obtenir une nouvelle assistance, démarrez une nouvelle conversation.</p><button type="button" onClick={()=>{localStorage.removeItem(CONV_KEY);localStorage.removeItem(TOKEN_KEY);setConversationId("");setGuestToken("");setMessages([]);setDraft("");setConversationClosed(false);setPushEnabled(false);setError("");}} className="mt-3 rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white">Nouvelle conversation</button></div>}\n          <div ref={bottom}/>
         </div>
