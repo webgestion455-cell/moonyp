@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowLeft, Bold, CheckCircle2, Italic, Link2, MessageCircle, Send, RefreshCw, UserRound, Underline, Link2Off } from "lucide-react";
+import { ArrowLeft, Bold, CheckCircle2, Italic, Link2, MessageCircle, Send, RefreshCw, UserRound, Underline } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
