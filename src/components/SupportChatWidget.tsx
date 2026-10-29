@@ -5,7 +5,6 @@ import { supabase } from "@/integrations/supabase/client";
 type Msg = { id: string; sender: string; sender_name: string | null; content: string; sender_avatar_url?: string | null; signature?: string | null; created_at: string };
 const TOKEN_KEY = "moonyp.support.guest";
 const CONV_KEY = "moonyp.support.conversation";
-const VAPID_PUBLIC_KEY = import.meta.env.VITE_VAPID_PUBLIC_KEY as string | undefined;
 function vapidBytes(value: string) { const pad = "=".repeat((4 - value.length % 4) % 4); const raw = atob((value + pad).replace(/-/g, "+").replace(/_/g, "/")); return Uint8Array.from(raw, ch => ch.charCodeAt(0)); }
 async function callSupport(action: string, payload: Record<string, unknown> = {}) {
   const { data, error } = await supabase.functions.invoke("moonyp-support", {
@@ -54,17 +53,20 @@ export function SupportChatWidget() {
   useEffect(() => { if (!open || !ready) return; void load(); const timer = window.setInterval(() => void load(), 3000); return () => window.clearInterval(timer); }, [open, ready, conversationId, guestToken]);
   useEffect(() => { bottom.current?.scrollIntoView({ behavior: "smooth" }); }, [messages, open]);
   async function enablePush() {
-    if (!ready || pushBusy || !VAPID_PUBLIC_KEY || !("Notification" in window) || !("serviceWorker" in navigator)) {
+    if (!ready || pushBusy || !("Notification" in window) || !("serviceWorker" in navigator)) {
       setError("Les notifications ne sont pas disponibles sur ce navigateur.");
       return;
     }
     setPushBusy(true); setError("");
     try {
+      const config = await callSupport("config");
+      const vapidPublicKey = config.vapidPublicKey as string | null;
+      if (!vapidPublicKey) throw new Error("Les notifications push ne sont pas encore configurées sur le serveur.");
       const permission = Notification.permission === "granted" ? "granted" : await Notification.requestPermission();
       if (permission !== "granted") throw new Error("Autorisez les notifications dans les réglages de votre navigateur.");
       const registration = await navigator.serviceWorker.register("/sw.js");
       let subscription = await registration.pushManager.getSubscription();
-      if (!subscription) subscription = await registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: vapidBytes(VAPID_PUBLIC_KEY) });
+      if (!subscription) subscription = await registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: vapidBytes(vapidPublicKey) });
       await callSupport("subscribe_guest", { conversationId, guestToken, subscription: subscription.toJSON() });
       setPushEnabled(true);
     } catch (err) { setError(err instanceof Error ? err.message : "Activation des notifications impossible."); }
