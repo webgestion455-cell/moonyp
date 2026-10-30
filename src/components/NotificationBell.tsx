@@ -11,6 +11,7 @@ import {
   showBrowserNotification,
   playNotificationSound,
   type AppNotification,
+  cleanNotificationText,
 } from "@/lib/notifications";
 import { subscribeToPush } from "@/lib/push";
 import { formatDistanceToNow } from "date-fns";
@@ -166,11 +167,11 @@ export function NotificationBell() {
                 }`}
               >
                 <div className="flex items-start justify-between gap-2">
-                  <span className="font-medium">{n.title}</span>
+                  <span className="font-medium">{cleanNotificationText(n.title)}</span>
                   {!n.read && <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />}
                 </div>
 
-                <p className="mt-0.5 text-xs text-muted-foreground">{n.message}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">{cleanNotificationText(n.message)}</p>
 
                 <p className="mt-1 text-[10px] text-muted-foreground">
                   {formatDistanceToNow(new Date(n.created_at), {
