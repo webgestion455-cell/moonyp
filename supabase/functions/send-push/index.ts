@@ -3,6 +3,14 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import * as webpush from "npm:web-push@3.6.7";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
+function cleanPushText(value: unknown): string {
+  if (typeof value !== "string") return "";
+  return value.replace(/<\\s*br\\s*\\/?\\s*>|<\\s*\\/(p|div|li|h[1-6]|tr)\\s*>/gi, " ")
+    .replace(/<[^>]*>/g, " ").replace(/&nbsp;|&#160;/gi, " ")
+    .replace(/&amp;/gi, "&").replace(/&lt;/gi, "<").replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"').replace(/&#39;|&apos;/gi, "'").replace(/\\s+/g, " ").trim();
+}
+
 const supabase = createClient(
   Deno.env.get("SUPABASE_URL")!,
   Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
@@ -18,7 +26,10 @@ serve(async (req) => {
   try {
     const body = await req.json();
 
-    const { userId, title, message, link } = body;
+    const { userId, link } = body;
+    const title = cleanPushText(body?.title);
+    const message = cleanPushText(body?.message);
+    if (typeof userId !== "string" || !userId || (!title && !message)) return new Response("Invalid notification payload", { status: 400 });
 
     const { data: subscriptions } = await supabase
       .from("push_subscriptions")
