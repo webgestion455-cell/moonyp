@@ -11,17 +11,18 @@ function BusinessSignupPage() {
   const navigate=useNavigate();
   const [company,setCompany]=useState(""); const [email,setEmail]=useState(""); const [code,setCode]=useState("");
   const [step,setStep]=useState<"details"|"verify">("details"); const [busy,setBusy]=useState(false); const [error,setError]=useState(""); const [notice,setNotice]=useState("");
+  async function functionErrorMessage(error:unknown,fallback:string){const response=(error as {context?:Response})?.context;if(response&&typeof response.clone==="function"){try{const body=await response.clone().json();if(typeof body?.error==="string")return body.error;}catch{}}return error instanceof Error?error.message:fallback;}
   async function requestCode(e:React.FormEvent){e.preventDefault();setBusy(true);setError("");setNotice("");try{
     const {data,error}=await supabase.functions.invoke("business-otp",{body:{action:"request",purpose:"signup",email:email.trim().toLowerCase(),companyName:company.trim()}});
     if(error)throw error;if(data?.error)throw new Error(data.error);setStep("verify");setNotice("Un code à 6 chiffres vient d’être envoyé à votre adresse e-mail.");
-  }catch(e){setError(e instanceof Error?e.message:"Impossible d’envoyer le code.");}finally{setBusy(false)}}
+  }catch(e){setError(await functionErrorMessage(e,"Impossible d’envoyer le code."));}finally{setBusy(false)}}
   async function verify(e:React.FormEvent){e.preventDefault();setBusy(true);setError("");try{
     const {data,error}=await supabase.functions.invoke("business-otp",{body:{action:"verify",email:email.trim().toLowerCase(),code}});
     if(error)throw error;if(data?.error)throw new Error(data.error);
     const {error:sessionError}=await supabase.auth.verifyOtp({email:email.trim().toLowerCase(),token:data.token_hash,type:"magiclink"});
     if(sessionError)throw sessionError;
     navigate({to:"/auth/callback",search:{next:"/workspace"} as any});
-  }catch(e){setError(e instanceof Error?e.message:"Vérification impossible. Demandez un nouveau code.");}finally{setBusy(false)}}
+  }catch(e){setError(await functionErrorMessage(e,"Vérification impossible. Demandez un nouveau code."));}finally{setBusy(false)}}
   return <main className="grid min-h-screen place-items-center bg-muted/30 px-4 py-10"><section className="w-full max-w-lg rounded-2xl border bg-background p-6 shadow-sm sm:p-9">
     <div className="mb-7 flex items-center gap-3"><div className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary"><Building2 className="h-6 w-6"/></div><div><p className="text-sm font-medium text-primary">MOONYP · Espace entreprise</p><h1 className="text-2xl font-bold">Créer mon compte</h1></div></div>
     <p className="mb-6 text-sm text-muted-foreground">Inscription professionnelle sans mot de passe. Un code à usage unique vérifie votre adresse e-mail.</p>
