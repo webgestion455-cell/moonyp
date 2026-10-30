@@ -19,7 +19,7 @@ function BusinessSignupPage() {
   async function verify(e:React.FormEvent){e.preventDefault();setBusy(true);setError("");try{
     const {data,error}=await supabase.functions.invoke("business-otp",{body:{action:"verify",email:email.trim().toLowerCase(),code}});
     if(error)throw error;if(data?.error)throw new Error(data.error);
-    const {error:sessionError}=await supabase.auth.verifyOtp({email:email.trim().toLowerCase(),token:data.token_hash,type:"magiclink"});
+    const {error:sessionError}=await supabase.auth.verifyOtp({token_hash:data.token_hash,type:"magiclink"});
     if(sessionError)throw sessionError;
     navigate({to:"/auth/callback",search:{next:"/workspace"} as any});
   }catch(e){setError(await functionErrorMessage(e,"Vérification impossible. Demandez un nouveau code."));}finally{setBusy(false)}}
