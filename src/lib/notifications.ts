@@ -15,6 +15,19 @@ export interface AppNotification {
 type Category = "info" | "success" | "warning" | "danger";
 type Params = Record<string, string | number>;
 
+/** Remove HTML markup and decode entities before displaying notification text. */
+export function cleanNotificationText(value: unknown): string {
+  if (typeof value !== "string") return "";
+  const source = value.replace(/<\\s*br\\s*\\/?\\s*>|<\\s*\\/(p|div|li|h[1-6]|tr)\\s*>/gi, " ");
+  if (typeof document !== "undefined") {
+    const parsed = new DOMParser().parseFromString(source, "text/html");
+    return (parsed.body.textContent || "").replace(/\\s+/g, " ").trim();
+  }
+  return source.replace(/<[^>]*>/g, " ").replace(/&nbsp;|&#160;/gi, " ")
+    .replace(/&amp;/gi, "&").replace(/&lt;/gi, "<").replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"').replace(/&#39;|&apos;/gi, "'").replace(/\\s+/g, " ").trim();
+}
+
 /**
  * notifyUser : envoie une notification dans la langue du DESTINATAIRE.
  *
@@ -79,6 +92,8 @@ export async function notifyUser(input: NotifyUserInput) {
     title = input.title;
     message = input.message;
   }
+  title = cleanNotificationText(title);
+  message = cleanNotificationText(message);
 
   const { error } = await supabase.from("notifications").insert({
     user_id: input.userId,
@@ -161,11 +176,14 @@ export function showBrowserNotification(n: Pick<AppNotification, "title" | "mess
   if (typeof window === "undefined" || !("Notification" in window)) return;
   if (Notification.permission !== "granted") return;
   try {
-    const notif = new Notification(n.title, {
-      body: n.message,
+    const title = cleanNotificationText(n.title);
+    const message = cleanNotificationText(n.message);
+    if (!title && !message) return;
+    const notif = new Notification(title || "MOONYP", {
+      body: message,
       icon: "/icon-512.png",
       badge: "/icon-512.png",
-      tag: n.title,
+      tag: title || "MOONYP",
     });
     if (n.link) {
       notif.onclick = () => {
