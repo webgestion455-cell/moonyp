@@ -58,21 +58,36 @@ Deno.serve(async (req: Request) => {
       if (!consumed) return json({error:"Ce code a déjà été utilisé. Demandez un nouveau code."},409);
 
       let user:any=null;
-      let generated=await db.auth.admin.generateLink({type:"magiclink",email});
-      if (generated.data?.user) user=generated.data.user;
+      let generated:any=null;
       if (challenge.purpose==="signup") {
-        if (user) return json({error:"Un compte existe déjà avec cette adresse. Connectez-vous."},409);
+        // IMPORTANT: generateLink(magiclink) may create a user when the email is new.
+        // Create the account first so a successful signup is not mistaken for a duplicate.
         const randomPassword = Array.from(crypto.getRandomValues(new Uint8Array(48))).map(x=>x.toString(16).padStart(2,"0")).join("");
-        const created=await db.auth.admin.createUser({email,email_confirm:true,password:randomPassword,user_metadata:{account_type:"business",company_name:challenge.company_name}});
-        if (created.error) throw created.error;
+        const created=await db.auth.admin.createUser({
+          email,
+          email_confirm:true,
+          password:randomPassword,
+          user_metadata:{account_type:"business",company_name:challenge.company_name}
+        });
+        if (created.error) {
+          const message=String(created.error.message ?? "").toLowerCase();
+          if (message.includes("already") || message.includes("registered") || message.includes("exists")) {
+            return json({error:"Un compte existe déjà avec cette adresse. Utilisez la connexion entreprise."},409);
+          }
+          throw created.error;
+        }
         user=created.data.user;
         generated=await db.auth.admin.generateLink({type:"magiclink",email});
       } else {
+        generated=await db.auth.admin.generateLink({type:"magiclink",email});
+        if (generated.data?.user) user=generated.data.user;
+        if (generated.error) throw generated.error;
         if (!user) return json({error:"Aucun compte entreprise trouvé pour cette adresse."},404);
-        const {data: memberships}=await db.from("organization_members").select("organization_id").eq("user_id",user.id).eq("active",true).limit(1);
+        const {data: memberships,error:membershipError}=await db.from("organization_members").select("organization_id").eq("user_id",user.id).eq("active",true).limit(1);
+        if (membershipError) throw membershipError;
         if (user.user_metadata?.account_type!=="business" && !memberships?.length) return json({error:"Ce compte n’est pas un compte entreprise."},403);
       }
-      if (generated.error || !generated.data?.properties?.hashed_token) throw generated.error ?? new Error("Session token unavailable");
+      if (generated?.error || !generated?.data?.properties?.hashed_token) throw generated?.error ?? new Error("Session token unavailable");
       return json({ok:true,email,token_hash:generated.data.properties.hashed_token,type:"magiclink",next:challenge.purpose==="signup"?"/auth/callback?next=/workspace":"/workspace"});
     }
     return json({error:"unknown_action"},400);
