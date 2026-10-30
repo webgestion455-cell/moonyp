@@ -128,6 +128,8 @@ function RootComponent() {
   const chromelessRoute =
     basePath.startsWith("/admin") ||
     basePath.startsWith("/auth") ||
+    basePath.startsWith("/business-login") ||
+    basePath.startsWith("/business-signup") ||
     basePath.startsWith("/secure") ||
     basePath === "/staff-invite" ||
     basePath === "/reset-password" ||
