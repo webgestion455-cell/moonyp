@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import type { AppNotification } from "@/lib/notifications";
+import { cleanNotificationText, type AppNotification } from "@/lib/notifications";
 
 export const Route = createFileRoute("/admin/notifications")({
   component: AdminNotificationsPage,
@@ -111,14 +111,14 @@ function AdminNotificationsPage() {
               >
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
-                    <p className="font-medium">{n.title}</p>
+                    <p className="font-medium">{cleanNotificationText(n.title)}</p>
                     {!n.read && (
                       <Badge className="border-0 bg-primary/15 text-primary">
                         {t("common.new")}
                       </Badge>
                     )}
                   </div>
-                  <p className="mt-1 text-sm text-muted-foreground">{n.message}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{cleanNotificationText(n.message)}</p>
                   <p className="mt-1 text-xs text-muted-foreground/70">
                     {new Intl.DateTimeFormat(locale, {
                       dateStyle: "medium",
