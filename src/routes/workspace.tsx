@@ -31,7 +31,7 @@ function WorkspacePage() {
   async function load() {
     setLoading(true); setError("");
     const { data: auth } = await supabase.auth.getUser();
-    if (!auth.user) { window.location.href = "/auth"; return; }
+    if (!auth.user) { window.location.href = "/business-login"; return; }
     setUserId(auth.user.id);
     const { data, error: queryError } = await supabase.from("organizations").select("*").order("created_at", { ascending: true });
     if (queryError) setError("Impossible de charger les espaces. Vérifiez la migration multientreprise et les droits de votre compte.");
