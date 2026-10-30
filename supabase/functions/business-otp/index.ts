@@ -53,10 +53,6 @@ Deno.serve(async (req: Request) => {
         await db.from("business_email_otp").update({attempts:challenge.attempts+1}).eq("id",challenge.id).eq("attempts",challenge.attempts);
         return json({error:"Code incorrect."},400);
       }
-      const {data:consumed,error:consumeError}=await db.from("business_email_otp").update({consumed_at:new Date().toISOString()}).eq("id",challenge.id).is("consumed_at",null).select("id").maybeSingle();
-      if (consumeError) throw consumeError;
-      if (!consumed) return json({error:"Ce code a déjà été utilisé. Demandez un nouveau code."},409);
-
       let user:any=null;
       let generated:any=null;
       if (challenge.purpose==="signup") {
@@ -91,6 +87,18 @@ Deno.serve(async (req: Request) => {
         if (user.user_metadata?.account_type!=="business" && !memberships?.length) return json({error:"Ce compte n’est pas un compte entreprise."},403);
       }
       if (generated?.error || !generated?.data?.properties?.hashed_token) throw generated?.error ?? new Error("Session token unavailable");
+
+      // Consume the OTP only after account validation, provisioning and session-token
+      // generation all succeeded. A recoverable provisioning error must not burn the code.
+      const {data:consumed,error:consumeError}=await db.from("business_email_otp")
+        .update({consumed_at:new Date().toISOString()})
+        .eq("id",challenge.id)
+        .is("consumed_at",null)
+        .select("id")
+        .maybeSingle();
+      if (consumeError) throw consumeError;
+      if (!consumed) return json({error:"Ce code a déjà été utilisé. Demandez un nouveau code."},409);
+
       return json({ok:true,email,token_hash:generated.data.properties.hashed_token,type:"magiclink",next:challenge.purpose==="signup"?"/auth/callback?next=/workspace":"/workspace"});
     }
     return json({error:"unknown_action"},400);
