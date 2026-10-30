@@ -60,24 +60,27 @@ Deno.serve(async (req: Request) => {
       let user:any=null;
       let generated:any=null;
       if (challenge.purpose==="signup") {
-        // IMPORTANT: generateLink(magiclink) may create a user when the email is new.
-        // Create the account first so a successful signup is not mistaken for a duplicate.
-        const randomPassword = Array.from(crypto.getRandomValues(new Uint8Array(48))).map(x=>x.toString(16).padStart(2,"0")).join("");
-        const created=await db.auth.admin.createUser({
-          email,
-          email_confirm:true,
-          password:randomPassword,
-          user_metadata:{account_type:"business",company_name:challenge.company_name}
-        });
-        if (created.error) {
-          const message=String(created.error.message ?? "").toLowerCase();
-          if (message.includes("already") || message.includes("registered") || message.includes("exists")) {
-            return json({error:"Un compte existe déjà avec cette adresse. Utilisez la connexion entreprise."},409);
-          }
-          throw created.error;
-        }
-        user=created.data.user;
+        // generateLink creates the user when needed and returns the existing user otherwise.
+        // The email OTP has already proved control of this address, so an untyped account
+        // can safely be upgraded to a business account unless it already has memberships.
         generated=await db.auth.admin.generateLink({type:"magiclink",email});
+        if (generated.error) throw generated.error;
+        user=generated.data?.user;
+        if (!user || !generated.data?.properties?.hashed_token) throw new Error("Magic link generation failed");
+        const currentType=String(user.user_metadata?.account_type ?? "");
+        if (currentType && currentType!=="business") {
+          return json({error:"Cette adresse est déjà associée à un autre type de compte. Utilisez une autre adresse e-mail."},409);
+        }
+        const {data: memberships,error:membershipError}=await db.from("organization_members").select("organization_id").eq("user_id",user.id).eq("active",true).limit(1);
+        if (membershipError) throw membershipError;
+        if (memberships?.length && currentType!=="business") {
+          return json({error:"Cette adresse possède déjà un accès à une organisation. Contactez le support pour créer un espace entreprise distinct."},409);
+        }
+        if (currentType!=="business" || !user.user_metadata?.company_name) {
+          const updated=await db.auth.admin.updateUserById(user.id,{user_metadata:{...user.user_metadata,account_type:"business",company_name:challenge.company_name}});
+          if (updated.error) throw updated.error;
+          user=updated.data.user;
+        }
       } else {
         generated=await db.auth.admin.generateLink({type:"magiclink",email});
         if (generated.data?.user) user=generated.data.user;
