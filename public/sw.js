@@ -7,12 +7,12 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(self.clients.claim());
 });
 
-function cleanPushText(value): string {
+function cleanPushText(value) {
   if (typeof value !== "string") return "";
-  return value.replace(/<\\s*br\\s*\\/?\\s*>|<\\s*\\/(p|div|li|h[1-6]|tr)\\s*>/gi, " ")
+  return value.replace(/<\s*br\s*\/?\s*>|<\s*\/(p|div|li|h[1-6]|tr)\s*>/gi, " ")
     .replace(/<[^>]*>/g, " ").replace(/&nbsp;|&#160;/gi, " ")
     .replace(/&amp;/gi, "&").replace(/&lt;/gi, "<").replace(/&gt;/gi, ">")
-    .replace(/&quot;/gi, '"').replace(/&#39;|&apos;/gi, "'").replace(/\\s+/g, " ").trim();
+    .replace(/&quot;/gi, '"').replace(/&#39;|&apos;/gi, "'").replace(/\s+/g, " ").trim();
 }
 
 self.addEventListener("push", (event) => {
