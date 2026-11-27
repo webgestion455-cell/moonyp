@@ -200,17 +200,17 @@ Deno.serve(async (req) => {
       if (access.staff) {
         if (conv.user_id) {
           const { data: subs } = await db.from("push_subscriptions").select("endpoint,p256dh,auth").eq("user_id", conv.user_id);
-          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\\s+/g, " ").slice(0, 180), link: "/?openSupportConversation=" + conversationId, icon: "/icon-512.png", tag: "support-" + conversationId });
+          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 180), link: "/?openSupportConversation=" + conversationId, icon: "/icon-512.png", tag: "support-" + conversationId });
         } else {
           const { data: subs } = await db.from("chat_guest_push_subscriptions").select("endpoint,p256dh,auth").eq("conversation_id", conversationId);
-          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\\s+/g, " ").slice(0, 180), link: "/?openSupportConversation=" + conversationId, icon: "/icon-512.png", tag: "support-" + conversationId });
+          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 180), link: "/?openSupportConversation=" + conversationId, icon: "/icon-512.png", tag: "support-" + conversationId });
         }
       } else {
         const { data: roles } = await db.from("user_roles").select("user_id").in("role", ["admin", "agent", "super_admin"]);
         const ids = [...new Set((roles ?? []).map((r: any) => r.user_id))];
         if (ids.length) {
           const title = "Nouveau message client · MOONYP";
-          const preview = (conv.guest_name || "Client") + ": " + content.replace(/<[^>]*>/g, " ").replace(/\\s+/g, " ").slice(0, 150);
+          const preview = (conv.guest_name || "Client") + ": " + content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 150);
           // Persist in-app notifications so the admin bell updates in real time even if OS push is unavailable.
           await db.from("notifications").insert(ids.map((id: string) => ({
             user_id: id, title, message: preview, link: "/admin/chat?conversationId=" + conversationId, category: "support", read: false
