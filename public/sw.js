@@ -34,7 +34,7 @@ self.addEventListener("push", (event) => {
   const bodyText = cleanPushText(data.body || data.message || "");
   const options = {
     body: bodyText,
-    icon: cleanPushText(data.icon) || "/icon-512.png",
+    icon: cleanPushText(data.icon) || "/email/moonyp-mark.png",
     badge: "/moonyp-notification-badge.svg",
     tag: data.tag || data.title || "MOONYP-support",
     data: { url: safeNotificationUrl(data.link || data.url || "/") },

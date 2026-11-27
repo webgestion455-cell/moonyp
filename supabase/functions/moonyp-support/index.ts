@@ -35,7 +35,7 @@ async function sendWebPush(subscriptions: any[], payload: Record<string, unknown
     webpush.setVapidDetails("mailto:support@moonyp.com", publicKey, privateKey);
     await Promise.all(subscriptions.map(async (sub: any) => {
       try {
-        await webpush.sendNotification({ endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } }, JSON.stringify({ icon: "/icon-512.png", badge: "/moonyp-notification-badge.svg", ...payload }));
+        await webpush.sendNotification({ endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } }, JSON.stringify({ icon: "/email/moonyp-mark.png", badge: "/moonyp-notification-badge.svg", ...payload }));
       } catch (error: any) {
         if (error?.statusCode === 404 || error?.statusCode === 410) {
           await db.from("push_subscriptions").delete().eq("endpoint", sub.endpoint);
@@ -203,13 +203,13 @@ Deno.serve(async (req) => {
           const locale = String(conv.locale || "fr").toLowerCase().split(/[-_]/)[0];
           const supportedLocales = new Set(["fr","en","de","es","it","nl","sl","bg","sk","el","fi","ro","pl","hr","hu"]);
           const customerLink = "/" + (supportedLocales.has(locale) ? locale : "fr") + "/?openSupportConversation=" + conversationId;
-          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 180), link: customerLink, icon: "/icon-512.png", tag: "support-" + conversationId });
+          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 180), link: customerLink, icon: "/email/moonyp-mark.png", tag: "support-" + conversationId });
         } else {
           const { data: subs } = await db.from("chat_guest_push_subscriptions").select("endpoint,p256dh,auth").eq("conversation_id", conversationId);
           const locale = String(conv.locale || "fr").toLowerCase().split(/[-_]/)[0];
           const supportedLocales = new Set(["fr","en","de","es","it","nl","sl","bg","sk","el","fi","ro","pl","hr","hu"]);
           const customerLink = "/" + (supportedLocales.has(locale) ? locale : "fr") + "/?openSupportConversation=" + conversationId;
-          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 180), link: customerLink, icon: "/icon-512.png", tag: "support-" + conversationId });
+          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 180), link: customerLink, icon: "/email/moonyp-mark.png", tag: "support-" + conversationId });
         }
       } else {
         const { data: roles } = await db.from("user_roles").select("user_id").in("role", ["admin", "agent", "super_admin"]);
@@ -225,7 +225,7 @@ Deno.serve(async (req) => {
             user_id: id, title, message: preview, link: "/admin/chat?conversationId=" + conversationId, category: "support", read: false
           })));
           const { data: subs } = await db.from("push_subscriptions").select("endpoint,p256dh,auth").in("user_id", ids);
-          await sendWebPush(subs ?? [], { title, body: preview, link: "/admin/chat?conversationId=" + conversationId, icon: "/icon-512.png", tag: "support-" + conversationId });
+          await sendWebPush(subs ?? [], { title, body: preview, link: "/admin/chat?conversationId=" + conversationId, icon: "/email/moonyp-mark.png", tag: "support-" + conversationId });
         }
       }
       return reply({ message: msg });

@@ -72,7 +72,7 @@ serve(async (req) => {
               title,
               body: message,
               link,
-              icon: "/icon-512.png",
+              icon: "/email/moonyp-mark.png",
               badge: "/moonyp-notification-badge.svg",
               tag: typeof body.tag === "string" ? body.tag : title || "MOONYP",
             }),

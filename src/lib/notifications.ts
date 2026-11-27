@@ -192,7 +192,7 @@ export function showBrowserNotification(n: Pick<AppNotification, "title" | "mess
     const href = notificationHref(n.link);
     const options: NotificationOptions = {
       body: message,
-      icon: "/icon-512.png",
+      icon: "/email/moonyp-mark.png",
       badge: "/icon-192.png",
       tag: title || "MOONYP",
       data: { url: href },
