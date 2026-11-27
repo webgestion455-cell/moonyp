@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { CenterLoader, ListSkeleton } from "@/components/ui/loader";
 import { useEffect, useState } from "react";
 import { adminT, useAdminT } from "@/hooks/use-admin-t";
@@ -18,7 +18,6 @@ export const Route = createFileRoute("/admin/notifications")({
 function AdminNotificationsPage() {
   const { user, loading: authLoading } = useAuth();
   const { t, locale } = useAdminT();
-  const navigate = useNavigate();
   const [items, setItems] = useState<AppNotification[]>([]);
   const [loading, setLoading] = useState(true);
 
