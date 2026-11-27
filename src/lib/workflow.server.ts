@@ -248,7 +248,7 @@ export async function notifyAdmins(input: {
   const { data: admins } = await supabaseAdmin
     .from("user_roles")
     .select("user_id")
-    .eq("role", "admin");
+    .in("role", ["admin", "agent", "super_admin"]);
   const rows = (admins ?? []).map((a) => ({
     user_id: a.user_id,
     title: input.title,
@@ -256,7 +256,20 @@ export async function notifyAdmins(input: {
     link: input.link ?? null,
     category: input.category ?? "application",
   }));
-  if (rows.length > 0) await supabaseAdmin.from("notifications").insert(rows as never);
+  if (rows.length > 0) {
+    const { error } = await supabaseAdmin.from("notifications").insert(rows as never);
+    if (error) console.error("[notifyAdmins] notification insert failed:", error);
+    await Promise.all(rows.map(async (row) => {
+      try {
+        const { error: pushError } = await supabaseAdmin.functions.invoke("send-push", {
+          body: { userId: row.user_id, title: row.title, message: row.message, link: row.link },
+        });
+        if (pushError) console.error("[notifyAdmins] push delivery failed:", pushError.message);
+      } catch (pushError) {
+        console.error("[notifyAdmins] push delivery failed:", pushError);
+      }
+    }));
+  }
 }
 
 export interface ApplicationSnapshot {
