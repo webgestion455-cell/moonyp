@@ -185,9 +185,9 @@ export function NotificationBell() {
               <p className="text-sm font-medium">{i18n.resolvedLanguage?.startsWith("fr") ? "Notifications sur ce téléphone" : "Phone notifications"}</p>
               <p className="mt-0.5 text-xs text-muted-foreground">{pushEnabled ? (i18n.resolvedLanguage?.startsWith("fr") ? "Réception activée" : "Notifications enabled") : (i18n.resolvedLanguage?.startsWith("fr") ? "Réception désactivée sur cet appareil" : "Not enabled on this device")}</p>
             </div>
-            <Button type="button" size="sm" variant={pushEnabled ? "outline" : "default"} disabled={!pushSupported || pushBusy || pushEnabled} onClick={() => void activatePhonePush()}>
+            <Button type="button" size="sm" variant={pushEnabled ? "outline" : "default"} disabled={!pushSupported || pushBusy} onClick={() => void activatePhonePush()}>
               {pushBusy ? <LoaderCircle className="mr-1.5 h-4 w-4 animate-spin" /> : <BellRing className="mr-1.5 h-4 w-4" />}
-              {pushBusy ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activation…" : "Enabling…") : pushEnabled ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activées" : "Enabled") : (i18n.resolvedLanguage?.startsWith("fr") ? "Activer et tester" : "Enable & test")}
+              {pushBusy ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activation…" : "Enabling…") : pushEnabled ? (i18n.resolvedLanguage?.startsWith("fr") ? "Tester / réparer" : "Test / repair") : (i18n.resolvedLanguage?.startsWith("fr") ? "Activer et tester" : "Enable & test")}
             </Button>
           </div>
           {pushMessage && <p role="status" className="mt-2 text-xs text-muted-foreground">{pushMessage}</p>}

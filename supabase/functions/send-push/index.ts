@@ -54,7 +54,9 @@ serve(async (req) => {
       .eq("user_id", userId);
 
     if (!subscriptions?.length) {
-      return new Response("No subscriptions", { status: 200 });
+      return new Response(JSON.stringify({ sent: 0, failed: 0, total: 0, error: "no_subscriptions" }), {
+        status: 409, headers: { "Content-Type": "application/json" },
+      });
     }
 
     let sent = 0;
