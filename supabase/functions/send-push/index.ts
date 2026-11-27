@@ -55,6 +55,9 @@ serve(async (req) => {
               title,
               body: message,
               link,
+              icon: "/icon-512.png",
+              badge: "/icon-192.png",
+              tag: typeof body.tag === "string" ? body.tag : title || "MOONYP",
             }),
           );
         } catch (err) {
