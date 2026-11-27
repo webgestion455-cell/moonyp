@@ -84,7 +84,7 @@ serve(async (req) => {
   </div>
   <h2 style="color:#fff">Un client attend un conseiller</h2>
   <p><strong>Client :</strong> ${userName ?? "—"} &lt;${userEmail ?? "—"}&gt;</p>
-  <p><strong>Conversation :</strong> <a style="color:#7ecda8" href="https://apply.myinvest-capital.com/admin/chat/${conversationId}">Ouvrir dans l'admin</a></p>
+  <p><strong>Conversation :</strong> <a style="color:#7ecda8" href="https://moonyp.com/admin/chat?conversationId=${encodeURIComponent(conversationId)}">Ouvrir dans l'admin</a></p>
   <hr style="border-color:#333"/>
   <h3 style="color:#fff">Récapitulatif</h3>
   <div style="color:#111">${recap || "<p>(aucun message)</p>"}</div>
@@ -103,18 +103,28 @@ serve(async (req) => {
     const { data: admins } = await supabaseAdmin
       .from("user_roles")
       .select("user_id")
-      .eq("role", "admin");
+      .in("role", ["admin", "agent", "super_admin"]);
     if (admins?.length) {
       await supabaseAdmin.from("notifications").insert(
         admins.map((a: { user_id: string }) => ({
           user_id: a.user_id,
           title: "🟢 Nouveau chat en attente",
           message: `${userName ?? "Un client"} demande un conseiller.`,
-          link: `/admin/chat/${conversationId}`,
+          link: `/admin/chat?conversationId=${conversationId}`,
           category: "info",
           read: false,
         })),
       );
+      const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+      await Promise.all(admins.map(async (admin: { user_id: string }) => {
+        try {
+          await fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/send-push`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Authorization": `Bearer ${serviceKey}`, "apikey": serviceKey },
+            body: JSON.stringify({ userId: admin.user_id, title: "Nouveau chat en attente", message: `${userName ?? "Un client"} demande un conseiller.`, link: `/admin/chat?conversationId=${conversationId}` }),
+          });
+        } catch (error) { console.error("admin_push_failed", error); }
+      }));
     }
 
     return json({ ok: true, emailSent });
