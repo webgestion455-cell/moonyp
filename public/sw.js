@@ -7,6 +7,14 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(self.clients.claim());
 });
 
+function safeNotificationUrl(value) {
+  try {
+    const url = new URL(typeof value === "string" ? value : "/", self.location.origin);
+    if (url.origin !== self.location.origin) return "/";
+    return url.pathname + url.search + url.hash;
+  } catch { return "/"; }
+}
+
 function cleanPushText(value) {
   if (typeof value !== "string") return "";
   return value.replace(/<\s*br\s*\/?\s*>|<\s*\/(p|div|li|h[1-6]|tr)\s*>/gi, " ")
@@ -26,17 +34,17 @@ self.addEventListener("push", (event) => {
   const bodyText = cleanPushText(data.body || data.message || "");
   const options = {
     body: bodyText,
-    icon: "/icon-512.png",
-    badge: "/icon-512.png",
+    icon: cleanPushText(data.icon) || "/icon-512.png",
+    badge: "/icon-192.png",
     tag: data.tag || data.title || "MOONYP-support",
-    data: { url: data.link || data.url || "/" },
+    data: { url: safeNotificationUrl(data.link || data.url || "/") },
   };
   event.waitUntil(self.registration.showNotification(title, options));
 });
 
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
-  const url = (event.notification.data && event.notification.data.url) || "/";
+  const url = safeNotificationUrl(event.notification.data && event.notification.data.url);
   event.waitUntil(
     self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
       for (const client of list) {
