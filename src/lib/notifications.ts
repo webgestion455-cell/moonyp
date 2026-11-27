@@ -31,7 +31,7 @@ export function cleanNotificationText(value: unknown): string {
   const source = value.replace(/<\s*br\s*\/?\s*>|<\s*\/(p|div|li|h[1-6]|tr)\s*>/gi, " ");
   if (typeof document !== "undefined") {
     const parsed = new DOMParser().parseFromString(source, "text/html");
-    return (parsed.body.textContent || "").replace(/\s+/g, " ").trim();
+    return (parsed.body.textContent || "").replace(/\s+/g, " ").replace(/<[^>]*>/g, " ").trim();
   }
   return source.replace(/<[^>]*>/g, " ").replace(/&nbsp;|&#160;/gi, " ")
     .replace(/&amp;/gi, "&").replace(/&lt;/gi, "<").replace(/&gt;/gi, ">")
