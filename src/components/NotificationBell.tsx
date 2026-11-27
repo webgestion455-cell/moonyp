@@ -106,30 +106,14 @@ export function NotificationBell() {
     setPushBusy(true);
     setPushMessage("");
     try {
-      const ok = await subscribeToPush(user.id, true);
+      const ok = await subscribeToPush(user.id);
       setPushEnabled(ok);
       if (!ok) {
         setPushMessage(typeof Notification !== "undefined" && Notification.permission === "denied"
-          ? (i18n.resolvedLanguage?.startsWith("fr") ? "Autorisation refusée : autorisez les notifications dans les réglages du navigateur." : "Permission denied. Allow notifications in your browser settings.")
-          : (i18n.resolvedLanguage?.startsWith("fr") ? "Activation impossible. Vérifiez la connexion puis réessayez." : "Could not activate notifications. Check your connection and try again."));
+          ? (i18n.resolvedLanguage?.startsWith("fr") ? "Les notifications sont bloquées dans les réglages de ce navigateur." : "Notifications are blocked in this browser's settings.")
+          : (i18n.resolvedLanguage?.startsWith("fr") ? "Impossible d’activer les notifications sur cet appareil." : "Notifications could not be enabled on this device."));
       } else {
-        const { data: testResult, error: testError } = await supabase.functions.invoke("send-push", {
-          body: {
-            userId: user.id,
-            title: "MOONYP · Notifications activées",
-            message: "Ce téléphone est bien configuré pour recevoir les notifications MOONYP.",
-            tag: "moonyp-push-test",
-          },
-        });
-        if (testError || (typeof testResult?.sent === "number" && testResult.sent < 1)) {
-          setPushMessage(i18n.resolvedLanguage?.startsWith("fr")
-            ? "Abonnement enregistré, mais le test d’envoi a échoué. Vérifiez les autorisations et réessayez."
-            : "Subscription saved, but the delivery test failed. Check permissions and retry.");
-        } else {
-          setPushMessage(i18n.resolvedLanguage?.startsWith("fr")
-            ? "Test envoyé : ce téléphone est configuré pour recevoir les notifications MOONYP."
-            : "Test sent: this phone is configured to receive MOONYP notifications.");
-        }
+        setPushMessage(i18n.resolvedLanguage?.startsWith("fr") ? "Les notifications sont activées sur cet appareil." : "Notifications are enabled on this device.");
       }
     } catch {
       setPushEnabled(false);
@@ -182,12 +166,12 @@ export function NotificationBell() {
         <div className="border-b border-border px-4 py-3">
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
-              <p className="text-sm font-medium">{i18n.resolvedLanguage?.startsWith("fr") ? "Notifications sur ce téléphone" : "Phone notifications"}</p>
-              <p className="mt-0.5 text-xs text-muted-foreground">{pushEnabled ? (i18n.resolvedLanguage?.startsWith("fr") ? "Réception activée" : "Notifications enabled") : (i18n.resolvedLanguage?.startsWith("fr") ? "Réception désactivée sur cet appareil" : "Not enabled on this device")}</p>
+              <p className="text-sm font-medium">{i18n.resolvedLanguage?.startsWith("fr") ? "Notifications sur cet appareil" : "Notifications on this device"}</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">{pushEnabled ? (i18n.resolvedLanguage?.startsWith("fr") ? "Réception activée" : "Notifications enabled") : (i18n.resolvedLanguage?.startsWith("fr") ? "Réception non activée" : "Not enabled")}</p>
             </div>
             <Button type="button" size="sm" variant={pushEnabled ? "outline" : "default"} disabled={!pushSupported || pushBusy} onClick={() => void activatePhonePush()}>
               {pushBusy ? <LoaderCircle className="mr-1.5 h-4 w-4 animate-spin" /> : <BellRing className="mr-1.5 h-4 w-4" />}
-              {pushBusy ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activation…" : "Enabling…") : pushEnabled ? (i18n.resolvedLanguage?.startsWith("fr") ? "Tester / réparer" : "Test / repair") : (i18n.resolvedLanguage?.startsWith("fr") ? "Activer et tester" : "Enable & test")}
+              {pushBusy ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activation…" : "Enabling…") : pushEnabled ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activées" : "Enabled") : (i18n.resolvedLanguage?.startsWith("fr") ? "Activer les notifications" : "Enable notifications")}
             </Button>
           </div>
           {pushMessage && <p role="status" className="mt-2 text-xs text-muted-foreground">{pushMessage}</p>}

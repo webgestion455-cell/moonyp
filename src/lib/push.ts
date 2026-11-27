@@ -33,7 +33,7 @@ export async function ensureServiceWorker(): Promise<ServiceWorkerRegistration |
   }
 }
 
-export async function subscribeToPush(userId: string, refreshCurrentDevice = false): Promise<boolean> {
+export async function subscribeToPush(userId: string): Promise<boolean> {
   if (!VAPID_PUBLIC_KEY) return false;
   if (
     typeof window === "undefined" ||
@@ -54,13 +54,8 @@ export async function subscribeToPush(userId: string, refreshCurrentDevice = fal
   if (!authData?.user || authData.user.id !== userId) return false;
   const reg = await ensureServiceWorker();
   if (!reg) return false;
+  await navigator.serviceWorker.ready;
   let sub = await reg.pushManager.getSubscription();
-  if (sub && refreshCurrentDevice) {
-    const oldEndpoint = sub.endpoint;
-    await sub.unsubscribe().catch(() => false);
-    await (supabase as any).from("push_subscriptions").delete().eq("user_id", userId).eq("endpoint", oldEndpoint);
-    sub = null;
-  }
   if (!sub) {
     try {
       sub = await reg.pushManager.subscribe({
