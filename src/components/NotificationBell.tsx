@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { Bell, Check } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
@@ -24,7 +24,6 @@ const LOCALES: Record<string, Locale> = { fr, en: enUS, de, es, sl, bg, sk };
 export function NotificationBell() {
   const { user, role } = useAuth();
   const { t, i18n } = useTranslation();
-  const navigate = useNavigate();
   const [items, setItems] = useState<AppNotification[]>([]);
   const [open, setOpen] = useState(false);
   const dateLocale = LOCALES[i18n.resolvedLanguage ?? "fr"] ?? fr;
