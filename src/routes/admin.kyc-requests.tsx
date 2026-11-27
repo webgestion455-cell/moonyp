@@ -93,6 +93,7 @@ function AdminKycRequestsInner() {
   const revoke = useServerFn(adminRevokeKycRequest);
 
   const [rows, setRows] = useState<Row[]>([]);
+  const [notificationTarget] = useState(() => new URLSearchParams(window.location.search).get("requestId") || "");
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
   const [fullName, setFullName] = useState("");
@@ -120,6 +121,16 @@ function AdminKycRequestsInner() {
   useEffect(() => {
     void load();
   }, [load]);
+
+  useEffect(() => {
+    if (!notificationTarget || !rows.some(row => row.id === notificationTarget)) return;
+    requestAnimationFrame(() => {
+      const element = document.getElementById("kyc-request-" + notificationTarget);
+      if (!element) return;
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      element.classList.add("ring-2", "ring-primary", "rounded-lg");
+    });
+  }, [rows, notificationTarget]);
 
   const copy = async (url: string) => {
     try {
@@ -322,7 +333,8 @@ function AdminKycRequestsInner() {
               {rows.map((r) => (
                 <li
                   key={r.id}
-                  className="flex flex-col gap-3 px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
+                  id={"kyc-request-" + r.id}
+                  className={cn("flex flex-col gap-3 px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6 transition-shadow", notificationTarget === r.id && "bg-primary/5 ring-2 ring-primary rounded-lg")}
                 >
                   <div className="min-w-0">
                     <p className="flex flex-wrap items-center gap-2 text-sm font-semibold">
