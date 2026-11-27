@@ -43,16 +43,15 @@ export async function subscribeToPush(userId: string, refreshCurrentDevice = fal
     return false;
   if (Notification.permission === "denied") return false;
 
-  // Ensure the current session actually matches the userId — avoids the
-  // 403 Forbidden upsert observed when the RLS check auth.uid() = user_id
-  // runs while the client has no valid session (or a stale one).
-  const { data: authData } = await supabase.auth.getUser();
-  if (!authData?.user || authData.user.id !== userId) return false;
-
+  // Request permission immediately in the click gesture, before any network await.
   if (Notification.permission !== "granted") {
     const p = await Notification.requestPermission();
     if (p !== "granted") return false;
   }
+
+  // Verify the session before storing this device's subscription.
+  const { data: authData } = await supabase.auth.getUser();
+  if (!authData?.user || authData.user.id !== userId) return false;
   const reg = await ensureServiceWorker();
   if (!reg) return false;
   let sub = await reg.pushManager.getSubscription();
