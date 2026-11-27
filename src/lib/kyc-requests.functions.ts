@@ -404,7 +404,7 @@ export const submitKycRequest = createServerFn({ method: "POST" })
       await notifyAdmins({
         title: request.reference,
         message: "Vérification d'identité externe terminée",
-        link: "/admin/kyc-requests",
+        link: `/admin/kyc-requests?requestId=${request.id}`,
         category: "application",
       });
     } catch (sideEffect) {
