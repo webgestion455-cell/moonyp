@@ -16,6 +16,16 @@ type Category = "info" | "success" | "warning" | "danger";
 type Params = Record<string, string | number>;
 
 /** Remove HTML markup and decode entities before displaying notification text. */
+export function notificationHref(value: string | null | undefined): string {
+  if (!value || typeof window === "undefined") return "/";
+  try {
+    const url = new URL(value, window.location.origin);
+    if (url.origin !== window.location.origin) return "/";
+    return url.pathname + url.search + url.hash;
+  } catch { return "/"; }
+}
+
+/** Clean, same-origin notification destinations preserve path, query and hash. */
 export function cleanNotificationText(value: unknown): string {
   if (typeof value !== "string") return "";
   const source = value.replace(/<\s*br\s*\/?\s*>|<\s*\/(p|div|li|h[1-6]|tr)\s*>/gi, " ");
@@ -179,17 +189,23 @@ export function showBrowserNotification(n: Pick<AppNotification, "title" | "mess
     const title = cleanNotificationText(n.title);
     const message = cleanNotificationText(n.message);
     if (!title && !message) return;
-    const notif = new Notification(title || "MOONYP", {
+    const href = notificationHref(n.link);
+    const options: NotificationOptions = {
       body: message,
       icon: "/icon-512.png",
-      badge: "/icon-512.png",
+      badge: "/icon-192.png",
       tag: title || "MOONYP",
-    });
-    if (n.link) {
-      notif.onclick = () => {
-        window.focus();
-        window.location.href = n.link!;
-      };
+      data: { url: href },
+    };
+    if ("serviceWorker" in navigator) {
+      void navigator.serviceWorker.ready.then(reg => reg.showNotification(title || "MOONYP", options))
+        .catch(() => {
+          const notif = new Notification(title || "MOONYP", options);
+          notif.onclick = () => { window.focus(); window.location.assign(href); };
+        });
+    } else {
+      const notif = new Notification(title || "MOONYP", options);
+      notif.onclick = () => { window.focus(); window.location.assign(href); };
     }
   } catch {
     /* ignore */
