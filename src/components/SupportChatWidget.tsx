@@ -57,6 +57,7 @@ export function SupportChatWidget() {
   const [open, setOpen] = useState(false);
   const [starting, setStarting] = useState(false);
   const [conversationId, setConversationId] = useState(() => { try { return localStorage.getItem(CONV_KEY) || ""; } catch { return ""; } });
+  const [directConversation, setDirectConversation] = useState(false);
   const [guestToken, setGuestToken] = useState(() => { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch { return ""; } });
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -77,7 +78,17 @@ export function SupportChatWidget() {
   const transcript = useRef<HTMLDivElement>(null);
   const stickToBottom = useRef(true);
   const shouldAutoScroll = useRef(true);
-  const ready = Boolean(conversationId && guestToken);
+  const ready = Boolean(conversationId && (guestToken || directConversation));
+  useEffect(() => {
+    const target = new URLSearchParams(window.location.search).get("openSupportConversation");
+    if (!target || !/^[0-9a-f-]{36}$/i.test(target)) return;
+    const savedToken = (() => { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch { return ""; } })();
+    setConversationId(target);
+    setGuestToken(savedToken);
+    setDirectConversation(true);
+    setOpen(true);
+    try { localStorage.setItem(CONV_KEY, target); } catch { /* storage may be unavailable */ }
+  }, []);
   useEffect(() => {
     if (!open) return;
     const previous = document.body.style.overflow;
@@ -96,7 +107,7 @@ export function SupportChatWidget() {
   }
   async function load() {
     if (!ready) return;
-    try { const data = await callSupport("messages", { conversationId, guestToken, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, locale: i18n.resolvedLanguage || i18n.language || navigator.language }); const incoming: Msg[] = data.messages ?? []; const current = transcript.current; const nearBottom = !current || current.scrollHeight - current.scrollTop - current.clientHeight < 100; const changed = incoming.length !== messagesRef.current.length || incoming.some((m, i) => m.id !== messagesRef.current[i]?.id || m.content !== messagesRef.current[i]?.content); if (changed) { shouldAutoScroll.current = nearBottom; messagesRef.current = incoming; setMessages(incoming); } setConversationClosed(data.conversation?.status === "closed"); setError(""); }
+    try { const data = await callSupport("messages", { conversationId, ...(guestToken ? { guestToken } : {}), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, locale: i18n.resolvedLanguage || i18n.language || navigator.language }); const incoming: Msg[] = data.messages ?? []; const current = transcript.current; const nearBottom = !current || current.scrollHeight - current.scrollTop - current.clientHeight < 100; const changed = incoming.length !== messagesRef.current.length || incoming.some((m, i) => m.id !== messagesRef.current[i]?.id || m.content !== messagesRef.current[i]?.content); if (changed) { shouldAutoScroll.current = nearBottom; messagesRef.current = incoming; setMessages(incoming); } setConversationClosed(data.conversation?.status === "closed"); setError(""); }
     catch (err) { setError(err instanceof Error ? err.message : t("supportChat.loadError")); }
   }
   useEffect(() => { if (!open || !ready) return; void load(); const timer = window.setInterval(() => void load(), 3000); return () => window.clearInterval(timer); }, [open, ready, conversationId, guestToken]);
@@ -146,7 +157,7 @@ export function SupportChatWidget() {
   }
   useEffect(() => () => { if (pendingImagePreview) URL.revokeObjectURL(pendingImagePreview); }, [pendingImagePreview]);
   async function uploadPendingImage(file: File) {
-    const signed = await callSupport("attachment_upload_url", { conversationId, guestToken, fileName: file.name, contentType: file.type });
+    const signed = await callSupport("attachment_upload_url", { conversationId, ...(guestToken ? { guestToken } : {}), fileName: file.name, contentType: file.type });
     const { error: uploadError } = await supabase.storage.from("support-attachments").uploadToSignedUrl(signed.path, signed.token, file, { contentType: file.type, upsert: false });
     if (uploadError) throw uploadError;
     return supabase.storage.from("support-attachments").getPublicUrl(signed.path).data.publicUrl as string;
@@ -162,7 +173,7 @@ export function SupportChatWidget() {
         const escape = (s: string) => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
         content = (content ? "<p>" + escape(content).replace(/\n/g,"<br>") + "</p>" : "") + '<p><img src="' + imageUrl + '" alt="' + t("supportChat.image") + '" /></p>';
       }
-      await callSupport("send", { conversationId, guestToken, message: content, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, locale: i18n.resolvedLanguage || i18n.language || navigator.language });
+      await callSupport("send", { conversationId, ...(guestToken ? { guestToken } : {}), message: content, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, locale: i18n.resolvedLanguage || i18n.language || navigator.language });
       setDraft(""); removePendingImage(); await load();
     } catch (err) { setError(err instanceof Error ? err.message : t("supportChat.sendError")); }
     finally { setBusy(false); setImageBusy(false); }
@@ -191,7 +202,7 @@ export function SupportChatWidget() {
             <div className="min-w-0 flex-1"><p className="text-sm font-semibold">{m.sender==="agent" ? `${(m.sender_name||"Assistance").trim().split(/\s+/)[0]} (MOONYP)` : ((m.sender_name||name||"Vous").trim().split(/\s+/)[0])}</p><p className="mt-1 text-xs text-muted-foreground">{stamp(m.created_at)}</p><div className="mt-3 whitespace-pre-wrap break-words text-sm leading-6 [&_a]:text-primary [&_a]:underline [&_strong]:font-bold [&_em]:italic [&_u]:underline" dangerouslySetInnerHTML={{ __html: safeMessageHtml(m.content) }} />{m.sender==="agent" && m.signature && <div className="mt-6 space-y-5 text-sm leading-6">{m.signature.replaceAll("\\n", "\n").split(/\n+/).filter(Boolean).map((line,index)=><p key={`${m.id}-signature-${index}`} className={index===1?"font-medium":index===2?"tracking-wide":""}>{line}</p>)}</div>}</div>
           </article>)}
         </div>
-        {conversationClosed && <div className="sticky bottom-0 z-10 shrink-0 border-t bg-background p-3 shadow-[0_-8px_24px_rgba(0,0,0,0.06)] sm:px-5"><div className="rounded-xl border border-amber-500/30 p-3"><p className="font-semibold">{t("supportChat.closed")}</p><p className="mt-1 text-sm text-muted-foreground">{t("supportChat.closedHelp")}</p><button type="button" onClick={()=>{localStorage.removeItem(CONV_KEY);localStorage.removeItem(TOKEN_KEY);setConversationId("");setGuestToken("");setMessages([]);messagesRef.current=[];setDraft("");setConversationClosed(false);setPushEnabled(false);setError("");}} className="mt-3 w-full rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white">{t("supportChat.newConversation")}</button></div></div>}
+        {conversationClosed && <div className="sticky bottom-0 z-10 shrink-0 border-t bg-background p-3 shadow-[0_-8px_24px_rgba(0,0,0,0.06)] sm:px-5"><div className="rounded-xl border border-amber-500/30 p-3"><p className="font-semibold">{t("supportChat.closed")}</p><p className="mt-1 text-sm text-muted-foreground">{t("supportChat.closedHelp")}</p><button type="button" onClick={()=>{localStorage.removeItem(CONV_KEY);localStorage.removeItem(TOKEN_KEY);setConversationId("");setGuestToken("");setDirectConversation(false);setMessages([]);messagesRef.current=[];setDraft("");setConversationClosed(false);setPushEnabled(false);setError("");}} className="mt-3 w-full rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white">{t("supportChat.newConversation")}</button></div></div>}
         {error && <p role="alert" className="px-4 text-xs text-destructive">{error}</p>}
         {!conversationClosed && <form onSubmit={send} className="flex shrink-0 flex-wrap items-end gap-2 border-t p-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] sm:flex-nowrap sm:pb-3"><label className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-xl border bg-background" aria-label={t("supportChat.attachImage")}><input type="file" accept="image/jpeg,image/png,image/webp" className="sr-only" disabled={imageBusy||busy} onChange={e=>{chooseImage(e.currentTarget.files?.[0]);e.currentTarget.value="";}}/><Paperclip className="h-4 w-4"/><span className="sr-only">{t("supportChat.attachImage")}</span></label>{pendingImagePreview && <div className="mb-2 flex w-full items-center gap-3 rounded-xl border bg-muted/30 p-2"><img src={pendingImagePreview} alt={t("supportChat.image")} className="h-14 w-14 rounded-lg object-cover"/><span className="min-w-0 flex-1 truncate text-xs">{pendingImage?.name}</span><button type="button" onClick={removePendingImage} className="rounded-lg px-2 py-1 text-sm hover:bg-muted">{t("supportChat.removeImage")}</button></div>}<textarea value={draft} onChange={e=>setDraft(e.target.value)} maxLength={4000} rows={2} className="max-h-28 min-h-11 flex-1 resize-y rounded-xl border bg-background px-3 py-2 text-sm" placeholder={t("supportChat.write")} aria-label="Votre message"/><button disabled={busy||(!draft.trim()&&!pendingImage)} aria-label={t("supportChat.send")} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-black text-white disabled:opacity-50"><Send className="h-4 w-4"/></button></form>}
       </>}
