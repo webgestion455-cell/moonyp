@@ -27,6 +27,23 @@ serve(async (req) => {
     const body = await req.json();
 
     const { userId, link } = body;
+    const authToken = req.headers.get("Authorization")?.replace(/^Bearer\\s+/i, "") || "";
+    const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    let actorId: string | null = null;
+    if (authToken !== serviceRoleKey) {
+      const { data: authData, error: authError } = await supabase.auth.getUser(authToken);
+      if (authError || !authData?.user) return new Response("Unauthorized", { status: 401 });
+      actorId = authData.user.id;
+      if (actorId !== userId) {
+        const { data: roles } = await supabase.from("user_roles").select("role").eq("user_id", actorId);
+        const roleNames = (roles || []).map((row: { role: string }) => row.role);
+        if (!roleNames.includes("super_admin")) {
+          const { data: perms } = await supabase.from("role_permissions").select("permission_key").in("role", roleNames);
+          const allowed = (perms || []).some((row: { permission_key: string }) => ["notifications.send", "chat.reply"].includes(row.permission_key));
+          if (!allowed) return new Response("Forbidden", { status: 403 });
+        }
+      }
+    }
     const title = cleanPushText(body?.title);
     const message = cleanPushText(body?.message);
     if (typeof userId !== "string" || !userId || (!title && !message)) return new Response("Invalid notification payload", { status: 400 });
