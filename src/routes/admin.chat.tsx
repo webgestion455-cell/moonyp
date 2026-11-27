@@ -67,7 +67,7 @@ function SupportInbox() {
   const loadList = useCallback(async () => {
     try { const data = await support("list", { status: notificationTarget ? "all" : filter }); setItems(data.conversations ?? []); setError(""); }
     catch (e) { setError(e instanceof Error ? e.message : "Impossible de charger les conversations."); }
-  }, [filter]);
+  }, [filter, notificationTarget]);
   useEffect(() => {
     if (!notificationTarget || selected?.id === notificationTarget) return;
     const target = items.find(item => item.id === notificationTarget);
