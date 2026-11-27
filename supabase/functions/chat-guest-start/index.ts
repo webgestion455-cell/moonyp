@@ -125,7 +125,7 @@ serve(async (req) => {
   <hr style="border-color:#333"/>
   <p style="color:#111;background:#fff;padding:12px;border-radius:8px">${message.replace(/</g, "&lt;").replace(/\n/g, "<br/>")}</p>
   <p style="text-align:center;margin-top:20px">
-    <a style="background:#00915A;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none" href="https://apply.myinvest-capital.com/admin/chat/${conv.id}">Ouvrir dans l'admin</a>
+    <a style="background:#00915A;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none" href="https://moonyp.com/admin/chat?conversationId=${encodeURIComponent(conv.id)}">Ouvrir dans l'admin</a>
   </p>
 </div>`,
           }),
@@ -139,18 +139,28 @@ serve(async (req) => {
     const { data: admins } = await supabaseAdmin
       .from("user_roles")
       .select("user_id")
-      .eq("role", "admin");
+      .in("role", ["admin", "agent", "super_admin"]);
     if (admins?.length) {
       await supabaseAdmin.from("notifications").insert(
         admins.map((a: { user_id: string }) => ({
           user_id: a.user_id,
           title: `🟢 Ticket #${conv.ticket_number}`,
           message: `${name} : ${message.slice(0, 80)}`,
-          link: `/admin/chat/${conv.id}`,
+          link: `/admin/chat?conversationId=${conv.id}`,
           category: "info",
           read: false,
         })),
       );
+      const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+      await Promise.all(admins.map(async (admin: { user_id: string }) => {
+        try {
+          await fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/send-push`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Authorization": `Bearer ${serviceKey}`, "apikey": serviceKey },
+            body: JSON.stringify({ userId: admin.user_id, title: `Nouveau ticket #${conv.ticket_number}`, message: `${name} : ${message.slice(0, 100)}`, link: `/admin/chat?conversationId=${conv.id}` }),
+          });
+        } catch (error) { console.error("admin_push_failed", error); }
+      }));
     }
 
     // Token guest = juste l'id de conversation (RLS empêche l'accès direct sans admin
