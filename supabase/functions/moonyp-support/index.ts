@@ -35,7 +35,7 @@ async function sendWebPush(subscriptions: any[], payload: Record<string, unknown
     webpush.setVapidDetails("mailto:support@moonyp.com", publicKey, privateKey);
     await Promise.all(subscriptions.map(async (sub: any) => {
       try {
-        await webpush.sendNotification({ endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } }, JSON.stringify(payload));
+        await webpush.sendNotification({ endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } }, JSON.stringify({ icon: "/icon-512.png", badge: "/icon-192.png", ...payload }));
       } catch (error: any) {
         if (error?.statusCode === 404 || error?.statusCode === 410) {
           await db.from("push_subscriptions").delete().eq("endpoint", sub.endpoint);
