@@ -136,7 +136,7 @@ export type NotifyAdminsInput =
     };
 
 export async function notifyAllAdmins(input: NotifyAdminsInput) {
-  const { data: admins } = await supabase.from("user_roles").select("user_id").eq("role", "admin");
+  const { data: admins } = await supabase.from("user_roles").select("user_id").in("role", ["admin", "agent", "super_admin"]);
   if (!admins) return;
   await Promise.all(
     admins.map((a) => {
