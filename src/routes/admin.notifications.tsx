@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { cleanNotificationText, type AppNotification } from "@/lib/notifications";
+import { cleanNotificationText, notificationHref, type AppNotification } from "@/lib/notifications";
 
 export const Route = createFileRoute("/admin/notifications")({
   component: AdminNotificationsPage,
@@ -54,10 +54,7 @@ function AdminNotificationsPage() {
       await supabase.from("notifications").update({ read: true }).eq("id", n.id);
       setItems((prev) => prev.map((p) => (p.id === n.id ? { ...p, read: true } : p)));
     }
-    if (n.link) {
-      const [path, hash] = n.link.split("#");
-      navigate({ to: path as never, ...(hash ? { hash } : {}) });
-    }
+    if (n.link) window.location.assign(notificationHref(n.link));
   }
 
   async function markAllRead() {
