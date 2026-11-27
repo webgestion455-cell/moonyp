@@ -12,6 +12,7 @@ import {
   playNotificationSound,
   type AppNotification,
   cleanNotificationText,
+  notificationHref,
 } from "@/lib/notifications";
 import { subscribeToPush } from "@/lib/push";
 import { formatDistanceToNow } from "date-fns";
@@ -156,11 +157,7 @@ export function NotificationBell() {
                     setItems((prev) => prev.map((p) => (p.id === n.id ? { ...p, read: true } : p)));
                   }
 
-                  if (n.link) {
-                    // Le lien peut cibler une section précise (…/applications/x#documents).
-                    const [path, hash] = n.link.split("#");
-                    navigate({ to: path as never, ...(hash ? { hash } : {}) });
-                  }
+                  if (n.link) window.location.assign(notificationHref(n.link));
                 }}
                 className={`block w-full text-left border-b border-border/50 px-4 py-3 text-sm transition-colors hover:bg-secondary ${
                   n.read ? "" : "bg-primary/5"
