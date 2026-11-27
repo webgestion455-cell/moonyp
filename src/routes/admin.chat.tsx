@@ -49,6 +49,7 @@ async function support(action: string, extra: Record<string, unknown> = {}) {
 }
 function SupportInbox() {
   const [items, setItems] = useState<Conversation[]>([]);
+  const [notificationTarget] = useState(() => new URLSearchParams(window.location.search).get("conversationId") || "");
   const [selected, setSelected] = useState<Conversation | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const messagesRef = useRef<ChatMessage[]>([]);
@@ -64,9 +65,15 @@ function SupportInbox() {
   const stickToBottom = useRef(true);
   const shouldAutoScroll = useRef(true);
   const loadList = useCallback(async () => {
-    try { const data = await support("list", { status: filter }); setItems(data.conversations ?? []); setError(""); }
+    try { const data = await support("list", { status: notificationTarget ? "all" : filter }); setItems(data.conversations ?? []); setError(""); }
     catch (e) { setError(e instanceof Error ? e.message : "Impossible de charger les conversations."); }
   }, [filter]);
+  useEffect(() => {
+    if (!notificationTarget || selected?.id === notificationTarget) return;
+    const target = items.find(item => item.id === notificationTarget);
+    if (target) { setSelected(target); setMessages([]); messagesRef.current = []; }
+  }, [items, notificationTarget, selected?.id]);
+
   const loadMessages = useCallback(async () => {
     if (!selected) return;
     try { const data = await support("messages", { conversationId: selected.id }); const incoming: ChatMessage[] = data.messages ?? []; const current = transcript.current; const nearBottom = !current || current.scrollHeight - current.scrollTop - current.clientHeight < 100; const changed = incoming.length !== messagesRef.current.length || incoming.some((m, i) => m.id !== messagesRef.current[i]?.id || m.content !== messagesRef.current[i]?.content); if (changed) { shouldAutoScroll.current = nearBottom; messagesRef.current = incoming; setMessages(incoming); } }
