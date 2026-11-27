@@ -27,7 +27,7 @@ serve(async (req) => {
     const body = await req.json();
 
     const { userId, link } = body;
-    const authToken = req.headers.get("Authorization")?.replace(/^Bearer\\s+/i, "") || "";
+    const authToken = req.headers.get("Authorization")?.replace(/^Bearer\s+/i, "") || "";
     const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     let actorId: string | null = null;
     if (authToken !== serviceRoleKey) {
