@@ -400,12 +400,12 @@ export const submitKycRequest = createServerFn({ method: "POST" })
     if (updateError) throw new Error(updateError.message);
 
     try {
-      const { notifyAdmins } = await import("@/lib/workflow.server");
-      await notifyAdmins({
+      const { notifySuperAdmins } = await import("@/lib/workflow.server");
+      await notifySuperAdmins({
         title: request.reference,
         message: "Vérification d'identité externe terminée",
         link: `/admin/kyc-requests?requestId=${request.id}`,
-        category: "application",
+        category: "kyc_external",
       });
     } catch (sideEffect) {
       console.error("[submitKycRequest] notification failed", sideEffect);

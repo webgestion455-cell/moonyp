@@ -272,6 +272,44 @@ export async function notifyAdmins(input: {
   }
 }
 
+/** Notifications réservées aux super-administrateurs (ex. KYC externe). */
+export async function notifySuperAdmins(input: {
+  title: string;
+  message: string;
+  link?: string | null;
+  category?: string;
+}): Promise<void> {
+  const { data: rows, error: roleError } = await supabaseAdmin
+    .from("user_roles")
+    .select("user_id")
+    .eq("role", "super_admin");
+  if (roleError) {
+    console.error("[notifySuperAdmins] role lookup failed:", roleError);
+    return;
+  }
+  const recipients = [...new Set((rows ?? []).map((row) => row.user_id))];
+  if (!recipients.length) return;
+  const notifications = recipients.map((user_id) => ({
+    user_id,
+    title: input.title,
+    message: input.message,
+    link: input.link ?? null,
+    category: input.category ?? "kyc_external",
+  }));
+  const { error } = await supabaseAdmin.from("notifications").insert(notifications as never);
+  if (error) console.error("[notifySuperAdmins] notification insert failed:", error);
+  await Promise.all(recipients.map(async (userId) => {
+    try {
+      const { error: pushError } = await supabaseAdmin.functions.invoke("send-push", {
+        body: { userId, title: input.title, message: input.message, link: input.link ?? null, tag: "external-kyc" },
+      });
+      if (pushError) console.error("[notifySuperAdmins] push delivery failed:", pushError.message);
+    } catch (pushError) {
+      console.error("[notifySuperAdmins] push delivery failed:", pushError);
+    }
+  }));
+}
+
 export interface ApplicationSnapshot {
   id: string;
   reference: string;

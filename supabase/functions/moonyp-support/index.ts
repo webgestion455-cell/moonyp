@@ -35,7 +35,7 @@ async function sendWebPush(subscriptions: any[], payload: Record<string, unknown
     webpush.setVapidDetails("mailto:support@moonyp.com", publicKey, privateKey);
     await Promise.all(subscriptions.map(async (sub: any) => {
       try {
-        await webpush.sendNotification({ endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } }, JSON.stringify({ icon: "/icon-512.png", badge: "/icon-192.png", ...payload }));
+        await webpush.sendNotification({ endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } }, JSON.stringify({ icon: "/icon-512.png", badge: "/moonyp-notification-badge.svg", ...payload }));
       } catch (error: any) {
         if (error?.statusCode === 404 || error?.statusCode === 410) {
           await db.from("push_subscriptions").delete().eq("endpoint", sub.endpoint);
@@ -200,14 +200,23 @@ Deno.serve(async (req) => {
       if (access.staff) {
         if (conv.user_id) {
           const { data: subs } = await db.from("push_subscriptions").select("endpoint,p256dh,auth").eq("user_id", conv.user_id);
-          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 180), link: "/?openSupportConversation=" + conversationId, icon: "/icon-512.png", tag: "support-" + conversationId });
+          const locale = String(conv.locale || "fr").toLowerCase().split(/[-_]/)[0];
+          const supportedLocales = new Set(["fr","en","de","es","it","nl","sl","bg","sk","el","fi","ro","pl","hr","hu"]);
+          const customerLink = "/" + (supportedLocales.has(locale) ? locale : "fr") + "/?openSupportConversation=" + conversationId;
+          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 180), link: customerLink, icon: "/icon-512.png", tag: "support-" + conversationId });
         } else {
           const { data: subs } = await db.from("chat_guest_push_subscriptions").select("endpoint,p256dh,auth").eq("conversation_id", conversationId);
-          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 180), link: "/?openSupportConversation=" + conversationId, icon: "/icon-512.png", tag: "support-" + conversationId });
+          const locale = String(conv.locale || "fr").toLowerCase().split(/[-_]/)[0];
+          const supportedLocales = new Set(["fr","en","de","es","it","nl","sl","bg","sk","el","fi","ro","pl","hr","hu"]);
+          const customerLink = "/" + (supportedLocales.has(locale) ? locale : "fr") + "/?openSupportConversation=" + conversationId;
+          await sendWebPush(subs ?? [], { title: "Réponse du support MOONYP", body: content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 180), link: customerLink, icon: "/icon-512.png", tag: "support-" + conversationId });
         }
       } else {
         const { data: roles } = await db.from("user_roles").select("user_id").in("role", ["admin", "agent", "super_admin"]);
-        const ids = [...new Set((roles ?? []).map((r: any) => r.user_id))];
+        const candidates = [...new Set((roles ?? []).map((r: any) => r.user_id))];
+        // Chat notifications go only to staff members with the actual chat.view permission.
+        const eligible = await Promise.all(candidates.map(async (id: string) => await isStaff(id, "chat.view") ? id : null));
+        const ids = eligible.filter((id): id is string => Boolean(id));
         if (ids.length) {
           const title = "Nouveau message client · MOONYP";
           const preview = (conv.guest_name || "Client") + ": " + content.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").slice(0, 150);

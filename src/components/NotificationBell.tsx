@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Bell, Check } from "lucide-react";
+import { Bell, Check, BellRing, LoaderCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
-  ensureBrowserPermission,
   showBrowserNotification,
   playNotificationSound,
   type AppNotification,
@@ -22,19 +21,26 @@ import type { Locale } from "date-fns";
 const LOCALES: Record<string, Locale> = { fr, en: enUS, de, es, sl, bg, sk };
 
 export function NotificationBell() {
-  const { user, role } = useAuth();
+  const { user } = useAuth();
   const { t, i18n } = useTranslation();
   const [items, setItems] = useState<AppNotification[]>([]);
   const [open, setOpen] = useState(false);
+  const [pushEnabled, setPushEnabled] = useState(false);
+  const [pushSupported, setPushSupported] = useState(true);
+  const [pushBusy, setPushBusy] = useState(false);
+  const [pushMessage, setPushMessage] = useState("");
   const dateLocale = LOCALES[i18n.resolvedLanguage ?? "fr"] ?? fr;
 
   const channelRef = useRef<ReturnType<typeof supabase.channel> | null>(null);
 
   useEffect(() => {
     if (!user) return;
-    void ensureBrowserPermission().then((p) => {
-      if (p === "granted") void subscribeToPush(user.id).catch(() => {});
-    });
+    if (!("Notification" in window) || !("serviceWorker" in navigator)) {
+      setPushSupported(false);
+    } else {
+      setPushSupported(true);
+      void navigator.serviceWorker.getRegistration().then((reg) => reg?.pushManager.getSubscription()).then((sub) => setPushEnabled(Boolean(sub))).catch(() => setPushEnabled(false));
+    }
     void load();
 
     // Unique per-mount channel name to avoid re-subscribing the same channel
@@ -95,6 +101,26 @@ export function NotificationBell() {
     if (data) setItems(data as AppNotification[]);
   }
 
+  async function activatePhonePush() {
+    if (!user || pushBusy) return;
+    setPushBusy(true);
+    setPushMessage("");
+    try {
+      const ok = await subscribeToPush(user.id);
+      setPushEnabled(ok);
+      if (!ok) {
+        setPushMessage(typeof Notification !== "undefined" && Notification.permission === "denied"
+          ? (i18n.resolvedLanguage?.startsWith("fr") ? "Autorisation refusée : autorisez les notifications dans les réglages du navigateur." : "Permission denied. Allow notifications in your browser settings.")
+          : (i18n.resolvedLanguage?.startsWith("fr") ? "Activation impossible. Vérifiez la connexion puis réessayez." : "Could not activate notifications. Check your connection and try again."));
+      } else {
+        setPushMessage(i18n.resolvedLanguage?.startsWith("fr") ? "Ce téléphone recevra désormais les notifications MOONYP." : "This phone will now receive MOONYP notifications.");
+      }
+    } catch {
+      setPushEnabled(false);
+      setPushMessage(i18n.resolvedLanguage?.startsWith("fr") ? "Erreur lors de l’activation des notifications." : "There was a problem enabling notifications.");
+    } finally { setPushBusy(false); }
+  }
+
   async function markAllRead() {
     if (!user) return;
     await supabase
@@ -136,6 +162,20 @@ export function NotificationBell() {
               <Check className="h-3.5 w-3.5" /> {t("notifications.markAllRead")}
             </button>
           )}
+        </div>
+        <div className="border-b border-border px-4 py-3">
+          <div className="flex items-center justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-sm font-medium">{i18n.resolvedLanguage?.startsWith("fr") ? "Notifications sur ce téléphone" : "Phone notifications"}</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">{pushEnabled ? (i18n.resolvedLanguage?.startsWith("fr") ? "Réception activée" : "Notifications enabled") : (i18n.resolvedLanguage?.startsWith("fr") ? "Réception désactivée sur cet appareil" : "Not enabled on this device")}</p>
+            </div>
+            <Button type="button" size="sm" variant={pushEnabled ? "outline" : "default"} disabled={!pushSupported || pushBusy || pushEnabled} onClick={() => void activatePhonePush()}>
+              {pushBusy ? <LoaderCircle className="mr-1.5 h-4 w-4 animate-spin" /> : <BellRing className="mr-1.5 h-4 w-4" />}
+              {pushBusy ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activation…" : "Enabling…") : pushEnabled ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activées" : "Enabled") : (i18n.resolvedLanguage?.startsWith("fr") ? "Activer" : "Enable")}
+            </Button>
+          </div>
+          {pushMessage && <p role="status" className="mt-2 text-xs text-muted-foreground">{pushMessage}</p>}
+          {!pushSupported && <p className="mt-2 text-xs text-muted-foreground">{i18n.resolvedLanguage?.startsWith("fr") ? "Ce navigateur ne prend pas en charge les notifications push." : "This browser does not support push notifications."}</p>}
         </div>
         <div className="max-h-96 overflow-y-auto">
           {items.length === 0 ? (
