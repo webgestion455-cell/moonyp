@@ -1,6 +1,8 @@
 {
   "name": "MOONYP",
   "short_name": "MOONYP",
+  "id": "/",
+
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
