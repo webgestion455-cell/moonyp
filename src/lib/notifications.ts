@@ -193,7 +193,7 @@ export function showBrowserNotification(n: Pick<AppNotification, "title" | "mess
     const options: NotificationOptions = {
       body: message,
       icon: "/email/moonyp-mark.png",
-      badge: "/icon-192.png",
+      badge: "/moonyp-notification-badge.svg",
       tag: title || "MOONYP",
       data: { url: href },
     };
