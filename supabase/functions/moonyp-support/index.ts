@@ -27,6 +27,20 @@ async function isStaff(userId: string, needed: string) {
   const { data: perms } = await db.from("role_permissions").select("permission_key").in("role", roleNames);
   return (perms ?? []).some((p: any) => p.permission_key === needed);
 }
+async function sendStaffPush(userId: string, payload: Record<string, unknown>) {
+  const response = await fetch(`${url}/functions/v1/send-push`, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${serviceKey}`,
+      "apikey": serviceKey,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ userId, ...payload }),
+  });
+  const result = await response.text();
+  if (!response.ok) console.error("[moonyp-support] staff push failed", { userId, status: response.status, result: result.slice(0, 300) });
+  return response.ok;
+}
 async function sendWebPush(subscriptions: any[], payload: Record<string, unknown>) {
   const publicKey = Deno.env.get("VAPID_PUBLIC_KEY");
   const privateKey = Deno.env.get("VAPID_PRIVATE_KEY");
@@ -224,8 +238,10 @@ Deno.serve(async (req) => {
           await db.from("notifications").insert(ids.map((id: string) => ({
             user_id: id, title, message: preview, link: "/admin/chat?conversationId=" + conversationId, category: "support", read: false
           })));
-          const { data: subs } = await db.from("push_subscriptions").select("endpoint,p256dh,auth").in("user_id", ids);
-          await sendWebPush(subs ?? [], { title, body: preview, link: "/admin/chat?conversationId=" + conversationId, icon: "/email/moonyp-mark.png", tag: "support-" + conversationId });
+          await Promise.all(ids.map((id: string) => sendStaffPush(id, {
+            title, message: preview, link: "/admin/chat?conversationId=" + conversationId,
+            icon: "/email/moonyp-mark.png", tag: "support-" + conversationId,
+          })));
         }
       }
       return reply({ message: msg });

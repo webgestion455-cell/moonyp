@@ -106,14 +106,30 @@ export function NotificationBell() {
     setPushBusy(true);
     setPushMessage("");
     try {
-      const ok = await subscribeToPush(user.id);
+      const ok = await subscribeToPush(user.id, true);
       setPushEnabled(ok);
       if (!ok) {
         setPushMessage(typeof Notification !== "undefined" && Notification.permission === "denied"
           ? (i18n.resolvedLanguage?.startsWith("fr") ? "Autorisation refusée : autorisez les notifications dans les réglages du navigateur." : "Permission denied. Allow notifications in your browser settings.")
           : (i18n.resolvedLanguage?.startsWith("fr") ? "Activation impossible. Vérifiez la connexion puis réessayez." : "Could not activate notifications. Check your connection and try again."));
       } else {
-        setPushMessage(i18n.resolvedLanguage?.startsWith("fr") ? "Ce téléphone recevra désormais les notifications MOONYP." : "This phone will now receive MOONYP notifications.");
+        const { data: testResult, error: testError } = await supabase.functions.invoke("send-push", {
+          body: {
+            userId: user.id,
+            title: "MOONYP · Notifications activées",
+            message: "Ce téléphone est bien configuré pour recevoir les notifications MOONYP.",
+            tag: "moonyp-push-test",
+          },
+        });
+        if (testError || (typeof testResult?.sent === "number" && testResult.sent < 1)) {
+          setPushMessage(i18n.resolvedLanguage?.startsWith("fr")
+            ? "Abonnement enregistré, mais le test d’envoi a échoué. Vérifiez les autorisations et réessayez."
+            : "Subscription saved, but the delivery test failed. Check permissions and retry.");
+        } else {
+          setPushMessage(i18n.resolvedLanguage?.startsWith("fr")
+            ? "Test envoyé : ce téléphone est configuré pour recevoir les notifications MOONYP."
+            : "Test sent: this phone is configured to receive MOONYP notifications.");
+        }
       }
     } catch {
       setPushEnabled(false);
@@ -171,7 +187,7 @@ export function NotificationBell() {
             </div>
             <Button type="button" size="sm" variant={pushEnabled ? "outline" : "default"} disabled={!pushSupported || pushBusy || pushEnabled} onClick={() => void activatePhonePush()}>
               {pushBusy ? <LoaderCircle className="mr-1.5 h-4 w-4 animate-spin" /> : <BellRing className="mr-1.5 h-4 w-4" />}
-              {pushBusy ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activation…" : "Enabling…") : pushEnabled ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activées" : "Enabled") : (i18n.resolvedLanguage?.startsWith("fr") ? "Activer" : "Enable")}
+              {pushBusy ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activation…" : "Enabling…") : pushEnabled ? (i18n.resolvedLanguage?.startsWith("fr") ? "Activées" : "Enabled") : (i18n.resolvedLanguage?.startsWith("fr") ? "Activer et tester" : "Enable & test")}
             </Button>
           </div>
           {pushMessage && <p role="status" className="mt-2 text-xs text-muted-foreground">{pushMessage}</p>}

@@ -57,17 +57,13 @@ serve(async (req) => {
       return new Response("No subscriptions", { status: 200 });
     }
 
+    let sent = 0;
+    let failed = 0;
     await Promise.all(
       subscriptions.map(async (sub) => {
         try {
           await webpush.sendNotification(
-            {
-              endpoint: sub.endpoint,
-              keys: {
-                p256dh: sub.p256dh,
-                auth: sub.auth,
-              },
-            },
+            { endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } },
             JSON.stringify({
               title,
               body: message,
@@ -77,13 +73,26 @@ serve(async (req) => {
               tag: typeof body.tag === "string" ? body.tag : title || "MOONYP",
             }),
           );
+          sent += 1;
         } catch (err) {
-          console.error(err);
+          failed += 1;
+          const statusCode = (err as { statusCode?: number })?.statusCode;
+          console.error("[send-push] delivery failed", { statusCode, message: String(err).slice(0, 300) });
+          if (statusCode === 404 || statusCode === 410) {
+            await supabase.from("push_subscriptions").delete().eq("endpoint", sub.endpoint);
+          }
         }
       }),
     );
 
-    return new Response("Push sent", { status: 200 });
+    if (sent === 0) {
+      return new Response(JSON.stringify({ sent, failed, total: subscriptions.length, error: "delivery_failed" }), {
+        status: 502, headers: { "Content-Type": "application/json" },
+      });
+    }
+    return new Response(JSON.stringify({ sent, failed, total: subscriptions.length }), {
+      status: 200, headers: { "Content-Type": "application/json" },
+    });
   } catch (err) {
     return new Response(String(err), { status: 500 });
   }
